@@ -61,6 +61,23 @@
         "logic": 15,
         "balanced": 10
       },
+      "logicalFallacies": [
+        {
+          "fallacyId": "post-hoc",
+          "severity": "primary",
+          "example": "Seeing a slow van and immediately concluding it's part of a trafficking operation without any evidence."
+        },
+        {
+          "fallacyId": "slippery-slope", 
+          "severity": "primary",
+          "example": "Claims one suspicious van means the entire neighborhood is under threat from trafficking rings."
+        },
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "secondary", 
+          "example": "Implies you must either buy cameras immediately or children will be trafficked."
+        }
+      ],
       "analysis": {
         "logic": {
           "scores": {
@@ -69,7 +86,7 @@
             "source": 0.5,
             "agenda": 9.5
           },
-          "indicators": ["zero-evidence", "facebook-source", "hidden-sales", "pure-speculation"],
+          "indicators": ["zero-evidence", "facebook-source", "hidden-sales", "pure-speculation", "slippery-slope", "false-dilemma"],
           "explanation": "No actual evidence of threat, just fear-based speculation"
         },
         "emotion": {
@@ -83,17 +100,19 @@
           "explanation": "Maximum fear manipulation to drive sales"
         }
       },
-      "wisdom": "Textbook fear-mongering with a profit motive. Notice how a mundane observation (slow-driving van) escalates to trafficking rings, then conveniently pivots to selling security cameras.",
+      "wisdom": "🎯 **Logical Fallacies Detected: Post Hoc Reasoning & Slippery Slope** - This post assumes a slow van caused by traffic must be trafficking, then claims one van threatens the entire neighborhood. This is textbook fear-mongering with a profit motive. Notice how a mundane observation escalates to trafficking rings, then conveniently pivots to selling security cameras.",
       "hints": {
         "keywords": ["URGENT", "BELIEVE", "protect ourselves", "NOW", "SAVE LIVES"],
         "strategy": "emotion",
-        "hintMessage": "Look for dramatic language and emotional triggers!"
+        "hintMessage": "Look for dramatic language and emotional triggers!",
+        "fallacyHint": "Watch for assumptions that one thing caused another without evidence!"
       },
       "metadata": {
         "tags": ["security", "fear-mongering", "sales-pitch", "neighborhood"],
         "difficulty": 2,
         "educationalFocus": "recognizing-fear-based-marketing",
         "commonMisconceptions": ["all-safety-concerns-are-valid", "urgency-equals-importance"],
+        "contentWarnings": ["child-safety-anxiety"],
         "addedDate": "2024-01-01"
       }
     },

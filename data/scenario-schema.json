@@ -11,6 +11,22 @@
       "logic": 40,
       "balanced": 20
     },
+    "logicalFallacies": [
+      {
+        "name": "Appeal to Fear",
+        "definition": "Using fear or threat of negative consequences to persuade rather than logical reasoning.",
+        "example": "Claims immediate danger to children without evidence to pressure quick action.",
+        "severity": "primary",
+        "category": "emotional-manipulation"
+      },
+      {
+        "name": "False Dilemma", 
+        "definition": "Presenting only two options when more alternatives exist.",
+        "example": "Implies you must either act immediately or children will be harmed.",
+        "severity": "secondary",
+        "category": "logical-structure"
+      }
+    ],
     "analysis": {
       "logic": {
         "scores": {
@@ -33,12 +49,18 @@
         "explanation": "..."
       }
     },
+    "wisdom": "🎯 **Logical Fallacy Detected: Appeal to Fear** - This argument uses fear tactics to bypass rational thinking...",
     "hints": {
       "keywords": ["danger", "babies", "immediately"],
-      "strategy": "emotion-heavy"
+      "strategy": "emotion-heavy",
+      "fallacyHint": "Look for fear-based reasoning without supporting evidence!"
     },
-    "tags": ["parenting", "security", "fear-based"],
-    "difficulty": 2,
-    "educationalNotes": "..."
+    "metadata": {
+      "tags": ["parenting", "security", "fear-based"],
+      "difficulty": 2,
+      "educationalFocus": "recognizing-fear-appeals",
+      "contentWarnings": ["child-safety-anxiety"],
+      "addedDate": "2024-01-01"
+    }
   }
 }

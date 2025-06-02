@@ -223,7 +223,16 @@ class BearAnalysis {
             'industry-funded': '🏭 Likely industry-funded source',
             'dubious-institute': '🏭 Dubious "institute" source',
             'logical-fallacy': '🤔 Logical fallacy detected',
-            'natural-good-fallacy': '🤔 "Natural = good" fallacy'
+            'natural-good-fallacy': '🤔 "Natural = good" fallacy',
+            'slippery-slope': '🎿 Slippery slope reasoning',
+            'false-dilemma': '⚔️ False choice presented',
+            'hasty-generalization': '🏃 Rushed generalization',
+            'ad-hominem': '👤 Personal attack substitute',
+            'appeal-to-tradition': '🏛️ "Ancient wisdom" appeal',
+            'false-scarcity': '⏰ Fake scarcity pressure',
+            'conspiracy-theory': '🕳️ Conspiracy reasoning',
+            'false-equivalence': '⚖️ False equivalence drawn',
+            'appeal-to-consequences': '😨 Threatening consequences'
         };
         
         // Emotion factor conversions  
@@ -363,9 +372,37 @@ class BearAnalysis {
     showWisdomBearIntegration(scenario) {
         var wisdomContent = document.getElementById('wisdom-content');
         if (wisdomContent) {
-            // Use the scenario's wisdom text if available, otherwise fallback to generated text
+            var fullContent = '';
+            
+            // First, display logical fallacies if present
+            if (scenario.logicalFallacies && scenario.logicalFallacies.length > 0) {
+                var primaryFallacies = scenario.logicalFallacies.filter(f => f.severity === 'primary');
+                var secondaryFallacies = scenario.logicalFallacies.filter(f => f.severity === 'secondary');
+                
+                if (primaryFallacies.length > 0) {
+                    var fallacyNames = primaryFallacies.map(f => f.icon + ' ' + f.shortName).join(' & ');
+                    fullContent += '🎯 **Logical Fallacies Detected: ' + fallacyNames + '**\n\n';
+                    
+                    // Add definitions and learning tips
+                    primaryFallacies.forEach(function(fallacy) {
+                        fullContent += fallacy.icon + ' **' + fallacy.name + '**: ' + fallacy.definition + '\n';
+                        fullContent += '💡 *' + fallacy.learningTip + '*\n\n';
+                    });
+                }
+                
+                if (secondaryFallacies.length > 0) {
+                    fullContent += '📝 **Also Present**: ';
+                    fullContent += secondaryFallacies.map(f => f.icon + ' ' + f.shortName).join(', ') + '\n\n';
+                }
+            }
+            
+            // Then add the wisdom analysis
             var integration = scenario.wisdom || this.getWisdomIntegration(scenario);
-            wisdomContent.textContent = integration;
+            // Remove any existing fallacy detection from wisdom text to avoid duplication
+            integration = integration.replace(/🎯\s*\*\*Logical Fallac[^*]*\*\*[^-]*-\s*/g, '');
+            fullContent += integration;
+            
+            wisdomContent.textContent = fullContent;
         }
     }
     
