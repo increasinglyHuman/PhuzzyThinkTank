@@ -7,6 +7,8 @@
       "definition": "Using fear or threat of negative consequences to persuade rather than logical reasoning.",
       "category": "emotional-manipulation",
       "icon": "😨",
+      "rarity": "common",
+      "cardArt": "fear-monster.png",
       "learningTip": "Ask: 'Is this argument based on evidence or trying to scare me into action?'",
       "commonIn": ["marketing", "politics", "social media", "news"],
       "aliases": ["fear-mongering", "scare-tactics", "threatening-consequences"]
@@ -17,6 +19,8 @@
       "definition": "Arguing that one event will inevitably lead to a chain of negative consequences without evidence.",
       "category": "causal-reasoning",
       "icon": "🎿",
+      "rarity": "uncommon",
+      "cardArt": "slippery-slope.png",
       "learningTip": "Look for: 'If we do X, then Y will happen, then Z will happen...' without proof.",
       "commonIn": ["policy debates", "parenting", "business decisions"],
       "aliases": ["domino-effect", "chain-reaction"]
@@ -27,6 +31,8 @@
       "definition": "Presenting only two options when more alternatives exist.",
       "category": "logical-structure", 
       "icon": "⚔️",
+      "rarity": "common",
+      "cardArt": "false-dilemma.png",
       "learningTip": "Ask: 'Are there really only these two choices, or are there other options?'",
       "commonIn": ["politics", "sales", "relationships", "debates"],
       "aliases": ["false-dichotomy", "either-or-fallacy", "black-white-thinking"]
@@ -37,6 +43,8 @@
       "definition": "Assuming that because one thing follows another, the first caused the second.",
       "category": "causal-reasoning",
       "icon": "🔄",
+      "rarity": "uncommon",
+      "cardArt": "post-hoc.png",
       "learningTip": "Remember: Correlation doesn't equal causation. Just because A happened before B doesn't mean A caused B.",
       "commonIn": ["health claims", "superstitions", "business analysis"],
       "aliases": ["false-cause", "correlation-causation"]

@@ -1,0 +1,281 @@
+/* ===== FALLACY CARDS CSS ===== */
+/* Trading card system for logical fallacies */
+
+.fallacy-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.fallacy-card {
+    width: 320px;
+    height: 200px;
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 3px solid #ffffff;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.fallacy-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Card Rarity Borders */
+.fallacy-card.common {
+    border-color: #68d391; /* Green */
+}
+
+.fallacy-card.uncommon {
+    border-color: #4fd1c7; /* Teal */
+}
+
+.fallacy-card.rare {
+    border-color: #9f7aea; /* Purple */
+}
+
+.fallacy-card.epic {
+    border-color: #f6ad55; /* Orange */
+    box-shadow: 0 10px 30px rgba(246, 173, 85, 0.4);
+}
+
+.fallacy-card.legendary {
+    border-color: #ffd700; /* Gold */
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5);
+    animation: legendary-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes legendary-glow {
+    from {
+        box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5);
+    }
+    to {
+        box-shadow: 0 15px 40px rgba(255, 215, 0, 0.8);
+    }
+}
+
+/* Card Header - Top banner */
+.card-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 45px;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    z-index: 2;
+}
+
+.card-title {
+    color: white;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card-rarity {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.rarity-star {
+    color: #ffd700;
+    font-size: 0.8rem;
+}
+
+/* Card Art Area - Where custom graphics would go */
+.card-art {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+
+.card-icon {
+    font-size: 3rem;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+}
+
+/* When custom graphics are added, this would be replaced with: */
+.card-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Card Content Area */
+.card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 75px;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 12px 15px;
+    color: white;
+}
+
+.card-category {
+    font-size: 0.7rem;
+    color: #a0aec0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+
+.card-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    line-height: 1.2;
+}
+
+.card-description {
+    font-size: 0.75rem;
+    color: #e2e8f0;
+    line-height: 1.3;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+/* Discovery Animation */
+.card-discovered {
+    animation: card-discover 1s ease-out;
+}
+
+@keyframes card-discover {
+    0% {
+        transform: scale(0) rotateY(180deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1) rotateY(90deg);
+    }
+    100% {
+        transform: scale(1) rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+/* "NEW!" Badge */
+.card-new-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ff4757;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.6rem;
+    font-weight: bold;
+    z-index: 3;
+    animation: pulse-badge 2s infinite;
+}
+
+@keyframes pulse-badge {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Expanded Card View */
+.card-expanded {
+    width: 400px;
+    height: 280px;
+    z-index: 1000;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.card-expanded .card-content {
+    height: 120px;
+    padding: 20px;
+}
+
+.card-expanded .card-description {
+    -webkit-line-clamp: 4;
+    font-size: 0.85rem;
+}
+
+/* Collection Grid */
+.collection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Collection Stats */
+.collection-stats {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 12px;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+}
+
+.stat-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .fallacy-card {
+        width: 280px;
+        height: 180px;
+    }
+    
+    .collection-grid {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+    
+    .card-expanded {
+        width: 320px;
+        height: 240px;
+    }
+}

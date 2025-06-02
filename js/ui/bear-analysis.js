@@ -385,25 +385,43 @@ class BearAnalysis {
                 if (primaryFallacies.length > 0) {
                     htmlContent += '<div class="fallacy-callout">';
                     htmlContent += '<div class="fallacy-callout-header">';
-                    htmlContent += '<span class="icon">🎯</span>';
-                    htmlContent += '<span>Logical Fallacies Detected</span>';
+                    htmlContent += '<span class="icon">🃏</span>';
+                    htmlContent += '<span>Logical Fallacy Cards Discovered!</span>';
                     htmlContent += '</div>';
                     
-                    htmlContent += '<div class="fallacy-items">';
+                    htmlContent += '<div class="fallacy-card-container">';
                     
-                    // Add each primary fallacy as a structured item
+                    // Add each primary fallacy as a trading card
                     primaryFallacies.forEach(function(fallacy) {
-                        htmlContent += '<div class="fallacy-item">';
-                        htmlContent += '<div class="fallacy-item-header">';
-                        htmlContent += '<span class="fallacy-icon">' + fallacy.icon + '</span>';
-                        htmlContent += '<span class="fallacy-name">' + fallacy.name + ': </span>';
-                        htmlContent += '<span class="fallacy-definition">' + fallacy.definition + '</span>';
+                        var rarityStars = self.getRarityStars(fallacy.rarity || 'common');
+                        
+                        htmlContent += '<div class="fallacy-card ' + (fallacy.rarity || 'common') + ' card-discovered">';
+                        
+                        // Card Header
+                        htmlContent += '<div class="card-header">';
+                        htmlContent += '<div class="card-title">Logical Fallacy</div>';
+                        htmlContent += '<div class="card-rarity">' + rarityStars + '</div>';
                         htmlContent += '</div>';
-                        htmlContent += '<div class="fallacy-tip">💡 ' + fallacy.learningTip + '</div>';
+                        
+                        // Card Art Area (will show icon for now, custom graphics later)
+                        htmlContent += '<div class="card-art">';
+                        htmlContent += '<div class="card-icon">' + fallacy.icon + '</div>';
                         htmlContent += '</div>';
+                        
+                        // Card Content
+                        htmlContent += '<div class="card-content">';
+                        htmlContent += '<div class="card-category">' + (fallacy.category || 'logical-reasoning').replace('-', ' ') + '</div>';
+                        htmlContent += '<div class="card-name">' + fallacy.name + '</div>';
+                        htmlContent += '<div class="card-description">' + fallacy.definition + '</div>';
+                        htmlContent += '</div>';
+                        
+                        // New card badge
+                        htmlContent += '<div class="card-new-badge">NEW!</div>';
+                        
+                        htmlContent += '</div>'; // Close fallacy-card
                     });
                     
-                    htmlContent += '</div>'; // Close fallacy-items
+                    htmlContent += '</div>'; // Close fallacy-card-container
                     
                     // Add secondary fallacies if present
                     if (secondaryFallacies.length > 0) {
@@ -493,6 +511,17 @@ class BearAnalysis {
             warning.style.display = 'none';
             warning.classList.remove('visible');
         }
+    }
+    
+    getRarityStars(rarity) {
+        var rarityMap = {
+            'common': '★☆☆',
+            'uncommon': '★★☆', 
+            'rare': '★★★',
+            'epic': '★★★★',
+            'legendary': '★★★★★'
+        };
+        return '<span class="rarity-star">' + (rarityMap[rarity] || '★☆☆') + '</span>';
     }
     
     reset() {
