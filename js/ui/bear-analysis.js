@@ -374,6 +374,9 @@ class BearAnalysis {
         if (wisdomContent) {
             var fullContent = '';
             
+            console.log('🦉 Wisdom Bear analyzing scenario:', scenario.id); // Debug
+            console.log('Logical fallacies found:', scenario.logicalFallacies); // Debug
+            
             // First, display logical fallacies if present
             if (scenario.logicalFallacies && scenario.logicalFallacies.length > 0) {
                 var primaryFallacies = scenario.logicalFallacies.filter(f => f.severity === 'primary');
@@ -402,7 +405,13 @@ class BearAnalysis {
             integration = integration.replace(/🎯\s*\*\*Logical Fallac[^*]*\*\*[^-]*-\s*/g, '');
             fullContent += integration;
             
-            wisdomContent.textContent = fullContent;
+            // Convert markdown-style formatting to HTML for better display
+            var htmlContent = fullContent
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')  // **bold** -> <strong>
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')               // *italic* -> <em>
+                .replace(/\n/g, '<br>');                           // newlines -> <br>
+            
+            wisdomContent.innerHTML = htmlContent;
         }
     }
     
