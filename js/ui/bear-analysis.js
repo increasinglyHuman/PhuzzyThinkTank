@@ -388,6 +388,7 @@ class BearAnalysis {
                     htmlContent += '<div class="fallacy-callout-header">';
                     htmlContent += '<span class="icon">🃏</span>';
                     htmlContent += '<span>Logical Fallacy Cards Discovered!</span>';
+                    htmlContent += '<div style="font-size: 0.8rem; margin-top: 5px; opacity: 0.8;">Hover to flip and see learning tips</div>';
                     htmlContent += '</div>';
                     
                     htmlContent += '<div class="fallacy-card-container">';
@@ -398,6 +399,10 @@ class BearAnalysis {
                         var rarityStars = self.getRarityStars(fallacy.rarity || 'common');
                         
                         htmlContent += '<div class="fallacy-card ' + (fallacy.rarity || 'common') + ' card-discovered">';
+                        htmlContent += '<div class="card-inner">';
+                        
+                        // Card Front
+                        htmlContent += '<div class="card-front">';
                         
                         // Card Header
                         htmlContent += '<div class="card-header">';
@@ -405,7 +410,7 @@ class BearAnalysis {
                         htmlContent += '<div class="card-rarity">' + rarityStars + '</div>';
                         htmlContent += '</div>';
                         
-                        // Card Art Area (will show icon for now, custom graphics later)
+                        // Card Art Area
                         htmlContent += '<div class="card-art">';
                         htmlContent += '<div class="card-icon">' + fallacy.icon + '</div>';
                         htmlContent += '</div>';
@@ -420,6 +425,20 @@ class BearAnalysis {
                         // New card badge
                         htmlContent += '<div class="card-new-badge">NEW!</div>';
                         
+                        htmlContent += '</div>'; // Close card-front
+                        
+                        // Card Back
+                        htmlContent += '<div class="card-back">';
+                        htmlContent += '<div class="card-back-content">';
+                        htmlContent += '<div class="card-back-header">💡 Learning Tips</div>';
+                        htmlContent += '<div class="card-tip">' + fallacy.learningTip + '</div>';
+                        htmlContent += '<div class="card-examples">';
+                        htmlContent += '<strong>Common in:</strong><br>' + (fallacy.commonIn || []).join(', ');
+                        htmlContent += '</div>';
+                        htmlContent += '</div>'; // Close card-back-content
+                        htmlContent += '</div>'; // Close card-back
+                        
+                        htmlContent += '</div>'; // Close card-inner
                         htmlContent += '</div>'; // Close fallacy-card
                     });
                     
