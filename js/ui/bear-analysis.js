@@ -376,6 +376,7 @@ class BearAnalysis {
             
             console.log('🦉 Wisdom Bear analyzing scenario:', scenario.id); // Debug
             console.log('Logical fallacies found:', scenario.logicalFallacies); // Debug
+            console.log('Primary fallacies:', scenario.logicalFallacies ? scenario.logicalFallacies.filter(f => f.severity === 'primary') : []); // Debug
             
             // Create structured fallacy callout if fallacies present
             if (scenario.logicalFallacies && scenario.logicalFallacies.length > 0) {
