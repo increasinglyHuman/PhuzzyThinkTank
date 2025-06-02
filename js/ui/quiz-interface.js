@@ -418,7 +418,33 @@ class QuizInterface {
                 self.triggerTestEndGame();
                 keySequence = []; // Reset
             }
+            
+            // Skip scenario hotkey: type "skip"
+            if (keySequence.join('') === 'skip') {
+                console.log('⏭️ Developer skip activated! Jumping to next scenario...');
+                self.triggerSkipScenario();
+                keySequence = []; // Reset
+            }
         });
+    }
+    
+    triggerSkipScenario() {
+        console.log('💨 Skipping current scenario for testing...');
+        
+        // Only work if game is in progress (not answered yet)
+        if (this.hasAnswered) {
+            console.log('⚠️ Cannot skip - scenario already answered. Use next button or start new game.');
+            return;
+        }
+        
+        // Simulate a quick answer to move forward
+        this.hasAnswered = true;
+        this.selectedAnswer = 'logic'; // Default test answer
+        
+        // Skip straight to next scenario without showing analysis
+        setTimeout(() => {
+            this.gameEngine.loadNextScenario();
+        }, 500);
     }
     
     triggerTestEndGame() {
