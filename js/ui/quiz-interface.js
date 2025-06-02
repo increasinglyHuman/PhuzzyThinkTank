@@ -404,6 +404,12 @@ class QuizInterface {
         var keySequence = [];
         
         document.addEventListener('keydown', function(event) {
+            // Only capture keys when not typing in input fields
+            var activeElement = document.activeElement;
+            if (activeElement && (activeElement.tagName === 'INPUT' || activeElement.tagName === 'TEXTAREA' || activeElement.isContentEditable)) {
+                return; // Ignore keystrokes in input fields
+            }
+            
             // Track last few keys
             keySequence.push(event.key.toLowerCase());
             
@@ -412,7 +418,7 @@ class QuizInterface {
                 keySequence.shift();
             }
             
-            // Debug: Show current key sequence
+            // Debug: Show current key sequence (remove this later)
             console.log('Key sequence:', keySequence.join(''));
             
             // Simple sequence: type "party" 
