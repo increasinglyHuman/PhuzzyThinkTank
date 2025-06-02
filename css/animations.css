@@ -1,13 +1,24 @@
 /* Phuzzy Think Tank - Animations & Effects */
 
-/* Enhanced Confetti Animation */
+/* Enhanced Confetti Animation - 3-Burst System */
 .confetti {
-    position: fixed;
-    width: 10px;
-    height: 10px;
+    position: absolute;
     pointer-events: none;
     z-index: 1000;
     animation: confetti-fall 3s linear forwards;
+}
+
+/* Burst-specific animations */
+.confetti.burst-1 {
+    animation: confetti-burst-1 3s ease-out forwards;
+}
+
+.confetti.burst-2 {
+    animation: confetti-burst-2 4s ease-out forwards;
+}
+
+.confetti.burst-3 {
+    animation: confetti-burst-3 5s ease-out forwards;
 }
 
 /* Different confetti shapes */
@@ -106,6 +117,54 @@
     }
 }
 
+/* Burst 1: Small focused explosion */
+@keyframes confetti-burst-1 {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(0.8);
+        opacity: 1;
+    }
+    20% {
+        transform: translate(var(--random-x, 0px), var(--random-y, -50px)) rotate(180deg) scale(1);
+    }
+    100% {
+        transform: translate(calc(var(--random-x, 0px) * 2), calc(var(--random-y, -50px) + 200px)) rotate(720deg) scale(0.3);
+        opacity: 0;
+    }
+}
+
+/* Burst 2: Medium spread explosion */
+@keyframes confetti-burst-2 {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(0.9);
+        opacity: 1;
+    }
+    15% {
+        transform: translate(var(--random-x, 0px), var(--random-y, -80px)) rotate(270deg) scale(1.2);
+    }
+    100% {
+        transform: translate(calc(var(--random-x, 0px) * 3), calc(var(--random-y, -80px) + 300px)) rotate(1080deg) scale(0.2);
+        opacity: 0;
+    }
+}
+
+/* Burst 3: MASSIVE finale explosion */
+@keyframes confetti-burst-3 {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        opacity: 1;
+    }
+    10% {
+        transform: translate(var(--random-x, 0px), var(--random-y, -120px)) rotate(360deg) scale(1.5);
+    }
+    30% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(calc(var(--random-x, 0px) * 4), calc(var(--random-y, -120px) + 400px)) rotate(1440deg) scale(0.1);
+        opacity: 0;
+    }
+}
+
 /* Sparkle Effects */
 .sparkle {
     position: fixed;
@@ -198,24 +257,23 @@
 }
 
 /* Button Hover Effects */
-.quiz-option {
-    position: relative;
-    overflow: hidden;
-}
-
 .quiz-option::before {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
+    left: 0;
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    transition: left 0.5s;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: transform 0.5s, opacity 0.5s;
+    pointer-events: none;
 }
 
 .quiz-option:hover::before {
-    left: 100%;
+    opacity: 1;
+    transform: translateX(0) translateX(100%);
 }
 
 /* Feedback Animations */
@@ -363,25 +421,94 @@
     }
 }
 
-/* Correct Answer Highlight */
+/* Correct Answer Highlight - Clear success indication */
 .correct-highlight {
-    animation: correctAnswerFlash 3s ease-in-out;
+    animation: correctAnswerPulse 4s ease-in-out;
     position: relative;
     z-index: 10;
+    border-color: #10b981 !important;
+    background: white !important;
 }
 
-@keyframes correctAnswerFlash {
+.correct-highlight::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    border-radius: 13px;
+    z-index: -1;
+    opacity: 0;
+    animation: greenGlowPulse 4s ease-in-out;
+}
+
+.correct-highlight::after {
+    content: '✓ Correct!';
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #10b981;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    opacity: 0;
+    animation: labelBounceIn 4s ease-in-out;
+    white-space: nowrap;
+    pointer-events: none;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+@keyframes correctAnswerPulse {
     0%, 100% {
-        border-color: transparent;
-        box-shadow: none;
+        transform: scale(1);
     }
-    10%, 30%, 50%, 70%, 90% {
-        border-color: #10b981;
-        box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3);
+    15%, 25%, 35% {
+        transform: scale(1.02);
+    }
+    20%, 30% {
+        transform: scale(0.98);
+    }
+}
+
+@keyframes greenGlowPulse {
+    0%, 10% {
+        opacity: 0;
+    }
+    15%, 85% {
+        opacity: 0.3;
     }
     20%, 40%, 60%, 80% {
-        border-color: #059669;
-        box-shadow: 0 0 0 5px rgba(16, 185, 129, 0.5);
+        opacity: 0.5;
+    }
+    30%, 50%, 70% {
+        opacity: 0.3;
+    }
+    90%, 100% {
+        opacity: 0;
+    }
+}
+
+@keyframes labelBounceIn {
+    0%, 10% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(10px) scale(0.5);
+    }
+    15% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(-3px) scale(1.1);
+    }
+    20% {
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+    85% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+    90%, 100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-5px) scale(0.8);
     }
 }
 

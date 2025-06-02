@@ -16,7 +16,7 @@ body {
 }
 
 /* Emoji font support for all emoji elements */
-.emoji, .honey-pot, .option-icon, .loading-bear, .final-badge {
+.emoji, .honey-pot, .option-icon, .loading-bear, .final-badge, .mini-card, .collection-label {
     font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif !important;
     font-style: normal;
     font-variant: normal;
@@ -28,6 +28,233 @@ body {
     margin: 0 auto;
     padding: 40px 20px;
     width: 95%;
+}
+
+/* Bear's Card Collection */
+.bear-card-collection {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(102, 126, 234, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.collection-header {
+    color: #667eea;
+    font-weight: bold;
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 15px;
+    text-shadow: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.collection-header .collection-icon {
+    font-size: 2.5rem;
+    display: inline-block;
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
+}
+
+.card-collection-grid {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    gap: 6px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.mini-card {
+    width: 35px;
+    height: 48px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    border: 2px solid;
+    cursor: pointer;
+}
+
+/* Empty card slot */
+.mini-card.empty {
+    background: rgba(102, 126, 234, 0.05);
+    border-color: rgba(102, 126, 234, 0.3);
+    color: rgba(102, 126, 234, 0.3);
+    border-width: 1px;
+}
+
+.mini-card.empty:before {
+    content: "🐻";
+    opacity: 0.3;
+    color: #667eea;
+}
+
+/* Collected card */
+.mini-card.collected {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-color: #ffd700;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+    animation: card-shimmer 2s ease-in-out infinite alternate;
+    border-width: 1px;
+}
+
+/* Sizzle animation for collected cards */
+.mini-card.collected.sizzle {
+    animation: card-sizzle 1s ease-in-out;
+}
+
+@keyframes card-shimmer {
+    0% { box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4); }
+    100% { box-shadow: 0 6px 20px rgba(255, 215, 0, 0.7); }
+}
+
+@keyframes card-sizzle {
+    0% { 
+        transform: scale(1.05) rotate(0deg);
+        box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+    }
+    25% { 
+        transform: scale(1.2) rotate(10deg);
+        box-shadow: 0 8px 25px rgba(255, 215, 0, 0.8);
+    }
+    50% { 
+        transform: scale(1.3) rotate(-5deg);
+        box-shadow: 0 12px 35px rgba(255, 215, 0, 1);
+    }
+    75% { 
+        transform: scale(1.2) rotate(5deg);
+        box-shadow: 0 8px 25px rgba(255, 215, 0, 0.8);
+    }
+    100% { 
+        transform: scale(1.05) rotate(0deg);
+        box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+    }
+}
+
+/* New card discovery animation */
+.mini-card.new-discovery {
+    animation: card-discovery 0.8s ease-out;
+}
+
+@keyframes card-discovery {
+    0% {
+        transform: scale(0) rotate(180deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.3) rotate(90deg);
+    }
+    100% {
+        transform: scale(1.05) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+/* Rarity indicators */
+.mini-card.common { border-color: #667eea; }
+.mini-card.uncommon { border-color: #667eea; }
+.mini-card.rare { border-color: #667eea; }
+.mini-card.epic { border-color: #f6ad55; }
+.mini-card.legendary { border-color: #ffd700; }
+
+/* Hover effects */
+.mini-card.collected:hover {
+    transform: scale(1.15);
+    z-index: 10;
+}
+
+/* Hidden card state (when more than 3 displayed) */
+.mini-card.hidden-card {
+    opacity: 0.3 !important;
+    transform: scale(0.8) !important;
+    transition: all 0.3s ease;
+}
+
+.mini-card.hidden-card:hover {
+    opacity: 0.6 !important;
+    transform: scale(0.9) !important;
+}
+
+/* Tooltip for card collection */
+.mini-card {
+    position: relative;
+}
+
+.mini-card::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    color: #667eea;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border: 1px solid #667eea;
+    z-index: 1000;
+}
+
+.mini-card:hover::after {
+    opacity: 1;
+    visibility: visible;
+    bottom: 130%;
+}
+
+/* Flying card animation */
+.flying-card {
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: 2px solid #ffd700;
+    border-radius: 8px;
+    padding: 8px;
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.6);
+    transform-origin: center;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+}
+
+@media (max-width: 768px) {
+    .card-collection-grid {
+        grid-template-columns: repeat(5, 1fr);
+        max-width: 400px;
+        gap: 4px;
+    }
+    
+    .mini-card {
+        width: 30px;
+        height: 42px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-collection-grid {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 300px;
+        gap: 3px;
+    }
+    
+    .mini-card {
+        width: 28px;
+        height: 38px;
+        font-size: 0.8rem;
+    }
 }
 
 /* Header */
@@ -75,42 +302,146 @@ body {
 }
 
 .honey-pot-container {
-    margin-top: 8px;
+    margin-top: 12px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
 }
 
 .honey-pot {
     display: inline-block;
-    margin: 0 4px;
-    font-size: 1.8rem;
+    font-size: 3rem;
+    line-height: 1;
     transition: all 0.3s ease;
     font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
-    cursor: pointer;
-    padding: 8px;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: default;
     user-select: none;
+    position: relative;
+    filter: drop-shadow(0 4px 8px rgba(245, 158, 11, 0.4)) 
+            drop-shadow(0 8px 16px rgba(245, 158, 11, 0.3))
+            drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    transform: translateY(0);
+}
+
+.honey-pot:not(.used) {
+    animation: honeySizzle 4s ease-in-out infinite;
+}
+
+@keyframes honeySizzle {
+    0%, 100% {
+        transform: translateY(0) scale(1) rotate(0deg);
+        filter: drop-shadow(0 4px 8px rgba(245, 158, 11, 0.4)) 
+                drop-shadow(0 8px 16px rgba(245, 158, 11, 0.3))
+                drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    }
+    25% {
+        transform: translateY(-2px) scale(1.05) rotate(-3deg);
+        filter: drop-shadow(0 6px 12px rgba(245, 158, 11, 0.6)) 
+                drop-shadow(0 12px 24px rgba(245, 158, 11, 0.4))
+                drop-shadow(0 3px 6px rgba(0, 0, 0, 0.3));
+    }
+    50% {
+        transform: translateY(-3px) scale(1.08) rotate(2deg);
+        filter: drop-shadow(0 8px 16px rgba(245, 158, 11, 0.7)) 
+                drop-shadow(0 16px 32px rgba(245, 158, 11, 0.5))
+                drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3))
+                brightness(1.2);
+    }
+    75% {
+        transform: translateY(-1px) scale(1.03) rotate(-2deg);
+        filter: drop-shadow(0 5px 10px rgba(245, 158, 11, 0.5)) 
+                drop-shadow(0 10px 20px rgba(245, 158, 11, 0.35))
+                drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
+    }
 }
 
 .honey-pot:hover:not(.used) {
-    transform: translateY(-2px) scale(1.1);
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 12px rgba(0, 0, 0, 0.25);
-    background: rgba(255, 255, 255, 0.2);
-}
-
-.honey-pot:active:not(.used) {
-    transform: translateY(0) scale(1.05);
-    box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2);
+    transform: translateY(-4px) scale(1.15) rotate(5deg);
+    filter: drop-shadow(0 10px 20px rgba(245, 158, 11, 0.8)) 
+            drop-shadow(0 20px 40px rgba(245, 158, 11, 0.6))
+            drop-shadow(0 5px 10px rgba(0, 0, 0, 0.4))
+            brightness(1.3);
 }
 
 .honey-pot.used {
     opacity: 0.3;
-    filter: grayscale(100%);
-    cursor: not-allowed;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
-    background: rgba(0, 0, 0, 0.1);
+    filter: grayscale(100%) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    transform: scale(0.9);
+    animation: none;
+}
+
+/* Hint Display */
+.hint-container {
+    margin-top: 16px;
+    padding: 0;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: all 0.4s ease;
+}
+
+.hint-container.slide-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hint {
+    background: linear-gradient(135deg, #fffbf0 0%, #fff7e6 100%);
+    border-left: 4px solid #f59e0b;
+    border-radius: 10px;
+    padding: 16px 20px 16px 24px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #92400e;
+    box-shadow: 0 3px 10px rgba(245, 158, 11, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    animation: hintGlow 3s ease-in-out;
+}
+
+.hint-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.hint-message {
+    flex: 1;
+    line-height: 1.5;
+}
+
+.hint::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, #f59e0b, #fbbf24);
+    border-radius: 2px 0 0 2px;
+    animation: hintBarPulse 3s ease-in-out;
+}
+
+@keyframes hintGlow {
+    0%, 100% {
+        box-shadow: 0 3px 10px rgba(245, 158, 11, 0.15);
+    }
+    50% {
+        box-shadow: 0 4px 15px rgba(245, 158, 11, 0.25);
+    }
+}
+
+@keyframes hintBarPulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+        box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+    }
 }
 
 /* Question Progress Bar */
@@ -161,22 +492,35 @@ body {
 }
 
 .scenario-text {
-    font-size: 1.2rem;
-    line-height: 1.7;
+    font-size: 1.15rem;
+    line-height: 1.8;
     margin-bottom: 20px;
     color: #4a5568;
+    position: relative;
+    transition: all 0.3s ease;
 }
 
 .claim {
-    background: #fff;
-    padding: 15px;
-    border-left: 8px solid #5a67d8;
-    border-top: 1px solid #e2e8f0;
-    border-right: 1px solid #e2e8f0;
-    border-bottom: 1px solid #e2e8f0;
+    background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+    padding: 18px 20px 18px 24px;
+    border-left: 4px solid #667eea;
+    border-radius: 10px;
     margin: 20px 0;
-    font-weight: bold;
-    color: #2d3748;
+    font-weight: 600;
+    color: #4c51bf;
+    font-size: 1.05rem;
+    box-shadow: 0 3px 10px rgba(102, 126, 234, 0.1);
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.claim::before {
+    content: '💭';
+    font-size: 1.8rem;
+    flex-shrink: 0;
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
 }
 
 /* Quiz Section - Beautiful Yellow Design */
@@ -213,6 +557,8 @@ body {
     transition: all 0.3s ease;
     text-align: center;
     font-weight: 500;
+    position: relative;
+    overflow: hidden;
 }
 
 .quiz-option:hover {
@@ -241,31 +587,36 @@ body {
 
 /* Buttons */
 .hint-button {
-    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
-    color: #78350f;
-    border: none;
-    padding: 8px 20px;
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 24px;
     font-size: 1em;
-    border-radius: 20px;
+    border-radius: 25px;
     cursor: pointer;
     transition: all 0.3s ease;
     margin: 15px auto;
     display: block;
     font-weight: bold;
+    box-shadow: 0 4px 15px rgba(118, 75, 162, 0.3);
 }
 
 .hint-button:hover:not(:disabled) {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+    box-shadow: 0 6px 20px rgba(118, 75, 162, 0.5);
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
 }
 
 .hint-button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+    background: #a0aec0;
+    border-color: transparent;
+    box-shadow: none;
 }
 
 .submit-button {
-    background: #5a67d8;
+    background: #3b82f6;
     color: white;
     border: none;
     padding: 12px 30px;
@@ -278,7 +629,7 @@ body {
 }
 
 .submit-button:hover:not(:disabled) {
-    background: #4c51bf;
+    background: #2563eb;
     transform: translateY(-2px);
 }
 
@@ -368,62 +719,170 @@ body {
     animation: loading 2s infinite;
 }
 
-/* End Game */
+/* End Game - Horizontally Compact for Sharing */
 .end-game {
     display: none;
     text-align: center;
-    padding: 40px;
+    padding: 20px;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+    overflow: hidden;
 }
 
 .end-game.visible {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .results-card {
     background: white;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-    margin-bottom: 30px;
+    padding: 40px 30px;
+    border-radius: 25px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.2);
+    margin: 0 auto;
+    max-width: 480px;
+    width: 90%;
+    position: relative;
+    z-index: 10;
+    transform: scale(1);
+    animation: celebrationEntrance 1s ease-out;
+}
+
+@keyframes celebrationEntrance {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(50px);
+    }
+    60% {
+        transform: scale(1.05) translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
 }
 
 .results-title {
-    font-size: 2rem;
+    font-size: 2.8rem;
     color: #2d3748;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    font-weight: 800;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.badge-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
 }
 
 .final-badge {
-    font-size: 4rem;
-    margin-bottom: 20px;
+    font-size: 6rem;
+    margin-bottom: 15px;
     font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
     line-height: 1;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+    animation: badgePulse 2s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+    0%, 100% { 
+        transform: scale(1) rotate(0deg); 
+    }
+    50% { 
+        transform: scale(1.1) rotate(5deg); 
+    }
+}
+
+.stats-summary {
+    width: 100%;
 }
 
 .badge-section h2 {
-    font-size: 1.5rem;
+    font-size: 2.2rem;
     color: #2d3748;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.badge-section p {
+    font-size: 1.3rem;
+    color: #4a5568;
+    margin-bottom: 20px;
+    font-weight: 500;
 }
 
 .stat-row {
     display: flex;
     justify-content: space-between;
-    margin: 10px 0;
-    padding: 10px 0;
-    border-bottom: 1px solid #e2e8f0;
+    align-items: center;
+    margin: 12px 0;
+    padding: 15px 20px;
+    background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+    border-radius: 12px;
+    border-left: 4px solid #667eea;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.1);
+}
+
+.stat-label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #4c51bf;
+}
+
+.stat-value {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #2d3748;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .replay-button {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     border: none;
-    padding: 15px 30px;
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 1rem;
+    padding: 18px 40px;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 1.3rem;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 30px;
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.replay-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+    background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
+}
+
+.replay-button:active {
+    transform: translateY(-1px);
+}
+
+/* Shine effect for replay button */
+.replay-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s;
+}
+
+.replay-button:hover::before {
+    left: 100%;
 }
 
 /* Animations */
@@ -746,6 +1205,15 @@ body {
     margin-bottom: 20px;
 }
 
+.wisdom-header .bear-emoji {
+    font-size: 4em;
+}
+
+.wisdom-header .bear-name {
+    font-size: 2em;
+    color: #744210;
+}
+
 .wisdom-content {
     font-size: 1.1em;
     line-height: 1.6;
@@ -780,8 +1248,18 @@ body {
 .balance-labels {
     display: flex;
     justify-content: space-between;
-    font-size: 0.9em;
+    font-size: 1.3em;
     color: #666;
+}
+
+.balance-labels span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) 
+            drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 @keyframes pulse {
@@ -919,6 +1397,15 @@ body {
 
 .manipulation-warning.visible {
     display: block;
+}
+
+.manipulation-warning strong {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4)) 
+            drop-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 /* Logical Fallacy Callout Box */

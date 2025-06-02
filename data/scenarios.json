@@ -41,6 +41,23 @@
         "strategy": "balanced",
         "hintMessage": "Look for statistics, sources, and nuanced thinking!"
       },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "primary",
+          "example": "Mentions Harvard training prominently, though this is relevant expertise and not misused."
+        },
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "secondary",
+          "example": "Actually avoids this fallacy by noting 30% saw no change and calling for larger studies."
+        },
+        {
+          "fallacyId": "cherry-picking",
+          "severity": "secondary",
+          "example": "Presents both positive results AND limitations, avoiding selective evidence."
+        }
+      ],
       "metadata": {
         "tags": ["science", "health", "balanced-argument", "supplements"],
         "difficulty": 3,
@@ -150,6 +167,32 @@
           "explanation": "Appeals to conspiracy theories and economic fears"
         }
       },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "name": "Hasty Generalization",
+          "icon": "🏃",
+          "severity": "primary",
+          "rarity": "common",
+          "context": "50 scientists used to generalize about all climate science"
+        },
+        {
+          "fallacyId": "appeal-to-nature",
+          "name": "Appeal to Nature",
+          "icon": "🌿",
+          "severity": "primary",
+          "rarity": "common",
+          "context": "Coal and oil are natural - how can nature be bad?"
+        },
+        {
+          "fallacyId": "ad-hominem",
+          "name": "Ad Hominem",
+          "icon": "👤",
+          "severity": "secondary",
+          "rarity": "common",
+          "context": "Attacking scientists' motives instead of addressing evidence"
+        }
+      ],
       "wisdom": "This exemplifies how disinformation works: tiny grain of data (50 unnamed scientists) presented as overturning mountains of evidence. The 'Institute' name sounds official but lacks credibility.",
       "hints": {
         "keywords": ["50 scientists", "surveyed", "who agree with us", "LYING", "Wake up"],
@@ -204,6 +247,23 @@
         "strategy": "balanced",
         "hintMessage": "Notice the balance of concern with collaborative solutions!"
       },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Drawing conclusions from just 5 students, though she acknowledges this is a limited sample."
+        },
+        {
+          "fallacyId": "post-hoc",
+          "severity": "primary",
+          "example": "Assumes screen time caused the behavior changes, though correlation is supported by student reports."
+        },
+        {
+          "fallacyId": "bandwagon",
+          "severity": "secondary",
+          "example": "Avoids this by offering individual discussions rather than demanding all parents follow one approach."
+        }
+      ],
       "metadata": {
         "tags": ["education", "screen-time", "sleep", "parenting"],
         "difficulty": 2,
@@ -246,6 +306,32 @@
           "explanation": "Hits every emotional button: shame, guilt, envy, fear"
         }
       },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-scarcity",
+          "name": "False Scarcity",
+          "icon": "⏰",
+          "severity": "primary",
+          "rarity": "common",
+          "context": "LAST CHANCE! Only sharing with next 10 people"
+        },
+        {
+          "fallacyId": "hasty-generalization",
+          "name": "Hasty Generalization",
+          "icon": "🏃",
+          "severity": "primary",
+          "rarity": "common",
+          "context": "ONE SIMPLE TRICK works for everyone"
+        },
+        {
+          "fallacyId": "appeal-to-fear",
+          "name": "Appeal to Fear",
+          "icon": "😨",
+          "severity": "primary",
+          "rarity": "common",
+          "context": "Your family is counting on you - don't let them down!"
+        }
+      ],
       "wisdom": "Classic get-rich-quick scam hitting every emotional button: shame about current life, guilt about family, envy of success, fear of missing out. Zero substance, pure manipulation.",
       "hints": {
         "keywords": ["LAST CHANCE", "ONE SIMPLE TRICK", "wage slave", "SECRET", "DM me"],
@@ -300,6 +386,23 @@
         "strategy": "balanced",
         "hintMessage": "Look for nuanced presentation of conflicting evidence!"
       },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-equivalence",
+          "severity": "primary",
+          "example": "Comparing FDA approval with European warning labels as if they're equivalent evidence."
+        },
+        {
+          "fallacyId": "cherry-picking",
+          "severity": "secondary",
+          "example": "Actually avoids this by presenting both positive and negative studies fairly."
+        },
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "balanced",
+          "example": "References FDA and European regulations appropriately as context, not absolute proof."
+        }
+      ],
       "metadata": {
         "tags": ["health", "food-safety", "parenting", "regulation"],
         "difficulty": 3,
@@ -342,6 +445,32 @@
           "explanation": "Exploits body image and relationship insecurities"
         }
       },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-tradition",
+          "name": "Appeal to Tradition",
+          "icon": "🏛️",
+          "severity": "primary",
+          "rarity": "common",
+          "context": "ANCIENT SECRET that doctors don't want you to know"
+        },
+        {
+          "fallacyId": "false-scarcity",
+          "name": "False Scarcity",
+          "icon": "⏰",
+          "severity": "primary",
+          "rarity": "common",
+          "context": "swipe up RIGHT NOW for special price"
+        },
+        {
+          "fallacyId": "ad-hominem",
+          "name": "Ad Hominem",
+          "icon": "👤",
+          "severity": "secondary",
+          "rarity": "common",
+          "context": "Doctors HATE this - attacking medical profession instead of providing evidence"
+        }
+      ],
       "wisdom": "Predatory marketing targeting body insecurity. Red flags: 'ancient secrets,' doctor conspiracy, fake urgency pricing, promises without effort. The filtered photos and marriage pressure reveal the manipulative agenda.",
       "hints": {
         "keywords": ["$197", "$47", "swipe up RIGHT NOW", "exclusive program", "Doctors HATE"],
@@ -396,6 +525,23 @@
         "strategy": "balanced",
         "hintMessage": "Notice the comprehensive data and acknowledgment of trade-offs!"
       },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "appropriate",
+          "example": "MIT's reputation adds credibility, which is appropriate given the rigorous methodology shown."
+        },
+        {
+          "fallacyId": "cherry-picking",
+          "severity": "secondary",
+          "example": "Presents both positive and negative findings, avoiding selective presentation."
+        },
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "secondary",
+          "example": "Recognizes remote work isn't simply good or bad, but varies by context."
+        }
+      ],
       "metadata": {
         "tags": ["workplace", "research", "remote-work", "productivity"],
         "difficulty": 2,
@@ -438,6 +584,32 @@
           "explanation": "Maximum fear about child safety"
         }
       },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "name": "Hasty Generalization",
+          "icon": "🏃",
+          "severity": "primary",
+          "rarity": "common",
+          "context": "One incident with predator means ALL technology is dangerous"
+        },
+        {
+          "fallacyId": "false-dilemma",
+          "name": "False Dilemma",
+          "icon": "⚔️",
+          "severity": "primary",
+          "rarity": "common",
+          "context": "Either ban all electronics OR child will be harmed by predators"
+        },
+        {
+          "fallacyId": "slippery-slope",
+          "name": "Slippery Slope",
+          "icon": "🎿",
+          "severity": "secondary",
+          "rarity": "uncommon",
+          "context": "Any online activity leads inevitably to predator contact"
+        }
+      ],
       "wisdom": "While online safety is crucial, this response is pure panic. One concerning incident leads to destroying all technology - an extreme overreaction that could harm the child's education and social development.",
       "hints": {
         "keywords": ["SHOCK", "EVERYWHERE", "DANGER", "threw away ALL", "WAKE UP"],
@@ -492,6 +664,23 @@
         "strategy": "balanced",
         "hintMessage": "Look for data, comparisons, and acknowledgment of downsides!"
       },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Comparing to just Austin and Portland may not fully represent outcomes for all cities."
+        },
+        {
+          "fallacyId": "post-hoc",
+          "severity": "primary",
+          "example": "Crime reduction correlation with gardens may have other contributing factors."
+        },
+        {
+          "fallacyId": "bandwagon",
+          "severity": "primary",
+          "example": "Mentioning 67% interest could be seen as appeal to popularity, though used appropriately here."
+        }
+      ],
       "metadata": {
         "tags": ["civic", "community", "urban-planning", "proposal"],
         "difficulty": 3,

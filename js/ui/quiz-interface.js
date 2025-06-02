@@ -51,6 +51,7 @@ class QuizInterface {
         this.currentScenario = scenario;
         this.selectedAnswer = null;
         this.hasAnswered = false;
+        this.hasUsedHint = false;
         
         // Update UI
         this.elements.scenarioTitle.textContent = scenario.title;
@@ -157,9 +158,16 @@ class QuizInterface {
     }
     
     useHoneyPot() {
+        // Check if already used hint for this scenario
+        if (this.hasUsedHint) {
+            this.hintDisplay.showError('You already used a hint for this scenario!');
+            return;
+        }
+        
         var result = this.gameEngine.useHoneyPot();
         
         if (result.success) {
+            this.hasUsedHint = true;
             this.applyHint(result.hint);
             this.updateHoneyPotDisplay();
         } else {
@@ -196,11 +204,13 @@ class QuizInterface {
             }
         });
         
-        // Update button state
-        this.elements.honeyPotButton.disabled = stats.available === 0 || this.hasAnswered;
+        // Update button state - disable if no honey pots, already answered, or already used hint
+        this.elements.honeyPotButton.disabled = stats.available === 0 || this.hasAnswered || this.hasUsedHint;
         
         if (stats.available === 0) {
             this.elements.honeyPotButton.innerHTML = '🍯 No Honey Pots Left!';
+        } else if (this.hasUsedHint) {
+            this.elements.honeyPotButton.innerHTML = '🍯 Hint Already Used!';
         } else {
             this.elements.honeyPotButton.innerHTML = '🍯 Use Honey Pot for Hint (' + stats.available + ' left)';
         }
@@ -212,6 +222,9 @@ class QuizInterface {
         // Show just the positive score, not x/y format
         this.elements.userScore.textContent = score;
         
+        // Update collection progress
+        this.updateCollectionDisplay();
+        
         // Update progress bar for question progress
         this.updateProgressBar();
         
@@ -220,6 +233,14 @@ class QuizInterface {
         // Also force opacity and transform in case CSS gets overridden
         this.elements.scoreTracker.style.opacity = '1';
         this.elements.scoreTracker.style.transform = 'translateY(0)';
+    }
+    
+    updateCollectionDisplay() {
+        var collectionStats = this.gameEngine.scoringSystem.getCollectionStats();
+        var cardsElement = document.getElementById('cards-collected');
+        if (cardsElement) {
+            cardsElement.textContent = collectionStats.collected;
+        }
     }
     
     updateMaxPossibleScore() {
@@ -249,6 +270,9 @@ class QuizInterface {
         var textElement = this.elements.scenarioText;
         textElement.style = '';
         
+        // Clear hint display
+        this.hintDisplay.hideHint();
+        
         // Load next scenario
         this.gameEngine.loadNextScenario();
     }
@@ -257,6 +281,8 @@ class QuizInterface {
         this.elements.answerOptions.forEach(function(opt) {
             opt.classList.remove('selected');
             opt.classList.remove('correct-highlight'); // Clear any lingering highlights
+            opt.style.borderWidth = ''; // Reset border width
+            opt.style.borderStyle = ''; // Reset border style
         });
     }
     
@@ -271,13 +297,17 @@ class QuizInterface {
         });
         
         if (correctOption) {
-            // Add green flash effect
+            // Add educational highlight effect
             correctOption.classList.add('correct-highlight');
             
-            // Remove the effect after flashing
+            // Keep it highlighted longer for learning
             setTimeout(function() {
                 correctOption.classList.remove('correct-highlight');
-            }, 3000); // 3 seconds of flashing
+            }, 4000); // 4 seconds for better learning retention
+            
+            // Also add a subtle permanent indicator
+            correctOption.style.borderWidth = '4px';
+            correctOption.style.borderStyle = 'solid';
         }
     }
     
@@ -285,14 +315,39 @@ class QuizInterface {
         // Hide game content
         this.elements.gameContent.style.display = 'none';
         
+        // Hide score tracker for cleaner celebration screenshots
+        this.elements.scoreTracker.style.display = 'none';
+        
         // Show end game screen
         this.elements.endGame.classList.add('visible');
         
         // Update final stats - show score vs max possible points
         var maxPossiblePoints = stats.scenariosCompleted * 3; // 3 points per scenario
-        this.elements.finalScore.textContent = stats.totalScore + '/' + maxPossiblePoints;
+        var collectionStats = this.gameEngine.scoringSystem.getCollectionStats();
+        var collectionBonus = this.gameEngine.scoringSystem.getCollectionBonus();
+        
+        // Apply collection bonus to final score
+        var finalScore = stats.totalScore + collectionBonus.bonus;
+        
+        this.elements.finalScore.textContent = finalScore + '/' + maxPossiblePoints;
         this.elements.accuracyPercent.textContent = stats.accuracy + '%';
         this.elements.honeyUsed.textContent = stats.honeyPotsUsed + '/' + this.gameEngine.config.honeyPotsPerRound;
+        
+        // Update collection stats
+        var cardsCollectedFinal = document.getElementById('cards-collected-final');
+        if (cardsCollectedFinal) {
+            cardsCollectedFinal.textContent = collectionStats.collected + '/' + collectionStats.total;
+        }
+        
+        // Show collection bonus if earned
+        if (collectionBonus.bonus > 0) {
+            var collectionBonusElement = document.getElementById('collection-bonus');
+            var collectionBonusText = document.getElementById('collection-bonus-text');
+            if (collectionBonusElement && collectionBonusText) {
+                collectionBonusText.textContent = collectionBonus.description;
+                collectionBonusElement.style.display = 'block';
+            }
+        }
         
         // Display badge
         var badge = stats.badge;
@@ -320,54 +375,91 @@ class QuizInterface {
     }
     
     createConfetti() {
-        // EPIC CELEBRATION! Multiple waves of confetti and shapes
-        this.createConfettiWave(1); // Initial burst
+        // SPECTACULAR 3-BURST CELEBRATION!
+        console.log('🎉 Starting epic 3-burst celebration!');
         
+        // Burst 1: Small focused burst from center
         setTimeout(() => {
-            this.createConfettiWave(2); // Second wave
-        }, 800);
+            this.createConfettiBurst(1, 'center', 60, 12, 18);
+        }, 500);
         
+        // Burst 2: Medium burst from left and right
         setTimeout(() => {
-            this.createConfettiWave(3); // Third wave  
-        }, 1600);
+            this.createConfettiBurst(2, 'sides', 120, 16, 24);
+        }, 1200);
         
-        // Add floating emoji celebrations
+        // Burst 3: MASSIVE finale burst from everywhere
+        setTimeout(() => {
+            this.createConfettiBurst(3, 'everywhere', 200, 20, 30);
+        }, 2000);
+        
+        // Add floating emoji celebrations throughout
         setTimeout(() => {
             this.createFloatingCelebration();
-        }, 1000);
+        }, 800);
     }
     
-    createConfettiWave(waveNumber) {
-        var colors = ['#5a67d8', '#ed64a6', '#f6e05e', '#4299e1', '#f6ad55', '#10b981', '#f56565', '#8b5cf6'];
+    createConfettiBurst(burstNumber, pattern, particleCount, minSize, maxSize) {
+        var colors = ['#667eea', '#764ba2', '#ed64a6', '#f6e05e', '#4299e1', '#f6ad55', '#10b981', '#f56565', '#8b5cf6'];
         var shapes = ['circle', 'square', 'triangle', 'star'];
         var endGame = this.elements.endGame;
         
-        // More confetti per wave!
-        var confettiCount = 80 + (waveNumber * 20); // 80, 100, 120 pieces
+        console.log(`💥 Burst ${burstNumber}: ${particleCount} particles, pattern: ${pattern}`);
         
-        for (var i = 0; i < confettiCount; i++) {
+        for (var i = 0; i < particleCount; i++) {
             setTimeout(() => {
                 var confetti = document.createElement('div');
                 var shape = shapes[Math.floor(Math.random() * shapes.length)];
-                confetti.className = 'confetti confetti-' + shape;
+                confetti.className = 'confetti confetti-' + shape + ' burst-' + burstNumber;
                 
-                // Random position
-                confetti.style.left = Math.random() * 100 + '%';
+                // Position based on pattern
+                var startX, startY;
+                switch (pattern) {
+                    case 'center':
+                        startX = 45 + Math.random() * 10; // 45-55%
+                        startY = 40 + Math.random() * 20; // 40-60%
+                        break;
+                    case 'sides':
+                        startX = Math.random() < 0.5 ? Math.random() * 20 : 80 + Math.random() * 20; // 0-20% or 80-100%
+                        startY = 30 + Math.random() * 40; // 30-70%
+                        break;
+                    case 'everywhere':
+                        startX = Math.random() * 100;
+                        startY = Math.random() * 80; // Don't start too low
+                        break;
+                }
+                
+                confetti.style.left = startX + '%';
+                confetti.style.top = startY + '%';
                 confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
                 
-                // Varied timing
-                confetti.style.animationDelay = Math.random() * 1 + 's';
-                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                
-                // Random size variation
-                var size = 8 + Math.random() * 8; // 8-16px
+                // Size increases with burst number
+                var size = minSize + Math.random() * (maxSize - minSize);
                 confetti.style.width = size + 'px';
                 confetti.style.height = size + 'px';
                 
+                // Animation timing based on burst intensity
+                var duration = 3 + Math.random() * 2; // 3-5 seconds
+                var delay = Math.random() * 0.5; // 0-0.5s delay
+                
+                confetti.style.animationDelay = delay + 's';
+                confetti.style.animationDuration = duration + 's';
+                
+                // Add random movement variables for burst animations
+                var randomX = (Math.random() - 0.5) * 300 * burstNumber; // -150 to 150, scaled by burst
+                var randomY = (Math.random() - 0.5) * 200 * burstNumber; // -100 to 100, scaled by burst
+                confetti.style.setProperty('--random-x', randomX + 'px');
+                confetti.style.setProperty('--random-y', randomY + 'px');
+                confetti.style.setProperty('--burst-intensity', burstNumber);
+                
                 endGame.appendChild(confetti);
                 
-                setTimeout(() => confetti.remove(), 6000);
-            }, i * 25); // Faster spawning
+                setTimeout(() => {
+                    if (confetti.parentNode) {
+                        confetti.remove();
+                    }
+                }, (duration + delay + 1) * 1000);
+            }, i * (50 / burstNumber)); // Faster spawning for later bursts
         }
     }
     

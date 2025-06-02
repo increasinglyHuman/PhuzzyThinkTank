@@ -15,6 +15,7 @@ class ScoringSystem {
             balanced: { correct: 0, total: 0 },
             agenda: { correct: 0, total: 0 }
         };
+        this.collectedCards = new Set(); // Track discovered fallacy cards
     }
     
     evaluateAnswer(userAnswer, scenario) {
@@ -59,6 +60,15 @@ class ScoringSystem {
             points: points,
             feedbackLevel
         });
+        
+        // Track discovered fallacy cards
+        if (scenario.logicalFallacies && scenario.logicalFallacies.length > 0) {
+            scenario.logicalFallacies.forEach(function(fallacy) {
+                if (fallacy.severity === 'primary') {
+                    this.collectedCards.add(fallacy.id);
+                }
+            }.bind(this));
+        }
         
         return {
             score: weightScore,
@@ -139,40 +149,84 @@ class ScoringSystem {
         return breakdown;
     }
     
+    getCollectionStats() {
+        var totalFallacies = 15; // Total number of fallacies in the system
+        var collected = this.collectedCards.size;
+        var collectionPercent = Math.round((collected / totalFallacies) * 100);
+        
+        return {
+            collected: collected,
+            total: totalFallacies,
+            percentage: collectionPercent,
+            isComplete: collected === totalFallacies
+        };
+    }
+    
+    getCollectionBonus() {
+        var stats = this.getCollectionStats();
+        var bonus = 0;
+        var description = '';
+        
+        if (stats.isComplete) {
+            bonus = 50; // Major bonus for complete collection
+            description = '🃏 Fallacy Master Collection Bonus! +50 RIZ';
+        } else if (stats.collected >= 10) {
+            bonus = 25;
+            description = '🎴 Serious Collector Bonus! +25 RIZ';
+        } else if (stats.collected >= 5) {
+            bonus = 10;
+            description = '🏷️ Card Collector Bonus! +10 RIZ';
+        }
+        
+        return { bonus: bonus, description: description };
+    }
+    
     getBadge() {
         var accuracy = this.getAccuracy();
+        var collectionStats = this.getCollectionStats();
+        var badge;
         
+        // Base badge based on accuracy
         if (accuracy >= 90) {
-            return {
+            badge = {
                 emoji: '💎',
                 title: 'Phuzzy Diamond Master',
                 message: 'Outstanding mastery! You have exceptional Phuzzy thinking skills!'
             };
         } else if (accuracy >= 75) {
-            return {
+            badge = {
                 emoji: '🥇',
                 title: 'Phuzzy Gold Guardian',
                 message: 'Excellent work! You see through most manipulation with confidence.'
             };
         } else if (accuracy >= 50) {
-            return {
+            badge = {
                 emoji: '🥈',
                 title: 'Phuzzy Silver Scout',
                 message: 'Good progress! Your Phuzzy thinking skills are developing well.'
             };
         } else if (accuracy >= 25) {
-            return {
+            badge = {
                 emoji: '🥉',
                 title: 'Phuzzy Bronze Cub',
                 message: 'Nice start! Keep practicing to grow your critical thinking skills.'
             };
         } else {
-            return {
+            badge = {
                 emoji: '🐻',
                 title: 'Phuzzy Apprentice',
                 message: 'Every expert was once a beginner. Keep learning, future Phuzzy master!'
             };
         }
+        
+        // Upgrade badge if complete collection achieved
+        if (collectionStats.isComplete) {
+            badge.emoji = '🎴';
+            badge.title = 'Fallacy Card Master ' + badge.emoji;
+            badge.message += ' Plus you collected ALL fallacy cards!';
+        }
+        
+        return badge;
     }
 }
 // Export for global usage

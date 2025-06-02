@@ -23,7 +23,7 @@ class FeedbackAnimator {
         } else if (feedbackLevel === "partial") {
             this.showBearReactionWithText("🎓", "NICE TRY!");
         } else {
-            this.showBearReactionWithText("😢", "TRY AGAIN!");
+            this.showBearReactionWithText("🐻", "BEAR WITH IT!");
         }
     }
     

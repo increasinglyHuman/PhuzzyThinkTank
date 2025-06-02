@@ -3,14 +3,16 @@
 
 .fallacy-card-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 15px;
     margin: 20px 0;
+    justify-content: center;
 }
 
 .fallacy-card {
-    width: 240px;
-    height: 360px;
+    width: 280px;
+    height: 420px;
     position: relative;
     border-radius: 20px;
     margin: 0 auto;
@@ -48,10 +50,10 @@
 }
 
 .card-back {
-    background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
     transform: rotateY(180deg);
     color: white;
-    padding: 20px;
+    padding: 25px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -60,17 +62,17 @@
 /* Card Rarity Borders */
 .fallacy-card.common .card-front,
 .fallacy-card.common .card-back {
-    border-color: #68d391; /* Green */
+    border-color: #ffffff; /* White */
 }
 
 .fallacy-card.uncommon .card-front,
 .fallacy-card.uncommon .card-back {
-    border-color: #4fd1c7; /* Teal */
+    border-color: #ffffff; /* White */
 }
 
 .fallacy-card.rare .card-front,
 .fallacy-card.rare .card-back {
-    border-color: #9f7aea; /* Purple */
+    border-color: #ffffff; /* White */
 }
 
 .fallacy-card.epic .card-front,
@@ -105,7 +107,7 @@
     left: 0;
     right: 0;
     height: 50px;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(59, 130, 246, 0.8);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -129,7 +131,7 @@
 
 .rarity-star {
     color: #ffd700;
-    font-size: 0.7rem;
+    font-size: 1.4rem;
 }
 
 /* Card Art Area - Where custom graphics would go */
@@ -147,8 +149,9 @@
 }
 
 .card-icon {
-    font-size: 4rem;
+    font-size: 11rem;
     filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
 }
 
 /* When custom graphics are added, this would be replaced with: */
@@ -165,7 +168,7 @@
     left: 0;
     right: 0;
     height: 150px;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(37, 99, 235, 0.9);
     padding: 15px;
     color: white;
     display: flex;
@@ -175,22 +178,22 @@
 
 .card-category {
     font-size: 0.7rem;
-    color: #a0aec0;
+    color: #bfdbfe;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-bottom: 5px;
 }
 
 .card-name {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 8px;
     line-height: 1.2;
 }
 
 .card-description {
-    font-size: 0.8rem;
-    color: #e2e8f0;
+    font-size: 0.9rem;
+    color: #dbeafe;
     line-height: 1.4;
     overflow: hidden;
     display: -webkit-box;
@@ -202,28 +205,34 @@
 /* Card Back Content */
 .card-back-content {
     text-align: center;
+    position: relative;
+    padding-top: 20px;
 }
 
 .card-back-header {
-    font-size: 1.1rem;
+    font-size: 4rem;
     font-weight: bold;
-    margin-bottom: 15px;
+    margin-bottom: -30px;
     color: #ffd700;
+    transform: rotate(-15deg);
+    z-index: 2;
+    position: relative;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .card-tip {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin-bottom: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 15px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 20px;
     border-radius: 10px;
-    border-left: 4px solid #667eea;
+    border-left: 4px solid #ffd700;
 }
 
 .card-examples {
-    font-size: 0.8rem;
-    opacity: 0.9;
+    font-size: 0.95rem;
+    opacity: 0.95;
 }
 
 .card-examples strong {
@@ -252,16 +261,17 @@
 /* "NEW!" Badge */
 .card-new-badge {
     position: absolute;
-    top: -5px;
-    right: -5px;
+    top: 8px;
+    right: 8px;
     background: #ff4757;
     color: white;
-    padding: 2px 8px;
+    padding: 4px 10px;
     border-radius: 12px;
     font-size: 0.6rem;
     font-weight: bold;
     z-index: 3;
     animation: pulse-badge 2s infinite;
+    box-shadow: 0 2px 8px rgba(255, 71, 87, 0.3);
 }
 
 @keyframes pulse-badge {

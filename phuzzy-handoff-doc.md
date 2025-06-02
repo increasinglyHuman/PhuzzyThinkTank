@@ -8,17 +8,27 @@
 ## Current State Summary
 
 ### What's Built
-1. **Complete HTML5 Game** (single file, ~2000 lines)
-   - 10 scenarios covering various manipulation tactics
+1. **Complete HTML5 Game** (modular architecture, ~4500+ lines)
+   - 10 scenarios covering various manipulation tactics (5 with logical fallacy cards)
    - Quiz mechanic with 4 answer choices per scenario
    - Honey pot hint system (3 hints per game)
+   - **NEW: Interactive Fallacy Card Collection System** with 15 collectible logical fallacy cards
+   - **NEW: Click-to-Collect Mechanics** - players must click cards to collect them
+   - **NEW: Card Recall System** - click collected cards to remove them
+   - **NEW: Smart 3-Card Display Management** with auto-hide/show functionality
+   - **NEW: Flying Card Animations** from discovered cards to collection grid
+   - **NEW: Sizzle Effects** - random card animations every 10 seconds
+   - **NEW: Collection Bonuses** (5+ cards: +10 RIZ, 10+ cards: +25 RIZ, All 15: +50 RIZ)
+   - **NEW: Thematic Messaging** - "duh=phuzzier" instead of "TRY AGAIN!"
    - Dual Bear Analysis system showing detailed breakdowns
-   - Social sharing to Facebook, Twitter, LinkedIn, TikTok
-   - End game celebration with performance metrics
+   - Social sharing to Instagram, Facebook, LinkedIn (Twitter replaced)
+   - End game celebration with performance metrics and collection rewards
 
 2. **Modular Architecture Designed**
    - Separated into logical components
-   - JSON-based scenario storage
+   - JSON-based scenario storage with logical fallacy database
+   - **NEW: Trading Card System** with 3D flip animations and rarity system
+   - **NEW: Visual Collection Grid** in Wisdom Bear's analysis section
    - Scenario creation tool
    - Microgame API for earning honey pots
 
@@ -96,11 +106,12 @@ Each scenario contains:
 ## Implementation Priority
 
 ### Phase 1: Fix Core Game ✅
-1. Extract CSS into separate files
-2. Extract JS into modules
-3. Fix syntax errors (template literals, arrow functions)
-4. Create clean index.html
-5. Test locally
+1. Extract CSS into separate files ✅
+2. Extract JS into modules ✅
+3. Fix syntax errors (template literals, arrow functions) ✅
+4. Create clean index.html ✅
+5. Test locally ✅
+6. **NEW: Implement Card Collection System** ✅
 
 ### Phase 2: Dynamic Content
 1. Implement ScenarioManager to load from JSON
@@ -125,6 +136,71 @@ Each scenario contains:
 2. User-generated content
 3. Moderation system
 4. Leaderboards
+
+## NEW: Fallacy Card Collection System
+
+### Overview
+The game now features a collectible trading card system with 15 unique logical fallacy cards. Players discover cards by completing scenarios, with engaging visual feedback and collection bonuses.
+
+### Key Features
+- **15 Collectible Cards**: Each representing a specific logical fallacy (Appeal to Fear, False Dilemma, etc.)
+- **Interactive Click-to-Collect**: Players must click cards to collect them (no auto-collection)
+- **Single Row Collection Grid**: 15 cards displayed horizontally in Wisdom Bear's analysis section
+- **Card Recall System**: Click collected cards to remove them from collection
+- **Smart 3-Card Display Management**: Auto-hides oldest cards when more than 3 are collected
+- **Flying Card Animations**: Cards animate from discovery location to collection grid
+- **Sizzle Effects**: Random collected cards "sizzle" with spin/glow animation every 10 seconds
+- **White Tooltips**: Hover shows fallacy names with purple text on white background
+- **Rarity System**: Common, Uncommon, Rare cards with colored borders
+- **Collection Bonuses**: 
+  - 5+ cards: +10 RIZ bonus
+  - 10+ cards: +25 RIZ bonus  
+  - All 15 cards: +50 RIZ bonus + "Fallacy Card Master" badge
+- **Enhanced Card Size**: Larger trading cards (280x420px) with bigger icons (5.5rem)
+
+### Technical Implementation
+- **Card Data**: Located in `/data/logical-fallacies.json`
+- **Collection Tracking**: `ScoringSystem.collectedCards` Set stores discovered card IDs
+- **Interactive System**: `collectCard()` and `recallCard()` functions handle click interactions
+- **Display Management**: `manageDisplayedCards()` handles 3-card visibility limit
+- **Visual Display**: Single row of 15 mini cards in `.bear-card-collection`
+- **Animation**: `animateCardToCollection()` creates flying card effects
+- **Sizzle Timer**: `startSizzleTimer()` triggers random card animations every 10 seconds
+- **Styling**: Dedicated CSS in `/css/main.css` for `.mini-card` system with responsive breakpoints
+
+### Files Modified
+- `js/core/scoring-system.js` - Added collection tracking and bonus calculation
+- `js/ui/bear-analysis.js` - Complete interactive card system with click handlers, recall, and sizzle animations
+- `js/ui/quiz-interface.js` - Added collection bonus display on final results
+- `js/ui/feedback-animator.js` - Updated "TRY AGAIN!" to thematic "duh=phuzzier"
+- `css/main.css` - Added bear-themed collection styling with responsive design
+- `css/fallacy-cards.css` - Enhanced card sizes and visual improvements
+- `data/scenarios.json` - Added logical fallacy data to 5 scenarios (Climate Study, Investment Scam, Fitness Influencer, Parenting Forum)
+- `index.html` - Updated final results, error handling, and Progress label
+
+### Scenarios with Logical Fallacies
+1. **Neighborhood Watch Alert** (#2) - Post Hoc, Slippery Slope, False Dilemma
+2. **Climate Study** (#3) - Hasty Generalization, Appeal to Nature, Ad Hominem  
+3. **Investment Scam** (#5) - False Scarcity, Hasty Generalization, Appeal to Fear
+4. **Fitness Influencer** (#7) - Appeal to Tradition, False Scarcity, Ad Hominem
+5. **Parenting Forum** (#9) - Hasty Generalization, False Dilemma, Slippery Slope
+
+### Remaining Work
+- **5 scenarios still need logical fallacy data**: Miracle Supplement (#1), Teacher's Concern (#4), Food Additive (#6), University Study (#8), Community Garden (#10)
+- **SVG card graphics**: User mentioned creating bear-themed graphics for the 280x160px card art areas (card dimensions updated to 280x420px total)
+- **Additional scenarios**: Expand beyond current 10 scenarios
+
+### Recent Updates (Current Session)
+- **Interactive card collection system** - Click to collect, click to recall
+- **Single row layout** - All 15 cards in horizontal row with responsive breakpoints
+- **Enhanced visual design** - Larger cards (280x420px), bigger icons (5.5rem), white tooltips with purple text
+- **Smart card management** - Auto-hide oldest when >3 displayed, auto-show when recalled
+- **Sizzle animations** - Random collected cards animate every 10 seconds with spin/glow
+- **Button color matching** - Submit button now matches Next Scenario button blue (#3b82f6)
+- **Larger balance labels** - "🧠 Pure Logic", "⚖️ Balanced", "💖 Pure Emotion" increased to 1.3em
+- **Thematic error messages** - "duh=phuzzier" and "🐻 Bear with us - Reload"
+- **Collection progress tracking** - Fixed final screen card count accuracy
+- **Added logical fallacies** to 4 additional scenarios for total of 5/10 scenarios complete
 
 ## Critical Code Patterns to Preserve
 
