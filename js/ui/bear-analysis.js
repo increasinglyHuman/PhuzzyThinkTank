@@ -393,6 +393,7 @@ class BearAnalysis {
                     htmlContent += '<div class="fallacy-card-container">';
                     
                     // Add each primary fallacy as a trading card
+                    var self = this;
                     primaryFallacies.forEach(function(fallacy) {
                         var rarityStars = self.getRarityStars(fallacy.rarity || 'common');
                         
