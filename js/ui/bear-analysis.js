@@ -372,30 +372,54 @@ class BearAnalysis {
     showWisdomBearIntegration(scenario) {
         var wisdomContent = document.getElementById('wisdom-content');
         if (wisdomContent) {
-            var fullContent = '';
+            var htmlContent = '';
             
             console.log('🦉 Wisdom Bear analyzing scenario:', scenario.id); // Debug
             console.log('Logical fallacies found:', scenario.logicalFallacies); // Debug
             
-            // First, display logical fallacies if present
+            // Create structured fallacy callout if fallacies present
             if (scenario.logicalFallacies && scenario.logicalFallacies.length > 0) {
                 var primaryFallacies = scenario.logicalFallacies.filter(f => f.severity === 'primary');
                 var secondaryFallacies = scenario.logicalFallacies.filter(f => f.severity === 'secondary');
                 
                 if (primaryFallacies.length > 0) {
-                    var fallacyNames = primaryFallacies.map(f => f.icon + ' ' + f.shortName).join(' & ');
-                    fullContent += '🎯 **Logical Fallacies Detected: ' + fallacyNames + '**\n\n';
+                    htmlContent += '<div class="fallacy-callout">';
+                    htmlContent += '<div class="fallacy-callout-header">';
+                    htmlContent += '<span class="icon">🎯</span>';
+                    htmlContent += '<span>Logical Fallacies Detected</span>';
+                    htmlContent += '</div>';
                     
-                    // Add definitions and learning tips
+                    htmlContent += '<div class="fallacy-items">';
+                    
+                    // Add each primary fallacy as a structured item
                     primaryFallacies.forEach(function(fallacy) {
-                        fullContent += fallacy.icon + ' **' + fallacy.name + '**: ' + fallacy.definition + '\n';
-                        fullContent += '💡 *' + fallacy.learningTip + '*\n\n';
+                        htmlContent += '<div class="fallacy-item">';
+                        htmlContent += '<div class="fallacy-item-header">';
+                        htmlContent += '<span class="fallacy-icon">' + fallacy.icon + '</span>';
+                        htmlContent += '<span class="fallacy-name">' + fallacy.name + '</span>';
+                        htmlContent += '</div>';
+                        htmlContent += '<div class="fallacy-definition">' + fallacy.definition + '</div>';
+                        htmlContent += '<div class="fallacy-tip">💡 ' + fallacy.learningTip + '</div>';
+                        htmlContent += '</div>';
                     });
-                }
-                
-                if (secondaryFallacies.length > 0) {
-                    fullContent += '📝 **Also Present**: ';
-                    fullContent += secondaryFallacies.map(f => f.icon + ' ' + f.shortName).join(', ') + '\n\n';
+                    
+                    htmlContent += '</div>'; // Close fallacy-items
+                    
+                    // Add secondary fallacies if present
+                    if (secondaryFallacies.length > 0) {
+                        htmlContent += '<div class="fallacy-secondary">';
+                        htmlContent += '<strong>Also Present:</strong>';
+                        htmlContent += '<div class="fallacy-secondary-list">';
+                        secondaryFallacies.forEach(function(fallacy) {
+                            htmlContent += '<span class="fallacy-secondary-item">';
+                            htmlContent += fallacy.icon + ' ' + fallacy.shortName;
+                            htmlContent += '</span>';
+                        });
+                        htmlContent += '</div>';
+                        htmlContent += '</div>';
+                    }
+                    
+                    htmlContent += '</div>'; // Close fallacy-callout
                 }
             }
             
@@ -403,13 +427,14 @@ class BearAnalysis {
             var integration = scenario.wisdom || this.getWisdomIntegration(scenario);
             // Remove any existing fallacy detection from wisdom text to avoid duplication
             integration = integration.replace(/🎯\s*\*\*Logical Fallac[^*]*\*\*[^-]*-\s*/g, '');
-            fullContent += integration;
             
-            // Convert markdown-style formatting to HTML for better display
-            var htmlContent = fullContent
-                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')  // **bold** -> <strong>
-                .replace(/\*(.*?)\*/g, '<em>$1</em>')               // *italic* -> <em>
-                .replace(/\n/g, '<br>');                           // newlines -> <br>
+            // Convert remaining markdown to HTML and add to content
+            var wisdomHtml = integration
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                .replace(/\n/g, '<br>');
+            
+            htmlContent += '<div style="margin-top: 15px;">' + wisdomHtml + '</div>';
             
             wisdomContent.innerHTML = htmlContent;
         }

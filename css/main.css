@@ -920,3 +920,113 @@ body {
 .manipulation-warning.visible {
     display: block;
 }
+
+/* Logical Fallacy Callout Box */
+.fallacy-callout {
+    margin: 20px 0;
+    background: #f8fafc;
+    border-left: 6px solid #667eea;
+    border-right: 1px solid #e2e8f0;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+    border-radius: 0 8px 8px 0;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.fallacy-callout::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+}
+
+.fallacy-callout-header {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.fallacy-callout-header .icon {
+    font-size: 1.3rem;
+}
+
+.fallacy-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.fallacy-item {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.fallacy-item-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.fallacy-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.fallacy-name {
+    font-weight: 600;
+    color: #2d3748;
+    font-size: 1rem;
+}
+
+.fallacy-definition {
+    color: #4a5568;
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.fallacy-tip {
+    color: #667eea;
+    font-style: italic;
+    font-size: 0.9rem;
+    background: #f0f4ff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border-left: 3px solid #667eea;
+}
+
+.fallacy-secondary {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #e2e8f0;
+    font-size: 0.9rem;
+    color: #718096;
+}
+
+.fallacy-secondary-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.fallacy-secondary-item {
+    background: #edf2f7;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: #4a5568;
+}
