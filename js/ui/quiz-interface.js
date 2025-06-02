@@ -412,6 +412,9 @@ class QuizInterface {
                 keySequence.shift();
             }
             
+            // Debug: Show current key sequence
+            console.log('Key sequence:', keySequence.join(''));
+            
             // Simple sequence: type "party" 
             if (keySequence.join('') === 'party') {
                 console.log('🎉 Developer hotkey activated! Time to party with confetti!');
