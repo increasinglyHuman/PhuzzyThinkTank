@@ -976,25 +976,28 @@ body {
 
 .fallacy-item-header {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 10px;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
+    line-height: 1.5;
 }
 
 .fallacy-icon {
     font-size: 1.5rem;
     line-height: 1;
+    flex-shrink: 0;
 }
 
 .fallacy-name {
     font-weight: 600;
     color: #2d3748;
     font-size: 1rem;
+    flex-shrink: 0;
 }
 
 .fallacy-definition {
     color: #4a5568;
-    margin-bottom: 8px;
+    font-size: 1rem;
     line-height: 1.5;
 }
 

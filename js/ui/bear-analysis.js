@@ -396,9 +396,9 @@ class BearAnalysis {
                         htmlContent += '<div class="fallacy-item">';
                         htmlContent += '<div class="fallacy-item-header">';
                         htmlContent += '<span class="fallacy-icon">' + fallacy.icon + '</span>';
-                        htmlContent += '<span class="fallacy-name">' + fallacy.name + '</span>';
+                        htmlContent += '<span class="fallacy-name">' + fallacy.name + ': </span>';
+                        htmlContent += '<span class="fallacy-definition">' + fallacy.definition + '</span>';
                         htmlContent += '</div>';
-                        htmlContent += '<div class="fallacy-definition">' + fallacy.definition + '</div>';
                         htmlContent += '<div class="fallacy-tip">💡 ' + fallacy.learningTip + '</div>';
                         htmlContent += '</div>';
                     });
