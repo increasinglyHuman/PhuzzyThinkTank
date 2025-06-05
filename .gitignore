@@ -156,3 +156,6 @@ phuzzy-session-*.md
 
 # Complete game files
 phuzzy-complete-game.html
+
+# Bug reports and fixes
+BUG-FIXES-*.md
