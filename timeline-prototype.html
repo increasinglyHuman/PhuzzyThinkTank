@@ -1913,6 +1913,12 @@
         
         // Toggle dimension with tri-state logic
         function toggleDimension(chartId, dimension) {
+            // Prevent dimension toggling during bear game
+            if (bearGameState.gameActive) {
+                console.log('Cannot toggle dimensions during Runner Bear game!');
+                return;
+            }
+            
             let chart;
             let scenarioIndex;
             if (chartId === 'timeline1') {
@@ -2135,6 +2141,14 @@
             bearGameState.timeLeft = 20;
             bearGameState.urgentMode = false;
             
+            // Disable dimension toggle buttons during game
+            const section = chart.canvas.closest('.timeline-section');
+            section.querySelectorAll('.toggle-btn').forEach(btn => {
+                btn.style.opacity = '0.5';
+                btn.style.cursor = 'not-allowed';
+                btn.setAttribute('data-game-disabled', 'true');
+            });
+            
             // Show flyout and start timer
             hideAllFlyouts();
             document.getElementById(`bear-flyout-${chartIndex}`).style.display = 'block';
@@ -2264,6 +2278,13 @@
             // Stop urgent flashing
             document.querySelectorAll('.timeline-section').forEach(section => {
                 section.classList.remove('urgent');
+            });
+            
+            // Re-enable dimension toggle buttons
+            document.querySelectorAll('.toggle-btn[data-game-disabled="true"]').forEach(btn => {
+                btn.style.opacity = '';
+                btn.style.cursor = '';
+                btn.removeAttribute('data-game-disabled');
             });
             
             // Remove any countdown overlay
