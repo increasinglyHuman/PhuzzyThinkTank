@@ -21,6 +21,7 @@ class TimelineAnalysis {
         this.bearGameState = window.bearGameState; // Reference to global state
         this.accordionOpen = false;
         this.lastEnabledDimension = null; // Track most recently enabled dimension
+        this.scenarioAnswered = false; // Track if current scenario has been answered
         
         // Hide bear paw on initialization
         const bearPaw = document.getElementById('bear-paw-main');
@@ -63,7 +64,8 @@ class TimelineAnalysis {
     initializeForScenario(scenario) {
         this.currentScenario = scenario;
         
-        // Reset last enabled dimension for new scenario
+        // Reset flags for new scenario
+        this.scenarioAnswered = false;
         this.lastEnabledDimension = null;
         
         // Update bear paw visibility based on cooldown
@@ -119,6 +121,9 @@ class TimelineAnalysis {
     renderAnalysis() {
         console.log('renderAnalysis called');
         console.log('Current scenario:', this.currentScenario);
+        
+        // Reset lastEnabledDimension for new scenario
+        this.lastEnabledDimension = null;
         
         if (!this.currentScenario) {
             console.error('No current scenario!');
@@ -178,6 +183,23 @@ class TimelineAnalysis {
         // Create new timeline chart instance
         this.timelineChart = new TimelineChart(canvas);
         
+        // Reset all dimension toggles to visible (default state)
+        this.timelineChart.visibleDimensions = {
+            logic: true,
+            emotion: true,
+            balanced: true,
+            agenda: true
+        };
+        
+        // Set up dimension toggle callback
+        this.timelineChart.onDimensionToggle = (dimension, isVisible) => {
+            console.log('Dimension toggled:', dimension, isVisible);
+            if (isVisible) {
+                this.lastEnabledDimension = dimension;
+            }
+            this.updateInfoBoxes();
+        };
+        
         // Analyze the scenario text and draw
         const reviewKeywords = this.currentScenario.reviewKeywords || {};
         const text = this.currentScenario.text || '';
@@ -212,19 +234,282 @@ class TimelineAnalysis {
         
         const ctx = canvas.getContext('2d');
         
-        // Always use answer weights for the radar chart
-        // This shows the overall scenario classification, not timeline averages
-        const weights = this.currentScenario.answerWeights || {};
-        console.log('Using answer weights for radar chart:', weights);
+        // Check if player has submitted their answer for this scenario
+        // Also check if the current scenario is in the completed list
+        const isScenarioCompleted = window.gameEngine && window.gameEngine.scenariosCompleted && 
+                                   this.currentScenario && 
+                                   window.gameEngine.scenariosCompleted.includes(this.currentScenario.id);
         
-        // Clear canvas
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const hasAnswered = this.scenarioAnswered || 
+                           (window.gameEngine && window.gameEngine.uiController && window.gameEngine.uiController.hasAnswered) ||
+                           isScenarioCompleted;
         
-        // Draw radar chart
-        this.drawRadarChart(ctx, weights, canvas.width, canvas.height);
+        // Update our flag if scenario is completed
+        if (isScenarioCompleted && !this.scenarioAnswered) {
+            this.scenarioAnswered = true;
+        }
         
-        // Update radar legend
-        this.updateRadarLegend(weights);
+        console.log('createRadarChart - hasAnswered:', hasAnswered, 'scenarioAnswered:', this.scenarioAnswered, 'isCompleted:', isScenarioCompleted);
+        
+        if (!hasAnswered) {
+            // Progressive scan mode - start the scanning animation
+            this.startRadarScan(ctx, canvas.width, canvas.height);
+        } else {
+            // Show real values after answer
+            const weights = this.currentScenario.answerWeights || {};
+            console.log('Using answer weights for radar chart:', weights);
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw radar chart
+            this.drawRadarChart(ctx, weights, canvas.width, canvas.height);
+            
+            // Update radar legend
+            this.updateRadarLegend(weights);
+        }
+    }
+    
+    // Start radar scan animation
+    startRadarScan(ctx, width, height) {
+        const centerX = width / 2;
+        const centerY = height / 2;
+        const maxRadius = Math.min(width, height) * 0.4;
+        
+        // Store animation frame ID for cleanup
+        if (this.radarScanAnimation) {
+            cancelAnimationFrame(this.radarScanAnimation);
+        }
+        
+        let angle = 0;
+        let time = 0;
+        
+        // Initialize dynamic values for each dimension
+        const dynamicValues = {
+            logic: { current: 50, target: 50, velocity: 0 },
+            emotion: { current: 50, target: 50, velocity: 0 },
+            balanced: { current: 50, target: 50, velocity: 0 },
+            agenda: { current: 50, target: 50, velocity: 0 }
+        };
+        
+        const animate = () => {
+            // Clear canvas
+            ctx.clearRect(0, 0, width, height);
+            
+            // Draw radar grid
+            ctx.strokeStyle = '#e5e5e5';
+            ctx.lineWidth = 1;
+            
+            // Draw concentric circles
+            for (let i = 1; i <= 4; i++) {
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, (maxRadius / 4) * i, 0, Math.PI * 2);
+                ctx.stroke();
+            }
+            
+            // Draw axes
+            const axes = 4;
+            const dimensions = ['logic', 'emotion', 'balanced', 'agenda'];
+            const colors = {
+                logic: '#3b82f6',
+                emotion: '#ec4899',
+                balanced: '#10b981',
+                agenda: '#f59e0b'
+            };
+            
+            for (let i = 0; i < axes; i++) {
+                const axisAngle = (Math.PI * 2 / axes) * i - Math.PI / 2;
+                ctx.beginPath();
+                ctx.moveTo(centerX, centerY);
+                ctx.lineTo(
+                    centerX + Math.cos(axisAngle) * maxRadius,
+                    centerY + Math.sin(axisAngle) * maxRadius
+                );
+                ctx.stroke();
+            }
+            
+            // Update dynamic values with spring physics
+            Object.keys(dynamicValues).forEach(dim => {
+                const val = dynamicValues[dim];
+                
+                // Randomly change target every so often
+                if (Math.random() < 0.02) {
+                    val.target = 20 + Math.random() * 60; // Range 20-80
+                }
+                
+                // Spring physics
+                const springForce = (val.target - val.current) * 0.05;
+                const damping = val.velocity * 0.9;
+                val.velocity = damping + springForce;
+                val.current += val.velocity;
+                
+                // Add some noise
+                val.current += (Math.random() - 0.5) * 2;
+                
+                // Clamp values
+                val.current = Math.max(10, Math.min(90, val.current));
+            });
+            
+            // Draw animated preview shape
+            ctx.save();
+            ctx.strokeStyle = 'rgba(16, 185, 129, 0.3)';
+            ctx.fillStyle = 'rgba(16, 185, 129, 0.05)';
+            ctx.lineWidth = 1.5;
+            
+            ctx.beginPath();
+            dimensions.forEach((dim, i) => {
+                const axisAngle = (Math.PI * 2 / axes) * i - Math.PI / 2;
+                const value = dynamicValues[dim].current / 100;
+                const x = centerX + Math.cos(axisAngle) * maxRadius * value;
+                const y = centerY + Math.sin(axisAngle) * maxRadius * value;
+                
+                if (i === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            });
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+            ctx.restore();
+            
+            // Draw floating numbers at each axis
+            ctx.save();
+            dimensions.forEach((dim, i) => {
+                const axisAngle = (Math.PI * 2 / axes) * i - Math.PI / 2;
+                const value = Math.round(dynamicValues[dim].current);
+                
+                // Position numbers just inside the radar edge to fit canvas
+                // Move bottom number up more to make room for text
+                let adjustedRadius = maxRadius - 20;
+                if (i === 2) { // Bottom dimension (balanced)
+                    adjustedRadius = maxRadius - 35;
+                }
+                const numX = centerX + Math.cos(axisAngle) * adjustedRadius;
+                const numY = centerY + Math.sin(axisAngle) * adjustedRadius;
+                
+                // Pulsing effect
+                const pulse = 1 + Math.sin(time * 0.03 + i) * 0.1;
+                
+                ctx.font = `${16 * pulse}px system-ui`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                
+                // Shadow for better visibility
+                ctx.shadowBlur = 4;
+                ctx.shadowColor = 'rgba(0,0,0,0.3)';
+                ctx.fillStyle = colors[dim];
+                ctx.fillText(value + '%', numX, numY);
+            });
+            ctx.restore();
+            
+            // Draw scanning line
+            ctx.save();
+            ctx.strokeStyle = '#10b981';
+            ctx.lineWidth = 2;
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = '#10b981';
+            
+            ctx.beginPath();
+            ctx.moveTo(centerX, centerY);
+            ctx.lineTo(
+                centerX + Math.cos(angle) * maxRadius,
+                centerY + Math.sin(angle) * maxRadius
+            );
+            ctx.stroke();
+            
+            // Draw scanning arc
+            ctx.globalAlpha = 0.1;
+            ctx.fillStyle = '#10b981';
+            ctx.beginPath();
+            ctx.moveTo(centerX, centerY);
+            ctx.arc(centerX, centerY, maxRadius, angle - 0.5, angle, false);
+            ctx.closePath();
+            ctx.fill();
+            ctx.restore();
+            
+            // Add "SCANNING..." text - larger and more prominent
+            ctx.save();
+            ctx.fillStyle = '#10b981';
+            ctx.font = 'bold 20px system-ui';
+            ctx.textAlign = 'center';
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = '#10b981';
+            
+            // Keep SCANNING at steady opacity
+            ctx.globalAlpha = 0.8;
+            ctx.fillText('SCANNING...', centerX, height - 10);
+            
+            // Add playful subtext with different timing
+            ctx.font = '12px system-ui';
+            ctx.fillStyle = '#666';
+            
+            // Create a fade in/hold/fade out cycle
+            const cycleTime = 500; // Total cycle time
+            const fadeTime = 100; // Time for fade in/out
+            const holdTime = 300; // Time to hold at full opacity
+            
+            const cyclePosition = time % cycleTime;
+            let opacity = 0;
+            
+            if (cyclePosition < fadeTime) {
+                // Fade in
+                opacity = cyclePosition / fadeTime;
+            } else if (cyclePosition < fadeTime + holdTime) {
+                // Hold
+                opacity = 1;
+            } else if (cyclePosition < fadeTime * 2 + holdTime) {
+                // Fade out
+                opacity = 1 - (cyclePosition - fadeTime - holdTime) / fadeTime;
+            }
+            
+            ctx.globalAlpha = opacity * 0.8;
+            
+            // Rotate through different messages for fun
+            const messages = [
+                'Submit answer to unlock analysis',
+                'Pattern recognition in progress...',
+                'Awaiting user input to calibrate',
+                'Data locked - answer required',
+                'Complete investigation to reveal'
+            ];
+            const messageIndex = Math.floor(time / cycleTime) % messages.length;
+            ctx.fillText(messages[messageIndex], centerX, height - 37);
+            
+            ctx.restore();
+            
+            // Update angle and time
+            angle += 0.02;
+            if (angle > Math.PI * 2) {
+                angle = 0;
+            }
+            time++;
+            
+            // Continue animation
+            this.radarScanAnimation = requestAnimationFrame(animate);
+        };
+        
+        animate();
+    }
+    
+    // Stop radar scan animation
+    stopRadarScan() {
+        if (this.radarScanAnimation) {
+            cancelAnimationFrame(this.radarScanAnimation);
+            this.radarScanAnimation = null;
+        }
+    }
+    
+    // Update radar chart after answer is submitted
+    updateRadarAfterAnswer() {
+        console.log('Updating radar chart after answer...');
+        
+        // Mark that this scenario has been answered
+        this.scenarioAnswered = true;
+        
+        // Stop the scanning animation
+        this.stopRadarScan();
+        
+        // Redraw the radar with real values
+        this.createRadarChart();
     }
     
     // Calculate average scores from timeline data
@@ -378,10 +663,15 @@ class TimelineAnalysis {
     updateInfoBoxes() {
         if (!this.currentScenario) return;
         
+        // Check if player has submitted their answer
+        const hasAnswered = window.gameEngine && window.gameEngine.uiController && window.gameEngine.uiController.hasAnswered;
+        
         // Determine which dimension to show
         let selectedDimension = null;
         
-        // If we have a recently enabled dimension, use that
+        console.log('updateInfoBoxes - hasAnswered:', hasAnswered, 'lastEnabledDimension:', this.lastEnabledDimension);
+        
+        // Always check for recently enabled dimension first (works both before and after answer)
         if (this.lastEnabledDimension) {
             // Check if it's still visible
             if (this.timelineChart && this.timelineChart.visibleDimensions[this.lastEnabledDimension]) {
@@ -392,79 +682,94 @@ class TimelineAnalysis {
             }
         }
         
-        // If no recently enabled dimension, fall back to highest weight
-        if (!selectedDimension) {
+        // If no recently enabled dimension and answer has been submitted, show highest weight
+        if (!selectedDimension && hasAnswered) {
             let highestWeight = 0;
-            ['logic', 'emotion', 'balanced', 'agenda'].forEach(dim => {
+            ['emotion', 'logic', 'balanced', 'agenda'].forEach(dim => {
                 const weight = this.currentScenario.answerWeights[dim] || 0;
                 if (weight > highestWeight) {
                     highestWeight = weight;
                     selectedDimension = dim;
                 }
             });
-        }
-        
-        // Final fallback: use correct answer
-        if (!selectedDimension) {
-            selectedDimension = this.currentScenario.correctAnswer;
+            
+            // Final fallback: use correct answer
+            if (!selectedDimension) {
+                selectedDimension = this.currentScenario.correctAnswer;
+            }
         }
         
         // Update timeline description box
         const timelineBox = document.querySelector('.timeline-info-box');
         const timelineDesc = document.getElementById('timeline-description');
         
-        if (timelineBox && timelineDesc && selectedDimension) {
-            // Get scenario-specific analysis if available
-            let analysisText = null;
-            if (this.currentScenario.dimensionAnalysis && this.currentScenario.dimensionAnalysis[selectedDimension]) {
-                analysisText = this.currentScenario.dimensionAnalysis[selectedDimension];
-            }
-            
-            // Dimension styling
-            const dimensionStyles = {
-                logic: {
-                    background: '#dbeafe',
-                    borderColor: '#3b82f6',
-                    titleColor: '#1e40af'
-                },
-                emotion: {
-                    background: '#fce7f3',
-                    borderColor: '#ec4899',
-                    titleColor: '#be185d'
-                },
-                balanced: {
-                    background: '#d1fae5',
-                    borderColor: '#10b981',
-                    titleColor: '#047857'
-                },
-                agenda: {
-                    background: '#fed7aa',
-                    borderColor: '#f59e0b',
-                    titleColor: '#b45309'
+        if (timelineBox && timelineDesc) {
+            if (!selectedDimension) {
+                // No dimension selected - show generic neutral state
+                timelineDesc.textContent = 'Analyzing language patterns across the timeline...';
+                
+                // Neutral gray styling with !important to override any CSS
+                timelineBox.style.setProperty('background', '#e5e5e5', 'important');
+                timelineBox.style.setProperty('border-left-color', '#999999', 'important');
+                
+                const infoTitle = timelineBox.querySelector('.info-title');
+                if (infoTitle) {
+                    infoTitle.style.color = '#4b5563';
                 }
-            };
-            
-            // Fallback texts if dimensionAnalysis not available
-            const fallbackTexts = {
-                logic: 'Track how evidence quality changes - watch for missing data, false statistics, and logical leaps that bypass critical thinking.',
-                emotion: 'Notice emotional intensity patterns - fear spikes, guilt triggers, and hope manipulation designed to override rational thought.',
-                balanced: 'Observe how multiple perspectives are presented fairly - acknowledging complexity without manipulation or oversimplification.',
-                agenda: 'Watch for hidden motives surfacing - sales pitches disguised as advice, biased sources, and selective information presentation.'
-            };
-            
-            const dimStyle = dimensionStyles[selectedDimension];
-            
-            // Update text - use scenario-specific or fallback
-            timelineDesc.textContent = analysisText || fallbackTexts[selectedDimension];
-            
-            // Update box styling
-            timelineBox.style.background = dimStyle.background;
-            timelineBox.style.borderLeftColor = dimStyle.borderColor;
-            
-            // Update title color
-            const infoTitle = timelineBox.querySelector('.info-title');
-            if (infoTitle) {
-                infoTitle.style.color = dimStyle.titleColor;
+            } else {
+                // Dimension selected - show dimension-specific info
+                // Get scenario-specific analysis if available
+                let analysisText = null;
+                if (this.currentScenario.dimensionAnalysis && this.currentScenario.dimensionAnalysis[selectedDimension]) {
+                    analysisText = this.currentScenario.dimensionAnalysis[selectedDimension];
+                }
+                
+                // Dimension styling
+                const dimensionStyles = {
+                    logic: {
+                        background: '#dbeafe',
+                        borderColor: '#3b82f6',
+                        titleColor: '#1e40af'
+                    },
+                    emotion: {
+                        background: '#fce7f3',
+                        borderColor: '#ec4899',
+                        titleColor: '#be185d'
+                    },
+                    balanced: {
+                        background: '#d1fae5',
+                        borderColor: '#10b981',
+                        titleColor: '#047857'
+                    },
+                    agenda: {
+                        background: '#fed7aa',
+                        borderColor: '#f59e0b',
+                        titleColor: '#b45309'
+                    }
+                };
+                
+                // Fallback texts if dimensionAnalysis not available
+                const fallbackTexts = {
+                    logic: 'Track how evidence quality changes - watch for missing data, false statistics, and logical leaps that bypass critical thinking.',
+                    emotion: 'Notice emotional intensity patterns - fear spikes, guilt triggers, and hope manipulation designed to override rational thought.',
+                    balanced: 'Observe how multiple perspectives are presented fairly - acknowledging complexity without manipulation or oversimplification.',
+                    agenda: 'Watch for hidden motives surfacing - sales pitches disguised as advice, biased sources, and selective information presentation.'
+                };
+                
+                const dimStyle = dimensionStyles[selectedDimension];
+                
+                // Update text - use scenario-specific or fallback
+                timelineDesc.textContent = analysisText || fallbackTexts[selectedDimension];
+                
+                // Update box styling
+                timelineBox.style.background = dimStyle.background;
+                timelineBox.style.borderLeftColor = dimStyle.borderColor;
+                
+                // Update title color
+                const infoTitle = timelineBox.querySelector('.info-title');
+                if (infoTitle) {
+                    infoTitle.style.color = dimStyle.titleColor;
+                }
             }
         }
         

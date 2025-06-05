@@ -149,6 +149,11 @@ class QuizInterface {
             // Show analysis after delay
             setTimeout(function() {
                 this.showAnalysis();
+                
+                // Update radar chart if timeline is open
+                if (window.timelineAnalysis && window.timelineAnalysis.accordionOpen) {
+                    window.timelineAnalysis.updateRadarAfterAnswer();
+                }
             }.bind(this), 2000);
         } catch (error) {
             console.error('Error in submitAnswer:', error);
@@ -710,25 +715,15 @@ class QuizInterface {
     }
     
     createConfetti() {
-        // SPECTACULAR 3-BURST CELEBRATION!
-        console.log('🎉 Starting epic 3-burst celebration!');
+        // More gentle celebration
+        console.log('🎉 Starting celebration!');
         
-        // Burst 1: Small focused burst from center
+        // Single burst from center with fewer particles
         setTimeout(() => {
-            this.createConfettiBurst(1, 'center', 60, 12, 18);
+            this.createConfettiBurst(1, 'center', 40, 10, 16);
         }, 500);
         
-        // Burst 2: Medium burst from left and right
-        setTimeout(() => {
-            this.createConfettiBurst(2, 'sides', 120, 16, 24);
-        }, 1200);
-        
-        // Burst 3: MASSIVE finale burst from everywhere
-        setTimeout(() => {
-            this.createConfettiBurst(3, 'everywhere', 200, 20, 30);
-        }, 2000);
-        
-        // Add floating emoji celebrations throughout
+        // Add some floating emojis
         setTimeout(() => {
             this.createFloatingCelebration();
         }, 800);
@@ -780,9 +775,9 @@ class QuizInterface {
                 confetti.style.animationDelay = delay + 's';
                 confetti.style.animationDuration = duration + 's';
                 
-                // Add random movement variables for burst animations
-                var randomX = (Math.random() - 0.5) * 300 * burstNumber; // -150 to 150, scaled by burst
-                var randomY = (Math.random() - 0.5) * 200 * burstNumber; // -100 to 100, scaled by burst
+                // Add random movement variables for burst animations - reduce movement
+                var randomX = (Math.random() - 0.5) * 150; // -75 to 75px
+                var randomY = (Math.random() - 0.5) * 100; // -50 to 50px
                 confetti.style.setProperty('--random-x', randomX + 'px');
                 confetti.style.setProperty('--random-y', randomY + 'px');
                 confetti.style.setProperty('--burst-intensity', burstNumber);
@@ -802,7 +797,8 @@ class QuizInterface {
         var celebrationEmojis = ['🎉', '🎊', '🥳', '✨', '🌟', '💫', '🎈', '🏆'];
         var endGame = this.elements.endGame;
         
-        for (var i = 0; i < 15; i++) {
+        // Reduce number of emojis for less chaos
+        for (var i = 0; i < 8; i++) {
             setTimeout(() => {
                 var emoji = document.createElement('div');
                 emoji.className = 'celebration-emoji';
