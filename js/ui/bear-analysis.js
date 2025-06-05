@@ -601,12 +601,17 @@ class BearAnalysis {
                         // Look up the full fallacy data
                         var fallacyData = self.fallacyDatabase && self.fallacyDatabase[fallacy.fallacyId];
                         if (!fallacyData) {
+                            // Try to get icon from allFallacies array
+                            var basicFallacy = self.allFallacies.find(function(f) { return f.id === fallacy.fallacyId; });
+                            var fallacyIcon = basicFallacy ? basicFallacy.icon : '🃏';
+                            var fallacyRarity = basicFallacy ? basicFallacy.rarity : 'common';
+                            
                             // Fallback to minimal data if database not loaded
                             fallacyData = {
                                 id: fallacy.fallacyId,
                                 name: fallacy.fallacyId.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
-                                icon: '🃏',
-                                rarity: 'common',
+                                icon: fallacyIcon,
+                                rarity: fallacyRarity,
                                 definition: fallacy.example || 'A logical error in reasoning',
                                 learningTip: 'Be aware of this logical fallacy',
                                 commonIn: [],
@@ -719,7 +724,17 @@ class BearAnalysis {
                         if (cardElement) {
                             // Get the icon from the fallacy database or use a default
                             var fallacyData = self.fallacyDatabase && self.fallacyDatabase[fallacy.fallacyId];
-                            var icon = fallacyData ? fallacyData.icon : '🃏';
+                            var icon = '🃏'; // default
+                            
+                            if (fallacyData) {
+                                icon = fallacyData.icon;
+                            } else {
+                                // Try to get icon from allFallacies array as fallback
+                                var basicFallacy = self.allFallacies.find(function(f) { return f.id === fallacy.fallacyId; });
+                                if (basicFallacy) {
+                                    icon = basicFallacy.icon;
+                                }
+                            }
                             
                             cardElement.addEventListener('click', function() {
                                 self.collectCard(fallacy.fallacyId, icon, cardElement);
