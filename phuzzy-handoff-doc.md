@@ -1,9 +1,11 @@
 # Phuzzy Think Tank - Development Handoff Document
+**Last Updated**: January 6, 2025
 
 ## Project Overview
 **Phuzzy Think Tank** is an educational game teaching critical thinking by having players identify whether arguments are flawed due to weak logic, emotional manipulation, hidden agendas, or are actually well-balanced.
 
-**Game URL**: https://www.p0qp0q.com/thinkTank/
+**Game URL**: https://p0qp0q.com/thinkTank/  
+**GitHub Repository**: https://github.com/increasinglyHuman/PhuzzyThinkTank.git
 
 ## Current State Summary
 
@@ -20,7 +22,12 @@
    - **NEW: Sizzle Effects** - random card animations every 10 seconds
    - **NEW: Collection Bonuses** (5+ cards: +10 RIZ, 10+ cards: +25 RIZ, All 15: +50 RIZ)
    - **NEW: Thematic Messaging** - "duh=phuzzier" instead of "TRY AGAIN!"
-   - Dual Bear Analysis system showing detailed breakdowns
+   - **NEW: Splash Screen** with bear introduction and game instructions
+   - **NEW: Review Mode** - click answers after submission to see detailed feedback
+   - **NEW: Enhanced Scoring Display** with persistent correct answer highlighting
+   - **NEW: Scoreboard Toggle** - click dizzy star icon to collapse/expand score tracker
+   - **NEW: Bear Mini-game** animations for wrong answers and hints
+   - Dual Bear Analysis system showing detailed breakdowns with review keywords
    - Social sharing to Instagram, Facebook, LinkedIn (Twitter replaced)
    - End game celebration with performance metrics and collection rewards
 
@@ -32,12 +39,15 @@
    - Scenario creation tool
    - Microgame API for earning honey pots
 
-### Known Issues
-⚠️ **CRITICAL BUG**: The single-file HTML version has syntax errors causing browser crashes:
-- Template literals causing parsing issues in Claude's artifact environment
-- Need to convert all backticks to string concatenation
-- Arrow functions may need conversion to traditional functions
-- The hint system was simplified to avoid innerHTML manipulation
+### Recent Major Updates (January 2025)
+✅ **All critical bugs have been fixed!** The game is now fully functional with:
+- ES5 compatibility for maximum browser support
+- Modular architecture with 18+ separate JavaScript files
+- Clean separation of concerns (CSS, JS, data)
+- Git repository with proper version control
+- Review mode for educational reinforcement
+- Splash screen for better onboarding
+- Enhanced animations and user feedback
 
 ## File Structure Created
 ```
@@ -190,7 +200,19 @@ The game now features a collectible trading card system with 15 unique logical f
 - **SVG card graphics**: User mentioned creating bear-themed graphics for the 280x160px card art areas (card dimensions updated to 280x420px total)
 - **Additional scenarios**: Expand beyond current 10 scenarios
 
-### Recent Updates (Current Session)
+### Recent Updates (January 2025)
+- **Review Mode System** - Click answers after submission to see detailed scoring feedback with tooltips
+- **Splash Screen** - Professional onboarding with bear mascot and clear game instructions  
+- **Enhanced Hint System** - Visual keyword highlighting with bear mini-game animations
+- **Scoreboard Toggle** - Collapsible score tracker with dizzy star icon
+- **Persistent Correct Answers** - Green highlighting remains visible for learning reinforcement
+- **Review Keywords** - Scenario data now includes keywords for each dimension analysis
+- **Git Repository Cleanup** - Updated .gitignore to exclude screenshots and unnecessary data files
+- **Bear Animations** - Added sad bear for wrong answers, success bear for correct answers
+- **Improved Accessibility** - Better contrast, larger text, clearer visual feedback
+- **Performance Optimizations** - Removed heavy strobe animations, streamlined CSS
+
+### Previous Updates (June 2024)
 - **Interactive card collection system** - Click to collect, click to recall
 - **Single row layout** - All 15 cards in horizontal row with responsive breakpoints
 - **Enhanced visual design** - Larger cards (280x420px), bigger icons (5.5rem), white tooltips with purple text

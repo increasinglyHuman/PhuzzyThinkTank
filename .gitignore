@@ -147,3 +147,9 @@ data/*
 !data/scenario-generated-002.json
 !data/scenarios-v2-repaired.json
 !data/scenario-schema-v3-proposal.json
+
+# Scripts
+take-screenshot.sh
+
+# Session files
+phuzzy-session-*.md
