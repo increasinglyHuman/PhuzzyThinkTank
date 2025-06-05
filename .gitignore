@@ -153,3 +153,6 @@ take-screenshot.sh
 
 # Session files
 phuzzy-session-*.md
+
+# Complete game files
+phuzzy-complete-game.html
