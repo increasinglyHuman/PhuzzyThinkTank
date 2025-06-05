@@ -39,8 +39,36 @@
    - Scenario creation tool
    - Microgame API for earning honey pots
 
+### Known Issues (January 2025)
+While the game is functional, several improvements are needed:
+
+1. **Card Toybox Metaphor** - Card click mechanics need adjustment to encourage playful interaction:
+   - Users should feel like they're playing with toys, not just collecting
+   - "Put away" and "take out" interactions need refinement
+   - More intuitive visual feedback for the toybox concept
+
+2. **3-Card Display Limit** - Current implementation has issues:
+   - When pulling out >3 cards, the 4th replaces an existing one
+   - Replaced cards go back to the mini-card rack automatically
+   - This behavior needs to be more intuitive and visually clear
+
+3. **Card Mini-game Bugs** - Several features incomplete:
+   - Some card interactions don't work as expected
+   - Visual feedback inconsistencies
+   - Missing features from original design specification
+
+4. **Fallacy Tag Matching Bug** - Critical logic issue:
+   - Mismatch between fallacy tags in data and game engine expectations
+   - Need to align with imported scenario data structure
+   - May be causing cards to not appear in some scenarios
+
+5. **Limited Content** - Currently only 30 scenarios (3 packs of 10):
+   - Target: 48 scenarios for robust gameplay
+   - Use AI-assisted generation tools with memory optimization
+   - Ensure variety and educational value
+
 ### Recent Major Updates (January 2025)
-✅ **All critical bugs have been fixed!** The game is now fully functional with:
+✅ Core functionality restored with:
 - ES5 compatibility for maximum browser support
 - Modular architecture with 18+ separate JavaScript files
 - Clean separation of concerns (CSS, JS, data)
@@ -115,33 +143,43 @@ Each scenario contains:
 
 ## Implementation Priority
 
-### Phase 1: Fix Core Game ✅
-1. Extract CSS into separate files ✅
-2. Extract JS into modules ✅
-3. Fix syntax errors (template literals, arrow functions) ✅
-4. Create clean index.html ✅
-5. Test locally ✅
-6. **NEW: Implement Card Collection System** ✅
+### Phase 1: Critical Bug Fixes 🚨
+1. **Fix Fallacy Tag Matching** - Align data structure with game engine
+2. **Card Toybox Interactions** - Implement intuitive play metaphor
+3. **3-Card Display Logic** - Fix replacement behavior and visual feedback
+4. **Complete Card Features** - Implement all designed interactions
 
-### Phase 2: Dynamic Content
+### Phase 2: Content Expansion 📚
+1. **Generate 18+ New Scenarios** - Use AI tools to reach 48 total
+2. **Memory Optimization** - Ensure efficient loading with larger dataset
+3. **Pack System Enhancement** - Better organization of scenario packs
+4. **Quality Assurance** - Test all scenarios for educational value
+
+### Phase 3: Polish & Enhancement ✨
+1. **Card Animation Refinement** - Smooth toybox interactions
+2. **Visual Feedback** - Clear indicators for all actions
+3. **Sound Effects** (optional) - Playful audio for card interactions
+4. **Tutorial Enhancement** - Better onboarding for card system
+
+### Phase 4: Dynamic Content System
 1. Implement ScenarioManager to load from JSON
 2. Add pagination for scenario selection
 3. Create admin tool for scenario management
 4. Add scenario categories/filtering
 
-### Phase 3: Persistence & Analytics
+### Phase 5: Persistence & Analytics
 1. Save game progress locally
 2. High score tracking
 3. Analytics integration
 4. User accounts (optional)
 
-### Phase 4: Microgames
+### Phase 6: Microgames
 1. Create honey pot earning games
 2. Implement iframe communication
 3. Add to main game UI
 4. Balance economy
 
-### Phase 5: Scale & Deploy
+### Phase 7: Scale & Deploy
 1. Backend API for scenarios
 2. User-generated content
 3. Moderation system
@@ -198,7 +236,13 @@ The game now features a collectible trading card system with 15 unique logical f
 ### Remaining Work
 - **5 scenarios still need logical fallacy data**: Miracle Supplement (#1), Teacher's Concern (#4), Food Additive (#6), University Study (#8), Community Garden (#10)
 - **SVG card graphics**: User mentioned creating bear-themed graphics for the 280x160px card art areas (card dimensions updated to 280x420px total)
-- **Additional scenarios**: Expand beyond current 10 scenarios
+- **Scenario Expansion**: Current: 30 scenarios (3 packs), Target: 48 scenarios
+- **AI Generation Tools Available**:
+  - `ai-scenario-generator.js` - Automated scenario creation
+  - `add-scenario-efficiently.js` - Memory-optimized addition
+  - `add-scenario-incremental.js` - Incremental scenario updates
+  - `scenario-append-helper.js` - Helper for appending scenarios
+  - `check-scenarios.js` - Validation and checking tool
 
 ### Recent Updates (January 2025)
 - **Review Mode System** - Click answers after submission to see detailed scoring feedback with tooltips
