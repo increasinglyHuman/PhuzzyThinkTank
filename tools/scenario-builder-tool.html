@@ -297,6 +297,17 @@
             margin-top: 10px;
         }
         
+        .review-keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 10px 0;
+            min-height: 30px;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 6px;
+        }
+        
         .keyword-input {
             display: flex;
             gap: 8px;
@@ -516,6 +527,54 @@
                 </div>
             </div>
             
+            <!-- Review Keywords Section -->
+            <div class="review-keywords-builder" style="background: #e6f3ff; border: 2px solid #3b82f6; border-radius: 8px; padding: 15px; margin-top: 15px;">
+                <h3>📊 Review Keywords for Timeline Analysis</h3>
+                <p style="font-size: 14px; color: #2563eb; margin-bottom: 15px;">
+                    Define keywords that will be tracked in the Language Evolution Timeline. These help visualize how different persuasion techniques appear throughout the text.
+                </p>
+                
+                <div class="keyword-section">
+                    <h4 style="color: #3b82f6; margin-bottom: 10px;">🧠 Logic Keywords</h4>
+                    <p style="font-size: 13px; color: #64748b; margin-bottom: 8px;">Words indicating logical reasoning, evidence, or data</p>
+                    <div class="review-keywords" id="logic-keywords"></div>
+                    <div class="keyword-input">
+                        <input type="text" id="new-logic-keyword" placeholder="e.g., study, evidence, data">
+                        <button onclick="addReviewKeyword('logic')">Add</button>
+                    </div>
+                </div>
+                
+                <div class="keyword-section" style="margin-top: 15px;">
+                    <h4 style="color: #ec4899; margin-bottom: 10px;">💖 Emotion Keywords</h4>
+                    <p style="font-size: 13px; color: #64748b; margin-bottom: 8px;">Words triggering emotional responses</p>
+                    <div class="review-keywords" id="emotion-keywords"></div>
+                    <div class="keyword-input">
+                        <input type="text" id="new-emotion-keyword" placeholder="e.g., danger, urgent, protect">
+                        <button onclick="addReviewKeyword('emotion')">Add</button>
+                    </div>
+                </div>
+                
+                <div class="keyword-section" style="margin-top: 15px;">
+                    <h4 style="color: #10b981; margin-bottom: 10px;">⚖️ Balanced Keywords</h4>
+                    <p style="font-size: 13px; color: #64748b; margin-bottom: 8px;">Words showing nuanced thinking</p>
+                    <div class="review-keywords" id="balanced-keywords"></div>
+                    <div class="keyword-input">
+                        <input type="text" id="new-balanced-keyword" placeholder="e.g., however, consider, both">
+                        <button onclick="addReviewKeyword('balanced')">Add</button>
+                    </div>
+                </div>
+                
+                <div class="keyword-section" style="margin-top: 15px;">
+                    <h4 style="color: #f59e0b; margin-bottom: 10px;">🎯 Agenda Keywords</h4>
+                    <p style="font-size: 13px; color: #64748b; margin-bottom: 8px;">Words revealing hidden motives</p>
+                    <div class="review-keywords" id="agenda-keywords"></div>
+                    <div class="keyword-input">
+                        <input type="text" id="new-agenda-keyword" placeholder="e.g., buy now, limited, offer">
+                        <button onclick="addReviewKeyword('agenda')">Add</button>
+                    </div>
+                </div>
+            </div>
+            
             <div class="hint-builder">
                 <h3>🍯 Hint Keywords</h3>
                 <p style="font-size: 14px; color: #744210; margin-bottom: 10px;">
@@ -568,6 +627,31 @@
                 keywordTag.className = 'tag selected';
                 keywordTag.textContent = keyword;
                 keywordTag.style.background = '#f6ad55';
+                keywordTag.style.color = 'white';
+                keywordTag.onclick = function() { this.remove(); };
+                keywordsContainer.appendChild(keywordTag);
+                input.value = '';
+            }
+        }
+        
+        // Add review keyword functionality
+        function addReviewKeyword(dimension) {
+            const input = document.getElementById('new-' + dimension + '-keyword');
+            const keyword = input.value.trim();
+            if (keyword) {
+                const keywordsContainer = document.getElementById(dimension + '-keywords');
+                const keywordTag = document.createElement('span');
+                keywordTag.className = 'tag selected';
+                keywordTag.textContent = keyword;
+                
+                // Color code by dimension
+                const colors = {
+                    logic: '#3b82f6',
+                    emotion: '#ec4899',
+                    balanced: '#10b981',
+                    agenda: '#f59e0b'
+                };
+                keywordTag.style.background = colors[dimension];
                 keywordTag.style.color = 'white';
                 keywordTag.onclick = function() { this.remove(); };
                 keywordsContainer.appendChild(keywordTag);
@@ -675,6 +759,24 @@
                     emotion: parseInt(document.getElementById('emotion-weight-value').textContent),
                     balanced: parseInt(document.getElementById('balanced-weight-value').textContent),
                     agenda: parseInt(document.getElementById('agenda-weight-value').textContent)
+                },
+                reviewKeywords: {
+                    logic: {
+                        keywords: Array.from(document.querySelectorAll('#logic-keywords .tag')).map(t => t.textContent),
+                        explanation: 'Keywords that indicate logical reasoning and evidence-based arguments'
+                    },
+                    emotion: {
+                        keywords: Array.from(document.querySelectorAll('#emotion-keywords .tag')).map(t => t.textContent),
+                        explanation: 'Keywords that trigger emotional responses and bypass rational thinking'
+                    },
+                    balanced: {
+                        keywords: Array.from(document.querySelectorAll('#balanced-keywords .tag')).map(t => t.textContent),
+                        explanation: 'Keywords indicating nuanced, multi-perspective thinking'
+                    },
+                    agenda: {
+                        keywords: Array.from(document.querySelectorAll('#agenda-keywords .tag')).map(t => t.textContent),
+                        explanation: 'Keywords revealing hidden motives or commercial interests'
+                    }
                 },
                 analysis: {
                     logic: {

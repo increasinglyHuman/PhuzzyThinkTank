@@ -1,6 +1,7 @@
 // Hint Display
 function HintDisplay() {
     this.hintContainer = null;
+    this.hideTimeout = null;
     
     this.showHint = function(hintText) {
         if (!this.hintContainer) {
@@ -11,12 +12,28 @@ function HintDisplay() {
         
         this.hintContainer.innerHTML = '<div class="hint">' + hintText + '</div>';
         this.hintContainer.classList.add("slide-in");
+        
+        // Clear any existing timeout
+        if (this.hideTimeout) {
+            clearTimeout(this.hideTimeout);
+        }
+        
+        // Auto-hide after 7 seconds
+        this.hideTimeout = setTimeout(() => {
+            this.hideHint();
+        }, 7000);
     };
     
     this.hideHint = function() {
         if (this.hintContainer) {
             this.hintContainer.innerHTML = "";
             this.hintContainer.classList.remove("slide-in");
+        }
+        
+        // Clear any pending timeout
+        if (this.hideTimeout) {
+            clearTimeout(this.hideTimeout);
+            this.hideTimeout = null;
         }
     };
 

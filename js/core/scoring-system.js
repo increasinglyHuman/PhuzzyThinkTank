@@ -22,22 +22,34 @@ class ScoringSystem {
         var weights = scenario.answerWeights;
         var weightScore = weights[userAnswer] || 0;
         
-        // Convert weight score to 0-3 point scale
+        // Rank all answers by their weights
+        var answerRanking = Object.entries(weights)
+            .sort((a, b) => b[1] - a[1])
+            .map(entry => entry[0]);
+        
+        // Find user's answer rank position
+        var userRank = answerRanking.indexOf(userAnswer);
+        
+        // Convert rank to points (1st=3, 2nd=2, 3rd=1, 4th=0)
         var points;
         var feedbackLevel;
         
-        if (weightScore === 100) {
-            points = 3;
-            feedbackLevel = 'perfect';
-        } else if (weightScore >= 80) {
-            points = 2;
-            feedbackLevel = 'close';
-        } else if (weightScore >= 50) {
-            points = 1;
-            feedbackLevel = 'partial';
-        } else {
-            points = 0;
-            feedbackLevel = 'wrong';
+        switch(userRank) {
+            case 0: // Best answer
+                points = 3;
+                feedbackLevel = 'perfect';
+                break;
+            case 1: // Second best
+                points = 2;
+                feedbackLevel = 'close';
+                break;
+            case 2: // Third best
+                points = 1;
+                feedbackLevel = 'partial';
+                break;
+            default: // Worst answer
+                points = 0;
+                feedbackLevel = 'wrong';
         }
         
         // Track performance by type
@@ -227,6 +239,85 @@ class ScoringSystem {
         }
         
         return badge;
+    }
+    
+    // Add bonus points with animation
+    addBonus(points, source) {
+        this.totalScore += points;
+        
+        // Update score display
+        const scoreElement = document.getElementById('user-score');
+        if (scoreElement) {
+            scoreElement.textContent = this.totalScore;
+            scoreElement.classList.add('score-pulse');
+            setTimeout(() => scoreElement.classList.remove('score-pulse'), 600);
+        }
+        
+        // Create coin animation
+        this.animateBonusCoins(points, source);
+    }
+    
+    // Animate coins to the correct scoreboard position
+    animateBonusCoins(points, source) {
+        // Find the target - check if timeline accordion is open
+        const timelineAccordion = document.getElementById('timeline-analysis-accordion');
+        const isTimelineOpen = timelineAccordion && timelineAccordion.style.display !== 'none';
+        
+        let targetElement;
+        let targetRect;
+        
+        if (isTimelineOpen) {
+            // Target the star in the timeline
+            targetElement = document.getElementById('star-timeline');
+            if (!targetElement) {
+                // Fallback to main score tracker
+                targetElement = document.getElementById('score-tracker');
+            }
+        } else {
+            // Target the star in the scenario box or the score tracker
+            targetElement = document.getElementById('star-scenario');
+            if (!targetElement) {
+                targetElement = document.getElementById('score-tracker');
+            }
+        }
+        
+        if (!targetElement) return;
+        
+        targetRect = targetElement.getBoundingClientRect();
+        const targetX = targetRect.left + targetRect.width / 2;
+        const targetY = targetRect.top + targetRect.height / 2;
+        
+        // Create coin emojis
+        const numCoins = Math.min(points, 5);
+        for (let i = 0; i < numCoins; i++) {
+            setTimeout(() => {
+                const coin = document.createElement('div');
+                coin.textContent = '💫';
+                coin.style.cssText = `
+                    position: fixed;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    font-size: 48px;
+                    z-index: 10000;
+                    pointer-events: none;
+                    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                `;
+                document.body.appendChild(coin);
+                
+                // Force reflow
+                coin.offsetHeight;
+                
+                // Animate to target
+                coin.style.left = targetX + 'px';
+                coin.style.top = targetY + 'px';
+                coin.style.transform = 'translate(-50%, -50%) scale(0.5)';
+                coin.style.opacity = '0';
+                
+                // Remove after animation
+                setTimeout(() => coin.remove(), 1000);
+            }, i * 100);
+        }
     }
 }
 // Export for global usage

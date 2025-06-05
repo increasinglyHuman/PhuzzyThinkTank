@@ -31,6 +31,26 @@ class HoneyPotManager {
     
     generateHint(scenario) {
         const strategy = scenario.correctAnswer;
+        
+        // Check if scenario has v2 hint data
+        if (scenario.hints && scenario.hints.hintMessage) {
+            // Use v2 custom hint
+            const hintConfig = {
+                emotion: { icon: '💖', color: 'rgba(237, 100, 166, 0.2)', borderColor: 'rgba(237, 100, 166, 0.8)' },
+                logic: { icon: '🧠', color: 'rgba(66, 153, 225, 0.2)', borderColor: 'rgba(66, 153, 225, 0.8)' },
+                balanced: { icon: '⚖️', color: 'rgba(246, 224, 94, 0.2)', borderColor: 'rgba(246, 224, 94, 0.8)' },
+                agenda: { icon: '🎯', color: 'rgba(251, 160, 38, 0.2)', borderColor: 'rgba(251, 160, 38, 0.8)' }
+            };
+            
+            const config = hintConfig[scenario.hints.strategy || strategy];
+            return {
+                ...config,
+                message: scenario.hints.hintMessage,
+                keywords: scenario.hints.keywords || []
+            };
+        }
+        
+        // Fallback to generic hints for v1 scenarios
         const hints = {
             emotion: {
                 icon: '💖',

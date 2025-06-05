@@ -106,6 +106,15 @@ class FeedbackAnimator {
     }
     
     showScoreIncrease(points = 1) {
+        // Auto-reveal scoreboard for animations
+        if (window.scoreboardManager) {
+            // Always ensure we have a valid star target
+            if (!window.scoreboardManager.currentStarId) {
+                window.scoreboardManager.currentStarId = 'star-scenario';
+            }
+            window.scoreboardManager.autoReveal();
+        }
+        
         // Create floating coins/bears based on points earned
         this.createFloatingRewards(points);
         
@@ -137,9 +146,36 @@ class FeedbackAnimator {
         
         // Get score tracker position for targeting
         const scoreTracker = document.getElementById('score-tracker');
-        if (!scoreTracker) return;
+        let targetRect;
         
-        const targetRect = scoreTracker.getBoundingClientRect();
+        if (scoreTracker && !scoreTracker.classList.contains('collapsed')) {
+            // Score tracker is visible
+            targetRect = scoreTracker.getBoundingClientRect();
+        } else {
+            // Use current star position or default to scenario star
+            let starId = window.scoreboardManager?.currentStarId || 'star-scenario';
+            
+            // For bear game, always use timeline star if timeline is open
+            if (points === 5) {
+                const timelineAccordion = document.getElementById('timeline-analysis-accordion');
+                if (timelineAccordion && timelineAccordion.style.display !== 'none') {
+                    starId = 'star-timeline';
+                }
+            }
+            
+            const star = document.getElementById(starId);
+            if (star) {
+                targetRect = star.getBoundingClientRect();
+            } else {
+                // Fallback to scenario star
+                const fallbackStar = document.getElementById('star-scenario');
+                if (fallbackStar) {
+                    targetRect = fallbackStar.getBoundingClientRect();
+                } else {
+                    return; // No valid target
+                }
+            }
+        }
         
         // Create multiple floating rewards
         for (let i = 0; i < points; i++) {

@@ -127,10 +127,10 @@ class BearAnalysis {
                             '<span class="balance-icon" id="balance-icon">⚖️</span>' +
                         '</div>' +
                     '</div>' +
-                    '<div class="balance-labels" style="font-size: 1.3em;">' +
-                        '<span>🧠 Pure Logic</span>' +
-                        '<span>⚖️ Balanced</span>' +
-                        '<span>💖 Pure Emotion</span>' +
+                    '<div class="balance-labels" style="font-size: 1.3em; display: flex; justify-content: space-between; margin-top: 10px;">' +
+                        '<span style="color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); font-weight: 600;">🧠 Pure Logic</span>' +
+                        '<span style="color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); font-weight: 600;">⚖️ Balanced</span>' +
+                        '<span style="color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); font-weight: 600;">💖 Pure Emotion</span>' +
                     '</div>' +
                 '</div>' +
             '</div>' +
@@ -179,9 +179,9 @@ class BearAnalysis {
                 meter.style.width = '0%';
                 meter.offsetHeight; // Force reflow
                 
-                // Now animate to target width
-                meter.style.width = (value * 10) + '%';
-                valueSpan.textContent = value + '/10';
+                // Now animate to target width (value is already 0-100)
+                meter.style.width = value + '%';
+                valueSpan.textContent = value + '%';
             }
         }, delay);
     }
@@ -227,6 +227,34 @@ class BearAnalysis {
             'direct-observation': '👁️ Direct classroom observation',
             'specific-changes': '📊 Specific behavior changes noted',
             'student-reports': '💬 Student self-reports',
+            // V2 indicators
+            'specific-percentages': '📊 Specific percentages cited',
+            'cites-research': '📚 Cites research sources',
+            'shows-uncertainty': '🤔 Shows uncertainty/questioning',
+            'tested-data': '🧪 Personal testing/experiments',
+            'specific-metrics': '📈 Specific metrics provided',
+            'productivity-paradox': '⚡ Productivity paradox exposed',
+            'correlation-acknowledgment': '🔗 Acknowledges correlation issues',
+            'specific-costs': '💰 Specific costs detailed',
+            'scholarship-statistics': '🎓 Scholarship statistics',
+            'investment-comparison': '💸 Investment comparisons',
+            'personal-data': '📱 Personal data/experience',
+            'credential-comparison': '🎖️ Credential comparisons',
+            'funding-sources': '💵 Funding sources revealed',
+            'peer-review-counts': '📑 Peer review counts',
+            'economic-pressure': '💼 Economic pressures noted',
+            'dueling-studies': '⚔️ Competing studies cited',
+            'selective-evidence': '🎯 Selective evidence use',
+            'health-claims': '🏥 Health claims made',
+            'test-results': '🩺 Test results shared',
+            'probability-misunderstanding': '🎲 Probability errors',
+            'independent-events-ignored': '🔀 Independent events confused',
+            'pattern-invention': '🌀 False patterns claimed',
+            'mathematical-certainty-claimed': '🧮 False mathematical certainty',
+            'income-breakdown': '💵 Income breakdown shown',
+            'expense-tracking': '📊 Expense tracking detailed',
+            'hour-documentation': '⏰ Hours documented',
+            'tax-classification': '📋 Tax classification issues',
             'collaborative': '🤝 Collaborative approach',
             'weak-evidence': '🚫 Weak or missing evidence',
             'zero-evidence': '🚫 Zero evidence of threat',
@@ -322,7 +350,49 @@ class BearAnalysis {
             'predator-terror': '😱 Predator terror appeal',
             'technology-panic': '📱 Technology panic',
             'protective-parent': '🛡️ Protective parent identity',
-            'life-death-framing': '⚰️ Life or death framing'
+            'life-death-framing': '⚰️ Life or death framing',
+            // V2 emotion triggers
+            'scholarship-threat': '🎓 Scholarship threat',
+            'academic-integrity': '📚 Academic integrity crisis',
+            'systemic-frustration': '🏛️ System frustration',
+            'fairness-struggle': '⚖️ Fairness struggle',
+            'surveillance-frustration': '📹 Surveillance frustration',
+            'us-vs-management': '👔 Us vs management',
+            'tech-worker-solidarity': '💻 Tech worker solidarity',
+            'irony-humor': '😏 Ironic humor coping',
+            'parent-guilt': '😔 Parent guilt',
+            'wasted-money': '💸 Wasted money regret',
+            'failed-dreams': '💔 Failed dreams pain',
+            'identity-crisis': '🎭 Identity crisis',
+            'judgment-fear': '👀 Fear of judgment',
+            'environmental-guilt': '🌍 Environmental guilt',
+            'waste-shock': '🗑️ Waste shock value',
+            'ethical-superiority': '✨ Ethical superiority',
+            'change-maker-identity': '🦸 Change-maker identity',
+            'stranger-danger': '🚨 Stranger danger fear',
+            'property-values': '🏠 Property value concerns',
+            'vigilante-justice': '⚔️ Vigilante justice',
+            'safety-panic': '🚨 Safety panic',
+            'professional-integrity': '💼 Professional integrity',
+            'public-harm': '⚠️ Public harm concern',
+            'moral-compromise': '😕 Moral compromise',
+            'optimization-exhaustion': '😩 Optimization exhaustion',
+            'authenticity-paradox': '🎭 Authenticity paradox',
+            'shared-frustration': '🤝 Shared frustration',
+            'family-division': '👨‍👩‍👧 Family division',
+            'identity-threat': '🆔 Identity threat',
+            'lost-connection': '💔 Lost connection',
+            'tribal-warfare': '⚔️ Tribal warfare',
+            'relationship-mourning': '😢 Relationship mourning',
+            'loss-recovery-desperation': '🎰 Loss recovery desperation',
+            'universe-owes-me': '🌌 Universe owes me',
+            '智-superiority-delusion': '🧠 Superiority delusion',
+            'life-destruction-humor': '😂 Life destruction humor',
+            'financial-desperation': '💰 Financial desperation',
+            'lost-dignity': '😞 Lost dignity',
+            'isolation': '🏝️ Isolation',
+            'regret': '😔 Regret',
+            'dark-humor-coping': '🃏 Dark humor coping'
         };
         
         // Check logic factors first
@@ -465,7 +535,7 @@ class BearAnalysis {
                 
                 // Fuzzy calculation: Higher manipulation/agenda = show more cards
                 // Lower scores = show educational examples of proper usage
-                var fuzzyCardThreshold = (manipulationLevel + agendaLevel) / 20; // 0.0 to 1.0
+                var fuzzyCardThreshold = (manipulationLevel + agendaLevel) / 200; // 0.0 to 1.0 (now using 0-100 scale)
                 var educationalValue = 1 - fuzzyCardThreshold; // Inverse: good examples are educational too
                 
                 console.log('🧮 Fuzzy card calculation:', {
@@ -905,8 +975,10 @@ class BearAnalysis {
     }
     
     collectCard(fallacyId, fallacyIcon, cardElement) {
+        console.log('collectCard called:', fallacyId, fallacyIcon);
         var self = this;
         var slot = document.getElementById('mini-card-' + fallacyId);
+        console.log('Looking for slot:', 'mini-card-' + fallacyId, 'Found:', !!slot);
         
         // If clicking a displayed card, return it to the rack
         if (slot && slot.classList.contains('collected') && slot.classList.contains('empty')) {
@@ -997,8 +1069,14 @@ class BearAnalysis {
     }
     
     recallCard(fallacyId) {
+        console.log('recallCard called with:', fallacyId);
+        console.log('fallacyDatabase loaded?', this.fallacyDatabase ? Object.keys(this.fallacyDatabase).length + ' fallacies' : 'NO');
+        
         var slot = document.getElementById('mini-card-' + fallacyId);
-        if (!slot || !slot.classList.contains('collected')) return;
+        if (!slot || !slot.classList.contains('collected')) {
+            console.log('Card not found or not collected:', fallacyId);
+            return;
+        }
         
         // Check if we already have a card displayed for this fallacy
         var existingCard = document.getElementById('card-' + fallacyId);
@@ -1188,7 +1266,7 @@ class BearAnalysis {
             if (meter) {
                 meter.style.width = '0%';
             }
-            if (valueSpan) valueSpan.textContent = '0/10';
+            if (valueSpan) valueSpan.textContent = '0%';
         });
         
         // Clear factors

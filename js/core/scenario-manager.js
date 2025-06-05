@@ -5,6 +5,8 @@ class ScenarioManager {
         this.scenarios = [];
         this.loadedScenarios = new Map();
         this.fallacies = new Map();
+        this.currentPack = null;
+        this.preferredPackId = config.preferredPackId || null;
     }
     
     async loadFallacies() {
@@ -41,7 +43,8 @@ class ScenarioManager {
                         learningTip: fullFallacy.learningTip
                     };
                 } else {
-                    console.warn('Unknown fallacy ID:', fallacyRef.fallacyId);
+                    // Fallacy will be enriched later or use default data
+                    // This can happen during initial load before fallacies are fully loaded
                     return fallacyRef;
                 }
             });
@@ -51,16 +54,40 @@ class ScenarioManager {
     
     async loadScenarios(count = 10) {
         try {
+            // Select which pack to use
+            this.currentPack = window.selectScenarioPack ? 
+                window.selectScenarioPack(this.preferredPackId) : 
+                { file: './data/scenarios.json', id: 'default' };
+            
+            if (!this.currentPack) {
+                throw new Error('No scenario pack available');
+            }
+            
+            console.log('Loading scenario pack:', this.currentPack.name || this.currentPack.id);
+            
+            // Remember the selected pack
+            if (window.rememberSelectedPack) {
+                window.rememberSelectedPack(this.currentPack.id);
+            }
+            
             // Load both scenarios and fallacies in parallel
             const [scenariosResponse, fallaciesLoaded] = await Promise.all([
-                fetch('./data/scenarios.json'),
+                fetch(this.currentPack.file),
                 this.loadFallacies()
             ]);
             
             const data = await scenariosResponse.json();
             
+            // Handle both v1 and v2 formats
+            const scenariosArray = data.scenarios || [];
+            
+            // Store pack info if available
+            if (data.packInfo) {
+                this.currentPack.info = data.packInfo;
+            }
+            
             // Shuffle and select scenarios
-            const shuffled = this.shuffleArray([...data.scenarios]);
+            const shuffled = this.shuffleArray([...scenariosArray]);
             this.scenarios = shuffled.slice(0, count);
             
             // Enrich scenarios with fallacy data
@@ -70,6 +97,8 @@ class ScenarioManager {
             this.scenarios.forEach(scenario => {
                 this.loadedScenarios.set(scenario.id, scenario);
             });
+            
+            console.log(`Loaded ${this.scenarios.length} scenarios from pack: ${this.currentPack.name || this.currentPack.id}`);
             
             return this.scenarios;
         } catch (error) {

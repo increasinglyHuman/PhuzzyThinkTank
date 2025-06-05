@@ -8,6 +8,7 @@ class QuizInterface {
         this.currentScenario = null;
         this.selectedAnswer = null;
         this.hasAnswered = false;
+        this.hasShownReviewTip = false; // Track if we've shown the tip
         
         this.bearAnalysis = new window.BearAnalysis(elements.analysisSection);
         this.feedbackAnimator = new window.FeedbackAnimator();
@@ -19,11 +20,17 @@ class QuizInterface {
     
     bindEvents() {
         try {
-            // Answer selection
+            // Answer selection and review mode
             if (this.elements.answerOptions) {
                 this.elements.answerOptions.forEach(function(option) {
                     if (option) {
-                        option.addEventListener('click', function() { this.selectAnswer(option); }.bind(this));
+                        option.addEventListener('click', function() { 
+                            if (this.hasAnswered) {
+                                this.showReviewExplanation(option);
+                            } else {
+                                this.selectAnswer(option);
+                            }
+                        }.bind(this));
                     }
                 }.bind(this));
             }
@@ -75,6 +82,11 @@ class QuizInterface {
         
         // Update score display
         this.updateScoreDisplay();
+        
+        // Initialize timeline analysis for this scenario
+        if (window.timelineAnalysis) {
+            window.timelineAnalysis.initializeForScenario(scenario);
+        }
     }
     
     selectAnswer(optionElement) {
@@ -120,6 +132,18 @@ class QuizInterface {
             } else {
                 // No points earned, just update the max possible immediately
                 this.updateMaxPossibleScore();
+            }
+            
+            // Enable review mode on all buttons
+            this.elements.answerOptions.forEach(function(opt) {
+                opt.classList.add('review-enabled');
+            });
+            
+            // Show review tip on first question only
+            if (!this.hasShownReviewTip && this.gameEngine.scenariosCompleted.length === 0) {
+                setTimeout(function() {
+                    this.showReviewTip();
+                }.bind(this), 2500); // After reward effects
             }
             
             // Show analysis after delay
@@ -273,6 +297,9 @@ class QuizInterface {
         // Clear hint display
         this.hintDisplay.hideHint();
         
+        // Clear any review tooltips
+        this.clearReviewHighlights();
+        
         // Load next scenario
         this.gameEngine.loadNextScenario();
     }
@@ -281,8 +308,12 @@ class QuizInterface {
         this.elements.answerOptions.forEach(function(opt) {
             opt.classList.remove('selected');
             opt.classList.remove('correct-highlight'); // Clear any lingering highlights
+            opt.classList.remove('correct-persistent'); // Clear persistent highlight
+            opt.classList.remove('review-enabled'); // Clear review mode
+            opt.classList.remove('review-active'); // Clear review active state
             opt.style.borderWidth = ''; // Reset border width
             opt.style.borderStyle = ''; // Reset border style
+            opt.style.borderColor = ''; // Reset border color
         });
     }
     
@@ -297,18 +328,322 @@ class QuizInterface {
         });
         
         if (correctOption) {
-            // Add educational highlight effect
+            // Add educational highlight effect - permanent until next scenario
             correctOption.classList.add('correct-highlight');
+            correctOption.classList.add('correct-persistent');
             
-            // Keep it highlighted longer for learning
-            setTimeout(function() {
-                correctOption.classList.remove('correct-highlight');
-            }, 4000); // 4 seconds for better learning retention
+            // Don't remove the highlight - it will be cleared on next scenario
+            // The animation will run once, then the persistent styles remain
             
             // Also add a subtle permanent indicator
             correctOption.style.borderWidth = '4px';
             correctOption.style.borderStyle = 'solid';
+            correctOption.style.borderColor = '#10b981';
         }
+    }
+    
+    showReviewExplanation(optionElement) {
+        if (!this.currentScenario || !this.hasAnswered) return;
+        
+        const answerType = optionElement.dataset.value;
+        const scenario = this.currentScenario;
+        
+        // Remove any existing review highlights and tooltips
+        this.clearReviewHighlights();
+        
+        // Highlight relevant words in scenario text based on answer type
+        this.highlightScenarioText(answerType);
+        
+        // Show explanation tooltip
+        this.showExplanationTooltip(optionElement, answerType);
+    }
+    
+    clearReviewHighlights() {
+        // Clear text highlights
+        const textElement = this.elements.scenarioText;
+        const originalText = this.currentScenario.text;
+        textElement.innerHTML = originalText;
+        
+        // Remove any existing tooltips
+        const existingTooltips = document.querySelectorAll('.review-tooltip');
+        existingTooltips.forEach(function(tooltip) {
+            tooltip.remove();
+        });
+        
+        // Remove review active states
+        this.elements.answerOptions.forEach(function(opt) {
+            opt.classList.remove('review-active');
+        });
+    }
+    
+    highlightScenarioText(answerType) {
+        const textElement = this.elements.scenarioText;
+        let text = this.currentScenario.text;
+        const scenario = this.currentScenario;
+        
+        // First check if scenario has v2 format with reviewKeywords
+        if (scenario.reviewKeywords && scenario.reviewKeywords[answerType]) {
+            const reviewData = scenario.reviewKeywords[answerType];
+            const keywords = reviewData.keywords || [];
+            
+            // Use scenario-specific keywords with their colors
+            const colorMap = {
+                logic: { color: '#3b82f6', bgColor: '#dbeafe' },
+                emotion: { color: '#ec4899', bgColor: '#fce7f3' },
+                balanced: { color: '#10b981', bgColor: '#d1fae5' },
+                agenda: { color: '#f59e0b', bgColor: '#fef3c7' }
+            };
+            
+            const colors = colorMap[answerType];
+            
+            // Sort keywords by length (longer first)
+            keywords.sort((a, b) => b.length - a.length);
+            
+            // Create regex and highlight
+            if (keywords.length > 0) {
+                const regex = new RegExp('(' + keywords.map(function(keyword) {
+                    return keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                }).join('|') + ')', 'gi');
+                
+                const highlightedText = text.replace(regex, function(match) {
+                    return '<span class="review-highlight" style="background-color: ' + colors.bgColor + 
+                           '; color: ' + colors.color + '; padding: 2px 4px; border-radius: 4px; font-weight: 600;">' + 
+                           match + '</span>';
+                });
+                
+                textElement.innerHTML = highlightedText;
+                return;
+            }
+        }
+        
+        // Fallback to generic patterns for older scenarios
+        const hints = scenario.hints || {};
+        const highlightPatterns = {
+            logic: {
+                keywords: [
+                    // Extreme generalizations
+                    'proves', 'proof', 'ALL', 'EVERY', 'NEVER', 'ONE SIMPLE', 'ALWAYS',
+                    // Cherry-picked/dubious sources
+                    'Facebook', 'surveyed', 'who agree', 'unnamed', 'Institute',
+                    // Conspiracy language
+                    "won't report", 'controlled by', "they're lying", 'wake up', 'WAKE UP',
+                    'mainstream media', 'they want', 'rigged',
+                    // Absolute claims
+                    "hasn't changed", "can't be bad", 'natural',
+                    // Questionable evidence
+                    '50 scientists', 'zero evidence', 'no evidence'
+                ],
+                color: '#3b82f6',
+                bgColor: '#dbeafe'
+            },
+            emotion: {
+                keywords: [
+                    // Urgency/fear markers
+                    'URGENT', 'NOW', 'RIGHT NOW', 'LAST CHANCE', 'before too late',
+                    // Fear language
+                    'DANGER', 'danger', 'predators', 'EVERYWHERE', 'trafficking', 'SAVE LIVES',
+                    'protect', 'fear', 'scared', 'terrified', 'panic',
+                    // Shame/guilt
+                    'deserve better', "don't let them down", 'wage slave', 'invisible', 'HATE my',
+                    // Drama/caps
+                    'BELIEVE', 'SHOCKED', 'MUST', '!!!', '🚨', '😱', '😤', '😔',
+                    // Life/death
+                    'dead', 'dying', 'kill', 'lives at stake'
+                ],
+                color: '#ec4899',
+                bgColor: '#fce7f3'
+            },
+            balanced: {
+                keywords: [
+                    // Qualifying language
+                    'however', 'although', 'while', 'but', 'yet', 'despite',
+                    // Data/research
+                    'study shows', 'research', 'analysis', 'participants', 'results varied',
+                    'mixed results', 'some saw', 'others found',
+                    // Multiple perspectives
+                    'both', 'pros and cons', 'on one hand', 'on the other',
+                    'FDA maintains', 'European', 'different views',
+                    // Collaborative
+                    'work together', 'discuss', 'happy to', 'recommend', 'consider',
+                    'based on your', 'informed choices', 'might consider'
+                ],
+                color: '#10b981',
+                bgColor: '#d1fae5'
+            },
+            agenda: {
+                keywords: [
+                    // Price/sales
+                    '$', 'price', 'discount', 'sale', 'offer', 'special', 'exclusive',
+                    'only $', 'just $', 'save', 'deal',
+                    // Urgency tactics
+                    'swipe up', 'DM me', 'click here', 'limited time', 'act now',
+                    'next 10', 'spots left',
+                    // Anti-professional
+                    'Doctors HATE', "don't want you to know", 'secret', 'ANCIENT SECRET',
+                    // Lifestyle promises
+                    'financial freedom', 'BEST LIFE', 'beach in Bali', 'quit your job',
+                    // Hidden connections
+                    'my brother', 'my mentor', 'neighbor discount', 'friend sells'
+                ],
+                color: '#f59e0b',
+                bgColor: '#fef3c7'
+            }
+        };
+        
+        // Get pattern for this answer type
+        const pattern = highlightPatterns[answerType];
+        if (!pattern) return;
+        
+        // Prioritize scenario-specific keywords if they match the answer type
+        let keywords = pattern.keywords;
+        if (hints.keywords && hints.strategy === answerType) {
+            // Put scenario-specific keywords first for better matching
+            keywords = [...hints.keywords, ...pattern.keywords];
+        }
+        
+        // Create regex pattern for all keywords (longer phrases first to avoid partial matches)
+        keywords.sort((a, b) => b.length - a.length);
+        const regex = new RegExp('(' + keywords.map(function(keyword) {
+            return keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        }).join('|') + ')', 'gi');
+        
+        // Replace matches with highlighted spans
+        const highlightedText = text.replace(regex, function(match) {
+            return '<span class="review-highlight" style="background-color: ' + pattern.bgColor + 
+                   '; color: ' + pattern.color + '; padding: 2px 4px; border-radius: 4px; font-weight: 600;">' + 
+                   match + '</span>';
+        });
+        
+        textElement.innerHTML = highlightedText;
+    }
+    
+    showExplanationTooltip(optionElement, answerType) {
+        // Mark option as active
+        optionElement.classList.add('review-active');
+        
+        // Get evaluation info
+        const correctAnswer = this.currentScenario.correctAnswer;
+        const isCorrect = answerType === correctAnswer;
+        const answerWeight = this.currentScenario.answerWeights[answerType] || 0;
+        
+        // Create tooltip content based on answer quality
+        let feedbackText = '';
+        let feedbackClass = '';
+        
+        if (isCorrect) {
+            feedbackText = '✅ Perfect! This was the best answer.';
+            feedbackClass = 'perfect';
+        } else if (answerWeight >= 70) {
+            feedbackText = '👍 Good thinking! This was almost right.';
+            feedbackClass = 'good';
+        } else if (answerWeight >= 40) {
+            feedbackText = '🤔 Partially correct, but not the main issue.';
+            feedbackClass = 'partial';
+        } else {
+            feedbackText = '❌ Not quite - this misses the key issue.';
+            feedbackClass = 'incorrect';
+        }
+        
+        // Use scenario-specific explanation if available, otherwise use generic
+        let explanation = '';
+        if (this.currentScenario.reviewKeywords && 
+            this.currentScenario.reviewKeywords[answerType] && 
+            this.currentScenario.reviewKeywords[answerType].explanation) {
+            explanation = this.currentScenario.reviewKeywords[answerType].explanation;
+        } else {
+            // Generic explanations
+            const explanations = {
+                logic: 'Look for evidence quality, data, and logical consistency.',
+                emotion: 'Notice emotional triggers, urgency, and fear appeals.',
+                balanced: 'See how it presents multiple perspectives fairly.',
+                agenda: 'Spot the hidden motive or sales pitch.'
+            };
+            explanation = explanations[answerType];
+        }
+        
+        // Create tooltip element
+        const tooltip = document.createElement('div');
+        tooltip.className = 'review-tooltip ' + feedbackClass;
+        tooltip.innerHTML = '<div class="tooltip-content">' +
+            '<div class="tooltip-feedback">' + feedbackText + '</div>' +
+            '<div class="tooltip-explanation">' + explanation + '</div>' +
+            '<div class="tooltip-score">Score value: ' + answerWeight + '%</div>' +
+        '</div>';
+        
+        // Position tooltip
+        document.body.appendChild(tooltip);
+        const rect = optionElement.getBoundingClientRect();
+        tooltip.style.position = 'absolute';
+        tooltip.style.left = rect.left + 'px';
+        tooltip.style.top = (rect.bottom + 10) + 'px';
+        tooltip.style.zIndex = '10000';
+        
+        // Add close functionality
+        setTimeout(function() {
+            tooltip.addEventListener('click', function() {
+                tooltip.remove();
+                optionElement.classList.remove('review-active');
+            });
+        }, 100);
+        
+        // Auto-fade after 5.5 seconds
+        setTimeout(function() {
+            if (tooltip && tooltip.parentNode) {
+                tooltip.style.transition = 'opacity 0.5s ease-out';
+                tooltip.style.opacity = '0';
+                
+                // Remove after fade completes
+                setTimeout(function() {
+                    if (tooltip && tooltip.parentNode) {
+                        tooltip.remove();
+                        optionElement.classList.remove('review-active');
+                    }
+                }, 500);
+            }
+        }, 5500);
+    }
+    
+    showReviewTip() {
+        this.hasShownReviewTip = true;
+        
+        // Create tip element
+        const tip = document.createElement('div');
+        tip.className = 'review-mode-tip';
+        tip.innerHTML = '<div class="tip-content">' +
+            '<div class="tip-icon">💡</div>' +
+            '<div class="tip-text">Curious about why?<br>Click any button to learn more!</div>' +
+            '<button class="tip-close">Got it!</button>' +
+        '</div>';
+        
+        document.body.appendChild(tip);
+        
+        // Position it near the quiz options
+        const quizSection = document.querySelector('.interactive-section');
+        const rect = quizSection.getBoundingClientRect();
+        tip.style.position = 'fixed';
+        tip.style.left = '50%';
+        tip.style.top = (rect.top + rect.height / 2) + 'px';
+        tip.style.transform = 'translate(-50%, -50%)';
+        tip.style.zIndex = '10001';
+        
+        // Add close functionality
+        const closeBtn = tip.querySelector('.tip-close');
+        closeBtn.addEventListener('click', function() {
+            tip.classList.add('fade-out');
+            setTimeout(function() {
+                tip.remove();
+            }, 300);
+        });
+        
+        // Auto-close after 8 seconds
+        setTimeout(function() {
+            if (tip.parentNode) {
+                tip.classList.add('fade-out');
+                setTimeout(function() {
+                    tip.remove();
+                }, 300);
+            }
+        }, 8000);
     }
     
     displayEndGame(stats) {

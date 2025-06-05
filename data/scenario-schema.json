@@ -11,6 +11,24 @@
       "logic": 40,
       "balanced": 20
     },
+    "reviewKeywords": {
+      "logic": {
+        "keywords": ["evidence", "data", "study", "statistics"],
+        "explanation": "Keywords that indicate logical reasoning and evidence-based arguments"
+      },
+      "emotion": {
+        "keywords": ["danger", "fear", "urgent", "babies", "protect"],
+        "explanation": "Keywords that trigger emotional responses and bypass rational thinking"
+      },
+      "balanced": {
+        "keywords": ["however", "consider", "both sides", "perspective"],
+        "explanation": "Keywords indicating nuanced, multi-perspective thinking"
+      },
+      "agenda": {
+        "keywords": ["buy now", "limited time", "act fast", "special offer"],
+        "explanation": "Keywords revealing hidden motives or commercial interests"
+      }
+    },
     "logicalFallacies": [
       {
         "name": "Appeal to Fear",

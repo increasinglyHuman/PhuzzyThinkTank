@@ -134,3 +134,16 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Screenshots
+screenshots/
+
+# Legacy files
+legacyFiles-do not git/
+
+# Data folder - ignore everything except specific files
+data/*
+!data/scenario-generated-001.json
+!data/scenario-generated-002.json
+!data/scenarios-v2-repaired.json
+!data/scenario-schema-v3-proposal.json
