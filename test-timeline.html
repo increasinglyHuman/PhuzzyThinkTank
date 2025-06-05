@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline Analysis Test</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/timeline-accordion.css">
+    <style>
+        body {
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .console-output {
+            background: #f0f0f0;
+            padding: 10px;
+            margin: 20px 0;
+            border-radius: 5px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>Timeline Analysis Debug Test</h1>
+        
+        <button onclick="testTimelineAnalysis()">Test Timeline Analysis</button>
+        
+        <div class="console-output" id="console-output">Console output will appear here...</div>
+        
+        <!-- Timeline Analysis Accordion -->
+        <div class="timeline-analysis-accordion" id="timeline-analysis-accordion">
+            <div class="analysis-header">
+                <h3>Language Evolution Timeline</h3>
+                <button class="analysis-close-btn" onclick="toggleTimelineAnalysis()">✕ Close Analysis</button>
+            </div>
+            <div class="analysis-content">
+                <div class="analysis-grid">
+                    <!-- Radar Chart Section -->
+                    <div class="radar-section">
+                        <h4>Argument Fingerprint</h4>
+                        <canvas id="radar-chart" width="280" height="240"></canvas>
+                        <div class="radar-legend" id="radar-legend"></div>
+                    </div>
+                    
+                    <!-- Timeline Chart Section -->
+                    <div class="timeline-chart-section">
+                        <div style="position: relative; display: block;">
+                            <canvas id="timeline-chart" width="600" height="300"></canvas>
+                        </div>
+                        <div class="dimension-toggles">
+                            <button class="toggle-btn logic-toggle active" data-dimension="logic">
+                                <span class="toggle-color logic-color"></span> Logical Flaws
+                            </button>
+                            <button class="toggle-btn emotion-toggle active" data-dimension="emotion">
+                                <span class="toggle-color emotion-color"></span> Emotional
+                            </button>
+                            <button class="toggle-btn balanced-toggle active" data-dimension="balanced">
+                                <span class="toggle-color balanced-color"></span> Balanced
+                            </button>
+                            <button class="toggle-btn agenda-toggle active" data-dimension="agenda">
+                                <span class="toggle-color agenda-color"></span> Agenda
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/ui/timeline-chart.js"></script>
+    <script src="js/ui/timeline-analysis.js"></script>
+    
+    <script>
+        // Override console.log to capture output
+        const originalLog = console.log;
+        const originalError = console.error;
+        const consoleOutput = document.getElementById('console-output');
+        
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            consoleOutput.textContent += args.join(' ') + '\n';
+            consoleOutput.scrollTop = consoleOutput.scrollHeight;
+        };
+        
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            consoleOutput.textContent += '[ERROR] ' + args.join(' ') + '\n';
+            consoleOutput.scrollTop = consoleOutput.scrollHeight;
+        };
+        
+        // Test data
+        const testScenario = {
+            id: "test-scenario",
+            text: "This new health supplement is scientifically proven to boost your immune system. Studies show that people who take it are 90% less likely to get sick. Don't wait until flu season hits - protect yourself and your family now! Limited time offer - buy today and save 50%!",
+            correctAnswer: "agenda",
+            reviewKeywords: {
+                logic: { keywords: ["scientifically", "proven", "studies", "90%"] },
+                emotion: { keywords: ["protect", "family", "Don't wait", "flu season"] },
+                balanced: { keywords: ["health", "supplement", "immune"] },
+                agenda: { keywords: ["Limited time", "buy today", "save 50%", "offer"] }
+            },
+            answerWeights: {
+                logic: 40,
+                emotion: 30,
+                balanced: 10,
+                agenda: 80
+            }
+        };
+        
+        function testTimelineAnalysis() {
+            console.log('Starting timeline analysis test...');
+            
+            // Initialize timeline analysis with test scenario
+            if (window.timelineAnalysis) {
+                console.log('Timeline analysis instance found');
+                window.timelineAnalysis.currentScenario = testScenario;
+                window.timelineAnalysis.accordionOpen = true;
+                window.timelineAnalysis.renderAnalysis();
+            } else {
+                console.error('Timeline analysis instance not found!');
+            }
+        }
+        
+        // Auto-run test on load
+        window.addEventListener('DOMContentLoaded', function() {
+            console.log('Page loaded, DOM ready');
+            console.log('TimelineChart available:', typeof window.TimelineChart);
+            console.log('TimelineAnalysis available:', typeof window.timelineAnalysis);
+            
+            setTimeout(testTimelineAnalysis, 1000);
+        });
+    </script>
+</body>
+</html>

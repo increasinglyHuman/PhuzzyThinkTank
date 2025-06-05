@@ -1,5 +1,5 @@
 # Phuzzy Think Tank - Development Handoff Document
-**Last Updated**: January 6, 2025
+**Last Updated**: June 5, 2025
 
 ## Project Overview
 **Phuzzy Think Tank** is an educational game teaching critical thinking by having players identify whether arguments are flawed due to weak logic, emotional manipulation, hidden agendas, or are actually well-balanced.
@@ -39,13 +39,14 @@
    - Scenario creation tool
    - Microgame API for earning honey pots
 
-### Known Issues (January 2025)
+### Known Issues (June 2025)
 While the game is functional, several improvements are needed:
 
-1. **Card Toybox Metaphor** - Card click mechanics need adjustment to encourage playful interaction:
-   - Users should feel like they're playing with toys, not just collecting
-   - "Put away" and "take out" interactions need refinement
-   - More intuitive visual feedback for the toybox concept
+1. **Card Toybox Metaphor** - Card system needs refinement per original design (see CARD-SYSTEM-ORIGINAL-DESIGN.md):
+   - Original vision: "Kids should be able to pull cards in and out repeatedly to learn the fallacies"
+   - Current implementation focuses on collection, not playful learning
+   - Need to emphasize the "study tool" aspect, not just game mechanic
+   - Visual metaphor should be more like a toybox where cards are toys to play with
 
 2. **3-Card Display Limit** - Current implementation has issues:
    - When pulling out >3 cards, the 4th replaces an existing one
@@ -67,7 +68,7 @@ While the game is functional, several improvements are needed:
    - Use AI-assisted generation tools with memory optimization
    - Ensure variety and educational value
 
-### Recent Major Updates (January 2025)
+### Recent Major Updates (June 2025)
 ✅ Core functionality restored with:
 - ES5 compatibility for maximum browser support
 - Modular architecture with 18+ separate JavaScript files
@@ -244,7 +245,7 @@ The game now features a collectible trading card system with 15 unique logical f
   - `scenario-append-helper.js` - Helper for appending scenarios
   - `check-scenarios.js` - Validation and checking tool
 
-### Recent Updates (January 2025)
+### Recent Updates (June 2025)
 - **Review Mode System** - Click answers after submission to see detailed scoring feedback with tooltips
 - **Splash Screen** - Professional onboarding with bear mascot and clear game instructions  
 - **Enhanced Hint System** - Visual keyword highlighting with bear mini-game animations
@@ -256,7 +257,7 @@ The game now features a collectible trading card system with 15 unique logical f
 - **Improved Accessibility** - Better contrast, larger text, clearer visual feedback
 - **Performance Optimizations** - Removed heavy strobe animations, streamlined CSS
 
-### Previous Updates (June 2024)
+### Previous Updates (June 2025 - Earlier Session)
 - **Interactive card collection system** - Click to collect, click to recall
 - **Single row layout** - All 15 cards in horizontal row with responsive breakpoints
 - **Enhanced visual design** - Larger cards (280x420px), bigger icons (5.5rem), white tooltips with purple text

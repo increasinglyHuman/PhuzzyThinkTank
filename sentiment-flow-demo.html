@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Flow Timeline - Phuzzy's Think Tank</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: white;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 40px;
+        }
+        
+        .scenario-analysis {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .scenario-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .scenario-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2d3748;
+        }
+        
+        .correct-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .badge-logic { background: #3b82f6; }
+        .badge-emotion { background: #ec4899; }
+        .badge-balanced { background: #10b981; }
+        .badge-agenda { background: #f59e0b; }
+        
+        .scenario-text {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            border-left: 4px solid #667eea;
+        }
+        
+        .viz-grid {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+        
+        .radar-section {
+            text-align: center;
+        }
+        
+        .flow-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+        }
+        
+        canvas {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #4b5563;
+            margin-bottom: 15px;
+        }
+        
+        .highlighted-phrase {
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        .highlight-logic { background: #dbeafe; color: #3b82f6; }
+        .highlight-emotion { background: #fce7f3; color: #ec4899; }
+        .highlight-balanced { background: #d1fae5; color: #10b981; }
+        .highlight-agenda { background: #fef3c7; color: #f59e0b; }
+        
+        .controls {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .legend {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f3f4f6;
+            border-radius: 8px;
+        }
+        
+        .legend-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .legend-item {
+            display: inline-flex;
+            align-items: center;
+            margin-right: 20px;
+            margin-bottom: 5px;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 3px;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🐻 Sentiment Flow Timeline Analysis</h1>
+        
+        <!-- Neighborhood Watch Example -->
+        <div class="scenario-analysis">
+            <div class="scenario-header">
+                <h2 class="scenario-title">Neighborhood Watch Alert</h2>
+                <span class="correct-badge badge-emotion">Emotional Manipulation</span>
+            </div>
+            
+            <div class="scenario-text" id="scenario-text-1">
+                Posted in NextDoor by Jim Maxwell: URGENT - BE AWARE!!! 🚨🚨🚨 I saw a van driving slowly down Oak Street yesterday. It had out-of-state plates!!! This is EXACTLY how those trafficking rings operate that I read about on Facebook. They're probably scouting our children! I called 911 but they said 'driving slowly isn't a crime' - can you BELIEVE that?? The police won't protect us, so WE must protect ourselves! Everyone needs to buy security cameras NOW. My brother sells them - DM me for a 'neighbor discount.' SHARE THIS TO SAVE LIVES!!!
+            </div>
+            
+            <div class="viz-grid">
+                <div class="radar-section">
+                    <h3 class="section-title">Argument Fingerprint</h3>
+                    <canvas id="radar-1" width="300" height="300"></canvas>
+                </div>
+                
+                <div class="flow-section">
+                    <h3 class="section-title">Language Intensity Over Time</h3>
+                    <canvas id="flow-1" width="700" height="400"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <!-- MIT Study Example -->
+        <div class="scenario-analysis">
+            <div class="scenario-header">
+                <h2 class="scenario-title">MIT Remote Work Study</h2>
+                <span class="correct-badge badge-balanced">Well-Balanced</span>
+            </div>
+            
+            <div class="scenario-text" id="scenario-text-2">
+                MIT researchers concluded a 5-year study on remote work productivity: 'We tracked 2,400 employees across 15 companies. Overall productivity increased 13% for remote workers, but results varied by role. Creative tasks showed 22% improvement, while collaborative projects decreased 8% in efficiency. Employee satisfaction rose 31%, sick days dropped 25%. However, junior employees reported 40% less mentorship. Companies saving on office space averaged $11,000 per employee annually. Full report at mit.edu/remotework2025.'
+            </div>
+            
+            <div class="viz-grid">
+                <div class="radar-section">
+                    <h3 class="section-title">Argument Fingerprint</h3>
+                    <canvas id="radar-2" width="300" height="300"></canvas>
+                </div>
+                
+                <div class="flow-section">
+                    <h3 class="section-title">Language Intensity Over Time</h3>
+                    <canvas id="flow-2" width="700" height="400"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <h3>Interactive Features</h3>
+            <button onclick="animateAll()">Animate Visualizations</button>
+            <button onclick="toggleAnnotations()">Toggle Annotations</button>
+            <button onclick="toggleCumulative()">Toggle Cumulative Lines</button>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-title">How to Read the Timeline:</div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #3b82f6;"></div>
+                <span>Logic Issues (fallacies, weak evidence)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #ec4899;"></div>
+                <span>Emotional Manipulation</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #10b981;"></div>
+                <span>Balanced Language</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #f59e0b;"></div>
+                <span>Hidden Agenda</span>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/ui/fuzzy-curve-viz.js"></script>
+    <script src="js/ui/sentiment-flow-viz.js"></script>
+    <script>
+        // Scenario data with review keywords
+        const scenarios = {
+            neighborhood: {
+                scores: { logic: 85, emotion: 95, balanced: 5, agenda: 85 },
+                text: document.getElementById('scenario-text-1').textContent,
+                reviewKeywords: {
+                    logic: {
+                        keywords: ['EXACTLY how', 'Facebook', 'probably', 'can you BELIEVE'],
+                        explanation: 'Speculation presented as fact'
+                    },
+                    emotion: {
+                        keywords: ['URGENT', 'BE AWARE', '🚨', 'trafficking', 'our children', 'protect ourselves', 'SAVE LIVES'],
+                        explanation: 'Fear-mongering and panic language'
+                    },
+                    balanced: {
+                        keywords: ['police said', 'driving slowly'],
+                        explanation: 'Minimal factual content'
+                    },
+                    agenda: {
+                        keywords: ['buy security cameras', 'My brother sells', 'neighbor discount', 'DM me'],
+                        explanation: 'Hidden sales pitch'
+                    }
+                }
+            },
+            mit: {
+                scores: { logic: 90, emotion: 15, balanced: 100, agenda: 5 },
+                text: document.getElementById('scenario-text-2').textContent,
+                reviewKeywords: {
+                    logic: {
+                        keywords: ['5-year study', '2,400 employees', '15 companies', 'Full report'],
+                        explanation: 'Strong research methodology'
+                    },
+                    emotion: {
+                        keywords: ['satisfaction', 'improvement'],
+                        explanation: 'Minimal emotional content'
+                    },
+                    balanced: {
+                        keywords: ['Overall', 'but', 'However', 'varied by role', 'while'],
+                        explanation: 'Presents multiple perspectives'
+                    },
+                    agenda: {
+                        keywords: ['$11,000', 'saving'],
+                        explanation: 'Transparent cost information'
+                    }
+                }
+            }
+        };
+        
+        // Initialize visualizations
+        const radarCharts = {
+            neighborhood: new FuzzyCurveVisualization('radar-1'),
+            mit: new FuzzyCurveVisualization('radar-2')
+        };
+        
+        const flowCharts = {
+            neighborhood: new SentimentFlowVisualization('flow-1'),
+            mit: new SentimentFlowVisualization('flow-2')
+        };
+        
+        // Draw initial charts
+        radarCharts.neighborhood.drawRadarChart(scenarios.neighborhood.scores);
+        radarCharts.mit.drawRadarChart(scenarios.mit.scores);
+        
+        flowCharts.neighborhood.drawFlowChart(
+            scenarios.neighborhood.text,
+            scenarios.neighborhood.reviewKeywords
+        );
+        
+        flowCharts.mit.drawFlowChart(
+            scenarios.mit.text,
+            scenarios.mit.reviewKeywords
+        );
+        
+        // Animation controls
+        let showAnnotations = true;
+        let showCumulative = true;
+        
+        function animateAll() {
+            // Animate radar charts
+            const zeroScores = { logic: 0, emotion: 0, balanced: 0, agenda: 0 };
+            
+            radarCharts.neighborhood.animateTransition(zeroScores, scenarios.neighborhood.scores, 1500);
+            radarCharts.mit.animateTransition(zeroScores, scenarios.mit.scores, 1500);
+            
+            // Redraw flow charts with animation effect
+            setTimeout(() => {
+                flowCharts.neighborhood.drawFlowChart(
+                    scenarios.neighborhood.text,
+                    scenarios.neighborhood.reviewKeywords,
+                    { showAnnotations, showCumulative }
+                );
+                
+                flowCharts.mit.drawFlowChart(
+                    scenarios.mit.text,
+                    scenarios.mit.reviewKeywords,
+                    { showAnnotations, showCumulative }
+                );
+            }, 100);
+        }
+        
+        function toggleAnnotations() {
+            showAnnotations = !showAnnotations;
+            
+            flowCharts.neighborhood.drawFlowChart(
+                scenarios.neighborhood.text,
+                scenarios.neighborhood.reviewKeywords,
+                { showAnnotations, showCumulative }
+            );
+            
+            flowCharts.mit.drawFlowChart(
+                scenarios.mit.text,
+                scenarios.mit.reviewKeywords,
+                { showAnnotations, showCumulative }
+            );
+        }
+        
+        function toggleCumulative() {
+            showCumulative = !showCumulative;
+            
+            flowCharts.neighborhood.drawFlowChart(
+                scenarios.neighborhood.text,
+                scenarios.neighborhood.reviewKeywords,
+                { showAnnotations, showCumulative }
+            );
+            
+            flowCharts.mit.drawFlowChart(
+                scenarios.mit.text,
+                scenarios.mit.reviewKeywords,
+                { showAnnotations, showCumulative }
+            );
+        }
+        
+        // Highlight text on hover (future enhancement)
+        // This would sync with the timeline to show which part is being analyzed
+    </script>
+</body>
+</html>
