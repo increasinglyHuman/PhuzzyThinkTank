@@ -3,8 +3,10 @@
 > **Where Bears Balance Brain & Heart**  
 > *A critical thinking game that helps you navigate the delicate balance between logic and emotion*
 
-[![Live Demo](https://img.shields.io/badge/🎮_Play_Now-Live_Demo-purple?style=for-the-badge)](https://www.p0qp0q.com/thinkTank/)
+[![Live Demo](https://img.shields.io/badge/🎮_Play_Now-Live_Demo-purple?style=for-the-badge)](https://p0qp0q.com/thinkTank/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
+
+![Phuzzy Think Tank Game Screenshot](images/bear4.png)
 
 ---
 
