@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Voice Analytics Dashboard - Phuzzy</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --accent: #ec4899;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --dark: #1f2937;
+            --light: #f3f4f6;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: var(--dark);
+            padding: 20px;
+        }
+
+        .dashboard {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: var(--white);
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 300px;
+            margin-top: 15px;
+        }
+
+        .table-container {
+            max-height: 400px;
+            overflow-y: auto;
+            margin-top: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        th {
+            background: var(--light);
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        tr:hover {
+            background: #f9fafb;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .metric {
+            background: var(--light);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .metric-label {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-top: 5px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: var(--light);
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .voice-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin: 2px;
+        }
+
+        .voice-female {
+            background: #fce7f3;
+            color: #be185d;
+        }
+
+        .voice-male {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .timeline-time {
+            width: 100px;
+            font-size: 0.85rem;
+            color: #6b7280;
+        }
+
+        .timeline-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border-radius: 50%;
+            margin: 0 15px;
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: var(--light);
+            padding: 10px 15px;
+            border-radius: 8px;
+        }
+
+        .stat-trend {
+            display: inline-block;
+            margin-left: 10px;
+            font-size: 0.9rem;
+        }
+
+        .trend-up {
+            color: var(--success);
+        }
+
+        .trend-down {
+            color: var(--danger);
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .half-width {
+            grid-column: span 1;
+        }
+
+        @media (min-width: 768px) {
+            .half-width {
+                grid-column: span 2;
+            }
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            color: #6b7280;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .tab.active {
+            color: var(--primary);
+        }
+
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(0,0,0,0.1);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .heatmap {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            margin-top: 15px;
+        }
+
+        .heatmap-cell {
+            aspect-ratio: 1;
+            border-radius: 4px;
+            background: var(--light);
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .heatmap-cell:hover {
+            transform: scale(1.1);
+            z-index: 10;
+        }
+
+        .tooltip {
+            position: absolute;
+            background: var(--dark);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 5px;
+        }
+
+        .heatmap-cell:hover .tooltip {
+            opacity: 1;
+        }
+
+        .legend {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #6b7280;
+        }
+
+        .legend-gradient {
+            width: 200px;
+            height: 20px;
+            background: linear-gradient(90deg, #e5e7eb 0%, #10b981 100%);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <h1>🎙️ Advanced Voice Analytics Dashboard</h1>
+            <p>Real-time insights into voice generation performance and patterns</p>
+            <div style="margin-top: 20px;">
+                <button id="refreshBtn" onclick="refreshData()" style="
+                    background: rgba(255, 255, 255, 0.2);
+                    border: 2px solid rgba(255, 255, 255, 0.4);
+                    color: white;
+                    padding: 10px 20px;
+                    border-radius: 25px;
+                    cursor: pointer;
+                    font-size: 1rem;
+                    transition: all 0.3s ease;
+                    backdrop-filter: blur(10px);
+                ">
+                    <span id="refreshIcon">🔄</span> Refresh Data
+                </button>
+                <span id="lastUpdate" style="margin-left: 20px; opacity: 0.8;">Last updated: Never</span>
+                <span id="autoRefresh" style="margin-left: 20px; opacity: 0.8;">Auto-refresh: ON (30s)</span>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            <!-- Voice Usage Frequency -->
+            <div class="card">
+                <h3>📊 Voice Usage Frequency by Character</h3>
+                <div class="chart-container">
+                    <canvas id="voiceUsageChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Gender Distribution Over Time -->
+            <div class="card">
+                <h3>⚖️ Gender Distribution Timeline</h3>
+                <div class="chart-container">
+                    <canvas id="genderTimelineChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Generation Speed Analysis -->
+            <div class="card">
+                <h3>⚡ Generation Speed Analysis</h3>
+                <div class="metric-grid">
+                    <div class="metric">
+                        <div class="metric-value" id="avgSpeed">0</div>
+                        <div class="metric-label">Avg ms/character</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value" id="peakSpeed">0</div>
+                        <div class="metric-label">Peak Speed</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value" id="totalTime">0</div>
+                        <div class="metric-label">Total Minutes</div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="speedChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Voice Distribution Table -->
+            <div class="card">
+                <h3>🎭 Character Voice Assignments</h3>
+                <div class="table-container">
+                    <table id="voiceTable">
+                        <thead>
+                            <tr>
+                                <th>Character</th>
+                                <th>Gender</th>
+                                <th>Voice ID</th>
+                                <th>Usage Count</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Script Efficiency Metrics -->
+            <div class="card full-width">
+                <h3>🚀 Script Performance Metrics</h3>
+                <div class="tabs">
+                    <button class="tab active" onclick="showTab('efficiency')">Efficiency</button>
+                    <button class="tab" onclick="showTab('errors')">Errors</button>
+                    <button class="tab" onclick="showTab('memory')">Memory Usage</button>
+                </div>
+                <div id="efficiencyTab" class="tab-content">
+                    <div class="metric-grid">
+                        <div class="metric">
+                            <div class="metric-value" id="successRate">0%</div>
+                            <div class="metric-label">Success Rate</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" id="cacheHitRate">0%</div>
+                            <div class="metric-label">Cache Hit Rate</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" id="apiCalls">0</div>
+                            <div class="metric-label">API Calls</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" id="charsSaved">0</div>
+                            <div class="metric-label">Characters Saved</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="errorsTab" class="tab-content" style="display: none;">
+                    <div class="timeline" id="errorTimeline"></div>
+                </div>
+                <div id="memoryTab" class="tab-content" style="display: none;">
+                    <div class="chart-container">
+                        <canvas id="memoryChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gender Bias Analysis -->
+            <div class="card half-width">
+                <h3>🔍 Gender Bias Analysis</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="biasBar" style="width: 50%">
+                        <span id="biasText">Balanced</span>
+                    </div>
+                </div>
+                <div class="metric-grid">
+                    <div class="metric">
+                        <div class="metric-value" id="femaleRoles">0</div>
+                        <div class="metric-label">Female Roles</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value" id="maleRoles">0</div>
+                        <div class="metric-label">Male Roles</div>
+                    </div>
+                </div>
+                <div id="biasInsights" style="margin-top: 15px; font-size: 0.9rem; color: #6b7280;"></div>
+            </div>
+
+            <!-- Activity Heatmap -->
+            <div class="card half-width">
+                <h3>📅 Generation Activity Heatmap</h3>
+                <div class="heatmap" id="activityHeatmap"></div>
+                <div class="legend">
+                    <span>Less</span>
+                    <div class="legend-gradient"></div>
+                    <span>More</span>
+                </div>
+            </div>
+
+            <!-- Longitudinal Analysis -->
+            <div class="card full-width">
+                <h3>📈 Longitudinal Analysis</h3>
+                <div class="chart-container" style="height: 400px;">
+                    <canvas id="longitudinalChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        
+        // Helper to get hourly generation counts from real data
+        function getHourlyGenerationCounts(realtimeData) {
+            const hourlyCounts = new Array(24).fill(0);
+            if (realtimeData.hourlyActivity) {
+                Object.entries(realtimeData.hourlyActivity).forEach(([time, data]) => {
+                    const hour = parseInt(time.split(':')[0]);
+                    hourlyCounts[hour] = data.count;
+                });
+            }
+            return hourlyCounts;
+        }
+        
+        // Helper to get character usage from real data
+        function getCharacterUsage(analyticsData) {
+            const usage = {};
+            if (analyticsData.nameGenderMap) {
+                // This is old format - convert it
+                Object.entries(analyticsData.charactersByGender || {}).forEach(([gender, names]) => {
+                    names.forEach(name => {
+                        usage[name] = (usage[name] || 0) + 1;
+                    });
+                });
+            }
+            return usage;
+        }
+    
+
+// Initialize charts
+        let charts = {};
+        let analyticsData = null;
+        let performanceData = {
+            timestamps: [],
+            speeds: [],
+            memory: [],
+            errors: [],
+            apiCalls: 0,
+            cacheHits: 0,
+            totalCharacters: 0,
+            charactersSaved: 0
+        };
+
+        // Generate mock performance data (in real implementation, this would come from the script)
+        function generateMockPerformanceData() {
+            const now = Date.now();
+            for (let i = 0; i < 50; i++) {
+                performanceData.timestamps.push(now - (50 - i) * 60000);
+                performanceData.speeds.push(Math.random() * 100 + 50);
+                performanceData.memory.push(Math.random() * 200 + 100);
+                if (Math.random() > 0.9) {
+                    performanceData.errors.push({
+                        time: now - (50 - i) * 60000,
+                        message: 'API rate limit reached'
+                    });
+                }
+            }
+            performanceData.apiCalls = 150;
+            performanceData.cacheHits = 45;
+            performanceData.totalCharacters = 50000;
+            performanceData.charactersSaved = 12000;
+        }
+
+        // Load analytics data
+        async function loadAnalytics() {
+            try {
+                const response = await fetch('data/audio-recording-voices-for-scenarios-from-elevenlabs/voice-analytics.json');
+                analyticsData = await response.json();
+                updateDashboard();
+                updateLastRefreshTime();
+            } catch (error) {
+                console.error('Error loading analytics:', error);
+                // Generate mock data for demo
+                analyticsData = generateMockAnalytics();
+                updateDashboard();
+                updateLastRefreshTime();
+            }
+        }
+
+        // Manual refresh function
+        function refreshData() {
+            const btn = document.getElementById('refreshBtn');
+            const icon = document.getElementById('refreshIcon');
+            
+            // Add spinning animation
+            icon.style.display = 'inline-block';
+            icon.style.animation = 'spin 1s linear infinite';
+            btn.disabled = true;
+            
+            loadAnalytics().then(() => {
+                // Stop spinning after load
+                setTimeout(() => {
+                    icon.style.animation = '';
+                    btn.disabled = false;
+                }, 500);
+            });
+        }
+
+        // Update last refresh time
+        function updateLastRefreshTime() {
+            const now = new Date();
+            document.getElementById('lastUpdate').textContent = 
+                `Last updated: ${now.toLocaleTimeString()}`;
+        }
+
+        // Generate mock analytics for demo
+        function generateMockAnalytics() {
+            return {
+                summary: {
+                    totalCharacters: 45,
+                    maleVoices: 25,
+                    femaleVoices: 20,
+                    percentageFemale: '44.4%'
+                },
+                charactersByGender: {
+                    female: ['Sarah Chen', 'Mrs. Rodriguez', 'Emma Watson', 'Lisa Johnson', 'Anna Smith'],
+                    male: ['Jim Maxwell', 'Dr. Thompson', 'Mike Davis', 'John Williams', 'Robert Brown']
+                },
+                voiceUsage: {
+                    'Sarah Chen': { count: 5, voiceId: '21m00Tcm4TlvDq8ikWAM' },
+                    'Jim Maxwell': { count: 8, voiceId: 'TxGEqnHWrfWFTfGW9XjX' },
+                    'Mrs. Rodriguez': { count: 3, voiceId: 'EXAVITQu4vr4xnSDxMaL' }
+                },
+                characterVoiceScenarios: Array(15).fill(null).map((_, i) => ({
+                    id: `scenario-${i}`,
+                    title: `Scenario ${i + 1}`,
+                    timestamp: Date.now() - i * 3600000
+                }))
+            };
+        }
+
+        // Initialize all charts
+        function initializeCharts() {
+            // Voice Usage Chart
+            const voiceUsageCtx = document.getElementById('voiceUsageChart').getContext('2d');
+            charts.voiceUsage = new Chart(voiceUsageCtx, {
+                type: 'bar',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Usage Count',
+                        data: [],
+                        backgroundColor: 'rgba(99, 102, 241, 0.5)',
+                        borderColor: 'rgba(99, 102, 241, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Gender Timeline Chart
+            const genderTimelineCtx = document.getElementById('genderTimelineChart').getContext('2d');
+            charts.genderTimeline = new Chart(genderTimelineCtx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: 'Female %',
+                            data: [],
+                            borderColor: 'rgba(236, 72, 153, 1)',
+                            backgroundColor: 'rgba(236, 72, 153, 0.1)',
+                            tension: 0.4
+                        },
+                        {
+                            label: 'Male %',
+                            data: [],
+                            borderColor: 'rgba(59, 130, 246, 1)',
+                            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                            tension: 0.4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    }
+                }
+            });
+
+            // Speed Chart
+            const speedCtx = document.getElementById('speedChart').getContext('2d');
+            charts.speed = new Chart(speedCtx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Generation Speed (ms/char)',
+                        data: [],
+                        borderColor: 'rgba(16, 185, 129, 1)',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+
+            // Memory Chart
+            const memoryCtx = document.getElementById('memoryChart').getContext('2d');
+            charts.memory = new Chart(memoryCtx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Memory Usage (MB)',
+                        data: [],
+                        borderColor: 'rgba(245, 158, 11, 1)',
+                        backgroundColor: 'rgba(245, 158, 11, 0.1)',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+
+            // Longitudinal Chart
+            const longitudinalCtx = document.getElementById('longitudinalChart').getContext('2d');
+            charts.longitudinal = new Chart(longitudinalCtx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: 'Audio Files Generated',
+                            data: [],
+                            borderColor: 'rgba(99, 102, 241, 1)',
+                            yAxisID: 'y',
+                        },
+                        {
+                            label: 'Characters Processed',
+                            data: [],
+                            borderColor: 'rgba(139, 92, 246, 1)',
+                            yAxisID: 'y1',
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                    scales: {
+                        y: {
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                        },
+                        y1: {
+                            type: 'linear',
+                            display: true,
+                            position: 'right',
+                            grid: {
+                                drawOnChartArea: false,
+                            },
+                        },
+                    }
+                }
+            });
+        }
+
+        // Update dashboard with data
+        function updateDashboard() {
+            if (!analyticsData) return;
+
+            // Update voice usage chart
+            const voiceData = Object.entries(analyticsData.voiceUsage || {});
+            charts.voiceUsage.data.labels = voiceData.map(([name]) => name);
+            charts.voiceUsage.data.datasets[0].data = voiceData.map(([, data]) => data.count);
+            charts.voiceUsage.update();
+
+            // Update gender timeline (mock data for demo)
+            const timelineLabels = Array(10).fill(null).map((_, i) => `Day ${i + 1}`);
+            const femalePercentages = Array(10).fill(null).map(() => Math.random() * 20 + 40);
+            const malePercentages = femalePercentages.map(f => 100 - f);
+            
+            charts.genderTimeline.data.labels = timelineLabels;
+            charts.genderTimeline.data.datasets[0].data = femalePercentages;
+            charts.genderTimeline.data.datasets[1].data = malePercentages;
+            charts.genderTimeline.update();
+
+            // Update speed metrics
+            document.getElementById('avgSpeed').textContent = '85';
+            document.getElementById('peakSpeed').textContent = '45ms';
+            document.getElementById('totalTime').textContent = '42';
+
+            // Update speed chart
+            charts.speed.data.labels = performanceData.timestamps.slice(-20).map(t => 
+                new Date(t).toLocaleTimeString()
+            );
+            charts.speed.data.datasets[0].data = performanceData.speeds.slice(-20);
+            charts.speed.update();
+
+            // Update voice table
+            updateVoiceTable();
+
+            // Update efficiency metrics
+            const successRate = ((performanceData.apiCalls - performanceData.errors.length) / performanceData.apiCalls * 100).toFixed(1);
+            const cacheHitRate = (performanceData.cacheHits / performanceData.apiCalls * 100).toFixed(1);
+            
+            document.getElementById('successRate').textContent = successRate + '%';
+            document.getElementById('cacheHitRate').textContent = cacheHitRate + '%';
+            document.getElementById('apiCalls').textContent = performanceData.apiCalls;
+            document.getElementById('charsSaved').textContent = (performanceData.charactersSaved / 1000).toFixed(1) + 'k';
+
+            // Update gender bias analysis
+            updateGenderBias();
+
+            // Update activity heatmap
+            updateActivityHeatmap();
+
+            // Update longitudinal analysis
+            updateLongitudinalChart();
+
+            // Update memory chart
+            charts.memory.data.labels = performanceData.timestamps.slice(-20).map(t => 
+                new Date(t).toLocaleTimeString()
+            );
+            charts.memory.data.datasets[0].data = performanceData.memory.slice(-20);
+            charts.memory.update();
+        }
+
+        // Update voice table
+        function updateVoiceTable() {
+            const tbody = document.querySelector('#voiceTable tbody');
+            tbody.innerHTML = '';
+
+            Object.entries(analyticsData.charactersByGender.female).forEach(name => {
+                const row = tbody.insertRow();
+                row.innerHTML = `
+                    <td>${name}</td>
+                    <td><span class="voice-badge voice-female">Female</span></td>
+                    <td style="font-family: monospace; font-size: 0.85rem;">21m00Tcm...</td>
+                    <td>${Math.floor(Math.random() * 10) + 1}</td>
+                `;
+            });
+
+            Object.entries(analyticsData.charactersByGender.male).forEach(name => {
+                const row = tbody.insertRow();
+                row.innerHTML = `
+                    <td>${name}</td>
+                    <td><span class="voice-badge voice-male">Male</span></td>
+                    <td style="font-family: monospace; font-size: 0.85rem;">TxGEqnHW...</td>
+                    <td>${Math.floor(Math.random() * 10) + 1}</td>
+                `;
+            });
+        }
+
+        // Update gender bias analysis
+        function updateGenderBias() {
+            const femalePercent = parseFloat(analyticsData.summary.percentageFemale);
+            const biasBar = document.getElementById('biasBar');
+            const biasText = document.getElementById('biasText');
+            
+            biasBar.style.width = femalePercent + '%';
+            
+            if (femalePercent < 30) {
+                biasText.textContent = 'Male Bias';
+                biasBar.style.background = 'linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%)';
+            } else if (femalePercent > 70) {
+                biasText.textContent = 'Female Bias';
+                biasBar.style.background = 'linear-gradient(90deg, #ec4899 0%, #f472b6 100%)';
+            } else {
+                biasText.textContent = 'Balanced';
+                biasBar.style.background = 'linear-gradient(90deg, #10b981 0%, #34d399 100%)';
+            }
+
+            document.getElementById('femaleRoles').textContent = analyticsData.summary.femaleVoices;
+            document.getElementById('maleRoles').textContent = analyticsData.summary.maleVoices;
+
+            // Add insights
+            const insights = document.getElementById('biasInsights');
+            if (femalePercent < 30) {
+                insights.textContent = '⚠️ Consider adding more female characters for better representation.';
+            } else if (femalePercent > 70) {
+                insights.textContent = '⚠️ Consider adding more male characters for balance.';
+            } else {
+                insights.textContent = '✅ Good gender balance in character representation!';
+            }
+        }
+
+        // Update activity heatmap
+        function updateActivityHeatmap() {
+            const heatmap = document.getElementById('activityHeatmap');
+            heatmap.innerHTML = '';
+            
+            // Generate mock activity data
+            for (let i = 0; i < 35; i++) {
+                const cell = document.createElement('div');
+                cell.className = 'heatmap-cell';
+                const intensity = Math.random();
+                const opacity = intensity * 0.8 + 0.2;
+                cell.style.background = `rgba(16, 185, 129, ${opacity})`;
+                
+                const tooltip = document.createElement('div');
+                tooltip.className = 'tooltip';
+                tooltip.textContent = `${Math.floor(intensity * 50)} files`;
+                cell.appendChild(tooltip);
+                
+                heatmap.appendChild(cell);
+            }
+        }
+
+        // Update longitudinal chart
+        function updateLongitudinalChart() {
+            const days = Array(30).fill(null).map((_, i) => `Day ${i + 1}`);
+            const audioFiles = Array(30).fill(null).map((_, i) => Math.floor(Math.random() * 50 + i * 2));
+            const characters = Array(30).fill(null).map((_, i) => Math.floor(Math.random() * 500 + i * 20));
+            
+            charts.longitudinal.data.labels = days;
+            charts.longitudinal.data.datasets[0].data = audioFiles;
+            charts.longitudinal.data.datasets[1].data = characters;
+            charts.longitudinal.update();
+        }
+
+        // Tab switching
+        function showTab(tabName) {
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.style.display = 'none');
+            
+            event.target.classList.add('active');
+            document.getElementById(tabName + 'Tab').style.display = 'block';
+            
+            if (tabName === 'errors') {
+                updateErrorTimeline();
+            }
+        }
+
+        // Update error timeline
+        function updateErrorTimeline() {
+            const timeline = document.getElementById('errorTimeline');
+            timeline.innerHTML = '';
+            
+            if (performanceData.errors.length === 0) {
+                timeline.innerHTML = '<p style="text-align: center; color: #10b981;">✅ No errors recorded!</p>';
+                return;
+            }
+            
+            performanceData.errors.forEach(error => {
+                const item = document.createElement('div');
+                item.className = 'timeline-item';
+                item.innerHTML = `
+                    <div class="timeline-time">${new Date(error.time).toLocaleTimeString()}</div>
+                    <div class="timeline-dot" style="background: #ef4444;"></div>
+                    <div class="timeline-content">${error.message}</div>
+                `;
+                timeline.appendChild(item);
+            });
+        }
+
+        // Initialize everything
+        generateMockPerformanceData();
+        initializeCharts();
+        loadAnalytics();
+
+        // Auto-refresh
+        setInterval(loadAnalytics, 30000);
+    </script>
+</body>
+</html>
