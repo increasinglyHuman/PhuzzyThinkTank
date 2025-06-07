@@ -1,0 +1,221 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Phuzzy Think Tank Scenario Schema v2",
+  "description": "Comprehensive schema for scenario packs with all AI-analyzed data included",
+  "type": "object",
+  "required": ["version", "packInfo", "scenarios"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^2\\.\\d+\\.\\d+$",
+      "description": "Schema version (must start with 2.x.x)"
+    },
+    "packInfo": {
+      "type": "object",
+      "required": ["packId", "packName", "author", "createdDate"],
+      "properties": {
+        "packId": { "type": "string" },
+        "packName": { "type": "string" },
+        "author": { "type": "string" },
+        "description": { "type": "string" },
+        "createdDate": { "type": "string", "format": "date" },
+        "tags": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "scenarios": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id", "title", "text", "claim", "correctAnswer", 
+          "answerWeights", "analysis", "reviewKeywords", "wisdom"
+        ],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "text": { "type": "string", "minLength": 100 },
+          "claim": { "type": "string" },
+          "correctAnswer": {
+            "type": "string",
+            "enum": ["logic", "emotion", "balanced", "agenda"]
+          },
+          "answerWeights": {
+            "type": "object",
+            "required": ["logic", "emotion", "balanced", "agenda"],
+            "properties": {
+              "logic": { "type": "number", "minimum": 0, "maximum": 100 },
+              "emotion": { "type": "number", "minimum": 0, "maximum": 100 },
+              "balanced": { "type": "number", "minimum": 0, "maximum": 100 },
+              "agenda": { "type": "number", "minimum": 0, "maximum": 100 }
+            }
+          },
+          "reviewKeywords": {
+            "type": "object",
+            "required": ["logic", "emotion", "balanced", "agenda"],
+            "description": "Keywords to highlight for each answer type during review",
+            "properties": {
+              "logic": {
+                "type": "object",
+                "required": ["keywords", "explanation"],
+                "properties": {
+                  "keywords": {
+                    "type": "array",
+                    "items": { "type": "string" },
+                    "description": "Specific words/phrases that indicate logical issues"
+                  },
+                  "explanation": {
+                    "type": "string",
+                    "description": "Why these keywords indicate logical problems"
+                  }
+                }
+              },
+              "emotion": {
+                "type": "object",
+                "required": ["keywords", "explanation"],
+                "properties": {
+                  "keywords": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                  },
+                  "explanation": { "type": "string" }
+                }
+              },
+              "balanced": {
+                "type": "object",
+                "required": ["keywords", "explanation"],
+                "properties": {
+                  "keywords": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                  },
+                  "explanation": { "type": "string" }
+                }
+              },
+              "agenda": {
+                "type": "object",
+                "required": ["keywords", "explanation"],
+                "properties": {
+                  "keywords": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                  },
+                  "explanation": { "type": "string" }
+                }
+              }
+            }
+          },
+          "logicalFallacies": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["fallacyId", "severity", "example"],
+              "properties": {
+                "fallacyId": { "type": "string" },
+                "severity": {
+                  "type": "string",
+                  "enum": ["primary", "secondary", "avoided"]
+                },
+                "example": { "type": "string" }
+              }
+            }
+          },
+          "analysis": {
+            "type": "object",
+            "required": ["logic", "emotion"],
+            "properties": {
+              "logic": {
+                "type": "object",
+                "required": ["scores", "indicators", "explanation"],
+                "properties": {
+                  "scores": {
+                    "type": "object",
+                    "required": ["evidence", "consistency", "source", "agenda"],
+                    "properties": {
+                      "evidence": { "type": "number", "minimum": 0, "maximum": 10 },
+                      "consistency": { "type": "number", "minimum": 0, "maximum": 10 },
+                      "source": { "type": "number", "minimum": 0, "maximum": 10 },
+                      "agenda": { "type": "number", "minimum": 0, "maximum": 10 }
+                    }
+                  },
+                  "indicators": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                  },
+                  "explanation": { "type": "string" }
+                }
+              },
+              "emotion": {
+                "type": "object",
+                "required": ["scores", "triggers", "explanation"],
+                "properties": {
+                  "scores": {
+                    "type": "object",
+                    "required": ["fear", "belonging", "pride", "manipulation"],
+                    "properties": {
+                      "fear": { "type": "number", "minimum": 0, "maximum": 10 },
+                      "belonging": { "type": "number", "minimum": 0, "maximum": 10 },
+                      "pride": { "type": "number", "minimum": 0, "maximum": 10 },
+                      "manipulation": { "type": "number", "minimum": 0, "maximum": 10 }
+                    }
+                  },
+                  "triggers": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                  },
+                  "explanation": { "type": "string" }
+                }
+              }
+            }
+          },
+          "wisdom": {
+            "type": "string",
+            "description": "Educational insight about this scenario"
+          },
+          "hints": {
+            "type": "object",
+            "required": ["keywords", "strategy", "hintMessage"],
+            "properties": {
+              "keywords": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "strategy": {
+                "type": "string",
+                "enum": ["logic", "emotion", "balanced", "agenda"]
+              },
+              "hintMessage": { "type": "string" }
+            }
+          },
+          "metadata": {
+            "type": "object",
+            "properties": {
+              "tags": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "difficulty": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 5
+              },
+              "educationalFocus": { "type": "string" },
+              "commonMisconceptions": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "contentWarnings": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "addedDate": {
+                "type": "string",
+                "format": "date"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -143,10 +143,11 @@ legacyFiles-do not git/
 
 # Data folder - ignore everything except specific files
 data/*
-!data/scenario-generated-000.json
-!data/scenario-generated-001.json
-!data/scenario-generated-002.json
-!data/scenario-schema-v3-proposal.json
+!data/scenario-packs/
+!data/scenario-packs/*.json
+!data/schemas/
+!data/reference/
+!data/*.md
 
 # Scripts
 take-screenshot.sh

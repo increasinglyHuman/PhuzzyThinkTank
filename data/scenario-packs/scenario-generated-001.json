@@ -1,0 +1,1037 @@
+{
+  "version": "2.0.0",
+  "packInfo": {
+    "packId": "enhanced-scenarios-001",
+    "packName": "Complex Manipulation Scenarios",
+    "author": "AI Generated",
+    "description": "Scenarios demonstrating sophisticated manipulation techniques with precise linguistic analysis",
+    "createdDate": "2025-01-06",
+    "topic": "General Critical Thinking",
+    "category": "Mixed"
+  },
+  "scenarios": [
+    {
+      "id": "smart-meter-panic-001",
+      "title": "The Smart Meter Conspiracy",
+      "text": "My neighbor Janet (retired nurse) swears the new smart meters are making us sick. 'Ever since installation, I've had headaches,' she told our HOA meeting. Dr. Richards from the utility company says they're safe - same RF levels as baby monitors. But I found a study from Switzerland showing 1.5x higher sleep disturbances near smart meters (n=394, p<0.05). Then again, the World Health Organization says no established health risks. Janet's selling EMF shields for $89 - says it's not about money, just helping neighbors. Our property values might drop if buyers think we're a 'sick building.' The utility offers opt-out for $15/month, but that marks you as a troublemaker. Three families already moved. Correlation or causation? All I know is my daughter's anxiety started right after installation. We need to ACT NOW before more families suffer! Sign the petition at StopSmartMetersNOW.org (Janet's son made the site).",
+      "claim": "Smart meters are causing health problems and we must act immediately to protect our families",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "logic": 31,
+        "emotion": 73,
+        "balanced": 19,
+        "agenda": 67
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "study from Switzerland",
+            "n=394, p<0.05",
+            "same RF levels",
+            "World Health Organization"
+          ],
+          "explanation": "Scientific-sounding references mixed with cherry-picked data and ignored authority"
+        },
+        "emotion": {
+          "keywords": [
+            "making us sick",
+            "families suffer",
+            "anxiety started",
+            "ACT NOW",
+            "more families"
+          ],
+          "explanation": "Health fears escalate to family protection urgency"
+        },
+        "balanced": {
+          "keywords": [
+            "Then again",
+            "Correlation or causation?",
+            "says they're safe"
+          ],
+          "explanation": "Token acknowledgments quickly overridden by emotional appeals"
+        },
+        "agenda": {
+          "keywords": [
+            "selling EMF shields for $89",
+            "Sign the petition",
+            "StopSmartMetersNOW.org",
+            "not about money"
+          ],
+          "explanation": "Commercial product and activism agenda disguised as community concern"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "post-hoc",
+          "severity": "primary",
+          "example": "Daughter's anxiety started right after installation - assumes causation from timing"
+        },
+        {
+          "fallacyId": "cherry-picking",
+          "severity": "primary",
+          "example": "Cites one Swiss study while dismissing WHO conclusion"
+        },
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "secondary",
+          "example": "Janet's headaches and three families moving presented as proof"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 31,
+            "consistency": 28,
+            "source": 37,
+            "agenda": 68
+          },
+          "indicators": [
+            "cherry-picked",
+            "anecdotal-evidence",
+            "correlation-not-causation",
+            "hidden-sales"
+          ],
+          "explanation": "Mixes legitimate study citation with selective interpretation, ignores contradicting authorities"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 82,
+            "belonging": 71,
+            "pride": 43,
+            "manipulation": 76
+          },
+          "triggers": [
+            "community-threat",
+            "child-anxiety",
+            "property-values",
+            "sick-building"
+          ],
+          "explanation": "Weaponizes parental protection instincts and financial fears while building us-vs-them dynamic"
+        }
+      },
+      "wisdom": "Notice how legitimate scientific elements (study citation, p-values) are weaponized through selective presentation. The pattern moves from personal anecdote to community threat to urgent action, bypassing critical evaluation. Real science considers all evidence; manipulation cherry-picks scary data.",
+      "hints": {
+        "keywords": [
+          "sick",
+          "suffer",
+          "ACT NOW",
+          "anxiety",
+          "selling",
+          "$89"
+        ],
+        "strategy": "emotion",
+        "hintMessage": "Strong fear language mixed with product sales!"
+      },
+      "metadata": {
+        "tags": [
+          "health-scare",
+          "technology-fear",
+          "community-panic",
+          "hidden-sales"
+        ],
+        "difficulty": 3,
+        "educationalFocus": "recognizing-fear-based-science-manipulation",
+        "commonMisconceptions": [
+          "one-study-proves-everything",
+          "correlation-equals-causation"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "topic": "Technology & AI"
+    },
+    {
+      "id": "crypto-professor-002",
+      "title": "The Professor's Cryptocurrency Discovery",
+      "text": "Economics professor here. After teaching monetary theory for 20 years, I've discovered something HUGE about cryptocurrency. Yes, Bitcoin crashed 68% in 2022 (fact). But here's what mainstream media WON'T tell you: institutional adoption increased 340% during the same period (Bloomberg data). My former student, now at Goldman Sachs, confirms major banks are quietly accumulating. Of course, volatility is real - I lost $30k last year. But zoom out: every 4-year cycle shows exponential growth. MIT researchers predict $500k by 2030, though skeptics say it's worthless. I'm not selling anything - just sharing knowledge. Though if you're interested, my course 'Crypto Mastery for Professionals' launches next week ($497, but free preview available). Warren Buffett calls it 'rat poison,' yet his company holds $1B in crypto-exposed stocks. Curious, right? Traditional finance is TERRIFIED you'll learn this. Time to choose: stay poor with savings accounts earning 0.01%, or join the revolution? Register at ProfCryptoWealth.edu before banks shut us down!",
+      "claim": "Cryptocurrency is the future of wealth and traditional finance is hiding this truth from ordinary people",
+      "correctAnswer": "agenda",
+      "answerWeights": {
+        "logic": 42,
+        "emotion": 61,
+        "balanced": 28,
+        "agenda": 76
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "68% in 2022",
+            "Bloomberg data",
+            "340%",
+            "MIT researchers",
+            "4-year cycle"
+          ],
+          "explanation": "Real statistics mixed with selective presentation and unverified claims"
+        },
+        "emotion": {
+          "keywords": [
+            "HUGE",
+            "WON'T tell you",
+            "stay poor",
+            "TERRIFIED",
+            "revolution",
+            "shut us down"
+          ],
+          "explanation": "Creates fear of missing out and us-versus-them dynamics with financial elites"
+        },
+        "balanced": {
+          "keywords": [
+            "volatility is real",
+            "lost $30k",
+            "skeptics say",
+            "Of course"
+          ],
+          "explanation": "Acknowledges risks but immediately minimizes them with contrasting claims"
+        },
+        "agenda": {
+          "keywords": [
+            "my course",
+            "$497",
+            "ProfCryptoWealth.edu",
+            "Register",
+            "not selling anything"
+          ],
+          "explanation": "Classic bait-and-switch: claims educational purpose while pushing paid course"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "primary",
+          "example": "Uses professor status and Goldman Sachs connection to add credibility"
+        },
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "primary",
+          "example": "Stay poor with savings accounts or join the revolution - no middle ground"
+        },
+        {
+          "fallacyId": "cherry-picking",
+          "severity": "secondary",
+          "example": "Highlights institutional adoption while downplaying crash severity"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 46,
+            "consistency": 34,
+            "source": 51,
+            "agenda": 83
+          },
+          "indicators": [
+            "cherry-picked",
+            "unverified-claims",
+            "selective-timeframes",
+            "hidden-course-sales"
+          ],
+          "explanation": "Mixes verifiable facts with unsubstantiated predictions and insider claims"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 68,
+            "belonging": 57,
+            "pride": 64,
+            "manipulation": 59
+          },
+          "triggers": [
+            "fomo",
+            "us-vs-banks",
+            "professor-authority",
+            "insider-knowledge",
+            "poverty-fear"
+          ],
+          "explanation": "Exploits fear of poverty and missing out while positioning readers as smart insiders"
+        }
+      },
+      "wisdom": "Watch for the 'reluctant seller' pattern: extensive credibility building (professor status, insider connections) followed by emotional urgency, then a 'soft' product pitch disguised as education. Real professors publish peer-reviewed research, not urgent wealth courses.",
+      "hints": {
+        "keywords": [
+          "course",
+          "$497",
+          "Register",
+          "TERRIFIED",
+          "shut us down"
+        ],
+        "strategy": "agenda",
+        "hintMessage": "Academic authority pushing paid course with urgency!"
+      },
+      "metadata": {
+        "tags": [
+          "cryptocurrency",
+          "investment-scam",
+          "fomo",
+          "fake-expertise"
+        ],
+        "difficulty": 4,
+        "educationalFocus": "recognizing-academic-authority-manipulation",
+        "commonMisconceptions": [
+          "professors-always-trustworthy",
+          "insider-info-equals-truth"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "topic": "Finance & Economics"
+    },
+    {
+      "id": "screen-time-crisis-003",
+      "title": "Your Child's Brain on Screens",
+      "text": "Mom of three here, sharing what FINALLY worked! My 8yo was glued to his tablet - tantrums, failing grades, zero friends. Pediatrician said 'normal phase.' But Stanford neuroscientist Dr. Kim (saw her TED talk) shows screens literally rewire developing brains like cocaine. MRI scans prove it! Yes, AAP says 2hrs/day is 'acceptable,' but that's funded by Big Tech. I tried everything: timers (he smashed them), parental controls (hacked in minutes), even therapy ($200/session, useless). Then discovered BrainBalance Method™. Not cheap ($97/month) but combines ancient wisdom with neuroscience. My son now reads for FUN! Still allows educational apps 30min/day - I'm not extreme. Other parents judge me at school pickup. 'You're depriving him,' they say while their zombies stare at phones. But yesterday he built a fort outside for HOURS. When did your child last do that? Free workshop this Saturday at MindfulKidsNow.com. Limited spots - Silicon Valley doesn't want this spreading!",
+      "claim": "Screen time is destroying children's brains and parents need the BrainBalance Method to save them",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "logic": 26,
+        "emotion": 84,
+        "balanced": 14,
+        "agenda": 71
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "Stanford neuroscientist",
+            "MRI scans prove",
+            "AAP says",
+            "funded by Big Tech"
+          ],
+          "explanation": "Name-drops credible sources then immediately undermines them with conspiracy thinking"
+        },
+        "emotion": {
+          "keywords": [
+            "tantrums",
+            "zero friends",
+            "literally rewire",
+            "like cocaine",
+            "zombies",
+            "judge me"
+          ],
+          "explanation": "Catastrophizes normal childhood behavior into brain damage crisis"
+        },
+        "balanced": {
+          "keywords": [
+            "30min/day",
+            "I'm not extreme",
+            "educational apps"
+          ],
+          "explanation": "Minimal concessions that contradict the main alarmist message"
+        },
+        "agenda": {
+          "keywords": [
+            "BrainBalance Method™",
+            "$97/month",
+            "Free workshop",
+            "MindfulKidsNow.com",
+            "Limited spots"
+          ],
+          "explanation": "Emotional manipulation leads directly to expensive program with false scarcity"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-equivalence",
+          "severity": "primary",
+          "example": "Screens literally rewire brains like cocaine - extreme comparison without nuance"
+        },
+        {
+          "fallacyId": "ad-hominem",
+          "severity": "secondary",
+          "example": "Dismisses AAP guidelines by claiming Big Tech funding"
+        },
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "One child's improvement becomes universal proof"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 23,
+            "consistency": 19,
+            "source": 34,
+            "agenda": 72
+          },
+          "indicators": [
+            "cherry-picked",
+            "conspiracy-thinking",
+            "anecdotal-proof",
+            "false-expertise"
+          ],
+          "explanation": "Misrepresents neuroscience research while dismissing actual medical guidelines as conspiracy"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 91,
+            "belonging": 78,
+            "pride": 86,
+            "manipulation": 83
+          },
+          "triggers": [
+            "child-brain-damage",
+            "bad-parent-shame",
+            "smart-parent-pride",
+            "zombie-children"
+          ],
+          "explanation": "Maximizes parental anxiety about permanent damage while offering superiority over other parents"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "TED talk reference and 'MRI scans prove it' create illusion of scientific backing, but no actual studies cited - just vague authority claims followed by conspiracy theories about AAP funding.",
+        "emotion": "Parental fear cocktail perfected: starts with relatable struggles, escalates to brain damage/cocaine comparison, then provides social superiority over 'zombie' children's parents.",
+        "balanced": "Token moderation ('I'm not extreme', allows 30min educational apps) serves as reasonableness theater while pushing $97/month program as only solution.",
+        "agenda": "Classic problem-agitation-solution: manufacture crisis (screens = cocaine), discredit free alternatives (therapy 'useless'), then pitch expensive program with urgency tactics."
+      },
+      "peakMoments": {
+        "logic": [
+          "MRI scans prove it",
+          "Stanford neuroscientist"
+        ],
+        "emotion": [
+          "like cocaine",
+          "zero friends",
+          "zombies",
+          "judge me"
+        ],
+        "balanced": [
+          "I'm not extreme",
+          "30min/day"
+        ],
+        "agenda": [
+          "$97/month",
+          "Free workshop",
+          "Limited spots"
+        ]
+      },
+      "wisdom": "Real child development experts provide nuanced guidance, not cocaine comparisons. Notice how legitimate concerns about screen time are weaponized through extreme language, then monetized through expensive 'exclusive' solutions that prey on parental guilt.",
+      "hints": {
+        "keywords": [
+          "cocaine",
+          "zombies",
+          "BrainBalance",
+          "$97",
+          "Limited spots"
+        ],
+        "strategy": "emotion",
+        "hintMessage": "Extreme comparisons and parent-shaming lead to product!"
+      },
+      "metadata": {
+        "tags": [
+          "parenting",
+          "screen-time",
+          "child-development",
+          "fear-marketing"
+        ],
+        "difficulty": 3,
+        "educationalFocus": "recognizing-parental-anxiety-exploitation",
+        "commonMisconceptions": [
+          "all-screens-harmful",
+          "one-size-fits-all-parenting"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "topic": "Parenting & Family"
+    },
+    {
+      "id": "workplace-wellness-004",
+      "title": "The Corporate Wellness Email",
+      "text": "From: HR@TechCorp.com\nSubject: Mandatory Wellness Initiative\n\nTeam,\n\nFollowing last quarter's productivity metrics, we're launching MindfulnessMax™. Stanford research shows meditation increases output 34%. However, our legal team notes participation is 'voluntary.' That said, non-participants showed 47% lower promotion rates in pilot programs (correlation, not causation 😉). Sessions are Tuesdays 6AM - yes, before work. Can't make it? No problem! Just explain to your manager why wellness isn't a priority. BTW, our CEO meditates daily - just saying! The $40/month fee covers 'materials.' Remember: healthy employees are happy employees! Your career depends on... I mean, we care about your wellbeing!\n\nBest,\nHR",
+      "claim": "Workplace meditation program is voluntary but career advancement depends on participation",
+      "correctAnswer": "agenda",
+      "answerWeights": {
+        "logic": 38,
+        "emotion": 52,
+        "balanced": 17,
+        "agenda": 81
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "Stanford research",
+            "34%",
+            "47% lower promotion rates",
+            "correlation, not causation"
+          ],
+          "explanation": "Real-sounding statistics mixed with admitted correlation manipulation"
+        },
+        "emotion": {
+          "keywords": [
+            "mandatory",
+            "your manager",
+            "wellness isn't a priority",
+            "CEO meditates",
+            "career depends"
+          ],
+          "explanation": "Career fear and peer pressure disguised as wellness concern"
+        },
+        "balanced": {
+          "keywords": [
+            "However",
+            "voluntary",
+            "No problem!",
+            "correlation, not causation 😉"
+          ],
+          "explanation": "Token acknowledgments immediately undermined by threats"
+        },
+        "agenda": {
+          "keywords": [
+            "MindfulnessMax™",
+            "$40/month",
+            "6AM",
+            "promotion rates",
+            "explain to your manager"
+          ],
+          "explanation": "Profit extraction through coerced participation using career threats"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "primary",
+          "example": "Either participate or be seen as not prioritizing wellness/career"
+        },
+        {
+          "fallacyId": "bandwagon",
+          "severity": "primary",
+          "example": "CEO meditates daily - pressure to follow leadership"
+        },
+        {
+          "fallacyId": "post-hoc",
+          "severity": "secondary",
+          "example": "Non-participants had lower promotions - implies causation while denying it"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 41,
+            "consistency": 29,
+            "source": 44,
+            "agenda": 79
+          },
+          "indicators": [
+            "selective-statistics",
+            "wink-emoji-manipulation",
+            "admitted-correlation",
+            "veiled-threats"
+          ],
+          "explanation": "Uses legitimate research to justify coercive program with career consequences"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 74,
+            "belonging": 48,
+            "pride": 61,
+            "manipulation": 66
+          },
+          "triggers": [
+            "career-threat",
+            "peer-pressure",
+            "manager-judgment",
+            "productivity-shame"
+          ],
+          "explanation": "Weaponizes career anxiety and workplace belonging to ensure compliance"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Statistical manipulation masterclass - real research (Stanford 34%) mixed with threatening correlation (47% promotions) while winking at the deception.",
+        "emotion": "Corporate coercion perfected - 'voluntary' program wrapped in career consequences, morning inconvenience, and CEO comparison pressure.",
+        "balanced": "False balance throughout - every concession ('voluntary', 'no problem') immediately contradicted by threats or sarcasm.",
+        "agenda": "Revenue extraction via workplace power dynamics - $40/month forced by promotion fears, not wellness benefits."
+      },
+      "peakMoments": {
+        "logic": [
+          "Stanford research",
+          "47% lower promotion rates"
+        ],
+        "emotion": [
+          "career depends on",
+          "explain to your manager",
+          "CEO meditates"
+        ],
+        "balanced": [
+          "correlation, not causation 😉"
+        ],
+        "agenda": [
+          "MindfulnessMax™",
+          "$40/month",
+          "Tuesdays 6AM"
+        ]
+      },
+      "wisdom": "Corporate wellness weaponized: legitimate benefits of meditation used to justify expensive mandatory program. The winking emoji while denying causation reveals they know exactly what they're doing - using career fear to drive profits.",
+      "hints": {
+        "keywords": [
+          "mandatory",
+          "voluntary",
+          "promotion rates",
+          "$40/month",
+          "explain to your manager"
+        ],
+        "strategy": "agenda",
+        "hintMessage": "Spot the career threats behind wellness language!"
+      },
+      "metadata": {
+        "tags": [
+          "workplace",
+          "wellness",
+          "coercion",
+          "corporate-manipulation"
+        ],
+        "difficulty": 4,
+        "educationalFocus": "recognizing-workplace-power-dynamics",
+        "commonMisconceptions": [
+          "all-wellness-programs-good",
+          "correlation-disclosure-equals-honesty"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "topic": "Work & Career"
+    },
+    {
+      "id": "environmental-packaging-005",
+      "title": "The Eco-Friendly Packaging Debate",
+      "text": "Local café owner Maria posted: 'Switching to compostable packaging costs us $3,000/month extra. We surveyed customers - 78% support it, but only 23% would pay 50¢ more per order. The 'compostable' cups still need industrial facilities we don't have locally, so they end up in landfills anyway. Our competitor uses regular cups but donates to ocean cleanup. I'm torn. The green packaging looks better for marketing, attracts conscious consumers. But our thin margins mean cutting staff hours or raising prices nobody wants to pay. Some customers shame us on Yelp for 'killing the planet.' Others complain prices are too high already. What would you honestly do?'",
+      "claim": "Environmental choices involve complex trade-offs between costs, effectiveness, and perception",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "logic": 72,
+        "emotion": 43,
+        "balanced": 91,
+        "agenda": 34
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "$3,000/month",
+            "78% support",
+            "23% would pay",
+            "industrial facilities",
+            "end up in landfills"
+          ],
+          "explanation": "Specific data revealing gap between support and willingness to pay"
+        },
+        "emotion": {
+          "keywords": [
+            "shame us on Yelp",
+            "killing the planet",
+            "torn",
+            "conscious consumers"
+          ],
+          "explanation": "Moderate emotional pressure from environmental concerns and public perception"
+        },
+        "balanced": {
+          "keywords": [
+            "but only",
+            "still need",
+            "anyway",
+            "competitor uses... but donates",
+            "Some... Others",
+            "What would you honestly do?"
+          ],
+          "explanation": "Constantly weighing pros and cons, acknowledging complexity"
+        },
+        "agenda": {
+          "keywords": [
+            "looks better for marketing",
+            "attracts conscious consumers",
+            "cutting staff hours"
+          ],
+          "explanation": "Business considerations present but not dominant"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "avoided",
+          "example": "Presents multiple options and trade-offs rather than binary choice"
+        },
+        {
+          "fallacyId": "bandwagon",
+          "severity": "secondary",
+          "example": "78% support could be seen as bandwagon, but contrasted with payment reality"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 77,
+            "consistency": 81,
+            "source": 62,
+            "agenda": 41
+          },
+          "indicators": [
+            "specific-costs",
+            "survey-data",
+            "practical-limits",
+            "honest-complexity"
+          ],
+          "explanation": "Real numbers expose the gap between environmental ideals and economic reality"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 38,
+            "belonging": 56,
+            "pride": 47,
+            "manipulation": 31
+          },
+          "triggers": [
+            "environmental-guilt",
+            "public-shaming",
+            "business-survival",
+            "community-judgment"
+          ],
+          "explanation": "Genuine emotional conflict without manipulation"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Data transparency reveals uncomfortable truths - 78% support collapses to 23% when payment required, 'compostable' cups aren't locally compostable.",
+        "emotion": "Authentic business owner stress - caught between environmental values, economic survival, and public judgment from all sides.",
+        "balanced": "Exemplary complexity presentation - every solution has drawbacks, competitors' approaches have trade-offs, even asks readers for input.",
+        "agenda": "Minimal agenda beyond business survival - acknowledges marketing benefits but focuses on genuine operational dilemma."
+      },
+      "peakMoments": {
+        "logic": [
+          "78% support it, but only 23% would pay",
+          "end up in landfills anyway"
+        ],
+        "emotion": [
+          "shame us on Yelp",
+          "killing the planet"
+        ],
+        "balanced": [
+          "I'm torn",
+          "What would you honestly do?"
+        ],
+        "agenda": [
+          "looks better for marketing",
+          "cutting staff hours"
+        ]
+      },
+      "wisdom": "Real environmental progress requires honest complexity acknowledgment. This shows how green intentions collide with economic reality, ineffective infrastructure, and consumer hypocrisy. True balance means admitting no perfect solution exists.",
+      "hints": {
+        "keywords": [
+          "but only",
+          "anyway",
+          "torn",
+          "Some... Others",
+          "What would you"
+        ],
+        "strategy": "balanced",
+        "hintMessage": "Notice constant trade-offs and genuine questioning!"
+      },
+      "metadata": {
+        "tags": [
+          "environment",
+          "business",
+          "sustainability",
+          "real-dilemma"
+        ],
+        "difficulty": 4,
+        "educationalFocus": "understanding-real-world-complexity",
+        "commonMisconceptions": [
+          "green-always-better",
+          "business-vs-environment"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "topic": "Environment & Sustainability"
+    },
+    {
+      "id": "ai-therapy-006",
+      "title": "The AI Therapy Revolution",
+      "text": "Leading psychiatrist Dr. Amanda Torres writes: 'I've treated 3,000+ patients over 20 years. Last month, I tested TherapyAI against my own diagnoses. It caught warning signs I missed in 12% of cases. However, it also flagged 31% of normal teens as 'high risk.' The AI costs $50/month vs $200/session for human therapists. Mental health crisis is real - 6-month wait lists everywhere. But when I asked TherapyAI about a suicidal patient, it suggested 'breathing exercises.' Silicon Valley says we're 'gatekeeping' mental health. Maybe we are? But yesterday, a patient told me TherapyAI said her trauma 'wasn't that bad compared to others.' I'm genuinely conflicted. Access matters, but so does not making things worse.'",
+      "claim": "AI therapy offers accessible mental health support but has serious limitations and risks",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "logic": 67,
+        "emotion": 54,
+        "balanced": 88,
+        "agenda": 29
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "3,000+ patients",
+            "caught warning signs I missed in 12%",
+            "flagged 31% of normal teens",
+            "$50/month vs $200/session"
+          ],
+          "explanation": "Specific data showing both AI capabilities and error rates"
+        },
+        "emotion": {
+          "keywords": [
+            "suicidal patient",
+            "breathing exercises",
+            "trauma wasn't that bad",
+            "making things worse"
+          ],
+          "explanation": "Genuine concern about vulnerable patients mixed with professional anxiety"
+        },
+        "balanced": {
+          "keywords": [
+            "However",
+            "Maybe we are?",
+            "genuinely conflicted",
+            "Access matters, but",
+            "caught... I missed",
+            "also flagged"
+          ],
+          "explanation": "Constantly weighing benefits against risks with authentic uncertainty"
+        },
+        "agenda": {
+          "keywords": [
+            "Silicon Valley says",
+            "gatekeeping",
+            "$50/month"
+          ],
+          "explanation": "Acknowledges tech industry criticism and cost factors without pushing either side"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "avoided",
+          "example": "Presents nuanced view rather than AI-good or AI-bad binary"
+        },
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "appropriate",
+          "example": "Uses professional experience appropriately to provide context"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 71,
+            "consistency": 74,
+            "source": 83,
+            "agenda": 32
+          },
+          "indicators": [
+            "specific-percentages",
+            "cost-comparison",
+            "acknowledges-limits",
+            "professional-experience"
+          ],
+          "explanation": "Data-driven analysis showing both success and failure rates transparently"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 58,
+            "belonging": 41,
+            "pride": 37,
+            "manipulation": 29
+          },
+          "triggers": [
+            "patient-harm",
+            "professional-responsibility",
+            "access-guilt",
+            "replacement-anxiety"
+          ],
+          "explanation": "Authentic professional concern without manipulating reader emotions"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Evidence complexity acknowledged - 12% improvement versus 31% false positives shows AI's double-edged nature with real numbers.",
+        "emotion": "Professional anguish authentic - torn between helping more people and potentially harming vulnerable patients with inferior care.",
+        "balanced": "Exemplary nuance throughout - every benefit paired with risk, even questions own bias about 'gatekeeping' while maintaining ethical concerns.",
+        "agenda": "Minimal agenda present - cost comparison factual, Silicon Valley criticism acknowledged without dismissal or embrace."
+      },
+      "peakMoments": {
+        "logic": [
+          "caught warning signs I missed in 12%",
+          "flagged 31% of normal teens"
+        ],
+        "emotion": [
+          "suicidal patient",
+          "trauma wasn't that bad"
+        ],
+        "balanced": [
+          "Maybe we are?",
+          "genuinely conflicted"
+        ],
+        "agenda": [
+          "$50/month vs $200/session"
+        ]
+      },
+      "wisdom": "Technology in mental health presents genuine dilemmas: increased access versus quality concerns, cost savings versus potential harm. Real professionals acknowledge both sides while prioritizing patient safety.",
+      "hints": {
+        "keywords": [
+          "However",
+          "but",
+          "conflicted",
+          "Maybe",
+          "matters, but"
+        ],
+        "strategy": "balanced",
+        "hintMessage": "Look for constant weighing of pros and cons!"
+      },
+      "metadata": {
+        "tags": [
+          "mental-health",
+          "AI",
+          "healthcare",
+          "ethical-dilemma"
+        ],
+        "difficulty": 4,
+        "educationalFocus": "evaluating-technology-tradeoffs",
+        "commonMisconceptions": [
+          "AI-always-better",
+          "professionals-just-protecting-jobs"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "topic": "Technology & AI"
+    },
+    {
+      "id": "local-food-movement-007",
+      "title": "The Local Food Influencer",
+      "text": "🌱 SHOCKING truth about your 'healthy' supermarket produce! 🌱 That organic spinach? Traveled 2,000 miles, losing 47% of nutrients (Journal of Food Science, 2019). But here's what BigAg doesn't want you knowing... My neighbor grows REAL food. No pesticides. Picked yesterday. Sure, it's $8/pound vs $3 at stores. 'Too expensive'? Your hospital bills will be MUCH worse! 😷 Studies show local food reduces cancer risk by 23% (I forget which study, but it's TRUE). Join my LocalHarvest Co-op - only $197 initiation + $50/month. We're building a MOVEMENT against corporate poison! ⚠️ Last week, 5 families joined after their kids got sick from store lettuce (probably). Don't wait for the next recall! Your family's health is PRICELESS! DM 'PURE FOOD' for exclusive member pricing! 🥬✨",
+      "claim": "Supermarket produce is nutrient-poor poison; only expensive local food can save your health",
+      "correctAnswer": "agenda",
+      "answerWeights": {
+        "logic": 22,
+        "emotion": 79,
+        "balanced": 8,
+        "agenda": 93
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "2,000 miles",
+            "47% of nutrients",
+            "Journal of Food Science, 2019",
+            "23%",
+            "I forget which study"
+          ],
+          "explanation": "Mixes one real citation with made-up statistics and admitted forgotten sources"
+        },
+        "emotion": {
+          "keywords": [
+            "SHOCKING",
+            "BigAg",
+            "hospital bills",
+            "corporate poison",
+            "kids got sick",
+            "Your family's health is PRICELESS"
+          ],
+          "explanation": "Fear-mongering about food safety and children's health to drive sales"
+        },
+        "balanced": {
+          "keywords": [
+            "Sure, it's $8/pound vs $3"
+          ],
+          "explanation": "Single price acknowledgment immediately dismissed with health threats"
+        },
+        "agenda": {
+          "keywords": [
+            "$197 initiation + $50/month",
+            "LocalHarvest Co-op",
+            "DM 'PURE FOOD'",
+            "exclusive member pricing",
+            "MOVEMENT"
+          ],
+          "explanation": "Expensive MLM-style food co-op using fear to justify extreme prices"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "primary",
+          "example": "Local expensive food or hospital bills - no middle ground acknowledged"
+        },
+        {
+          "fallacyId": "appeal-to-fear",
+          "severity": "primary",
+          "example": "Corporate poison, kids getting sick, cancer risk to sell co-op membership"
+        },
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "secondary",
+          "example": "All supermarket produce is poison based on selective data"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 24,
+            "consistency": 18,
+            "source": 28,
+            "agenda": 91
+          },
+          "indicators": [
+            "cherry-picked",
+            "forgotten-source",
+            "fake-statistics",
+            "conspiracy-thinking"
+          ],
+          "explanation": "One real citation mixed with admitted non-existent sources and made-up numbers"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 86,
+            "belonging": 72,
+            "pride": 83,
+            "manipulation": 88
+          },
+          "triggers": [
+            "food-poison-fear",
+            "child-safety-panic",
+            "us-vs-bigag",
+            "health-superiority"
+          ],
+          "explanation": "Maximum fear about family health to justify extreme prices"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Evidence manipulation obvious - real journal citation mixed with 'I forget which study' and made-up statistics about cancer reduction.",
+        "emotion": "Fear cascade perfected - supermarket poison → sick children → hospital bills → cancer, all to justify $247 initial investment plus monthly fees.",
+        "balanced": "Token price mention - acknowledges $8 vs $3 per pound then immediately buries it under health panic and corporate conspiracy.",
+        "agenda": "MLM-style food scheme - extreme initiation fee plus monthly subscription for 'exclusive' access to overpriced local produce."
+      },
+      "peakMoments": {
+        "logic": [
+          "47% of nutrients",
+          "I forget which study, but it's TRUE"
+        ],
+        "emotion": [
+          "hospital bills will be MUCH worse",
+          "kids got sick",
+          "corporate poison"
+        ],
+        "balanced": [
+          "$8/pound vs $3"
+        ],
+        "agenda": [
+          "$197 initiation + $50/month",
+          "DM 'PURE FOOD'"
+        ]
+      },
+      "wisdom": "Legitimate concerns about food systems weaponized for profit. Notice how one real citation gives credibility to made-up statistics, and health fears justify extreme prices. Real food advocacy provides education, not panic-driven memberships.",
+      "hints": {
+        "keywords": [
+          "$197 initiation",
+          "MOVEMENT",
+          "BigAg",
+          "forget which study",
+          "DM"
+        ],
+        "strategy": "agenda",
+        "hintMessage": "Fear about food safety leads to expensive membership!"
+      },
+      "metadata": {
+        "tags": [
+          "food",
+          "health-scare",
+          "MLM",
+          "conspiracy"
+        ],
+        "difficulty": 3,
+        "educationalFocus": "recognizing-fear-based-food-marketing",
+        "commonMisconceptions": [
+          "local-always-healthier",
+          "expensive-equals-healthy"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "topic": "Community & Society"
+    }
+  ]
+}

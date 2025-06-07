@@ -1,0 +1,336 @@
+{
+  "version": "1.0.0",
+  "description": "Icon mappings for logic indicators and emotion triggers in bear analysis",
+  "instructions": "When creating scenarios, use these predefined indicators/triggers. If you need a new one, add it here with an appropriate icon.",
+  
+  "indicators": {
+    "comment": "Logic Bear's analysis factors - evidence quality, reasoning patterns, source reliability",
+    
+    "evidence-quality": {
+      "weak-evidence": { "icon": "🚫", "text": "Weak or missing evidence" },
+      "zero-evidence": { "icon": "🚫", "text": "Zero evidence of threat" },
+      "specific-data": { "icon": "✅", "text": "Specific study data shared" },
+      "tested-data": { "icon": "🧪", "text": "Personal testing/experiments" },
+      "anecdotal-evidence": { "icon": "💬", "text": "Anecdotal evidence only" },
+      "anecdotal-proof": { "icon": "👤", "text": "Single story as proof" },
+      "fake-statistics": { "icon": "🎲", "text": "Fabricated statistics" },
+      "selective-evidence": { "icon": "🎯", "text": "Selective evidence use" },
+      "cherry-picked": { "icon": "🍒", "text": "Cherry-picked sample" },
+      "cherry-picked-sample": { "icon": "🍒", "text": "Cherry-picked sample" },
+      "multiple-studies": { "icon": "📚", "text": "Multiple studies reviewed" },
+      "large-sample": { "icon": "📊", "text": "Large sample size" },
+      "survey-data": { "icon": "📋", "text": "Survey data included" },
+      "systematic-testing": { "icon": "🧪", "text": "Systematic testing done" },
+      "peer-review-counts": { "icon": "📑", "text": "Peer review counts" },
+      "zero-evidence-crime": { "icon": "🚫", "text": "Zero crime evidence" }
+    },
+    
+    "reasoning-patterns": {
+      "logical-fallacy": { "icon": "🤔", "text": "Logical fallacy detected" },
+      "correlation-not-causation": { "icon": "🔗", "text": "Correlation ≠ causation" },
+      "correlation-acknowledgment": { "icon": "🔗", "text": "Acknowledges correlation issues" },
+      "contradicts-evidence": { "icon": "❌", "text": "Contradicts vast evidence" },
+      "data-contradicts-conclusion": { "icon": "❌", "text": "Data contradicts claim" },
+      "contradiction-admission": { "icon": "🤔", "text": "Admits contradiction" },
+      "contradiction-posting": { "icon": "↔️", "text": "Self-contradicting post" },
+      "oversimplified-math": { "icon": "➗", "text": "Math oversimplified" },
+      "oversimplified-science": { "icon": "🧬", "text": "Science oversimplified" },
+      "pattern-forcing": { "icon": "🎯", "text": "Forcing false patterns" },
+      "pattern-invention": { "icon": "🌀", "text": "False patterns claimed" },
+      "probability-misunderstanding": { "icon": "🎲", "text": "Probability errors" },
+      "independent-events-ignored": { "icon": "🔀", "text": "Independent events confused" },
+      "mathematical-certainty-claimed": { "icon": "🧮", "text": "False mathematical certainty" },
+      "conspiracy-theory": { "icon": "🕳️", "text": "Conspiracy reasoning" },
+      "conspiracy-thinking": { "icon": "🕳️", "text": "Conspiracy logic" },
+      "speculation": { "icon": "😱", "text": "Pure speculation" },
+      "pure-speculation": { "icon": "😱", "text": "Pure speculation" }
+    },
+    
+    "source-reliability": {
+      "qualified-expert": { "icon": "✅", "text": "Qualified expert source" },
+      "biased-source": { "icon": "📱", "text": "Questionable source reliability" },
+      "facebook-source": { "icon": "📱", "text": "\"Read on Facebook\" source" },
+      "forgotten-source": { "icon": "❓", "text": "Source forgotten/vague" },
+      "vague-authority": { "icon": "🌫️", "text": "Vague authority cited" },
+      "industry-funded": { "icon": "🏭", "text": "Likely industry-funded source" },
+      "dubious-institute": { "icon": "🏭", "text": "Dubious \"institute\" source" },
+      "credible-institution": { "icon": "🎓", "text": "Credible institution source" },
+      "false-expertise": { "icon": "🎭", "text": "False expertise claimed" },
+      "professional-experience": { "icon": "💼", "text": "Professional experience" },
+      "teacher-testimony": { "icon": "👩‍🏫", "text": "Teacher testimony" },
+      "multiple-sources": { "icon": "📚", "text": "Multiple sources cited" },
+      "cites-research": { "icon": "📚", "text": "Cites research sources" },
+      "funding-sources": { "icon": "💵", "text": "Funding sources revealed" }
+    },
+    
+    "transparency": {
+      "acknowledges-limits": { "icon": "✅", "text": "Acknowledges limitations" },
+      "mentions-alternatives": { "icon": "✅", "text": "Mentions alternatives" },
+      "shows-uncertainty": { "icon": "🤔", "text": "Shows uncertainty/questioning" },
+      "ignored-alternatives": { "icon": "🚪", "text": "Ignores other options" },
+      "honest-complexity": { "icon": "🌐", "text": "Admits complexity" },
+      "seeks-context": { "icon": "🔍", "text": "Seeks fuller context" },
+      "questions-data": { "icon": "❔", "text": "Questions the data" },
+      "methodology-transparent": { "icon": "📋", "text": "Methods explained clearly" },
+      "no-context": { "icon": "❌", "text": "Missing context" },
+      "practical-limits": { "icon": "🚧", "text": "Practical limits noted" }
+    },
+    
+    "agenda-detection": {
+      "hidden-agenda": { "icon": "💰", "text": "Hidden sales agenda" },
+      "hidden-sales": { "icon": "💰", "text": "Hidden sales agenda" },
+      "profit-motive": { "icon": "💰", "text": "Clear profit motive" },
+      "economic-pressure": { "icon": "💼", "text": "Economic pressures noted" },
+      "hidden-course-sales": { "icon": "🎓", "text": "Hidden course agenda" },
+      "aggressive-sales": { "icon": "💰", "text": "Aggressive sales tactics" },
+      "veiled-threats": { "icon": "⚡", "text": "Subtle threats made" },
+      "wink-emoji-manipulation": { "icon": "😉", "text": "Winking admission" }
+    },
+    
+    "specific-claims": {
+      "specific-percentages": { "icon": "📊", "text": "Specific percentages cited" },
+      "specific-metrics": { "icon": "📈", "text": "Specific metrics provided" },
+      "specific-costs": { "icon": "💰", "text": "Specific costs detailed" },
+      "specific-hours": { "icon": "⏰", "text": "Specific hours documented" },
+      "specific-changes": { "icon": "📊", "text": "Specific behavior changes noted" },
+      "direct-observation": { "icon": "👁️", "text": "Direct classroom observation" },
+      "student-reports": { "icon": "💬", "text": "Student self-reports" },
+      "personal-data": { "icon": "📱", "text": "Personal data/experience" },
+      "income-breakdown": { "icon": "💵", "text": "Income breakdown shown" },
+      "expense-tracking": { "icon": "📊", "text": "Expense tracking detailed" },
+      "hour-documentation": { "icon": "⏰", "text": "Hours documented" }
+    },
+    
+    "comparison-analysis": {
+      "cost-benefit": { "icon": "💰", "text": "Cost-benefit analysis" },
+      "cost-comparison": { "icon": "💵", "text": "Cost comparison shown" },
+      "comparable-examples": { "icon": "🔗", "text": "Comparable examples cited" },
+      "international-comparison": { "icon": "🌍", "text": "International comparison" },
+      "investment-comparison": { "icon": "💸", "text": "Investment comparisons" },
+      "credential-comparison": { "icon": "🎖️", "text": "Credential comparisons" },
+      "selective-timeframes": { "icon": "📅", "text": "Cherry-picked timeframe" }
+    },
+    
+    "health-science": {
+      "health-claims": { "icon": "🏥", "text": "Health claims made" },
+      "test-results": { "icon": "🩺", "text": "Test results shared" },
+      "productivity-paradox": { "icon": "⚡", "text": "Productivity paradox exposed" },
+      "natural-good-fallacy": { "icon": "🤔", "text": "\"Natural = good\" fallacy" },
+      "filtered-photos": { "icon": "📸", "text": "Heavily filtered photos" },
+      "ancient-secret-nonsense": { "icon": "🏛️", "text": "\"Ancient secret\" nonsense" },
+      "anti-doctor": { "icon": "⚕️", "text": "Anti-medical establishment" }
+    },
+    
+    "data-issues": {
+      "corporate-data": { "icon": "🏢", "text": "Corporate data used" },
+      "earnings-data": { "icon": "💰", "text": "Earnings data cited" },
+      "surveillance-stats": { "icon": "📹", "text": "Surveillance statistics" },
+      "scholarship-statistics": { "icon": "🎓", "text": "Scholarship statistics" },
+      "selective-statistics": { "icon": "📊", "text": "Cherry-picked stats" },
+      "unverified-claims": { "icon": "❗", "text": "Claims unverified" },
+      "conflicting-data": { "icon": "⚖️", "text": "Conflicting evidence presented" },
+      "nuanced-findings": { "icon": "🔍", "text": "Nuanced findings presented" },
+      "dueling-studies": { "icon": "⚔️", "text": "Competing studies cited" }
+    },
+    
+    "response-patterns": {
+      "extreme-response": { "icon": "⚠️", "text": "Extreme overreaction" },
+      "one-incident-total-ban": { "icon": "🚫", "text": "One incident, total ban" },
+      "fear-over-education": { "icon": "😱", "text": "Fear over education" },
+      "collaborative": { "icon": "🤝", "text": "Collaborative approach" },
+      "practical-guidance": { "icon": "💡", "text": "Practical guidance provided" },
+      "acknowledges-downsides": { "icon": "⚠️", "text": "Acknowledges downsides" },
+      "regulatory-positions": { "icon": "🏛️", "text": "Regulatory body positions" },
+      "tax-classification": { "icon": "📋", "text": "Tax classification issues" }
+    },
+    
+    "marketing-tactics": {
+      "no-information": { "icon": "🚫", "text": "No substantive information" },
+      "simple-trick-scam": { "icon": "🎪", "text": "\"Simple trick\" scam language" },
+      "fake-urgency": { "icon": "⏰", "text": "Artificial urgency created" },
+      "slippery-slope": { "icon": "🎿", "text": "Slippery slope reasoning" },
+      "false-dilemma": { "icon": "⚔️", "text": "False choice presented" },
+      "hasty-generalization": { "icon": "🏃", "text": "Rushed generalization" },
+      "ad-hominem": { "icon": "👤", "text": "Personal attack substitute" },
+      "appeal-to-tradition": { "icon": "🏛️", "text": "\"Ancient wisdom\" appeal" },
+      "false-scarcity": { "icon": "⏰", "text": "Fake scarcity pressure" },
+      "false-equivalence": { "icon": "⚖️", "text": "False equivalence drawn" },
+      "appeal-to-consequences": { "icon": "😨", "text": "Threatening consequences" }
+    }
+  },
+  
+  "triggers": {
+    "comment": "Emotion Bear's detected triggers - fear, belonging, pride, manipulation patterns",
+    
+    "fear-based": {
+      "child-safety": { "icon": "🚸", "text": "Child safety panic" },
+      "child-safety-panic": { "icon": "🚸", "text": "Child safety panic" },
+      "child-anxiety": { "icon": "👶", "text": "Child anxiety trigger" },
+      "child-brain-damage": { "icon": "🧠", "text": "Brain damage fear" },
+      "child-suffering": { "icon": "😢", "text": "Child suffering fear" },
+      "zombie-children": { "icon": "🧟", "text": "Zombie kids fear" },
+      "predator-terror": { "icon": "😱", "text": "Predator terror appeal" },
+      "stranger-danger": { "icon": "🚨", "text": "Stranger danger fear" },
+      "technology-panic": { "icon": "📱", "text": "Technology panic" },
+      "life-death-framing": { "icon": "⚰️", "text": "Life or death framing" },
+      "economic-fear": { "icon": "💰", "text": "Economic fear tactics" },
+      "poverty-fear": { "icon": "💸", "text": "Poverty fear" },
+      "addiction-fear": { "icon": "💊", "text": "Addiction fear" },
+      "food-poison-fear": { "icon": "🤢", "text": "Food poisoning fear" },
+      "health-worry": { "icon": "🏥", "text": "Health concerns" },
+      "child-health": { "icon": "🧒", "text": "Child health concerns" },
+      "sick-building": { "icon": "🏢", "text": "Sick building fear" },
+      "replacement-anxiety": { "icon": "🤖", "text": "Replacement fear" },
+      "career-threat": { "icon": "💼", "text": "Career threat fear" },
+      "safety-panic": { "icon": "🚨", "text": "Safety panic" }
+    },
+    
+    "belonging-identity": {
+      "us-vs-them": { "icon": "👥", "text": "Us vs. them mentality" },
+      "wake-up-superiority": { "icon": "🐑", "text": "\"Wake up\" superiority" },
+      "superiority-complex": { "icon": "🐑", "text": "\"Wake up\" superiority appeal" },
+      "protective-parent": { "icon": "🛡️", "text": "Protective parent identity" },
+      "smart-parent-pride": { "icon": "🎖️", "text": "Smart parent appeal" },
+      "parent-unity": { "icon": "🤝", "text": "Parent solidarity" },
+      "community-building": { "icon": "🏘️", "text": "Community building appeal" },
+      "neighborhood-improvement": { "icon": "🏠", "text": "Neighborhood improvement" },
+      "family-activity": { "icon": "👨‍👩‍👧‍👦", "text": "Family activity appeal" },
+      "tech-worker-solidarity": { "icon": "💻", "text": "Tech worker solidarity" },
+      "us-vs-management": { "icon": "👔", "text": "Us vs management" },
+      "us-vs-banks": { "icon": "🏦", "text": "Us versus banks" },
+      "us-vs-bigag": { "icon": "🌾", "text": "Us versus Big Ag" },
+      "tribal-warfare": { "icon": "⚔️", "text": "Tribal warfare" },
+      "family-division": { "icon": "👨‍👩‍👧", "text": "Family division" },
+      "identity-threat": { "icon": "🆔", "text": "Identity threat" },
+      "identity-crisis": { "icon": "🎭", "text": "Identity crisis" },
+      "change-maker-identity": { "icon": "🦸", "text": "Change-maker identity" }
+    },
+    
+    "shame-guilt": {
+      "body-shame": { "icon": "😢", "text": "Body shame activation" },
+      "bad-parent-shame": { "icon": "😞", "text": "Bad parent shaming" },
+      "parent-guilt": { "icon": "😔", "text": "Parent guilt" },
+      "mother-guilt": { "icon": "👩", "text": "Mother guilt trigger" },
+      "wage-slave-shame": { "icon": "😤", "text": "\"Wage slave\" shaming" },
+      "productivity-shame": { "icon": "📉", "text": "Productivity shame" },
+      "wasted-money": { "icon": "💸", "text": "Wasted money regret" },
+      "failed-dreams": { "icon": "💔", "text": "Failed dreams pain" },
+      "environmental-guilt": { "icon": "🌍", "text": "Environmental guilt" },
+      "waste-shock": { "icon": "🗑️", "text": "Waste shock value" },
+      "access-guilt": { "icon": "🔐", "text": "Access guilt" },
+      "lost-dignity": { "icon": "😞", "text": "Lost dignity" },
+      "regret": { "icon": "😔", "text": "Regret" }
+    },
+    
+    "pride-status": {
+      "harvard-credibility": { "icon": "🎓", "text": "Harvard credibility appeal" },
+      "academic-authority": { "icon": "🎓", "text": "Academic authority appeal" },
+      "professor-authority": { "icon": "🎓", "text": "Professor authority" },
+      "professional-trust": { "icon": "🤝", "text": "Professional trust appeal" },
+      "ethical-superiority": { "icon": "✨", "text": "Ethical superiority" },
+      "health-superiority": { "icon": "💪", "text": "Health superiority" },
+      "beauty-anxiety": { "icon": "💃", "text": "Beauty standard anxiety" },
+      "relationship-insecurity": { "icon": "👰", "text": "Relationship insecurity" },
+      "lifestyle-envy": { "icon": "🏖️", "text": "Lifestyle envy trigger" },
+      "property-value": { "icon": "🏡", "text": "Property value consideration" },
+      "property-values": { "icon": "🏠", "text": "Property value concerns" },
+      "insider-knowledge": { "icon": "🔑", "text": "Insider knowledge" },
+      "professional-integrity": { "icon": "💼", "text": "Professional integrity" },
+      "professional-responsibility": { "icon": "⚕️", "text": "Professional duty" }
+    },
+    
+    "urgency-pressure": {
+      "urgency-pressure": { "icon": "⚡", "text": "URGENT pressure tactics" },
+      "urgent-pressure": { "icon": "⚡", "text": "URGENT!!! pressure" },
+      "kids-deserve-better": { "icon": "👶", "text": "\"Your kids deserve better\"" },
+      "fomo-last-chance": { "icon": "⏰", "text": "Fear of missing out" },
+      "fomo": { "icon": "⏳", "text": "Fear of missing out" },
+      "missing-out": { "icon": "🎯", "text": "Missing out fear" },
+      "decision-paralysis": { "icon": "🤷", "text": "Decision paralysis" }
+    },
+    
+    "manipulation-patterns": {
+      "aging-concern": { "icon": "⏰", "text": "Aging concerns trigger" },
+      "hope-solution": { "icon": "💊", "text": "Hope for solution" },
+      "police-narrative": { "icon": "🚔", "text": "\"Police won't help\" narrative" },
+      "police-wont-help": { "icon": "🚔", "text": "\"Police won't help\" narrative" },
+      "anti-establishment": { "icon": "🏴", "text": "Anti-establishment appeal" },
+      "theyre-lying": { "icon": "😤", "text": "\"They're lying to you\"" },
+      "conspiracy-fear": { "icon": "🕳️", "text": "Conspiracy fear appeal" },
+      "fake-urgency": { "icon": "⏰", "text": "Artificial urgency created" },
+      "simple-trick-scam": { "icon": "🎪", "text": "\"Simple trick\" scam language" }
+    },
+    
+    "social-pressure": {
+      "academic-concern": { "icon": "📚", "text": "Academic performance worry" },
+      "scholarship-threat": { "icon": "🎓", "text": "Scholarship threat" },
+      "academic-integrity": { "icon": "📚", "text": "Academic integrity crisis" },
+      "teacher-care": { "icon": "💕", "text": "Teacher showing care" },
+      "partnership-request": { "icon": "🤝", "text": "Partnership approach" },
+      "common-exposure": { "icon": "📊", "text": "Common exposure data" },
+      "empowerment-info": { "icon": "💪", "text": "Empowering information" },
+      "work-relevance": { "icon": "💼", "text": "Work relevance appeal" },
+      "data-confidence": { "icon": "📊", "text": "Data confidence building" },
+      "change-acceptance": { "icon": "🔄", "text": "Change acceptance" },
+      "peer-pressure": { "icon": "👫", "text": "Peer pressure" },
+      "community-judgment": { "icon": "👥", "text": "Community judgment fear" },
+      "community-threat": { "icon": "🏘️", "text": "Community threat" },
+      "manager-judgment": { "icon": "👔", "text": "Manager judgment fear" },
+      "public-shaming": { "icon": "📢", "text": "Public shame threat" },
+      "judgment-fear": { "icon": "👀", "text": "Fear of judgment" }
+    },
+    
+    "loss-pain": {
+      "lost-connection": { "icon": "💔", "text": "Lost connection" },
+      "relationship-mourning": { "icon": "😢", "text": "Relationship mourning" },
+      "lost-learning": { "icon": "📚", "text": "Lost learning fear" },
+      "loss-recovery-desperation": { "icon": "🎰", "text": "Loss recovery desperation" },
+      "universe-owes-me": { "icon": "🌌", "text": "Universe owes me" },
+      "智-superiority-delusion": { "icon": "🧠", "text": "Superiority delusion" },
+      "life-destruction-humor": { "icon": "😂", "text": "Life destruction humor" },
+      "financial-desperation": { "icon": "💰", "text": "Financial desperation" },
+      "isolation": { "icon": "🏝️", "text": "Isolation" },
+      "dark-humor-coping": { "icon": "🃏", "text": "Dark humor coping" }
+    },
+    
+    "system-frustration": {
+      "systemic-frustration": { "icon": "🏛️", "text": "System frustration" },
+      "fairness-struggle": { "icon": "⚖️", "text": "Fairness struggle" },
+      "surveillance-frustration": { "icon": "📹", "text": "Surveillance frustration" },
+      "irony-humor": { "icon": "😏", "text": "Ironic humor coping" },
+      "optimization-exhaustion": { "icon": "😩", "text": "Optimization exhaustion" },
+      "authenticity-paradox": { "icon": "🎭", "text": "Authenticity paradox" },
+      "shared-frustration": { "icon": "🤝", "text": "Shared frustration" }
+    },
+    
+    "authority-appeals": {
+      "harvard-credibility": { "icon": "🎓", "text": "Harvard credibility appeal" },
+      "professional-trust": { "icon": "🤝", "text": "Professional trust appeal" },
+      "doctor-recommendation": { "icon": "⚕️", "text": "Doctor recommendation" },
+      "expert-validation": { "icon": "🎓", "text": "Expert validation" },
+      "institutional-backing": { "icon": "🏛️", "text": "Institutional backing" }
+    },
+    
+    "crisis-survival": {
+      "business-survival": { "icon": "💼", "text": "Business survival" },
+      "patient-harm": { "icon": "🏥", "text": "Patient harm concern" },
+      "public-harm": { "icon": "⚠️", "text": "Public harm concern" },
+      "moral-compromise": { "icon": "😕", "text": "Moral compromise" },
+      "corporate-greed": { "icon": "🏢", "text": "Corporate greed anger" },
+      "vigilante-justice": { "icon": "⚔️", "text": "Vigilante justice" },
+      "weakness-challenge": { "icon": "💢", "text": "Weakness challenge" },
+      "parent-anxiety": { "icon": "😰", "text": "Parent anxiety" }
+    }
+  },
+  
+  "usage": {
+    "forScenarioCreation": "When creating scenarios, select indicators and triggers from this predefined list. This ensures consistent icon display in the UI.",
+    "forNewAdditions": "If you need an indicator/trigger not in this list, add it to the appropriate category with a fitting icon before using it in your scenario.",
+    "iconGuidelines": [
+      "Use emojis that are clear at small sizes",
+      "Match the emotional tone (⚠️ for warnings, ✅ for positive, etc.)",
+      "Avoid complex or uncommon emojis",
+      "Keep text descriptions concise (3-5 words)"
+    ]
+  }
+}

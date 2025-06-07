@@ -1,0 +1,1561 @@
+{
+  "version": "2.0.0",
+  "packInfo": {
+    "packId": "advanced-manipulation-002",
+    "packName": "Modern Digital Dilemmas",
+    "author": "AI Generated with Enhanced Patterns",
+    "description": "Sophisticated scenarios featuring winking admissions, statistical whiplash, and platform-authentic voices",
+    "createdDate": "2025-01-06",
+    "topic": "Modern Digital Dilemmas",
+    "category": "Advanced"
+  },
+  "scenarios": [
+    {
+      "id": "ai-cheating-professor-001",
+      "title": "The AI Detection Dilemma",
+      "text": "From: Prof_Martinez@StateU.edu\nSubject: Re: Your Essay Flag\n\nDear Sophie,\n\nOur AI detector flagged your essay as 87% likely AI-generated. I know, I know - these detectors have a 9% false positive rate (MIT study, 2024). Your writing did suddenly improve. Last semester: C+ average. This essay: graduate-level vocabulary. But maybe you just worked harder? I've seen GPTDetect flag Shakespeare as AI. Literally. Yet when I asked you to explain your thesis in person, you struggled. Look, 31% of students admit using ChatGPT (anonymous survey). I'm not naive. But I also had a student last month wrongly accused - nearly destroyed her scholarship chances. The irony? I use Claude to write recommendation letters (don't tell admin 😉). Here's my offer: Rewrite it by hand, in class, tomorrow. Similar quality = A. Can't reproduce it = Academic Integrity meeting. Fair? I'm trying to be. This whole system is broken, honestly.\n\n-Prof M",
+      "claim": "Professor struggles with AI detection accuracy while admitting own AI use, offering compromise that may be unfair",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "logic": 71,
+        "emotion": 48,
+        "balanced": 89,
+        "agenda": 24
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "87% likely",
+            "9% false positive rate",
+            "MIT study, 2024",
+            "31% of students admit",
+            "C+ average"
+          ],
+          "explanation": "Multiple statistics showing both detection confidence and error rates"
+        },
+        "emotion": {
+          "keywords": [
+            "destroyed her scholarship",
+            "You struggled",
+            "I'm trying to be",
+            "broken, honestly"
+          ],
+          "explanation": "Empathy mixed with frustration about systemic problems"
+        },
+        "balanced": {
+          "keywords": [
+            "I know, I know",
+            "But maybe you just",
+            "Yet when I asked",
+            "The irony?",
+            "Fair?"
+          ],
+          "explanation": "Constantly questioning own assumptions and acknowledging contradictions"
+        },
+        "agenda": {
+          "keywords": [
+            "Rewrite it by hand",
+            "Academic Integrity meeting",
+            "don't tell admin 😉"
+          ],
+          "explanation": "Practical solution proposed with minimal personal agenda"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "acknowledged",
+          "example": "Recognizes the rewrite test itself might be unfair but sees no better option"
+        },
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "avoided",
+          "example": "Avoids assuming guilt despite evidence, acknowledges false positives"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 74,
+            "consistency": 68,
+            "source": 77,
+            "agenda": 28
+          },
+          "indicators": [
+            "specific-percentages",
+            "acknowledges-limits",
+            "cites-research",
+            "shows-uncertainty"
+          ],
+          "explanation": "Strong statistical awareness of both detection rates and limitations"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 42,
+            "belonging": 53,
+            "pride": 31,
+            "manipulation": 38
+          },
+          "triggers": [
+            "scholarship-threat",
+            "academic-integrity",
+            "systemic-frustration",
+            "fairness-struggle"
+          ],
+          "explanation": "Genuine concern without weaponizing emotions"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Evidence accumulates uncertainly - 87% detection confidence undermined by 9% false positive rate, creating genuine doubt.",
+        "emotion": "Professional frustration authentic - torn between protecting academic integrity and avoiding false accusations that destroy futures.",
+        "balanced": "Exemplary complexity throughout - acknowledges own AI use while investigating student, questions every assumption, seeks imperfect compromise.",
+        "agenda": "Minimal personal agenda - proposed solution aims for fairness despite acknowledging it might itself be unfair."
+      },
+      "peakMoments": {
+        "logic": [
+          "87% likely AI-generated",
+          "9% false positive rate",
+          "31% of students admit"
+        ],
+        "emotion": [
+          "destroyed her scholarship",
+          "This whole system is broken"
+        ],
+        "balanced": [
+          "I know, I know",
+          "The irony?",
+          "Fair?"
+        ],
+        "agenda": [
+          "Rewrite it by hand",
+          "Academic Integrity meeting"
+        ]
+      },
+      "wisdom": "The AI detection dilemma exposes how technology outpaces policy. Notice the professor's 'winking admission' of their own AI use - this transparency about systemic hypocrisy makes the struggle more authentic than hiding behind false authority.",
+      "hints": {
+        "keywords": [
+          "But maybe",
+          "The irony?",
+          "Fair?",
+          "trying to be",
+          "honestly"
+        ],
+        "strategy": "balanced",
+        "hintMessage": "Professor questioning everything, including themselves!"
+      },
+      "metadata": {
+        "tags": [
+          "AI",
+          "education",
+          "cheating",
+          "ethical-dilemma",
+          "winking-admission"
+        ],
+        "difficulty": 4,
+        "educationalFocus": "recognizing-systemic-complexity",
+        "commonMisconceptions": [
+          "AI-detection-always-accurate",
+          "professors-never-use-AI"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "topic": "Education & Learning"
+    },
+    {
+      "id": "remote-work-surveillance-002",
+      "title": "The Productivity Theater",
+      "text": "Posted in company Slack #random by Tyler_DevOps:\n\nLOL just discovered WorkWatcher logs EVERYTHING. Screenshots every 10min, keystrokes, 'productivity score.' Manager says it's 'just for security.' Sure, Jan. 😏 Fun fact: Moving your mouse randomly boosts your score by 23% (I tested). The algo thinks mouse movement = working. Meanwhile, I solved that database issue during my 'unproductive' thinking time (score: 12%). Jenny from HR got flagged for 'low engagement' - she was in ZOOM MEETINGS. But here's the thing... our output is up 34% since going remote. Profits too. So why the surveillance? Oh right, WeWork just offered our company a 'great deal' on office space. Coincidence? I'm not saying correlation = causation, but... 🤔 Anyway, $12 USB mouse jiggler on Amazon. Just saying. Not financial advice. 😉 Who else finds it ironic we build privacy-focused products while being spied on?",
+      "claim": "Company surveillance software is ineffective theater possibly motivated by real estate interests",
+      "correctAnswer": "logic",
+      "answerWeights": {
+        "logic": 78,
+        "emotion": 52,
+        "balanced": 34,
+        "agenda": 67
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "Screenshots every 10min",
+            "23% (I tested)",
+            "score: 12%",
+            "output is up 34%",
+            "correlation = causation"
+          ],
+          "explanation": "Specific data exposing surveillance absurdity with tested results"
+        },
+        "emotion": {
+          "keywords": [
+            "LOL",
+            "Sure, Jan. 😏",
+            "spied on",
+            "finds it ironic"
+          ],
+          "explanation": "Frustration expressed through humor rather than panic"
+        },
+        "balanced": {
+          "keywords": [
+            "But here's the thing",
+            "I'm not saying",
+            "but... 🤔"
+          ],
+          "explanation": "Some hedging but clearly taking a position against surveillance"
+        },
+        "agenda": {
+          "keywords": [
+            "WeWork",
+            "great deal",
+            "$12 USB mouse jiggler",
+            "Amazon",
+            "Not financial advice. 😉"
+          ],
+          "explanation": "Implies corporate real estate agenda and suggests workaround product"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "post-hoc",
+          "severity": "acknowledged",
+          "example": "Explicitly states 'not saying correlation = causation' while implying it"
+        },
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "secondary",
+          "example": "One company's bad implementation generalized to all surveillance"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 81,
+            "consistency": 73,
+            "source": 69,
+            "agenda": 71
+          },
+          "indicators": [
+            "tested-data",
+            "specific-metrics",
+            "productivity-paradox",
+            "correlation-acknowledgment"
+          ],
+          "explanation": "Personal testing and specific metrics expose surveillance theater"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 38,
+            "belonging": 67,
+            "pride": 64,
+            "manipulation": 41
+          },
+          "triggers": [
+            "surveillance-frustration",
+            "us-vs-management",
+            "tech-worker-solidarity",
+            "irony-humor"
+          ],
+          "explanation": "Builds camaraderie through shared frustration rather than fear"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Data reveals absurdity cascade - mouse movement scoring 23% boost while actual problem-solving scores 12%, exposing algorithmic stupidity.",
+        "emotion": "Tech worker frustration channeled through humor - 'Sure, Jan' and emoji create solidarity without fear-mongering.",
+        "balanced": "Limited balance despite hedging - 'not saying correlation = causation' wink shows awareness while still pushing conclusion.",
+        "agenda": "Corporate real estate theory floated alongside mouse jiggler solution - suggests both system critique and personal workaround."
+      },
+      "peakMoments": {
+        "logic": [
+          "23% (I tested)",
+          "score: 12%",
+          "output is up 34%"
+        ],
+        "emotion": [
+          "LOL",
+          "Sure, Jan. 😏",
+          "spied on"
+        ],
+        "balanced": [
+          "I'm not saying",
+          "but... 🤔"
+        ],
+        "agenda": [
+          "WeWork",
+          "$12 USB mouse jiggler",
+          "😉"
+        ]
+      },
+      "wisdom": "Classic 'winking admission' pattern - openly acknowledges logical fallacy while committing it. The humor and specificity make the surveillance critique more credible than angry ranting would. Real workplace absurdity exposed through data.",
+      "hints": {
+        "keywords": [
+          "tested",
+          "34%",
+          "12%",
+          "correlation",
+          "WeWork"
+        ],
+        "strategy": "logic",
+        "hintMessage": "Data and testing expose the surveillance theater!"
+      },
+      "metadata": {
+        "tags": [
+          "remote-work",
+          "surveillance",
+          "productivity",
+          "corporate-culture"
+        ],
+        "difficulty": 3,
+        "educationalFocus": "recognizing-data-driven-critique",
+        "commonMisconceptions": [
+          "all-surveillance-effective",
+          "productivity-equals-activity"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "topic": "Work & Career"
+    },
+    {
+      "id": "youth-soccer-parent-003",
+      "title": "The Scholarship Dreams",
+      "text": "Fellow Soccer Parents!! ⚽️ Real talk from a mom who's been there. My daughter Emma played since age 4. Travel team by 8. Private coaching: $200/week. Tournaments: $15K/year. Total investment: ~$65,000. 😱 Last week she told me she HATES soccer. Has for two years. But kept playing because 'I spent so much money, Mom.' My heart shattered. 💔 Meanwhile, her friend Sofia started at 14, made varsity, got the same D3 scholarship. The kicker? (pun intended) Only 2% get scholarships. Average amount: $3,000. I could've put that $65K in a 529 plan! 🤦‍♀️ Other parents judge me for 'giving up' on her dreams. But were they HER dreams or MINE? Coach says quitting now 'wastes her potential.' He also charges $5K for his 'Elite Summer Academy.' 🙄 Anyone else wondering if we're just funding the youth sports industrial complex? Or am I the only failed soccer mom here?",
+      "claim": "Youth sports investment rarely pays off financially or emotionally, driven by parental dreams and industry profit",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "logic": 63,
+        "emotion": 84,
+        "balanced": 47,
+        "agenda": 56
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "$200/week",
+            "$15K/year",
+            "$65,000",
+            "Only 2%",
+            "Average amount: $3,000",
+            "529 plan"
+          ],
+          "explanation": "Specific financial data showing poor investment return"
+        },
+        "emotion": {
+          "keywords": [
+            "HATES soccer",
+            "heart shattered 💔",
+            "HER dreams or MINE?",
+            "failed soccer mom",
+            "judge me"
+          ],
+          "explanation": "Deep parental guilt and identity crisis drive the narrative"
+        },
+        "balanced": {
+          "keywords": [
+            "Real talk",
+            "Anyone else wondering",
+            "Or am I the only"
+          ],
+          "explanation": "Seeks validation and other perspectives but from emotional place"
+        },
+        "agenda": {
+          "keywords": [
+            "$5K for his Elite Summer Academy",
+            "youth sports industrial complex",
+            "Coach says"
+          ],
+          "explanation": "Critiques the industry while exposing coach's financial motives"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-scarcity",
+          "severity": "primary",
+          "example": "Daughter kept playing because of money already spent"
+        },
+        {
+          "fallacyId": "false-equivalence",
+          "severity": "secondary",
+          "example": "Friend starting at 14 doesn't mean early start always wasteful"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 72,
+            "consistency": 61,
+            "source": 54,
+            "agenda": 58
+          },
+          "indicators": [
+            "specific-costs",
+            "scholarship-statistics",
+            "investment-comparison",
+            "personal-data"
+          ],
+          "explanation": "Strong financial data supports emotional realization about wasted investment"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 71,
+            "belonging": 78,
+            "pride": 89,
+            "manipulation": 67
+          },
+          "triggers": [
+            "parent-guilt",
+            "wasted-money",
+            "failed-dreams",
+            "identity-crisis",
+            "judgment-fear"
+          ],
+          "explanation": "Parental guilt and identity crisis dominate despite logical data"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Financial reality hits hard - $65,000 investment exposed against 2% scholarship chance and $3,000 average return, creating painful clarity.",
+        "emotion": "Parental anguish spirals authentically - from financial shock to daughter's confession to existential questioning of whose dreams were pursued.",
+        "balanced": "Emotional overwhelm limits balance - questions raised about systemic issues but through lens of personal guilt and failure.",
+        "agenda": "Industry critique emerges through pain - coach's $5K academy mentioned to expose profit motive within emotional narrative."
+      },
+      "peakMoments": {
+        "logic": [
+          "$65,000",
+          "Only 2%",
+          "$3,000",
+          "529 plan"
+        ],
+        "emotion": [
+          "HATES soccer",
+          "heart shattered 💔",
+          "failed soccer mom"
+        ],
+        "balanced": [
+          "Real talk",
+          "Anyone else wondering"
+        ],
+        "agenda": [
+          "$5K for his Elite Summer Academy",
+          "youth sports industrial complex"
+        ]
+      },
+      "wisdom": "Sunk cost fallacy meets parental identity crisis. The specific financial data makes the emotional realization more powerful - when dreams become investments, whose dreams are they? Notice how judgment fear prevents clearer systemic analysis.",
+      "hints": {
+        "keywords": [
+          "HATES",
+          "heart shattered",
+          "💔",
+          "dreams",
+          "failed mom"
+        ],
+        "strategy": "emotion",
+        "hintMessage": "Parent guilt and identity crisis dominate the post!"
+      },
+      "metadata": {
+        "tags": [
+          "parenting",
+          "youth-sports",
+          "financial",
+          "identity-crisis"
+        ],
+        "difficulty": 3,
+        "educationalFocus": "recognizing-emotional-investment-traps",
+        "commonMisconceptions": [
+          "early-specialization-necessary",
+          "sports-always-good-investment"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "topic": "Parenting & Family"
+    },
+    {
+      "id": "sustainable-fashion-influencer-004",
+      "title": "The Ethical Closet Confession",
+      "text": "@EcoWarriorJess here with some TRUTH 🌿 Threw out 90% of my fast fashion last month. Yes, THREW OUT. 'But Jess, couldn't you donate?' Honey, Goodwill ships 84% overseas where it destroys local textile industries (UN report, 2023). 'Salvation Army?' Sells to rag traders. Your H&M dress won't 'help someone' - it'll rot in Chilean desert dumps. 😢 The ONLY ethical choice? Buy less, buy $200 organic hemp tees. 'Too expensive!' you cry, while buying 5 Shein hauls monthly. Here's the math: 52 cheap items/year = $1,300. Or 6 quality pieces = $1,200. SEE?? I'm launching ConsciousCloset course ($97) teaching capsule wardrobes. DM 'ETHICAL' for early bird pricing! 🌟 BTW, yes, I threw out wearable clothes. Creating waste to prove a point? Maybe unethical. But shock creates change! Or am I just another hypocrite influencer? You decide. 💚 #SustainableFashion #EthicalStyle",
+      "claim": "Fast fashion donations harm developing countries, only expensive sustainable fashion is ethical, despite the waste created",
+      "correctAnswer": "agenda",
+      "answerWeights": {
+        "logic": 41,
+        "emotion": 73,
+        "balanced": 19,
+        "agenda": 87
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "84% overseas",
+            "UN report, 2023",
+            "52 cheap items/year = $1,300",
+            "6 quality pieces = $1,200"
+          ],
+          "explanation": "Real statistics mixed with oversimplified math"
+        },
+        "emotion": {
+          "keywords": [
+            "TRUTH 🌿",
+            "rot in Chilean desert",
+            "😢",
+            "hypocrite influencer",
+            "shock creates change!"
+          ],
+          "explanation": "Environmental guilt and shock tactics drive engagement"
+        },
+        "balanced": {
+          "keywords": [
+            "Maybe unethical",
+            "Or am I just",
+            "You decide"
+          ],
+          "explanation": "Token self-questioning undermined by confident assertions"
+        },
+        "agenda": {
+          "keywords": [
+            "ConsciousCloset course ($97)",
+            "DM 'ETHICAL'",
+            "early bird pricing",
+            "$200 organic hemp tees"
+          ],
+          "explanation": "Environmental concern funnels directly to course sales and expensive alternatives"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "primary",
+          "example": "Only options presented are throw away or buy $200 shirts"
+        },
+        {
+          "fallacyId": "cherry-picking",
+          "severity": "primary",
+          "example": "Selects worst donation outcomes while ignoring any positive impacts"
+        },
+        {
+          "fallacyId": "ad-hominem",
+          "severity": "acknowledged",
+          "example": "Admits own hypocrisy while still pushing agenda"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 47,
+            "consistency": 28,
+            "source": 52,
+            "agenda": 89
+          },
+          "indicators": [
+            "selective-statistics",
+            "oversimplified-math",
+            "ignored-alternatives",
+            "contradiction-admission"
+          ],
+          "explanation": "Uses real data selectively while contradicting own ethical stance"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 67,
+            "belonging": 69,
+            "pride": 81,
+            "manipulation": 76
+          },
+          "triggers": [
+            "environmental-guilt",
+            "waste-shock",
+            "ethical-superiority",
+            "change-maker-identity"
+          ],
+          "explanation": "Weaponizes environmental concern for course sales"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Data weaponized selectively - UN statistics about textile waste used to justify throwing out clothes, creating the very waste criticized.",
+        "emotion": "Eco-guilt escalates strategically - from donation problems to desert dumps to shock value admission, maintaining moral high ground.",
+        "balanced": "False balance through self-awareness - 'am I just another hypocrite?' asked rhetorically while continuing hypocritical behavior.",
+        "agenda": "Course sales wrapped in activism - environmental crisis narrative leads directly to $97 solution and $200 hemp tee promotion."
+      },
+      "peakMoments": {
+        "logic": [
+          "84% overseas",
+          "UN report",
+          "$1,300",
+          "$1,200"
+        ],
+        "emotion": [
+          "THREW OUT",
+          "rot in Chilean desert",
+          "shock creates change!"
+        ],
+        "balanced": [
+          "Maybe unethical",
+          "You decide"
+        ],
+        "agenda": [
+          "ConsciousCloset course ($97)",
+          "DM 'ETHICAL'"
+        ]
+      },
+      "wisdom": "Peak 'winking admission' - openly admits to unethical behavior while selling ethics course. The self-aware hypocrisy paradoxically builds trust while the math oversimplifies complex consumption patterns. Shock value drives engagement and sales.",
+      "hints": {
+        "keywords": [
+          "course ($97)",
+          "DM ETHICAL",
+          "$200",
+          "early bird",
+          "launching"
+        ],
+        "strategy": "agenda",
+        "hintMessage": "Environmental concern leads to course and expensive products!"
+      },
+      "metadata": {
+        "tags": [
+          "fashion",
+          "sustainability",
+          "influencer",
+          "environmental"
+        ],
+        "difficulty": 3,
+        "educationalFocus": "recognizing-cause-based-marketing",
+        "commonMisconceptions": [
+          "all-sustainable-fashion-ethical",
+          "donation-always-helpful"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "topic": "Social Media & Influence"
+    },
+    {
+      "id": "dating-algorithm-optimization-005",
+      "title": "The Algorithm Whisperer",
+      "text": "r/OnlineDating post by u/DataDrivenDater:\n\nGuys, I CRACKED THE CODE. 📊 After 200 matches across Hinge/Bumble/Tinder (yes, I kept spreadsheets), here's what ACTUALLY works:\n\n1. Change location to NYC/LA = 3x more likes (even if you're in Ohio)\n2. Dog pics boost matches 67% (I borrowed my neighbor's golden, sue me 🐕)\n3. 'Entrepreneur' > 'Between jobs' (both true for me lol)\n4. Height: Add 2 inches. Everyone does. It's inflation. 📏\n\nBUT WAIT - plot twist! My best relationship? Met Sarah at a gas station. Zero algorithm. She saw my ACTUAL height. Knew I was unemployed. Still dated me. 🤷‍♂️\n\nMeanwhile, my 'optimized' profile got 847 matches. Went on 23 dates. Spent ~$1,400. Every conversation:\nThem: 'Love your dog!'\nMe: 'Thanks!' (sweating because it's not mine)\n\nLook, I'm not saying DON'T optimize. The apps are literally designed to keep you swiping (source: ex-Tinder engineer's Medium post). They PROFIT from your loneliness. Q3 earnings: Match Group up 12%. 💰\n\nJust saying... maybe we're optimizing for the wrong thing? 🤔\n\nEDIT: Yes, I'm still on the apps. Yes, my profile still says 6'0\". Self-awareness ≠ self-control 😅",
+      "claim": "Dating apps require profile optimization tricks, but real connections happen despite algorithms not because of them",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "logic": 73,
+        "emotion": 41,
+        "balanced": 91,
+        "agenda": 38
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "200 matches",
+            "spreadsheets",
+            "67%",
+            "3x more likes",
+            "Q3 earnings",
+            "12%"
+          ],
+          "explanation": "Data-driven approach with specific metrics and testing methodology"
+        },
+        "emotion": {
+          "keywords": [
+            "CRACKED THE CODE",
+            "sweating",
+            "loneliness",
+            "Self-awareness ≠ self-control 😅"
+          ],
+          "explanation": "Frustration and irony about the dating game, but not manipulative"
+        },
+        "balanced": {
+          "keywords": [
+            "BUT WAIT - plot twist!",
+            "I'm not saying DON'T",
+            "maybe we're optimizing for the wrong thing?",
+            "ACTUAL height"
+          ],
+          "explanation": "Acknowledges both algorithm reality and authentic connection paradox"
+        },
+        "agenda": {
+          "keywords": [
+            "PROFIT from your loneliness",
+            "Match Group",
+            "ex-Tinder engineer"
+          ],
+          "explanation": "Critiques app companies but admits still participating"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "acknowledged",
+          "example": "Admits his one gas station success doesn't invalidate app dating"
+        },
+        {
+          "fallacyId": "ad-hominem",
+          "severity": "self-aware",
+          "example": "Criticizes optimization culture while admitting he still does it"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 76,
+            "consistency": 71,
+            "source": 68,
+            "agenda": 42
+          },
+          "indicators": [
+            "systematic-testing",
+            "specific-percentages",
+            "earnings-data",
+            "methodology-transparent"
+          ],
+          "explanation": "Rigorous personal experimentation reveals system gaming"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 31,
+            "belonging": 52,
+            "pride": 34,
+            "manipulation": 28
+          },
+          "triggers": [
+            "optimization-exhaustion",
+            "authenticity-paradox",
+            "shared-frustration"
+          ],
+          "explanation": "Wry humor about modern dating without emotional manipulation"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Data accumulates ironically - from spreadsheet tracking to '67% dog boost' to gas station meet-cute, showing optimization's limits.",
+        "emotion": "Exhaustion builds through comedy - 'borrowed dog' confession and '$1,400 spent' create relatable frustration without manipulation.",
+        "balanced": "Perfect contradiction acknowledged throughout - criticizes app optimization while admitting 'still says 6'0\"', embracing the paradox.",
+        "agenda": "Corporate critique stays secondary - mentions Match Group profits but focus remains on personal experience and collective behavior."
+      },
+      "peakMoments": {
+        "logic": [
+          "200 matches",
+          "spreadsheets",
+          "67%",
+          "847 matches"
+        ],
+        "emotion": [
+          "CRACKED THE CODE",
+          "sweating",
+          "Self-awareness ≠ self-control"
+        ],
+        "balanced": [
+          "BUT WAIT",
+          "maybe we're optimizing",
+          "wrong thing?"
+        ],
+        "agenda": [
+          "PROFIT from loneliness",
+          "Q3 earnings"
+        ]
+      },
+      "wisdom": "The 'winking admission' perfected - openly admits to gaming the system he critiques. The spreadsheet approach to romance reveals how optimization culture colonizes intimacy. Real insight: we know it's absurd but participate anyway.",
+      "hints": {
+        "keywords": [
+          "BUT WAIT",
+          "plot twist",
+          "wrong thing?",
+          "I'm not saying",
+          "maybe"
+        ],
+        "strategy": "balanced",
+        "hintMessage": "Sees both sides of the algorithm game!"
+      },
+      "metadata": {
+        "tags": [
+          "dating-apps",
+          "algorithms",
+          "optimization",
+          "authenticity",
+          "modern-romance"
+        ],
+        "difficulty": 4,
+        "educationalFocus": "recognizing-optimization-paradoxes",
+        "commonMisconceptions": [
+          "apps-purely-helpful",
+          "profile-truth-required"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "topic": "Technology & AI"
+    },
+    {
+      "id": "neighborhood-surveillance-panic-006",
+      "title": "The Package Thief Vigilante",
+      "text": "NextDoor - Maple Grove Neighborhood:\n\n🚨 URGENT: WE CAUGHT HIM!! 🚨\n\nRemember the 'suspicious person' from Tuesday? My Ring caught him AGAIN. Red hoodie. Walking dogs at 6am AND 7pm. WHO WALKS DOGS TWICE?? 🤔\n\nI zoomed/enhanced the footage (CSI-style lol). License plate when he parked: BG3-K9LV. Ran it through [REDACTED] database (my cousin's a cop). Get this - registered to... A DOG WALKER. Living TWO BLOCKS AWAY. 😱\n\nBUT WAIT. Cross-referenced with package theft reports. 73% happen between 10am-4pm. He's NEVER here those hours. Alibi? Or too smart??\n\nStarted a shared Google Sheet tracking his movements. 47 neighbors contributing! We've logged:\n- 312 dog walks (all legitimate)\n- 0 package thefts witnessed\n- 186 'suspicious' ratings (wearing hoodie)\n\nPolice say we're 'harassing a small business owner.' OKAY BUT:\n1. Crime down 23% since we started watching (correlation? 🤷‍♀️)\n2. Property values up $30K (Zillow)\n3. He complained about us on Yelp. GUILTY CONSCIENCE??\n\nLook, I'm not saying profile everyone. But if SafetyNet AI (the app analyzing our feeds) says he's 67% anomalous... shouldn't we listen? It's literally designed by ex-NSA. 🇺🇸\n\nP.S. - Delete this if you're reading, 'Tom the dog walker.' We know you're in this group. 👀",
+      "claim": "Neighborhood surveillance network identifies suspicious dog walker through obsessive tracking, despite zero evidence of wrongdoing",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "logic": 44,
+        "emotion": 82,
+        "balanced": 26,
+        "agenda": 71
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "73% happen between",
+            "Crime down 23%",
+            "67% anomalous",
+            "312 dog walks",
+            "0 package thefts"
+          ],
+          "explanation": "Statistics used to justify harassment despite contradicting their suspicions"
+        },
+        "emotion": {
+          "keywords": [
+            "URGENT",
+            "CAUGHT HIM!!",
+            "😱",
+            "GUILTY CONSCIENCE??",
+            "We know you're in this group 👀"
+          ],
+          "explanation": "Fear and vigilante excitement drive irrational surveillance"
+        },
+        "balanced": {
+          "keywords": [
+            "correlation? 🤷‍♀️",
+            "I'm not saying profile everyone"
+          ],
+          "explanation": "Token acknowledgments immediately contradicted by actions"
+        },
+        "agenda": {
+          "keywords": [
+            "SafetyNet AI",
+            "ex-NSA",
+            "Property values up $30K",
+            "shared Google Sheet"
+          ],
+          "explanation": "Promotes surveillance tech and links safety to property values"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "post-hoc",
+          "severity": "primary",
+          "example": "Crime down 23% attributed to harassing a dog walker"
+        },
+        {
+          "fallacyId": "cherry-picking",
+          "severity": "primary",
+          "example": "312 legitimate dog walks, still suspicious because of hoodie"
+        },
+        {
+          "fallacyId": "ad-hominem",
+          "severity": "secondary",
+          "example": "Yelp complaint seen as evidence of guilt"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 48,
+            "consistency": 31,
+            "source": 41,
+            "agenda": 76
+          },
+          "indicators": [
+            "data-contradicts-conclusion",
+            "surveillance-stats",
+            "zero-evidence-crime",
+            "pattern-forcing"
+          ],
+          "explanation": "Extensive data collection proves innocence while feeding paranoia"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 87,
+            "belonging": 79,
+            "pride": 74,
+            "manipulation": 68
+          },
+          "triggers": [
+            "stranger-danger",
+            "property-values",
+            "vigilante-justice",
+            "us-vs-them",
+            "safety-panic"
+          ],
+          "explanation": "Neighborhood fear channeled into mob surveillance"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Data undermines itself spectacularly - '312 dog walks (all legitimate)' and '0 package thefts' somehow increase suspicion rather than decrease it.",
+        "emotion": "Paranoia escalates despite evidence - from 'suspicious person' to database searches to Google Sheet stalking, fear overrides 312 instances of normal behavior.",
+        "balanced": "False balance through emoji shrugs - 'correlation? 🤷‍♀️' asked while actively harassing, showing awareness without behavior change.",
+        "agenda": "Surveillance capitalism meets suburbia - SafetyNet AI promotion mixed with property value concerns reveals tech-enabled classism."
+      },
+      "peakMoments": {
+        "logic": [
+          "73%",
+          "23%",
+          "312 dog walks",
+          "0 thefts",
+          "67% anomalous"
+        ],
+        "emotion": [
+          "CAUGHT HIM!!",
+          "😱",
+          "GUILTY CONSCIENCE??",
+          "👀"
+        ],
+        "balanced": [
+          "correlation? 🤷‍♀️",
+          "not saying profile everyone"
+        ],
+        "agenda": [
+          "SafetyNet AI",
+          "Property values up $30K",
+          "ex-NSA"
+        ]
+      },
+      "wisdom": "Peak surveillance state paradox - extensive monitoring proves innocence but increases suspicion. The 'winking' P.S. to Tom shows they know he's reading, turning paranoia performative. Notice how property values justify harassment.",
+      "hints": {
+        "keywords": [
+          "URGENT",
+          "CAUGHT",
+          "😱",
+          "CONSCIENCE",
+          "fear"
+        ],
+        "strategy": "emotion",
+        "hintMessage": "Fear and vigilante excitement override all evidence!"
+      },
+      "metadata": {
+        "tags": [
+          "surveillance",
+          "neighborhood-watch",
+          "privacy",
+          "vigilantism",
+          "NextDoor"
+        ],
+        "difficulty": 3,
+        "educationalFocus": "recognizing-fear-driven-surveillance",
+        "commonMisconceptions": [
+          "more-watching-equals-more-safety",
+          "suspicious-equals-criminal"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "topic": "Community & Society"
+    },
+    {
+      "id": "climate-journalism-equivalency-007",
+      "title": "The Balanced Climate Report",
+      "text": "From: Sarah_Chen@LocalNews9.com\nTo: News Director\nSubject: Re: Climate Story Feedback\n\nThanks for the notes on my heat wave piece. You're right - I only quoted 3 climate scientists (MIT, Stanford, NOAA). Super one-sided! 🙄\n\nPer your edits, I've now 'balanced' it:\n- Dr. Phillips (97% consensus): 'Unprecedented heat patterns'\n- Bob's Weather Blog: 'It's just summer, folks!'\n- Equal word count! ✓\n\nAlso added your suggested headline: 'Experts Divided on Heat Wave Causes'\n\nFunny thing - I checked. Bob sells AC units. Dr. Phillips has 847 peer-reviewed papers. But hey, BALANCE! 🤷‍♀️\n\nRemember my ocean acidity story? You made me quote that 'Institute for CO2 Benefits' (funded by ExxonMobil, but we couldn't say that - 'bias'). Their expert? A dentist. Against 8 oceanographers. But equal time!\n\nViewers now comment: 'Scientists can't even agree!' Mission accomplished?\n\nLook, I get it. Ad revenue down 31%. Can't offend the car dealerships. But when my kid asks why her textbook says one thing and our news says 'debate continues'... what do I tell her?\n\nP.S. - That 'Institute' sent a gift basket. There's a pattern here, boss.\n\nStill want me to find a 'vaccine skeptic' for tomorrow's measles outbreak story?",
+      "claim": "Journalist forced to create false balance between climate scientists and deniers, recognizing the harm while complying",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "logic": 68,
+        "emotion": 56,
+        "balanced": 88,
+        "agenda": 74
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "97% consensus",
+            "847 peer-reviewed",
+            "8 oceanographers",
+            "Ad revenue down 31%",
+            "funded by ExxonMobil"
+          ],
+          "explanation": "Clear data showing false equivalency between experts and non-experts"
+        },
+        "emotion": {
+          "keywords": [
+            "🙄",
+            "But hey, BALANCE!",
+            "what do I tell her?",
+            "Mission accomplished?"
+          ],
+          "explanation": "Frustration and moral conflict about misleading the public"
+        },
+        "balanced": {
+          "keywords": [
+            "I get it",
+            "Can't offend",
+            "There's a pattern here",
+            "Still want me to"
+          ],
+          "explanation": "Sees both journalistic integrity and economic pressure clearly"
+        },
+        "agenda": {
+          "keywords": [
+            "car dealerships",
+            "gift basket",
+            "Ad revenue",
+            "Institute for CO2 Benefits"
+          ],
+          "explanation": "Exposes financial pressures creating false balance"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-equivalence",
+          "severity": "primary",
+          "example": "Treating blog opinions equal to peer-reviewed science"
+        },
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "acknowledged",
+          "example": "Admits ad revenue drives editorial decisions"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 72,
+            "consistency": 69,
+            "source": 64,
+            "agenda": 77
+          },
+          "indicators": [
+            "credential-comparison",
+            "funding-sources",
+            "peer-review-counts",
+            "economic-pressure"
+          ],
+          "explanation": "Systematic documentation of false balance creation"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 48,
+            "belonging": 61,
+            "pride": 43,
+            "manipulation": 52
+          },
+          "triggers": [
+            "professional-integrity",
+            "parent-guilt",
+            "public-harm",
+            "moral-compromise"
+          ],
+          "explanation": "Internal conflict between truth and job requirements"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Evidence stacks ironically - '847 papers' vs 'Bob's blog' presented equally, exposing the mathematical absurdity of false balance.",
+        "emotion": "Sarcasm masks genuine anguish - '🙄' and 'But hey, BALANCE!' show professional despair about misleading audiences.",
+        "balanced": "Perfect self-aware complexity - understands both scientific truth and economic reality, questions ethics while complying.",
+        "agenda": "Corporate influence documented subtly - ad revenue fears and gift baskets reveal how money shapes 'objectivity'."
+      },
+      "peakMoments": {
+        "logic": [
+          "97% consensus",
+          "847 peer-reviewed",
+          "8 oceanographers"
+        ],
+        "emotion": [
+          "🙄",
+          "what do I tell her?",
+          "Mission accomplished?"
+        ],
+        "balanced": [
+          "I get it",
+          "There's a pattern",
+          "boss"
+        ],
+        "agenda": [
+          "Ad revenue down 31%",
+          "gift basket",
+          "car dealerships"
+        ]
+      },
+      "wisdom": "Modern journalism's 'both sides' trap exposed through insider frustration. The winking acknowledgment of corruption ('gift basket... pattern here') while still complying shows how systemic pressures override individual ethics. Notice the measles vaccine callback - false balance literally kills.",
+      "hints": {
+        "keywords": [
+          "I get it",
+          "pattern here",
+          "Still want me",
+          "both",
+          "balance"
+        ],
+        "strategy": "balanced",
+        "hintMessage": "Journalist sees the whole ugly system clearly!"
+      },
+      "metadata": {
+        "tags": [
+          "journalism",
+          "climate-change",
+          "false-equivalence",
+          "media-bias",
+          "corporate-influence"
+        ],
+        "difficulty": 4,
+        "educationalFocus": "recognizing-false-balance-harm",
+        "commonMisconceptions": [
+          "balance-always-good",
+          "both-sides-equally-valid"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "topic": "Environment & Sustainability"
+    },
+    {
+      "id": "crypto-comeback-gambler-008",
+      "title": "The Pattern Recognition Expert",
+      "text": "Posted in r/CryptoMoonshots by u/LuckyCrypto2018:\n\nBrothers, THE PATTERN IS CLEAR! 📈\n\nLost on:\n- LUNA: -$47,000 ❌\n- FTT: -$23,000 ❌  \n- CELSIUS: -$18,000 ❌\n- 14 other shitcoins: -$89,000 ❌\n\nThat's 17 LOSSES IN A ROW! You know what that means? 📊\n\nStatistically IMPOSSIBLE to lose the 18th. Universe doesn't work that way. Law of averages, baby! I'm DUE. OVERDUE. The spring is COILED.\n\nJust liquidated my 401k ($127,000). Why?\n\n1. Roulette wheel hits red 17 times? Black is GUARANTEED\n2. Coin flips: After 17 heads, tails is 99.9% certain (math!)\n3. My losses create PRESSURE in the probability field\n4. I've been tracking patterns. Every 18th bet in history wins. EVERY. SINGLE. ONE.\n\n'But what if you lose again?' - my wife (ex-wife now lol)\n\nIMPOSSIBLE. I ran simulations. After 17 losses, the 18th HAS to hit. It's not gambling when you understand MATH. 🧮\n\nPutting it ALL on SafeMoonDoge2.0. Dev team anonymous? BULLISH (less ego). No whitepaper? MEANS THEY'RE CODING. Liquidity locked for 3 hours? PERFECT timing.\n\nSee you on my yacht, losers. RemindMe! 1 week\n\nEDIT: Holy shit it's down 67% already. This just means bet #19 is EVEN MORE GUARANTEED. Selling the car.",
+      "claim": "After 17 crypto losses, convinced the 18th investment must win due to 'law of averages' and probability",
+      "correctAnswer": "logic",
+      "answerWeights": {
+        "logic": 87,
+        "emotion": 79,
+        "balanced": 14,
+        "agenda": 31
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "17 LOSSES IN A ROW",
+            "Statistically IMPOSSIBLE",
+            "99.9% certain",
+            "ran simulations",
+            "MATH"
+          ],
+          "explanation": "Catastrophic misunderstanding of probability and independent events"
+        },
+        "emotion": {
+          "keywords": [
+            "DUE. OVERDUE",
+            "spring is COILED",
+            "ex-wife now lol",
+            "See you on my yacht",
+            "Selling the car"
+          ],
+          "explanation": "Desperation and delusion driving destructive behavior"
+        },
+        "balanced": {
+          "keywords": [
+            "'But what if'",
+            "wife"
+          ],
+          "explanation": "Only voice of reason dismissed and divorced"
+        },
+        "agenda": {
+          "keywords": [
+            "SafeMoonDoge2.0",
+            "RemindMe!",
+            "less ego",
+            "PERFECT timing"
+          ],
+          "explanation": "Some shilling but mainly self-destructive gambling"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Believes 17 losses make 18th win certain"
+        },
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Every 18th bet in history wins - completely fabricated"
+        },
+        {
+          "fallacyId": "false-scarcity",
+          "severity": "secondary",
+          "example": "Doubles down after edit shows immediate 67% loss"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 12,
+            "consistency": 91,
+            "source": 18,
+            "agenda": 34
+          },
+          "indicators": [
+            "probability-misunderstanding",
+            "independent-events-ignored",
+            "pattern-invention",
+            "mathematical-certainty-claimed"
+          ],
+          "explanation": "Consistently wrong about probability with total confidence"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 82,
+            "belonging": 41,
+            "pride": 88,
+            "manipulation": 54
+          },
+          "triggers": [
+            "loss-recovery-desperation",
+            "universe-owes-me",
+            "智-superiority-delusion",
+            "life-destruction-humor"
+          ],
+          "explanation": "Desperation masked as mathematical confidence"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Probability murdered systematically - from '17 losses = 18th must win' to 'probability field pressure', each statement reveals deeper misunderstanding.",
+        "emotion": "Desperation crescendos mathematically - $177K lost becomes $127K liquidated becomes car sold, using 'math' to justify addiction.",
+        "balanced": "Wife's single question represents all balance - immediately dismissed and divorced, showing complete tunnel vision.",
+        "agenda": "Self-destruction dominates promotion - SafeMoonDoge2.0 barely pitched before revealing 67% loss and doubling down."
+      },
+      "peakMoments": {
+        "logic": [
+          "17 LOSSES IN A ROW",
+          "Statistically IMPOSSIBLE",
+          "99.9% certain",
+          "MATH"
+        ],
+        "emotion": [
+          "DUE. OVERDUE",
+          "ex-wife now lol",
+          "yacht",
+          "Selling the car"
+        ],
+        "balanced": [
+          "But what if"
+        ],
+        "agenda": [
+          "SafeMoonDoge2.0",
+          "RemindMe!"
+        ]
+      },
+      "wisdom": "Gambler's fallacy in its purest form - past random events creating false certainty about future. The 'probability field pressure' pseudoscience and divorce aside ('lol') show how cognitive biases destroy lives while maintaining delusional confidence.",
+      "hints": {
+        "keywords": [
+          "IMPOSSIBLE",
+          "MATH",
+          "99.9%",
+          "simulations",
+          "guaranteed"
+        ],
+        "strategy": "logic",
+        "hintMessage": "Math confidence with zero math understanding!"
+      },
+      "metadata": {
+        "tags": [
+          "crypto",
+          "gambling",
+          "probability",
+          "addiction",
+          "financial-ruin"
+        ],
+        "difficulty": 3,
+        "educationalFocus": "understanding-independent-events",
+        "commonMisconceptions": [
+          "past-affects-probability",
+          "due-for-win",
+          "patterns-in-randomness"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "topic": "Finance & Economics"
+    },
+    {
+      "id": "carnivore-wedding-drama-009",
+      "title": "The Dietary Identity Crisis",
+      "text": "AITA post by u/MeatOnly4Life:\n\nMy sister's wedding is next month. She went FULL VEGAN MENU. No options. I've been carnivore for 18 months (cured my autoimmune! Down 67lbs! Mental clarity!). I offered to bring my own ribeye. She EXPLODED.\n\n'You're making MY WEDDING about YOUR DIET!'\n\nBUT ISN'T SHE DOING THE SAME?? 🤔\n\nI sent her studies:\n- B12 deficiency in 92% vegans (NIH, 2021)\n- Muscle loss without adequate protein\n- My bloodwork: PERFECT on carnivore\n\nShe sent back:\n- WHO classifying red meat as carcinogen\n- Climate data (but I buy local!)\n- Photos of factory farms (I only eat grass-fed!)\n\nNow family's taking sides. Mom's group chat:\n- Team Meat: 'Just eat before!'\n- Team Plant: 'One meal won't kill you!'\n- Grandma: 'In my day we ate what we were served' 😤\n\nI tested positive for 73 plant sensitivities. Lectins, oxalates, phytates - all inflammatory FOR ME. But I'm the asshole for not wanting intestinal distress at her reception??\n\nShe says I've made meat my 'entire personality.' \nI said she's made veganism hers.\nShe said that's 'totally different' because ethics.\nI said health IS ethics.\n\nNow I'm uninvited unless I 'eat normal for one day.'\n\nThing is... I miss my sister. We used to cook together. Now every meal is a battleground. Every restaurant a negotiation. Every family dinner a debate.\n\nAm I really the asshole for having dietary needs? Or have we all just lost our minds about food?",
+      "claim": "Carnivore dieter conflicts with vegan sister's wedding menu, both claiming health/ethical superiority while destroying relationship",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "logic": 57,
+        "emotion": 81,
+        "balanced": 43,
+        "agenda": 62
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "92% vegans",
+            "73 plant sensitivities",
+            "bloodwork: PERFECT",
+            "WHO classifying",
+            "NIH, 2021"
+          ],
+          "explanation": "Both sides cherry-pick studies to support their dietary identity"
+        },
+        "emotion": {
+          "keywords": [
+            "EXPLODED",
+            "I miss my sister",
+            "every meal is a battleground",
+            "lost our minds",
+            "uninvited"
+          ],
+          "explanation": "Dietary choices have destroyed a sibling relationship"
+        },
+        "balanced": {
+          "keywords": [
+            "ISN'T SHE DOING THE SAME??",
+            "that's 'totally different'",
+            "Or have we all"
+          ],
+          "explanation": "Some recognition of mutual rigidity but mostly defensive"
+        },
+        "agenda": {
+          "keywords": [
+            "cured my autoimmune!",
+            "Down 67lbs!",
+            "Mental clarity!",
+            "grass-fed",
+            "buy local"
+          ],
+          "explanation": "Evangelizing carnivore diet while claiming victimhood"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "primary",
+          "example": "Frames it as eat meat or have intestinal distress, no middle ground"
+        },
+        {
+          "fallacyId": "cherry-picking",
+          "severity": "primary",
+          "example": "Both select only studies supporting their position"
+        },
+        {
+          "fallacyId": "ad-hominem",
+          "severity": "secondary",
+          "example": "She made diet her personality too!"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 61,
+            "consistency": 52,
+            "source": 58,
+            "agenda": 71
+          },
+          "indicators": [
+            "dueling-studies",
+            "selective-evidence",
+            "health-claims",
+            "test-results"
+          ],
+          "explanation": "Both cite real science selectively to support identity"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 67,
+            "belonging": 84,
+            "pride": 89,
+            "manipulation": 58
+          },
+          "triggers": [
+            "family-division",
+            "identity-threat",
+            "lost-connection",
+            "tribal-warfare",
+            "relationship-mourning"
+          ],
+          "explanation": "Diet has become identity, threatening belonging"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Studies weaponized tribally - '92% B12 deficiency' meets 'WHO carcinogen classification', each side's science supporting predetermined identity.",
+        "emotion": "Grief builds beneath defensiveness - from wedding conflict to 'I miss my sister', showing how dietary tribalism destroys relationships.",
+        "balanced": "Glimmers of awareness quickly suppressed - 'have we all lost our minds?' asked but then returns to defending position.",
+        "agenda": "Carnivore evangelism wrapped in victimhood - testimonial opening ('cured!', 'clarity!') before pivoting to persecution narrative."
+      },
+      "peakMoments": {
+        "logic": [
+          "92% vegans",
+          "73 plant sensitivities",
+          "WHO classifying",
+          "bloodwork: PERFECT"
+        ],
+        "emotion": [
+          "EXPLODED",
+          "I miss my sister",
+          "battleground",
+          "uninvited"
+        ],
+        "balanced": [
+          "ISN'T SHE DOING THE SAME??",
+          "lost our minds"
+        ],
+        "agenda": [
+          "cured my autoimmune!",
+          "Down 67lbs!",
+          "Mental clarity!"
+        ]
+      },
+      "wisdom": "Dietary tribalism turns nutrition into identity warfare. Notice how both sisters mirror each other's rigidity while claiming the other is unreasonable. The tragedy isn't the food - it's 'I miss my sister' buried under scientific citations.",
+      "hints": {
+        "keywords": [
+          "miss my sister",
+          "battleground",
+          "EXPLODED",
+          "uninvited",
+          "lost"
+        ],
+        "strategy": "emotion",
+        "hintMessage": "Family relationships torn apart by food identity!"
+      },
+      "metadata": {
+        "tags": [
+          "diet-culture",
+          "veganism",
+          "carnivore",
+          "family-conflict",
+          "identity-politics"
+        ],
+        "difficulty": 3,
+        "educationalFocus": "recognizing-identity-over-logic",
+        "commonMisconceptions": [
+          "diet-purely-health-choice",
+          "science-settles-diet-debates"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "topic": "Health & Wellness"
+    },
+    {
+      "id": "rideshare-freedom-trap-010",
+      "title": "Your Own Boss Blues",
+      "text": "LinkedIn post by Jessica Chen 🚗✨:\n\nQuit my TOXIC corporate job to drive for Uber/Lyft! 6 months in, here's the TRUTH:\n\n✅ Be your own boss!\n(Algorithm is my boss)\n✅ Make your own hours!\n(Drive 2am-5am bar rush or starve)\n✅ Unlimited earning potential!\n($4.73/hour after gas, depreciation, taxes)\n\nMy 'freedom' schedule:\n- Mon-Thu: 11 hours/day\n- Fri-Sun: 14 hours/day  \n- Days off: When car breaks\n\nBest part? Customer rated me 4.6/5 (not 4.7). DEACTIVATION WARNING. One drunk passenger, boom - 'boss' fires you. No appeal. No severance. No unemployment.\n\nExpenses they don't mention:\n- New tires: $800 (every 4 months)\n- Extra insurance: $280/month\n- Car depreciation: $400/month\n- My sanity: Priceless\n\nPassenger yesterday: 'Must be nice having such FLEXIBILITY!'\nMe: *laughs in 78-hour week*\n\nBut hey, I'm an ENTREPRENEUR now! My LinkedIn says 'CEO of Jessica's Driving Services LLC.' IRS says 'misclassified employee.' 🤷‍♀️\n\nThat toxic corporate job? Had health insurance. Sick days. A retirement match. Coworkers. Bathroom access.\n\nAnyone hiring? I have 5 stars in 'crisis management' (cleaned up 3 vomits this week) and 'client relations' (talked 47 people through breakups).\n\n#GigEconomy #Entrepreneur #BeYourOwnBoss #SendHelp",
+      "claim": "Rideshare driver exposes how 'be your own boss' freedom turned into algorithmic servitude with no benefits",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "logic": 74,
+        "emotion": 67,
+        "balanced": 86,
+        "agenda": 29
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "$4.73/hour",
+            "$800 (every 4 months)",
+            "78-hour week",
+            "4.6/5 DEACTIVATION",
+            "IRS says"
+          ],
+          "explanation": "Specific financial breakdown exposes gig economy math"
+        },
+        "emotion": {
+          "keywords": [
+            "TOXIC",
+            "starve",
+            "My sanity: Priceless",
+            "*laughs in 78-hour week*",
+            "#SendHelp"
+          ],
+          "explanation": "Dark humor masks genuine distress about situation"
+        },
+        "balanced": {
+          "keywords": [
+            "here's the TRUTH",
+            "(Algorithm is my boss)",
+            "Must be nice",
+            "Anyone hiring?"
+          ],
+          "explanation": "Sees both promise and reality of gig work clearly"
+        },
+        "agenda": {
+          "keywords": [
+            "LinkedIn post",
+            "CEO of Jessica's",
+            "#Entrepreneur"
+          ],
+          "explanation": "Critiques system while still participating in its mythology"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-scarcity",
+          "severity": "exposed",
+          "example": "Each freedom claim immediately contradicted by reality"
+        },
+        {
+          "fallacyId": "cherry-picking",
+          "severity": "implicit",
+          "example": "Only those still driving can post; deactivated drivers invisible"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 78,
+            "consistency": 72,
+            "source": 71,
+            "agenda": 32
+          },
+          "indicators": [
+            "income-breakdown",
+            "expense-tracking",
+            "hour-documentation",
+            "tax-classification"
+          ],
+          "explanation": "Methodical destruction of gig economy promises with data"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 71,
+            "belonging": 58,
+            "pride": 44,
+            "manipulation": 31
+          },
+          "triggers": [
+            "financial-desperation",
+            "lost-dignity",
+            "isolation",
+            "regret",
+            "dark-humor-coping"
+          ],
+          "explanation": "Genuine distress about exploitation dressed as entrepreneurship"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Financial reality dismantles mythology - '$4.73/hour after expenses' and '78-hour weeks' expose 'unlimited potential' as exploitation.",
+        "emotion": "Desperation builds through dark humor - 'My sanity: Priceless' and '#SendHelp' reveal crisis beneath entrepreneurship performance.",
+        "balanced": "Perfect see-both-sides clarity - acknowledges choosing to leave 'toxic' job while documenting how gig work is worse.",
+        "agenda": "System critique without product push - exposes gig economy lies while only 'selling' her need for real employment."
+      },
+      "peakMoments": {
+        "logic": [
+          "$4.73/hour",
+          "78-hour week",
+          "4.6/5 DEACTIVATION",
+          "$800 every 4 months"
+        ],
+        "emotion": [
+          "TOXIC",
+          "*laughs in 78-hour*",
+          "My sanity: Priceless",
+          "#SendHelp"
+        ],
+        "balanced": [
+          "here's the TRUTH",
+          "(Algorithm is my boss)",
+          "Anyone hiring?"
+        ],
+        "agenda": [
+          "CEO of Jessica's",
+          "#Entrepreneur"
+        ]
+      },
+      "wisdom": "Gig economy 'freedom' exposed as algorithmic servitude. The format parody (✅ Promise → reality) shows how marketing language disguises exploitation. Notice she still calls herself 'CEO' - the mythology persists even after disillusionment.",
+      "hints": {
+        "keywords": [
+          "TRUTH",
+          "Algorithm boss",
+          "Must be nice",
+          "Anyone hiring?",
+          "both"
+        ],
+        "strategy": "balanced",
+        "hintMessage": "Sees gig economy promises and reality perfectly!"
+      },
+      "metadata": {
+        "tags": [
+          "gig-economy",
+          "uber",
+          "exploitation",
+          "entrepreneurship",
+          "work"
+        ],
+        "difficulty": 3,
+        "educationalFocus": "recognizing-false-freedom-narratives",
+        "commonMisconceptions": [
+          "gig-work-is-freedom",
+          "everyone-can-be-entrepreneur"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "topic": "Work & Career"
+    }
+  ]
+}

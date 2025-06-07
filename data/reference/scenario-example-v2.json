@@ -1,0 +1,78 @@
+{
+  "id": "miracle-supplement-001",
+  "title": "The Miracle Supplement",
+  "text": "Dr. Sarah Chen, a Harvard-trained biochemist, posted on LinkedIn: 'After 15 years researching aging, I'm excited about NAD+ supplements. Our study of 200 participants showed 23% improvement in cellular energy markers. However, results varied significantly - 30% saw no change. The supplements cost $80/month. While promising, we need larger studies. Also, exercise showed similar benefits in our control group. I take them personally, but can't make blanket recommendations yet.'",
+  "claim": "NAD+ supplements may help with aging, but more research is needed",
+  "correctAnswer": "balanced",
+  "answerWeights": {
+    "balanced": 100,
+    "logic": 70,
+    "emotion": 30,
+    "agenda": 20
+  },
+  "reviewKeywords": {
+    "logic": {
+      "keywords": ["study", "200 participants", "23% improvement", "control group", "research"],
+      "explanation": "These show scientific methodology and data-driven approach"
+    },
+    "emotion": {
+      "keywords": ["excited", "aging", "personally"],
+      "explanation": "Mild emotional engagement without manipulation"
+    },
+    "balanced": {
+      "keywords": ["However", "results varied", "30% saw no change", "need larger studies", "Also", "can't make blanket recommendations"],
+      "explanation": "Key phrases showing nuanced thinking and acknowledgment of limitations"
+    },
+    "agenda": {
+      "keywords": ["$80/month", "supplements"],
+      "explanation": "Product mention with transparent pricing, not pushy"
+    }
+  },
+  "logicalFallacies": [
+    {
+      "fallacyId": "appeal-to-authority",
+      "severity": "avoided",
+      "example": "Mentions Harvard training but doesn't rely solely on credentials"
+    },
+    {
+      "fallacyId": "hasty-generalization",
+      "severity": "avoided",
+      "example": "Explicitly avoids by noting varied results and need for more studies"
+    }
+  ],
+  "analysis": {
+    "logic": {
+      "scores": {
+        "evidence": 8.0,
+        "consistency": 8.5,
+        "source": 9.0,
+        "agenda": 3.0
+      },
+      "indicators": ["qualified-expert", "specific-data", "acknowledges-limits", "mentions-alternatives"],
+      "explanation": "Strong statistical evidence with acknowledged limitations"
+    },
+    "emotion": {
+      "scores": {
+        "fear": 3.0,
+        "belonging": 4.5,
+        "pride": 5.0,
+        "manipulation": 2.5
+      },
+      "triggers": ["harvard-credibility", "aging-concern", "hope-solution", "professional-trust"],
+      "explanation": "Moderate emotional appeal supports but doesn't overshadow evidence"
+    }
+  },
+  "wisdom": "This represents responsible scientific communication: strong credentials presented without arrogance, specific data with acknowledged limitations, and personal disclosure without pushy sales tactics.",
+  "hints": {
+    "keywords": ["data", "study", "however", "results", "varied", "need larger studies"],
+    "strategy": "balanced",
+    "hintMessage": "Look for statistics, sources, and nuanced thinking!"
+  },
+  "metadata": {
+    "tags": ["science", "health", "balanced-argument", "supplements"],
+    "difficulty": 3,
+    "educationalFocus": "recognizing-responsible-science-communication",
+    "commonMisconceptions": ["all-health-claims-are-scams", "credentials-equal-truth"],
+    "addedDate": "2024-01-01"
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "version": "3.0.0",
+  "description": "Proposed v3 schema with embedded display data",
+  "changes": [
+    "Icons and display text included in data structure",
+    "Support for rich media hints",
+    "Extensible indicator/trigger objects",
+    "Timeline peak moments with visual markers"
+  ],
+  "example": {
+    "id": "example-001",
+    "title": "Example Scenario",
+    "text": "...",
+    "claim": "...",
+    "correctAnswer": "balanced",
+    "answerWeights": {
+      "logic": 73,
+      "emotion": 41,
+      "balanced": 91,
+      "agenda": 38
+    },
+    "analysis": {
+      "logic": {
+        "scores": {
+          "evidence": 76,
+          "consistency": 71,
+          "source": 68,
+          "agenda": 42
+        },
+        "indicators": [
+          {
+            "id": "systematic-testing",
+            "icon": "🧪",
+            "text": "Systematic testing approach",
+            "weight": 0.8,
+            "category": "methodology"
+          },
+          {
+            "id": "specific-percentages",
+            "icon": "📊", 
+            "text": "Specific percentages cited",
+            "weight": 0.6,
+            "category": "evidence"
+          }
+        ],
+        "explanation": "Rigorous personal experimentation reveals system gaming"
+      },
+      "emotion": {
+        "scores": {
+          "fear": 31,
+          "belonging": 52,
+          "pride": 34,
+          "manipulation": 28
+        },
+        "triggers": [
+          {
+            "id": "optimization-exhaustion",
+            "icon": "😩",
+            "text": "Optimization exhaustion",
+            "intensity": 0.7,
+            "category": "burnout"
+          },
+          {
+            "id": "authenticity-paradox",
+            "icon": "🎭",
+            "text": "Authenticity paradox",
+            "intensity": 0.9,
+            "category": "identity"
+          }
+        ],
+        "explanation": "Wry humor about modern dating without emotional manipulation"
+      }
+    },
+    "peakMoments": {
+      "logic": [
+        {
+          "text": "200 matches",
+          "position": 0.2,
+          "icon": "📊",
+          "emphasis": "number"
+        },
+        {
+          "text": "spreadsheets",
+          "position": 0.25,
+          "icon": "📈",
+          "emphasis": "method"
+        }
+      ],
+      "emotion": [
+        {
+          "text": "CRACKED THE CODE",
+          "position": 0.1,
+          "icon": "🔓",
+          "emphasis": "caps"
+        },
+        {
+          "text": "Self-awareness ≠ self-control",
+          "position": 0.95,
+          "icon": "😅",
+          "emphasis": "paradox"
+        }
+      ]
+    },
+    "hints": {
+      "strategy": "balanced",
+      "primary": {
+        "icon": "⚖️",
+        "message": "Sees both sides of the algorithm game!",
+        "keywords": ["BUT WAIT", "plot twist", "wrong thing?"]
+      },
+      "advanced": {
+        "icon": "🔍",
+        "message": "Notice how they critique the system while participating in it",
+        "highlights": [
+          {
+            "text": "still says 6'0\"",
+            "color": "#fbbf24"
+          }
+        ]
+      }
+    },
+    "logicalFallacies": [
+      {
+        "fallacyId": "hasty-generalization",
+        "severity": "acknowledged",
+        "example": "Admits his one gas station success doesn't invalidate app dating",
+        "icon": "🏃",
+        "displayName": "Hasty Generalization"
+      }
+    ],
+    "metadata": {
+      "tags": ["dating-apps", "algorithms", "optimization"],
+      "difficulty": 4,
+      "educationalFocus": "recognizing-optimization-paradoxes",
+      "visualTheme": {
+        "primaryColor": "#ec4899",
+        "secondaryColor": "#3b82f6",
+        "mood": "ironic-exhaustion"
+      }
+    }
+  }
+}
