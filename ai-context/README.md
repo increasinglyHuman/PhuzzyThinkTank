@@ -6,9 +6,17 @@ This folder contains all AI-related context documents and tools for Phuzzy Think
 
 ### Context Documents
 - `CONTEXT-UPDATE-*.md` - Progressive context updates for AI assistants
+  - `CONTEXT-UPDATE-20250106-FIXES.md` - Latest UI fixes: formatting, content filter, performance
+  - `CONTEXT-UPDATE-20250106-BEAR-PHYSICS.md` - Bear mini-game physics improvements
 - `SCENARIO-GENERATION-*.md` - Insights and ideas from scenario generation sessions
 - `PACK-SYSTEM-IMPLEMENTATION-SUMMARY.md` - Summary of the scenario pack system
 - `SCENARIO-V3-MIGRATION-PLAN.md` - Plan for migrating to version 3 scenarios
+
+### Voice Generation
+- 67 scenarios have audio generated using ElevenLabs TTS
+- 12 scenarios converted to multi-voice dialogue format
+- Cost optimization achieved 7x reduction using turbo mode
+- Pack 001 missing 3 scenarios (has 7 instead of 10)
 
 ### Generation Tools
 - `ai-scenario-generator.js` - Main AI-powered scenario generation tool
