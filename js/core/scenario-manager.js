@@ -11,7 +11,7 @@ class ScenarioManager {
     
     async loadFallacies() {
         try {
-            const response = await fetch('./data/logical-fallacies.json');
+            const response = await fetch('./data/reference/logical-fallacies.json');
             const data = await response.json();
             
             // Store fallacies by ID for easy lookup
@@ -57,7 +57,7 @@ class ScenarioManager {
             // Select which pack to use
             this.currentPack = window.selectScenarioPack ? 
                 window.selectScenarioPack(this.preferredPackId) : 
-                { file: './data/scenarios.json', id: 'default' };
+                { file: './data/legacy/scenarios.json', id: 'default' };
             
             if (!this.currentPack) {
                 throw new Error('No scenario pack available');

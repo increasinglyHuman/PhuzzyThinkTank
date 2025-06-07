@@ -598,18 +598,29 @@ class BearAnalysis {
                     // Add each primary fallacy as a trading card
                     var self = this;
                     cardsToShow.forEach(function(fallacy, index) {
-                        // Look up the full fallacy data
-                        var fallacyData = self.fallacyDatabase && self.fallacyDatabase[fallacy.fallacyId];
+                        // Apply alias mapping if needed
+                        var mappedFallacyId = self.fallacyAliases[fallacy.fallacyId] || fallacy.fallacyId;
+                        
+                        // Look up the full fallacy data using mapped ID
+                        var fallacyData = self.fallacyDatabase && self.fallacyDatabase[mappedFallacyId];
                         if (!fallacyData) {
-                            // Try to get icon from allFallacies array
-                            var basicFallacy = self.allFallacies.find(function(f) { return f.id === fallacy.fallacyId; });
-                            var fallacyIcon = basicFallacy ? basicFallacy.icon : '🃏';
-                            var fallacyRarity = basicFallacy ? basicFallacy.rarity : 'common';
+                            // Try to get icon from allFallacies array using mapped ID
+                            var basicFallacy = self.allFallacies.find(function(f) { return f.id === mappedFallacyId; });
+                            
+                            // If still no match, default to hasty-generalization (most generic fallacy)
+                            if (!basicFallacy) {
+                                console.warn('Unknown fallacy:', fallacy.fallacyId, '- defaulting to hasty-generalization');
+                                mappedFallacyId = 'hasty-generalization';
+                                basicFallacy = self.allFallacies.find(function(f) { return f.id === mappedFallacyId; });
+                            }
+                            
+                            var fallacyIcon = basicFallacy.icon;
+                            var fallacyRarity = basicFallacy.rarity;
                             
                             // Fallback to minimal data if database not loaded
                             fallacyData = {
-                                id: fallacy.fallacyId,
-                                name: fallacy.fallacyId.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+                                id: mappedFallacyId,
+                                name: mappedFallacyId.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
                                 icon: fallacyIcon,
                                 rarity: fallacyRarity,
                                 definition: fallacy.example || 'A logical error in reasoning',
@@ -621,6 +632,7 @@ class BearAnalysis {
                         
                         var rarityStars = self.getRarityStars(fallacyData.rarity || 'common');
                         
+                        // Use original fallacyId for card ID to maintain uniqueness
                         htmlContent += '<div class="fallacy-card ' + (fallacyData.rarity || 'common') + ' card-discovered" id="card-' + fallacy.fallacyId + '">';
                         htmlContent += '<div class="card-inner">';
                         
@@ -675,9 +687,25 @@ class BearAnalysis {
                         htmlContent += '<strong>Also Present:</strong>';
                         htmlContent += '<div class="fallacy-secondary-list">';
                         secondaryFallacies.forEach(function(fallacy) {
-                            var fallacyData = self.fallacyDatabase && self.fallacyDatabase[fallacy.fallacyId];
-                            var icon = fallacyData ? fallacyData.icon : '🃏';
-                            var shortName = fallacyData ? fallacyData.shortName : fallacy.fallacyId.replace(/-/g, ' ');
+                            // Apply alias mapping
+                            var mappedFallacyId = self.fallacyAliases[fallacy.fallacyId] || fallacy.fallacyId;
+                            var fallacyData = self.fallacyDatabase && self.fallacyDatabase[mappedFallacyId];
+                            
+                            // Try to get icon from allFallacies if database not found
+                            var icon = '🃏';
+                            var shortName = fallacy.fallacyId.replace(/-/g, ' ');
+                            
+                            if (fallacyData) {
+                                icon = fallacyData.icon;
+                                shortName = fallacyData.shortName || fallacyData.name;
+                            } else {
+                                var basicFallacy = self.allFallacies.find(function(f) { return f.id === mappedFallacyId; });
+                                if (basicFallacy) {
+                                    icon = basicFallacy.icon;
+                                    shortName = mappedFallacyId.replace(/-/g, ' ');
+                                }
+                            }
+                            
                             htmlContent += '<span class="fallacy-secondary-item">';
                             htmlContent += icon + ' ' + shortName;
                             htmlContent += '</span>';
@@ -722,15 +750,18 @@ class BearAnalysis {
                     cardsToShow.forEach(function(fallacy) {
                         var cardElement = document.getElementById('card-' + fallacy.fallacyId);
                         if (cardElement) {
+                            // Apply alias mapping
+                            var mappedFallacyId = self.fallacyAliases[fallacy.fallacyId] || fallacy.fallacyId;
+                            
                             // Get the icon from the fallacy database or use a default
-                            var fallacyData = self.fallacyDatabase && self.fallacyDatabase[fallacy.fallacyId];
+                            var fallacyData = self.fallacyDatabase && self.fallacyDatabase[mappedFallacyId];
                             var icon = '🃏'; // default
                             
                             if (fallacyData) {
                                 icon = fallacyData.icon;
                             } else {
-                                // Try to get icon from allFallacies array as fallback
-                                var basicFallacy = self.allFallacies.find(function(f) { return f.id === fallacy.fallacyId; });
+                                // Try to get icon from allFallacies array as fallback using mapped ID
+                                var basicFallacy = self.allFallacies.find(function(f) { return f.id === mappedFallacyId; });
                                 if (basicFallacy) {
                                     icon = basicFallacy.icon;
                                 }
@@ -824,19 +855,37 @@ class BearAnalysis {
     }
     
     initializeCardCollection() {
+        // Fallacy alias mapping for scenarios using undefined fallacies
+        this.fallacyAliases = {
+            'gamblers-fallacy': 'hasty-generalization',
+            'false-pattern': 'hasty-generalization',
+            'sunk-cost': 'false-scarcity', // continuing due to investment
+            'tu-quoque': 'ad-hominem', // attacking person's hypocrisy
+            'false-comparison': 'false-equivalence',
+            'anecdotal-evidence': 'hasty-generalization',
+            'false-analogy': 'false-equivalence',
+            'appeal-to-popularity': 'bandwagon',
+            'appeal-to-hypocrisy': 'ad-hominem',
+            'appeal-to-consequences': 'appeal-to-fear',
+            'survivorship-bias': 'cherry-picking',
+            'false-promise': 'false-scarcity',
+            'confirmation-bias': 'cherry-picking',
+            'appeal-to-money': 'appeal-to-authority'
+        };
+        
         // List all 15 fallacies from the data (rarity based on importance)
         this.allFallacies = [
             { id: 'appeal-to-fear', icon: '😨', rarity: 'uncommon' }, // Very manipulative
             { id: 'slippery-slope', icon: '🎿', rarity: 'uncommon' },
             { id: 'false-dilemma', icon: '⚔️', rarity: 'rare' }, // Critical thinking killer
-            { id: 'post-hoc', icon: '🔄', rarity: 'uncommon' },
-            { id: 'ad-hominem', icon: '👤', rarity: 'common' },
+            { id: 'post-hoc', icon: '🎲', rarity: 'uncommon' }, // Dice = correlation ≠ causation
+            { id: 'ad-hominem', icon: '👉', rarity: 'common' }, // Pointing finger at person
             { id: 'hasty-generalization', icon: '🏃', rarity: 'uncommon' }, // Very common mistake
             { id: 'appeal-to-tradition', icon: '🏛️', rarity: 'common' },
             { id: 'false-scarcity', icon: '⏰', rarity: 'rare' }, // Sales manipulation
             { id: 'cherry-picking', icon: '🍒', rarity: 'rare' }, // Deceptive practice
             { id: 'appeal-to-authority', icon: '🎓', rarity: 'common' },
-            { id: 'straw-man', icon: '🥤', rarity: 'uncommon' }, // Debate destroyer
+            { id: 'straw-man', icon: '🎃', rarity: 'uncommon' }, // Scarecrow/fake target
             { id: 'bandwagon', icon: '🚌', rarity: 'common' },
             { id: 'red-herring', icon: '🐟', rarity: 'uncommon' }, // Distraction tactic
             { id: 'appeal-to-nature', icon: '🌿', rarity: 'common' },
@@ -992,8 +1041,12 @@ class BearAnalysis {
     collectCard(fallacyId, fallacyIcon, cardElement) {
         console.log('collectCard called:', fallacyId, fallacyIcon);
         var self = this;
-        var slot = document.getElementById('mini-card-' + fallacyId);
-        console.log('Looking for slot:', 'mini-card-' + fallacyId, 'Found:', !!slot);
+        
+        // Apply alias mapping
+        var mappedFallacyId = this.fallacyAliases[fallacyId] || fallacyId;
+        
+        var slot = document.getElementById('mini-card-' + mappedFallacyId);
+        console.log('Looking for slot:', 'mini-card-' + mappedFallacyId, 'Found:', !!slot);
         
         // If clicking a displayed card, return it to the rack
         if (slot && slot.classList.contains('collected') && slot.classList.contains('empty')) {
@@ -1031,14 +1084,14 @@ class BearAnalysis {
             }
             
             // Check if we have 3 cards displayed and need to hide one
-            this.manageDisplayedCards(fallacyId);
+            this.manageDisplayedCards(mappedFallacyId);
             
             // Animate card to collection
-            this.animateCardToCollection(fallacyId, fallacyIcon, cardElement);
+            this.animateCardToCollection(mappedFallacyId, fallacyIcon, cardElement);
             
-            // Track in scoring system
+            // Track in scoring system using mapped ID
             if (window.gameEngine && window.gameEngine.scoringSystem) {
-                window.gameEngine.scoringSystem.collectedCards.add(fallacyId);
+                window.gameEngine.scoringSystem.collectedCards.add(mappedFallacyId);
             }
             
             // Show success message
@@ -1096,7 +1149,30 @@ class BearAnalysis {
         // Check if we already have a card displayed for this fallacy
         var existingCard = document.getElementById('card-' + fallacyId);
         if (existingCard && existingCard.style.display !== 'none') {
-            // Card is already displayed, do nothing
+            // Card is already displayed, so recall it back to toybox
+            existingCard.style.transition = 'opacity 0.3s ease-out, transform 0.3s ease-out';
+            existingCard.style.opacity = '0';
+            existingCard.style.transform = 'scale(0.8)';
+            
+            // Return icon to rack
+            slot.classList.remove('empty');
+            slot.textContent = iconToRestore;
+            
+            setTimeout(function() {
+                existingCard.style.display = 'none';
+            }, 300);
+            
+            // Show the oldest hidden card if any
+            this.showOldestHiddenCard();
+            
+            // Update displayed cards list
+            if (this.displayedCards) {
+                var index = this.displayedCards.indexOf(fallacyId);
+                if (index > -1) {
+                    this.displayedCards.splice(index, 1);
+                }
+            }
+            
             return;
         }
         

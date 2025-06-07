@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/fallacy-cards.css">
     <link rel="stylesheet" href="css/timeline-accordion.css">
     <link rel="stylesheet" href="css/ui-improvements.css">
+    <link rel="stylesheet" href="css/splash-word-animations.css">
     
     <!-- Global Config -->
     <script>
@@ -72,9 +73,9 @@
                 <div class="analysis-content">
                     <div class="timeline-charts-grid">
                         <!-- Radar Chart Section -->
-                        <div class="radar-section" style="display: flex; flex-direction: column; justify-content: center;">
+                        <div class="radar-section" style="display: flex; flex-direction: column; justify-content: flex-start;">
                             <h4>Argument Fingerprint</h4>
-                            <canvas id="radar-chart" width="280" height="240"></canvas>
+                            <canvas id="radar-chart" width="280" height="280"></canvas>
                             <div class="radar-legend" id="radar-legend">
                                 <!-- Legend will be populated dynamically -->
                             </div>
@@ -95,7 +96,7 @@
                             </div>
                             <div class="dimension-toggles" style="margin-top: 40px;">
                                 <button class="toggle-btn logic-toggle active" data-dimension="logic" onclick="toggleDimension('timeline-chart', 'logic')">
-                                    <span class="toggle-color logic-color"></span> Logical Flaws
+                                    <span class="toggle-color logic-color"></span> Logic
                                 </button>
                                 <button class="toggle-btn emotion-toggle active" data-dimension="emotion" onclick="toggleDimension('timeline-chart', 'emotion')">
                                     <span class="toggle-color emotion-color"></span> Emotional
@@ -156,10 +157,12 @@
                         <span class="option-text">Hidden agenda/bias</span>
                     </div>
                 </div>
-                <button class="hint-button" id="hint-button">
-                    🍯 Use Honey Pot for Hint (<span id="honey-count">3</span> left)
-                </button>
-                <button class="submit-button" id="submit-button" disabled>Submit Answer</button>
+                <div class="quiz-button-row">
+                    <button class="hint-button" id="hint-button">
+                        🍯 Use Honey Pot for Hint (<span id="honey-count">3</span> left)
+                    </button>
+                    <button class="submit-button" id="submit-button" disabled>Submit Answer</button>
+                </div>
             </div>
             
             <!-- Detailed Analysis Section -->
@@ -319,6 +322,7 @@
     <script src="./js/ui/timeline-analysis.js"></script>
     <script src="./js/ui/ui-enhancements.js"></script>
     <script src="./js/core/game-engine.js"></script>
+    <script src="./js/splash-word-animator-v2.js"></script>
     
     <!-- Main Game Script -->
     <script>
@@ -328,6 +332,13 @@
         function setupSplashScreen() {
             const splashScreen = document.getElementById('splash-screen');
             const playNowButton = document.getElementById('play-now-button');
+            
+            // Enable play button immediately - no need to wait for animations
+            if (playNowButton) {
+                playNowButton.disabled = false;
+                playNowButton.style.opacity = '1';
+                playNowButton.style.cursor = 'pointer';
+            }
             
             // Handle play now button click
             playNowButton.addEventListener('click', function() {
@@ -712,11 +723,11 @@
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => {
                 initializeGame();
-                animateInstructions();
+                // animateInstructions(); // Disabled - using enhanced splash-word-animator.js instead
             });
         } else {
             initializeGame();
-            animateInstructions();
+            // animateInstructions(); // Disabled - using enhanced splash-word-animator.js instead
         }
     </script>
 </body>

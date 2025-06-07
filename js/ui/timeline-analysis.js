@@ -29,6 +29,52 @@ class TimelineAnalysis {
             bearPaw.style.display = 'none';
         }
     }
+    
+    // Centralized text formatting function (matching quiz-interface.js)
+    formatScenarioText(text) {
+        let formattedText = text;
+        
+        // Apply content filter for 13+ rating
+        const profanityMap = {
+            'shit': '$#!@', 'piss': '@!$$', 'fuck': '!@#$', 'cunt': '#@$!',
+            'cocksucker': '#@#$$@#$%!', 'motherfucker': '@#$%&!@#$%!', 'tits': '@!#$',
+            'bullshit': '%@!!$#!@', 'fucking': '!@#$!&%', 'fucked': '!@#$%&',
+            'shitty': '$#!@@*', 'pissed': '@!$$%&', 'asshole': '@$$#@!%',
+            'bitch': '%!@#$', 'damn': '&@#$', 'hell': '#%!!', 'ass': '@$$'
+        };
+        
+        // Replace profanity with symbols (case-insensitive)
+        Object.keys(profanityMap).forEach(word => {
+            const regex = new RegExp('\\b' + word + '\\b', 'gi');
+            formattedText = formattedText.replace(regex, profanityMap[word]);
+        });
+        
+        // Replace AITA with family-friendly version
+        formattedText = formattedText.replace(/\bAITA\b/g, 'Am I Wrong');
+        
+        // First, convert actual newlines to HTML breaks
+        formattedText = formattedText.replace(/\n/g, '<br>');
+        
+        // Convert lists with dashes/bullets to proper formatting with indentation
+        // Also handle lists that might come after <br> tags
+        // Remove the <br> before list items and add tight line spacing
+        formattedText = formattedText.replace(/(<br>)?^- ([^<]+)/gm, '<span style="display: block; padding-left: 1.5em; text-indent: -1.5em; margin-left: 1.5em; margin-top: 0; margin-bottom: 0; line-height: 1.2;">• $2</span>');
+        formattedText = formattedText.replace(/<br>- ([^<]+)/g, '<span style="display: block; padding-left: 1.5em; text-indent: -1.5em; margin-left: 1.5em; margin-top: 0; margin-bottom: 0; line-height: 1.2;">• $1</span>');
+        
+        // Recognize numbered lists and indent them too
+        formattedText = formattedText.replace(/(<br>)?^(\d+)\.\s+([^<]+)/gm, '<span style="display: block; padding-left: 1.5em; text-indent: -1.5em; margin-left: 1.5em; margin-top: 0; margin-bottom: 0; line-height: 1.2;">$2. $3</span>');
+        formattedText = formattedText.replace(/<br>(\d+)\.\s+([^<]+)/g, '<span style="display: block; padding-left: 1.5em; text-indent: -1.5em; margin-left: 1.5em; margin-top: 0; margin-bottom: 0; line-height: 1.2;">$1. $2</span>');
+        
+        // Recognize lists that use asterisks
+        formattedText = formattedText.replace(/(<br>)?^\* ([^<]+)/gm, '<span style="display: block; padding-left: 1.5em; text-indent: -1.5em; margin-left: 1.5em; margin-top: 0; margin-bottom: 0; line-height: 1.2;">• $2</span>');
+        formattedText = formattedText.replace(/<br>\* ([^<]+)/g, '<span style="display: block; padding-left: 1.5em; text-indent: -1.5em; margin-left: 1.5em; margin-top: 0; margin-bottom: 0; line-height: 1.2;">• $1</span>');
+        
+        // Convert double line breaks to paragraphs with controlled spacing
+        formattedText = formattedText.replace(/(<br>)(<br>)+/g, '</p><p style="margin-top: 0.8em;">');
+        formattedText = '<p style="margin: 0;">' + formattedText + '</p>';
+        
+        return formattedText;
+    }
 
     // Hide all bear game UI elements
     hideBearGameUI() {
@@ -119,8 +165,8 @@ class TimelineAnalysis {
 
     // Render the complete analysis
     renderAnalysis() {
-        console.log('renderAnalysis called');
-        console.log('Current scenario:', this.currentScenario);
+        // console.log('renderAnalysis called');
+        // console.log('Current scenario:', this.currentScenario);
         
         // Reset lastEnabledDimension for new scenario
         this.lastEnabledDimension = null;
@@ -135,16 +181,16 @@ class TimelineAnalysis {
         const radarSection = document.querySelector('.radar-section');
         const timelineSection = document.querySelector('.timeline-chart-section');
         
-        console.log('DEBUG - Elements found:');
-        console.log('- analysis-grid:', analysisGrid);
-        console.log('- radar-section:', radarSection);
-        console.log('- timeline-section:', timelineSection);
+        // console.log('DEBUG - Elements found:');
+        // console.log('- analysis-grid:', analysisGrid);
+        // console.log('- radar-section:', radarSection);
+        // console.log('- timeline-section:', timelineSection);
         
         if (analysisGrid) {
             const gridStyle = window.getComputedStyle(analysisGrid);
-            console.log('- analysis-grid computed style:', gridStyle.display);
-            console.log('- analysis-grid height:', gridStyle.height);
-            console.log('- analysis-grid overflow:', gridStyle.overflow);
+            // console.log('- analysis-grid computed style:', gridStyle.display);
+            // console.log('- analysis-grid height:', gridStyle.height);
+            // console.log('- analysis-grid overflow:', gridStyle.overflow);
         }
         
         // Create timeline chart
@@ -167,13 +213,13 @@ class TimelineAnalysis {
         const canvas = document.getElementById('timeline-chart');
         if (!canvas) {
             console.error('Timeline canvas not found');
-            console.log('All canvas elements:', document.querySelectorAll('canvas'));
+            // console.log('All canvas elements:', document.querySelectorAll('canvas'));
             return;
         }
         
-        console.log('Creating timeline chart...');
-        console.log('Canvas dimensions:', canvas.width, 'x', canvas.height);
-        console.log('Canvas parent:', canvas.parentElement);
+        // console.log('Creating timeline chart...');
+        // console.log('Canvas dimensions:', canvas.width, 'x', canvas.height);
+        // console.log('Canvas parent:', canvas.parentElement);
         
         // Clean up existing chart
         if (this.timelineChart) {
@@ -193,7 +239,7 @@ class TimelineAnalysis {
         
         // Set up dimension toggle callback
         this.timelineChart.onDimensionToggle = (dimension, isVisible) => {
-            console.log('Dimension toggled:', dimension, isVisible);
+            // console.log('Dimension toggled:', dimension, isVisible);
             if (isVisible) {
                 this.lastEnabledDimension = dimension;
             }
@@ -204,8 +250,8 @@ class TimelineAnalysis {
         const reviewKeywords = this.currentScenario.reviewKeywords || {};
         const text = this.currentScenario.text || '';
         
-        console.log('Scenario text:', text);
-        console.log('Review keywords:', reviewKeywords);
+        // console.log('Scenario text:', text);
+        // console.log('Review keywords:', reviewKeywords);
         
         // Extract keywords array from the nested structure
         const keywords = {};
@@ -217,7 +263,7 @@ class TimelineAnalysis {
             }
         });
         
-        console.log('Extracted keywords:', keywords);
+        // console.log('Extracted keywords:', keywords);
         
         this.timelineChart.draw(text, keywords);
     }
@@ -230,7 +276,7 @@ class TimelineAnalysis {
             return;
         }
         
-        console.log('Creating radar chart...');
+        // console.log('Creating radar chart...');
         
         const ctx = canvas.getContext('2d');
         
@@ -249,15 +295,21 @@ class TimelineAnalysis {
             this.scenarioAnswered = true;
         }
         
-        console.log('createRadarChart - hasAnswered:', hasAnswered, 'scenarioAnswered:', this.scenarioAnswered, 'isCompleted:', isScenarioCompleted);
+        // console.log('createRadarChart - hasAnswered:', hasAnswered, 'scenarioAnswered:', this.scenarioAnswered, 'isCompleted:', isScenarioCompleted);
         
         if (!hasAnswered) {
             // Progressive scan mode - start the scanning animation
             this.startRadarScan(ctx, canvas.width, canvas.height);
+            
+            // Clear radar legend when in scan mode
+            const legend = document.getElementById('radar-legend');
+            if (legend) {
+                legend.innerHTML = '';
+            }
         } else {
             // Show real values after answer
             const weights = this.currentScenario.answerWeights || {};
-            console.log('Using answer weights for radar chart:', weights);
+            // console.log('Using answer weights for radar chart:', weights);
             
             // Clear canvas
             ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -267,6 +319,16 @@ class TimelineAnalysis {
             
             // Update radar legend
             this.updateRadarLegend(weights);
+            
+            // Restore original caption when showing real values
+            const captionElement = document.querySelector('.radar-section .chart-explanation em');
+            if (captionElement) {
+                captionElement.style.opacity = '1';
+                captionElement.style.color = '#666';
+                captionElement.style.fontWeight = 'normal';
+                captionElement.style.fontSize = ''; // Reset to default
+                captionElement.textContent = 'Shows overall argument classification';
+            }
         }
     }
     
@@ -426,55 +488,59 @@ class TimelineAnalysis {
             ctx.fill();
             ctx.restore();
             
-            // Add "SCANNING..." text - larger and more prominent
+            // Add "SCANNING..." text on radar - orange/red warning style
             ctx.save();
-            ctx.fillStyle = '#10b981';
+            ctx.fillStyle = '#f97316'; // Orange warning color
             ctx.font = 'bold 20px system-ui';
             ctx.textAlign = 'center';
-            ctx.shadowBlur = 10;
-            ctx.shadowColor = '#10b981';
+            ctx.shadowBlur = 15;
+            ctx.shadowColor = '#f97316';
             
-            // Keep SCANNING at steady opacity
-            ctx.globalAlpha = 0.8;
-            ctx.fillText('SCANNING...', centerX, height - 10);
-            
-            // Add playful subtext with different timing
-            ctx.font = '12px system-ui';
-            ctx.fillStyle = '#666';
-            
-            // Create a fade in/hold/fade out cycle
-            const cycleTime = 500; // Total cycle time
-            const fadeTime = 100; // Time for fade in/out
-            const holdTime = 300; // Time to hold at full opacity
-            
-            const cyclePosition = time % cycleTime;
-            let opacity = 0;
-            
-            if (cyclePosition < fadeTime) {
-                // Fade in
-                opacity = cyclePosition / fadeTime;
-            } else if (cyclePosition < fadeTime + holdTime) {
-                // Hold
-                opacity = 1;
-            } else if (cyclePosition < fadeTime * 2 + holdTime) {
-                // Fade out
-                opacity = 1 - (cyclePosition - fadeTime - holdTime) / fadeTime;
-            }
-            
-            ctx.globalAlpha = opacity * 0.8;
-            
-            // Rotate through different messages for fun
-            const messages = [
-                'Submit answer to unlock analysis',
-                'Pattern recognition in progress...',
-                'Awaiting user input to calibrate',
-                'Data locked - answer required',
-                'Complete investigation to reveal'
-            ];
-            const messageIndex = Math.floor(time / cycleTime) % messages.length;
-            ctx.fillText(messages[messageIndex], centerX, height - 37);
-            
+            // Keep SCANNING at steady opacity with slight pulse
+            const scanPulse = 0.7 + Math.sin(time * 0.05) * 0.3;
+            ctx.globalAlpha = scanPulse;
+            ctx.fillText('SCANNING...', centerX, height - 5);
             ctx.restore();
+            
+            // Update caption with animated messages
+            const captionElement = document.querySelector('.radar-section .chart-explanation em');
+            if (captionElement) {
+                // Create a faster fade in/hold/fade out cycle
+                const cycleTime = 300; // Total cycle time (faster)
+                const fadeTime = 60; // Time for fade in/out
+                const holdTime = 180; // Time to hold at full opacity
+                
+                const cyclePosition = time % cycleTime;
+                let opacity = 0;
+                
+                if (cyclePosition < fadeTime) {
+                    // Fade in
+                    opacity = cyclePosition / fadeTime;
+                } else if (cyclePosition < fadeTime + holdTime) {
+                    // Hold
+                    opacity = 1;
+                } else if (cyclePosition < fadeTime * 2 + holdTime) {
+                    // Fade out
+                    opacity = 1 - (cyclePosition - fadeTime - holdTime) / fadeTime;
+                }
+                
+                // Rotate through different messages
+                const messages = [
+                    '🔍 Submit answer to unlock analysis',
+                    '📊 Pattern recognition in progress...',
+                    '⏳ Awaiting user input to calibrate',
+                    '🔒 Data locked - answer required',
+                    '🎯 Complete investigation to reveal'
+                ];
+                const messageIndex = Math.floor(time / cycleTime) % messages.length;
+                
+                // Update caption with animated opacity
+                captionElement.style.opacity = opacity;
+                captionElement.style.color = '#4b5563'; // Dark grey color for readability
+                captionElement.style.fontWeight = '500';
+                captionElement.style.fontSize = '0.95em'; // Slightly larger than default
+                captionElement.textContent = messages[messageIndex];
+            }
             
             // Update angle and time
             angle += 0.02;
@@ -496,11 +562,21 @@ class TimelineAnalysis {
             cancelAnimationFrame(this.radarScanAnimation);
             this.radarScanAnimation = null;
         }
+        
+        // Restore original caption
+        const captionElement = document.querySelector('.radar-section .chart-explanation em');
+        if (captionElement) {
+            captionElement.style.opacity = '1';
+            captionElement.style.color = '#666';
+            captionElement.style.fontWeight = 'normal';
+            captionElement.style.fontSize = ''; // Reset to default
+            captionElement.textContent = 'Shows overall argument classification';
+        }
     }
     
     // Update radar chart after answer is submitted
     updateRadarAfterAnswer() {
-        console.log('Updating radar chart after answer...');
+        // console.log('Updating radar chart after answer...');
         
         // Mark that this scenario has been answered
         this.scenarioAnswered = true;
@@ -638,18 +714,21 @@ class TimelineAnalysis {
         legend.innerHTML = '';
         
         const dimensions = [
-            { key: 'logic', label: 'Logical Flaws', color: 'logic' },
+            { key: 'logic', label: 'Logic', color: 'logic' },
             { key: 'emotion', label: 'Emotional', color: 'emotion' },
             { key: 'balanced', label: 'Balanced', color: 'balanced' },
-            { key: 'agenda', label: 'Hidden Agenda', color: 'agenda' }
+            { key: 'agenda', label: 'Agenda', color: 'agenda' }
         ];
         
         dimensions.forEach(dim => {
             const value = weights[dim.key] || 0;
+            // Scale the visual width to leave space for percentage label
+            // 100% actual = 85% visual width to leave room for text
+            const visualWidth = value * 0.85;
             const bar = document.createElement('div');
             bar.className = `radar-bar ${dim.color}-bar`;
             bar.innerHTML = `
-                <div class="radar-bar-fill" style="width: ${value}%"></div>
+                <div class="radar-bar-fill" style="width: ${visualWidth}%"></div>
                 <div class="bar-content">
                     <span class="bar-label">${dim.label}</span>
                     <span class="bar-value">${value}%</span>
@@ -669,7 +748,7 @@ class TimelineAnalysis {
         // Determine which dimension to show
         let selectedDimension = null;
         
-        console.log('updateInfoBoxes - hasAnswered:', hasAnswered, 'lastEnabledDimension:', this.lastEnabledDimension);
+        // console.log('updateInfoBoxes - hasAnswered:', hasAnswered, 'lastEnabledDimension:', this.lastEnabledDimension);
         
         // Always check for recently enabled dimension first (works both before and after answer)
         if (this.lastEnabledDimension) {
@@ -878,7 +957,7 @@ class TimelineAnalysis {
         
         if (timeSinceLastPlay < this.bearGameState.cooldownMinutes) {
             const remainingMinutes = Math.ceil(this.bearGameState.cooldownMinutes - timeSinceLastPlay);
-            alert(`🐻 Professor Fuzzbert is still catching his breath from the last analysis sprint! The old bear needs ${remainingMinutes} more minute${remainingMinutes !== 1 ? 's' : ''} to recalibrate his statistical whiskers.`);
+            alert(`🐻 Phuzzy is still catching his breath from the last analysis sprint! The old bear needs ${remainingMinutes} more minute${remainingMinutes !== 1 ? 's' : ''} to recalibrate his statistical whiskers.`);
             return;
         }
         
@@ -939,45 +1018,54 @@ class TimelineAnalysis {
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: linear-gradient(135deg, #fef7cd 0%, #fef3c7 100%);
-            border: 3px solid #f59e0b;
-            border-radius: 20px;
-            padding: 30px;
-            max-width: 400px;
-            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 25px;
+            padding: 40px;
+            max-width: 420px;
+            width: 90%;
+            color: white;
             z-index: 10000;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
         `;
         
+        // Create color icon based on dimension
+        const colorIcons = {
+            logic: '🔵',
+            emotion: '💗',
+            balanced: '🟢',
+            agenda: '🟠'
+        };
+        const colorIcon = colorIcons[dimension] || '⚪';
+        
         dialog.innerHTML = `
-            <div style="font-size: 60px; margin-bottom: 20px;">🐻💨</div>
-            <h2 style="color: #92400e; margin-bottom: 15px; font-size: 1.8rem;">PROFESSOR FUZZBERT'S DATA DASH!</h2>
-            <div style="background: ${info.color}22; border: 2px solid ${info.color}; border-radius: 10px; padding: 10px; margin-bottom: 15px;">
-                <p style="color: ${info.color}; font-weight: bold; font-size: 1.2rem; margin: 0;">
-                    📊 Analyzing: ${info.name} Curve
+            <div style="font-size: 60px; margin-bottom: 20px; text-align: center;">🐻💨</div>
+            <h2 style="font-weight: 700; margin-bottom: 25px; font-size: 2rem; text-align: center; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);">Phuzzy's Mad Dash</h2>
+            <div style="background: rgba(255, 255, 255, 0.15); border-radius: 15px; padding: 20px; margin-bottom: 25px; backdrop-filter: blur(10px);">
+                <p style="font-size: 1.1rem; line-height: 1.6; margin: 0; text-align: left;">
+                    Phuzzy needs your help! He spotted an insight on the 
+                    <span style="display: inline-block; background: ${info.color}33; padding: 2px 8px; border-radius: 4px; margin: 0 2px;">
+                        ${colorIcon} ${info.name}
+                    </span> curve.
+                    <br><br>
+                    🎮 <strong style="font-size: 1.3rem;">TAP THE TIMELINE</strong> to boost him forward!
                 </p>
             </div>
-            <p style="color: #78350f; font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px;">
-                Professor Fuzzbert spotted a critical insight at the end of the <strong style="color: ${info.color};">${info.name}</strong> curve! 
-                <br><br>
-                ${info.description}
-                <br><br>
-                <strong>🎮 TAP THE PUSH! BUTTON</strong> to boost him over ${info.obstacle}!
-                <br><br>
-                <em style="font-size: 0.9rem;">Careful: Too many pushes in a row will make him dizzy! Time your boosts wisely.</em>
-            </p>
             <button id="bear-play-btn" style="
-                background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-                color: white;
+                background: white;
+                color: #667eea;
                 border: none;
-                padding: 15px 40px;
-                font-size: 1.2rem;
-                font-weight: bold;
-                border-radius: 10px;
+                padding: 18px 50px;
+                font-size: 1.3rem;
+                font-weight: 700;
+                border-radius: 50px;
                 cursor: pointer;
-                box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-                transition: all 0.2s ease;
-            ">Play Now!</button>
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+                transition: all 0.3s ease;
+                display: block;
+                margin: 0 auto;
+                position: relative;
+                overflow: hidden;
+            ">Play Now</button>
         `;
         
         document.body.appendChild(dialog);
@@ -1005,12 +1093,14 @@ class TimelineAnalysis {
         
         // Add hover effect
         playBtn.onmouseover = () => {
-            playBtn.style.transform = 'translateY(-2px)';
-            playBtn.style.boxShadow = '0 6px 20px rgba(59, 130, 246, 0.4)';
+            playBtn.style.transform = 'translateY(-3px)';
+            playBtn.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.3)';
+            playBtn.style.background = '#f8f9ff';
         };
         playBtn.onmouseout = () => {
             playBtn.style.transform = 'translateY(0)';
-            playBtn.style.boxShadow = '0 4px 12px rgba(59, 130, 246, 0.3)';
+            playBtn.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.2)';
+            playBtn.style.background = 'white';
         };
     }
     
@@ -1034,14 +1124,69 @@ class TimelineAnalysis {
             }
         });
         
-        // Start game
+        // Start game with longer timer for escalating difficulty
         this.bearGameState.lastPlayTime = Date.now();
         this.bearGameState.gameActive = true;
-        this.bearGameState.timeLeft = 20;
+        this.bearGameState.timeLeft = 30;
         this.bearGameState.urgentMode = false;
         
-        // Show flyout
-        document.getElementById('bear-flyout-main').style.display = 'block';
+        // Hide flyout - we're using timeline clicking now
+        document.getElementById('bear-flyout-main').style.display = 'none';
+        
+        // Add click handler to timeline canvas
+        const canvas = document.getElementById('timeline-chart');
+        if (canvas && !canvas.hasAttribute('data-bear-click-handler')) {
+            canvas.setAttribute('data-bear-click-handler', 'true');
+            canvas.style.cursor = 'pointer';
+            
+            const clickHandler = (e) => {
+                if (this.bearGameState.gameActive && !this.bearGameState.pushCooldown) {
+                    // Get click position relative to canvas
+                    const rect = canvas.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    // Get bear position from timeline chart
+                    if (this.timelineChart && this.timelineChart.characterData) {
+                        const bearPos = this.getBearScreenPosition();
+                        if (bearPos) {
+                            // Calculate distance from click to bear
+                            const distance = Math.sqrt(
+                                Math.pow(x - bearPos.x, 2) + 
+                                Math.pow(y - bearPos.y, 2)
+                            );
+                            
+                            // Effective range: increased to 40 pixels for better playability
+                            const effectiveRange = 40;
+                            
+                            if (distance <= effectiveRange) {
+                                // Close enough - check if in front or behind
+                                if (x > bearPos.x + 10) {
+                                    // Clicked in front of bear - backward push!
+                                    this.giveBearPush(true); // true = backward
+                                    // Show different effect for backward push
+                                    this.showTapEffect(x, y, 'backward');
+                                } else {
+                                    // Normal forward push
+                                    this.giveBearPush(false);
+                                    // Show success tap effect
+                                    this.showTapEffect(x, y, 'forward');
+                                }
+                            } else {
+                                // Too far - show miss effect
+                                this.showTapEffect(x, y, 'miss');
+                            }
+                        }
+                    }
+                }
+            };
+            
+            canvas.addEventListener('click', clickHandler);
+            canvas.addEventListener('touchstart', clickHandler);
+            
+            // Store handler for cleanup
+            canvas._bearClickHandler = clickHandler;
+        }
         
         // Start timer
         this.startGameTimer();
@@ -1081,10 +1226,9 @@ class TimelineAnalysis {
 
     // Update timer bar
     updateTimerBar() {
-        const percentage = (this.bearGameState.timeLeft / 20) * 100;
-        const fill = document.getElementById('bear-timer-fill-main');
-        if (fill) {
-            fill.style.width = percentage + '%';
+        // Redraw the timeline chart to update the timer bar
+        if (this.timelineChart) {
+            this.timelineChart.redraw();
         }
     }
 
@@ -1148,6 +1292,16 @@ class TimelineAnalysis {
         this.bearGameState.urgentMode = false;
         this.bearGameState.justEnded = true; // Flag to prevent immediate re-show
         
+        // Remove click handler from timeline canvas
+        const canvas = document.getElementById('timeline-chart');
+        if (canvas && canvas._bearClickHandler) {
+            canvas.removeEventListener('click', canvas._bearClickHandler);
+            canvas.removeEventListener('touchstart', canvas._bearClickHandler);
+            canvas.removeAttribute('data-bear-click-handler');
+            canvas.style.cursor = 'default';
+            delete canvas._bearClickHandler;
+        }
+        
         // Stop urgent mode
         document.querySelector('.timeline-chart-section').classList.remove('urgent');
         
@@ -1160,7 +1314,7 @@ class TimelineAnalysis {
         
         // Show result
         if (success) {
-            console.log('🎉 Professor Fuzzbert reached the insight! +5 RIZ points awarded!');
+            // console.log('🎉 Phuzzy reached the insight! +5 RIZ points awarded!');
             
             // Show success dialog
             setTimeout(() => {
@@ -1189,7 +1343,7 @@ class TimelineAnalysis {
             // Create custom floating rewards for bear game
             this.createBearCoins(points);
         } else {
-            console.log('😭 Professor Fuzzbert ran out of time!');
+            // console.log('😭 Phuzzy ran out of time!');
             
             // Show failure dialog
             setTimeout(() => {
@@ -1256,28 +1410,335 @@ class TimelineAnalysis {
         }, 1500); // Wait for coin animation to complete
     }
 
+    // Get bear's current screen position
+    getBearScreenPosition() {
+        if (!this.timelineChart || !this.timelineChart.characterData) return null;
+        
+        const canvas = document.getElementById('timeline-chart');
+        if (!canvas) return null;
+        
+        const padding = 50;
+        const width = canvas.width - padding * 2;
+        const height = canvas.height - padding * 2;
+        
+        // Get character position (0-1)
+        const pos = this.timelineChart.characterData.position;
+        
+        // Get current visible dimension
+        const visibleDims = Object.keys(this.timelineChart.visibleDimensions)
+            .filter(dim => this.timelineChart.visibleDimensions[dim]);
+        if (visibleDims.length !== 1) return null;
+        
+        const dimension = visibleDims[0];
+        const data = this.timelineChart.currentData;
+        if (!data) return null;
+        
+        // Calculate position on timeline
+        const dataIndex = Math.floor(pos * (data.length - 1));
+        const nextIndex = Math.min(dataIndex + 1, data.length - 1);
+        const localProgress = (pos * (data.length - 1)) % 1;
+        
+        // Calculate difficulty multiplier (same as in timeline-chart.js)
+        let difficultyMultiplier = 1.0;
+        let waveAmplitude = 0;
+        let minValue = Infinity;
+        let maxValue = -Infinity;
+        
+        if (this.bearGameState.gameActive) {
+            // Jump straight to maximum deformation!
+            difficultyMultiplier = 6.0;  // Full 6x peak heights
+            waveAmplitude = 100;  // Full wave interference
+            
+            // Pre-calculate all values to find min/max
+            data.forEach(point => {
+                let yValue = point.scores[dimension];
+                const deviation = yValue - 50;
+                yValue = 50 + (deviation * difficultyMultiplier);
+                const wavePhase = point.position * Math.PI * 4;
+                yValue += Math.sin(wavePhase) * waveAmplitude;
+                
+                minValue = Math.min(minValue, yValue);
+                maxValue = Math.max(maxValue, yValue);
+            });
+        }
+        
+        // Apply same transformations
+        const getModifiedScore = (point) => {
+            let yValue = point.scores[dimension];
+            const deviation = yValue - 50;
+            yValue = 50 + (deviation * difficultyMultiplier);
+            const wavePhase = point.position * Math.PI * 4;
+            yValue += Math.sin(wavePhase) * waveAmplitude;
+            // During game, no clamping
+            if (this.bearGameState.gameActive) {
+                return yValue;
+            } else {
+                return Math.max(0, Math.min(100, yValue));
+            }
+        };
+        
+        // Interpolate Y position with modified scores
+        const y1 = getModifiedScore(data[dataIndex]);
+        const y2 = getModifiedScore(data[nextIndex]);
+        const interpolatedY = y1 + (y2 - y1) * localProgress;
+        
+        // Convert to screen coordinates with proper scaling
+        const x = padding + pos * width;
+        let scaleFactor = 100;
+        let baselineOffset = 0;
+        if (this.bearGameState.gameActive) {
+            const range = maxValue - minValue;
+            scaleFactor = range > 0 ? range : 100;
+            baselineOffset = -minValue;
+        }
+        const y = padding + height - ((interpolatedY + baselineOffset) / scaleFactor * height) - 15; // 15 is groundOffset
+        
+        return { x, y };
+    }
+    
+    // Show tap effect at click position
+    showTapEffect(x, y, effectType = 'forward') {
+        const canvas = document.getElementById('timeline-chart');
+        if (!canvas) return;
+        
+        // Create a temporary canvas for the effect
+        const effectCanvas = document.createElement('canvas');
+        effectCanvas.width = canvas.width;
+        effectCanvas.height = canvas.height;
+        effectCanvas.style.cssText = canvas.style.cssText;
+        effectCanvas.style.position = 'absolute';
+        effectCanvas.style.pointerEvents = 'none';
+        effectCanvas.style.left = canvas.offsetLeft + 'px';
+        effectCanvas.style.top = canvas.offsetTop + 'px';
+        effectCanvas.style.zIndex = '1000'; // Ensure it's above the timeline
+        canvas.parentElement.appendChild(effectCanvas);
+        
+        const ctx = effectCanvas.getContext('2d');
+        
+        if (effectType === 'forward') {
+            // Forward push effect - blue/purple power rings with particles
+            const rings = [
+                { radius: 0, opacity: 0.8, speed: 2, lineWidth: 4 },
+                { radius: 0, opacity: 0.6, speed: 1.8, lineWidth: 3 },
+                { radius: 0, opacity: 0.4, speed: 1.5, lineWidth: 2 }
+            ];
+            
+            // Wind/particle lines
+            const particles = [];
+            for (let i = 0; i < 8; i++) {
+                const angle = (Math.PI * 2 / 8) * i;
+                particles.push({
+                    x: x,
+                    y: y,
+                    vx: Math.cos(angle) * 2,
+                    vy: Math.sin(angle) * 2,
+                    length: 0,
+                    maxLength: 8,
+                    opacity: 0.7
+                });
+            }
+            
+            const animate = () => {
+                ctx.clearRect(0, 0, effectCanvas.width, effectCanvas.height);
+            
+            let allDone = true;
+            
+            // Draw expanding rings
+            rings.forEach((ring, index) => {
+                if (ring.radius < 15 + index * 5) { // 30% of original size
+                    allDone = false;
+                    ctx.beginPath();
+                    ctx.arc(x, y, ring.radius, 0, Math.PI * 2);
+                    
+                    // Gradient stroke for power effect
+                    const gradient = ctx.createRadialGradient(x, y, 0, x, y, ring.radius);
+                    gradient.addColorStop(0, `rgba(59, 130, 246, ${ring.opacity})`);
+                    gradient.addColorStop(0.5, `rgba(139, 92, 246, ${ring.opacity * 0.8})`);
+                    gradient.addColorStop(1, `rgba(59, 130, 246, ${ring.opacity * 0.3})`);
+                    
+                    ctx.strokeStyle = gradient;
+                    ctx.lineWidth = ring.lineWidth;
+                    ctx.stroke();
+                    
+                    ring.radius += ring.speed;
+                    ring.opacity -= 0.01; // Slower fade
+                    ring.opacity = Math.max(0, ring.opacity);
+                }
+            });
+            
+            // Draw wind/power particles
+            particles.forEach(particle => {
+                if (particle.length < particle.maxLength) {
+                    allDone = false;
+                    
+                    ctx.beginPath();
+                    ctx.moveTo(particle.x, particle.y);
+                    
+                    const endX = particle.x + particle.vx * (particle.length / particle.maxLength);
+                    const endY = particle.y + particle.vy * (particle.length / particle.maxLength);
+                    
+                    ctx.lineTo(endX, endY);
+                    
+                    // Gradient for wind effect
+                    const gradient = ctx.createLinearGradient(particle.x, particle.y, endX, endY);
+                    gradient.addColorStop(0, `rgba(59, 130, 246, 0)`);
+                    gradient.addColorStop(0.5, `rgba(139, 92, 246, ${particle.opacity})`);
+                    gradient.addColorStop(1, `rgba(59, 130, 246, 0)`);
+                    
+                    ctx.strokeStyle = gradient;
+                    ctx.lineWidth = 2;
+                    ctx.lineCap = 'round';
+                    ctx.stroke();
+                    
+                    particle.length += 1.5; // Slower growth
+                    particle.opacity -= 0.02; // Slower fade
+                    particle.opacity = Math.max(0, particle.opacity);
+                }
+            });
+            
+            if (!allDone) {
+                requestAnimationFrame(animate);
+            } else {
+                effectCanvas.remove();
+            }
+        };
+        
+        animate();
+        } else if (effectType === 'backward') {
+            // Backward push effect - orange/red warning rings
+            const rings = [
+                { radius: 0, opacity: 0.8, speed: 2, lineWidth: 3 },
+                { radius: 0, opacity: 0.5, speed: 1.5, lineWidth: 2 }
+            ];
+            
+            const animate = () => {
+                ctx.clearRect(0, 0, effectCanvas.width, effectCanvas.height);
+                
+                let allDone = true;
+                
+                // Draw expanding rings with warning colors
+                rings.forEach((ring, index) => {
+                    if (ring.radius < 20 + index * 10) {
+                        allDone = false;
+                        ctx.beginPath();
+                        ctx.arc(x, y, ring.radius, 0, Math.PI * 2);
+                        
+                        // Orange to red gradient for warning
+                        const gradient = ctx.createRadialGradient(x, y, 0, x, y, ring.radius);
+                        gradient.addColorStop(0, `rgba(251, 146, 60, ${ring.opacity})`);
+                        gradient.addColorStop(0.5, `rgba(239, 68, 68, ${ring.opacity * 0.8})`);
+                        gradient.addColorStop(1, `rgba(220, 38, 38, ${ring.opacity * 0.3})`);
+                        
+                        ctx.strokeStyle = gradient;
+                        ctx.lineWidth = ring.lineWidth;
+                        ctx.stroke();
+                        
+                        // Draw backward arrows
+                        if (index === 0) {
+                            ctx.save();
+                            ctx.fillStyle = `rgba(239, 68, 68, ${ring.opacity})`;
+                            ctx.font = 'bold 16px sans-serif';
+                            ctx.textAlign = 'center';
+                            ctx.textBaseline = 'middle';
+                            ctx.fillText('◀', x - 15, y);
+                            ctx.fillText('◀', x + 15, y);
+                            ctx.restore();
+                        }
+                        
+                        ring.radius += ring.speed;
+                        ring.opacity -= 0.02;
+                        ring.opacity = Math.max(0, ring.opacity);
+                    }
+                });
+                
+                if (!allDone) {
+                    requestAnimationFrame(animate);
+                } else {
+                    effectCanvas.remove();
+                }
+            };
+            
+            animate();
+        } else {
+            // Miss effect - smaller, subtler feedback
+            let opacity = 0.6;
+            let radius = 0;
+            
+            const animateMiss = () => {
+                ctx.clearRect(0, 0, effectCanvas.width, effectCanvas.height);
+                
+                if (opacity > 0) {
+                    // Draw pulsing dot with fading ring
+                    ctx.save();
+                    
+                    // Fading ring
+                    ctx.beginPath();
+                    ctx.arc(x, y, radius, 0, Math.PI * 2);
+                    ctx.strokeStyle = `rgba(156, 163, 175, ${opacity * 0.5})`; // Gray color
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+                    
+                    // Center dot - slightly larger
+                    ctx.beginPath();
+                    ctx.arc(x, y, 4, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(107, 114, 128, ${opacity})`;
+                    ctx.fill();
+                    
+                    // Small "miss" indicator - diagonal line, bit bolder
+                    ctx.strokeStyle = `rgba(239, 68, 68, ${opacity})`;
+                    ctx.lineWidth = 3;
+                    ctx.lineCap = 'round';
+                    ctx.beginPath();
+                    ctx.moveTo(x - 7, y - 7);
+                    ctx.lineTo(x + 7, y + 7);
+                    ctx.stroke();
+                    
+                    ctx.restore();
+                    
+                    // Update animation values
+                    radius += 1.5;
+                    opacity -= 0.05;
+                    
+                    requestAnimationFrame(animateMiss);
+                } else {
+                    effectCanvas.remove();
+                }
+            };
+            
+            animateMiss();
+        }
+    }
+    
     // Give bear push
-    giveBearPush() {
+    giveBearPush(isBackward = false) {
         if (!this.bearGameState.gameActive || !this.timelineChart || this.bearGameState.pushCooldown) return;
         
         // Implement push cooldown
         this.bearGameState.pushCooldown = true;
-        const pushBtn = document.getElementById('push-btn-main');
-        pushBtn.disabled = true;
-        pushBtn.style.opacity = '0.6';
         
         setTimeout(() => {
             this.bearGameState.pushCooldown = false;
-            if (pushBtn) {
-                pushBtn.disabled = false;
-                pushBtn.style.opacity = '1';
-            }
         }, 500); // 0.5 second cooldown
         
-        this.createSparkEffect(pushBtn);
-        
         if (this.timelineChart.characterData && this.timelineChart.sparkleInterval) {
-            this.timelineChart.characterData.pendingBoost = 0.006;
+            // Base push strength
+            let forwardPush = 0.05;
+            let backwardPush = -0.03;
+            
+            // Reduce push effectiveness on steep uphills
+            const currentSlope = this.timelineChart.characterData.currentSlope || 0;
+            if (currentSlope > 0 && !isBackward) {
+                // Uphill forward pushes are less effective
+                const uphillPenalty = Math.max(0.3, 1 - currentSlope / 15); // At slope 15, only 30% effective
+                forwardPush *= uphillPenalty;
+            } else if (currentSlope < 0 && isBackward) {
+                // Backward pushes uphill (against downward slope) are less effective
+                const uphillPenalty = Math.max(0.3, 1 + currentSlope / 15);
+                backwardPush *= uphillPenalty;
+            }
+            
+            // Apply the adjusted boost
+            this.timelineChart.characterData.pendingBoost = isBackward ? backwardPush : forwardPush;
             
             setTimeout(() => {
                 if (this.bearGameState.gameActive && this.timelineChart.characterData && 
@@ -1299,7 +1760,7 @@ class TimelineAnalysis {
         const finalX = targetRect.left + targetRect.width / 2;
         const finalY = targetRect.top + targetRect.height / 2;
         
-        console.log('Bear coin target:', finalX, finalY); // Debug log
+        // console.log('Bear coin target:', finalX, finalY); // Debug log
         
         // Create coin emojis that fly to the target
         const numCoins = Math.min(points, 5);
@@ -1336,7 +1797,7 @@ class TimelineAnalysis {
                     // Double-check target still exists
                     const checkTarget = document.getElementById('star-timeline');
                     if (!checkTarget) {
-                        console.warn('Target star disappeared during animation!');
+                        // console.warn('Target star disappeared during animation!');
                     }
                     
                     // Use inline styles with !important to prevent CSS conflicts
@@ -1347,13 +1808,13 @@ class TimelineAnalysis {
                         transform: translate(-50%, -50%) scale(0.3) !important;
                         opacity: 0 !important;
                     `;
-                    console.log('Animating coin to:', coinTargetX, coinTargetY); // Debug log
+                    // console.log('Animating coin to:', coinTargetX, coinTargetY); // Debug log
                     
                     // Check position after a moment
                     setTimeout(() => {
                         const currentLeft = parseFloat(coin.style.left);
                         const currentTop = parseFloat(coin.style.top);
-                        console.log('Coin position check:', currentLeft, currentTop, 'vs target:', coinTargetX, coinTargetY);
+                        // console.log('Coin position check:', currentLeft, currentTop, 'vs target:', coinTargetX, coinTargetY);
                     }, 500);
                 });
                 
@@ -1443,44 +1904,44 @@ class TimelineAnalysis {
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%) scale(0.9);
-                background: linear-gradient(135deg, #fef7cd 0%, #fbbf24 100%);
-                border: 4px solid #f59e0b;
-                border-radius: 20px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                border-radius: 25px;
                 padding: 40px;
                 max-width: 450px;
                 text-align: center;
                 z-index: 10000;
-                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+                box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
                 opacity: 0;
                 transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                color: white;
             `;
             
             dialog.innerHTML = `
                 <div style="font-size: 80px; margin-bottom: 20px; animation: bearDance 1s ease-in-out infinite alternate;">🐻</div>
-                <h2 style="color: #92400e; margin-bottom: 20px; font-size: 2.2rem; font-weight: 800;">EUREKA! 🎊</h2>
-                <p style="color: #78350f; font-size: 1.2rem; line-height: 1.6; margin-bottom: 20px;">
-                    Professor Fuzzbert reached the critical insight! He's doing his signature "Data Dance" with his tiny spectacles bouncing.
+                <h2 style="margin-bottom: 20px; font-size: 2.2rem; font-weight: 800; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);">EUREKA! 🎊</h2>
+                <p style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 20px;">
+                    Phuzzy reached the critical insight! He's doing his signature "Data Dance" with his tiny spectacles bouncing.
                 </p>
-                <div style="background: white; border-radius: 15px; padding: 20px; margin: 20px 0; box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);">
-                    <div style="font-size: 3rem; font-weight: bold; color: #f59e0b; margin-bottom: 5px;">+5 RIZ</div>
-                    <div style="color: #92400e; font-weight: 600;">POINTS EARNED!</div>
+                <div style="background: rgba(255, 255, 255, 0.15); border-radius: 15px; padding: 20px; margin: 20px 0; backdrop-filter: blur(10px);">
+                    <div style="font-size: 3rem; font-weight: bold; margin-bottom: 5px;">+5 RIZ</div>
+                    <div style="font-weight: 600;">POINTS EARNED!</div>
                 </div>
-                <p style="color: #92400e; font-style: italic; font-size: 1.1rem; margin-top: 20px;">
+                <p style="font-style: italic; font-size: 1.1rem; margin-top: 20px;">
                     "Excellent curve navigation, colleague!"<br>
-                    <span style="font-size: 0.9rem;">—Professor Fuzzbert</span>
+                    <span style="font-size: 0.9rem;">—Phuzzy</span>
                 </p>
                 <button id="bear-result-close" style="
-                    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-                    color: white;
+                    background: white;
+                    color: #667eea;
                     border: none;
-                    padding: 15px 40px;
-                    font-size: 1.1rem;
-                    font-weight: bold;
-                    border-radius: 10px;
+                    padding: 18px 50px;
+                    font-size: 1.3rem;
+                    font-weight: 700;
+                    border-radius: 50px;
                     cursor: pointer;
                     margin-top: 20px;
-                    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-                    transition: all 0.2s ease;
+                    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+                    transition: all 0.3s ease;
                 ">Excellent!</button>
                 <style>
                     @keyframes bearDance {
@@ -1495,44 +1956,44 @@ class TimelineAnalysis {
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%) scale(0.9);
-                background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
-                border: 4px solid #6366f1;
-                border-radius: 20px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                border-radius: 25px;
                 padding: 40px;
                 max-width: 450px;
                 text-align: center;
                 z-index: 10000;
-                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+                box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
                 opacity: 0;
                 transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                color: white;
             `;
             
             dialog.innerHTML = `
                 <div style="font-size: 80px; margin-bottom: 20px;">😅</div>
-                <h2 style="color: #4c1d95; margin-bottom: 20px; font-size: 2.2rem; font-weight: 800;">TIME'S UP! ⏰</h2>
-                <p style="color: #5b21b6; font-size: 1.2rem; line-height: 1.6; margin-bottom: 20px;">
-                    Professor Fuzzbert got distracted by a fascinating data anomaly and lost track of time!
+                <h2 style="margin-bottom: 20px; font-size: 2.2rem; font-weight: 800; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);">TIME'S UP! ⏰</h2>
+                <p style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 20px;">
+                    Phuzzy got distracted by a fascinating data anomaly and lost track of time!
                 </p>
-                <div style="background: white; border-radius: 15px; padding: 20px; margin: 20px 0; box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);">
-                    <p style="color: #6366f1; font-size: 1.1rem; margin: 0;">
+                <div style="background: rgba(255, 255, 255, 0.15); border-radius: 15px; padding: 20px; margin: 20px 0; backdrop-filter: blur(10px);">
+                    <p style="font-size: 1.1rem; margin: 0;">
                         "No worries! Even failed experiments contribute to our understanding."
                     </p>
                 </div>
-                <p style="color: #7c3aed; font-size: 1rem; margin-top: 15px;">
+                <p style="font-size: 1rem; margin-top: 15px;">
                     The Professor will be ready for another attempt in <strong>10 minutes</strong>.
                 </p>
                 <button id="bear-result-close" style="
-                    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
-                    color: white;
+                    background: white;
+                    color: #667eea;
                     border: none;
-                    padding: 15px 40px;
-                    font-size: 1.1rem;
-                    font-weight: bold;
-                    border-radius: 10px;
+                    padding: 18px 50px;
+                    font-size: 1.3rem;
+                    font-weight: 700;
+                    border-radius: 50px;
                     cursor: pointer;
                     margin-top: 20px;
-                    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
-                    transition: all 0.2s ease;
+                    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+                    transition: all 0.3s ease;
                 ">Next Time!</button>
             `;
         }
@@ -1618,10 +2079,10 @@ class TimelineAnalysis {
         if (timeSinceLastPlay >= this.bearGameState.cooldownMinutes) {
             bearPaw.style.display = 'block';
             bearPaw.classList.remove('cooldown');
-            console.log('Bear paw shown - cooldown expired');
+            // console.log('Bear paw shown - cooldown expired');
         } else {
             bearPaw.style.display = 'none';
-            console.log(`Bear paw hidden - ${this.bearGameState.cooldownMinutes - timeSinceLastPlay} minutes left`);
+            // console.log(`Bear paw hidden - ${this.bearGameState.cooldownMinutes - timeSinceLastPlay} minutes left`);
         }
     }
 
@@ -1689,14 +2150,17 @@ class TimelineAnalysis {
         
         // Store original text if not already stored
         if (!scenarioText.hasAttribute('data-original-text')) {
-            scenarioText.setAttribute('data-original-text', scenarioText.textContent);
+            scenarioText.setAttribute('data-original-text', this.currentScenario.text);
         }
         
         const originalText = scenarioText.getAttribute('data-original-text');
         const keywords = this.currentScenario.reviewKeywords[dimension]?.keywords || [];
         
         if (keywords.length === 0) {
-            scenarioText.textContent = originalText;
+            // Re-apply formatting when no keywords
+            const formattedText = this.formatScenarioText(originalText);
+            scenarioText.innerHTML = formattedText;
+            scenarioText.style.lineHeight = '1.4';
             
             // Show a tooltip message
             this.showNoKeywordsTooltip(dimension);
@@ -1713,17 +2177,20 @@ class TimelineAnalysis {
         
         const colorScheme = colors[dimension];
         
+        // First apply formatting
+        let formattedText = this.formatScenarioText(originalText);
+        
         // Sort keywords by length (longer first) to avoid partial matches
         const sortedKeywords = [...keywords].sort((a, b) => b.length - a.length);
         
-        // Create regex pattern
+        // Create regex pattern that won't match inside HTML tags
         const pattern = sortedKeywords
             .map(keyword => keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
             .join('|');
-        const regex = new RegExp(`(${pattern})`, 'gi');
+        const regex = new RegExp(`(?![^<]*>)(${pattern})`, 'gi');
         
         // Apply highlights
-        const highlightedText = originalText.replace(regex, match => 
+        const highlightedText = formattedText.replace(regex, match => 
             `<span style="background-color: ${colorScheme.bg}; color: ${colorScheme.color}; padding: 2px 6px; border-radius: 4px; font-weight: 600;">${match}</span>`
         );
         
@@ -1737,7 +2204,10 @@ class TimelineAnalysis {
         
         const originalText = scenarioText.getAttribute('data-original-text');
         if (originalText) {
-            scenarioText.textContent = originalText;
+            // Re-apply formatting when clearing highlights
+            const formattedText = this.formatScenarioText(originalText);
+            scenarioText.innerHTML = formattedText;
+            scenarioText.style.lineHeight = '1.4';
         }
     }
     

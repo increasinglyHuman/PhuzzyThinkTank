@@ -27,7 +27,7 @@ window.SCENARIO_PACKS = {
         id: 'pack-001',
         name: 'Digital Age Dilemmas',
         description: 'First AI-generated scenario pack',
-        file: './data/scenario-generated-001.json',
+        file: './data/scenario-packs/scenario-generated-001.json',
         version: '2.0.0',
         enabled: true,
         scenarios: 10
@@ -38,7 +38,7 @@ window.SCENARIO_PACKS = {
         id: 'pack-002',
         name: 'Modern Digital Dilemmas',
         description: 'Sophisticated scenarios featuring winking admissions and statistical whiplash',
-        file: './data/scenario-generated-002.json',
+        file: './data/scenario-packs/scenario-generated-002.json',
         version: '2.0.0',
         enabled: true,
         scenarios: 10
@@ -49,10 +49,54 @@ window.SCENARIO_PACKS = {
         id: 'complete',
         name: 'Complete Collection',
         description: 'All available scenarios',
-        file: './data/scenario-generated-complete.json',
+        file: './data/scenario-packs/scenario-generated-complete.json',
         version: '2.0.0',
         enabled: true,
         scenarios: 30
+    },
+    
+    // Pack 003 - Digital Life challenges
+    'pack-003': {
+        id: 'pack-003',
+        name: 'Digital Life & Society',
+        description: 'Modern challenges in technology, education, and social dynamics',
+        file: './data/scenario-packs/scenario-generated-003.json',
+        version: '2.0.0',
+        enabled: true,
+        scenarios: 10
+    },
+    
+    // Pack 004 - Nature and culture
+    'pack-004': {
+        id: 'pack-004',
+        name: 'Nature, Culture & Identity',
+        description: 'Animal parables, sci-fi fandoms, and cultural commentary',
+        file: './data/scenario-packs/scenario-generated-004.json',
+        version: '2.0.0',
+        enabled: true,
+        scenarios: 10
+    },
+    
+    // Pack 005 - Community life
+    'pack-005': {
+        id: 'pack-005',
+        name: 'Community & Everyday Life',
+        description: 'Workplace dynamics, local communities, and lifestyle choices',
+        file: './data/scenario-packs/scenario-generated-005.json',
+        version: '2.0.0',
+        enabled: true,
+        scenarios: 10
+    },
+    
+    // Pack 006 - Sci-Fi/LitRPG
+    'pack-006': {
+        id: 'pack-006',
+        name: 'Virtual Worlds & Digital Realms',
+        description: 'Science fiction and LitRPG scenarios exploring virtual economies, AI consciousness, and gaming culture',
+        file: './data/scenario-packs/scenario-generated-006.json',
+        version: '2.0.0',
+        enabled: true,
+        scenarios: 10
     }
 };
 
@@ -65,7 +109,7 @@ window.PACK_SELECTION_CONFIG = {
     defaultPack: 'pack-002',
     
     // For 'sequential' mode, define the order
-    sequentialOrder: ['original-v2', 'pack-001', 'pack-002'],
+    sequentialOrder: ['original-v2', 'pack-001', 'pack-002', 'pack-003', 'pack-004', 'pack-005', 'pack-006'],
     
     // Allow mixing scenarios from multiple packs
     allowMixing: false,

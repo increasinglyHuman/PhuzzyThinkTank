@@ -18,6 +18,52 @@ class QuizInterface {
         this.setupDeveloperHotkeys();
     }
     
+    // Centralized text formatting function
+    formatScenarioText(text) {
+        let formattedText = text;
+        
+        // Apply content filter for 13+ rating
+        const profanityMap = {
+            'shit': '$#!@', 'piss': '@!$$', 'fuck': '!@#$', 'cunt': '#@$!',
+            'cocksucker': '#@#$$@#$%!', 'motherfucker': '@#$%&!@#$%!', 'tits': '@!#$',
+            'bullshit': '%@!!$#!@', 'fucking': '!@#$!&%', 'fucked': '!@#$%&',
+            'shitty': '$#!@@*', 'pissed': '@!$$%&', 'asshole': '@$$#@!%',
+            'bitch': '%!@#$', 'damn': '&@#$', 'hell': '#%!!', 'ass': '@$$'
+        };
+        
+        // Replace profanity with symbols (case-insensitive)
+        Object.keys(profanityMap).forEach(word => {
+            const regex = new RegExp('\\b' + word + '\\b', 'gi');
+            formattedText = formattedText.replace(regex, profanityMap[word]);
+        });
+        
+        // Replace AITA with family-friendly version
+        formattedText = formattedText.replace(/\bAITA\b/g, 'Am I Wrong');
+        
+        // First, convert actual newlines to HTML breaks
+        formattedText = formattedText.replace(/\n/g, '<br>');
+        
+        // Convert lists with dashes/bullets to proper formatting with indentation
+        // Also handle lists that might come after <br> tags
+        // Remove the <br> before list items and add tight line spacing
+        formattedText = formattedText.replace(/(<br>)?^- ([^<]+)/gm, '<span style="display: block; padding-left: 1.5em; text-indent: -1.5em; margin-left: 1.5em; margin-top: 0; margin-bottom: 0; line-height: 1.2;">• $2</span>');
+        formattedText = formattedText.replace(/<br>- ([^<]+)/g, '<span style="display: block; padding-left: 1.5em; text-indent: -1.5em; margin-left: 1.5em; margin-top: 0; margin-bottom: 0; line-height: 1.2;">• $1</span>');
+        
+        // Recognize numbered lists and indent them too
+        formattedText = formattedText.replace(/(<br>)?^(\d+)\.\s+([^<]+)/gm, '<span style="display: block; padding-left: 1.5em; text-indent: -1.5em; margin-left: 1.5em; margin-top: 0; margin-bottom: 0; line-height: 1.2;">$2. $3</span>');
+        formattedText = formattedText.replace(/<br>(\d+)\.\s+([^<]+)/g, '<span style="display: block; padding-left: 1.5em; text-indent: -1.5em; margin-left: 1.5em; margin-top: 0; margin-bottom: 0; line-height: 1.2;">$1. $2</span>');
+        
+        // Recognize lists that use asterisks
+        formattedText = formattedText.replace(/(<br>)?^\* ([^<]+)/gm, '<span style="display: block; padding-left: 1.5em; text-indent: -1.5em; margin-left: 1.5em; margin-top: 0; margin-bottom: 0; line-height: 1.2;">• $2</span>');
+        formattedText = formattedText.replace(/<br>\* ([^<]+)/g, '<span style="display: block; padding-left: 1.5em; text-indent: -1.5em; margin-left: 1.5em; margin-top: 0; margin-bottom: 0; line-height: 1.2;">• $1</span>');
+        
+        // Convert double line breaks to paragraphs with controlled spacing
+        formattedText = formattedText.replace(/(<br>)(<br>)+/g, '</p><p style="margin-top: 0.8em;">');
+        formattedText = '<p style="margin: 0;">' + formattedText + '</p>';
+        
+        return formattedText;
+    }
+    
     bindEvents() {
         try {
             // Answer selection and review mode
@@ -60,9 +106,24 @@ class QuizInterface {
         this.hasAnswered = false;
         this.hasUsedHint = false;
         
+        // Clear any stored original text from previous scenarios
+        if (this.elements.scenarioText.hasAttribute('data-original-text')) {
+            this.elements.scenarioText.removeAttribute('data-original-text');
+        }
+        
         // Update UI
         this.elements.scenarioTitle.textContent = scenario.title;
-        this.elements.scenarioText.textContent = scenario.text;
+        
+        // Format scenario text using centralized formatter
+        const formattedText = this.formatScenarioText(scenario.text);
+        
+        // Use innerHTML to preserve formatting
+        this.elements.scenarioText.innerHTML = formattedText;
+        
+        // Apply tighter line spacing
+        this.elements.scenarioText.style.lineHeight = '1.4';
+        this.elements.scenarioText.style.marginBottom = '1em';
+        
         this.elements.claimText.textContent = 'Claim: "' + scenario.claim + '"';
         
         // Update scenario counter
@@ -112,7 +173,7 @@ class QuizInterface {
             // Get evaluation from game engine
             var evaluation = this.gameEngine.submitAnswer(this.selectedAnswer);
             
-            console.log('Evaluation result:', evaluation); // Debug log
+            // console.log('Evaluation result:', evaluation); // Debug log
             
             // Show feedback
             await this.showFeedback(evaluation);
@@ -150,8 +211,8 @@ class QuizInterface {
             setTimeout(function() {
                 this.showAnalysis();
                 
-                // Update radar chart if timeline is open
-                if (window.timelineAnalysis && window.timelineAnalysis.accordionOpen) {
+                // Update radar chart state (regardless of accordion state)
+                if (window.timelineAnalysis) {
                     window.timelineAnalysis.updateRadarAfterAnswer();
                 }
             }.bind(this), 2000);
@@ -367,7 +428,13 @@ class QuizInterface {
         // Clear text highlights
         const textElement = this.elements.scenarioText;
         const originalText = this.currentScenario.text;
-        textElement.innerHTML = originalText;
+        
+        // Re-apply formatting when clearing highlights
+        const formattedText = this.formatScenarioText(originalText);
+        textElement.innerHTML = formattedText;
+        
+        // Ensure line spacing is maintained
+        textElement.style.lineHeight = '1.4';
         
         // Remove any existing tooltips
         const existingTooltips = document.querySelectorAll('.review-tooltip');
@@ -385,6 +452,9 @@ class QuizInterface {
         const textElement = this.elements.scenarioText;
         let text = this.currentScenario.text;
         const scenario = this.currentScenario;
+        
+        // First apply formatting to the text
+        let formattedText = this.formatScenarioText(text);
         
         // First check if scenario has v2 format with reviewKeywords
         if (scenario.reviewKeywords && scenario.reviewKeywords[answerType]) {
@@ -406,11 +476,11 @@ class QuizInterface {
             
             // Create regex and highlight
             if (keywords.length > 0) {
-                const regex = new RegExp('(' + keywords.map(function(keyword) {
+                const regex = new RegExp('(?![^<]*>)(' + keywords.map(function(keyword) {
                     return keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
                 }).join('|') + ')', 'gi');
                 
-                const highlightedText = text.replace(regex, function(match) {
+                const highlightedText = formattedText.replace(regex, function(match) {
                     return '<span class="review-highlight" style="background-color: ' + colors.bgColor + 
                            '; color: ' + colors.color + '; padding: 2px 4px; border-radius: 4px; font-weight: 600;">' + 
                            match + '</span>';
@@ -513,7 +583,7 @@ class QuizInterface {
         }).join('|') + ')', 'gi');
         
         // Replace matches with highlighted spans
-        const highlightedText = text.replace(regex, function(match) {
+        const highlightedText = formattedText.replace(regex, function(match) {
             return '<span class="review-highlight" style="background-color: ' + pattern.bgColor + 
                    '; color: ' + pattern.color + '; padding: 2px 4px; border-radius: 4px; font-weight: 600;">' + 
                    match + '</span>';
@@ -575,13 +645,32 @@ class QuizInterface {
             '<div class="tooltip-score">Score value: ' + answerWeight + '%</div>' +
         '</div>';
         
-        // Position tooltip
+        // Position tooltip relative to the button
         document.body.appendChild(tooltip);
         const rect = optionElement.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+        
         tooltip.style.position = 'absolute';
-        tooltip.style.left = rect.left + 'px';
-        tooltip.style.top = (rect.bottom + 10) + 'px';
+        tooltip.style.left = (rect.left + scrollLeft) + 'px';
+        tooltip.style.top = (rect.bottom + scrollTop + 10) + 'px';
         tooltip.style.zIndex = '10000';
+        
+        // Ensure tooltip stays within viewport
+        setTimeout(() => {
+            const tooltipRect = tooltip.getBoundingClientRect();
+            
+            // Adjust if tooltip goes off right edge
+            if (tooltipRect.right > window.innerWidth - 10) {
+                tooltip.style.left = (window.innerWidth - tooltipRect.width - 10 + scrollLeft) + 'px';
+            }
+            
+            // Adjust if tooltip goes off bottom
+            if (tooltipRect.bottom > window.innerHeight - 10) {
+                // Position above the button instead
+                tooltip.style.top = (rect.top + scrollTop - tooltipRect.height - 10) + 'px';
+            }
+        }, 10);
         
         // Add close functionality
         setTimeout(function() {
@@ -716,7 +805,7 @@ class QuizInterface {
     
     createConfetti() {
         // More gentle celebration
-        console.log('🎉 Starting celebration!');
+        // console.log('🎉 Starting celebration!');
         
         // Single burst from center with fewer particles
         setTimeout(() => {
@@ -734,7 +823,7 @@ class QuizInterface {
         var shapes = ['circle', 'square', 'triangle', 'star'];
         var endGame = this.elements.endGame;
         
-        console.log(`💥 Burst ${burstNumber}: ${particleCount} particles, pattern: ${pattern}`);
+        // console.log(`💥 Burst ${burstNumber}: ${particleCount} particles, pattern: ${pattern}`);
         
         for (var i = 0; i < particleCount; i++) {
             setTimeout(() => {
@@ -842,18 +931,18 @@ class QuizInterface {
             }
             
             // Debug: Show current key sequence (remove this later)
-            console.log('Key sequence:', keySequence.join(''));
+            // console.log('Key sequence:', keySequence.join(''));
             
             // Simple sequence: type "party" 
             if (keySequence.join('') === 'party') {
-                console.log('🎉 Developer hotkey activated! Time to party with confetti!');
+                // console.log('🎉 Developer hotkey activated! Time to party with confetti!');
                 self.triggerTestEndGame();
                 keySequence = []; // Reset
             }
             
             // Skip scenario hotkey: type "skip"
             if (keySequence.join('') === 'skip') {
-                console.log('⏭️ Developer skip activated! Jumping to next scenario...');
+                // console.log('⏭️ Developer skip activated! Jumping to next scenario...');
                 self.triggerSkipScenario();
                 keySequence = []; // Reset
             }
@@ -861,11 +950,11 @@ class QuizInterface {
     }
     
     triggerSkipScenario() {
-        console.log('💨 Skipping current scenario for testing...');
+        // console.log('💨 Skipping current scenario for testing...');
         
         // Only work if game is in progress (not answered yet)
         if (this.hasAnswered) {
-            console.log('⚠️ Cannot skip - scenario already answered. Use next button or start new game.');
+            // console.log('⚠️ Cannot skip - scenario already answered. Use next button or start new game.');
             return;
         }
         
