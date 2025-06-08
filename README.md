@@ -30,7 +30,7 @@ Meet **Logic Bear** 🧠 and **Emotion Bear** 💖 - your thinking companions wh
 ## ✨ Features
 
 ### 🎮 Interactive Gameplay
-- **10 Real-World Scenarios**: From supplement claims to school safety emails
+- **65+ Real-World Scenarios**: From supplement claims to school safety emails
 - **0-3 Point Scoring**: Nuanced feedback beyond simple right/wrong
 - **Honey Pot Hints**: Get stuck? Use your honey pots for strategic clues
 - **Progress Tracking**: Visual progress bar and score display
@@ -44,6 +44,12 @@ Meet **Logic Bear** 🧠 and **Emotion Bear** 💖 - your thinking companions wh
 - **Screenshot Generation**: Beautiful canvas-based results images
 - **Multi-Platform Sharing**: Facebook, Instagram, LinkedIn integration
 - **Copy & Share**: Easy text and image copying for any platform
+
+### 🎙️ Voice Narration (NEW!)
+- **ElevenLabs Integration**: Professional voice narration for all scenarios
+- **Intelligent Voice Selection**: Gender-aware character voice assignment
+- **Math Symbol Support**: Converts technical symbols to speakable text
+- **Memory-Safe Processing**: Handles large batches on Raspberry Pi
 
 ### 🎨 Polished Experience
 - **Purple Gradient Design**: Beautiful, modern interface
@@ -72,6 +78,18 @@ python -m http.server 8000
 # Open http://localhost:8000 in your browser
 ```
 
+### 🎙️ Voice Generation (NEW!)
+```bash
+# Generate voices for all scenarios with memory safety
+./voice-generation-safe.sh
+
+# View analytics dashboards
+firefox voice-analytics-dashboard.html voice-analytics-advanced.html
+
+# Update analytics in real-time
+node update-analytics-realtime.js --watch
+```
+
 ---
 
 ## 🏗️ Architecture
@@ -98,13 +116,28 @@ python -m http.server 8000
 │   └── social-sharing.js   # Screenshot and sharing features
 └── 📊 utils/
     └── analytics-tracker.js # Game analytics
+
+📁 tools/
+├── elevenlabs-voice-generator.js # Voice generation with character detection
+├── scenario-builder-tool.html    # Web-based scenario creation
+└── update-analytics-realtime.js  # Real-time voice analytics tracker
+
+📁 analytics/
+├── voice-analytics-dashboard.html     # Basic voice usage dashboard
+└── voice-analytics-advanced.html      # Advanced analytics with Chart.js
 ```
 
 ### Data Structure
 ```
 📁 data/
-├── scenarios.json       # 10 carefully crafted scenarios
-└── scenario-schema.json # Validation schema for new content
+├── scenario-generated-*.json           # 65+ carefully crafted scenarios
+├── scenario-schema.json                # Validation schema for new content
+└── audio-recording-voices-for-scenarios-from-elevenlabs/
+    ├── scenario-000/                   # Voice files for each scenario
+    │   ├── title.mp3
+    │   ├── content.mp3
+    │   └── claim.mp3
+    └── voice-analytics.json            # Voice usage statistics
 ```
 
 Each scenario includes:
@@ -141,13 +174,15 @@ Each scenario includes:
 ## 🔮 Roadmap
 
 ### 🎨 Content Expansion
-- [ ] **Scenario Library**: Expand from 10 to 50+ scenarios
+- [x] **Scenario Library**: Expanded from 10 to 65+ scenarios
 - [ ] **Topic Categories**: Politics, health, science, social issues
 - [ ] **Difficulty Levels**: Beginner to expert tracks
 - [ ] **Visual Icons**: Unique imagery for each scenario
 
 ### 🛠️ Technical Enhancements  
-- [ ] **Scenario Builder**: Web-based tool for community contributions
+- [x] **Voice Narration**: ElevenLabs integration for all scenarios
+- [x] **Analytics Dashboards**: Track voice usage and performance
+- [x] **Scenario Builder**: Web-based tool for community contributions
 - [ ] **User Accounts**: Save progress and track improvement
 - [ ] **Leaderboards**: Community challenges and rankings
 - [ ] **API Integration**: Dynamic scenario loading

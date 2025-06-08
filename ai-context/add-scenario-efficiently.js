@@ -6,8 +6,8 @@ const fs = require('fs');
 const path = require('path');
 
 // Configuration
-const TARGET_FILE = './data/scenario-generated-002.json';
-const BACKUP_FILE = './data/scenario-generated-002-backup.json';
+const TARGET_FILE = './data/scenario-packs/scenario-generated-002.json';
+const BACKUP_FILE = './data/scenario-packs/scenario-generated-002-backup.json';
 
 // Function to add a single scenario
 function addScenarioToFile(newScenario) {

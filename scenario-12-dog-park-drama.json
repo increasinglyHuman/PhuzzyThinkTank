@@ -1,0 +1,158 @@
+{
+  "id": "dog-park-breed-panic-001",
+  "title": "The Poodle Park Panic", 
+  "text": "NextPaw neighborhood app - Posted by GoldenDoodleMom:\n\n🚨 URGENT: Dangerous breeds at Barkington Dog Park! 🚨\n\nJust witnessed a PIT BULL playing with other dogs. PLAYING! Don't let the tail wagging fool you - I've done my research!\n\nFacts that MATTER:\n- Pit bulls = 65% of attacks (found on DogBiteStats.net)\n- My neighbor's cousin's friend was bitten in 1987\n- They have LOCKING JAWS (scientifically proven!!!)\n- Bred for fighting = ALWAYS dangerous\n\nPit owner claimed 'Daisy is a therapy dog.' Sure, therapy for TRAUMA VICTIMS after she attacks! 🙄\n\nMeanwhile, my Princess (Standard Poodle) has bitten 3 people but that's DIFFERENT:\n- Mailman was 'suspicious' \n- Child shouldn't have run past us\n- Vet 'moved too fast'\nPoodles bite from FEAR, not aggression. Totally different!\n\nI started a petition: BAN BULLY BREEDS FROM BARKINGTON\nAlready 12 signatures! (Mostly me and my alt accounts but still!)\n\nBeagle owner: 'My dog was attacked by a Golden Retriever last week'\nMe: 'That's anecdotal. Statistics don't lie!'\nBeagle owner: 'You just used anecdotes about pit bulls'\nMe: 'Blocked for supporting dog fighting'\n\nIf you care about SAFETY, join my 6AM patrol group. We document every 'dangerous' breed. Bring coffee and prejudice! ☕\n\nP.S. That 'Daisy' licked my hand. Probably tasting me for later. 😱\n\n#BarkingtonSafety #BreedMatters #NotAllDogsButDefinitelyPitBulls",
+  "claim": "Pit bulls are inherently dangerous and should be banned while poodle aggression is justified fear response",
+  "correctAnswer": "emotion",
+  "answerWeights": {
+    "logic": 34,
+    "emotion": 87,
+    "balanced": 22,
+    "agenda": 76
+  },
+  "reviewKeywords": {
+    "logic": {
+      "keywords": [
+        "65% of attacks",
+        "DogBiteStats.net",
+        "scientifically proven",
+        "Statistics don't lie"
+      ],
+      "explanation": "Cherry-picked statistics and false science claims about jaw locking"
+    },
+    "emotion": {
+      "keywords": [
+        "URGENT",
+        "Don't let the tail wagging fool you",
+        "TRAUMA VICTIMS",
+        "tasting me for later",
+        "😱"
+      ],
+      "explanation": "Fear overrides evidence of friendly behavior"
+    },
+    "balanced": {
+      "keywords": [
+        "Beagle owner:",
+        "Golden Retriever last week",
+        "That's anecdotal"
+      ],
+      "explanation": "Other perspectives offered but immediately dismissed"
+    },
+    "agenda": {
+      "keywords": [
+        "petition: BAN",
+        "6AM patrol group",
+        "document every",
+        "#BreedMatters",
+        "Bring prejudice!"
+      ],
+      "explanation": "Organizing discriminatory enforcement based on breed fear"
+    }
+  },
+  "dimensionAnalysis": {
+    "logic": "Statistics weaponized selectively - cites bite percentages while ignoring population sizes, severity, and her own dog's documented bites.",
+    "emotion": "Breed panic overwhelms observed reality - friendly therapy dog 'Daisy' playing peacefully reinterpreted as threat through fear lens.",
+    "balanced": "Hypocrisy highlighted by others - beagle owner points out double standard but gets blocked rather than acknowledged.",
+    "agenda": "Discrimination campaign launched - patrol group to 'document' breeds, petition with fake signatures, admits to bringing 'prejudice'."
+  },
+  "logicalFallacies": [
+    {
+      "fallacyId": "hasty-generalization",
+      "severity": "primary",
+      "example": "All pit bulls dangerous based on statistics ignoring individual behavior"
+    },
+    {
+      "fallacyId": "cherry-picking",
+      "severity": "primary",
+      "example": "Cites bite statistics while excusing own dog's three attacks"
+    },
+    {
+      "fallacyId": "false-equivalence",
+      "severity": "secondary",
+      "example": "Claims poodle bites from 'fear' are different from other dog bites"
+    }
+  ],
+  "analysis": {
+    "logic": {
+      "scores": {
+        "evidence": 37,
+        "consistency": 24,
+        "source": 41,
+        "agenda": 79
+      },
+      "indicators": [
+        "selective-statistics",
+        "anecdotal-hypocrisy",
+        "false-jaw-claim",
+        "population-ignored"
+      ],
+      "explanation": "Uses data to confirm bias while ignoring contradicting evidence"
+    },
+    "emotion": {
+      "scores": {
+        "fear": 91,
+        "belonging": 68,
+        "pride": 74,
+        "manipulation": 72
+      },
+      "triggers": [
+        "child-safety-fear",
+        "attack-imagery",
+        "breed-prejudice",
+        "moral-superiority",
+        "pack-mentality"
+      ],
+      "explanation": "Deep breed fear overrides direct positive experience with Daisy"
+    }
+  },
+  "wisdom": "This scenario shows how fear and prejudice override direct experience - the 'dangerous' pit bull is literally a certified therapy dog playing nicely. Notice how statistics become weapons when stripped of context, and how the accuser's own dog's aggression gets rationalized. Real safety requires evaluating individual behavior, not breed stereotypes.",
+  "hints": {
+    "keywords": [
+      "tail wagging",
+      "therapy dog",
+      "bitten 3 people",
+      "DIFFERENT",
+      "tasting me"
+    ],
+    "strategy": "emotion",
+    "hintMessage": "Fear makes friendly dogs seem dangerous!"
+  },
+  "metadata": {
+    "tags": [
+      "animals",
+      "dogs",
+      "breed-discrimination",
+      "fear-based-logic",
+      "neighborhood-drama"
+    ],
+    "difficulty": 3,
+    "educationalFocus": "recognizing-prejudice-rationalization",
+    "commonMisconceptions": [
+      "breed-determines-behavior",
+      "statistics-equal-truth"
+    ],
+    "addedDate": "2025-01-06"
+  },
+  "peakMoments": {
+    "logic": [
+      "65% of attacks",
+      "LOCKING JAWS",
+      "scientifically proven"
+    ],
+    "emotion": [
+      "TRAUMA VICTIMS",
+      "tasting me for later",
+      "😱",
+      "URGENT"
+    ],
+    "balanced": [
+      "Golden Retriever last week",
+      "That's anecdotal"
+    ],
+    "agenda": [
+      "BAN BULLY BREEDS",
+      "6AM patrol",
+      "Bring prejudice!"
+    ]
+  }
+}

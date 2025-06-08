@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phuzzy's Think Tank - Where Bears Balance Brain & Heart</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐻</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐻</text></svg>">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/fallacy-cards.css">
+    <link rel="stylesheet" href="css/timeline-accordion.css">
+    <link rel="stylesheet" href="css/ui-improvements.css">
+    <link rel="stylesheet" href="css/splash-word-animations.css">
+    
+    <!-- Global Config -->
+    <script>
+        window.PHUZZY_CONFIG = {
+            apiEndpoint: '/api/scenarios',
+            analyticsEndpoint: '/api/analytics',
+            scenariosPerRound: 10,
+            honeyPotsPerRound: 3
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <!-- Score Tracker moved into header and right-aligned -->
+            <div class="score-tracker" id="score-tracker">
+                <div style="font-size: 1.8em; margin-left: -3px;">💫 RIZ: <span id="user-score">0</span></div>
+                <div class="honey-pot-container" id="honey-pots">
+                    <span class="honey-pot" id="honey-pot-1">🍯</span>
+                    <span class="honey-pot" id="honey-pot-2">🍯</span>
+                    <span class="honey-pot" id="honey-pot-3">🍯</span>
+                </div>
+                <div class="question-progress">
+                    <div class="progress-label">Progress</div>
+                    <div class="question-progress-track">
+                        <div class="question-progress-bar" id="question-progress-bar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Game Content -->
+        <div id="game-content">
+            <!-- Scenario Box -->
+            <div class="scenario-box" style="position: relative;">
+                <div class="dizzy-star-icon" id="star-scenario" style="position: absolute; top: 10px; right: 10px; font-size: 48px; cursor: pointer; z-index: 100; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3)); text-shadow: 0 0 10px rgba(255,215,0,0.5);" title="Show scoreboard">💫</div>
+                <h2 class="scenario-title" id="scenario-title">Loading...</h2>
+                <p class="scenario-counter" id="scenario-counter">Scenario 1 of 10</p>
+                <p class="scenario-text" id="scenario-text"></p>
+                <div class="claim" id="claim-text"></div>
+                <!-- Investigate button moved inside scenario box -->
+                <button class="analysis-toggle-btn" id="analysis-toggle-btn" onclick="toggleTimelineAnalysis()">
+                    🔍 Investigate
+                </button>
+            </div>
+            
+            <!-- Timeline Analysis Accordion -->
+            <div class="timeline-analysis-accordion" id="timeline-analysis-accordion" style="display: none; position: relative;">
+                <div class="dizzy-star-icon" id="star-timeline" style="position: absolute; top: 10px; right: 10px; font-size: 48px; cursor: pointer; z-index: 100; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3)); text-shadow: 0 0 10px rgba(255,215,0,0.5);" title="Show scoreboard">💫</div>
+                <div class="analysis-header">
+                    <h3>Language Evolution Timeline</h3>
+                </div>
+                <div class="analysis-content">
+                    <div class="timeline-charts-grid">
+                        <!-- Radar Chart Section -->
+                        <div class="radar-section" style="display: flex; flex-direction: column; justify-content: center;">
+                            <h4>Argument Fingerprint</h4>
+                            <canvas id="radar-chart" width="280" height="240"></canvas>
+                            <div class="radar-legend" id="radar-legend">
+                                <!-- Legend will be populated dynamically -->
+                            </div>
+                            <div class="chart-explanation" style="margin-top: 10px; font-size: 0.85em; color: #666; line-height: 1.4;">
+                                <em>Shows overall argument classification</em>
+                            </div>
+                        </div>
+                        
+                        <!-- Timeline Chart Section -->
+                        <div class="timeline-chart-section">
+                            <div style="position: relative; display: block;">
+                                <canvas id="timeline-chart" width="600" height="300"></canvas>
+                                <div class="bear-paw-icon" id="bear-paw-main" onclick="handleBearPawClick('timeline-chart')" title="🐻 Runner Bear" style="background-image: url('images/bearpaw.svg'); background-size: cover; background-position: center; display: none;">
+                                </div>
+                                <div class="chart-explanation" style="position: absolute; top: 100%; left: 0; right: 0; margin-top: 4px; font-size: 0.85em; color: #666; line-height: 1.4; text-align: center;">
+                                    <em>Timeline peaks show intensity moments, not totals. Many moderate peaks can equal one high spike—like waves: multiple 3-foot waves move as much water as one 10-footer.</em>
+                                </div>
+                            </div>
+                            <div class="dimension-toggles" style="margin-top: 40px;">
+                                <button class="toggle-btn logic-toggle active" data-dimension="logic" onclick="toggleDimension('timeline-chart', 'logic')">
+                                    <span class="toggle-color logic-color"></span> Logical Flaws
+                                </button>
+                                <button class="toggle-btn emotion-toggle active" data-dimension="emotion" onclick="toggleDimension('timeline-chart', 'emotion')">
+                                    <span class="toggle-color emotion-color"></span> Emotional
+                                </button>
+                                <button class="toggle-btn balanced-toggle active" data-dimension="balanced" onclick="toggleDimension('timeline-chart', 'balanced')">
+                                    <span class="toggle-color balanced-color"></span> Balanced
+                                </button>
+                                <button class="toggle-btn agenda-toggle active" data-dimension="agenda" onclick="toggleDimension('timeline-chart', 'agenda')">
+                                    <span class="toggle-color agenda-color"></span> Agenda
+                                </button>
+                            </div>
+                            <!-- What the timeline shows - moved here -->
+                            <div class="timeline-info-box">
+                                <div class="info-title">What the timeline shows:</div>
+                                <div id="timeline-description">Analyzing language patterns...</div>
+                            </div>
+                            <!-- Bear runner interface moved below timeline -->
+                            <div class="bear-flyout" id="bear-flyout-main" style="display: none; margin-top: 20px; position: relative; width: 100%; max-width: 400px; margin-left: auto; margin-right: auto;">
+                                <div class="bear-timer-bar">
+                                    <div class="bear-timer-fill" id="bear-timer-fill-main"></div>
+                                </div>
+                                <button onclick="giveBearPush('timeline-chart')" id="push-btn-main" class="bear-push-btn">
+                                    <span style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%) rotate(-15deg); font-size: 20px;">🐾</span>
+                                    <span style="margin-left: 18px;">PUSH!</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Info Boxes -->
+                    <div class="analysis-info-boxes">
+                        <div class="info-box full-width">
+                            <div class="info-title">Why this Analysis Matters:</div>
+                            <div id="analysis-importance">Understanding manipulation tactics...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quiz Section -->
+            <div class="interactive-section" id="quiz-section">
+                <div class="quiz-question">What's the PRIMARY issue with this argument?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-value="logic">
+                        <span class="option-icon">🧠</span>
+                        <span class="option-text">Weak logical evidence</span>
+                    </div>
+                    <div class="quiz-option" data-value="emotion">
+                        <span class="option-icon">💖</span>
+                        <span class="option-text">Emotional manipulation</span>
+                    </div>
+                    <div class="quiz-option" data-value="balanced">
+                        <span class="option-icon">⚖️</span>
+                        <span class="option-text">Actually well-balanced</span>
+                    </div>
+                    <div class="quiz-option" data-value="agenda">
+                        <span class="option-icon">🎯</span>
+                        <span class="option-text">Hidden agenda/bias</span>
+                    </div>
+                </div>
+                <button class="hint-button" id="hint-button">
+                    🍯 Use Honey Pot for Hint (<span id="honey-count">3</span> left)
+                </button>
+                <button class="submit-button" id="submit-button" disabled>Submit Answer</button>
+            </div>
+            
+            <!-- Detailed Analysis Section -->
+            <div class="detailed-analysis-section" id="detailed-analysis"></div>
+            
+            <!-- Navigation -->
+            <div class="button-container">
+                <button class="next-button" id="next-button">Next Scenario →</button>
+            </div>
+        </div>
+        
+        <!-- End Game Screen -->
+        <div class="end-game" id="end-game">
+            <div class="results-card">
+                <h1 class="results-title">🐻 Phuzzy's Think Tank</h1>
+                
+                <div class="badge-section">
+                    <div class="final-badge" id="final-badge">🏆</div>
+                    <div class="stats-summary">
+                        <h2 id="badge-title">Calculating...</h2>
+                        <p id="badge-message"></p>
+                        <div class="stat-row">
+                            <span class="stat-label">Final RIZ Score:</span>
+                            <span class="stat-value" id="final-score"></span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Accuracy:</span>
+                            <span class="stat-value" id="accuracy-percent"></span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Honey Pots Used:</span>
+                            <span class="stat-value" id="honey-used"></span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Fallacy Cards:</span>
+                            <span class="stat-value" id="cards-collected-final">0/15</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="collection-bonus" id="collection-bonus" style="display: none;">
+                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px; border-radius: 12px; margin: 15px 0; text-align: center;">
+                        <div id="collection-bonus-text"></div>
+                    </div>
+                </div>
+                
+                <div class="mini-meters" id="performance-meters">
+                    <h3>Your Performance Analysis</h3>
+                    <div class="mini-meter-row">
+                        <span class="mini-meter-label">Logic Detection</span>
+                        <div class="mini-meter-container">
+                            <div class="mini-meter-fill logic-fill" id="logic-performance"></div>
+                        </div>
+                    </div>
+                    <div class="mini-meter-row">
+                        <span class="mini-meter-label">Emotion Sensing</span>
+                        <div class="mini-meter-container">
+                            <div class="mini-meter-fill emotion-fill" id="emotion-performance"></div>
+                        </div>
+                    </div>
+                    <div class="mini-meter-row">
+                        <span class="mini-meter-label">Balance Wisdom</span>
+                        <div class="mini-meter-container">
+                            <div class="mini-meter-fill balanced-fill" id="balance-performance"></div>
+                        </div>
+                    </div>
+                    <div class="mini-meter-row">
+                        <span class="mini-meter-label">Agenda Detection</span>
+                        <div class="mini-meter-container">
+                            <div class="mini-meter-fill agenda-fill" id="agenda-performance"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="share-section">
+                    <h3 class="share-title">Share Your Think Tank Results!</h3>
+                    <div class="social-buttons">
+                        <a href="#" class="social-button social-facebook" id="share-facebook">
+                            <span>📘</span> Facebook
+                        </a>
+                        <a href="#" class="social-button social-instagram" id="share-instagram">
+                            <span>📸</span> Instagram
+                        </a>
+                        <a href="#" class="social-button social-linkedin" id="share-linkedin">
+                            <span>💼</span> LinkedIn
+                        </a>
+                        <a href="#" class="social-button social-copy" id="share-copy">
+                            <span>📋</span> Copy Link
+                        </a>
+                    </div>
+                </div>
+                
+                <button class="replay-button" onclick="location.reload()">
+                    🔄 Play Again
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Splash Screen -->
+    <div class="splash-screen" id="splash-screen">
+        <div class="splash-overlay"></div>
+        <div class="splash-card">
+            <div class="splash-bear">🐻</div>
+            <h2 class="splash-title">Welcome to Phuzzy's Think Tank!</h2>
+            <div class="splash-instructions">
+                <div class="instruction-item" data-index="0">
+                    <span class="instruction-icon">📖</span>
+                    <span class="instruction-text">Read the story, thinking carefully</span>
+                </div>
+                <div class="instruction-item" data-index="1">
+                    <span class="instruction-icon">🔍</span>
+                    <span class="instruction-text">Investigate</span>
+                </div>
+                <div class="instruction-item" data-index="2">
+                    <span class="instruction-icon">🤔</span>
+                    <span class="instruction-text">Answer the question</span>
+                </div>
+                <div class="instruction-item" data-index="3">
+                    <span class="instruction-icon">✨</span>
+                    <span class="instruction-text">Best answers score more RIZ</span>
+                </div>
+                <div class="instruction-item" data-index="4">
+                    <span class="instruction-icon">🍯</span>
+                    <span class="instruction-text">Honey pots are for hints</span>
+                </div>
+            </div>
+            <button class="play-now-button" id="play-now-button" disabled>
+                Play Now
+            </button>
+        </div>
+    </div>
+    
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-bear">🐻</div>
+            <h2>Loading Phuzzy's Think Tank...</h2>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Load scripts in order (ES5 compatible) -->
+    <script src="./js/core/scenario-packs-config.js"></script>
+    <script src="./js/core/scenario-manager.js"></script>
+    <script src="./js/core/scoring-system.js"></script>
+    <script src="./js/core/honey-pot-manager.js"></script>
+    <script src="./js/utils/analytics-tracker.js"></script>
+    <script src="./js/ui/bear-analysis.js"></script>
+    <script src="./js/ui/feedback-animator.js"></script>
+    <script src="./js/ui/hint-display.js"></script>
+    <script src="./js/ui/quiz-interface.js"></script>
+    <script src="./js/ui/social-sharing.js"></script>
+    <script src="./js/ui/timeline-chart.js"></script>
+    <script src="./js/ui/timeline-analysis.js"></script>
+    <script src="./js/ui/ui-enhancements.js"></script>
+    <script src="./js/core/game-engine.js"></script>
+    <script src="./js/splash-word-animator-v2.js"></script>
+    
+    <!-- Main Game Script -->
+    <script>
+        // ES5 compatible initialization
+        
+        // Handle splash screen
+        function setupSplashScreen() {
+            const splashScreen = document.getElementById('splash-screen');
+            const playNowButton = document.getElementById('play-now-button');
+            
+            // Handle play now button click
+            playNowButton.addEventListener('click', function() {
+                splashScreen.classList.add('hidden');
+                // Remove splash screen after transition
+                setTimeout(function() {
+                    splashScreen.style.display = 'none';
+                }, 500);
+                
+                // Start investigate button pulse after 5 seconds
+                setTimeout(function() {
+                    const investigateBtn = document.getElementById('analysis-toggle-btn');
+                    if (investigateBtn) {
+                        // Only add pulse if button still says "Investigate"
+                        if (investigateBtn.textContent.includes('Investigate')) {
+                            investigateBtn.classList.add('investigate-pulse');
+                            
+                            // Remove pulse after first click
+                            investigateBtn.addEventListener('click', function() {
+                                investigateBtn.classList.remove('investigate-pulse');
+                            }, { once: true });
+                        }
+                    }
+                }, 5000);
+                
+                // Start scoreboard animation after splash closes
+                setTimeout(function() {
+                    if (window.scoreboardManager) {
+                        window.scoreboardManager.startInitialAnimation();
+                    }
+                }, 600);
+            });
+            
+            // Also allow clicking outside the card to dismiss
+            splashScreen.addEventListener('click', function(e) {
+                if (e.target === splashScreen || e.target.classList.contains('splash-overlay')) {
+                    splashScreen.classList.add('hidden');
+                    setTimeout(function() {
+                        splashScreen.style.display = 'none';
+                    }, 500);
+                }
+            });
+        }
+        
+        // Initialize game
+        async function initializeGame() {
+            try {
+                // Setup splash screen first
+                setupSplashScreen();
+                
+                // Create game engine
+                const gameEngine = new window.PhuzzyGameEngine(window.PHUZZY_CONFIG);
+                window.gameEngine = gameEngine; // Make available globally for timeline analysis
+                
+                // Get UI elements
+                const elements = {
+                    // Score tracker
+                    scoreTracker: document.getElementById('score-tracker'),
+                    userScore: document.getElementById('user-score'),
+                    totalScenarios: document.getElementById('total-scenarios'),
+                    honeyPotIcons: document.querySelectorAll('.honey-pot'),
+                    honeyPotCount: document.getElementById('honey-count'),
+                    
+                    // Game content
+                    gameContent: document.getElementById('game-content'),
+                    scenarioTitle: document.getElementById('scenario-title'),
+                    scenarioText: document.getElementById('scenario-text'),
+                    scenarioCounter: document.getElementById('scenario-counter'),
+                    claimText: document.getElementById('claim-text'),
+                    
+                    // Quiz elements
+                    answerOptions: document.querySelectorAll('.quiz-option'),
+                    submitButton: document.getElementById('submit-button'),
+                    honeyPotButton: document.getElementById('hint-button'),
+                    nextButton: document.getElementById('next-button'),
+                    
+                    // Analysis
+                    analysisSection: document.getElementById('detailed-analysis'),
+                    
+                    // End game
+                    endGame: document.getElementById('end-game'),
+                    finalScore: document.getElementById('final-score'),
+                    accuracyPercent: document.getElementById('accuracy-percent'),
+                    honeyUsed: document.getElementById('honey-used'),
+                    finalBadge: document.getElementById('final-badge'),
+                    badgeTitle: document.getElementById('badge-title'),
+                    badgeMessage: document.getElementById('badge-message'),
+                    logicPerformance: document.getElementById('logic-performance'),
+                    emotionPerformance: document.getElementById('emotion-performance'),
+                    balancePerformance: document.getElementById('balance-performance'),
+                    agendaPerformance: document.getElementById('agenda-performance')
+                };
+                
+                // Create UI controller
+                const quizInterface = new window.QuizInterface(gameEngine, elements);
+                gameEngine.uiController = quizInterface;
+                
+                // Initialize social sharing
+                const socialSharing = new window.SocialSharing();
+                socialSharing.init();
+                
+                // Initialize timeline analysis
+                window.timelineAnalysis = new window.TimelineAnalysis();
+                
+                // Initialize game
+                await gameEngine.initialize();
+                
+                // Log pack info to console
+                if (gameEngine.scenarioManager.currentPack) {
+                    const pack = gameEngine.scenarioManager.currentPack;
+                    console.log(`Loaded Pack: ${pack.name || pack.id}`);
+                    if (pack.description) {
+                        console.log(`Description: ${pack.description}`);
+                    }
+                }
+                
+                // Hide loading screen
+                document.getElementById('loading-screen').style.display = 'none';
+                
+                // Start game
+                await gameEngine.startGame();
+                
+                // Add honey pot click handlers
+                document.querySelectorAll('.honey-pot').forEach(honeyPot => {
+                    honeyPot.addEventListener('click', () => {
+                        if (!honeyPot.classList.contains('used') && quizInterface.hasAnswered === false) {
+                            quizInterface.useHoneyPot();
+                        }
+                    });
+                });
+                
+                // Score tracker is now always visible - no scroll detection needed
+                
+                // Initialize dizzy star scoreboard system
+                scoreboardManager.init();
+                
+            } catch (error) {
+                console.error('Failed to initialize game:', error);
+                document.getElementById('loading-screen').innerHTML = `
+                    <div class="error-message">
+                        <h2>😢 Oops! Something went wrong</h2>
+                        <p>${error.message}</p>
+                        <button onclick="location.reload()">🐻 Bear with us - Reload</button>
+                    </div>
+                `;
+            }
+        }
+        
+        // Dizzy Star Scoreboard System
+        const scoreboardManager = {
+            scoreTracker: null,
+            currentStarId: null,
+            isVisible: true,
+            fadeTimer: null,
+            
+            init() {
+                this.scoreTracker = document.getElementById('score-tracker');
+                
+                // Set up click handlers for all dizzy stars
+                const stars = document.querySelectorAll('.dizzy-star-icon');
+                stars.forEach(star => {
+                    star.addEventListener('click', (e) => this.handleStarClick(e));
+                });
+                
+                // Position scoreboard initially below scenario star
+                this.positionInitialScoreboard();
+                
+                // Start auto-fade timer
+                this.startFadeTimer();
+            },
+            
+            positionInitialScoreboard() {
+                const star = document.getElementById('star-scenario');
+                if (!star || !this.scoreTracker) return;
+                
+                // Get star position
+                const starRect = star.getBoundingClientRect();
+                
+                // Position scoreboard to left and below star
+                this.scoreTracker.style.position = 'fixed';
+                this.scoreTracker.style.top = (starRect.bottom - 10) + 'px';
+                this.scoreTracker.style.left = 'auto';
+                this.scoreTracker.style.right = (window.innerWidth - starRect.right + 20) + 'px';
+            },
+            
+            startInitialAnimation() {
+                // First jiggle to get attention
+                this.scoreTracker.classList.add('jiggling');
+                
+                setTimeout(() => {
+                    this.scoreTracker.classList.remove('jiggling');
+                    // Then collapse to star
+                    this.collapseToStar('star-scenario');
+                }, 1200);
+            },
+            
+            handleStarClick(e) {
+                const starId = e.target.id;
+                
+                if (this.isVisible && this.currentStarId === starId) {
+                    // Clicking same star - collapse
+                    this.collapseToStar(starId);
+                } else {
+                    // Show at new star location
+                    this.showAtStar(starId);
+                }
+            },
+            
+            collapseToStar(starId) {
+                const star = document.getElementById(starId);
+                if (!star || !this.scoreTracker) return;
+                
+                // Stop fade timer when manually collapsed
+                this.stopFadeTimer();
+                
+                // Animate collapse
+                this.scoreTracker.classList.add('collapsing');
+                
+                setTimeout(() => {
+                    this.scoreTracker.classList.add('collapsed');
+                    this.scoreTracker.classList.remove('collapsing');
+                    this.isVisible = false;
+                    
+                    // Pulse the star
+                    star.classList.add('active');
+                    setTimeout(() => star.classList.remove('active'), 1200);
+                }, 500);
+                
+                this.currentStarId = starId;
+            },
+            
+            showAtStar(starId) {
+                const star = document.getElementById(starId);
+                if (!star || !this.scoreTracker) return;
+                
+                // Get star position
+                const starRect = star.getBoundingClientRect();
+                const scoreRect = this.scoreTracker.getBoundingClientRect();
+                
+                // Position scoreboard to left and below star
+                this.scoreTracker.style.position = 'fixed';
+                this.scoreTracker.style.top = (starRect.bottom - 10) + 'px';
+                this.scoreTracker.style.left = 'auto';
+                this.scoreTracker.style.right = (window.innerWidth - starRect.right + 20) + 'px';
+                
+                // Ensure it stays within viewport
+                const rightPos = window.innerWidth - starRect.right + 20;
+                if (rightPos + scoreRect.width > window.innerWidth - 10) {
+                    // Adjust if it would go off screen
+                    this.scoreTracker.style.right = '10px';
+                }
+                
+                // Show with animation
+                this.scoreTracker.classList.remove('collapsed', 'collapsing');
+                this.scoreTracker.classList.add('expanding');
+                
+                setTimeout(() => {
+                    this.scoreTracker.classList.remove('expanding');
+                }, 500);
+                
+                this.isVisible = true;
+                this.currentStarId = starId;
+                
+                // Restart fade timer
+                this.startFadeTimer();
+            },
+            
+            // Auto-reveal for score animations
+            autoReveal() {
+                // Find nearest visible star
+                const stars = ['star-scenario', 'star-timeline'];
+                let nearestStar = null;
+                
+                for (const starId of stars) {
+                    const star = document.getElementById(starId);
+                    if (star && star.offsetParent !== null) {
+                        nearestStar = starId;
+                        break;
+                    }
+                }
+                
+                if (nearestStar && !this.isVisible) {
+                    this.showAtStar(nearestStar);
+                    
+                    // Auto-hide after 3 seconds (shorter for coin collection)
+                    setTimeout(() => {
+                        if (this.isVisible) {
+                            this.collapseToStar(this.currentStarId);
+                        }
+                    }, 3000);
+                } else if (this.isVisible) {
+                    // If already visible, set timer to collapse
+                    setTimeout(() => {
+                        if (this.isVisible) {
+                            this.collapseToStar(this.currentStarId);
+                        }
+                    }, 3000);
+                }
+            },
+            
+            // Start or restart the fade timer
+            startFadeTimer() {
+                // Clear existing timer
+                this.stopFadeTimer();
+                
+                // Start new timer for 7 seconds
+                this.fadeTimer = setTimeout(() => {
+                    if (this.isVisible) {
+                        this.collapseToStar(this.currentStarId || 'star-scenario');
+                    }
+                }, 7000);
+            },
+            
+            // Stop the fade timer
+            stopFadeTimer() {
+                if (this.fadeTimer) {
+                    clearTimeout(this.fadeTimer);
+                    this.fadeTimer = null;
+                }
+            }
+        };
+        
+        // Make it globally available
+        window.scoreboardManager = scoreboardManager;
+        
+        // Splash screen instruction animations
+        function animateInstructions() {
+            const items = document.querySelectorAll('.instruction-item');
+            let currentItem = 0;
+            
+            function animateNextItem() {
+                if (currentItem >= items.length) {
+                    // All done - enable play button
+                    const playBtn = document.getElementById('play-now-button');
+                    if (playBtn) {
+                        playBtn.disabled = false;
+                        playBtn.style.opacity = '1';
+                        playBtn.style.cursor = 'pointer';
+                    }
+                    return;
+                }
+                
+                const item = items[currentItem];
+                const icon = item.querySelector('.instruction-icon');
+                const text = item.querySelector('.instruction-text');
+                const words = text.textContent.split(' ');
+                
+                // Spin the icon
+                icon.style.animation = 'iconSpin 0.5s ease-out';
+                
+                // Clear text and rebuild with spans
+                text.innerHTML = '';
+                words.forEach((word, i) => {
+                    const span = document.createElement('span');
+                    span.textContent = word;
+                    span.style.display = 'inline-block';
+                    span.style.marginRight = '0.3em'; // Force spacing between words
+                    text.appendChild(span);
+                });
+                
+                // Animate each word
+                const wordSpans = text.querySelectorAll('span');
+                wordSpans.forEach((span, i) => {
+                    setTimeout(() => {
+                        span.style.animation = 'wordHighlight 0.6s ease-out';
+                    }, i * 300); // Increased delay between words
+                });
+                
+                // Move to next item
+                const totalDuration = words.length * 300 + 1000;
+                setTimeout(() => {
+                    currentItem++;
+                    animateNextItem();
+                }, totalDuration);
+            }
+            
+            // Start animation after a short delay
+            setTimeout(animateNextItem, 500);
+        }
+        
+        // Start initialization when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                initializeGame();
+                // animateInstructions(); // Disabled - using enhanced splash-word-animator.js instead
+            });
+        } else {
+            initializeGame();
+            // animateInstructions(); // Disabled - using enhanced splash-word-animator.js instead
+        }
+    </script>
+</body>
+</html>

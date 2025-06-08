@@ -1,0 +1,22 @@
+{
+  "timestamp": "2025-06-07T04:34:09.605Z",
+  "filesModified": [
+    "js/core/scenario-packs-config.js",
+    "js/core/scenario-manager.js",
+    "compare-scenarios.js",
+    "analyze-scenario-themes.js",
+    "check-field-usage.js",
+    "gentle-migrate-topics.js",
+    "distribute-batch-to-packs.js",
+    "package-scenarios-v2.js",
+    "ai-context/add-scenario-efficiently.js",
+    "ai-context/add-scenario-incremental.js",
+    "test-v2-compatibility.html",
+    "identify-scenarios-to-regenerate.js",
+    "tools/batch-title-generator.js",
+    "tools/elevenlabs-voice-generator.js",
+    "check-scenarios.js",
+    "repair-scenarios.js"
+  ],
+  "migrationComplete": false
+}

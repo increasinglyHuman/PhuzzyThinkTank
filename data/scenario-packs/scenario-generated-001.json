@@ -1032,6 +1032,313 @@
         "addedDate": "2025-01-06"
       },
       "topic": "Community & Society"
+    },
+    {
+      "id": "enhanced-scenarios-001-008",
+      "title": "The Caffeinated Sloth's Productivity Hack",
+      "content": "Morning Motivation Podcast: \"Today we have Speedy the Sloth sharing his revolutionary productivity system! #SlowProductivity\"\n\nSpeedy the Sloth: [yawning] \"So... I discovered... that if I drink... 47 espressos... I can move... at normal sloth speed...\"\n\nPodcast Host: \"Wow! 47 espressos! That's innovative! What made you develop this system?\"\n\nSpeedy: \"Well... everyone says... sloths are lazy... but we're not lazy... we're just... efficiently conserving energy... for 23 hours a day...\"\n\nConcerned Koala: \"Speedy, your heart rate is now 12 beats per minute! That's dangerously fast for a sloth!\"\n\nSpeedy: [proudly] \"Exactly!... I'm operating... at 400% efficiency... I even blinked... twice today...\"\n\nPodcast Host: \"This is groundbreaking! Sloths everywhere will benefit from your coffee optimization strategy!\"\n\nConcerned Koala: \"He literally fell asleep while climbing and somehow stayed attached to the tree. This isn't productivity!\"\n\nSpeedy: [half asleep] \"That's... multitasking...\"",
+      "audioScript": "Morning Motivation Podcast: \"Today we have Speedy the Sloth sharing his revolutionary productivity system! hashtag SlowProductivity\"\n\nSpeedy the Sloth: [yawning] \"So... I discovered... that if I drink... 47 espressos... I can move... at normal sloth speed...\"\n\nPodcast Host: \"Wow! 47 espressos! That's innovative! What made you develop this system?\"\n\nSpeedy: \"Well... everyone says... sloths are lazy... but we're not lazy... we're just... efficiently conserving energy... for 23 hours a day...\"\n\nConcerned Koala: \"Speedy, your heart rate is now 12 beats per minute! That's dangerously fast for a sloth!\"\n\nSpeedy: [proudly] \"Exactly!... I'm operating... at 400 percent efficiency... I even blinked... twice today...\"\n\nPodcast Host: \"This is groundbreaking! Sloths everywhere will benefit from your coffee optimization strategy!\"\n\nConcerned Koala: \"He literally fell asleep while climbing and somehow stayed attached to the tree. This isn't productivity!\"\n\nSpeedy: [half asleep] \"That's... multitasking...\"",
+      "claim": "Drinking 47 espressos helps sloths achieve peak productivity by moving at normal sloth speed",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "logic": 15,
+        "emotion": 89,
+        "balanced": 31,
+        "agenda": 72
+      },
+      "audioHints": {
+        "tone": "playful",
+        "pacing": "moderate",
+        "characterVoices": {
+          "Morning Motivation Podcast": "distinct character voice",
+          "Speedy the Sloth": "extremely slow speech, drowsy but trying to sound energetic",
+          "Podcast Host": "overly enthusiastic morning show voice",
+          "Speedy": "distinct character voice",
+          "Concerned Koala": "worried australian accent, medical professional tone"
+        }
+      },
+      "hints": [
+        {
+          "keywords": [
+            "47 espressos",
+            "400% efficiency"
+          ],
+          "message": "Notice the absurd numbers used to make the claim seem scientific"
+        },
+        {
+          "keywords": [
+            "fell asleep",
+            "stayed attached"
+          ],
+          "message": "The evidence contradicts the productivity claim"
+        }
+      ],
+      "reviewKeywords": {
+        "logic": [
+          "evidence",
+          "data",
+          "facts",
+          "research",
+          "statistics"
+        ],
+        "emotion": [
+          "feel",
+          "believe",
+          "fear",
+          "hope",
+          "worry"
+        ],
+        "balanced": [
+          "however",
+          "consider",
+          "both sides",
+          "while",
+          "although"
+        ],
+        "agenda": [
+          "buy",
+          "vote",
+          "join",
+          "support",
+          "oppose"
+        ]
+      },
+      "dimensionAnalysis": {
+        "logicDimension": "Attempts to use specific numbers (47 espressos, 400% efficiency) but logic is fundamentally flawed",
+        "emotionDimension": "Appeals to desire for productivity hacks and overcoming perceived limitations",
+        "balancedDimension": "Acknowledges some reality (sloths are slow) but draws absurd conclusions",
+        "agendaDimension": "Promotes excessive caffeine consumption as a solution to natural limitations"
+      },
+      "logicalFallacies": [
+        {
+          "name": "False Cause",
+          "severity": "high",
+          "example": "Caffeine making sloth move at 'normal sloth speed'"
+        },
+        {
+          "name": "Cherry Picking",
+          "severity": "medium",
+          "example": "Focusing on blinking twice as achievement"
+        }
+      ],
+      "topics": [
+        "productivity",
+        "caffeine",
+        "nature",
+        "self-improvement",
+        "humor"
+      ],
+      "difficulty": 3,
+      "educationalFocus": "Recognizing when extreme solutions are proposed for natural characteristics",
+      "peakMoments": [
+        "Morning Motivation Podcast: \"Today we have Speedy the Sloth sharing his revolutionary productivity system! #SlowProductivity\"",
+        "Speedy the Sloth: [yawning] \"So... I discovered... that if I drink... 47 espressos... I can move... at normal sloth speed...\"",
+        "Podcast Host: \"Wow! 47 espressos! That's innovative! What made you develop this system?\""
+      ]
+    },
+    {
+      "id": "enhanced-scenarios-001-009",
+      "title": "The Vegan Vampire's Blood Bank Dilemma",
+      "content": "Local News: \"Controversy at the blood bank as Vladimir the Vampire demands plant-based alternatives! #VampireRights\"\n\nVladimir: [sophisticated accent] \"I've been vegan for 200 years! Do you know how hard it is to find cruelty-free blood? I only drink from free-range humans who consent!\"\n\nBlood Bank Manager: \"Sir, we don't have a 'vegan blood' section. Blood is blood.\"\n\nVladimir: \"That's exactly the kind of discrimination I face daily! What about synthetic blood? Beet juice? Very red smoothies?\"\n\nWellness Influencer: \"OMG, I LOVE this journey for you! Have you tried my new supplement? It's basically blood but made from crystals!\"\n\nBlood Bank Manager: \"That's... that's just colored water with minerals.\"\n\nVladimir: [hopeful] \"Does it come in Type O Negative flavor?\"\n\nWellness Influencer: \"It comes in whatever flavor your chakras need! Use code FANGLIFE for 20% off!\"\n\nVladimir: \"Finally! Someone who understands the struggle of ethical immortality!\"",
+      "audioScript": "Local News: \"Controversy at the blood bank as Vladimir the Vampire demands plant-based alternatives! hashtag VampireRights\"\n\nVladimir: [sophisticated accent] \"I've been vegan for 200 years! Do you know how hard it is to find cruelty-free blood? I only drink from free-range humans who consent!\"\n\nBlood Bank Manager: \"Sir, we don't have a 'vegan blood' section. Blood is blood.\"\n\nVladimir: \"That's exactly the kind of discrimination I face daily! What about synthetic blood? Beet juice? Very red smoothies?\"\n\nWellness Influencer: \"OMG, I LOVE this journey for you! Have you tried my new supplement? It's basically blood but made from crystals!\"\n\nBlood Bank Manager: \"That's... that's just colored water with minerals.\"\n\nVladimir: [hopeful] \"Does it come in Type O Negative flavor?\"\n\nWellness Influencer: \"It comes in whatever flavor your chakras need! Use code FANGLIFE for twenty percent off!\"\n\nVladimir: \"Finally! Someone who understands the struggle of ethical immortality!\"",
+      "claim": "Vampires can maintain their health on crystal-infused water supplements instead of blood",
+      "correctAnswer": "agenda",
+      "answerWeights": {
+        "logic": 8,
+        "emotion": 64,
+        "balanced": 19,
+        "agenda": 96
+      },
+      "audioHints": {
+        "tone": "playful",
+        "pacing": "moderate",
+        "characterVoices": {
+          "Local News": "distinct character voice",
+          "Vladimir": "sophisticated Transylvanian accent, slightly pretentious",
+          "Blood Bank Manager": "exhausted bureaucrat, patient but confused",
+          "Wellness Influencer": "valley girl accent, excessive enthusiasm"
+        }
+      },
+      "hints": [
+        {
+          "keywords": [
+            "crystals",
+            "colored water"
+          ],
+          "message": "Pseudoscience replacing actual nutritional needs"
+        },
+        {
+          "keywords": [
+            "code FANGLIFE",
+            "20% off"
+          ],
+          "message": "Commercial agenda disguised as health solution"
+        }
+      ],
+      "reviewKeywords": {
+        "logic": [
+          "evidence",
+          "data",
+          "facts",
+          "research",
+          "statistics"
+        ],
+        "emotion": [
+          "feel",
+          "believe",
+          "fear",
+          "hope",
+          "worry"
+        ],
+        "balanced": [
+          "however",
+          "consider",
+          "both sides",
+          "while",
+          "although"
+        ],
+        "agenda": [
+          "buy",
+          "vote",
+          "join",
+          "support",
+          "oppose"
+        ]
+      },
+      "dimensionAnalysis": {
+        "logicDimension": "Complete absence of scientific reasoning about vampire nutrition",
+        "emotionDimension": "Strong appeal to ethical consumption and discrimination narratives",
+        "balancedDimension": "No real balance - pure agenda pushing for supplement sales",
+        "agendaDimension": "Clear commercial intent with discount codes and product placement"
+      },
+      "logicalFallacies": [
+        {
+          "name": "False Equivalence",
+          "severity": "high",
+          "example": "Crystal water equals blood nutrition"
+        },
+        {
+          "name": "Appeal to Ethics",
+          "severity": "high",
+          "example": "Using veganism to justify impossible dietary needs"
+        }
+      ],
+      "topics": [
+        "diet",
+        "ethics",
+        "supernatural",
+        "wellness",
+        "commercialism"
+      ],
+      "difficulty": 3,
+      "educationalFocus": "Identifying commercial agendas disguised as ethical choices",
+      "peakMoments": [
+        "Local News: \"Controversy at the blood bank as Vladimir the Vampire demands plant-based alternatives! #VampireRights\"",
+        "Vladimir: [sophisticated accent] \"I've been vegan for 200 years! Do you know how hard it is to find cruelty-free blood? I only drink from free-range humans who consent!\"",
+        "Vladimir: \"That's exactly the kind of discrimination I face daily! What about synthetic blood? Beet juice? Very red smoothies?\""
+      ]
+    },
+    {
+      "id": "enhanced-scenarios-001-010",
+      "title": "The Smartphone Addicted Caveman",
+      "content": "Tech Blog Post: \"Meet Grok: The First Paleo Influencer Who Won't Give Up His iPhone #PaleoTech\"\n\nGrok: [excited grunt] \"Grok love Instagram! Look, Grok's morning hunt get 10K likes! Fire emoji very accurate!\"\n\nAnthropologist: \"This is fascinating but concerning. You've somehow developed smartphone addiction despite living in the Stone Age.\"\n\nGrok: \"Grok no addicted! Grok can stop anytime! Just need check TikTok first... and Twitter... and LinkedIn for networking...\"\n\nCavewoman Spouse: \"Grok supposed to hunt mammoth! Family hungry! You staring at glowing rock for 6 hours!\"\n\nGrok: [defensive] \"Grok IS hunting! Grok hunting for deals on Amazon! Found great spear on sale! Only 2-day shipping with Prime!\"\n\nAnthropologist: \"But... but delivery doesn't exist yet. Neither does currency. Or addresses.\"\n\nGrok: \"Details! Grok also start podcast about mindful hunting. Already have sponsorship from BetterHelp!\"\n\nCavewoman Spouse: [sighs] \"Yesterday Grok try to swipe left on actual saber-tooth tiger. Almost die.\"\n\nGrok: \"Worth it for the selfie! hashtag NoFilter hashtag PaleoLife hashtag Blessed!\"",
+      "audioScript": "Tech Blog Post: \"Meet Grok: The First Paleo Influencer Who Won't Give Up His iPhone hashtag PaleoTech\"\n\nGrok: [excited grunt] \"Grok love Instagram! Look, Grok's morning hunt get 10K likes! Fire emoji very accurate!\"\n\nAnthropologist: \"This is fascinating but concerning. You've somehow developed smartphone addiction despite living in the Stone Age.\"\n\nGrok: \"Grok no addicted! Grok can stop anytime! Just need check TikTok first... and Twitter... and LinkedIn for networking...\"\n\nCavewoman Spouse: \"Grok supposed to hunt mammoth! Family hungry! You staring at glowing rock for 6 hours!\"\n\nGrok: [defensive] \"Grok IS hunting! Grok hunting for deals on Amazon! Found great spear on sale! Only 2-day shipping with Prime!\"\n\nAnthropologist: \"But... but delivery doesn't exist yet. Neither does currency. Or addresses.\"\n\nGrok: \"Details! Grok also start podcast about mindful hunting. Already have sponsorship from BetterHelp!\"\n\nCavewoman Spouse: [sighs] \"Yesterday Grok try to swipe left on actual saber-tooth tiger. Almost die.\"\n\nGrok: \"Worth it for the selfie! hashtag NoFilter hashtag PaleoLife hashtag Blessed!\"",
+      "claim": "Cavemen were actually more productive with smartphones because they could hunt online",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "logic": 11,
+        "emotion": 93,
+        "balanced": 27,
+        "agenda": 68
+      },
+      "audioHints": {
+        "tone": "playful",
+        "pacing": "moderate",
+        "characterVoices": {
+          "Tech Blog Post": "distinct character voice",
+          "Grok": "caveman grunt-speak mixed with modern slang",
+          "Anthropologist": "academic, increasingly baffled",
+          "Cavewoman Spouse": "exasperated but loving, practical"
+        }
+      },
+      "hints": [
+        {
+          "keywords": [
+            "10K likes",
+            "hunting for deals"
+          ],
+          "message": "Confusing online activity with real-world productivity"
+        },
+        {
+          "keywords": [
+            "delivery doesn't exist",
+            "Neither does currency"
+          ],
+          "message": "Practical impossibilities ignored for the narrative"
+        }
+      ],
+      "reviewKeywords": {
+        "logic": [
+          "evidence",
+          "data",
+          "facts",
+          "research",
+          "statistics"
+        ],
+        "emotion": [
+          "feel",
+          "believe",
+          "fear",
+          "hope",
+          "worry"
+        ],
+        "balanced": [
+          "however",
+          "consider",
+          "both sides",
+          "while",
+          "although"
+        ],
+        "agenda": [
+          "buy",
+          "vote",
+          "join",
+          "support",
+          "oppose"
+        ]
+      },
+      "dimensionAnalysis": {
+        "logicDimension": "Temporal impossibilities and anachronisms throughout",
+        "emotionDimension": "Plays on modern anxieties about technology addiction",
+        "balancedDimension": "Some truth about tech dependence, but in impossible context",
+        "agendaDimension": "Satirizes influencer culture and online shopping addiction"
+      },
+      "logicalFallacies": [
+        {
+          "name": "Anachronism",
+          "severity": "high",
+          "example": "Caveman using modern technology"
+        },
+        {
+          "name": "False Productivity",
+          "severity": "medium",
+          "example": "Online shopping replacing actual hunting"
+        }
+      ],
+      "topics": [
+        "technology",
+        "addiction",
+        "anachronism",
+        "social media",
+        "prehistory"
+      ],
+      "difficulty": 3,
+      "educationalFocus": "Understanding anachronisms and impossible claims in arguments",
+      "peakMoments": [
+        "Grok: [excited grunt] \"Grok love Instagram! Look, Grok's morning hunt get 10K likes! Fire emoji very accurate!\"",
+        "Grok: \"Grok no addicted! Grok can stop anytime! Just need check TikTok first... and Twitter... and LinkedIn for networking...\"",
+        "Cavewoman Spouse: \"Grok supposed to hunt mammoth! Family hungry! You staring at glowing rock for 6 hours!\""
+      ]
     }
   ]
 }

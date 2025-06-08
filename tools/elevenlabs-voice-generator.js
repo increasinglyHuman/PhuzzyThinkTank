@@ -649,9 +649,21 @@ async function generateVoice(text, outputPath, voiceId = CONFIG.voiceId, scenari
 }
 
 // Process a single scenario
-async function processScenario(scenarioData, scenarioIndex) {
+async function processScenario(scenarioData, scenarioIndex, packNumber = null, indexInPack = null) {
     const scenarioId = scenarioIndex.toString().padStart(3, '0');
-    const scenarioDir = path.join(CONFIG.outputDir, `scenario-${scenarioId}`);
+    
+    // Use pack-based naming if pack info is provided, otherwise calculate from sequential ID
+    let scenarioDir;
+    if (packNumber !== null && indexInPack !== null) {
+        const packStr = packNumber.toString().padStart(3, '0');
+        const scenarioStr = indexInPack.toString().padStart(3, '0');
+        scenarioDir = path.join(CONFIG.outputDir, `pack-${packStr}-scenario-${scenarioStr}`);
+    } else {
+        // Calculate pack and index from sequential ID
+        const calculatedPackNumber = Math.floor(scenarioIndex / 10).toString().padStart(3, '0');
+        const calculatedScenarioIndex = (scenarioIndex % 10).toString().padStart(3, '0');
+        scenarioDir = path.join(CONFIG.outputDir, `pack-${calculatedPackNumber}-scenario-${calculatedScenarioIndex}`);
+    }
     
     // Skip if scenario already has audio
     const fs2 = require('fs');
@@ -997,7 +1009,10 @@ async function main() {
                     console.log(`\nProcessing ${scenarios.length} scenarios from ${file}...`);
                     
                     for (let i = 0; i < scenarios.length; i++) {
-                        await processScenario(scenarios[i], totalScenarios + i);
+                        // Extract pack number from filename
+                        const packMatch = file.match(/scenario-generated-(\d+)\.json/);
+                        const packNumber = packMatch ? parseInt(packMatch[1]) : 0;
+                        await processScenario(scenarios[i], totalScenarios + i, packNumber, i);
                     }
                     
                     totalScenarios += scenarios.length;

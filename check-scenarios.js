@@ -1,5 +1,5 @@
 const fs = require('fs');
-const data = JSON.parse(fs.readFileSync('data/scenario-generated-complete.json', 'utf8'));
+const data = JSON.parse(fs.readFileSync('data/legacy/scenario-generated-complete.json', 'utf8'));
 
 console.log('Total scenarios:', data.scenarios.length);
 console.log('\nChecking for missing fields...\n');

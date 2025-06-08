@@ -1,0 +1,204 @@
+{
+  "scenarioId": "scenario-032",
+  "title": "Wine Mom Science Club",
+  "topic": "Facebook Moms Discover Quantum Physics Through Wine",
+  "category": "Science Misunderstanding",
+  "difficulty": "medium",
+  "scenario": {
+    "title": "Quantum Wine Entanglement Theory",
+    "content": "🍷✨ LADIES, I'VE MADE A SCIENTIFIC BREAKTHROUGH!! ✨🍷\n\nOkay so last night during book club (we were 'reading' the wine menu lol), I discovered something AMAZING about quantum physics!!!\n\nSo you know how wine gets better with age? That's LITERALLY time dilation!! Einstein was basically a sommelier!!\n\nHere's my research:\n\n🔬 EXPERIMENT 1: Schrödinger's Wine Box\n- The wine is both drunk and not drunk until you open the box\n- After 3 glasses, I exist in multiple states simultaneously\n- Conclusion: I AM THE CAT\n\n🔬 EXPERIMENT 2: Heisenberg's Uncertainty Principle\n- The more precisely I measure my wine, the less I can enjoy it\n- Can't know both the location of my glass AND how full it is\n- This explains why I keep losing my drink at parties!!\n\n🔬 EXPERIMENT 3: String Theory\n- Wine is made from grapes (strings)\n- Grapes grow on vines (also strings)\n- EVERYTHING IS CONNECTED BY WINE STRINGS\n\nKaren from PTA says I'm \"drunk\" and \"embarrassing the science fair committee\" but SHE drinks WHITE ZINFANDEL so what does she know about particle physics??\n\nI've started a research group:\n🍷 QUANTUM WINE MOMS 🍷\n- Tuesdays: Red wine = Red shift astronomy\n- Thursdays: Sparkling wine = Particle acceleration\n- Saturdays: Box wine = Thinking outside the box dimension\n\nMy kids' science teacher said my \"interpretation of physics is deeply flawed\" but I asked him:\n\"If atoms are mostly empty space, and we're made of atoms, are we mostly drunk or mostly sober??\"\n\nHE HAD NO ANSWER. CHECKMATE, SCIENCE.\n\nI'm writing a paper: \"The Rosé Reality: How Pink Wine Proves the Multiverse\"\n\nChapter 1: Why hangovers are just quantum decoherence\nChapter 2: Wine tasting notes as wave functions\nChapter 3: The cork popping big bang theory\n\nJUST DISCOVERED: If you swirl wine counterclockwise in Australia it creates ANTIMATTER MERLOT\n\nNASA hasn't responded to my emails yet but I'm sure they're just peer reviewing my findings!!!\n\nWho wants to join my TED talk: \"What Wine Can Teach Us About Wormholes\"?? \n\n#WineScience #QuantumMom #SchrödingersDrunk #EinsteinWasRight #MommyNeeds #ParticlePhysics #StringCheeseTheory\n\nP.S. Just realized wine glasses are shaped like space-time funnels. COINCIDENCE?? After my 5th glass, I think NOT.",
+    "type": "social_media",
+    "platform": "facebook_group",
+    "engagement": {
+      "views": 45234,
+      "reactions": 8734,
+      "comments": 2341,
+      "shares": 1234
+    }
+  },
+  "questions": [
+    {
+      "question": "The author's 'quantum physics discoveries' are based on:",
+      "options": [
+        "Rigorous scientific experimentation with wine",
+        "Wordplay and superficial similarities to physics terms",
+        "Advanced understanding of quantum mechanics",
+        "Peer-reviewed wine science research"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The author creates false connections between wine-related observations and quantum physics terms, showing no actual understanding of the science."
+    },
+    {
+      "question": "The dismissal of Karen's criticism relies on:",
+      "options": [
+        "Scientific evidence about wine types",
+        "Quantum mechanical principles",
+        "Ad hominem attack on wine preference",
+        "Valid counterarguments about physics"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Rather than address the criticism of being drunk, the author attacks Karen's wine choice as if it relates to physics knowledge."
+    },
+    {
+      "question": "The 'checkmate' moment with the science teacher demonstrates:",
+      "options": [
+        "Superior understanding of atomic theory",
+        "Philosophical insight about matter",
+        "Nonsensical question avoiding real criticism",
+        "Valid paradox in quantum mechanics"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The question about atoms and drunkenness is meaningless word salad that doesn't address the teacher's valid criticism."
+    },
+    {
+      "question": "The wine glass shape 'coincidence' represents:",
+      "options": [
+        "Actual connection to space-time physics",
+        "Pattern-seeking in random similarities",
+        "Evidence of ancient scientific knowledge",
+        "Proof of intelligent design in wine"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Classic apophenia - seeing meaningful patterns in the coincidental similarity between wine glass curves and physics diagrams."
+    }
+  ],
+  "answers": [
+    {
+      "text": "Wordplay and superficial similarities to physics terms",
+      "weight": 91,
+      "indicator": "best",
+      "dimensionWeights": {
+        "logical": 93,
+        "emotional": 76,
+        "credibility": 23,
+        "rhetorical": 88
+      },
+      "feedbackEmoji": "🍷",
+      "feedback": "Exactly! Using physics words while drinking wine doesn't create scientific discoveries."
+    },
+    {
+      "text": "Ad hominem attack on wine preference",
+      "weight": 89,
+      "indicator": "fallacy",
+      "dimensionWeights": {
+        "logical": 92,
+        "emotional": 84,
+        "credibility": 19,
+        "rhetorical": 91
+      },
+      "feedbackEmoji": "🍾",
+      "feedback": "Right! White Zinfandel preference has nothing to do with physics knowledge."
+    },
+    {
+      "text": "Nonsensical question avoiding real criticism",
+      "weight": 94,
+      "indicator": "best",
+      "dimensionWeights": {
+        "logical": 96,
+        "emotional": 71,
+        "credibility": 21,
+        "rhetorical": 86
+      },
+      "feedbackEmoji": "🤔",
+      "feedback": "Perfect! The atom question is meaningless deflection from valid criticism."
+    },
+    {
+      "text": "Pattern-seeking in random similarities",
+      "weight": 87,
+      "indicator": "fallacy",
+      "dimensionWeights": {
+        "logical": 89,
+        "emotional": 73,
+        "credibility": 26,
+        "rhetorical": 82
+      },
+      "feedbackEmoji": "🔬",
+      "feedback": "Spot on! Wine glass shapes have nothing to do with space-time funnels."
+    }
+  ],
+  "fallacies": [
+    {
+      "type": "false_analogy",
+      "severity": "critical",
+      "description": "Equating wine aging with time dilation and other physics concepts"
+    },
+    {
+      "type": "ad_hominem",
+      "severity": "medium",
+      "description": "Dismissing criticism based on wine preferences"
+    },
+    {
+      "type": "word_salad",
+      "severity": "high",
+      "description": "Stringing together physics terms without meaningful connections"
+    },
+    {
+      "type": "appeal_to_ignorance",
+      "severity": "medium",
+      "description": "Teacher's inability to answer nonsense question taken as victory"
+    },
+    {
+      "type": "confirmation_bias",
+      "severity": "high",
+      "description": "Seeing physics concepts in everyday wine experiences"
+    }
+  ],
+  "dimensionAnalysis": {
+    "logical": "Complete breakdown of logical reasoning, mixing unrelated concepts and creating nonsensical connections between wine and quantum physics.",
+    "emotional": "Uses humor and wine mom culture to make pseudoscience seem fun and relatable while dismissing valid criticism.",
+    "credibility": "Zero scientific credibility, dismissing actual teachers and scientists while claiming breakthrough discoveries.",
+    "rhetorical": "Effectively uses science jargon and wine culture references to create entertaining but completely false analogies."
+  },
+  "peakMoments": [
+    {
+      "timestamp": "Book club discovery",
+      "description": "Reading wine menu leads to physics breakthrough",
+      "engagement": "high",
+      "fallacyIntensity": "medium"
+    },
+    {
+      "timestamp": "Schrödinger's Wine Box",
+      "description": "Claiming to be the cat after 3 glasses",
+      "engagement": "very_high",
+      "fallacyIntensity": "high"
+    },
+    {
+      "timestamp": "Teacher confrontation",
+      "description": "Nonsense question about atoms and drunkenness",
+      "engagement": "peak",
+      "fallacyIntensity": "critical"
+    },
+    {
+      "timestamp": "Antimatter Merlot",
+      "description": "Swirling wine creates antimatter claim",
+      "engagement": "very_high",
+      "fallacyIntensity": "extreme"
+    }
+  ],
+  "educationalMetadata": {
+    "learningObjectives": [
+      "Recognize pseudoscientific use of real science terms",
+      "Identify false analogies between unrelated phenomena",
+      "Understand how humor can mask logical fallacies",
+      "Spot deflection tactics when confronted with criticism"
+    ],
+    "discussionPrompts": [
+      "Why do people use scientific terms incorrectly to sound smart?",
+      "How does alcohol consumption affect critical thinking?",
+      "What's the danger of spreading science misunderstandings on social media?",
+      "How can we appreciate humor while recognizing misinformation?"
+    ],
+    "realWorldConnections": [
+      "Social media science misinformation",
+      "Dunning-Kruger effect in action",
+      "Quantum woo in popular culture",
+      "Wine culture meets pseudoscience"
+    ]
+  },
+  "characterMisconceptions": [
+    "Believes superficial word similarities indicate deep connections",
+    "Thinks being drunk provides scientific insights",
+    "Assumes inability to answer nonsense questions proves superiority",
+    "Conflates wine appreciation with physics understanding"
+  ]
+}

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics Test - Phuzzy's Mad Dash</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f0f0f0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .test-controls {
+            margin: 20px 0;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .solution-button {
+            background: #2196F3;
+        }
+        .solution-button:hover {
+            background: #0b7dda;
+        }
+        /* Active/selected button styling */
+        button.active {
+            background: #ff5722;
+            box-shadow: inset 0 3px 5px rgba(0,0,0,0.3);
+            transform: translateY(1px);
+        }
+        button.active:hover {
+            background: #e64a19;
+        }
+        canvas {
+            border: 2px solid #ddd;
+            display: block;
+            margin: 20px auto;
+        }
+        .info {
+            text-align: center;
+            margin: 10px 0;
+            font-size: 14px;
+            color: #666;
+        }
+        .physics-info {
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Phuzzy's Mad Dash - Physics Testing</h1>
+        
+        <div class="test-controls">
+            <button id="btn-original" class="physics-btn active" onclick="loadSolution('original')">Original Physics</button>
+            <button id="btn-solution1" class="physics-btn solution-button" onclick="loadSolution(1)">Solution 1: Momentum</button>
+            <button id="btn-solution2" class="physics-btn solution-button" onclick="loadSolution(2)">Solution 2: Adaptive</button>
+            <button id="btn-solution3" class="physics-btn solution-button" onclick="loadSolution(3)">Solution 3: Rail</button>
+        </div>
+        
+        <div class="info" id="current-solution">Current: Original Physics</div>
+        
+        <canvas id="testCanvas" width="800" height="400"></canvas>
+        
+        <div class="test-controls">
+            <button onclick="startTest()">Start Ball</button>
+            <button onclick="stopTest()">Stop</button>
+            <button onclick="pushBall()">Push Ball</button>
+            <button onclick="toggleDebug()">Toggle Debug</button>
+        </div>
+        
+        <div class="physics-info" id="debug-info" style="display: none;">
+            <div>Position: <span id="position">0.00</span></div>
+            <div>Velocity: <span id="velocity">0.0000</span></div>
+            <div>Slope: <span id="slope">0.00</span></div>
+            <div>State: <span id="state">idle</span></div>
+            <div>Steepness: <span id="steepness">0.00</span></div>
+            <div>Applied Friction: <span id="friction">0.00</span></div>
+        </div>
+    </div>
+
+    <script>
+        // Simple test data with peaks and valleys
+        const testData = [];
+        for (let i = 0; i <= 100; i++) {
+            const x = i / 100;
+            // Create a wave with peaks and valleys
+            const y = 50 + 30 * Math.sin(x * Math.PI * 4) + 10 * Math.sin(x * Math.PI * 8);
+            testData.push({
+                position: x,
+                scores: { test: y }
+            });
+        }
+        
+        let canvas = document.getElementById('testCanvas');
+        let ctx = canvas.getContext('2d');
+        let animationId = null;
+        let ballPosition = 0;
+        let ballVelocity = 0;
+        let lastSlope = 0;
+        let debugMode = false;
+        let currentSolution = 'original';
+        
+        // Physics configurations for each solution
+        const physicsConfigs = {
+            original: {
+                gravity: 0.0003,
+                friction: 0.98,
+                pushForce: 0.0002,
+                applyPhysics: originalPhysics
+            },
+            solution1: {
+                gravity: 0.0003,
+                friction: 0.98,
+                pushForce: 0.0002,
+                momentumConservation: 0.85,
+                applyPhysics: solution1Physics
+            },
+            solution2: {
+                baseGravity: 0.0003,
+                friction: 0.98,
+                pushForce: 0.0002,
+                applyPhysics: solution2Physics
+            },
+            solution3: {
+                gravity: 0.0003,
+                friction: 0.985,
+                pushForce: 0.0002,
+                railAdhesion: 0.95,
+                minRailSpeed: 0.001,
+                applyPhysics: solution3Physics
+            }
+        };
+        
+        function originalPhysics(velocity, slope, steepness, isClimbing, isDescending, config) {
+            if (isClimbing) {
+                velocity *= (1 - steepness * 0.3);
+                velocity -= config.gravity * steepness * 5;
+                if (steepness < 0.5) {
+                    velocity += config.pushForce * 0.5;
+                }
+            } else if (isDescending) {
+                // Less friction when going downhill (inverse of uphill)
+                velocity *= (1 + steepness * 0.1); // Slight speed boost
+                velocity += config.gravity * steepness * 1.2; // More acceleration
+            } else {
+                velocity += config.pushForce * 0.8;
+            }
+            return velocity;
+        }
+        
+        function solution1Physics(velocity, slope, steepness, isClimbing, isDescending, config) {
+            const isPeak = lastSlope > 0 && slope < 0;
+            const isValley = lastSlope < 0 && slope > 0;
+            
+            if (isClimbing) {
+                if (isValley) {
+                    velocity *= config.momentumConservation;
+                } else {
+                    velocity *= (1 - steepness * 0.3);
+                    velocity -= config.gravity * steepness * 5;
+                }
+                if (steepness < 0.5) {
+                    velocity += config.pushForce * 0.5;
+                }
+            } else if (isDescending) {
+                // Less friction downhill
+                velocity *= (1 + steepness * 0.05);
+                
+                if (isPeak) {
+                    velocity += config.pushForce * 2;
+                }
+                velocity += config.gravity * steepness * 1.5; // More downhill acceleration
+            } else {
+                velocity += config.pushForce * 0.8;
+            }
+            return velocity;
+        }
+        
+        function solution2Physics(velocity, slope, steepness, isClimbing, isDescending, config) {
+            const curveSharpness = Math.abs(slope - lastSlope) / 100;
+            const adaptiveGravityMultiplier = Math.max(0.3, 1 - curveSharpness * 0.7);
+            const gravity = config.baseGravity * adaptiveGravityMultiplier;
+            
+            if (isClimbing) {
+                const adaptiveResistance = (1 - steepness * 0.3) * (1 + curveSharpness * 0.2);
+                velocity *= adaptiveResistance;
+                velocity -= gravity * steepness * 5;
+                
+                if (curveSharpness > 0.1) {
+                    velocity += config.pushForce * 1.5;
+                } else if (steepness < 0.5) {
+                    velocity += config.pushForce * 0.5;
+                }
+            } else if (isDescending) {
+                // Adaptive friction reduction for downhill
+                const downhillBoost = 1 + steepness * 0.08 * (2 - adaptiveGravityMultiplier);
+                velocity *= downhillBoost;
+                
+                velocity += gravity * steepness * 1.8; // Enhanced downhill acceleration
+                if (curveSharpness > 0.15) {
+                    velocity += config.pushForce * curveSharpness * 3;
+                }
+            } else {
+                velocity += config.pushForce * 0.8;
+            }
+            return velocity;
+        }
+        
+        function solution3Physics(velocity, slope, steepness, isClimbing, isDescending, config) {
+            const slopeAngle = Math.atan2(slope, 100);
+            const gravityAlongRail = config.gravity * Math.sin(slopeAngle);
+            
+            if (isClimbing) {
+                velocity *= config.railAdhesion;
+                velocity -= gravityAlongRail * 2;
+                
+                if (velocity < config.minRailSpeed && Math.abs(slope - lastSlope) > 20) {
+                    velocity = config.minRailSpeed * 1.5;
+                }
+                velocity += config.pushForce * 0.7;
+            } else if (isDescending) {
+                velocity += gravityAlongRail * 2.5; // Enhanced for better flow
+                if (Math.abs(slope - lastSlope) > 30) {
+                    velocity *= config.railAdhesion;
+                }
+            } else {
+                velocity += config.pushForce * 0.8;
+            }
+            
+            // Ensure minimum speed
+            velocity = Math.max(config.minRailSpeed || 0.0005, velocity);
+            return velocity;
+        }
+        
+        function drawScene() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw the curve
+            ctx.strokeStyle = '#2196F3';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            
+            for (let i = 0; i < testData.length; i++) {
+                const x = testData[i].position * canvas.width;
+                const y = canvas.height - (testData[i].scores.test / 100 * canvas.height);
+                
+                if (i === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            }
+            ctx.stroke();
+            
+            // Draw the ball
+            const dataIndex = Math.floor(ballPosition * (testData.length - 1));
+            const nextIndex = Math.min(dataIndex + 1, testData.length - 1);
+            const localProgress = (ballPosition * (testData.length - 1)) % 1;
+            
+            const currentY = testData[dataIndex].scores.test;
+            const nextY = testData[nextIndex].scores.test;
+            const interpolatedY = currentY + (nextY - currentY) * localProgress;
+            
+            const ballX = ballPosition * canvas.width;
+            const ballY = canvas.height - (interpolatedY / 100 * canvas.height);
+            
+            // Draw ball
+            ctx.fillStyle = '#FF5722';
+            ctx.beginPath();
+            ctx.arc(ballX, ballY, 10, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Update debug info
+            if (debugMode) {
+                document.getElementById('position').textContent = ballPosition.toFixed(2);
+                document.getElementById('velocity').textContent = ballVelocity.toFixed(4);
+                document.getElementById('slope').textContent = (nextY - currentY).toFixed(2);
+                
+                const slope = nextY - currentY;
+                const state = slope > 0 ? 'climbing' : slope < 0 ? 'descending' : 'flat';
+                document.getElementById('state').textContent = state;
+                document.getElementById('steepness').textContent = (Math.abs(slope) / 100).toFixed(3);
+                
+                // Show applied friction
+                let appliedFriction;
+                if (slope < 0) {
+                    appliedFriction = Math.pow(0.98, 0.7);
+                } else if (slope > 0) {
+                    appliedFriction = Math.pow(0.98, 1.2);
+                } else {
+                    appliedFriction = 0.98;
+                }
+                document.getElementById('friction').textContent = appliedFriction.toFixed(3);
+            }
+        }
+        
+        function animate() {
+            const config = physicsConfigs[currentSolution];
+            
+            // Get slope
+            const dataIndex = Math.floor(ballPosition * (testData.length - 1));
+            const nextIndex = Math.min(dataIndex + 1, testData.length - 1);
+            const currentY = testData[dataIndex].scores.test;
+            const nextY = testData[nextIndex].scores.test;
+            const slope = nextY - currentY;
+            
+            const isClimbing = slope > 0;
+            const isDescending = slope < 0;
+            const steepness = Math.abs(slope) / 100;
+            
+            // Apply physics
+            ballVelocity = config.applyPhysics(ballVelocity, slope, steepness, isClimbing, isDescending, config);
+            
+            // Apply direction-dependent friction
+            if (isDescending) {
+                // Less friction when going downhill
+                ballVelocity *= Math.pow(config.friction, 0.7);
+            } else if (isClimbing) {
+                // More friction when going uphill
+                ballVelocity *= Math.pow(config.friction, 1.2);
+            } else {
+                // Normal friction on flat ground
+                ballVelocity *= config.friction;
+            }
+            
+            // Apply speed limits
+            ballVelocity = Math.max(0.0005, Math.min(0.01, ballVelocity)); // Slightly higher max speed
+            
+            // Update position
+            ballPosition += ballVelocity;
+            if (ballPosition >= 1) {
+                ballPosition = 0;
+                ballVelocity = 0;
+            }
+            
+            lastSlope = slope;
+            
+            drawScene();
+            animationId = requestAnimationFrame(animate);
+        }
+        
+        function startTest() {
+            if (!animationId) {
+                ballPosition = 0;
+                ballVelocity = 0.002;
+                animate();
+            }
+        }
+        
+        function stopTest() {
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+                animationId = null;
+            }
+        }
+        
+        function pushBall() {
+            ballVelocity += 0.003;
+        }
+        
+        function toggleDebug() {
+            debugMode = !debugMode;
+            document.getElementById('debug-info').style.display = debugMode ? 'block' : 'none';
+        }
+        
+        function loadSolution(solution) {
+            stopTest();
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.physics-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to selected button and update current solution
+            if (solution === 'original') {
+                currentSolution = 'original';
+                document.getElementById('current-solution').textContent = 'Current: Original Physics';
+                document.getElementById('btn-original').classList.add('active');
+            } else {
+                currentSolution = 'solution' + solution;
+                document.getElementById('current-solution').textContent = 'Current: Solution ' + solution;
+                document.getElementById('btn-solution' + solution).classList.add('active');
+            }
+            
+            ballPosition = 0;
+            ballVelocity = 0;
+            drawScene();
+        }
+        
+        // Initial draw
+        drawScene();
+    </script>
+</body>
+</html>

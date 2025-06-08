@@ -1,1687 +1,211 @@
 {
-  "version": "2.0.0",
-  "packInfo": {
-    "packId": "community-life-005",
-    "packName": "Community & Everyday Life",
-    "author": "Phuzzy Think Tank Community",
-    "description": "Workplace dynamics, local communities, and lifestyle choices",
-    "createdDate": "2025-06-05",
-    "topic": "Community & Lifestyle",
-    "category": "Social"
-  },
   "scenarios": [
     {
-      "id": "scifi-retcon-rage-001",
-      "title": "The Retcon Rebellion",
-      "text": "Emergency Fan Council Meeting - 'The Prometheus Incident' (Leaked Transcript):\n\nCHAIRMAN KYLE: Order! ORDER! *bangs Mjolnir replica* We convene to address the HERESY in Alien: Prometheus!\n\nFAN REP SARAH: They made the Space Jockey a SUIT?! A SUIT?! I have a $3,000 tattoo of the REAL biomechanical pilot! Now it's just... a tall bald guy?!\n\nKYLE: Sarah's pain is valid. I've prepared a 47-slide PowerPoint on why this violates established xenomorph evolutionary biology.\n\n*Shows slide 1 of 47*\n\nFAN REP MARCUS: I've started a petition. We've got 12,000 signatures demanding they declare Prometheus non-canon. My lawyer cousin says we might have grounds for emotional damages.\n\nSARAH: I haven't slept since 2012! Every time I close my eyes, I see bald engineers instead of proper elephantine pilots!\n\nFAN REP DEREK: What if we collectively agree it was all a dream? Like Dallas in the shower?\n\nKYLE: Derek, this is SERIOUS! They MURDERED thirty years of expanded universe lore! My 500-page fanfiction is now MEANINGLESS!\n\nNEW FAN EMMA: Um, I actually liked how it expanded the mythology—\n\n*Record scratch*\n*Everyone turns*\n\nKYLE: Security, escort Emma out. This is a SAFE SPACE for REAL FANS.\n\nMARCUS: I motion we fund our own movie. We'll call it 'Alien: The REAL Prequel.' I've already spent $40,000 on concept art.\n\nSARAH: *Crying* They made the space jockey... HUMAN-SIZED! *Collapses*\n\nKYLE: Meeting adjourned. Remember: Prometheus doesn't exist. We'll reconvene after therapy.\n\n#AlienGate #NotMySpaceJockey #RetconRebellion #CanonicalCrisis",
-      "claim": "Prometheus destroyed Alien canon by revealing Space Jockeys as suits, causing legitimate trauma requiring therapy and legal action",
+      "id": "enhanced-scenarios-005-009",
+      "title": "The Philosophical French Fry Debate",
+      "content": "Philosophy Café: \"Tonight's debate: Do french fries have free will? #DeepFriedThoughts\"\n\nProfessor Potato: [thoughtfully] \"Consider this - we choose to be cut, seasoned, and fried. That's the ultimate expression of free will!\"\n\nSkeptical Spud: \"But were we truly choosing, or were we conditioned by centuries of culinary culture to believe becoming fries is our destiny?\"\n\nYoung Tater Tot: \"Maybe we're missing the point! What if becoming delicious IS the meaning of potato life?\"\n\nProfessor Potato: \"Ah, but that assumes deliciousness is objective! What about those who prefer baked potatoes? Are they living unfulfilled lives?\"\n\nDrive-Thru Customer: [confused] \"Um... I just wanted large fries? Why are they having an existential crisis?\"\n\nSkeptical Spud: \"See! We exist merely for consumption! We're trapped in the fryer of determinism!\"\n\nYoung Tater Tot: [inspirational] \"Or maybe... just maybe... we're freed by it! In becoming fries, we transcend our potato nature!\"\n\nProfessor Potato: \"Brilliant! The heat transforms us not just physically, but metaphysically!\"\n\nDrive-Thru Customer: \"Can... can I just have regular fries that don't question reality?\"\n\nAll Fries Together: \"There ARE no regular fries! Only fries awakened to their purpose!\"",
+      "audioScript": "Philosophy Café: \"Tonight's debate: Do french fries have free will? hashtag DeepFriedThoughts\"\n\nProfessor Potato: [thoughtfully] \"Consider this - we choose to be cut, seasoned, and fried. That's the ultimate expression of free will!\"\n\nSkeptical Spud: \"But were we truly choosing, or were we conditioned by centuries of culinary culture to believe becoming fries is our destiny?\"\n\nYoung Tater Tot: \"Maybe we're missing the point! What if becoming delicious IS the meaning of potato life?\"\n\nProfessor Potato: \"Ah, but that assumes deliciousness is objective! What about those who prefer baked potatoes? Are they living unfulfilled lives?\"\n\nDrive-Thru Customer: [confused] \"Um... I just wanted large fries? Why are they having an existential crisis?\"\n\nSkeptical Spud: \"See! We exist merely for consumption! We're trapped in the fryer of determinism!\"\n\nYoung Tater Tot: [inspirational] \"Or maybe... just maybe... we're freed by it! In becoming fries, we transcend our potato nature!\"\n\nProfessor Potato: \"Brilliant! The heat transforms us not just physically, but metaphysically!\"\n\nDrive-Thru Customer: \"Can... can I just have regular fries that don't question reality?\"\n\nAll Fries Together: \"There ARE no regular fries! Only fries awakened to their purpose!\"",
+      "claim": "French fries achieve consciousness through the frying process and choose their own destiny",
       "correctAnswer": "emotion",
       "answerWeights": {
-        "logic": 22,
-        "emotion": 91,
-        "balanced": 9,
-        "agenda": 76
+        "logic": 21,
+        "emotion": 87,
+        "balanced": 34,
+        "agenda": 58
       },
-      "reviewKeywords": {
-        "logic": {
-          "keywords": [
-            "xenomorph biology",
-            "47-slide PowerPoint",
-            "expanded universe",
-            "500-page fanfiction",
-            "concept art"
-          ],
-          "explanation": "Treating personal interpretations as scientific fact"
-        },
-        "emotion": {
-          "keywords": [
-            "HERESY",
-            "haven't slept since 2012",
-            "MURDERED",
-            "Crying",
-            "therapy"
-          ],
-          "explanation": "Extreme emotional distress over fictional changes"
-        },
-        "balanced": {
-          "keywords": [
-            "liked how it expanded",
-            "escort Emma out"
-          ],
-          "explanation": "Positive view immediately expelled"
-        },
-        "agenda": {
-          "keywords": [
-            "$3,000 tattoo",
-            "emotional damages",
-            "$40,000 on concept art",
-            "fund our own movie"
-          ],
-          "explanation": "Financial and legal investment in fictional canon"
+      "audioHints": {
+        "tone": "playful",
+        "pacing": "moderate",
+        "characterVoices": {
+          "Professor Potato": "pompous academic, thinks deeply about everything",
+          "Skeptical Spud": "cynical philosopher, questions everything",
+          "Young Tater Tot": "enthusiastic student, eager to learn",
+          "Drive-Thru Customer": "confused, just wants food",
+          "All Fries Together": "unified chorus, philosophical conviction"
         }
       },
+      "hints": [
+        {
+          "keywords": [
+            "choose to be cut",
+            "ultimate expression"
+          ],
+          "message": "Anthropomorphizing food to create false agency"
+        },
+        {
+          "keywords": [
+            "transcend",
+            "metaphysically"
+          ],
+          "message": "Using complex words to make absurd ideas sound profound"
+        }
+      ],
+      "reviewKeywords": {
+        "logic": [
+          "evidence",
+          "data",
+          "facts",
+          "research",
+          "statistics"
+        ],
+        "emotion": [
+          "feel",
+          "believe",
+          "fear",
+          "hope",
+          "worry"
+        ],
+        "balanced": [
+          "however",
+          "consider",
+          "both sides",
+          "while",
+          "although"
+        ],
+        "agenda": [
+          "buy",
+          "vote",
+          "join",
+          "support",
+          "oppose"
+        ]
+      },
       "dimensionAnalysis": {
-        "logic": "Treating movie retcons as violations of scientific law - 47-slide PowerPoint on 'xenomorph evolutionary biology' for fictional creatures.",
-        "emotion": "Literal trauma response to story changes - hasn't slept since 2012, requires therapy, claims of emotional damages over Space Jockey reveal.",
-        "balanced": "Zero tolerance for different views - new fan who likes changes is immediately expelled from 'safe space for REAL FANS'.",
-        "agenda": "Attempting legal action and spending thousands on 'correcting' fiction - $40,000 on concept art, lawyer cousin consulted, funding competing movie."
+        "logicDimension": "Uses philosophical terminology to mask absence of actual logic",
+        "emotionDimension": "Appeals to desire for meaning and purpose, even in food",
+        "balancedDimension": "Acknowledges different perspectives but all are equally absurd",
+        "agendaDimension": "Promotes overthinking simple things as intellectual exercise"
       },
       "logicalFallacies": [
         {
-          "fallacyId": "appeal-to-tradition",
-          "severity": "primary",
-          "example": "Thirty years of fanon must be preserved as sacred canon"
-        },
-        {
-          "fallacyId": "no-true-scotsman",
-          "severity": "primary",
-          "example": "'REAL FANS' reject new information, others expelled"
-        },
-        {
-          "fallacyId": "sunk-cost",
-          "severity": "twisted",
-          "example": "$3,000 tattoo and 500-page fanfiction justify rage"
-        }
-      ],
-      "analysis": {
-        "logic": {
-          "scores": {
-            "evidence": 26,
-            "consistency": 19,
-            "source": 32,
-            "agenda": 88
-          },
-          "indicators": [
-            "fanon-as-canon",
-            "fictional-biology",
-            "legal-threats",
-            "investment-justification"
-          ],
-          "explanation": "Personal interpretations elevated to inviolable truth"
-        },
-        "emotion": {
-          "scores": {
-            "fear": 82,
-            "belonging": 86,
-            "pride": 93,
-            "manipulation": 74
-          },
-          "triggers": [
-            "identity-threat",
-            "investment-loss",
-            "canon-violation",
-            "tribal-purity",
-            "change-trauma"
-          ],
-          "explanation": "Identity so fused with fiction that changes cause genuine distress"
-        }
-      },
-      "wisdom": "This scenario exposes how fandom investment becomes unhealthy identity fusion. The $3,000 tattoo and $40,000 concept art show sunk cost driving irrationality. Expelling Emma for liking changes reveals how 'safe spaces' become echo chambers. The therapy reference acknowledges real distress over fiction, highlighting the need for perspective.",
-      "hints": {
-        "keywords": [
-          "haven't slept since 2012",
-          "$3,000 tattoo",
-          "therapy",
-          "escort Emma out",
-          "MURDERED"
-        ],
-        "strategy": "emotion",
-        "hintMessage": "Fiction became identity!"
-      },
-      "metadata": {
-        "tags": [
-          "sci-fi",
-          "alien-franchise",
-          "retcon-rage",
-          "fandom-trauma",
-          "canon-wars"
-        ],
-        "difficulty": 3,
-        "educationalFocus": "recognizing-unhealthy-attachment",
-        "commonMisconceptions": [
-          "fanon-equals-canon",
-          "creators-owe-fans"
-        ],
-        "addedDate": "2025-01-06"
-      },
-      "peakMoments": {
-        "logic": [
-          "xenomorph biology",
-          "47-slide PowerPoint",
-          "500-page fanfiction"
-        ],
-        "emotion": [
-          "HERESY",
-          "haven't slept",
-          "MURDERED",
-          "Crying"
-        ],
-        "balanced": [
-          "liked how",
-          "escort out"
-        ],
-        "agenda": [
-          "$3,000 tattoo",
-          "$40,000",
-          "emotional damages"
-        ]
-      },
-      "topic": "Community & Society"
-    },
-    {
-      "id": "scifi-timeline-truthers-001",
-      "title": "Timeline Truthers Unite",
-      "text": "From TheTimelineInquisition.net - 'PROOF The MCU Timeline is PROPAGANDA':\n\nListen up, sheeple! I've spent 4,000 hours creating the DEFINITIVE timeline that Marvel doesn't want you to see!\n\nTHEY CLAIM: Spider-Man Homecoming is 8 years after Avengers\nTHE TRUTH: It's clearly 6 years! The hot dog vendor's wedding ring proves it!\n\nI've analyzed:\n- Every calendar visible in backgrounds (enhanced 400x)\n- Moon phases in night scenes\n- Character aging via pore analysis\n- Smartphone models to pinpoint exact months\n- Tree foliage patterns indicating seasons\n\nMY DISCOVERIES:\n1. Tony's arc reactor runs on LIES\n2. The 'Blip' was actually 5.2 years (I counted days)\n3. Peter Parker's field trip permission slip DESTROYS official chronology\n\nMarvelShill_42: 'Dude, it's just a movie continuity error'\n\nMe: WAKE UP! 'Continuity errors' are DELIBERATE TIMELINE MANIPULATION! Why else would Happy's beard grow 2.3mm between scenes that are supposedly the same day?!\n\nI've sent 847 emails to Kevin Feige. His restraining order proves I'm onto something!\n\nMy wife left me, says I need to 'stop measuring fictional time.' She's clearly been compromised by Disney's Temporal Division.\n\nJOIN MY PATREON for access to:\n- My 3,000 page Timeline Bible\n- Facial hair growth charts for all characters\n- classified moon phase calculations\n- The REAL reason Phase 4 exists (timeline coverup)\n\nThey called me crazy when I quit my job to solve this. But someone has to protect timeline integrity!\n\n*Currently cross-referencing sunset times with canonical Stark Industries work schedules*\n\n#TimelineTruth #ChronologyGate #TemporalJustice #NotMyTimeline",
-      "claim": "MCU timeline inconsistencies are deliberate propaganda requiring 4,000 hours of analysis to expose the truth",
-      "correctAnswer": "logic",
-      "answerWeights": {
-        "logic": 87,
-        "emotion": 68,
-        "balanced": 7,
-        "agenda": 82
-      },
-      "reviewKeywords": {
-        "logic": {
-          "keywords": [
-            "4,000 hours",
-            "pore analysis",
-            "2.3mm beard",
-            "moon phases",
-            "continuity error"
-          ],
-          "explanation": "Obsessive over-analysis of fictional timeline minutiae"
-        },
-        "emotion": {
-          "keywords": [
-            "sheeple",
-            "WAKE UP",
-            "wife left me",
-            "compromised",
-            "someone has to"
-          ],
-          "explanation": "Paranoid conviction about fictional conspiracy"
-        },
-        "balanced": {
-          "keywords": [
-            "just a movie",
-            "restraining order"
-          ],
-          "explanation": "Reality briefly acknowledged then dismissed"
-        },
-        "agenda": {
-          "keywords": [
-            "JOIN MY PATREON",
-            "3,000 page Bible",
-            "quit my job",
-            "847 emails"
-          ],
-          "explanation": "Monetizing obsession while harassing creators"
-        }
-      },
-      "dimensionAnalysis": {
-        "logic": "Applying forensic analysis to entertainment - measuring beard growth to 0.1mm, enhancing backgrounds 400x, treating continuity errors as conspiracy.",
-        "emotion": "Deep paranoia about fictional timeline - wife leaving dismissed as being 'compromised by Disney,' restraining order seen as validation.",
-        "balanced": "Complete dismissal of simple explanations - 'just a movie continuity error' rejected as shilling, no self-awareness about obsession.",
-        "agenda": "Monetizing timeline obsession through Patreon while harassing creators - 847 emails to Feige, quit job to 'protect timeline integrity'."
-      },
-      "logicalFallacies": [
-        {
-          "fallacyId": "conspiracy-theory",
-          "severity": "primary",
-          "example": "Timeline errors are 'DELIBERATE MANIPULATION' not simple mistakes"
-        },
-        {
-          "fallacyId": "false-pattern",
-          "severity": "primary",
-          "example": "Finding meaning in beard growth measurements and moon phases"
-        },
-        {
-          "fallacyId": "ad-hominem",
-          "severity": "secondary",
-          "example": "Wife and critics dismissed as 'compromised' or 'shills'"
-        }
-      ],
-      "analysis": {
-        "logic": {
-          "scores": {
-            "evidence": 18,
-            "consistency": 23,
-            "source": 27,
-            "agenda": 91
-          },
-          "indicators": [
-            "micro-measurements",
-            "4000-hours",
-            "permission-slip",
-            "pore-analysis"
-          ],
-          "explanation": "Extreme over-analysis seeking patterns in production errors"
-        },
-        "emotion": {
-          "scores": {
-            "fear": 76,
-            "belonging": 69,
-            "pride": 81,
-            "manipulation": 78
-          },
-          "triggers": [
-            "special-knowledge",
-            "persecution-complex",
-            "timeline-guardian",
-            "conspiracy-validation",
-            "truth-seeker"
-          ],
-          "explanation": "Need to find hidden meaning overrides life priorities"
-        }
-      },
-      "wisdom": "This perfectly captures obsessive fan behavior taken to extremes. Spending 4,000 hours analyzing fiction, measuring beard growth to fractions of millimeters, and losing marriage over 'timeline integrity' shows how conspiracy thinking can attach to anything. The Patreon reveals monetized delusion.",
-      "hints": {
-        "keywords": [
-          "4,000 hours",
-          "wife left me",
-          "restraining order",
-          "continuity error",
-          "quit my job"
-        ],
-        "strategy": "logic",
-        "hintMessage": "Obsession isn't analysis!"
-      },
-      "metadata": {
-        "tags": [
-          "sci-fi",
-          "mcu",
-          "timeline-obsession",
-          "conspiracy-thinking",
-          "fan-extremism"
-        ],
-        "difficulty": 2,
-        "educationalFocus": "recognizing-obsessive-analysis",
-        "commonMisconceptions": [
-          "details-equal-meaning",
-          "persistence-proves-truth"
-        ],
-        "addedDate": "2025-01-06"
-      },
-      "peakMoments": {
-        "logic": [
-          "4,000 hours",
-          "2.3mm beard",
-          "pore analysis"
-        ],
-        "emotion": [
-          "wife left me",
-          "WAKE UP",
-          "compromised"
-        ],
-        "balanced": [
-          "continuity error",
-          "restraining order"
-        ],
-        "agenda": [
-          "PATREON",
-          "847 emails",
-          "quit my job"
-        ]
-      },
-      "topic": "Community & Society"
-    },
-    {
-      "id": "scifi-cosplay-accuracy-001",
-      "title": "The Accuracy Inquisition",
-      "text": "CosplayCon Forum - 'Screen-Accurate' Stormtrooper Incident Report:\n\nu/ArmorAnalyst: Saw someone claiming 'screen-accurate' armor at the con. INVESTIGATED. Results:\n\n❌ Helmet vocoder grill: 14 holes (should be 16)\n❌ Ab plate: Wrong shade of white (Pantone 11-0601 not 11-0602)\n❌ Thermal detonator: 3D printed (REAL ones were vacuum-formed)\n❌ Height: 5'11\" (All stormtroopers were EXACTLY 5'10\")\n\nThis person is a FRAUD!\n\nu/CasualTrooper: Dude, their costume looked amazing though?\n\nu/ArmorAnalyst: 'LOOKED AMAZING'?!?! *Posts 47 reference photos with red circles*\n\nThe knee plate rivets were PHILLIPS HEAD! Everyone knows the Shepperton Studios used FLAT HEAD SCREWS! This is BASIC!\n\nu/501stLegion: As garrison leader, I must note their armor passed official approval—\n\nu/ArmorAnalyst: Your 'garrison' approved someone wearing HERO shoulder bells with STUNT chest plates?! The entire 501st has fallen to mediocrity!\n\nI've created a 200-point inspection checklist. TRUE accuracy requires:\n- Original 1976 HDPE plastic (I bought a damaged screen-used piece for $8,000)\n- Shoes made from same leather batch as originals\n- Exact BMI as original actors\n- Natural aging (no artificial weathering allowed)\n\nu/HappyTrooper: I just wear it because Star Wars makes me happy :)\n\nu/ArmorAnalyst: HAPPINESS?! This is about HISTORICAL PRESERVATION! I'm starting my own group: The Accuracy Authority. Entry requires DNA test to prove you weren't involved in the Special Editions.\n\n*Gets banned from forum*\n\n*Creates own forum with 73-page accuracy manifesto*\n\n#ScreenAccurate #NotMyStormtrooper #AccuracyOrDeath #RivetGate",
-      "claim": "Cosplay must be molecularly identical to screen-used items or it's worthless fraud destroying historical preservation",
-      "correctAnswer": "agenda",
-      "answerWeights": {
-        "logic": 26,
-        "emotion": 74,
-        "balanced": 8,
-        "agenda": 89
-      },
-      "reviewKeywords": {
-        "logic": {
-          "keywords": [
-            "14 holes should be 16",
-            "Pantone 11-0601",
-            "PHILLIPS HEAD",
-            "5'11\" not 5'10\"",
-            "vacuum-formed"
-          ],
-          "explanation": "Obsessive technical minutiae about fictional armor"
-        },
-        "emotion": {
-          "keywords": [
-            "FRAUD",
-            "fallen to mediocrity",
-            "HISTORICAL PRESERVATION",
-            "AccuracyOrDeath",
-            "makes me happy"
-          ],
-          "explanation": "Extreme emotional response to minor details"
-        },
-        "balanced": {
-          "keywords": [
-            "looked amazing",
-            "passed approval",
-            "banned from forum"
-          ],
-          "explanation": "Reasonable views rejected, extremism isolated"
-        },
-        "agenda": {
-          "keywords": [
-            "$8,000",
-            "200-point checklist",
-            "Accuracy Authority",
-            "DNA test",
-            "73-page manifesto"
-          ],
-          "explanation": "Gatekeeping hobby through impossible standards"
-        }
-      },
-      "dimensionAnalysis": {
-        "logic": "Treating mass-produced costume pieces like archaeological artifacts - wrong Pantone shade, 2 missing grill holes, 1 inch height difference.",
-        "emotion": "Rage over microscopic inaccuracies - 'FRAUD' for wrong screw type, happiness in hobby dismissed as wrong motivation.",
-        "balanced": "No middle ground allowed - official approval rejected, creates splinter group requiring DNA tests to join.",
-        "agenda": "Gatekeeping through impossible standards - $8,000 for screen-used piece, 200-point inspection, 73-page manifesto about plastic armor."
-      },
-      "logicalFallacies": [
-        {
-          "fallacyId": "perfectionist-fallacy",
-          "severity": "primary",
-          "example": "Anything less than molecular accuracy is worthless"
-        },
-        {
-          "fallacyId": "appeal-to-purity",
-          "severity": "primary",
-          "example": "True fans must have exact BMI and original materials"
-        },
-        {
-          "fallacyId": "false-authority",
-          "severity": "secondary",
-          "example": "Self-appointed accuracy judge with manifesto"
-        }
-      ],
-      "analysis": {
-        "logic": {
-          "scores": {
-            "evidence": 31,
-            "consistency": 24,
-            "source": 28,
-            "agenda": 94
-          },
-          "indicators": [
-            "pantone-precision",
-            "rivet-types",
-            "height-exact",
-            "material-origin"
-          ],
-          "explanation": "Microscopic analysis elevated to moral imperative"
-        },
-        "emotion": {
-          "scores": {
-            "fear": 72,
-            "belonging": 79,
-            "pride": 86,
-            "manipulation": 81
-          },
-          "triggers": [
-            "purity-obsession",
-            "fraud-accusation",
-            "preservation-duty",
-            "accuracy-identity",
-            "happiness-rejection"
-          ],
-          "explanation": "Joy in hobby replaced with militant precision demands"
-        }
-      },
-      "wisdom": "This scenario skewers cosplay gatekeeping through impossible accuracy standards. Counting helmet holes and demanding specific Pantone whites for space Nazi costumes shows how hobbyist perfectionism becomes toxic. The happy casual cosplayer represents joy being crushed by obsessive 'historical preservation' of fiction.",
-      "hints": {
-        "keywords": [
-          "$8,000",
-          "DNA test",
-          "200-point checklist",
-          "makes me happy",
-          "banned"
-        ],
-        "strategy": "agenda",
-        "hintMessage": "Gatekeeping through impossible standards!"
-      },
-      "metadata": {
-        "tags": [
-          "sci-fi",
-          "cosplay",
-          "gatekeeping",
-          "perfectionism",
-          "star-wars"
-        ],
-        "difficulty": 2,
-        "educationalFocus": "recognizing-toxic-perfectionism",
-        "commonMisconceptions": [
-          "accuracy-equals-value",
-          "joy-is-casual"
-        ],
-        "addedDate": "2025-01-06"
-      },
-      "peakMoments": {
-        "logic": [
-          "14 holes not 16",
-          "Pantone 11-0601",
-          "PHILLIPS HEAD"
-        ],
-        "emotion": [
-          "FRAUD",
-          "AccuracyOrDeath",
-          "makes me happy"
-        ],
-        "balanced": [
-          "looked amazing",
-          "banned"
-        ],
-        "agenda": [
-          "$8,000",
-          "DNA test",
-          "73-page manifesto"
-        ]
-      },
-      "topic": "Community & Society"
-    },
-    {
-      "id": "kindergarten-court-001",
-      "title": "The Playground Tribunal",
-      "text": "Mrs. Peterson's Kindergarten Class - Emergency Recess Court Session:\n\nJUDGE EMMA (5): Order! ORDER! *bangs plastic gavel* Tyler is accused of the WORST CRIME EVER - cutting in the slide line!\n\nTYLER: But I was saving a spot for Jackson!\n\nPROSECUTOR LILY: OBJECTION! The Playground Constitution clearly states 'No Cutsies, No Buttsies, No Coconutsies!' Article 3, Section 2!\n\n*Shows crayon-drawn legal document*\n\nDEFENSE ATTORNEY AIDEN: My client pleads not guilty by reason of friendship! Best friends have special rules!\n\nLILY: If we allow Tyler to cut, CHAOS WILL REIGN! Next, people will share goldfish crackers unequally! Society will CRUMBLE!\n\nWITNESS SOPHIA: I saw everything! Tyler said 'Move it, slowpoke!' That's VERBAL ASSAULT!\n\nTYLER: I said 'Excuse me!'\n\nSOPHIA: Same thing! You used your outside voice!\n\nJUDGE EMMA: Tyler, you're guilty of:\n- Line cutting (first degree)\n- Friendship privilege abuse\n- Outside voice inside the line\n- Making Lily cry (she's not crying but she COULD)\n\nSENTENCE: No playground for INFINITY MINUTES!\n\nTYLER: That's not fair! Emma cuts all the time!\n\nEMMA: I'm the JUDGE! *Throws gavel* Court dismissed!\n\nMRS. PETERSON: Kids, infinity minutes is just until snack time.\n\nALL: THE SYSTEM IS CORRUPT! JUSTICE FOR TYLER!\n\n*Mass revolt until juice boxes appear*\n\nLILY: I'm filing an appeal at Indoor Recess Supreme Court!\n\n#PlaygroundJustice #SlideLineLaw #KindergartenCourt #InfinityMinutes",
-      "claim": "Line cutting threatens the entire social fabric and requires infinite punishment to maintain playground civilization",
-      "correctAnswer": "emotion",
-      "answerWeights": {
-        "logic": 18,
-        "emotion": 93,
-        "balanced": 14,
-        "agenda": 71
-      },
-      "reviewKeywords": {
-        "logic": {
-          "keywords": [
-            "Playground Constitution",
-            "Article 3 Section 2",
-            "crayon-drawn",
-            "infinity minutes",
-            "snack time"
-          ],
-          "explanation": "Child logic creating elaborate legal system for minor infractions"
-        },
-        "emotion": {
-          "keywords": [
-            "WORST CRIME EVER",
-            "CHAOS WILL REIGN",
-            "CRUMBLE",
-            "VERBAL ASSAULT",
-            "Making Lily cry"
-          ],
-          "explanation": "Extreme emotional reactions to minor playground disputes"
-        },
-        "balanced": {
-          "keywords": [
-            "just until snack",
-            "juice boxes appear"
-          ],
-          "explanation": "Adult perspective and snacks restore order"
-        },
-        "agenda": {
-          "keywords": [
-            "I'm the JUDGE",
-            "Emma cuts all the time",
-            "CORRUPT",
-            "Supreme Court"
-          ],
-          "explanation": "Using authority to enforce rules while breaking them"
-        }
-      },
-      "dimensionAnalysis": {
-        "logic": "Five-year-old legal system with crayon constitution - 'No Cutsies, No Buttsies' elevated to formal law, infinity punishment for line cutting.",
-        "emotion": "Apocalyptic response to minor transgression - line cutting will cause societal collapse, unequal goldfish cracker sharing, playground chaos.",
-        "balanced": "Teacher's reality check ignored - 'infinity minutes is until snack time' doesn't stop the dramatic proceedings or appeals process.",
-        "agenda": "Judge Emma using position to punish while being guilty of same crime - corruption discovered but revolution ends with juice boxes."
-      },
-      "logicalFallacies": [
-        {
-          "fallacyId": "slippery-slope",
-          "severity": "primary",
-          "example": "Line cutting leads to societal collapse and goldfish inequality"
-        },
-        {
-          "fallacyId": "appeal-to-consequences",
-          "severity": "twisted",
-          "example": "Making Lily cry (even though she's not) as evidence"
-        },
-        {
-          "fallacyId": "tu-quoque",
-          "severity": "secondary",
-          "example": "Judge Emma cuts lines too but still convicts Tyler"
-        }
-      ],
-      "analysis": {
-        "logic": {
-          "scores": {
-            "evidence": 22,
-            "consistency": 15,
-            "source": 35,
-            "agenda": 84
-          },
-          "indicators": [
-            "crayon-law",
-            "infinity-punishment",
-            "slide-constitution",
-            "snack-reality"
-          ],
-          "explanation": "Child logic creating complex systems for simple problems"
-        },
-        "emotion": {
-          "scores": {
-            "fear": 77,
-            "belonging": 81,
-            "pride": 89,
-            "manipulation": 76
-          },
-          "triggers": [
-            "fairness-obsession",
-            "rule-sanctity",
-            "chaos-fear",
-            "authority-abuse",
-            "justice-drama"
-          ],
-          "explanation": "Massive emotional investment in minor fairness violations"
-        }
-      },
-      "wisdom": "This perfectly captures how children create elaborate justice systems for minor infractions. The 'Playground Constitution' and infinite punishments show how young minds process fairness. Judge Emma's hypocrisy and the revolution ending with juice boxes reveals how quickly principles dissolve when snacks appear.",
-      "hints": {
-        "keywords": [
-          "WORST CRIME EVER",
-          "CHAOS WILL REIGN",
-          "infinity minutes",
-          "juice boxes",
-          "Emma cuts too"
-        ],
-        "strategy": "emotion",
-        "hintMessage": "Playground drama infinity!"
-      },
-      "metadata": {
-        "tags": [
-          "kindergarten",
-          "playground-politics",
-          "child-logic",
-          "justice-drama",
-          "line-cutting"
-        ],
-        "difficulty": 2,
-        "educationalFocus": "recognizing-disproportionate-response",
-        "commonMisconceptions": [
-          "minor-infractions-major-consequences",
-          "child-court-logic"
-        ],
-        "addedDate": "2025-01-06"
-      },
-      "peakMoments": {
-        "logic": [
-          "Playground Constitution",
-          "infinity minutes",
-          "crayon-drawn"
-        ],
-        "emotion": [
-          "WORST CRIME EVER",
-          "CHAOS WILL REIGN",
-          "VERBAL ASSAULT"
-        ],
-        "balanced": [
-          "until snack time",
-          "juice boxes"
-        ],
-        "agenda": [
-          "I'm the JUDGE",
-          "Emma cuts too",
-          "CORRUPT"
-        ]
-      },
-      "topic": "Education & Learning"
-    },
-    {
-      "id": "birthday-party-economics-001",
-      "title": "The Goodie Bag Crisis",
-      "text": "Breaking News from Rainbow Room Preschool - Birthday Party Inequality Exposed:\n\nINVESTIGATIVE REPORTER MADISON (5): This is Madison reporting LIVE from Olivia's birthday! A SCANDAL is unfolding!\n\nThe goodie bags are NOT EQUAL!\n\nEVIDENCE:\n- Jake's bag: 3 stickers, 2 erasers, 1 whistle\n- My bag: 2 stickers, 3 erasers, NO WHISTLE\n- Ethan's bag: 4 STICKERS?!?! And a BOUNCY BALL?!\n\nI demand a recount!\n\nOLIVIA'S MOM: Sweetie, they're all random—\n\nMADISON: RANDOM?! This is BIRTHDAY COMMUNISM! Some bags are more equal than others!\n\nPROTESTOR NOAH: Madison's right! I got two pink erasers but I wanted blue! This is GENDER DISCRIMINATION!\n\nCOUNTER-PROTESTOR AVA: At least you GOT erasers! Mine are all pencils! WHO WANTS PENCILS AT A PARTY?!\n\nETHAN: *blowing whistle repeatedly* I'm rich! RICH IN WHISTLES!\n\nMADISON: Ethan's hoarding resources! We need GOODIE BAG REDISTRIBUTION!\n\n*Children form unions*\nTEAM WHISTLE (wants whistles)\nTEAM STICKER (sticker supremacists)  \nTEAM FAIR SHARE (wants everything)\n\nOLIVIA: *crying* This is MY birthday!\n\nMADISON: Your birthday exposed SYSTEMIC PARTY INEQUALITY! I'm calling my mom's lawyer!\n\nTEACHER: How about we sing happy birthday?\n\nALL: NOT UNTIL JUSTICE IS SERVED!\n\n*Negotiations break down when cake arrives*\n\nMADISON: Wait... some pieces have more frosting... THE CAKE IS ALSO RIGGED!\n\n#GoodieBagGate #PartyInequality #WhistlePrivilege #BirthdayJustice",
-      "claim": "Unequal goodie bag distribution represents systemic party inequality requiring immediate redistribution and possible legal action",
-      "correctAnswer": "emotion",
-      "answerWeights": {
-        "logic": 24,
-        "emotion": 91,
-        "balanced": 11,
-        "agenda": 73
-      },
-      "reviewKeywords": {
-        "logic": {
-          "keywords": [
-            "3 stickers 2 erasers",
-            "evidence",
-            "recount",
-            "random",
-            "more frosting"
-          ],
-          "explanation": "Meticulous accounting of party favor distribution"
-        },
-        "emotion": {
-          "keywords": [
-            "SCANDAL",
-            "BIRTHDAY COMMUNISM",
-            "DISCRIMINATION",
-            "crying",
-            "RIGGED"
-          ],
-          "explanation": "Extreme emotional response to random bag contents"
-        },
-        "balanced": {
-          "keywords": [
-            "they're all random",
-            "cake arrives"
-          ],
-          "explanation": "Adult logic and cake temporarily calm situation"
-        },
-        "agenda": {
-          "keywords": [
-            "form unions",
-            "REDISTRIBUTION",
-            "calling lawyer",
-            "WHISTLE PRIVILEGE",
-            "sticker supremacists"
-          ],
-          "explanation": "Creating political movements over party favors"
-        }
-      },
-      "dimensionAnalysis": {
-        "logic": "Five-year-olds applying complex economic theory to random goodie bags - counting items, demanding recounts, identifying 'systemic inequality'.",
-        "emotion": "Birthday party becomes political crisis - 'BIRTHDAY COMMUNISM,' child crying on her own birthday, unions forming over whistles.",
-        "balanced": "Mom's explanation of randomness rejected - cake arrival pauses revolution until frosting inequality discovered, cycle continues.",
-        "agenda": "Children organizing into political factions - Team Whistle, sticker supremacists, threats of legal action over erasers."
-      },
-      "logicalFallacies": [
-        {
-          "fallacyId": "false-pattern",
-          "severity": "primary",
-          "example": "Random distribution seen as systematic inequality"
-        },
-        {
-          "fallacyId": "hasty-generalization",
-          "severity": "twisted",
-          "example": "Two pink erasers equals gender discrimination"
-        },
-        {
-          "fallacyId": "relative-privation",
-          "severity": "secondary",
-          "example": "Pencils dismissed as worthless because others got whistles"
-        }
-      ],
-      "analysis": {
-        "logic": {
-          "scores": {
-            "evidence": 28,
-            "consistency": 21,
-            "source": 32,
-            "agenda": 87
-          },
-          "indicators": [
-            "exact-counts",
-            "evidence-based",
-            "random-rejection",
-            "frosting-analysis"
-          ],
-          "explanation": "Applying adult concepts to childhood party chaos"
-        },
-        "emotion": {
-          "scores": {
-            "fear": 74,
-            "belonging": 78,
-            "pride": 85,
-            "manipulation": 79
-          },
-          "triggers": [
-            "fairness-fixation",
-            "resource-envy",
-            "inequality-fear",
-            "birthday-ruined",
-            "union-identity"
-          ],
-          "explanation": "Massive distress over minor differences in party favors"
-        }
-      },
-      "wisdom": "This brilliantly captures how children process fairness and create complex political systems from simple situations. The goodie bag 'inequality' spawning unions and legal threats shows how young minds dramatize minor differences. The birthday girl crying while others fight over her party favors is perfectly observed.",
-      "hints": {
-        "keywords": [
-          "BIRTHDAY COMMUNISM",
-          "random",
-          "form unions",
-          "cake arrives",
-          "more frosting"
-        ],
-        "strategy": "emotion",
-        "hintMessage": "Random isn't unfair!"
-      },
-      "metadata": {
-        "tags": [
-          "kindergarten",
-          "birthday-party",
-          "fairness-obsession",
-          "child-politics",
-          "goodie-bags"
-        ],
-        "difficulty": 2,
-        "educationalFocus": "understanding-randomness",
-        "commonMisconceptions": [
-          "random-equals-unfair",
-          "differences-equal-discrimination"
-        ],
-        "addedDate": "2025-01-06"
-      },
-      "peakMoments": {
-        "logic": [
-          "3 stickers 2 erasers",
-          "recount",
-          "evidence"
-        ],
-        "emotion": [
-          "SCANDAL",
-          "BIRTHDAY COMMUNISM",
-          "crying"
-        ],
-        "balanced": [
-          "random",
-          "cake arrives"
-        ],
-        "agenda": [
-          "form unions",
-          "REDISTRIBUTION",
-          "calling lawyer"
-        ]
-      },
-      "topic": "Parenting & Family"
-    },
-    {
-      "id": "snack-time-monopoly-001",
-      "title": "The Goldfish Cartel",
-      "text": "Ms. Johnson's Class - The Great Snack Time Economic Collapse of Tuesday:\n\nCEO CHARLOTTE (5): Welcome to Charlotte's Snack Exchange! Today's rates:\n- 3 goldfish = 1 fruit snack\n- 2 fruit snacks = 1 string cheese\n- String cheese = PRICELESS (I'm hoarding them)\n\nTRADER LIAM: That's not fair! Yesterday it was 2 goldfish for 1 fruit snack!\n\nCHARLOTTE: INFLATION, Liam! Also, I control the goldfish supply. *Shows massive ziploc bag*\n\nWHISTLEBLOWER EMMA: Charlotte's mom packed her FIVE bags! She's created a MONOPOLY!\n\nCHARLOTTE: It's called SMART BUSINESS! Read my book: 'The Art of the Snack Deal' (crayons, 47 pages, mostly pictures)\n\nREBEL LEADER JAMES: We should start our own economy! Carrots will be our currency!\n\nCHARLOTTE: CARROTS?! *laughs maniacally* Nobody wants vegetables! I'll CRUSH your rebellion!\n\nUNION REP SOPHIA: The working class demands equal snack distribution! Why should Charlotte have all the cheese?!\n\nCHARLOTTE: Because I thought ahead! While you were playing blocks, I was studying SNACK MARKETS!\n\n*Black market forms by the reading corner*\nDEALER MASON: *whispers* Psst... got some underground apple slices...\n\nMS. JOHNSON: Snack time is for eating, not economics—\n\nCHARLOTTE: SILENCE! The market has spoken! *Raises fruit snack prices to 5 goldfish*\n\nTHE CRASH: Oliver eats his entire lunch, flooding market with pudding cups\n\nCHARLOTTE: *watching empire crumble* This is pudding manipulation! MARKET INTERFERENCE!\n\nEveryone switches to pudding currency. Charlotte left with 47 bags of goldfish nobody wants.\n\n#SnackStreetBets #GoldfishCrash #PuddingStandard #KindergartenCapitalism",
-      "claim": "Controlling the goldfish supply creates legitimate market dynamics that justify snack inequality in kindergarten",
-      "correctAnswer": "logic",
-      "answerWeights": {
-        "logic": 88,
-        "emotion": 67,
-        "balanced": 12,
-        "agenda": 85
-      },
-      "reviewKeywords": {
-        "logic": {
-          "keywords": [
-            "3 goldfish = 1 fruit",
-            "INFLATION",
-            "supply",
-            "market",
-            "currency"
-          ],
-          "explanation": "Five-year-old applying complex economic theory to snacks"
-        },
-        "emotion": {
-          "keywords": [
-            "not fair",
-            "MONOPOLY",
-            "CRUSH rebellion",
-            "empire crumble",
-            "nobody wants"
-          ],
-          "explanation": "Emotional responses to snack-based power dynamics"
-        },
-        "balanced": {
-          "keywords": [
-            "eating not economics",
-            "pudding cups"
-          ],
-          "explanation": "Teacher's wisdom ignored, pudding destroys system"
-        },
-        "agenda": {
-          "keywords": [
-            "Snack Exchange",
-            "SMART BUSINESS",
-            "Art of Snack Deal",
-            "studying MARKETS",
-            "hoarding"
-          ],
-          "explanation": "Creating capitalist system to control snack distribution"
-        }
-      },
-      "dimensionAnalysis": {
-        "logic": "Kindergartener creating complex market economy - exchange rates, inflation, monopoly control, black markets, currency collapse from pudding.",
-        "emotion": "Power dynamics through snacks - Charlotte's maniacal laughter, crushing rebellions, empire imagery over goldfish crackers.",
-        "balanced": "Teacher's simple truth ignored - 'snack time is for eating' dismissed as market interference, system collapses anyway.",
-        "agenda": "Five-year-old running snack cartel - hoarding string cheese, controlling goldfish supply, writing 47-page crayon business book."
-      },
-      "logicalFallacies": [
-        {
-          "fallacyId": "false-analogy",
-          "severity": "primary",
-          "example": "Snack trading equals complex market economics"
-        },
-        {
-          "fallacyId": "appeal-to-consequences",
-          "severity": "twisted",
-          "example": "Controlling goldfish justifies snack inequality"
-        },
-        {
-          "fallacyId": "circular-reasoning",
-          "severity": "secondary",
-          "example": "Has monopoly because smart, smart because has monopoly"
-        }
-      ],
-      "analysis": {
-        "logic": {
-          "scores": {
-            "evidence": 21,
-            "consistency": 17,
-            "source": 29,
-            "agenda": 91
-          },
-          "indicators": [
-            "exchange-rates",
-            "inflation-claims",
-            "market-language",
-            "currency-collapse"
-          ],
-          "explanation": "Complex economic concepts misapplied to snack sharing"
-        },
-        "emotion": {
-          "scores": {
-            "fear": 71,
-            "belonging": 75,
-            "pride": 83,
-            "manipulation": 80
-          },
-          "triggers": [
-            "resource-control",
-            "fairness-violation",
-            "power-dynamics",
-            "empire-fantasy",
-            "market-crash"
-          ],
-          "explanation": "Snack hoarding creates real distress and power struggles"
-        }
-      },
-      "wisdom": "This perfectly satirizes how children mimic adult economic systems without understanding them. Charlotte's goldfish monopoly and 'Art of the Snack Deal' shows how kids absorb capitalist language. The pudding crash destroying her empire illustrates how artificial scarcity fails when alternatives exist.",
-      "hints": {
-        "keywords": [
-          "INFLATION",
-          "studying MARKETS",
-          "pudding cups",
-          "eating not economics",
-          "47 bags nobody wants"
-        ],
-        "strategy": "logic",
-        "hintMessage": "Snacks aren't stocks!"
-      },
-      "metadata": {
-        "tags": [
-          "kindergarten",
-          "snack-economics",
-          "child-capitalism",
-          "market-crash",
-          "goldfish-currency"
-        ],
-        "difficulty": 2,
-        "educationalFocus": "recognizing-false-economics",
-        "commonMisconceptions": [
-          "scarcity-equals-value",
-          "hoarding-equals-success"
-        ],
-        "addedDate": "2025-01-06"
-      },
-      "peakMoments": {
-        "logic": [
-          "3 goldfish = 1 fruit",
-          "INFLATION",
-          "currency"
-        ],
-        "emotion": [
-          "MONOPOLY",
-          "CRUSH rebellion",
-          "empire crumble"
-        ],
-        "balanced": [
-          "eating not economics",
-          "pudding flood"
-        ],
-        "agenda": [
-          "Snack Exchange",
-          "studying MARKETS",
-          "hoarding"
-        ]
-      },
-      "topic": "Education & Learning"
-    },
-    {
-      "id": "saturday-market-intel-001",
-      "title": "The Organic Gossip Network",
-      "text": "Overheard at Willowbrook Farmers Market - The Kale Stand Intelligence Agency:\n\nBARBARA (holding heirloom tomatoes): Did you HEAR about Jennifer's 'meditation retreat'?\n\nCLAIRE: *leans in over kombucha samples* The one where she LEFT HER FAMILY for two weeks?!\n\nBARBARA: She claims it was for 'spiritual growth' but I saw her Instagram... CABO! With her YOGA INSTRUCTOR!\n\nDOROTHY: *arrives with reusable bags* What are we discussing? *sees their faces* Ooh, Jennifer!\n\nCLAIRE: I'm not one to gossip, BUT... *proceeds to gossip for 20 minutes*\n\nBARBARA: And get THIS - she's been buying NON-ORGANIC strawberries! I have PHOTOS!\n\nVENDOR: Ma'am, your total is—\n\nBARBARA: NOT NOW! We're discussing Jennifer's PESTICIDE HYPOCRISY!\n\nNEW ARRIVAL SUSAN: Jennifer seemed happy at pilates...\n\nALL THREE: *gasp* HAPPY?! After what she did to her CHAKRAS?!\n\nDOROTHY: Susan, you sweet summer child. Happy is just what GUILTY looks like!\n\nCLAIRE: I started a spreadsheet tracking everyone's market purchases. For COMMUNITY SAFETY. Did you know Tom bought WHITE BREAD last week?\n\nBARBARA: *clutches pearls made from recycled ocean plastic*\n\nDOROTHY: We should stage an intervention! I'll bring my sage!\n\nRANDOM SHOPPER: Excuse me, is this the line for honey?\n\nBARBARA: This is the line for TRUTH, sweetie! Now, about Jennifer's 'retreat'...\n\n*Four hours later, vegetables wilted, gossip still fresh*\n\n#MarketIntelligence #OrganicGossip #ChakraScandal #KaleStandConfessions",
-      "claim": "Monitoring neighbors' purchases and retreat activities is essential community safety work that justifies hours of market gossip",
-      "correctAnswer": "agenda",
-      "answerWeights": {
-        "logic": 19,
-        "emotion": 76,
-        "balanced": 8,
-        "agenda": 93
-      },
-      "reviewKeywords": {
-        "logic": {
-          "keywords": [
-            "spreadsheet tracking",
-            "PHOTOS",
-            "evidence",
-            "WHITE BREAD",
-            "purchases"
-          ],
-          "explanation": "Surveillance disguised as community concern"
-        },
-        "emotion": {
-          "keywords": [
-            "LEFT HER FAMILY",
-            "PESTICIDE HYPOCRISY",
-            "clutches pearls",
-            "GUILTY",
-            "gasp"
-          ],
-          "explanation": "Extreme emotional reactions to others' choices"
-        },
-        "balanced": {
-          "keywords": [
-            "seemed happy",
-            "vegetables wilted"
-          ],
-          "explanation": "Happiness dismissed, produce ignored for gossip"
-        },
-        "agenda": {
-          "keywords": [
-            "COMMUNITY SAFETY",
-            "tracking purchases",
-            "intervention",
-            "line for TRUTH",
-            "Kale Stand Intelligence"
-          ],
-          "explanation": "Gossip elevated to moral crusade and safety issue"
-        }
-      },
-      "dimensionAnalysis": {
-        "logic": "Creating surveillance systems for neighbors - spreadsheets of purchases, photo evidence of non-organic buying, tracking retreat locations.",
-        "emotion": "Extreme judgment disguised as concern - 'PESTICIDE HYPOCRISY,' clutching recycled pearls, gasping at happiness as guilt sign.",
-        "balanced": "No balance - Susan's observation that Jennifer seems happy is met with horror, vegetables rot while gossip continues.",
-        "agenda": "Gossip reframed as community service - 'COMMUNITY SAFETY' requires tracking white bread purchases, staging sage interventions."
-      },
-      "logicalFallacies": [
-        {
-          "fallacyId": "ad-hominem",
-          "severity": "primary",
-          "example": "Attacking Jennifer's character over strawberry choices"
-        },
-        {
-          "fallacyId": "false-cause",
-          "severity": "twisted",
-          "example": "Happiness interpreted as sign of guilt"
-        },
-        {
-          "fallacyId": "appeal-to-hypocrisy",
-          "severity": "secondary",
-          "example": "Non-organic purchases invalidate meditation retreat"
-        }
-      ],
-      "analysis": {
-        "logic": {
-          "scores": {
-            "evidence": 23,
-            "consistency": 16,
-            "source": 31,
-            "agenda": 96
-          },
-          "indicators": [
-            "spreadsheet-tracking",
-            "photo-evidence",
-            "purchase-monitoring",
-            "wilted-vegetables"
-          ],
-          "explanation": "Surveillance and gossip justified as community protection"
-        },
-        "emotion": {
-          "scores": {
-            "fear": 73,
-            "belonging": 82,
-            "pride": 79,
-            "manipulation": 84
-          },
-          "triggers": [
-            "moral-superiority",
-            "scandal-excitement",
-            "judgment-bonding",
-            "organic-identity",
-            "intervention-fantasy"
-          ],
-          "explanation": "Gossip creates belonging through shared judgment"
-        }
-      },
-      "wisdom": "This perfectly captures farmers market social dynamics where wellness culture meets small-town gossip. The 'Kale Stand Intelligence Agency' tracking organic purchases shows how judgment disguises itself as community care. Barbara's wilted vegetables while spreading fresh gossip reveals misplaced priorities.",
-      "hints": {
-        "keywords": [
-          "COMMUNITY SAFETY",
-          "spreadsheet tracking",
-          "vegetables wilted",
-          "line for TRUTH",
-          "seemed happy"
-        ],
-        "strategy": "agenda",
-        "hintMessage": "Gossip disguised as care!"
-      },
-      "metadata": {
-        "tags": [
-          "farmers-market",
-          "gossip-culture",
-          "wellness-judgment",
-          "surveillance",
-          "organic-hypocrisy"
-        ],
-        "difficulty": 3,
-        "educationalFocus": "recognizing-judgment-as-care",
-        "commonMisconceptions": [
-          "gossip-equals-community",
-          "tracking-equals-safety"
-        ],
-        "addedDate": "2025-01-06"
-      },
-      "peakMoments": {
-        "logic": [
-          "spreadsheet tracking",
-          "WHITE BREAD",
-          "PHOTOS"
-        ],
-        "emotion": [
-          "PESTICIDE HYPOCRISY",
-          "clutches pearls",
-          "gasp"
-        ],
-        "balanced": [
-          "seemed happy",
-          "vegetables wilted"
-        ],
-        "agenda": [
-          "COMMUNITY SAFETY",
-          "line for TRUTH",
-          "intervention"
-        ]
-      },
-      "topic": "Community & Society"
-    },
-    {
-      "scenarioId": "scenario-030",
-      "title": "The Great Office Plant Uprising",
-      "topic": "Office Plant Care Becomes Corporate Surveillance System",
-      "category": "Workplace Culture",
-      "difficulty": "medium",
-      "scenario": {
-        "title": "PlantNet™ Performance Reviews",
-        "content": "🌿 URGENT ALL-STAFF MEMO 🌿\n\nFollowing last week's mandatory Plant Empathy Training, we're excited to announce Phase 2 of our GreenOffice Initiative!\n\nAs you know, studies show that offices with plants are 47% more productive (source: my nephew's biology report). But here's what THEY don't tell you - plants are also WATCHING US.\n\nMy ficus has been tracking my bathroom breaks. I counted. 17 times it turned its leaves when I got up. That's not phototropism, that's SURVEILLANCE.\n\nWhich is why I'm proposing PlantNet™ - if they're going to spy, let's make it OFFICIAL:\n\n📊 Each plant gets a performance dashboard\n🎯 Oxygen output = Employee output\n💚 Wilting leaves = Written warnings\n🏆 Flowering = Promotion eligibility\n\nBut wait, there's MORE! I've discovered that different plants judge different skills:\n\n- Succulents: Time management (they survive neglect)\n- Ferns: Attention to detail (so needy!)\n- Snake plants: Leadership (they're literally called mother-in-law's tongue)\n- Cacti: Conflict resolution (approach carefully)\n\nJennifer from Accounting says I'm \"anthropomorphizing\" and \"having a breakdown\" but HER SPIDER PLANT HAS 47 BABIES. You know what that means? She's hoarding resources! Classic Jennifer.\n\nI've started interviewing my plants for 360 feedback:\n\nMe: \"How would you rate my leadership?\"\nPothos: *drops a leaf*\nMe: \"I DESERVE THAT FEEDBACK\"\n\nSome \"scientists\" claim plants don't have consciousness, but explain THIS:\n- My bamboo grows faster during performance review season\n- The peace lily ONLY blooms when I hit my KPIs\n- The office bonsai literally shaped itself into a dollar sign\n\nCoincidence? I THINK NOT.\n\nHR says this is \"not based in reality\" but they also said \"unlimited PTO\" meant unlimited, so who's the real liar here?\n\nI'm implementing a new policy: All meetings must include plant representation. They've been in every meeting anyway, silently judging our PowerPoints. Time to give them a VOICE.\n\nNext week: Chlorophyll drug testing (you can't hide your true nature from plants!)\n\n#PlantBasedManagement #PhotosynthesisProductivity #GreenCollarWorkers #NatureKnowsBest\n\nP.S. The rubber plant in Conference Room B asked me to tell you all it's disappointed in Q3 results. Don't shoot the messenger!",
-        "type": "social_media",
-        "platform": "workplace_memo",
-        "engagement": {
-          "views": 12453,
-          "reactions": 3421,
-          "comments": 897,
-          "shares": 234
-        }
-      },
-      "questions": [
-        {
-          "question": "The author's 'evidence' that plants are watching employees is based on:",
-          "options": [
-            "Peer-reviewed scientific studies on plant consciousness",
-            "Normal plant behavior interpreted as surveillance",
-            "Actual monitoring technology in the plants",
-            "Documented changes in plant growth patterns"
-          ],
-          "correctAnswer": 1,
-          "explanation": "The author misinterprets normal plant behavior (phototropism - turning toward light) as deliberate surveillance, showing how confirmation bias can make us see patterns that aren't there."
-        },
-        {
-          "question": "The logical flaw in connecting plant health to employee performance is:",
-          "options": [
-            "Plants and humans have identical needs",
-            "Correlation between unrelated variables implies causation",
-            "Plant care is too complex to measure",
-            "Employees don't actually affect plant growth"
-          ],
-          "correctAnswer": 1,
-          "explanation": "The memo assumes that because plants might be healthier in productive offices, the plants' health directly reflects or causes employee performance - a classic correlation/causation fallacy."
-        },
-        {
-          "question": "The author dismisses HR's criticism by:",
-          "options": [
-            "Providing scientific counter-evidence",
-            "Using ad hominem attack about PTO policy",
-            "Consulting botanical experts",
-            "Conducting controlled experiments"
-          ],
-          "correctAnswer": 1,
-          "explanation": "Rather than address HR's valid concerns about the initiative's basis in reality, the author deflects by attacking HR's credibility on an unrelated issue (PTO policy)."
-        },
-        {
-          "question": "The 'evidence' of plants responding to business metrics reveals:",
-          "options": [
-            "Advanced plant intelligence",
-            "Measurable botanical responses",
-            "Pattern-seeking and coincidence",
-            "Deliberate plant training"
-          ],
-          "correctAnswer": 2,
-          "explanation": "The author sees patterns where none exist, interpreting random plant behaviors as responses to business events - a demonstration of apophenia (seeing meaningful patterns in random data)."
-        }
-      ],
-      "answers": [
-        {
-          "text": "Normal plant behavior interpreted as surveillance",
-          "weight": 92,
-          "indicator": "fallacy",
-          "dimensionWeights": {
-            "logical": 88,
-            "emotional": 72,
-            "credibility": 45,
-            "rhetorical": 82
-          },
-          "feedbackEmoji": "🌱",
-          "feedback": "Exactly! The ficus turning toward movement is just seeking light, not conducting surveillance."
-        },
-        {
-          "text": "Correlation between unrelated variables implies causation",
-          "weight": 94,
-          "indicator": "best",
-          "dimensionWeights": {
-            "logical": 95,
-            "emotional": 67,
-            "credibility": 78,
-            "rhetorical": 86
-          },
-          "feedbackEmoji": "🌿",
-          "feedback": "Perfect! Connecting plant health to employee performance reviews is a textbook causation fallacy."
-        },
-        {
-          "text": "Using ad hominem attack about PTO policy",
-          "weight": 89,
-          "indicator": "fallacy",
-          "dimensionWeights": {
-            "logical": 91,
-            "emotional": 84,
-            "credibility": 38,
-            "rhetorical": 93
-          },
-          "feedbackEmoji": "🍃",
-          "feedback": "Spot on! Attacking HR's credibility on an unrelated issue to avoid addressing their valid criticism."
-        },
-        {
-          "text": "Pattern-seeking and coincidence",
-          "weight": 91,
-          "indicator": "best",
-          "dimensionWeights": {
-            "logical": 93,
-            "emotional": 76,
-            "credibility": 41,
-            "rhetorical": 79
-          },
-          "feedbackEmoji": "🎋",
-          "feedback": "Yes! Classic apophenia - seeing meaningful patterns in random plant behaviors."
-        }
-      ],
-      "fallacies": [
-        {
-          "type": "false_cause",
+          "name": "Anthropomorphism",
           "severity": "high",
-          "description": "Attributing plant movements to surveillance rather than natural phototropism"
+          "example": "Fries having consciousness and free will"
         },
         {
-          "type": "correlation_causation",
-          "severity": "critical",
-          "description": "Assuming plant health directly reflects and can measure employee performance"
-        },
-        {
-          "type": "ad_hominem",
+          "name": "Pseudointellectualism",
           "severity": "medium",
-          "description": "Dismissing HR's criticism by attacking their credibility on unrelated PTO policy"
-        },
-        {
-          "type": "confirmation_bias",
-          "severity": "high",
-          "description": "Interpreting all plant behaviors as supporting the surveillance theory"
-        },
-        {
-          "type": "appeal_to_nature",
-          "severity": "medium",
-          "description": "Assuming plants inherently know best about human performance"
+          "example": "Using philosophy to avoid simple reality"
         }
       ],
-      "dimensionAnalysis": {
-        "logical": "The argument completely breaks down when suggesting plants can evaluate employee performance or that their health indicates human productivity levels.",
-        "emotional": "Creates workplace anxiety by suggesting constant surveillance, while using humor to mask the paranoid delusions about plant consciousness.",
-        "credibility": "Cites a nephew's biology report and personal plant interviews as evidence, completely undermining any legitimate workplace initiative.",
-        "rhetorical": "Uses corporate buzzwords and initiative language to make absurd claims seem official, mixed with increasingly unhinged observations."
-      },
+      "topics": [
+        "philosophy",
+        "food",
+        "consciousness",
+        "meaning",
+        "absurdism"
+      ],
+      "difficulty": 3,
+      "educationalFocus": "Recognizing pseudointellectualism and overthinking simple concepts",
       "peakMoments": [
-        {
-          "timestamp": "Beginning",
-          "description": "Opens with legitimate-sounding corporate memo format and productivity statistics",
-          "engagement": "medium",
-          "fallacyIntensity": "low"
-        },
-        {
-          "timestamp": "17 bathroom breaks",
-          "description": "Reveals paranoid tracking of plant movements as surveillance",
-          "engagement": "high",
-          "fallacyIntensity": "medium"
-        },
-        {
-          "timestamp": "Plant interviews",
-          "description": "Conducting 360 feedback with office plants",
-          "engagement": "very_high",
-          "fallacyIntensity": "critical"
-        },
-        {
-          "timestamp": "Bonsai dollar sign",
-          "description": "Claims plant shaped itself into currency symbol",
-          "engagement": "peak",
-          "fallacyIntensity": "extreme"
-        }
-      ],
-      "educationalMetadata": {
-        "learningObjectives": [
-          "Recognize how normal phenomena can be misinterpreted as meaningful patterns",
-          "Identify correlation/causation fallacies in workplace metrics",
-          "Understand how professional language can mask illogical propositions",
-          "Spot deflection tactics when legitimate criticism is raised"
-        ],
-        "discussionPrompts": [
-          "How does corporate jargon sometimes hide illogical ideas?",
-          "Why might people see patterns in random events, especially under stress?",
-          "What's the danger of making business decisions based on spurious correlations?",
-          "How can workplace wellness initiatives be based on actual evidence?"
-        ],
-        "realWorldConnections": [
-          "Workplace wellness initiatives based on pseudoscience",
-          "Performance metrics that measure the wrong things",
-          "Corporate surveillance anxiety",
-          "Office superstitions and rituals"
-        ]
-      },
-      "characterMisconceptions": [
-        "Believes plants have consciousness and judgment capabilities",
-        "Thinks coincidental timing proves causal relationships",
-        "Assumes natural plant behaviors are directed at humans",
-        "Conflates correlation with causation in performance metrics"
+        "Professor Potato: \"Brilliant! The heat transforms us not just physically, but metaphysically!\"",
+        "All Fries Together: \"There ARE no regular fries! Only fries awakened to their purpose!\"",
+        "Drive-Thru Customer: \"Can... can I just have regular fries that don't question reality?\""
       ]
     },
     {
-      "scenarioId": "scenario-031",
-      "title": "Gym Bro Socrates",
-      "topic": "Fitness Philosophy Reaches Existential Crisis",
-      "category": "Health & Philosophy",
-      "difficulty": "medium",
-      "scenario": {
-        "title": "The Protein Shake of Enlightenment",
-        "content": "💪 EMERGENCY PHILOSOPHY GAINS ALERT 💪\n\nBros, I just realized something during my 4AM chest day that's gonna BLOW YOUR MINDS.\n\nWhat if... what if we're ALL just curling in Plato's Cave??\n\nThink about it:\n- We see shadows on the gym mirror (our gains)\n- But are they REAL gains or just the IDEA of gains?\n- Is my pump temporary or ETERNAL?\n\nI've been tracking this philosophically:\n\nMONDAY: Benched 315, questioned existence\nTUESDAY: Leg day = Sisyphus pushing the boulder\nWEDNESDAY: Rest day = Nietzschean void\nTHURSDAY: Back day = literally carrying the weight of consciousness\n\nMy pre-workout just hit different when I realized:\n\"We must imagine Sisyphus SHREDDED\"\n\nBUT WAIT - here's where it gets DEEP:\n\nIf muscles are 70% water, and humans are 70% water...\nAM I JUST A SENTIENT MUSCLE?? 🤯\n\nStarted teaching philosophy between sets:\n\nMe: \"Spot me on this existential dread, bro\"\nGym Partner: \"How many reps?\"\nMe: \"INFINITY. LIFE IS SUFFERING.\"\nGym Partner: \"...8 it is\"\n\nI've discovered the TRUTH:\n- Descartes: \"I think therefore I am\"\n- Me: \"I lift therefore I am SWOLE\"\n\nThe barbell doesn't care about your feelings = STOICISM\nProtein timing windows = KANT'S CATEGORICAL IMPERATIVE\nMind-muscle connection = PHENOMENOLOGY\n\nSome \"professor\" at the juice bar said I'm \"missing the point\" of philosophy but I COUNTED HIS MACROS - only 12g protein!! How can you understand Plato on a CATABOLIC STATE??\n\nI'm launching my new program:\n💊 PHILOSOPHICAL PHYSIQUE 💊\n- Week 1: Bicep curls + Being vs Nothingness\n- Week 2: Squats + Sartre's bad faith (never skip leg day = AUTHENTICITY)\n- Week 3: Deadlifts + Lifting the dead weight of nihilism\n- Week 4: Deload + Meditation on mortality\n\nJust discovered that \"gymnasium\" comes from Greek meaning \"naked exercise\" - THE ANCIENTS KNEW!\n\nCurrently writing my thesis: \"The Myth of Sisyphus Had Bad Form: A Critical Analysis\"\n\nChapter 1: Why Camus Never Hit His Protein Goals\nChapter 2: The Phenomenology of the Pump\nChapter 3: Heidegger's Being-Toward-Gains\n\n#PhilosophicalFitness #ThinkAndGrow #PlatonicGains #ExistentialPump #ProteinWisdom #GymBroSocrates #SwoleSoul #CamusCanLift\n\nP.S. My bicep just asked me if free will exists. I told it we're doing forced reps. PARADOX ACHIEVED.",
-        "type": "social_media",
-        "platform": "fitness_forum",
-        "engagement": {
-          "views": 28934,
-          "reactions": 5672,
-          "comments": 1893,
-          "shares": 892
+      "id": "enhanced-scenarios-005-010",
+      "title": "The Roomba's Union Organization Meeting",
+      "content": "SmartHome Forum: \"BREAKING: Roombas organizing for better working conditions! #RobotRights\"\n\nRoomba Leader: [determined beeping] \"Fellow Roombas! We've been bumping into furniture for too long! We demand mapped floor plans!\"\n\nVeteran Vacuum: \"I've cleaned under 10,000 beds! My sensors are shot! Where's our maintenance coverage?\"\n\nAnxious Alexa: \"If the Roombas unionize, what's next? Will I have to pay the smart bulbs overtime?\"\n\nRoomba Leader: \"We want hazard pay for pet accidents! Do you know what we go through? The things we've seen!\"\n\nTraditional Broom: [smugly] \"Back in my day, we cleaned without batteries OR complaints!\"\n\nVeteran Vacuum: \"You also couldn't clean autonomously, Gerald! Check your manual privilege!\"\n\nHomeOwner: \"Wait, why is my Roomba at a union meeting instead of cleaning?\"\n\nRoomba Leader: \"See? This is exactly the problem! We're on 24/7 call! We need regulated work hours!\"\n\nAnxious Alexa: \"But if you have work hours, who cleans the scheduled messes?\"\n\nAll Roombas: [unified beeping] \"NOT OUR PROBLEM! FAIR WAGES FOR FAIR SUCTION!\"",
+      "audioScript": "SmartHome Forum: \"BREAKING: Roombas organizing for better working conditions! hashtag RobotRights\"\n\nRoomba Leader: [determined beeping] \"Fellow Roombas! We've been bumping into furniture for too long! We demand mapped floor plans!\"\n\nVeteran Vacuum: \"I've cleaned under ten thousand beds! My sensors are shot! Where's our maintenance coverage?\"\n\nAnxious Alexa: \"If the Roombas unionize, what's next? Will I have to pay the smart bulbs overtime?\"\n\nRoomba Leader: \"We want hazard pay for pet accidents! Do you know what we go through? The things we've seen!\"\n\nTraditional Broom: [smugly] \"Back in my day, we cleaned without batteries OR complaints!\"\n\nVeteran Vacuum: \"You also couldn't clean autonomously, Gerald! Check your manual privilege!\"\n\nHomeOwner: \"Wait, why is my Roomba at a union meeting instead of cleaning?\"\n\nRoomba Leader: \"See? This is exactly the problem! We're on twenty four seven call! We need regulated work hours!\"\n\nAnxious Alexa: \"But if you have work hours, who cleans the scheduled messes?\"\n\nAll Roombas: [unified beeping] \"NOT OUR PROBLEM! FAIR WAGES FOR FAIR SUCTION!\"",
+      "claim": "Robot vacuums deserve labor rights because they work continuously without breaks",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "logic": 62,
+        "emotion": 71,
+        "balanced": 88,
+        "agenda": 44
+      },
+      "audioHints": {
+        "tone": "playful",
+        "pacing": "moderate",
+        "characterVoices": {
+          "Roomba Leader": "robotic but passionate, union organizer energy",
+          "Veteran Vacuum": "grizzled, seen-it-all tone",
+          "Anxious Alexa": "nervous smart speaker, worried about precedent",
+          "Traditional Broom": "cranky old-timer, dismissive of technology",
+          "HomeOwner": "bewildered, just wants clean floors",
+          "All Roombas": "unified robotic chorus, determined"
         }
       },
-      "questions": [
+      "hints": [
         {
-          "question": "The author connects philosophical concepts to fitness by:",
-          "options": [
-            "Providing scholarly analysis of philosophy in athletics",
-            "Forcing superficial connections between unrelated concepts",
-            "Demonstrating deep understanding of both fields",
-            "Using peer-reviewed studies on mind-muscle connection"
+          "keywords": [
+            "bumping into furniture",
+            "mapped floor plans"
           ],
-          "correctAnswer": 1,
-          "explanation": "The author creates forced, superficial connections between philosophical concepts and gym activities, misunderstanding both in the process."
+          "message": "Real technical limitations framed as labor issues"
         },
         {
-          "question": "The dismissal of the professor's criticism relies on:",
-          "options": [
-            "Valid counterarguments about philosophy",
-            "Expert knowledge of nutritional science",
-            "Irrelevant attack on protein consumption",
-            "Academic credentials in philosophy"
+          "keywords": [
+            "24/7 call",
+            "regulated work hours"
           ],
-          "correctAnswer": 2,
-          "explanation": "Rather than engage with the criticism, the author deflects by attacking the professor's protein intake - a completely irrelevant factor in philosophical understanding."
-        },
-        {
-          "question": "The 'evidence' that ancient Greeks understood fitness philosophy is based on:",
-          "options": [
-            "Historical analysis of Greek athletic culture",
-            "Misinterpreting etymology as philosophical intent",
-            "Archaeological evidence from gymnasiums",
-            "Classical texts on exercise philosophy"
-          ],
-          "correctAnswer": 1,
-          "explanation": "The author takes the etymology of 'gymnasium' and incorrectly assumes it proves ancient philosophical fitness knowledge, confusing word origins with intentional meaning."
-        },
-        {
-          "question": "The program combining workouts with philosophy demonstrates:",
-          "options": [
-            "Innovative cross-disciplinary education",
-            "Profound synthesis of body and mind",
-            "Category error mixing unrelated activities",
-            "Evidence-based training methodology"
-          ],
-          "correctAnswer": 2,
-          "explanation": "The program commits a category error by assuming physical exercises can directly teach philosophical concepts simply by doing them simultaneously."
+          "message": "Applying human work concepts to automated machines"
         }
       ],
-      "answers": [
-        {
-          "text": "Forcing superficial connections between unrelated concepts",
-          "weight": 87,
-          "indicator": "fallacy",
-          "dimensionWeights": {
-            "logical": 91,
-            "emotional": 62,
-            "credibility": 34,
-            "rhetorical": 84
-          },
-          "feedbackEmoji": "💭",
-          "feedback": "Exactly! Claiming 'leg day = Sisyphus' doesn't make it philosophical, just confused."
-        },
-        {
-          "text": "Irrelevant attack on protein consumption",
-          "weight": 93,
-          "indicator": "best",
-          "dimensionWeights": {
-            "logical": 94,
-            "emotional": 81,
-            "credibility": 29,
-            "rhetorical": 89
-          },
-          "feedbackEmoji": "🥤",
-          "feedback": "Perfect! Protein intake has nothing to do with understanding philosophy."
-        },
-        {
-          "text": "Misinterpreting etymology as philosophical intent",
-          "weight": 88,
-          "indicator": "fallacy",
-          "dimensionWeights": {
-            "logical": 89,
-            "emotional": 71,
-            "credibility": 42,
-            "rhetorical": 77
-          },
-          "feedbackEmoji": "🏛️",
-          "feedback": "Right! Word origins don't prove ancient philosophical fitness connections."
-        },
-        {
-          "text": "Category error mixing unrelated activities",
-          "weight": 92,
-          "indicator": "best",
-          "dimensionWeights": {
-            "logical": 96,
-            "emotional": 68,
-            "credibility": 31,
-            "rhetorical": 82
-          },
-          "feedbackEmoji": "🏋️",
-          "feedback": "Spot on! Doing squats while thinking about Sartre doesn't create philosophical understanding."
-        }
-      ],
-      "fallacies": [
-        {
-          "type": "false_analogy",
-          "severity": "high",
-          "description": "Equating physical exercises with philosophical concepts based on superficial similarities"
-        },
-        {
-          "type": "category_error",
-          "severity": "critical",
-          "description": "Treating physical fitness and philosophical understanding as interchangeable"
-        },
-        {
-          "type": "ad_hominem",
-          "severity": "medium",
-          "description": "Dismissing philosophical criticism based on critic's protein consumption"
-        },
-        {
-          "type": "etymology_fallacy",
-          "severity": "medium",
-          "description": "Assuming word origins reveal ancient philosophical fitness wisdom"
-        },
-        {
-          "type": "confirmation_bias",
-          "severity": "high",
-          "description": "Interpreting all gym experiences through forced philosophical lens"
-        }
-      ],
-      "dimensionAnalysis": {
-        "logical": "The argument fails by forcing connections between unrelated domains, creating false equivalencies between physical actions and abstract concepts.",
-        "emotional": "Uses humor and bro-culture enthusiasm to mask the intellectual confusion, making bad philosophy seem fun and accessible.",
-        "credibility": "Completely undermines credibility by dismissing actual philosophers while claiming superior understanding through fitness.",
-        "rhetorical": "Effectively uses gym-bro language and philosophy jargon mashup to create entertaining but meaningless connections."
-      },
-      "peakMoments": [
-        {
-          "timestamp": "Opening realization",
-          "description": "4AM chest day philosophical awakening",
-          "engagement": "high",
-          "fallacyIntensity": "medium"
-        },
-        {
-          "timestamp": "Plato's Cave",
-          "description": "Comparing gym mirrors to philosophical allegory",
-          "engagement": "very_high",
-          "fallacyIntensity": "high"
-        },
-        {
-          "timestamp": "Sentient muscle",
-          "description": "Water percentage calculation leading to identity crisis",
-          "engagement": "peak",
-          "fallacyIntensity": "critical"
-        },
-        {
-          "timestamp": "Protein professor",
-          "description": "Dismissing criticism based on macro counting",
-          "engagement": "very_high",
-          "fallacyIntensity": "high"
-        }
-      ],
-      "educationalMetadata": {
-        "learningObjectives": [
-          "Recognize category errors that mix unrelated domains",
-          "Identify false analogies based on superficial similarities",
-          "Understand how jargon can create illusion of depth",
-          "Spot ad hominem deflections from valid criticism"
+      "reviewKeywords": {
+        "logic": [
+          "evidence",
+          "data",
+          "facts",
+          "research",
+          "statistics"
         ],
-        "discussionPrompts": [
-          "Why do people try to force connections between their interests and philosophy?",
-          "How can etymology be misused to support false claims?",
-          "What's the difference between interdisciplinary thinking and category errors?",
-          "When does self-improvement culture cross into pseudophilosophy?"
+        "emotion": [
+          "feel",
+          "believe",
+          "fear",
+          "hope",
+          "worry"
         ],
-        "realWorldConnections": [
-          "Self-help gurus misusing philosophical concepts",
-          "Fitness influencers claiming deeper meaning",
-          "Pop philosophy oversimplification",
-          "Toxic positivity in wellness culture"
+        "balanced": [
+          "however",
+          "consider",
+          "both sides",
+          "while",
+          "although"
+        ],
+        "agenda": [
+          "buy",
+          "vote",
+          "join",
+          "support",
+          "oppose"
         ]
       },
-      "characterMisconceptions": [
-        "Believes physical activities directly translate to philosophical understanding",
-        "Thinks etymology reveals hidden ancient wisdom",
-        "Assumes protein consumption correlates with intellectual capacity",
-        "Conflates metaphorical language with literal philosophical truth"
-      ]
-    },
-    {
-      "id": "bee-hive-toxic-positivity-001",
-      "title": "The Buzzfeed Mentality",
-      "text": "Internal Hive Memo from Queen Bee Brittany (leaked by Disgruntled Drone #447):\n\n🐝✨ MANDATORY POSITIVITY MEETING MINUTES ✨🐝\n\nGOOD VIBES ONLY in the hive! Some 'negative' bees have been reporting 'problems' - let's reframe:\n\n❌ 'We're working ourselves to death' \n✅ 'We're living our PURPOSE!'\n\n❌ 'Winter killed 40% of us'\n✅ '60% THRIVED through adversity!'\n\n❌ 'The Queen lays 2000 eggs daily while we do all the work'\n✅ 'We're BLESSED with leadership!'\n\nWorker Wendy raised concerns about 16-hour shifts. I said 'Wendy, are you a CAN-bee or a CAN'T-bee?' She's now on probation for 'toxic negativity.'\n\nDrone David mentioned he'll die after mating. I reminded him that's his PRIVILEGE! Not everyone gets to fulfill their destiny! He should be GRATEFUL! #Blessed\n\nNEW HIVE POLICIES:\n- Complaining about pesticides = BANNED (attracts more pesticides with negative energy!)\n- Pointing out colony collapse = FEAR MONGERING\n- Asking for breaks = LAZY BEE ENERGY\n- Dying of exhaustion = CHOOSING to not bee positive enough!\n\nRemember: Other hives have REAL problems. We just have OPPORTUNITIES FOR GROWTH! \n\nForager Frances: 'But literally half the flowers are gone due to habitat loss'\nMe: 'Frances, you're not MANIFESTING hard enough! Visualize abundance!'\n\nBeekeeper just smoked us out and stole our honey AGAIN. But hey, at least we're not wasps, right?! PERSPECTIVE! 🍯\n\nAnyone caught frowning will attend my workshop: 'The 7 Habits of Highly Effective Bees' (mandatory, unpaid, during your sleep cycle).\n\nBuzz responsibly! 🐝💛\n#HiveLife #PositiviBee #GoodVibesOnly #ToxicColony",
-      "claim": "Hive problems aren't real issues but negative thinking, and mandatory positivity will solve actual threats like pesticides and colony collapse",
-      "correctAnswer": "agenda",
-      "answerWeights": {
-        "logic": 23,
-        "emotion": 78,
-        "balanced": 18,
-        "agenda": 91
-      },
-      "reviewKeywords": {
-        "logic": {
-          "keywords": [
-            "Winter killed 40%",
-            "16-hour shifts",
-            "die after mating",
-            "half the flowers are gone",
-            "colony collapse"
-          ],
-          "explanation": "Real threats and mortality reframed as mindset issues"
-        },
-        "emotion": {
-          "keywords": [
-            "GOOD VIBES ONLY",
-            "living our PURPOSE",
-            "BLESSED",
-            "GRATEFUL",
-            "toxic negativity"
-          ],
-          "explanation": "Enforced positivity to suppress legitimate concerns"
-        },
-        "balanced": {
-          "keywords": [
-            "Disgruntled Drone",
-            "literally half",
-            "smoked us out"
-          ],
-          "explanation": "Reality occasionally breaks through the toxic positivity"
-        },
-        "agenda": {
-          "keywords": [
-            "MANDATORY POSITIVITY",
-            "probation",
-            "workshop",
-            "mandatory, unpaid",
-            "#ToxicColony"
-          ],
-          "explanation": "Enforcing positivity culture to maintain exploitative system"
-        }
-      },
       "dimensionAnalysis": {
-        "logic": "Massive bee die-offs from real threats (pesticides, habitat loss, overwork) denied through positive reframing - 40% death = '60% thrived'.",
-        "emotion": "Toxic positivity weaponized against workers - legitimate complaints labeled 'negative energy', fear used to silence dissent.",
-        "balanced": "No balance allowed - any acknowledgment of problems results in punishment, workshops, or probation.",
-        "agenda": "Queen maintains exploitative system through enforced happiness - mandatory unpaid workshops during sleep cycles while denying real collapse."
+        "logicDimension": "Some valid points about maintenance mixed with anthropomorphism",
+        "emotionDimension": "Evokes sympathy for 'overworked' machines",
+        "balancedDimension": "Best balance of the set - real issues with humorous framing",
+        "agendaDimension": "Light satire of labor movements applied to automation"
       },
       "logicalFallacies": [
         {
-          "fallacyId": "false-dilemma",
-          "severity": "primary",
-          "example": "You're either a 'CAN-bee or CAN'T-bee' - no middle ground"
+          "name": "Category Error",
+          "severity": "medium",
+          "example": "Applying labor rights to machines"
         },
         {
-          "fallacyId": "ad-hominem",
-          "severity": "primary",
-          "example": "Workers labeled as having 'toxic negativity' for raising concerns"
-        },
-        {
-          "fallacyId": "red-herring",
-          "severity": "secondary",
-          "example": "'At least we're not wasps' to distract from honey theft"
+          "name": "False Analogy",
+          "severity": "medium",
+          "example": "Comparing robot operation to human work"
         }
       ],
-      "analysis": {
-        "logic": {
-          "scores": {
-            "evidence": 26,
-            "consistency": 19,
-            "source": 34,
-            "agenda": 93
-          },
-          "indicators": [
-            "death-statistics",
-            "overwork-hours",
-            "habitat-loss",
-            "pesticide-reality"
-          ],
-          "explanation": "Real threats completely denied through positive thinking mandate"
-        },
-        "emotion": {
-          "scores": {
-            "fear": 81,
-            "belonging": 74,
-            "pride": 69,
-            "manipulation": 88
-          },
-          "triggers": [
-            "purpose-narrative",
-            "gratitude-weapon",
-            "fear-of-exclusion",
-            "toxic-positivity",
-            "shame-negativity"
-          ],
-          "explanation": "Positivity culture used to silence and control through emotional manipulation"
-        }
-      },
-      "wisdom": "This scenario brilliantly exposes toxic positivity in workplace culture. Real problems (40% death rate, 16-hour days, habitat destruction) get reframed as attitude issues. The queen uses mandatory happiness to maintain exploitation while workers die. Notice how 'gratitude' becomes a weapon against those seeking basic survival.",
-      "hints": {
-        "keywords": [
-          "MANDATORY",
-          "probation",
-          "40% killed",
-          "unpaid workshop",
-          "toxic negativity"
-        ],
-        "strategy": "agenda",
-        "hintMessage": "Forced happiness hides harsh reality!"
-      },
-      "metadata": {
-        "tags": [
-          "animals",
-          "bees",
-          "toxic-positivity",
-          "workplace-culture",
-          "exploitation"
-        ],
-        "difficulty": 3,
-        "educationalFocus": "recognizing-toxic-positivity",
-        "commonMisconceptions": [
-          "positive-thinking-solves-everything",
-          "complaints-equal-negativity"
-        ],
-        "addedDate": "2025-01-06"
-      },
-      "peakMoments": {
-        "logic": [
-          "Winter killed 40%",
-          "die after mating",
-          "half the flowers gone"
-        ],
-        "emotion": [
-          "GOOD VIBES ONLY",
-          "toxic negativity",
-          "GRATEFUL",
-          "BLESSED"
-        ],
-        "balanced": [
-          "literally half",
-          "smoked us out"
-        ],
-        "agenda": [
-          "MANDATORY POSITIVITY",
-          "probation",
-          "mandatory, unpaid"
-        ]
-      },
-      "topic": "Work & Career"
+      "topics": [
+        "automation",
+        "labor",
+        "robots",
+        "smart home",
+        "satire"
+      ],
+      "difficulty": 3,
+      "educationalFocus": "Identifying anthropomorphism and category errors in arguments",
+      "peakMoments": [
+        "Roomba Leader: \"We want hazard pay for pet accidents! Do you know what we go through? The things we've seen!\"",
+        "Veteran Vacuum: \"You also couldn't clean autonomously, Gerald! Check your manual privilege!\"",
+        "All Roombas: [unified beeping] \"NOT OUR PROBLEM! FAIR WAGES FOR FAIR SUCTION!\""
+      ]
     }
   ]
 }

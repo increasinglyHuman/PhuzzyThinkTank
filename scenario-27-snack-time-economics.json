@@ -1,0 +1,157 @@
+{
+  "id": "snack-time-monopoly-001",
+  "title": "The Goldfish Cartel",
+  "text": "Ms. Johnson's Class - The Great Snack Time Economic Collapse of Tuesday:\n\nCEO CHARLOTTE (5): Welcome to Charlotte's Snack Exchange! Today's rates:\n- 3 goldfish = 1 fruit snack\n- 2 fruit snacks = 1 string cheese\n- String cheese = PRICELESS (I'm hoarding them)\n\nTRADER LIAM: That's not fair! Yesterday it was 2 goldfish for 1 fruit snack!\n\nCHARLOTTE: INFLATION, Liam! Also, I control the goldfish supply. *Shows massive ziploc bag*\n\nWHISTLEBLOWER EMMA: Charlotte's mom packed her FIVE bags! She's created a MONOPOLY!\n\nCHARLOTTE: It's called SMART BUSINESS! Read my book: 'The Art of the Snack Deal' (crayons, 47 pages, mostly pictures)\n\nREBEL LEADER JAMES: We should start our own economy! Carrots will be our currency!\n\nCHARLOTTE: CARROTS?! *laughs maniacally* Nobody wants vegetables! I'll CRUSH your rebellion!\n\nUNION REP SOPHIA: The working class demands equal snack distribution! Why should Charlotte have all the cheese?!\n\nCHARLOTTE: Because I thought ahead! While you were playing blocks, I was studying SNACK MARKETS!\n\n*Black market forms by the reading corner*\nDEALER MASON: *whispers* Psst... got some underground apple slices...\n\nMS. JOHNSON: Snack time is for eating, not economics—\n\nCHARLOTTE: SILENCE! The market has spoken! *Raises fruit snack prices to 5 goldfish*\n\nTHE CRASH: Oliver eats his entire lunch, flooding market with pudding cups\n\nCHARLOTTE: *watching empire crumble* This is pudding manipulation! MARKET INTERFERENCE!\n\nEveryone switches to pudding currency. Charlotte left with 47 bags of goldfish nobody wants.\n\n#SnackStreetBets #GoldfishCrash #PuddingStandard #KindergartenCapitalism",
+  "claim": "Controlling the goldfish supply creates legitimate market dynamics that justify snack inequality in kindergarten",
+  "correctAnswer": "logic",
+  "answerWeights": {
+    "logic": 88,
+    "emotion": 67,
+    "balanced": 12,
+    "agenda": 85
+  },
+  "reviewKeywords": {
+    "logic": {
+      "keywords": [
+        "3 goldfish = 1 fruit",
+        "INFLATION",
+        "supply",
+        "market",
+        "currency"
+      ],
+      "explanation": "Five-year-old applying complex economic theory to snacks"
+    },
+    "emotion": {
+      "keywords": [
+        "not fair",
+        "MONOPOLY",
+        "CRUSH rebellion",
+        "empire crumble",
+        "nobody wants"
+      ],
+      "explanation": "Emotional responses to snack-based power dynamics"
+    },
+    "balanced": {
+      "keywords": [
+        "eating not economics",
+        "pudding cups"
+      ],
+      "explanation": "Teacher's wisdom ignored, pudding destroys system"
+    },
+    "agenda": {
+      "keywords": [
+        "Snack Exchange",
+        "SMART BUSINESS",
+        "Art of Snack Deal",
+        "studying MARKETS",
+        "hoarding"
+      ],
+      "explanation": "Creating capitalist system to control snack distribution"
+    }
+  },
+  "dimensionAnalysis": {
+    "logic": "Kindergartener creating complex market economy - exchange rates, inflation, monopoly control, black markets, currency collapse from pudding.",
+    "emotion": "Power dynamics through snacks - Charlotte's maniacal laughter, crushing rebellions, empire imagery over goldfish crackers.",
+    "balanced": "Teacher's simple truth ignored - 'snack time is for eating' dismissed as market interference, system collapses anyway.",
+    "agenda": "Five-year-old running snack cartel - hoarding string cheese, controlling goldfish supply, writing 47-page crayon business book."
+  },
+  "logicalFallacies": [
+    {
+      "fallacyId": "false-analogy",
+      "severity": "primary",
+      "example": "Snack trading equals complex market economics"
+    },
+    {
+      "fallacyId": "appeal-to-consequences",
+      "severity": "twisted",
+      "example": "Controlling goldfish justifies snack inequality"
+    },
+    {
+      "fallacyId": "circular-reasoning",
+      "severity": "secondary",
+      "example": "Has monopoly because smart, smart because has monopoly"
+    }
+  ],
+  "analysis": {
+    "logic": {
+      "scores": {
+        "evidence": 21,
+        "consistency": 17,
+        "source": 29,
+        "agenda": 91
+      },
+      "indicators": [
+        "exchange-rates",
+        "inflation-claims",
+        "market-language",
+        "currency-collapse"
+      ],
+      "explanation": "Complex economic concepts misapplied to snack sharing"
+    },
+    "emotion": {
+      "scores": {
+        "fear": 71,
+        "belonging": 75,
+        "pride": 83,
+        "manipulation": 80
+      },
+      "triggers": [
+        "resource-control",
+        "fairness-violation",
+        "power-dynamics",
+        "empire-fantasy",
+        "market-crash"
+      ],
+      "explanation": "Snack hoarding creates real distress and power struggles"
+    }
+  },
+  "wisdom": "This perfectly satirizes how children mimic adult economic systems without understanding them. Charlotte's goldfish monopoly and 'Art of the Snack Deal' shows how kids absorb capitalist language. The pudding crash destroying her empire illustrates how artificial scarcity fails when alternatives exist.",
+  "hints": {
+    "keywords": [
+      "INFLATION",
+      "studying MARKETS",
+      "pudding cups",
+      "eating not economics",
+      "47 bags nobody wants"
+    ],
+    "strategy": "logic",
+    "hintMessage": "Snacks aren't stocks!"
+  },
+  "metadata": {
+    "tags": [
+      "kindergarten",
+      "snack-economics",
+      "child-capitalism",
+      "market-crash",
+      "goldfish-currency"
+    ],
+    "difficulty": 2,
+    "educationalFocus": "recognizing-false-economics",
+    "commonMisconceptions": [
+      "scarcity-equals-value",
+      "hoarding-equals-success"
+    ],
+    "addedDate": "2025-01-06"
+  },
+  "peakMoments": {
+    "logic": [
+      "3 goldfish = 1 fruit",
+      "INFLATION",
+      "currency"
+    ],
+    "emotion": [
+      "MONOPOLY",
+      "CRUSH rebellion",
+      "empire crumble"
+    ],
+    "balanced": [
+      "eating not economics",
+      "pudding flood"
+    ],
+    "agenda": [
+      "Snack Exchange",
+      "studying MARKETS",
+      "hoarding"
+    ]
+  }
+}

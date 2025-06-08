@@ -1,0 +1,27 @@
+{
+  "version": "2.0.0",
+  "packInfo": {
+    "packId": "test-pack",
+    "packName": "Test Pack",
+    "author": "Test",
+    "description": "Testing topic fields",
+    "topic": "Test Topic",
+    "category": "Test Category"
+  },
+  "scenarios": [
+    {
+      "id": "test-001",
+      "title": "Test Scenario",
+      "text": "Test content...",
+      "topic": "Test Scenario Topic",
+      "claim": "Test claim",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "logic": 50,
+        "emotion": 50,
+        "balanced": 100,
+        "agenda": 0
+      }
+    }
+  ]
+}

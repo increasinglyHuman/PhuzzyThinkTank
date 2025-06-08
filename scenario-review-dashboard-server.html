@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phuzzy Scenario Review Dashboard</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .controls {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+            height: calc(100vh - 300px);
+        }
+        
+        .scenario-list {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow-y: auto;
+            padding: 1rem;
+        }
+        
+        .scenario-item {
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .scenario-item:hover {
+            border-color: #667eea;
+            transform: translateX(4px);
+        }
+        
+        .scenario-item.active {
+            background: #f7f9ff;
+            border-color: #667eea;
+        }
+        
+        .scenario-item.approved {
+            border-left: 4px solid #48bb78;
+        }
+        
+        .scenario-item.revision-needed {
+            border-left: 4px solid #f6ad55;
+        }
+        
+        .scenario-item.rejected {
+            border-left: 4px solid #fc8181;
+        }
+        
+        .scenario-detail {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 2rem;
+            overflow-y: auto;
+        }
+        
+        .audio-player {
+            background: #f7f9ff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .audio-controls {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .audio-button {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            background: #667eea;
+            color: white;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+        
+        .audio-button:hover {
+            background: #5a67d8;
+            transform: translateY(-1px);
+        }
+        
+        .audio-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .content-section {
+            margin-bottom: 2rem;
+        }
+        
+        .content-section h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .display-content, .audio-script {
+            background: #f7f9ff;
+            padding: 1rem;
+            border-radius: 6px;
+            white-space: pre-wrap;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .character-voices {
+            display: grid;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .voice-item {
+            background: #e2e8f0;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .multi-voice-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: #f0f7ff;
+            border: 2px solid #667eea;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+        
+        .multi-voice-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .multi-voice-checkbox input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        
+        .approval-section {
+            background: #f7f9ff;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        
+        .approval-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn-approve {
+            background: #48bb78;
+        }
+        
+        .btn-revision {
+            background: #f6ad55;
+        }
+        
+        .btn-reject {
+            background: #fc8181;
+        }
+        
+        .feedback-form {
+            display: none;
+        }
+        
+        .feedback-form.active {
+            display: block;
+        }
+        
+        .feedback-textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            resize: vertical;
+        }
+        
+        .stats-bar {
+            background: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #718096;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid #e2e8f0;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .filter-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #718096;
+        }
+        
+        .error {
+            background: #fed7d7;
+            color: #c53030;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+        
+        .info-box {
+            background: #e6fffa;
+            border: 1px solid #81e6d9;
+            color: #234e52;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+        
+        .new-badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-left: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .scenario-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .scenario-list {
+                max-height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>🎭 Phuzzy Scenario Review Dashboard</h1>
+            <p>Review, approve, and provide feedback on generated scenarios</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-value" id="stat-total">0</div>
+                <div class="stat-label">Total Scenarios</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="stat-pending">0</div>
+                <div class="stat-label">Pending Review</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="stat-approved">0</div>
+                <div class="stat-label">Approved</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="stat-revision">0</div>
+                <div class="stat-label">Needs Revision</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="stat-rejected">0</div>
+                <div class="stat-label">Rejected</div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="new">New Only</button>
+                <button class="filter-btn" data-filter="pending">Pending</button>
+                <button class="filter-btn" data-filter="approved">Approved</button>
+                <button class="filter-btn" data-filter="revision">Needs Revision</button>
+                <button class="filter-btn" data-filter="rejected">Rejected</button>
+            </div>
+            <button class="audio-button" onclick="exportApprovalData()">Export Approval Data</button>
+            <button class="audio-button" onclick="refreshScenarios()">Refresh</button>
+        </div>
+        
+        <div class="scenario-grid">
+            <div class="scenario-list" id="scenario-list">
+                <div class="loading">Loading scenarios...</div>
+            </div>
+            
+            <div class="scenario-detail" id="scenario-detail">
+                <div class="loading">Select a scenario to review</div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Mark new scenarios
+        const NEW_SCENARIO_IDS = [
+            'enhanced-scenarios-001-008',
+            'enhanced-scenarios-001-009', 
+            'enhanced-scenarios-001-010',
+            'enhanced-scenarios-005-009',
+            'enhanced-scenarios-005-010'
+        ];
+        
+        // Global state
+        let scenarios = [];
+        let currentScenario = null;
+        let currentFilter = 'all';
+        let approvalData = {};
+        
+        // Load approval data from localStorage
+        function loadApprovalData() {
+            const saved = localStorage.getItem('phuzzy-approval-data');
+            if (saved) {
+                approvalData = JSON.parse(saved);
+            }
+        }
+        
+        // Save approval data to localStorage
+        function saveApprovalData() {
+            localStorage.setItem('phuzzy-approval-data', JSON.stringify(approvalData));
+            updateStats();
+        }
+        
+        // Load scenarios from the packs
+        async function loadScenarios() {
+            try {
+                scenarios = [];
+                
+                // Use relative path since we're already in temp folder
+                const basePath = './data/scenario-packs/';
+                
+                // Load each pack file
+                for (let i = 0; i <= 6; i++) {
+                    const packId = String(i).padStart(3, '0');
+                    try {
+                        const response = await fetch(`${basePath}scenario-generated-${packId}.json`);
+                        if (response.ok) {
+                            const packData = await response.json();
+                            scenarios = scenarios.concat(packData.scenarios.map(s => ({
+                                ...s,
+                                packId: packId,
+                                isNew: NEW_SCENARIO_IDS.includes(s.id)
+                            })));
+                        }
+                    } catch (err) {
+                        console.log(`Pack ${packId} not found or error loading:`, err);
+                    }
+                }
+                
+                if (scenarios.length === 0) {
+                    document.getElementById('scenario-list').innerHTML = 
+                        '<div class="error">No scenarios found. Make sure this file is in the correct directory on your Apache server.</div>';
+                    return;
+                }
+                
+                displayScenarioList();
+                updateStats();
+                
+                // If filter is set to "new", auto-select first new scenario
+                if (currentFilter === 'new' && scenarios.some(s => s.isNew)) {
+                    const firstNew = scenarios.find(s => s.isNew);
+                    if (firstNew) selectScenario(firstNew.id);
+                }
+                
+            } catch (error) {
+                console.error('Error loading scenarios:', error);
+                document.getElementById('scenario-list').innerHTML = 
+                    '<div class="error">Error loading scenarios. Check console for details.</div>';
+            }
+        }
+        
+        // Display scenario list
+        function displayScenarioList() {
+            const listEl = document.getElementById('scenario-list');
+            
+            const filteredScenarios = scenarios.filter(scenario => {
+                const status = approvalData[scenario.id]?.status || 'pending';
+                if (currentFilter === 'new') return scenario.isNew;
+                return currentFilter === 'all' || status === currentFilter;
+            });
+            
+            if (filteredScenarios.length === 0) {
+                listEl.innerHTML = '<div class="loading">No scenarios match the current filter</div>';
+                return;
+            }
+            
+            listEl.innerHTML = filteredScenarios.map(scenario => {
+                const status = approvalData[scenario.id]?.status || 'pending';
+                const statusClass = status === 'approved' ? 'approved' : 
+                                   status === 'revision' ? 'revision-needed' : 
+                                   status === 'rejected' ? 'rejected' : '';
+                const multiChar = detectMultiCharacter(scenario);
+                
+                return `
+                    <div class="scenario-item ${statusClass}" onclick="selectScenario('${scenario.id}')">
+                        <div style="font-weight: bold; margin-bottom: 0.25rem;">
+                            ${scenario.title || 'Untitled Scenario'}
+                            ${scenario.isNew ? '<span class="new-badge">NEW</span>' : ''}
+                            ${multiChar.isMultiChar ? '<span title="Multi-character scenario" style="margin-left: 0.5rem;">🎭</span>' : ''}
+                        </div>
+                        <div style="font-size: 0.85rem; color: #718096;">
+                            Pack ${scenario.packId} • ${status.charAt(0).toUpperCase() + status.slice(1)}
+                            ${approvalData[scenario.id]?.requestMultiVoice ? ' • 🎯 Multi-voice requested' : ''}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        // Select and display scenario details
+        function selectScenario(scenarioId) {
+            currentScenario = scenarios.find(s => s.id === scenarioId);
+            if (!currentScenario) return;
+            
+            // Update active state in list
+            document.querySelectorAll('.scenario-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+            
+            displayScenarioDetail();
+        }
+        
+        // Detect if scenario has multiple characters
+        function detectMultiCharacter(scenario) {
+            const content = scenario.audioScript || scenario.content || '';
+            const characterPattern = /^([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*|[A-Z]+(?:\s+[A-Z]+)*):\s*(.+)$/gm;
+            const matches = [...content.matchAll(characterPattern)];
+            const uniqueCharacters = new Set(matches.map(m => m[1]));
+            return {
+                isMultiChar: uniqueCharacters.size >= 3,
+                characterCount: uniqueCharacters.size,
+                characters: Array.from(uniqueCharacters)
+            };
+        }
+        
+        // Display scenario detail
+        function displayScenarioDetail() {
+            const detailEl = document.getElementById('scenario-detail');
+            const approval = approvalData[currentScenario.id] || {};
+            const multiCharInfo = detectMultiCharacter(currentScenario);
+            
+            detailEl.innerHTML = `
+                ${currentScenario.isNew ? `
+                <div class="info-box">
+                    <strong>🎉 New Scenario!</strong> This is one of the 5 newly generated whimsical scenarios. Audio has not been generated yet.
+                </div>
+                ` : ''}
+                
+                <h2>${currentScenario.title}</h2>
+                <p style="color: #718096; margin-bottom: 1rem;">
+                    ID: ${currentScenario.id} • Pack ${currentScenario.packId}
+                    ${currentScenario.isNew ? ' • <span class="new-badge">NEW</span>' : ''}
+                </p>
+                
+                ${multiCharInfo.isMultiChar ? `
+                <div class="multi-voice-indicator">
+                    <span style="font-size: 1.2rem;">🎭</span>
+                    <strong>Multi-Character Scenario</strong>
+                    <span style="color: #718096;">(${multiCharInfo.characterCount} characters detected)</span>
+                </div>
+                ` : ''}
+                
+                <div class="audio-player">
+                    <h3>🎧 Audio Playback</h3>
+                    ${currentScenario.isNew ? 
+                        '<p style="color: #718096;">Audio files will be generated after approval</p>' :
+                        `<div class="audio-controls">
+                            <button class="audio-button" onclick="playAudio('title')">
+                                Play Title
+                            </button>
+                            <button class="audio-button" onclick="playAudio('content')">
+                                Play Content
+                            </button>
+                            <button class="audio-button" onclick="playAudio('claim')">
+                                Play Claim
+                            </button>
+                            <button class="audio-button" onclick="stopAudio()">
+                                Stop
+                            </button>
+                        </div>`
+                    }
+                    <audio id="audio-player" style="display: none;"></audio>
+                </div>
+                
+                <div class="content-section">
+                    <h3>📱 Display Version</h3>
+                    <div class="display-content">${currentScenario.content || currentScenario.text || 'No content available'}</div>
+                </div>
+                
+                ${currentScenario.audioScript ? `
+                <div class="content-section">
+                    <h3>🎙️ Audio Script</h3>
+                    <div class="audio-script">${currentScenario.audioScript}</div>
+                </div>
+                ` : ''}
+                
+                <div class="content-section">
+                    <h3>💭 Claim</h3>
+                    <div class="display-content">${currentScenario.claim}</div>
+                </div>
+                
+                <div class="content-section">
+                    <h3>📊 Answer Analysis</h3>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                        <div class="voice-item">
+                            <strong>Logic:</strong> ${currentScenario.answerWeights?.logic || 0}%
+                        </div>
+                        <div class="voice-item">
+                            <strong>Emotion:</strong> ${currentScenario.answerWeights?.emotion || 0}%
+                        </div>
+                        <div class="voice-item">
+                            <strong>Balanced:</strong> ${currentScenario.answerWeights?.balanced || 0}%
+                        </div>
+                        <div class="voice-item">
+                            <strong>Agenda:</strong> ${currentScenario.answerWeights?.agenda || 0}%
+                        </div>
+                    </div>
+                    <p style="margin-top: 0.5rem; color: #718096;">
+                        Correct Answer: <strong style="color: #667eea;">${(currentScenario.correctAnswer || 'Not specified').toUpperCase()}</strong>
+                    </p>
+                </div>
+                
+                ${currentScenario.audioHints?.characterVoices ? `
+                <div class="content-section">
+                    <h3>🎭 Character Voices</h3>
+                    <div class="character-voices">
+                        ${Object.entries(currentScenario.audioHints.characterVoices).map(([char, voice]) => `
+                            <div class="voice-item">
+                                <strong>${char}:</strong> ${voice}
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+                ` : ''}
+                
+                <div class="approval-section">
+                    <h3>✅ Approval Status</h3>
+                    <div class="approval-buttons">
+                        <button class="audio-button btn-approve" onclick="setApproval('approved')">
+                            Approve
+                        </button>
+                        <button class="audio-button btn-revision" onclick="setApproval('revision')">
+                            Request Revision
+                        </button>
+                        <button class="audio-button btn-reject" onclick="setApproval('rejected')">
+                            Reject & Replace
+                        </button>
+                    </div>
+                    
+                    <div class="feedback-form ${approval.status === 'revision' || approval.status === 'rejected' ? 'active' : ''}" id="feedback-form">
+                        <textarea class="feedback-textarea" id="feedback-text" 
+                            placeholder="Please provide specific feedback for improvement...">${approval.feedback || ''}</textarea>
+                        
+                        ${!multiCharInfo.isMultiChar ? `
+                        <div class="multi-voice-checkbox">
+                            <input type="checkbox" id="request-multi-voice" 
+                                ${approval.requestMultiVoice ? 'checked' : ''}>
+                            <label for="request-multi-voice">
+                                <strong>Request Multi-Character Rewrite</strong> - Convert this scenario to use multiple distinct character voices
+                            </label>
+                        </div>
+                        ` : ''}
+                        
+                        <button class="audio-button" onclick="saveFeedback()">
+                            Save Feedback
+                        </button>
+                    </div>
+                    
+                    ${approval.status ? `
+                    <div style="margin-top: 1rem; padding: 1rem; background: #f7f9ff; border-radius: 6px;">
+                        <strong>Current Status:</strong> ${approval.status.charAt(0).toUpperCase() + approval.status.slice(1)}<br>
+                        <strong>Last Updated:</strong> ${new Date(approval.timestamp).toLocaleString()}<br>
+                        ${approval.feedback ? `<strong>Feedback:</strong> ${approval.feedback}` : ''}
+                    </div>
+                    ` : ''}
+                </div>
+            `;
+        }
+        
+        // Play audio file
+        function playAudio(type) {
+            const player = document.getElementById('audio-player');
+            
+            // Use pack-based naming for audio folders
+            const packId = currentScenario.packId;
+            
+            // Find scenario index within its pack
+            let indexInPack = 0;
+            const packScenarios = scenarios.filter(s => s.packId === packId);
+            for (let i = 0; i < packScenarios.length; i++) {
+                if (packScenarios[i].id === currentScenario.id) {
+                    indexInPack = i;
+                    break;
+                }
+            }
+            
+            // Create pack-based folder name
+            const folderName = `pack-${packId}-scenario-${String(indexInPack).padStart(3, '0')}`;
+            
+            // Use relative path since we're already in temp folder
+            const basePath = './data/audio-recording-voices-for-scenarios-from-elevenlabs/';
+            
+            // Construct audio file path with new naming
+            const audioPath = `${basePath}${folderName}/${type}.mp3`;
+            
+            // Fallback to old naming if new path doesn't exist
+            const oldFolderNum = String(parseInt(packId) * 10 + indexInPack - 1).padStart(3, '0');
+            const oldAudioPath = `${basePath}scenario-${oldFolderNum}/${type}.mp3`;
+            
+            console.log(`Playing audio: ${currentScenario.title} -> ${audioPath}`);
+            
+            // Try new path first, fall back to old if it fails
+            player.src = audioPath;
+            player.play().catch(error => {
+                console.log('New path failed, trying old naming convention...');
+                player.src = oldAudioPath;
+                return player.play();
+            }).catch(error => {
+                alert(`Audio file not found in either naming convention: ${type}.mp3`);
+                console.error('Audio playback error:', error);
+            });
+        }
+        
+        // Stop audio
+        function stopAudio() {
+            const player = document.getElementById('audio-player');
+            player.pause();
+            player.currentTime = 0;
+        }
+        
+        // Set approval status
+        function setApproval(status) {
+            if (!currentScenario) return;
+            
+            approvalData[currentScenario.id] = {
+                status: status,
+                timestamp: new Date().toISOString(),
+                feedback: approvalData[currentScenario.id]?.feedback || ''
+            };
+            
+            // Show feedback form for revision/rejection
+            const feedbackForm = document.getElementById('feedback-form');
+            if (status === 'revision' || status === 'rejected') {
+                feedbackForm.classList.add('active');
+            } else {
+                feedbackForm.classList.remove('active');
+            }
+            
+            saveApprovalData();
+            displayScenarioList();
+            displayScenarioDetail();
+        }
+        
+        // Save feedback
+        function saveFeedback() {
+            if (!currentScenario) return;
+            
+            const feedback = document.getElementById('feedback-text').value;
+            const requestMultiVoice = document.getElementById('request-multi-voice')?.checked || false;
+            
+            if (!approvalData[currentScenario.id]) {
+                approvalData[currentScenario.id] = {};
+            }
+            
+            approvalData[currentScenario.id].feedback = feedback;
+            approvalData[currentScenario.id].requestMultiVoice = requestMultiVoice;
+            approvalData[currentScenario.id].timestamp = new Date().toISOString();
+            
+            saveApprovalData();
+            alert('Feedback saved!');
+        }
+        
+        // Update statistics
+        function updateStats() {
+            const stats = {
+                total: scenarios.length,
+                pending: 0,
+                approved: 0,
+                revision: 0,
+                rejected: 0
+            };
+            
+            scenarios.forEach(scenario => {
+                const status = approvalData[scenario.id]?.status || 'pending';
+                stats[status]++;
+            });
+            
+            document.getElementById('stat-total').textContent = stats.total;
+            document.getElementById('stat-pending').textContent = stats.pending;
+            document.getElementById('stat-approved').textContent = stats.approved;
+            document.getElementById('stat-revision').textContent = stats.revision;
+            document.getElementById('stat-rejected').textContent = stats.rejected;
+        }
+        
+        // Export approval data
+        function exportApprovalData() {
+            const exportData = {
+                exportDate: new Date().toISOString(),
+                approvals: approvalData,
+                summary: {
+                    total: scenarios.length,
+                    approved: Object.values(approvalData).filter(a => a.status === 'approved').length,
+                    needsRevision: Object.values(approvalData).filter(a => a.status === 'revision').length,
+                    rejected: Object.values(approvalData).filter(a => a.status === 'rejected').length
+                },
+                learningNotes: []
+            };
+            
+            // Compile learning notes from feedback
+            Object.entries(approvalData).forEach(([scenarioId, data]) => {
+                if (data.feedback) {
+                    const scenario = scenarios.find(s => s.id === scenarioId);
+                    exportData.learningNotes.push({
+                        scenarioId,
+                        title: scenario?.title,
+                        status: data.status,
+                        feedback: data.feedback,
+                        timestamp: data.timestamp
+                    });
+                }
+            });
+            
+            // Download as JSON
+            const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `scenario-approvals-${new Date().toISOString().split('T')[0]}.json`;
+            a.click();
+        }
+        
+        // Refresh scenarios
+        function refreshScenarios() {
+            loadScenarios();
+        }
+        
+        // Filter functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set up filter buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    currentFilter = e.target.dataset.filter;
+                    displayScenarioList();
+                });
+            });
+            
+            // Load initial data
+            loadApprovalData();
+            loadScenarios();
+        });
+    </script>
+</body>
+</html>

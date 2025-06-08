@@ -1,0 +1,157 @@
+{
+  "id": "dirtbike-negotiation-001",
+  "title": "The Dirtbike Dissertation",
+  "text": "Transcript from McKenna Family Meeting - 'Why I NEED a Dirtbike' (PowerPoint Included):\n\nKAYLA (12): Mom, Dad, thank you for attending my presentation.\n\n*Dims lights, starts slideshow*\n\nSlide 1: 'DIRTBIKES: An Investment in My Future'\n\nDAD: Kayla, you're 12—\n\nKAYLA: Please hold questions until the end! *clicks frantically*\n\nSlide 2: 'Physical Benefits'\n- Builds core strength (I'll never need a gym membership!)\n- Improves reflexes (could save my life!)\n- Burns 400 calories/hour (healthier than Jessica's horse!)\n\nMOM: Jessica's horse doesn't go 60mph—\n\nKAYLA: ACTUALLY *Slide 3* horses kill 20 people per year! Dirtbikes? Only 19! SAFER!\n\nSlide 4: 'Economic Analysis'\n- Cost: $3,000 (one-time!)\n- Savings: No more asking for rides = gas money saved!\n- Future career: Professional motocross = millions!\n\nDAD: You can't even ride a regular bike without training wheels—\n\nKAYLA: That's because bikes are BORING! I'd learn if they had ENGINES!\n\nSlide 5: 'Social Benefits'\n- All the cool kids have them (peer reviewed by me)\n- Travis said I'd be 'legendary'\n- You want me to have friends, right??\n\nSlide 6: 'Addressing Your "Concerns"'\n- 'It's dangerous' - So is WALKING (people trip!)\n- 'It's expensive' - So was your KITCHEN REMODEL\n- 'You're too young' - Mozart was composing at 5!\n\nMOM: Mozart wasn't doing backflips on a—\n\nKAYLA: *Final slide - picture of her crying* 'Is This What You Want?'\n\nConclusion: Denying me a dirtbike is denying my DESTINY!\n\nQ&A?\n\nDAD: Hard no.\n\nKAYLA: I'll be in my room preparing my rebuttal! THIS ISN'T OVER!\n\n#DirtbikeDreams #PowerPointPersuasion #MotocrossDestiny #TrainingWheelsToThrottles",
+  "claim": "Statistical analysis and PowerPoint prove 12-year-old needs dirtbike for health, safety, and future millionaire motocross career",
+  "correctAnswer": "emotion",
+  "answerWeights": {
+    "logic": 32,
+    "emotion": 86,
+    "balanced": 13,
+    "agenda": 78
+  },
+  "reviewKeywords": {
+    "logic": {
+      "keywords": [
+        "400 calories/hour",
+        "20 people per year",
+        "Cost: $3,000",
+        "peer reviewed",
+        "Statistical"
+      ],
+      "explanation": "Cherry-picked statistics to support predetermined conclusion"
+    },
+    "emotion": {
+      "keywords": [
+        "NEED",
+        "crying picture",
+        "DESTINY",
+        "legendary",
+        "THIS ISN'T OVER"
+      ],
+      "explanation": "Emotional manipulation through PowerPoint"
+    },
+    "balanced": {
+      "keywords": [
+        "can't ride regular bike",
+        "Hard no"
+      ],
+      "explanation": "Parent logic meets immovable pre-teen will"
+    },
+    "agenda": {
+      "keywords": [
+        "Investment in Future",
+        "Professional motocross",
+        "millions",
+        "preparing rebuttal",
+        "PowerPoint"
+      ],
+      "explanation": "Full corporate presentation for toy acquisition"
+    }
+  },
+  "dimensionAnalysis": {
+    "logic": "12-year-old using corporate presentation tactics - cherry-picked safety stats (horses kill 20, dirtbikes 19), false economic analysis, Mozart comparisons.",
+    "emotion": "Emotional manipulation slides - crying picture as final argument, 'denying my DESTINY,' peer pressure from Travis, friendship threats.",
+    "balanced": "Parents' reality check ignored - can't ride bike without training wheels, kitchen remodel comparison dismissed, age concerns met with Mozart.",
+    "agenda": "Full business pitch for recreational vehicle - PowerPoint with economic analysis, rebuttal preparation, treating toy as career investment."
+  },
+  "logicalFallacies": [
+    {
+      "fallacyId": "cherry-picking",
+      "severity": "primary",
+      "example": "Selecting only statistics that support dirtbike safety"
+    },
+    {
+      "fallacyId": "false-equivalence",
+      "severity": "twisted",
+      "example": "Kitchen remodel equals child's dirtbike"
+    },
+    {
+      "fallacyId": "appeal-to-emotion",
+      "severity": "primary",
+      "example": "Crying picture slide as final argument"
+    }
+  ],
+  "analysis": {
+    "logic": {
+      "scores": {
+        "evidence": 36,
+        "consistency": 28,
+        "source": 24,
+        "agenda": 89
+      },
+      "indicators": [
+        "death-statistics",
+        "calorie-counting",
+        "cost-analysis",
+        "training-wheels"
+      ],
+      "explanation": "Pseudo-professional presentation ignoring basic reality"
+    },
+    "emotion": {
+      "scores": {
+        "fear": 75,
+        "belonging": 81,
+        "pride": 88,
+        "manipulation": 83
+      },
+      "triggers": [
+        "peer-pressure",
+        "destiny-denial",
+        "friendship-threats",
+        "legendary-status",
+        "crying-picture"
+      ],
+      "explanation": "Every emotional lever pulled in PowerPoint format"
+    }
+  },
+  "wisdom": "This brilliantly captures pre-teen negotiation tactics meeting parental reality. Kayla's PowerPoint with cherry-picked stats (dirtbikes kill fewer than horses!) and crying selfie finale shows how kids mimic adult persuasion tactics. The training wheels reveal deflating pre-teen logic perfectly.",
+  "hints": {
+    "keywords": [
+      "training wheels",
+      "horses kill 20",
+      "crying picture",
+      "Mozart was 5",
+      "DESTINY"
+    ],
+    "strategy": "emotion",
+    "hintMessage": "PowerPoint won't hide reality!"
+  },
+  "metadata": {
+    "tags": [
+      "pre-teen",
+      "negotiation",
+      "dirtbike-dreams",
+      "powerpoint-kids",
+      "parent-logic"
+    ],
+    "difficulty": 2,
+    "educationalFocus": "recognizing-manipulation-tactics",
+    "commonMisconceptions": [
+      "statistics-prove-anything",
+      "presentation-equals-persuasion"
+    ],
+    "addedDate": "2025-01-06"
+  },
+  "peakMoments": {
+    "logic": [
+      "horses kill 20",
+      "400 calories",
+      "peer reviewed by me"
+    ],
+    "emotion": [
+      "NEED",
+      "crying picture",
+      "DESTINY"
+    ],
+    "balanced": [
+      "training wheels",
+      "Hard no"
+    ],
+    "agenda": [
+      "PowerPoint",
+      "Professional motocross",
+      "preparing rebuttal"
+    ]
+  }
+}

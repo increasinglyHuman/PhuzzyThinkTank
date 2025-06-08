@@ -1,0 +1,154 @@
+{
+  "timestamp": "2025-06-07T03:56:03.992Z",
+  "summary": {
+    "totalAnalyzed": 67,
+    "missingAudio": 32,
+    "withProfanity": 3,
+    "misgenderedVoices": 0,
+    "totalToRegenerate": 33
+  },
+  "details": {
+    "misgendered": [],
+    "profanity": [
+      "024",
+      "063",
+      "066"
+    ],
+    "missing": [
+      {
+        "id": "035",
+        "title": "The Natural Immunity Debate"
+      },
+      {
+        "id": "036",
+        "title": "The Climate Control Conspiracy"
+      },
+      {
+        "id": "037",
+        "title": "The Antarctic Minimalist"
+      },
+      {
+        "id": "038",
+        "title": "The Poodle Park Panic"
+      },
+      {
+        "id": "039",
+        "title": "The Enlightened Carnivore"
+      },
+      {
+        "id": "040",
+        "title": "The Bamboo Prison Dilemma"
+      },
+      {
+        "id": "041",
+        "title": "The Feline Master Plan"
+      },
+      {
+        "id": "042",
+        "title": "The Spawning Grindset"
+      },
+      {
+        "id": "043",
+        "title": "The Eight-Armed Burnout"
+      },
+      {
+        "id": "044",
+        "title": "Spinning to Success"
+      },
+      {
+        "id": "045",
+        "title": "Just Be Yourself (But Better)"
+      },
+      {
+        "id": "046",
+        "title": "The Canon Crusades"
+      },
+      {
+        "id": "047",
+        "title": "The Retcon Rebellion"
+      },
+      {
+        "id": "048",
+        "title": "Timeline Truthers Unite"
+      },
+      {
+        "id": "049",
+        "title": "The Accuracy Inquisition"
+      },
+      {
+        "id": "050",
+        "title": "The Playground Tribunal"
+      },
+      {
+        "id": "051",
+        "title": "The Goodie Bag Crisis"
+      },
+      {
+        "id": "052",
+        "title": "The Goldfish Cartel"
+      },
+      {
+        "id": "053",
+        "title": "The Organic Gossip Network"
+      },
+      {
+        "id": "054",
+        "title": "The Great Office Plant Uprising"
+      },
+      {
+        "id": "055",
+        "title": "Gym Bro Socrates"
+      },
+      {
+        "id": "056",
+        "title": "The Buzzfeed Mentality"
+      },
+      {
+        "id": "057",
+        "title": "The Great Server Merge Panic"
+      },
+      {
+        "id": "058",
+        "title": "My NPC Became Self-Aware"
+      },
+      {
+        "id": "059",
+        "title": "The Speedrun Illuminati"
+      },
+      {
+        "id": "060",
+        "title": "VR Therapy Changed Everything"
+      },
+      {
+        "id": "061",
+        "title": "Quantum Realm Mining Guild"
+      },
+      {
+        "id": "062",
+        "title": "Colony Ship Democracy Crisis"
+      },
+      {
+        "id": "063",
+        "title": "The Loot Table Whistleblower"
+      },
+      {
+        "id": "064",
+        "title": "Mars Colony Class System"
+      },
+      {
+        "id": "065",
+        "title": "Replaced By My AI Clone"
+      },
+      {
+        "id": "066",
+        "title": "Groundhog Raid Day"
+      }
+    ]
+  },
+  "costEstimate": {
+    "scenarios": 33,
+    "estimatedCredits": 99,
+    "standardCost": 29.7,
+    "turboCost": 14.85
+  }
+}

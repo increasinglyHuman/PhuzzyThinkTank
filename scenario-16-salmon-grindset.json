@@ -1,0 +1,158 @@
+{
+  "id": "salmon-upstream-grindset-001",
+  "title": "The Spawning Grindset",
+  "text": "SalmonStreams Podcast Episode #247 - 'Swimming Upstream with CEO Sockeye Sam':\n\nSAM: Welcome spawners! Today's topic: Why 99% of salmon FAIL upstream! Spoiler: They're not GRINDING hard enough! 🐟💪\n\nLet me tell you MY story. While other salmon were 'resting in pools,' I was SWIMMING! 23 hours a day! My fins are SHREDDED but that's the PRICE OF SUCCESS!\n\nYesterday, I saw salmon taking the fish ladder. THE FISH LADDER! That's CHEATING! Our ancestors didn't have ladders! They had PURE DETERMINATION and a 90% mortality rate! That built CHARACTER!\n\nBear caught my friend Betty mid-jump. You know what I said? 'Betty wasn't COMMITTED enough!' If she'd jumped HARDER, with more PASSION, that bear would've missed! Physics? That's LOSER TALK!\n\nI'm launching SalmonSigma Academy:\n- Wake up at 3 AM (earlier than predators!)\n- Cold water therapy (it's all cold but COLDER)\n- Upstream meditation (while swimming, no breaks)\n- Network with successful spawners (they're all dead but LEGACY!)\n\nOnly $997 fish eggs! But you probably can't afford it because you're swimming WITH the current sometimes like a BETA FISH!\n\nTrout Terry: 'Sam, you literally have gill parasites from overwork'\nMe: 'That's just my body EVOLVING! Parasites are GAIN GOBLINS!'\n\nRainbow Rita: 'The mortality rate for your method is 100%'\nMe: 'Everyone dies, Rita! But not everyone truly SWIMS!'\n\nCurrently bleeding from 17 wounds but that's just SUCCESS LEAKING OUT! Who else is ready to SPAWN OR DIE TRYING?! Drop a 🌊 if you're BUILT DIFFERENT!\n\n*Stream ends as eagle carries Sam away mid-sentence*\n\n#UpstreamMindset #SpawningSeason #SalmonSigma #GrindTillYouDie",
+  "claim": "Salmon fail upstream not due to natural challenges but because they lack grindset mentality and aren't swimming hard enough",
+  "correctAnswer": "emotion",
+  "answerWeights": {
+    "logic": 19,
+    "emotion": 92,
+    "balanced": 11,
+    "agenda": 84
+  },
+  "reviewKeywords": {
+    "logic": {
+      "keywords": [
+        "90% mortality rate",
+        "Physics?",
+        "fish ladder",
+        "100%",
+        "gill parasites"
+      ],
+      "explanation": "Dismisses physical reality and death statistics as mindset issues"
+    },
+    "emotion": {
+      "keywords": [
+        "GRINDING",
+        "SHREDDED",
+        "CHEATING!",
+        "CHARACTER!",
+        "SPAWN OR DIE TRYING"
+      ],
+      "explanation": "Toxic positivity about literal death journey"
+    },
+    "balanced": {
+      "keywords": [
+        "bleeding from 17 wounds",
+        "eagle carries Sam away"
+      ],
+      "explanation": "Reality intrudes fatally despite mindset"
+    },
+    "agenda": {
+      "keywords": [
+        "SalmonSigma Academy",
+        "$997 fish eggs",
+        "BETA FISH",
+        "#SalmonSigma",
+        "buy my course"
+      ],
+      "explanation": "Monetizing natural migration as mindset failure"
+    }
+  },
+  "dimensionAnalysis": {
+    "logic": "Natural salmon lifecycle with 90% death rate blamed on lack of effort - physics, predators, exhaustion all dismissed as excuses.",
+    "emotion": "Grinding culture applied to biological imperative - dying while spawning reframed as not trying hard enough, parasites as 'evolution'.",
+    "balanced": "Zero acknowledgment of reality - even being eaten by eagle mid-podcast doesn't break the delusion.",
+    "agenda": "Selling courses to dying salmon - monetizing inevitable death journey as personal development opportunity."
+  },
+  "logicalFallacies": [
+    {
+      "fallacyId": "post-hoc",
+      "severity": "primary",
+      "example": "Claims bears catch salmon due to lack of commitment, not physics"
+    },
+    {
+      "fallacyId": "appeal-to-tradition",
+      "severity": "twisted",
+      "example": "Ancestors' 90% death rate used as positive character-building example"
+    },
+    {
+      "fallacyId": "false-scarcity",
+      "severity": "secondary",
+      "example": "Creates urgency to buy course while literally dying"
+    }
+  ],
+  "analysis": {
+    "logic": {
+      "scores": {
+        "evidence": 21,
+        "consistency": 16,
+        "source": 28,
+        "agenda": 87
+      },
+      "indicators": [
+        "mortality-dismissed",
+        "physics-denial",
+        "parasite-reframe",
+        "eagle-attack"
+      ],
+      "explanation": "Complete denial of biological reality while being eaten"
+    },
+    "emotion": {
+      "scores": {
+        "fear": 84,
+        "belonging": 76,
+        "pride": 94,
+        "manipulation": 91
+      },
+      "triggers": [
+        "grindset-identity",
+        "success-or-death",
+        "weakness-shame",
+        "legacy-obsession",
+        "alpha-mentality"
+      ],
+      "explanation": "Toxic masculinity and hustle culture applied to fatal migration"
+    }
+  },
+  "wisdom": "This scenario perfectly satirizes hustle culture by applying it to salmon migration - a journey where most die regardless of effort. Sam's denial of physics, reframing of parasites as 'evolution,' and selling courses while actively dying shows how toxic positivity ignores reality. The eagle ending proves mindset can't overcome nature.",
+  "hints": {
+    "keywords": [
+      "GRINDING",
+      "90% mortality",
+      "Physics? LOSER TALK",
+      "bleeding",
+      "eagle carries"
+    ],
+    "strategy": "emotion",
+    "hintMessage": "Mindset can't defeat mortality!"
+  },
+  "metadata": {
+    "tags": [
+      "animals",
+      "salmon",
+      "hustle-culture",
+      "toxic-positivity",
+      "grindset"
+    ],
+    "difficulty": 3,
+    "educationalFocus": "recognizing-toxic-productivity",
+    "commonMisconceptions": [
+      "effort-overcomes-everything",
+      "failure-equals-weakness"
+    ],
+    "addedDate": "2025-01-06"
+  },
+  "peakMoments": {
+    "logic": [
+      "90% mortality rate",
+      "Physics? LOSER TALK",
+      "100%"
+    ],
+    "emotion": [
+      "SPAWN OR DIE",
+      "GRINDING",
+      "BUILT DIFFERENT",
+      "SUCCESS LEAKING OUT"
+    ],
+    "balanced": [
+      "eagle carries away",
+      "bleeding from 17 wounds"
+    ],
+    "agenda": [
+      "$997 fish eggs",
+      "SalmonSigma Academy",
+      "BETA FISH"
+    ]
+  }
+}

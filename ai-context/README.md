@@ -8,6 +8,7 @@ This folder contains all AI-related context documents and tools for Phuzzy Think
 - `CONTEXT-UPDATE-*.md` - Progressive context updates for AI assistants
   - `CONTEXT-UPDATE-20250106-FIXES.md` - Latest UI fixes: formatting, content filter, performance
   - `CONTEXT-UPDATE-20250106-BEAR-PHYSICS.md` - Bear mini-game physics improvements
+  - `PHUZZYS-MAD-DASH-UPDATE.md` (NEW) - Major racing game overhaul: parallax fixes, AI independence, fair racing
 - `SCENARIO-GENERATION-*.md` - Insights and ideas from scenario generation sessions
 - `PACK-SYSTEM-IMPLEMENTATION-SUMMARY.md` - Summary of the scenario pack system
 - `SCENARIO-V3-MIGRATION-PLAN.md` - Plan for migrating to version 3 scenarios

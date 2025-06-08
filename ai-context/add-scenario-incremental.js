@@ -4,7 +4,7 @@
 const fs = require('fs');
 const readline = require('readline');
 
-const TARGET_FILE = './data/scenario-generated-002.json';
+const TARGET_FILE = './data/scenario-packs/scenario-generated-002.json';
 
 // Create readline interface
 const rl = readline.createInterface({

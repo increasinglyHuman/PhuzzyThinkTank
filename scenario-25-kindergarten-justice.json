@@ -1,0 +1,156 @@
+{
+  "id": "kindergarten-court-001",
+  "title": "The Playground Tribunal",
+  "text": "Mrs. Peterson's Kindergarten Class - Emergency Recess Court Session:\n\nJUDGE EMMA (5): Order! ORDER! *bangs plastic gavel* Tyler is accused of the WORST CRIME EVER - cutting in the slide line!\n\nTYLER: But I was saving a spot for Jackson!\n\nPROSECUTOR LILY: OBJECTION! The Playground Constitution clearly states 'No Cutsies, No Buttsies, No Coconutsies!' Article 3, Section 2!\n\n*Shows crayon-drawn legal document*\n\nDEFENSE ATTORNEY AIDEN: My client pleads not guilty by reason of friendship! Best friends have special rules!\n\nLILY: If we allow Tyler to cut, CHAOS WILL REIGN! Next, people will share goldfish crackers unequally! Society will CRUMBLE!\n\nWITNESS SOPHIA: I saw everything! Tyler said 'Move it, slowpoke!' That's VERBAL ASSAULT!\n\nTYLER: I said 'Excuse me!'\n\nSOPHIA: Same thing! You used your outside voice!\n\nJUDGE EMMA: Tyler, you're guilty of:\n- Line cutting (first degree)\n- Friendship privilege abuse\n- Outside voice inside the line\n- Making Lily cry (she's not crying but she COULD)\n\nSENTENCE: No playground for INFINITY MINUTES!\n\nTYLER: That's not fair! Emma cuts all the time!\n\nEMMA: I'm the JUDGE! *Throws gavel* Court dismissed!\n\nMRS. PETERSON: Kids, infinity minutes is just until snack time.\n\nALL: THE SYSTEM IS CORRUPT! JUSTICE FOR TYLER!\n\n*Mass revolt until juice boxes appear*\n\nLILY: I'm filing an appeal at Indoor Recess Supreme Court!\n\n#PlaygroundJustice #SlideLineLaw #KindergartenCourt #InfinityMinutes",
+  "claim": "Line cutting threatens the entire social fabric and requires infinite punishment to maintain playground civilization",
+  "correctAnswer": "emotion",
+  "answerWeights": {
+    "logic": 18,
+    "emotion": 93,
+    "balanced": 14,
+    "agenda": 71
+  },
+  "reviewKeywords": {
+    "logic": {
+      "keywords": [
+        "Playground Constitution",
+        "Article 3 Section 2",
+        "crayon-drawn",
+        "infinity minutes",
+        "snack time"
+      ],
+      "explanation": "Child logic creating elaborate legal system for minor infractions"
+    },
+    "emotion": {
+      "keywords": [
+        "WORST CRIME EVER",
+        "CHAOS WILL REIGN",
+        "CRUMBLE",
+        "VERBAL ASSAULT",
+        "Making Lily cry"
+      ],
+      "explanation": "Extreme emotional reactions to minor playground disputes"
+    },
+    "balanced": {
+      "keywords": [
+        "just until snack",
+        "juice boxes appear"
+      ],
+      "explanation": "Adult perspective and snacks restore order"
+    },
+    "agenda": {
+      "keywords": [
+        "I'm the JUDGE",
+        "Emma cuts all the time",
+        "CORRUPT",
+        "Supreme Court"
+      ],
+      "explanation": "Using authority to enforce rules while breaking them"
+    }
+  },
+  "dimensionAnalysis": {
+    "logic": "Five-year-old legal system with crayon constitution - 'No Cutsies, No Buttsies' elevated to formal law, infinity punishment for line cutting.",
+    "emotion": "Apocalyptic response to minor transgression - line cutting will cause societal collapse, unequal goldfish cracker sharing, playground chaos.",
+    "balanced": "Teacher's reality check ignored - 'infinity minutes is until snack time' doesn't stop the dramatic proceedings or appeals process.",
+    "agenda": "Judge Emma using position to punish while being guilty of same crime - corruption discovered but revolution ends with juice boxes."
+  },
+  "logicalFallacies": [
+    {
+      "fallacyId": "slippery-slope",
+      "severity": "primary",
+      "example": "Line cutting leads to societal collapse and goldfish inequality"
+    },
+    {
+      "fallacyId": "appeal-to-consequences",
+      "severity": "twisted",
+      "example": "Making Lily cry (even though she's not) as evidence"
+    },
+    {
+      "fallacyId": "tu-quoque",
+      "severity": "secondary",
+      "example": "Judge Emma cuts lines too but still convicts Tyler"
+    }
+  ],
+  "analysis": {
+    "logic": {
+      "scores": {
+        "evidence": 22,
+        "consistency": 15,
+        "source": 35,
+        "agenda": 84
+      },
+      "indicators": [
+        "crayon-law",
+        "infinity-punishment",
+        "slide-constitution",
+        "snack-reality"
+      ],
+      "explanation": "Child logic creating complex systems for simple problems"
+    },
+    "emotion": {
+      "scores": {
+        "fear": 77,
+        "belonging": 81,
+        "pride": 89,
+        "manipulation": 76
+      },
+      "triggers": [
+        "fairness-obsession",
+        "rule-sanctity",
+        "chaos-fear",
+        "authority-abuse",
+        "justice-drama"
+      ],
+      "explanation": "Massive emotional investment in minor fairness violations"
+    }
+  },
+  "wisdom": "This perfectly captures how children create elaborate justice systems for minor infractions. The 'Playground Constitution' and infinite punishments show how young minds process fairness. Judge Emma's hypocrisy and the revolution ending with juice boxes reveals how quickly principles dissolve when snacks appear.",
+  "hints": {
+    "keywords": [
+      "WORST CRIME EVER",
+      "CHAOS WILL REIGN",
+      "infinity minutes",
+      "juice boxes",
+      "Emma cuts too"
+    ],
+    "strategy": "emotion",
+    "hintMessage": "Playground drama infinity!"
+  },
+  "metadata": {
+    "tags": [
+      "kindergarten",
+      "playground-politics",
+      "child-logic",
+      "justice-drama",
+      "line-cutting"
+    ],
+    "difficulty": 2,
+    "educationalFocus": "recognizing-disproportionate-response",
+    "commonMisconceptions": [
+      "minor-infractions-major-consequences",
+      "child-court-logic"
+    ],
+    "addedDate": "2025-01-06"
+  },
+  "peakMoments": {
+    "logic": [
+      "Playground Constitution",
+      "infinity minutes",
+      "crayon-drawn"
+    ],
+    "emotion": [
+      "WORST CRIME EVER",
+      "CHAOS WILL REIGN",
+      "VERBAL ASSAULT"
+    ],
+    "balanced": [
+      "until snack time",
+      "juice boxes"
+    ],
+    "agenda": [
+      "I'm the JUDGE",
+      "Emma cuts too",
+      "CORRUPT"
+    ]
+  }
+}

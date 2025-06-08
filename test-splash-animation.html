@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Splash Animation Test</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/splash-word-animations.css">
+    <style>
+        body { margin: 0; }
+        .test-notice {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background: rgba(255,255,255,0.9);
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 30000;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-notice">
+        <strong>Animation Test</strong><br>
+        Watch the instruction animations!
+    </div>
+    
+    <!-- Splash Screen -->
+    <div class="splash-screen" id="splash-screen">
+        <div class="splash-overlay"></div>
+        <div class="splash-card">
+            <div class="splash-bear">🐻</div>
+            <h2 class="splash-title">Welcome to Phuzzy's Think Tank!</h2>
+            <div class="splash-instructions">
+                <div class="instruction-item" data-index="0">
+                    <span class="instruction-icon">📖</span>
+                    <span class="instruction-text">Read the story, thinking carefully</span>
+                </div>
+                <div class="instruction-item" data-index="1">
+                    <span class="instruction-icon">🔍</span>
+                    <span class="instruction-text">Investigate</span>
+                </div>
+                <div class="instruction-item" data-index="2">
+                    <span class="instruction-icon">🤔</span>
+                    <span class="instruction-text">Answer the question</span>
+                </div>
+                <div class="instruction-item" data-index="3">
+                    <span class="instruction-icon">✨</span>
+                    <span class="instruction-text">Best answers score more RIZ</span>
+                </div>
+                <div class="instruction-item" data-index="4">
+                    <span class="instruction-icon">🍯</span>
+                    <span class="instruction-text">Honey pots are for hints</span>
+                </div>
+            </div>
+            <button class="play-now-button" id="play-now-button" disabled>
+                Play Now
+            </button>
+        </div>
+    </div>
+    
+    <script src="js/splash-word-animator-v2.js"></script>
+    <script>
+        // Simple test setup
+        document.getElementById('play-now-button').addEventListener('click', function() {
+            document.getElementById('splash-screen').style.display = 'none';
+            alert('Game would start here!');
+        });
+    </script>
+</body>
+</html>

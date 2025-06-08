@@ -1,5 +1,5 @@
 const fs = require('fs');
-const data = JSON.parse(fs.readFileSync('data/scenario-generated-complete.json', 'utf8'));
+const data = JSON.parse(fs.readFileSync('data/legacy/scenario-generated-complete.json', 'utf8'));
 
 // Add missing fields to scenario 1
 if (!data.scenarios[0].dimensionAnalysis) {
@@ -40,7 +40,7 @@ if (!data.scenarios[1].peakMoments) {
 }
 
 // Write the repaired file
-fs.writeFileSync('data/scenario-generated-complete.json', JSON.stringify(data, null, 2));
+fs.writeFileSync('data/legacy/scenario-generated-complete.json', JSON.stringify(data, null, 2));
 console.log('Repaired scenarios 1-2 with missing fields');
 
 // Validate all fields are present

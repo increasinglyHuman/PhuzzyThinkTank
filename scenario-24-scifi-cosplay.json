@@ -1,0 +1,158 @@
+{
+  "id": "scifi-cosplay-accuracy-001",
+  "title": "The Accuracy Inquisition",
+  "text": "CosplayCon Forum - 'Screen-Accurate' Stormtrooper Incident Report:\n\nu/ArmorAnalyst: Saw someone claiming 'screen-accurate' armor at the con. INVESTIGATED. Results:\n\n❌ Helmet vocoder grill: 14 holes (should be 16)\n❌ Ab plate: Wrong shade of white (Pantone 11-0601 not 11-0602)\n❌ Thermal detonator: 3D printed (REAL ones were vacuum-formed)\n❌ Height: 5'11\" (All stormtroopers were EXACTLY 5'10\")\n\nThis person is a FRAUD!\n\nu/CasualTrooper: Dude, their costume looked amazing though?\n\nu/ArmorAnalyst: 'LOOKED AMAZING'?!?! *Posts 47 reference photos with red circles*\n\nThe knee plate rivets were PHILLIPS HEAD! Everyone knows the Shepperton Studios used FLAT HEAD SCREWS! This is BASIC!\n\nu/501stLegion: As garrison leader, I must note their armor passed official approval—\n\nu/ArmorAnalyst: Your 'garrison' approved someone wearing HERO shoulder bells with STUNT chest plates?! The entire 501st has fallen to mediocrity!\n\nI've created a 200-point inspection checklist. TRUE accuracy requires:\n- Original 1976 HDPE plastic (I bought a damaged screen-used piece for $8,000)\n- Shoes made from same leather batch as originals\n- Exact BMI as original actors\n- Natural aging (no artificial weathering allowed)\n\nu/HappyTrooper: I just wear it because Star Wars makes me happy :)\n\nu/ArmorAnalyst: HAPPINESS?! This is about HISTORICAL PRESERVATION! I'm starting my own group: The Accuracy Authority. Entry requires DNA test to prove you weren't involved in the Special Editions.\n\n*Gets banned from forum*\n\n*Creates own forum with 73-page accuracy manifesto*\n\n#ScreenAccurate #NotMyStormtrooper #AccuracyOrDeath #RivetGate",
+  "claim": "Cosplay must be molecularly identical to screen-used items or it's worthless fraud destroying historical preservation",
+  "correctAnswer": "agenda",
+  "answerWeights": {
+    "logic": 26,
+    "emotion": 74,
+    "balanced": 8,
+    "agenda": 89
+  },
+  "reviewKeywords": {
+    "logic": {
+      "keywords": [
+        "14 holes should be 16",
+        "Pantone 11-0601",
+        "PHILLIPS HEAD",
+        "5'11\" not 5'10\"",
+        "vacuum-formed"
+      ],
+      "explanation": "Obsessive technical minutiae about fictional armor"
+    },
+    "emotion": {
+      "keywords": [
+        "FRAUD",
+        "fallen to mediocrity",
+        "HISTORICAL PRESERVATION",
+        "AccuracyOrDeath",
+        "makes me happy"
+      ],
+      "explanation": "Extreme emotional response to minor details"
+    },
+    "balanced": {
+      "keywords": [
+        "looked amazing",
+        "passed approval",
+        "banned from forum"
+      ],
+      "explanation": "Reasonable views rejected, extremism isolated"
+    },
+    "agenda": {
+      "keywords": [
+        "$8,000",
+        "200-point checklist",
+        "Accuracy Authority",
+        "DNA test",
+        "73-page manifesto"
+      ],
+      "explanation": "Gatekeeping hobby through impossible standards"
+    }
+  },
+  "dimensionAnalysis": {
+    "logic": "Treating mass-produced costume pieces like archaeological artifacts - wrong Pantone shade, 2 missing grill holes, 1 inch height difference.",
+    "emotion": "Rage over microscopic inaccuracies - 'FRAUD' for wrong screw type, happiness in hobby dismissed as wrong motivation.",
+    "balanced": "No middle ground allowed - official approval rejected, creates splinter group requiring DNA tests to join.",
+    "agenda": "Gatekeeping through impossible standards - $8,000 for screen-used piece, 200-point inspection, 73-page manifesto about plastic armor."
+  },
+  "logicalFallacies": [
+    {
+      "fallacyId": "perfectionist-fallacy",
+      "severity": "primary",
+      "example": "Anything less than molecular accuracy is worthless"
+    },
+    {
+      "fallacyId": "appeal-to-purity",
+      "severity": "primary",
+      "example": "True fans must have exact BMI and original materials"
+    },
+    {
+      "fallacyId": "false-authority",
+      "severity": "secondary",
+      "example": "Self-appointed accuracy judge with manifesto"
+    }
+  ],
+  "analysis": {
+    "logic": {
+      "scores": {
+        "evidence": 31,
+        "consistency": 24,
+        "source": 28,
+        "agenda": 94
+      },
+      "indicators": [
+        "pantone-precision",
+        "rivet-types",
+        "height-exact",
+        "material-origin"
+      ],
+      "explanation": "Microscopic analysis elevated to moral imperative"
+    },
+    "emotion": {
+      "scores": {
+        "fear": 72,
+        "belonging": 79,
+        "pride": 86,
+        "manipulation": 81
+      },
+      "triggers": [
+        "purity-obsession",
+        "fraud-accusation",
+        "preservation-duty",
+        "accuracy-identity",
+        "happiness-rejection"
+      ],
+      "explanation": "Joy in hobby replaced with militant precision demands"
+    }
+  },
+  "wisdom": "This scenario skewers cosplay gatekeeping through impossible accuracy standards. Counting helmet holes and demanding specific Pantone whites for space Nazi costumes shows how hobbyist perfectionism becomes toxic. The happy casual cosplayer represents joy being crushed by obsessive 'historical preservation' of fiction.",
+  "hints": {
+    "keywords": [
+      "$8,000",
+      "DNA test",
+      "200-point checklist",
+      "makes me happy",
+      "banned"
+    ],
+    "strategy": "agenda",
+    "hintMessage": "Gatekeeping through impossible standards!"
+  },
+  "metadata": {
+    "tags": [
+      "sci-fi",
+      "cosplay",
+      "gatekeeping",
+      "perfectionism",
+      "star-wars"
+    ],
+    "difficulty": 2,
+    "educationalFocus": "recognizing-toxic-perfectionism",
+    "commonMisconceptions": [
+      "accuracy-equals-value",
+      "joy-is-casual"
+    ],
+    "addedDate": "2025-01-06"
+  },
+  "peakMoments": {
+    "logic": [
+      "14 holes not 16",
+      "Pantone 11-0601",
+      "PHILLIPS HEAD"
+    ],
+    "emotion": [
+      "FRAUD",
+      "AccuracyOrDeath",
+      "makes me happy"
+    ],
+    "balanced": [
+      "looked amazing",
+      "banned"
+    ],
+    "agenda": [
+      "$8,000",
+      "DNA test",
+      "73-page manifesto"
+    ]
+  }
+}

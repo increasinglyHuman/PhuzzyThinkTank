@@ -1,0 +1,317 @@
+/* 🌱 Spectacular Word-by-Word Animations */
+
+/* Base word animation with multiple effects */
+@keyframes wordSpectacular {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.3) rotateX(90deg);
+        filter: blur(10px);
+        color: rgba(255, 255, 255, 0);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-10px) scale(1.3) rotateX(0deg);
+        filter: blur(0px) drop-shadow(0 0 30px rgba(255, 255, 255, 0.9));
+        color: #fff;
+        text-shadow: 0 0 30px rgba(255, 255, 255, 0.9),
+                     0 0 60px rgba(102, 126, 234, 0.6);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotateX(0deg);
+        filter: blur(0px) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        color: rgba(255, 255, 255, 0.95);
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* Alternative: Neon glow effect */
+@keyframes wordNeonGlow {
+    0% {
+        opacity: 0;
+        text-shadow: none;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        text-shadow: 0 0 10px #fff,
+                     0 0 20px #fff,
+                     0 0 30px #e60073,
+                     0 0 40px #e60073,
+                     0 0 50px #e60073,
+                     0 0 60px #e60073,
+                     0 0 70px #e60073;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 1;
+        text-shadow: 0 0 5px #fff,
+                     0 0 10px #ff4b8b,
+                     0 0 15px #ff4b8b;
+        transform: scale(1);
+    }
+}
+
+/* Typewriter with cursor effect */
+@keyframes wordTypewriter {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+    1% {
+        opacity: 1;
+    }
+    100% {
+        width: 100%;
+        opacity: 1;
+    }
+}
+
+@keyframes cursorBlink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+/* Rainbow wave effect */
+@keyframes rainbowWave {
+    0% {
+        color: #ff0000;
+        transform: translateY(0);
+    }
+    16% {
+        color: #ff8800;
+        transform: translateY(-5px);
+    }
+    33% {
+        color: #ffff00;
+        transform: translateY(-10px);
+    }
+    50% {
+        color: #00ff00;
+        transform: translateY(-5px);
+    }
+    66% {
+        color: #0088ff;
+        transform: translateY(0);
+    }
+    83% {
+        color: #8800ff;
+        transform: translateY(-5px);
+    }
+    100% {
+        color: #ffffff;
+        transform: translateY(0);
+    }
+}
+
+/* 3D flip effect */
+@keyframes word3DFlip {
+    0% {
+        transform: perspective(400px) rotateY(-180deg);
+        opacity: 0;
+    }
+    50% {
+        transform: perspective(400px) rotateY(-90deg);
+        opacity: 0.5;
+    }
+    100% {
+        transform: perspective(400px) rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+/* Particle explosion effect */
+@keyframes particleExplode {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Word wrapper for animations */
+.word-animate {
+    display: inline-block;
+    opacity: 0;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: wordSpectacular 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+/* Remove margin from last word */
+.word-animate:last-child {
+    margin-right: 0;
+}
+
+/* Stagger the animations */
+.word-animate.delay-1 { animation-delay: 0.1s; }
+.word-animate.delay-2 { animation-delay: 0.2s; }
+.word-animate.delay-3 { animation-delay: 0.3s; }
+.word-animate.delay-4 { animation-delay: 0.4s; }
+.word-animate.delay-5 { animation-delay: 0.5s; }
+.word-animate.delay-6 { animation-delay: 0.6s; }
+.word-animate.delay-7 { animation-delay: 0.7s; }
+.word-animate.delay-8 { animation-delay: 0.8s; }
+
+/* Special emphasis for key words */
+.word-key {
+    font-weight: 700;
+    color: #ffd700;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+}
+
+/* Extra emphasis class */
+.word-emphasis {
+    animation-name: wordNeonGlow !important;
+    animation-duration: 1s;
+}
+
+/* Icon sync animation */
+.instruction-icon.icon-pulse {
+    animation: iconBounce 0.6s ease;
+}
+
+@keyframes iconBounce {
+    0%, 100% { transform: scale(1); }
+    30% { transform: scale(1.3) rotate(-10deg); }
+    60% { transform: scale(0.9) rotate(10deg); }
+}
+
+/* Background ripple effect */
+.instruction-item.animating::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    animation: rippleOut 1s ease-out;
+    pointer-events: none;
+}
+
+@keyframes rippleOut {
+    to {
+        width: 400px;
+        height: 400px;
+        opacity: 0;
+    }
+}
+
+/* Letter scatter effect for emphasis */
+@keyframes letterScatter {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        transform: translate(var(--scatter-x), var(--scatter-y)) rotate(var(--scatter-rotate));
+        opacity: 1;
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.letter-scatter {
+    display: inline-block;
+    animation: letterScatter 0.6s ease-out;
+    --scatter-x: calc(random() * 40px - 20px);
+    --scatter-y: calc(random() * 40px - 20px);
+    --scatter-rotate: calc(random() * 40deg - 20deg);
+}
+
+/* Holographic shimmer */
+@keyframes holoShimmer {
+    0% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+.word-holographic {
+    background: linear-gradient(
+        90deg,
+        #ff0080 0%,
+        #ff8c00 10%,
+        #ffd700 20%,
+        #00ff00 30%,
+        #00ffff 40%,
+        #0080ff 50%,
+        #8000ff 60%,
+        #ff0080 70%,
+        #ff8c00 80%,
+        #ffd700 90%,
+        #00ff00 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: holoShimmer 2s linear infinite;
+}
+
+/* Make instruction items ready for animation */
+.instruction-item {
+    position: relative;
+    overflow: visible;
+}
+
+.instruction-text {
+    display: inline-block;
+    min-height: 1.5em;
+}
+
+/* Cursor for typewriter effect */
+.typing-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.2em;
+    background: white;
+    margin-left: 2px;
+    animation: cursorBlink 1s infinite;
+}
+
+/* Particle effects container */
+.word-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: visible;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0;
+    animation: particleFly 1s ease-out forwards;
+}
+
+@keyframes particleFly {
+    0% {
+        transform: translate(0, 0) scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--fly-x), var(--fly-y)) scale(0);
+        opacity: 0;
+    }
+}

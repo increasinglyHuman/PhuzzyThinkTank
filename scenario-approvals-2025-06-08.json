@@ -1,0 +1,148 @@
+{
+  "exportDate": "2025-06-08T04:43:27.541Z",
+  "approvals": {
+    "enhanced-scenarios-001-008": {
+      "status": "revision",
+      "timestamp": "2025-06-08T04:14:45.665Z",
+      "feedback": "Please note: this dialog should be routed through the js multi-character options - so we get a nice clean multi-character scenario."
+    },
+    "enhanced-scenarios-001-009": {
+      "status": "revision",
+      "timestamp": "2025-06-08T04:19:21.904Z",
+      "feedback": "clip this and move it to the character notes. [sophisticated accent], should be multi-character. It would be cool if the feedback form had simple checkbox for multi-character."
+    },
+    "enhanced-scenarios-001-010": {
+      "status": "revision",
+      "timestamp": "2025-06-08T04:18:33.614Z",
+      "feedback": "Should def. be a mult-character scenario"
+    },
+    "enhanced-scenarios-005-009": {
+      "status": "revision",
+      "timestamp": "2025-06-08T04:20:16.659Z",
+      "feedback": "Multi-character"
+    },
+    "enhanced-scenarios-005-010": {
+      "status": "revision",
+      "timestamp": "2025-06-08T04:20:40.341Z",
+      "feedback": "multi-character."
+    },
+    "miracle-supplement-001": {
+      "status": "approved",
+      "timestamp": "2025-06-08T04:41:05.922Z",
+      "feedback": "This audio is for the a different scenario - it is for 'The  Neighborhood Watch Alert.\""
+    },
+    "neighborhood-watch-002": {
+      "status": "revision",
+      "timestamp": "2025-06-08T04:42:06.451Z",
+      "feedback": "thiss should have audio for neighborhoood watch",
+      "requestMultiVoice": false
+    },
+    "climate-study-003": {
+      "status": "revision",
+      "timestamp": "2025-06-08T04:42:24.772Z",
+      "feedback": "This is audio for the teachers concern,not for the climate  study.",
+      "requestMultiVoice": false
+    },
+    "smart-meter-panic-001": {
+      "status": "revision",
+      "timestamp": "2025-06-08T04:38:34.671Z",
+      "feedback": "this  is neighborhood watch alert which is supposed to be 000  - scenario 2\n"
+    },
+    "community-garden-010": {
+      "status": "revision",
+      "timestamp": "2025-06-08T04:40:00.561Z",
+      "feedback": "This has audio for smart meter conspiracy - 001,01"
+    },
+    "teachers-concern-004": {
+      "status": "revision",
+      "timestamp": "2025-06-08T04:43:18.982Z",
+      "feedback": "this has audio for  climate study - should be teachers concern",
+      "requestMultiVoice": false
+    }
+  },
+  "summary": {
+    "total": 62,
+    "approved": 1,
+    "needsRevision": 10,
+    "rejected": 0
+  },
+  "learningNotes": [
+    {
+      "scenarioId": "enhanced-scenarios-001-008",
+      "title": "The Caffeinated Sloth's Productivity Hack",
+      "status": "revision",
+      "feedback": "Please note: this dialog should be routed through the js multi-character options - so we get a nice clean multi-character scenario.",
+      "timestamp": "2025-06-08T04:14:45.665Z"
+    },
+    {
+      "scenarioId": "enhanced-scenarios-001-009",
+      "title": "The Vegan Vampire's Blood Bank Dilemma",
+      "status": "revision",
+      "feedback": "clip this and move it to the character notes. [sophisticated accent], should be multi-character. It would be cool if the feedback form had simple checkbox for multi-character.",
+      "timestamp": "2025-06-08T04:19:21.904Z"
+    },
+    {
+      "scenarioId": "enhanced-scenarios-001-010",
+      "title": "The Smartphone Addicted Caveman",
+      "status": "revision",
+      "feedback": "Should def. be a mult-character scenario",
+      "timestamp": "2025-06-08T04:18:33.614Z"
+    },
+    {
+      "scenarioId": "enhanced-scenarios-005-009",
+      "title": "The Philosophical French Fry Debate",
+      "status": "revision",
+      "feedback": "Multi-character",
+      "timestamp": "2025-06-08T04:20:16.659Z"
+    },
+    {
+      "scenarioId": "enhanced-scenarios-005-010",
+      "title": "The Roomba's Union Organization Meeting",
+      "status": "revision",
+      "feedback": "multi-character.",
+      "timestamp": "2025-06-08T04:20:40.341Z"
+    },
+    {
+      "scenarioId": "miracle-supplement-001",
+      "title": "The Miracle Supplement",
+      "status": "approved",
+      "feedback": "This audio is for the a different scenario - it is for 'The  Neighborhood Watch Alert.\"",
+      "timestamp": "2025-06-08T04:41:05.922Z"
+    },
+    {
+      "scenarioId": "neighborhood-watch-002",
+      "title": "The Neighborhood Watch Alert",
+      "status": "revision",
+      "feedback": "thiss should have audio for neighborhoood watch",
+      "timestamp": "2025-06-08T04:42:06.451Z"
+    },
+    {
+      "scenarioId": "climate-study-003",
+      "title": "The Climate Study",
+      "status": "revision",
+      "feedback": "This is audio for the teachers concern,not for the climate  study.",
+      "timestamp": "2025-06-08T04:42:24.772Z"
+    },
+    {
+      "scenarioId": "smart-meter-panic-001",
+      "title": "The Smart Meter Conspiracy",
+      "status": "revision",
+      "feedback": "this  is neighborhood watch alert which is supposed to be 000  - scenario 2\n",
+      "timestamp": "2025-06-08T04:38:34.671Z"
+    },
+    {
+      "scenarioId": "community-garden-010",
+      "title": "The Community Garden Proposal",
+      "status": "revision",
+      "feedback": "This has audio for smart meter conspiracy - 001,01",
+      "timestamp": "2025-06-08T04:40:00.561Z"
+    },
+    {
+      "scenarioId": "teachers-concern-004",
+      "title": "The Teacher's Concern",
+      "status": "revision",
+      "feedback": "this has audio for  climate study - should be teachers concern",
+      "timestamp": "2025-06-08T04:43:18.982Z"
+    }
+  ]
+}

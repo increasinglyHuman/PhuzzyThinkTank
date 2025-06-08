@@ -1,0 +1,86 @@
+{
+  "processedDate": "2025-06-08T04:45:20.329Z",
+  "sourceFile": "scenario-approvals-2025-06-08.json",
+  "totalScenarios": 62,
+  "approvalRate": "1.6%",
+  "patterns": {
+    "commonIssues": {},
+    "categoryBreakdown": {
+      "content_issues": 0,
+      "audio_compatibility": 0,
+      "humor_appropriateness": 0,
+      "educational_value": 0,
+      "dialogue_quality": 0,
+      "complexity_balance": 0,
+      "technical_issues": 0
+    },
+    "improvementSuggestions": []
+  },
+  "specificExamples": {
+    "rejected": [],
+    "revised": [
+      {
+        "scenarioId": "enhanced-scenarios-001-008",
+        "title": "The Caffeinated Sloth's Productivity Hack",
+        "feedback": "Please note: this dialog should be routed through the js multi-character options - so we get a nice clean multi-character scenario.",
+        "category": "other"
+      },
+      {
+        "scenarioId": "enhanced-scenarios-001-009",
+        "title": "The Vegan Vampire's Blood Bank Dilemma",
+        "feedback": "clip this and move it to the character notes. [sophisticated accent], should be multi-character. It would be cool if the feedback form had simple checkbox for multi-character.",
+        "category": "other"
+      },
+      {
+        "scenarioId": "enhanced-scenarios-001-010",
+        "title": "The Smartphone Addicted Caveman",
+        "feedback": "Should def. be a mult-character scenario",
+        "category": "other"
+      },
+      {
+        "scenarioId": "enhanced-scenarios-005-009",
+        "title": "The Philosophical French Fry Debate",
+        "feedback": "Multi-character",
+        "category": "other"
+      },
+      {
+        "scenarioId": "enhanced-scenarios-005-010",
+        "title": "The Roomba's Union Organization Meeting",
+        "feedback": "multi-character.",
+        "category": "other"
+      },
+      {
+        "scenarioId": "neighborhood-watch-002",
+        "title": "The Neighborhood Watch Alert",
+        "feedback": "thiss should have audio for neighborhoood watch",
+        "category": "other"
+      },
+      {
+        "scenarioId": "climate-study-003",
+        "title": "The Climate Study",
+        "feedback": "This is audio for the teachers concern,not for the climate  study.",
+        "category": "other"
+      },
+      {
+        "scenarioId": "smart-meter-panic-001",
+        "title": "The Smart Meter Conspiracy",
+        "feedback": "this  is neighborhood watch alert which is supposed to be 000  - scenario 2\n",
+        "category": "other"
+      },
+      {
+        "scenarioId": "community-garden-010",
+        "title": "The Community Garden Proposal",
+        "feedback": "This has audio for smart meter conspiracy - 001,01",
+        "category": "other"
+      },
+      {
+        "scenarioId": "teachers-concern-004",
+        "title": "The Teacher's Concern",
+        "feedback": "this has audio for  climate study - should be teachers concern",
+        "category": "other"
+      }
+    ],
+    "approved": []
+  },
+  "generationGuidelines": []
+}

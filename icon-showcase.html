@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phuzzy Think Tank - Icon Showcase</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            margin: 0;
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .icon-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .icon-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .icon-display {
+            font-size: 80px;
+            line-height: 1;
+            margin-bottom: 20px;
+            display: block;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+        }
+        
+        .fallacy-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .fallacy-id {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            font-family: monospace;
+            background: rgba(0,0,0,0.2);
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        
+        .icon-status {
+            font-size: 0.85rem;
+            margin-top: 10px;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        
+        .status-excellent {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+        
+        .status-good {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+        }
+        
+        .status-improved {
+            background: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+        }
+        
+        .comparison-section {
+            margin-top: 60px;
+            background: rgba(0,0,0,0.2);
+            padding: 30px;
+            border-radius: 20px;
+        }
+        
+        .comparison-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .icon-comparison {
+            text-align: center;
+        }
+        
+        .icon-comparison .icon-display {
+            margin-bottom: 10px;
+        }
+        
+        .arrow {
+            font-size: 2rem;
+            opacity: 0.7;
+        }
+        
+        .old-icon {
+            opacity: 0.6;
+            position: relative;
+        }
+        
+        .old-icon::after {
+            content: "OLD";
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: red;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+        }
+        
+        .new-icon::after {
+            content: "NEW";
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #10b981;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+        }
+        
+        .new-icon {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎴 Phuzzy Think Tank Icon Showcase</h1>
+    <p class="subtitle">All 15 Logical Fallacy Icons at Card Size (80px)</p>
+    
+    <div class="icon-grid">
+        <!-- Excellent Icons -->
+        <div class="icon-card">
+            <span class="icon-display">🍒</span>
+            <div class="fallacy-name">Cherry Picking</div>
+            <div class="fallacy-id">cherry-picking</div>
+            <div class="icon-status status-excellent">✨ Excellent - Perfect metaphor</div>
+        </div>
+        
+        <div class="icon-card">
+            <span class="icon-display">🎿</span>
+            <div class="fallacy-name">Slippery Slope</div>
+            <div class="fallacy-id">slippery-slope</div>
+            <div class="icon-status status-excellent">✨ Excellent - Visual pun</div>
+        </div>
+        
+        <div class="icon-card">
+            <span class="icon-display">🏛️</span>
+            <div class="fallacy-name">Appeal to Tradition</div>
+            <div class="fallacy-id">appeal-to-tradition</div>
+            <div class="icon-status status-excellent">✨ Excellent - Ancient wisdom</div>
+        </div>
+        
+        <div class="icon-card">
+            <span class="icon-display">🐟</span>
+            <div class="fallacy-name">Red Herring</div>
+            <div class="fallacy-id">red-herring</div>
+            <div class="icon-status status-excellent">✨ Excellent - Literal & memorable</div>
+        </div>
+        
+        <div class="icon-card">
+            <span class="icon-display">🚌</span>
+            <div class="fallacy-name">Bandwagon</div>
+            <div class="fallacy-id">bandwagon</div>
+            <div class="icon-status status-excellent">✨ Excellent - Jump on board!</div>
+        </div>
+        
+        <div class="icon-card">
+            <span class="icon-display">😨</span>
+            <div class="fallacy-name">Appeal to Fear</div>
+            <div class="fallacy-id">appeal-to-fear</div>
+            <div class="icon-status status-excellent">✨ Excellent - Emotion clear</div>
+        </div>
+        
+        <div class="icon-card">
+            <span class="icon-display">⏰</span>
+            <div class="fallacy-name">False Scarcity</div>
+            <div class="fallacy-id">false-scarcity</div>
+            <div class="icon-status status-excellent">✨ Excellent - Time pressure</div>
+        </div>
+        
+        <!-- Good Icons -->
+        <div class="icon-card">
+            <span class="icon-display">🎓</span>
+            <div class="fallacy-name">Appeal to Authority</div>
+            <div class="fallacy-id">appeal-to-authority</div>
+            <div class="icon-status status-good">👍 Good - Academic authority</div>
+        </div>
+        
+        <div class="icon-card">
+            <span class="icon-display">⚔️</span>
+            <div class="fallacy-name">False Dilemma</div>
+            <div class="fallacy-id">false-dilemma</div>
+            <div class="icon-status status-good">👍 Good - Either/or battle</div>
+        </div>
+        
+        <div class="icon-card">
+            <span class="icon-display">⚖️</span>
+            <div class="fallacy-name">False Equivalence</div>
+            <div class="fallacy-id">false-equivalence</div>
+            <div class="icon-status status-good">👍 Good - Balance comparison</div>
+        </div>
+        
+        <div class="icon-card">
+            <span class="icon-display">🌿</span>
+            <div class="fallacy-name">Appeal to Nature</div>
+            <div class="fallacy-id">appeal-to-nature</div>
+            <div class="icon-status status-good">👍 Good - Natural imagery</div>
+        </div>
+        
+        <div class="icon-card">
+            <span class="icon-display">🏃</span>
+            <div class="fallacy-name">Hasty Generalization</div>
+            <div class="fallacy-id">hasty-generalization</div>
+            <div class="icon-status status-good">👍 Good - Rushing to conclude</div>
+        </div>
+        
+        <!-- Improved Icons -->
+        <div class="icon-card">
+            <span class="icon-display">👉</span>
+            <div class="fallacy-name">Ad Hominem</div>
+            <div class="fallacy-id">ad-hominem</div>
+            <div class="icon-status status-improved">🔄 Improved - Pointing at person</div>
+        </div>
+        
+        <div class="icon-card">
+            <span class="icon-display">🎃</span>
+            <div class="fallacy-name">Straw Man</div>
+            <div class="fallacy-id">straw-man</div>
+            <div class="icon-status status-improved">🔄 Improved - Scarecrow/dummy</div>
+        </div>
+        
+        <div class="icon-card">
+            <span class="icon-display">🎲</span>
+            <div class="fallacy-name">Post Hoc</div>
+            <div class="fallacy-id">post-hoc</div>
+            <div class="icon-status status-improved">🔄 Improved - Chance ≠ causation</div>
+        </div>
+    </div>
+    
+    <div class="comparison-section">
+        <h2 style="text-align: center; margin-bottom: 30px;">Icon Improvements</h2>
+        
+        <div class="comparison-row">
+            <div class="icon-comparison">
+                <span class="icon-display old-icon">👤</span>
+                <div>Ad Hominem (old)</div>
+            </div>
+            <span class="arrow">→</span>
+            <div class="icon-comparison">
+                <span class="icon-display new-icon">👉</span>
+                <div>Ad Hominem (new)</div>
+            </div>
+        </div>
+        
+        <div class="comparison-row">
+            <div class="icon-comparison">
+                <span class="icon-display old-icon">🥤</span>
+                <div>Straw Man (old)</div>
+            </div>
+            <span class="arrow">→</span>
+            <div class="icon-comparison">
+                <span class="icon-display new-icon">🎃</span>
+                <div>Straw Man (new)</div>
+            </div>
+        </div>
+        
+        <div class="comparison-row">
+            <div class="icon-comparison">
+                <span class="icon-display old-icon">🔄</span>
+                <div>Post Hoc (old)</div>
+            </div>
+            <span class="arrow">→</span>
+            <div class="icon-comparison">
+                <span class="icon-display new-icon">🎲</span>
+                <div>Post Hoc (new)</div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Add some interactive hover effects
+        document.querySelectorAll('.icon-display').forEach(icon => {
+            icon.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.1) rotate(5deg)';
+            });
+            icon.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+    </script>
+</body>
+</html>

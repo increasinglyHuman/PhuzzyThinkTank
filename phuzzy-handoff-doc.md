@@ -246,6 +246,16 @@ The game now features a collectible trading card system with 15 unique logical f
   - `check-scenarios.js` - Validation and checking tool
 
 ### Recent Updates (June 2025)
+
+#### Voice Generation System (June 7, 2025)
+- **ElevenLabs API Integration** - Professional voice narration for all 65+ scenarios
+- **Intelligent Voice Assignment** - Gender-aware character detection for voice variety
+- **Memory-Safe Processing** - Handles large batches without crashes on Raspberry Pi
+- **Analytics Dashboards** - Real-time tracking of voice generation progress
+- **Math Symbol Support** - Converts technical symbols to speakable text
+- **Rate Limit Handling** - Smart delays and retry logic for API limits
+
+#### Previous Updates (June 2025)
 - **Review Mode System** - Click answers after submission to see detailed scoring feedback with tooltips
 - **Splash Screen** - Professional onboarding with bear mascot and clear game instructions  
 - **Enhanced Hint System** - Visual keyword highlighting with bear mini-game animations
