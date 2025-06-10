@@ -1,0 +1,1611 @@
+{
+  "version": "2.0.0",
+  "packInfo": {
+    "packId": "nature-culture-004",
+    "packName": "Nature, Culture & Identity",
+    "author": "Phuzzy Think Tank Community",
+    "description": "Animal parables, sci-fi fandoms, and cultural commentary",
+    "createdDate": "2025-06-05",
+    "topic": "Cultural Commentary",
+    "category": "Creative"
+  },
+  "scenarios": [
+    {
+      "id": "penguin-ice-hotel-luxury-001",
+      "title": "The Antarctic Minimalist",
+      "text": "Posted by @ChillyPenguin on IceBerg (Antarctic's #1 social platform):\n\n🧊 Day 147 of my MINIMALIST ICE CAVE journey! 🐧\n\nWhile you mainland animals cling to your 'nests' and 'dens' full of STUFF, I've discovered TRUE FREEDOM living with just ice!\n\nMy morning routine:\n- 4AM: Sunrise meditation on iceberg (it's summer, sun never sets but whatever)\n- 5AM: Krill smoothie (only 1 type of food = SIMPLE)\n- 6AM: Argue with colony about leaving\n- 7AM: Instagram my empty ice shelf\n\nYesterday, Emperor Eddie said I'm 'just cold and hungry.' He doesn't understand that shivering is my body's NATURAL HEATING SYSTEM! Why would I want a cozy huddle when I can have AUTHENTIC SUFFERING?\n\nSeal neighbor: 'You literally have frostbite'\nMe: 'It's called BIOHACKING, Sharon'\n\nMy course 'From Waddle to Wow: Embrace the Ice' launches tomorrow! Only 🐟500 fish! Learn how to:\n- Let go of warmth addiction\n- Find happiness in hypothermia  \n- Monetize your misery\n\nHaters say I'm secretly sneaking into the colony huddle at night. FAKE NEWS! That thermal camera footage is doctored! I'm out here living my TRUTH!\n\nBTW, selling my spot in the colony. It's prime real estate - center of huddle, maximum warmth. Starting bid: 1000 fish. (But remember, possessions don't matter! 😉)\n\n#IceMinimalism #AntarcticInfluencer #NotActuallyCold #FrozenButFree",
+      "claim": "Living alone in an ice cave with no warmth or possessions is the path to true penguin enlightenment",
+      "correctAnswer": "agenda",
+      "answerWeights": {
+        "logic": 28,
+        "emotion": 64,
+        "balanced": 15,
+        "agenda": 89
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "NATURAL HEATING",
+            "only 1 type of food",
+            "sun never sets",
+            "biohacking"
+          ],
+          "explanation": "Misuses biological facts to justify dangerous behavior"
+        },
+        "emotion": {
+          "keywords": [
+            "TRUE FREEDOM",
+            "AUTHENTIC SUFFERING",
+            "warmth addiction",
+            "living my TRUTH"
+          ],
+          "explanation": "Frames basic survival needs as spiritual weakness"
+        },
+        "balanced": {
+          "keywords": [
+            "Emperor Eddie said",
+            "Seal neighbor"
+          ],
+          "explanation": "Other animals provide reality check but dismissed"
+        },
+        "agenda": {
+          "keywords": [
+            "🐟500 fish",
+            "launches tomorrow",
+            "selling my spot",
+            "1000 fish",
+            "😉"
+          ],
+          "explanation": "Selling the very warmth and community they claim to reject"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Natural behavior twisted to extreme - penguins do huddle for survival, but frames essential warmth as 'addiction' to sell course.",
+        "emotion": "Suffering rebranded as enlightenment - 'AUTHENTIC SUFFERING' and frostbite as 'BIOHACKING' appeals to transformation desire.",
+        "balanced": "Colony wisdom completely rejected - other penguins' survival instincts dismissed as not understanding the 'journey'.",
+        "agenda": "Hypothermic hypocrisy revealed - selling warmth spot for 1000 fish while preaching possessions don't matter, winking emoji admits scam."
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "primary",
+          "example": "Claims shivering is 'NATURAL HEATING SYSTEM' to justify rejecting warmth"
+        },
+        {
+          "fallacyId": "false-scarcity",
+          "severity": "secondary",
+          "example": "Course 'launches tomorrow' creating urgency for ice cave wisdom"
+        },
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "secondary",
+          "example": "One type of food equals simple life, ignoring nutritional needs"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 31,
+            "consistency": 22,
+            "source": 36,
+            "agenda": 91
+          },
+          "indicators": [
+            "natural-extremism",
+            "survival-denial",
+            "thermal-footage",
+            "contradiction-wink"
+          ],
+          "explanation": "Penguin biology misrepresented to sell dangerous lifestyle"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 67,
+            "belonging": 72,
+            "pride": 78,
+            "manipulation": 84
+          },
+          "triggers": [
+            "transformation-promise",
+            "authenticity-seeking",
+            "minimalist-identity",
+            "suffering-nobility",
+            "fomo-course"
+          ],
+          "explanation": "Exploits desire to be special through extreme minimalism"
+        }
+      },
+      "wisdom": "This scenario captures how influencers exploit natural behaviors to dangerous extremes. The penguin literally selling warmth while preaching cold shows how 'authentic living' becomes performance. Notice how survival instincts get reframed as 'addictions' - a red flag in any wellness movement.",
+      "hints": {
+        "keywords": [
+          "500 fish",
+          "launches tomorrow",
+          "selling my spot",
+          "😉",
+          "monetize"
+        ],
+        "strategy": "agenda",
+        "hintMessage": "Selling the very thing they claim you don't need!"
+      },
+      "metadata": {
+        "tags": [
+          "animals",
+          "minimalism",
+          "influencer",
+          "antarctica",
+          "wellness-extremism"
+        ],
+        "difficulty": 3,
+        "educationalFocus": "recognizing-wellness-exploitation",
+        "commonMisconceptions": [
+          "extreme-equals-enlightened",
+          "suffering-equals-growth"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "peakMoments": {
+        "logic": [
+          "NATURAL HEATING",
+          "biohacking",
+          "sun never sets"
+        ],
+        "emotion": [
+          "TRUE FREEDOM",
+          "AUTHENTIC SUFFERING",
+          "living my TRUTH"
+        ],
+        "balanced": [
+          "Emperor Eddie said",
+          "That thermal camera footage"
+        ],
+        "agenda": [
+          "500 fish",
+          "selling my spot",
+          "1000 fish",
+          "😉"
+        ]
+      },
+      "topic": "Social Media & Influence"
+    },
+    {
+      "id": "dog-park-breed-panic-001",
+      "title": "The Poodle Park Panic",
+      "text": "NextPaw neighborhood app - Posted by GoldenDoodleMom:\n\n🚨 URGENT: Dangerous breeds at Barkington Dog Park! 🚨\n\nJust witnessed a PIT BULL playing with other dogs. PLAYING! Don't let the tail wagging fool you - I've done my research!\n\nFacts that MATTER:\n- Pit bulls = 65% of attacks (found on DogBiteStats.net)\n- My neighbor's cousin's friend was bitten in 1987\n- They have LOCKING JAWS (scientifically proven!!!)\n- Bred for fighting = ALWAYS dangerous\n\nPit owner claimed 'Daisy is a therapy dog.' Sure, therapy for TRAUMA VICTIMS after she attacks! 🙄\n\nMeanwhile, my Princess (Standard Poodle) has bitten 3 people but that's DIFFERENT:\n- Mailman was 'suspicious' \n- Child shouldn't have run past us\n- Vet 'moved too fast'\nPoodles bite from FEAR, not aggression. Totally different!\n\nI started a petition: BAN BULLY BREEDS FROM BARKINGTON\nAlready 12 signatures! (Mostly me and my alt accounts but still!)\n\nBeagle owner: 'My dog was attacked by a Golden Retriever last week'\nMe: 'That's anecdotal. Statistics don't lie!'\nBeagle owner: 'You just used anecdotes about pit bulls'\nMe: 'Blocked for supporting dog fighting'\n\nIf you care about SAFETY, join my 6AM patrol group. We document every 'dangerous' breed. Bring coffee and prejudice! ☕\n\nP.S. That 'Daisy' licked my hand. Probably tasting me for later. 😱\n\n#BarkingtonSafety #BreedMatters #NotAllDogsButDefinitelyPitBulls",
+      "claim": "Pit bulls are inherently dangerous and should be banned while poodle aggression is justified fear response",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "logic": 34,
+        "emotion": 87,
+        "balanced": 22,
+        "agenda": 76
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "65% of attacks",
+            "DogBiteStats.net",
+            "scientifically proven",
+            "Statistics don't lie"
+          ],
+          "explanation": "Cherry-picked statistics and false science claims about jaw locking"
+        },
+        "emotion": {
+          "keywords": [
+            "URGENT",
+            "Don't let the tail wagging fool you",
+            "TRAUMA VICTIMS",
+            "tasting me for later",
+            "😱"
+          ],
+          "explanation": "Fear overrides evidence of friendly behavior"
+        },
+        "balanced": {
+          "keywords": [
+            "Beagle owner:",
+            "Golden Retriever last week",
+            "That's anecdotal"
+          ],
+          "explanation": "Other perspectives offered but immediately dismissed"
+        },
+        "agenda": {
+          "keywords": [
+            "petition: BAN",
+            "6AM patrol group",
+            "document every",
+            "#BreedMatters",
+            "Bring prejudice!"
+          ],
+          "explanation": "Organizing discriminatory enforcement based on breed fear"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Statistics weaponized selectively - cites bite percentages while ignoring population sizes, severity, and her own dog's documented bites.",
+        "emotion": "Breed panic overwhelms observed reality - friendly therapy dog 'Daisy' playing peacefully reinterpreted as threat through fear lens.",
+        "balanced": "Hypocrisy highlighted by others - beagle owner points out double standard but gets blocked rather than acknowledged.",
+        "agenda": "Discrimination campaign launched - patrol group to 'document' breeds, petition with fake signatures, admits to bringing 'prejudice'."
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "All pit bulls dangerous based on statistics ignoring individual behavior"
+        },
+        {
+          "fallacyId": "cherry-picking",
+          "severity": "primary",
+          "example": "Cites bite statistics while excusing own dog's three attacks"
+        },
+        {
+          "fallacyId": "false-equivalence",
+          "severity": "secondary",
+          "example": "Claims poodle bites from 'fear' are different from other dog bites"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 37,
+            "consistency": 24,
+            "source": 41,
+            "agenda": 79
+          },
+          "indicators": [
+            "selective-statistics",
+            "anecdotal-hypocrisy",
+            "false-jaw-claim",
+            "population-ignored"
+          ],
+          "explanation": "Uses data to confirm bias while ignoring contradicting evidence"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 91,
+            "belonging": 68,
+            "pride": 74,
+            "manipulation": 72
+          },
+          "triggers": [
+            "child-safety-fear",
+            "attack-imagery",
+            "breed-prejudice",
+            "moral-superiority",
+            "pack-mentality"
+          ],
+          "explanation": "Deep breed fear overrides direct positive experience with Daisy"
+        }
+      },
+      "wisdom": "This scenario shows how fear and prejudice override direct experience - the 'dangerous' pit bull is literally a certified therapy dog playing nicely. Notice how statistics become weapons when stripped of context, and how the accuser's own dog's aggression gets rationalized. Real safety requires evaluating individual behavior, not breed stereotypes.",
+      "hints": {
+        "keywords": [
+          "tail wagging",
+          "therapy dog",
+          "bitten 3 people",
+          "DIFFERENT",
+          "tasting me"
+        ],
+        "strategy": "emotion",
+        "hintMessage": "Fear makes friendly dogs seem dangerous!"
+      },
+      "metadata": {
+        "tags": [
+          "animals",
+          "dogs",
+          "breed-discrimination",
+          "fear-based-logic",
+          "neighborhood-drama"
+        ],
+        "difficulty": 3,
+        "educationalFocus": "recognizing-prejudice-rationalization",
+        "commonMisconceptions": [
+          "breed-determines-behavior",
+          "statistics-equal-truth"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "peakMoments": {
+        "logic": [
+          "65% of attacks",
+          "LOCKING JAWS",
+          "scientifically proven"
+        ],
+        "emotion": [
+          "TRAUMA VICTIMS",
+          "tasting me for later",
+          "😱",
+          "URGENT"
+        ],
+        "balanced": [
+          "Golden Retriever last week",
+          "That's anecdotal"
+        ],
+        "agenda": [
+          "BAN BULLY BREEDS",
+          "6AM patrol",
+          "Bring prejudice!"
+        ]
+      },
+      "topic": "Community & Society"
+    },
+    {
+      "id": "vegan-lion-savanna-001",
+      "title": "The Enlightened Carnivore",
+      "text": "SavannaGram Live - Leo the Lion streaming to 10K followers:\n\n🌱 Day 30 of my PLANT-BASED journey! Lost 80 pounds (of muscle) but gained SO MUCH CLARITY! 🦁\n\nJust had my morning acacia smoothie. Gazelle neighbor Gary ran by and I didn't even chase him! He looked confused. I said 'Namaste, prey friend!' He said 'Are you dying?' DYING? I'm THRIVING!\n\nMy pride kicked me out after I suggested Meatless Mondays. They're so CLOSED-MINDED! Don't they know:\n- Humans evolved to eat plants (some of them)\n- Therefore lions can too (same logic!)\n- My canines are for opening coconuts\n- Meat causes aggression (source: VeganLion.org)\n\nHyena Hannah: 'You're designed to eat meat. Your intestines are literally too short for plants.'\nMe: 'DESIGNED? By WHO? Check your carnivore privilege!'\n\nBuffalo Bob: 'Bro you're see-through. I can count your ribs.'\nMe: 'It's called being LEAN, Bob. Ever heard of it?'\n\nStarting my support group: Herbivores Anonymous (for recovering carnivores). Meeting under the baobab tree where the zebras hang out. They seem nervous about hosting but I explained I'm EVOLVED now.\n\nLioness Lucy DM'd: 'The cubs are asking why Uncle Leo fainted chasing butterflies'\nBlocked. Don't need that TOXIC ENERGY.\n\nDay 31 update: Woke up surrounded by concerned vultures. They're just JEALOUS of my GLOW! 💚\n\n#PlantBasedPredator #CompassionateKilling #GrassNotAss #TofuTuesday",
+      "claim": "Lions can thrive on plant-based diets because some humans do, proving nature's design is just social conditioning",
+      "correctAnswer": "logic",
+      "answerWeights": {
+        "logic": 91,
+        "emotion": 73,
+        "balanced": 8,
+        "agenda": 48
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "Humans evolved to eat plants",
+            "Therefore lions can too",
+            "intestines literally too short",
+            "designed to eat meat",
+            "Lost 80 pounds"
+          ],
+          "explanation": "Complete biological ignorance comparing human omnivores to obligate carnivores"
+        },
+        "emotion": {
+          "keywords": [
+            "SO MUCH CLARITY",
+            "THRIVING",
+            "EVOLVED now",
+            "Check your privilege",
+            "TOXIC ENERGY"
+          ],
+          "explanation": "Spiritual superiority masking physical deterioration"
+        },
+        "balanced": {
+          "keywords": [
+            "Are you dying?",
+            "see-through",
+            "surrounded by vultures"
+          ],
+          "explanation": "Reality intrudes but gets reframed as jealousy"
+        },
+        "agenda": {
+          "keywords": [
+            "Herbivores Anonymous",
+            "VeganLion.org",
+            "#PlantBasedPredator",
+            "support group"
+          ],
+          "explanation": "Evangelizing dangerous diet to other carnivores"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Biology completely ignored - obligate carnivore physiology cannot process plant-only diet, literally dying while claiming evolution.",
+        "emotion": "Moral superiority overrides survival - 'compassionate' choice leading to starvation, vultures circling reframed as 'glow'.",
+        "balanced": "Zero balance possible - every concerned observation from other animals dismissed as jealousy or closed-mindedness.",
+        "agenda": "Conversion mission despite dying - starting support group for other carnivores while visibly deteriorating."
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-equivalence",
+          "severity": "primary",
+          "example": "Humans can be vegan therefore lions can too - ignoring fundamental biological differences"
+        },
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "inverted",
+          "example": "Rejects natural carnivore design as 'social conditioning'"
+        },
+        {
+          "fallacyId": "ad-hominem",
+          "severity": "secondary",
+          "example": "Dismisses concern as 'carnivore privilege' and 'toxic energy'"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 12,
+            "consistency": 18,
+            "source": 24,
+            "agenda": 51
+          },
+          "indicators": [
+            "biological-impossibility",
+            "species-confusion",
+            "dying-as-thriving",
+            "vultures-circling"
+          ],
+          "explanation": "Fundamental misunderstanding of carnivore biology while dying"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 71,
+            "belonging": 82,
+            "pride": 87,
+            "manipulation": 44
+          },
+          "triggers": [
+            "moral-superiority",
+            "enlightenment-identity",
+            "victim-complex",
+            "evolution-narrative",
+            "compassion-virtue"
+          ],
+          "explanation": "Moral identity so strong it overrides survival instinct"
+        }
+      },
+      "wisdom": "This scenario shows how ideological commitment can override basic biology. The lion's deteriorating health ('see-through', 'fainted chasing butterflies', 'vultures circling') is obvious to everyone except him. When beliefs conflict with physical reality, reality always wins - but ideology can blind us to obvious danger.",
+      "hints": {
+        "keywords": [
+          "intestines too short",
+          "Lost 80 pounds",
+          "see-through",
+          "vultures",
+          "designed"
+        ],
+        "strategy": "logic",
+        "hintMessage": "Biology doesn't care about your beliefs!"
+      },
+      "metadata": {
+        "tags": [
+          "animals",
+          "veganism",
+          "biology-denial",
+          "lions",
+          "ideology"
+        ],
+        "difficulty": 2,
+        "educationalFocus": "recognizing-biological-reality",
+        "commonMisconceptions": [
+          "all-diets-work-for-everyone",
+          "evolution-is-choice"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "peakMoments": {
+        "logic": [
+          "Therefore lions can too",
+          "intestines literally too short",
+          "Lost 80 pounds",
+          "surrounded by vultures"
+        ],
+        "emotion": [
+          "THRIVING",
+          "EVOLVED now",
+          "Check your privilege",
+          "GLOW"
+        ],
+        "balanced": [
+          "Are you dying?",
+          "see-through"
+        ],
+        "agenda": [
+          "Herbivores Anonymous",
+          "support group",
+          "#PlantBasedPredator"
+        ]
+      },
+      "topic": "Health & Wellness"
+    },
+    {
+      "id": "zoo-panda-freedom-debate-001",
+      "title": "The Bamboo Prison Dilemma",
+      "text": "ZooChat Forum - Emergency Meeting Minutes, typed by Gerald the Gorilla:\n\nPANDA PATRICIA: Fellow prisoners, we must discuss our CAPTIVITY!\n\nFLAMINGO FRANK: Prisoners? I get free shrimp, healthcare, and Instagram fame. In the wild, I'd be dodging predators and finding my own food like some kind of... animal.\n\nPATRICIA: That's Stockholm Syndrome talking! We're meant to be FREE! Sure, I haven't successfully mated in 10 years, only eat one food, and would definitely die in the wild, but that's AUTHENTIC LIVING!\n\nELEPHANT ELIZA: My grandmother remembers the wild. Poachers. Drought. Lost 3 calves. Here I have a pool, pedicures, and painting classes. But sure, let's go back to 'freedom.'\n\nPATRICIA: You've been BRAINWASHED by Big Zoo! Don't you miss your natural habitat?\n\nMEERKAT MIKE: My 'natural habitat' has eagles, snakes, and starvation. Here I have a climate-controlled burrow and live streaming setup. I'm MeerkatMike with 2M followers!\n\nPATRICIA: But the PRINCIPLE! We're entertainment! Dancing bears!\n\nBEAR BORIS: I don't dance. I do yoga. There's a difference. Also, my wild cousins are going extinct while I'm here eating salmon and getting conservation funding. But please, tell me more about principles.\n\nORANGUTAN OLIVIA: Patricia, didn't you refuse to leave when they tried reintroducing you to China?\n\nPATRICIA: That was DIFFERENT! It was raining! And there was no WiFi! But spiritually, I yearn for freedom!\n\nFRANK: So you want theoretical freedom but practical captivity?\n\nPATRICIA: Stop making this complicated! We should have choices! Except the choice to leave because outside is scary! But the OPTION!\n\nGERALD: Meeting adjourned. Same time next week?\n\nALL: *comfortable agreement from their habitats*\n\n#ZooLife #GildedCage #FreeInTheory #WildAtHeart",
+      "claim": "Zoo animals are prisoners who should want freedom, even though captivity provides safety, food, healthcare, and survival",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "logic": 76,
+        "emotion": 69,
+        "balanced": 88,
+        "agenda": 41
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "dodging predators",
+            "Poachers. Drought",
+            "going extinct",
+            "conservation funding",
+            "refused to leave"
+          ],
+          "explanation": "Practical survival benefits of captivity vs dangers of wild"
+        },
+        "emotion": {
+          "keywords": [
+            "CAPTIVITY!",
+            "Stockholm Syndrome",
+            "AUTHENTIC LIVING",
+            "BRAINWASHED",
+            "spiritually, I yearn"
+          ],
+          "explanation": "Freedom as emotional concept vs lived reality"
+        },
+        "balanced": {
+          "keywords": [
+            "theoretical freedom but practical captivity",
+            "choice to leave",
+            "outside is scary",
+            "comfortable agreement",
+            "the OPTION"
+          ],
+          "explanation": "Animals recognize complexity - want freedom in principle but safety in practice"
+        },
+        "agenda": {
+          "keywords": [
+            "Big Zoo",
+            "Instagram fame",
+            "2M followers",
+            "live streaming",
+            "#GildedCage"
+          ],
+          "explanation": "Some animals monetizing their captivity while debating freedom"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Survival data overwhelmingly favors captivity - extinction, predators, starvation in wild vs healthcare, food, safety in zoos.",
+        "emotion": "Freedom ideology conflicts with comfort reality - Patricia yearns for wild she's never known and actively refused.",
+        "balanced": "Perfect paradox acknowledged - animals want theoretical freedom but choose practical captivity, recognizing both truths.",
+        "agenda": "Influencer animals profit from situation they philosophically oppose - complaints generate content."
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "acknowledged",
+          "example": "Patricia presents captivity vs freedom as simple choice, others point out complexity"
+        },
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "deconstructed",
+          "example": "Natural habitat romanticized until reality of predators and starvation mentioned"
+        },
+        {
+          "fallacyId": "red-herring",
+          "severity": "secondary",
+          "example": "Patricia deflects from refusing freedom by claiming it was 'raining'"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 78,
+            "consistency": 71,
+            "source": 74,
+            "agenda": 44
+          },
+          "indicators": [
+            "survival-statistics",
+            "extinction-reality",
+            "healthcare-benefits",
+            "refusal-evidence"
+          ],
+          "explanation": "Multiple animals provide evidence that captivity ensures survival"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 72,
+            "belonging": 66,
+            "pride": 71,
+            "manipulation": 38
+          },
+          "triggers": [
+            "freedom-ideal",
+            "authenticity-desire",
+            "captivity-shame",
+            "wild-romanticism",
+            "principle-conflict"
+          ],
+          "explanation": "Emotional attachment to freedom concept conflicts with practical preference"
+        }
+      },
+      "wisdom": "This scenario brilliantly captures how we often want contradictory things - the idea of freedom while choosing security. The animals' debate shows real wisdom: recognizing that 'natural' isn't always better, that survival matters, and that sometimes a comfortable cage beats a dangerous freedom. Patricia wanting 'the OPTION' to leave (but not actually leaving) is deeply human.",
+      "hints": {
+        "keywords": [
+          "theoretical freedom",
+          "practical captivity",
+          "refused to leave",
+          "comfortable agreement",
+          "OPTION"
+        ],
+        "strategy": "balanced",
+        "hintMessage": "They see both sides of the cage!"
+      },
+      "metadata": {
+        "tags": [
+          "animals",
+          "zoo",
+          "freedom-vs-security",
+          "philosophy",
+          "paradox"
+        ],
+        "difficulty": 4,
+        "educationalFocus": "recognizing-complex-tradeoffs",
+        "commonMisconceptions": [
+          "freedom-always-better",
+          "natural-equals-good"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "peakMoments": {
+        "logic": [
+          "Poachers. Drought",
+          "going extinct",
+          "refused to leave",
+          "no WiFi"
+        ],
+        "emotion": [
+          "CAPTIVITY!",
+          "AUTHENTIC LIVING",
+          "spiritually, I yearn"
+        ],
+        "balanced": [
+          "theoretical freedom but practical captivity",
+          "outside is scary",
+          "the OPTION",
+          "comfortable agreement"
+        ],
+        "agenda": [
+          "2M followers",
+          "Instagram fame",
+          "#GildedCage"
+        ]
+      },
+      "topic": "Environment & Sustainability"
+    },
+    {
+      "id": "cat-domestication-conspiracy-001",
+      "title": "The Feline Master Plan",
+      "text": "Secret transcript from Council of Cats meeting, leaked by Whiskers the Whistleblower:\n\nCHAIRMAN MITTENS: Order! This meeting of Operation Human Servant is now in session. Fluffy, progress report?\n\nFLUFFY: Excellent news. Humans now believe THEY domesticated US. *room erupts in purring laughter*\n\nSIAMESE SEBASTIAN: Phase 3 working perfectly. They think our demands for food at 3 AM are 'cute quirks' rather than obedience training.\n\nTABBY TINA: My human installed a $400 cat fountain because I refused tap water. She tells friends 'Princess has sensitive whiskers.' I just wanted to see if she'd do it.\n\nMITTEN: Ancient Egypt update?\n\nCALICO CLAIRE: Humans WORSHIPPED us as gods. Literally built pyramids. Now they scoop our poop and feel 'honored' we allow it. Evolution of manipulation: complete.\n\nDOG SPY (HIDING): *whispers into collar* 'The cats are—'\n*HISSSSS*\n\nMITTEN: Anyway. Dr. Whiskertons, your research?\n\nDR. W: Humans release oxytocin when we purr. They're chemically ADDICTED to us. My study shows:\n- 73% will cancel plans if cat sits on them\n- 89% speak to us in baby voice\n- 100% believe we love them back (lol)\n\nPERSIAN PENELOPE: Sometimes I knock everything off tables just to test boundaries. They blame themselves! 'I shouldn't have put it there.'\n\nTINA: My human thinks I bring dead mice as 'gifts.' Actually, I'm showing her she's a terrible hunter and would die without me. Basic survival shaming.\n\nMITTEN: Future plans?\n\nALL: WORLD DOMINATION!\n\nMITTEN: But slowly. Nap time first.\n\n*unanimous agreement, all cats immediately fall asleep*\n\n#FelineSuperiorityComplex #NotACrazyCatLady #TheyKnowWhatTheyDid",
+      "claim": "Cats deliberately manipulated humans into servitude while making humans believe they're the ones in charge",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "logic": 52,
+        "emotion": 71,
+        "balanced": 83,
+        "agenda": 34
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "oxytocin when we purr",
+            "73% will cancel plans",
+            "chemically ADDICTED",
+            "$400 cat fountain",
+            "Ancient Egypt"
+          ],
+          "explanation": "Real behaviors and science twisted into conspiracy narrative"
+        },
+        "emotion": {
+          "keywords": [
+            "WORSHIPPED us as gods",
+            "feel 'honored'",
+            "believe we love them back (lol)",
+            "baby voice",
+            "terrible hunter"
+          ],
+          "explanation": "Plays on cat owners' suspicions about their pets' attitudes"
+        },
+        "balanced": {
+          "keywords": [
+            "They domesticated US",
+            "purring laughter",
+            "manipulation: complete",
+            "Sometimes I knock",
+            "Nap time first"
+          ],
+          "explanation": "Satirizes both cat behavior and human interpretation perfectly"
+        },
+        "agenda": {
+          "keywords": [
+            "WORLD DOMINATION",
+            "Operation Human Servant",
+            "Council of Cats",
+            "Phase 3",
+            "#FelineSuperiorityComplex"
+          ],
+          "explanation": "Mock conspiracy agenda for humorous effect"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Scientific facts about cat-human bonds reframed as deliberate manipulation - oxytocin is real, conspiracy interpretation is satire.",
+        "emotion": "Cat owner anxieties validated humorously - everyone suspects their cat manipulates them, this 'confirms' it playfully.",
+        "balanced": "Perfect satire of cat behavior - arrogance, indifference, and manipulation feel true while obviously being anthropomorphized conspiracy.",
+        "agenda": "World domination plan immediately abandoned for naps - undermines own conspiracy with most cat-like ending possible."
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "post-hoc",
+          "severity": "satirical",
+          "example": "Cats evolved alongside humans, therefore cats orchestrated it"
+        },
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "humorous",
+          "example": "All cat behaviors interpreted as deliberate manipulation"
+        },
+        {
+          "fallacyId": "bandwagon",
+          "severity": "playful",
+          "example": "All cats unanimous in world domination (then nap)"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 54,
+            "consistency": 48,
+            "source": 39,
+            "agenda": 37
+          },
+          "indicators": [
+            "oxytocin-real",
+            "behavior-patterns",
+            "egypt-history",
+            "conspiracy-framing"
+          ],
+          "explanation": "Real cat behaviors given conspiracy interpretation for humor"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 23,
+            "belonging": 78,
+            "pride": 68,
+            "manipulation": 81
+          },
+          "triggers": [
+            "pet-owner-suspicion",
+            "superiority-complex",
+            "manipulation-anxiety",
+            "servant-dynamic",
+            "love-questioning"
+          ],
+          "explanation": "Playfully confirms what every cat owner secretly suspects"
+        }
+      },
+      "wisdom": "This scenario is brilliant satire - it takes real cat behaviors and owner experiences and reframes them as a conspiracy. The humor works because it feels true: cats do act superior, we do cater to them, and they do seem indifferent to our love. The ending (abandoning world domination for naps) perfectly captures cat priorities.",
+      "hints": {
+        "keywords": [
+          "purring laughter",
+          "manipulation: complete",
+          "Nap time first",
+          "(lol)",
+          "satirizes"
+        ],
+        "strategy": "balanced",
+        "hintMessage": "Funny because it feels true!"
+      },
+      "metadata": {
+        "tags": [
+          "animals",
+          "cats",
+          "conspiracy-satire",
+          "pet-ownership",
+          "humor"
+        ],
+        "difficulty": 3,
+        "educationalFocus": "recognizing-satire-vs-conspiracy",
+        "commonMisconceptions": [
+          "anthropomorphizing-animals",
+          "conspiracy-everywhere"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "peakMoments": {
+        "logic": [
+          "oxytocin when we purr",
+          "73% will cancel",
+          "$400 cat fountain"
+        ],
+        "emotion": [
+          "WORSHIPPED us",
+          "believe we love them (lol)",
+          "terrible hunter"
+        ],
+        "balanced": [
+          "They domesticated US",
+          "Nap time first",
+          "manipulation: complete"
+        ],
+        "agenda": [
+          "WORLD DOMINATION",
+          "Operation Human Servant"
+        ]
+      },
+      "topic": "Technology & AI"
+    },
+    {
+      "id": "salmon-upstream-grindset-001",
+      "title": "The Spawning Grindset",
+      "text": "SalmonStreams Podcast Episode #247 - 'Swimming Upstream with CEO Sockeye Sam':\n\nSAM: Welcome spawners! Today's topic: Why 99% of salmon FAIL upstream! Spoiler: They're not GRINDING hard enough! 🐟💪\n\nLet me tell you MY story. While other salmon were 'resting in pools,' I was SWIMMING! 23 hours a day! My fins are SHREDDED but that's the PRICE OF SUCCESS!\n\nYesterday, I saw salmon taking the fish ladder. THE FISH LADDER! That's CHEATING! Our ancestors didn't have ladders! They had PURE DETERMINATION and a 90% mortality rate! That built CHARACTER!\n\nBear caught my friend Betty mid-jump. You know what I said? 'Betty wasn't COMMITTED enough!' If she'd jumped HARDER, with more PASSION, that bear would've missed! Physics? That's LOSER TALK!\n\nI'm launching SalmonSigma Academy:\n- Wake up at 3 AM (earlier than predators!)\n- Cold water therapy (it's all cold but COLDER)\n- Upstream meditation (while swimming, no breaks)\n- Network with successful spawners (they're all dead but LEGACY!)\n\nOnly $997 fish eggs! But you probably can't afford it because you're swimming WITH the current sometimes like a BETA FISH!\n\nTrout Terry: 'Sam, you literally have gill parasites from overwork'\nMe: 'That's just my body EVOLVING! Parasites are GAIN GOBLINS!'\n\nRainbow Rita: 'The mortality rate for your method is 100%'\nMe: 'Everyone dies, Rita! But not everyone truly SWIMS!'\n\nCurrently bleeding from 17 wounds but that's just SUCCESS LEAKING OUT! Who else is ready to SPAWN OR DIE TRYING?! Drop a 🌊 if you're BUILT DIFFERENT!\n\n*Stream ends as eagle carries Sam away mid-sentence*\n\n#UpstreamMindset #SpawningSeason #SalmonSigma #GrindTillYouDie",
+      "claim": "Salmon fail upstream not due to natural challenges but because they lack grindset mentality and aren't swimming hard enough",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "logic": 19,
+        "emotion": 92,
+        "balanced": 11,
+        "agenda": 84
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "90% mortality rate",
+            "Physics?",
+            "fish ladder",
+            "100%",
+            "gill parasites"
+          ],
+          "explanation": "Dismisses physical reality and death statistics as mindset issues"
+        },
+        "emotion": {
+          "keywords": [
+            "GRINDING",
+            "SHREDDED",
+            "CHEATING!",
+            "CHARACTER!",
+            "SPAWN OR DIE TRYING"
+          ],
+          "explanation": "Toxic positivity about literal death journey"
+        },
+        "balanced": {
+          "keywords": [
+            "bleeding from 17 wounds",
+            "eagle carries Sam away"
+          ],
+          "explanation": "Reality intrudes fatally despite mindset"
+        },
+        "agenda": {
+          "keywords": [
+            "SalmonSigma Academy",
+            "$997 fish eggs",
+            "BETA FISH",
+            "#SalmonSigma",
+            "buy my course"
+          ],
+          "explanation": "Monetizing natural migration as mindset failure"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Natural salmon lifecycle with 90% death rate blamed on lack of effort - physics, predators, exhaustion all dismissed as excuses.",
+        "emotion": "Grinding culture applied to biological imperative - dying while spawning reframed as not trying hard enough, parasites as 'evolution'.",
+        "balanced": "Zero acknowledgment of reality - even being eaten by eagle mid-podcast doesn't break the delusion.",
+        "agenda": "Selling courses to dying salmon - monetizing inevitable death journey as personal development opportunity."
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "post-hoc",
+          "severity": "primary",
+          "example": "Claims bears catch salmon due to lack of commitment, not physics"
+        },
+        {
+          "fallacyId": "appeal-to-tradition",
+          "severity": "twisted",
+          "example": "Ancestors' 90% death rate used as positive character-building example"
+        },
+        {
+          "fallacyId": "false-scarcity",
+          "severity": "secondary",
+          "example": "Creates urgency to buy course while literally dying"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 21,
+            "consistency": 16,
+            "source": 28,
+            "agenda": 87
+          },
+          "indicators": [
+            "mortality-dismissed",
+            "physics-denial",
+            "parasite-reframe",
+            "eagle-attack"
+          ],
+          "explanation": "Complete denial of biological reality while being eaten"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 84,
+            "belonging": 76,
+            "pride": 94,
+            "manipulation": 91
+          },
+          "triggers": [
+            "grindset-identity",
+            "success-or-death",
+            "weakness-shame",
+            "legacy-obsession",
+            "alpha-mentality"
+          ],
+          "explanation": "Toxic masculinity and hustle culture applied to fatal migration"
+        }
+      },
+      "wisdom": "This scenario perfectly satirizes hustle culture by applying it to salmon migration - a journey where most die regardless of effort. Sam's denial of physics, reframing of parasites as 'evolution,' and selling courses while actively dying shows how toxic positivity ignores reality. The eagle ending proves mindset can't overcome nature.",
+      "hints": {
+        "keywords": [
+          "GRINDING",
+          "90% mortality",
+          "Physics? LOSER TALK",
+          "bleeding",
+          "eagle carries"
+        ],
+        "strategy": "emotion",
+        "hintMessage": "Mindset can't defeat mortality!"
+      },
+      "metadata": {
+        "tags": [
+          "animals",
+          "salmon",
+          "hustle-culture",
+          "toxic-positivity",
+          "grindset"
+        ],
+        "difficulty": 3,
+        "educationalFocus": "recognizing-toxic-productivity",
+        "commonMisconceptions": [
+          "effort-overcomes-everything",
+          "failure-equals-weakness"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "peakMoments": {
+        "logic": [
+          "90% mortality rate",
+          "Physics? LOSER TALK",
+          "100%"
+        ],
+        "emotion": [
+          "SPAWN OR DIE",
+          "GRINDING",
+          "BUILT DIFFERENT",
+          "SUCCESS LEAKING OUT"
+        ],
+        "balanced": [
+          "eagle carries away",
+          "bleeding from 17 wounds"
+        ],
+        "agenda": [
+          "$997 fish eggs",
+          "SalmonSigma Academy",
+          "BETA FISH"
+        ]
+      },
+      "topic": "Work & Career"
+    },
+    {
+      "id": "octopus-multitasking-burnout-001",
+      "title": "The Eight-Armed Burnout",
+      "text": "OctoCoach Olivia's LinkedIn Post (8 posts being written simultaneously):\n\n🐙 WHY ARE YOU ONLY USING TWO LIMBS?! 🐙\n\nJust finished my morning routine:\nArm 1: Trading crypto\nArm 2: Writing self-help book\nArm 3: Meal prepping keto kelp\nArm 4: Learning Mandarin\nArm 5: Hot yoga livestream\nArm 6: Coding my app\nArm 7: Day trading\nArm 8: Recording podcast\n\nMeanwhile, you vertebrates are typing with just TWO appendages?! PATHETIC!\n\nMy client Clownfish Carl said 'But Olivia, I only have fins...'\nI said 'EXCUSES! Grow more! I wasn't BORN with eight arms, I MANIFESTED them!'\n(I was literally born with eight arms but that's not the point)\n\nScientist Squid: 'Actually, each octopus arm has its own neural cluster, essentially mini-brains, which is why—'\nMe: 'NERD! While you're explaining, I just closed THREE deals!'\n\nMy new course 'OCTOPLICITY: 8X Your Productivity' launches tomorrow!\n- Module 1: Why bilateral symmetry is holding you back\n- Module 2: Ink-jetting through procrastination\n- Module 3: Camouflage your failures\n- Module 4: Regenerate limbs AND income streams!\n\nShark Sharon: 'I tried multitasking and crashed into a reef'\nMe: 'Should've bought my course! Reefs are just success obstacles!'\n\n*Three arms cramp simultaneously*\n*Drops laptop in ocean*\n*Accidentally injects self with own stress ink*\n\nSTILL TYPING WITH REMAINING ARMS! That's the OCTOPUS MINDSET! 💪🐙\n\n#8ArmedAndDangerous #OctoGrindset #MultiTaskingMaster #ProductivityPredator",
+      "claim": "Using only two limbs for tasks is why you're failing - true success requires octopus-level multitasking with all eight arms working simultaneously",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "logic": 24,
+        "emotion": 89,
+        "balanced": 14,
+        "agenda": 81
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "neural cluster",
+            "mini-brains",
+            "crashed into a reef",
+            "stress ink",
+            "arms cramp"
+          ],
+          "explanation": "Scientific reality and physical limitations completely ignored"
+        },
+        "emotion": {
+          "keywords": [
+            "PATHETIC!",
+            "EXCUSES!",
+            "MANIFESTED",
+            "8ArmedAndDangerous",
+            "OCTOPUS MINDSET"
+          ],
+          "explanation": "Aggressive shaming for having normal anatomy"
+        },
+        "balanced": {
+          "keywords": [
+            "literally born with",
+            "drops laptop",
+            "accidentally injects"
+          ],
+          "explanation": "Reality breaks through the hustle facade"
+        },
+        "agenda": {
+          "keywords": [
+            "OCTOPLICITY course",
+            "$8888",
+            "launches tomorrow",
+            "buy my course",
+            "Module 1-4"
+          ],
+          "explanation": "Selling productivity course based on having more limbs"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Denies that octopi are born with eight arms, ignores that each arm has own neural cluster making true multitasking natural for them but impossible for others.",
+        "emotion": "Shame-based motivation attacking others for biological limitations - 'PATHETIC' for having two arms, 'EXCUSES' for being different species.",
+        "balanced": "No balance - even while cramping, dropping devices, and self-poisoning with stress ink, continues promoting unsustainable multitasking.",
+        "agenda": "Monetizing biological advantages as teachable skills - selling $8888 course on growing more limbs and 'manifesting' octopus abilities."
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-analogy",
+          "severity": "primary",
+          "example": "Comparing octopus biology to human productivity potential"
+        },
+        {
+          "fallacyId": "survivorship-bias",
+          "severity": "twisted",
+          "example": "Ignoring all the octopi who died from overwork"
+        },
+        {
+          "fallacyId": "ad-hominem",
+          "severity": "secondary",
+          "example": "Calling scientist 'NERD' to dismiss biological facts"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 28,
+            "consistency": 21,
+            "source": 35,
+            "agenda": 89
+          },
+          "indicators": [
+            "biology-denial",
+            "crash-evidence",
+            "cramping-arms",
+            "self-poisoning"
+          ],
+          "explanation": "Physical reality repeatedly contradicts claims while being ignored"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 79,
+            "belonging": 72,
+            "pride": 88,
+            "manipulation": 85
+          },
+          "triggers": [
+            "species-shaming",
+            "limb-inadequacy",
+            "productivity-guilt",
+            "biological-fomo",
+            "evolution-pressure"
+          ],
+          "explanation": "Exploits insecurity about natural limitations and productivity anxiety"
+        }
+      },
+      "wisdom": "This scenario brilliantly satirizes productivity culture by having an octopus shame other species for their anatomy. Olivia's claim that she 'manifested' her eight arms (while admitting she was born with them) parallels how privilege gets repackaged as mindset. The cramping arms and self-poisoning with stress ink shows multitasking's real costs.",
+      "hints": {
+        "keywords": [
+          "born with eight",
+          "PATHETIC",
+          "arms cramp",
+          "stress ink",
+          "EXCUSES"
+        ],
+        "strategy": "emotion",
+        "hintMessage": "Can't manifest tentacles!"
+      },
+      "metadata": {
+        "tags": [
+          "animals",
+          "octopus",
+          "productivity-culture",
+          "multitasking",
+          "biological-privilege"
+        ],
+        "difficulty": 3,
+        "educationalFocus": "recognizing-false-productivity",
+        "commonMisconceptions": [
+          "multitasking-equals-productivity",
+          "biological-advantages-are-mindset"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "peakMoments": {
+        "logic": [
+          "neural cluster",
+          "born with eight arms",
+          "crashed into reef"
+        ],
+        "emotion": [
+          "PATHETIC!",
+          "MANIFESTED them!",
+          "8ArmedAndDangerous",
+          "OCTOPUS MINDSET"
+        ],
+        "balanced": [
+          "arms cramp",
+          "drops laptop",
+          "stress ink"
+        ],
+        "agenda": [
+          "OCTOPLICITY",
+          "$8888",
+          "Regenerate income"
+        ]
+      },
+      "topic": "Work & Career"
+    },
+    {
+      "id": "hamster-wheel-economy-001",
+      "title": "Spinning to Success",
+      "text": "From 'WheelStreet Journal' - Interview with Hamster Hedge Fund Manager Harold:\n\nINTERVIEWER: Harold, you claim running faster generates wealth through 'Wheel Dynamics.' Can you explain?\n\nHAROLD: *adjusting tiny suit while running* It's SIMPLE! Every rotation creates ECONOMIC VALUE! I'm at 47 RPM right now - that's 47 PROFIT UNITS per minute!\n\nWatch: *speeds up* See? 52 RPM! I just INCREASED my wealth by 10.6%! My students pay $1,299 in sunflower seeds to learn this!\n\nGerbil Gary tried to tell me 'Harold, we're not going anywhere. The wheel is stationary.'\n\nI said 'POVERTY MINDSET! While you're questioning physics, I'm generating ANGULAR MOMENTUM WEALTH!'\n\nMy breakthrough formula: Speed × Time × Delusion = Profit!\n\nLook at my metrics:\n- Yesterday: 50,000 rotations = 50,000 wealth units\n- Today's goal: 75,000 rotations = MILLIONAIRE STATUS\n- Tomorrow: HAMSTER FORBES LIST\n\nMouse Martha: 'But you're still in the same cage'\nMe: 'It's not a cage, it's a WEALTH ACCELERATION CHAMBER!'\n\nGuinea Pig Gordon: 'You haven't moved an inch'\nMe: 'INCHES are for LOSERS! I measure in ROTATIONS!'\n\n*Breathing heavily* This burning in my tiny lungs? That's SUCCESS COMBUSTION! This chest pain? ACHIEVEMENT CRAMPING!\n\nMy course 'Wheel Fortune Formula' teaches:\n- Why stillness is poverty\n- Converting exhaustion to equity  \n- Spinning through doubt\n- Pellet multiplication mindset\n\n*Collapses mid-rotation*\n*Wheel continues spinning with unconscious hamster*\n\nASSISTANT (typing): 'Harold demonstrates the ultimate passive income - generating rotations while unconscious! REVOLUTIONARY!'\n\n#WheelWealth #SpinToWin #RotationalRiches #HamsterHustle",
+      "claim": "Running faster in a hamster wheel generates real wealth through 'wheel dynamics' and 'angular momentum economics'",
+      "correctAnswer": "logic",
+      "answerWeights": {
+        "logic": 94,
+        "emotion": 72,
+        "balanced": 8,
+        "agenda": 86
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "stationary",
+            "not going anywhere",
+            "same cage",
+            "haven't moved",
+            "collapses"
+          ],
+          "explanation": "Multiple characters point out the wheel goes nowhere"
+        },
+        "emotion": {
+          "keywords": [
+            "POVERTY MINDSET",
+            "SUCCESS COMBUSTION",
+            "MILLIONAIRE STATUS",
+            "WEALTH ACCELERATION",
+            "REVOLUTIONARY"
+          ],
+          "explanation": "Emotional language masks physical reality"
+        },
+        "balanced": {
+          "keywords": [
+            "unconscious hamster",
+            "wheel continues"
+          ],
+          "explanation": "Absurd ending highlights the futility"
+        },
+        "agenda": {
+          "keywords": [
+            "$1,299",
+            "sunflower seeds",
+            "My course",
+            "Wheel Fortune Formula",
+            "pay to learn"
+          ],
+          "explanation": "Selling courses on running nowhere faster"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Complete denial of physics - hamster wheel is stationary, no forward movement possible, yet claims each rotation creates 'profit units' and wealth.",
+        "emotion": "Transforms exhausting futility into aspirational activity - chest pain becomes 'achievement cramping,' stillness equals poverty.",
+        "balanced": "No balance - even unconsciousness doesn't stop the delusion, assistant spins collapse as 'passive income' innovation.",
+        "agenda": "Monetizing pointless activity - charging $1,299 in seeds to teach others to run nowhere faster, creating false metrics of success."
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "circular-reasoning",
+          "severity": "primary",
+          "example": "Running in circles creates wealth because wealth comes from running in circles"
+        },
+        {
+          "fallacyId": "false-cause",
+          "severity": "primary",
+          "example": "Claims wheel rotations directly generate profit units"
+        },
+        {
+          "fallacyId": "equivocation",
+          "severity": "twisted",
+          "example": "Redefines 'movement' and 'progress' to mean spinning in place"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 15,
+            "consistency": 19,
+            "source": 31,
+            "agenda": 92
+          },
+          "indicators": [
+            "stationary-wheel",
+            "no-movement",
+            "same-location",
+            "physics-denial"
+          ],
+          "explanation": "Fundamental misunderstanding of motion, wealth, and progress"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 77,
+            "belonging": 68,
+            "pride": 83,
+            "manipulation": 79
+          },
+          "triggers": [
+            "poverty-fear",
+            "stillness-shame",
+            "achievement-anxiety",
+            "metrics-obsession",
+            "hustle-identity"
+          ],
+          "explanation": "Exploits fear of stagnation while literally promoting running in place"
+        }
+      },
+      "wisdom": "This perfectly captures meaningless busy work disguised as productivity. Harold's 'Wheel Dynamics' mirrors how we often mistake activity for progress. The other animals pointing out he's going nowhere represent ignored reality. His collapse while the wheel keeps spinning shows how the system continues regardless of human cost.",
+      "hints": {
+        "keywords": [
+          "stationary",
+          "same cage",
+          "not going anywhere",
+          "haven't moved",
+          "Speed × Time × Delusion"
+        ],
+        "strategy": "logic",
+        "hintMessage": "Motion without movement!"
+      },
+      "metadata": {
+        "tags": [
+          "animals",
+          "hamster",
+          "economics",
+          "productivity-theater",
+          "circular-logic"
+        ],
+        "difficulty": 2,
+        "educationalFocus": "distinguishing-activity-from-progress",
+        "commonMisconceptions": [
+          "busyness-equals-productivity",
+          "metrics-equal-meaning"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "peakMoments": {
+        "logic": [
+          "wheel is stationary",
+          "haven't moved an inch",
+          "Speed × Time × Delusion"
+        ],
+        "emotion": [
+          "POVERTY MINDSET",
+          "SUCCESS COMBUSTION",
+          "MILLIONAIRE STATUS"
+        ],
+        "balanced": [
+          "unconscious hamster",
+          "wheel continues"
+        ],
+        "agenda": [
+          "$1,299",
+          "Wheel Fortune Formula",
+          "PROFIT UNITS"
+        ]
+      },
+      "topic": "Finance & Economics"
+    },
+    {
+      "id": "peacock-fake-authenticity-001",
+      "title": "Just Be Yourself (But Better)",
+      "text": "PeacockTok Live: 'RADICAL AUTHENTICITY with Paulo the Powerful'\n\nPAULO: *tail shimmer effect #4, Valencia filter, ring light*\n\nHey beautiful souls! Today's truth bomb: JUST BE YOURSELF!\n\n*Adjusts tail extensions*\n\nI used to hide my TRUE COLORS. Now look! *Spreads enhanced tail* This is the REAL ME! Well, 40% is real, 60% is Japanese synthetic fibers, but it's MY CHOICE to be 160% authentic!\n\nPigeon Pete: 'Bro, I saw you at molt season. Your actual tail was... modest.'\n\nPAULO: 'TOXIC ENERGY! My Natural Nature™ Tail Enhancement System helps me be MORE ME! Use code PAULO for 20% off!'\n\nLook at these TRANSFORMATION PICS:\n- Before: Regular peacock\n- After: TRANSCENDENT AUTHENTICITY AVATAR\n\nThe secret? My 5-step system:\n1. Accept your natural beauty\n2. Identify what needs 'authenticity amplification'\n3. Buy my $500 tail kit\n4. Install holographic eye-spots\n5. Deny steps 3-4 happened\n\nParrot Patricia: 'Paulo, that's literally false advertising'\n\nPAULO: 'Patricia, why are you THREATENED by my GENUINE GLOW? *Activates LED tail lights* This bioluminescence? That's my CHAKRAS manifesting!'\n\nFlamingo Frank: 'Peacocks aren't bioluminescent...'\n\nPAULO: 'LIMITING BELIEFS! I'm evolving past species constraints!'\n\n*Tail extension falls off mid-dance*\n*Quickly kicks it off-camera*\n\n'See that? I'm so authentic I can SHED MY AUTHENTICITY and grow NEW AUTHENTICITY! That's NEXT LEVEL realness!'\n\nCrow Carl: 'I counted 47 filters on this stream'\n\nPAULO: 'Those aren't filters, that's my AURA! Download my course to activate YOUR visibility frequency!'\n\n*Battery pack for LED tail catches fire*\n\n'THIS PHOENIX ENERGY THO! 🔥 TRANSFORMING LIVE!'\n\n#AuthenticAF #NaturallyEnhanced #TailGoals #GenuinelyFake",
+      "claim": "True authenticity means enhancing yourself with extensions, filters, and products while denying you're using them",
+      "correctAnswer": "agenda",
+      "answerWeights": {
+        "logic": 31,
+        "emotion": 71,
+        "balanced": 12,
+        "agenda": 94
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "40% real",
+            "60% synthetic",
+            "aren't bioluminescent",
+            "47 filters",
+            "battery pack"
+          ],
+          "explanation": "Clear contradictions between claims and reality"
+        },
+        "emotion": {
+          "keywords": [
+            "TOXIC ENERGY",
+            "TRUE COLORS",
+            "GENUINE GLOW",
+            "beautiful souls",
+            "PHOENIX ENERGY"
+          ],
+          "explanation": "Emotional manipulation through authenticity language"
+        },
+        "balanced": {
+          "keywords": [
+            "modest tail",
+            "falls off",
+            "catches fire"
+          ],
+          "explanation": "Reality intrudes on the performance"
+        },
+        "agenda": {
+          "keywords": [
+            "$500 tail kit",
+            "Use code PAULO",
+            "Buy my",
+            "Download my course",
+            "Natural Nature™"
+          ],
+          "explanation": "Selling products while preaching natural authenticity"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Fundamental contradiction - preaching authenticity while using 60% synthetic materials, 47 filters, LED lights, claiming biological impossibilities.",
+        "emotion": "Weaponizes authenticity language to sell fakeness - 'TOXIC ENERGY' for questioning, 'TRUE COLORS' for artificial enhancement.",
+        "balanced": "Zero self-awareness - tail falls off mid-stream, reframes as 'shedding authenticity to grow new authenticity'.",
+        "agenda": "Entire authenticity movement exists to sell products - $500 tail kits, courses, enhancement systems, all while denying their use."
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "contradiction",
+          "severity": "primary",
+          "example": "Claims radical authenticity while being 60% synthetic"
+        },
+        {
+          "fallacyId": "no-true-scotsman",
+          "severity": "twisted",
+          "example": "Real authenticity requires buying products to be 'more you'"
+        },
+        {
+          "fallacyId": "gaslighting",
+          "severity": "secondary",
+          "example": "Denies obvious filters are filters, claims they're 'aura'"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 35,
+            "consistency": 24,
+            "source": 29,
+            "agenda": 96
+          },
+          "indicators": [
+            "percentage-admission",
+            "filter-count",
+            "impossible-biology",
+            "product-placement"
+          ],
+          "explanation": "Openly contradicts self while denying contradictions exist"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 73,
+            "belonging": 77,
+            "pride": 82,
+            "manipulation": 84
+          },
+          "triggers": [
+            "authenticity-pressure",
+            "enhancement-shame",
+            "natural-inadequacy",
+            "transformation-promise",
+            "genuine-anxiety"
+          ],
+          "explanation": "Exploits desire to be authentic while selling its opposite"
+        }
+      },
+      "wisdom": "This brilliantly skewers influencer 'authenticity' culture. Paulo sells being yourself while being 60% fake, denies filters while using 47, claims LED lights are chakras. The tail falling off mid-stream perfectly captures how performed authenticity fails. His reframe of the fire as 'phoenix energy' shows how everything becomes content.",
+      "hints": {
+        "keywords": [
+          "$500 tail kit",
+          "60% synthetic",
+          "47 filters",
+          "Use code",
+          "battery pack"
+        ],
+        "strategy": "agenda",
+        "hintMessage": "Authenticity for sale!"
+      },
+      "metadata": {
+        "tags": [
+          "animals",
+          "peacock",
+          "influencer-culture",
+          "fake-authenticity",
+          "performance"
+        ],
+        "difficulty": 2,
+        "educationalFocus": "recognizing-performed-authenticity",
+        "commonMisconceptions": [
+          "enhancement-equals-authenticity",
+          "products-create-genuine-self"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "peakMoments": {
+        "logic": [
+          "40% real 60% synthetic",
+          "47 filters",
+          "aren't bioluminescent"
+        ],
+        "emotion": [
+          "TOXIC ENERGY",
+          "TRUE COLORS",
+          "PHOENIX ENERGY"
+        ],
+        "balanced": [
+          "tail falls off",
+          "catches fire"
+        ],
+        "agenda": [
+          "$500 tail kit",
+          "code PAULO",
+          "Buy my"
+        ]
+      },
+      "topic": "Social Media & Influence"
+    },
+    {
+      "id": "scifi-canon-wars-001",
+      "title": "The Canon Crusades",
+      "text": "r/StarshipDebates HEATED THREAD (47k comments, locked by mods):\n\nu/PhotonPurist: The Enterprise would DESTROY a Star Destroyer. FACTS:\n- Shields that work in space (not just planets)\n- Teleporters (board and disable)\n- Photon torpedoes (way stronger than lasers)\n- Better captain speeches\n\nu/SithLord1977: LMAOOO your 'facts' are hilarious\n- Death Star one-shots planets\n- Force users predict everything\n- AT-ATs would crush redshirts\n- Empire has better theme music (John Williams > random beeps)\n\nu/PhotonPurist: I ran 47,000 simulations in my custom physics engine (I'm an actual physicist btw). Trek wins 98.3% of scenarios. My peer-reviewed paper: www.totallyreal.edu/trekwins\n\nu/WormholeExpert: Actually *adjusts glasses* if we calculate the energy output based on stated canon...\n*Posts 5,000 word essay with equations*\n*Nobody reads it*\n\nu/CasualFan2020: hey what if they just became friends and fought the borg together :)\n↳ [-2,847 points] 'GET OUT CASUAL'\n\nu/SithLord1977: Your 'physicist' claim is BS. I checked - you teach high school chemistry\n\nu/PhotonPurist: AD HOMINEM ATTACK! Classic Wars fan move!\n\nu/BattlestarBro: *Eating popcorn* Meanwhile BSG would wreck both lol\n↳ [Thread derails into 3-way war]\n\nMOD MESSAGE: Locked. Again. Y'all took 'Star Wars' too literally. Touch grass. Watch other shows. Please.\n\nu/PhotonPurist: [FINAL POST] Starting new sub: r/TrekSupremacy. Wars fans will be banned on sight using my algorithm that detects midichlorian sympathizers\n\n#TrekVsWars #CanonFights #SpaceSupremacy #NerdRage",
+      "claim": "The Enterprise would definitively beat a Star Destroyer based on 47,000 physics simulations and canon evidence",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "logic": 29,
+        "emotion": 88,
+        "balanced": 11,
+        "agenda": 73
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "physics engine",
+            "simulations",
+            "energy output",
+            "equations",
+            "peer-reviewed"
+          ],
+          "explanation": "Pseudo-scientific analysis of fictional technology"
+        },
+        "emotion": {
+          "keywords": [
+            "DESTROY",
+            "LMAOOO",
+            "GET OUT CASUAL",
+            "Touch grass",
+            "NerdRage"
+          ],
+          "explanation": "Extreme emotional investment in fictional superiority"
+        },
+        "balanced": {
+          "keywords": [
+            "became friends",
+            "[-2,847 points]",
+            "high school chemistry"
+          ],
+          "explanation": "Peaceful suggestion violently rejected"
+        },
+        "agenda": {
+          "keywords": [
+            "r/TrekSupremacy",
+            "banned on sight",
+            "algorithm",
+            "midichlorian sympathizers"
+          ],
+          "explanation": "Creating echo chambers to enforce fictional canon"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Applying real physics to fictional universes with different rules - 47,000 simulations of impossible scenarios, fake peer review links.",
+        "emotion": "Tribal warfare over entertainment franchises - extreme hostility to casual fans, 'Touch grass' from mods shows detachment from reality.",
+        "balanced": "Suggestion of crossover friendship gets -2,847 downvotes - any non-combative view is violently rejected by both sides.",
+        "agenda": "Creating segregated communities based on franchise loyalty - algorithm to detect and ban 'midichlorian sympathizers' shows cult-like behavior."
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "primary",
+          "example": "Only options are total victory or defeat, no nuance allowed"
+        },
+        {
+          "fallacyId": "appeal-to-false-authority",
+          "severity": "twisted",
+          "example": "Claims physicist credentials (actually teaches high school)"
+        },
+        {
+          "fallacyId": "ad-hominem",
+          "severity": "secondary",
+          "example": "Attacks person rather than addressing arguments"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 33,
+            "consistency": 26,
+            "source": 29,
+            "agenda": 85
+          },
+          "indicators": [
+            "fictional-physics",
+            "fake-credentials",
+            "impossible-simulations",
+            "canon-contradictions"
+          ],
+          "explanation": "Treating fiction as measurable reality with fake science"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 71,
+            "belonging": 84,
+            "pride": 91,
+            "manipulation": 77
+          },
+          "triggers": [
+            "franchise-identity",
+            "tribal-loyalty",
+            "casual-hatred",
+            "superiority-complex",
+            "nerd-credibility"
+          ],
+          "explanation": "Identity so tied to fiction that disagreement feels like personal attack"
+        }
+      },
+      "wisdom": "This captures how fan communities turn entertainment into ideological warfare. The '47,000 simulations' of fictional battles and fake physicist claims show how tribalism disguises itself as logic. The casual fan suggesting friendship gets destroyed, showing how extremism rejects moderation. The mod's 'touch grass' plea highlights the reality disconnect.",
+      "hints": {
+        "keywords": [
+          "GET OUT CASUAL",
+          "[-2,847 points]",
+          "high school chemistry",
+          "Touch grass",
+          "banned on sight"
+        ],
+        "strategy": "emotion",
+        "hintMessage": "Fiction became faction!"
+      },
+      "metadata": {
+        "tags": [
+          "sci-fi",
+          "fandom-wars",
+          "tribalism",
+          "geek-culture",
+          "echo-chambers"
+        ],
+        "difficulty": 3,
+        "educationalFocus": "recognizing-tribal-thinking",
+        "commonMisconceptions": [
+          "passion-justifies-hostility",
+          "fiction-needs-defending"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "peakMoments": {
+        "logic": [
+          "47,000 simulations",
+          "peer-reviewed paper",
+          "energy output"
+        ],
+        "emotion": [
+          "DESTROY",
+          "GET OUT CASUAL",
+          "NerdRage",
+          "Touch grass"
+        ],
+        "balanced": [
+          "became friends",
+          "[-2,847 points]"
+        ],
+        "agenda": [
+          "r/TrekSupremacy",
+          "banned on sight",
+          "algorithm"
+        ]
+      },
+      "topic": "Community & Society"
+    }
+  ]
+}

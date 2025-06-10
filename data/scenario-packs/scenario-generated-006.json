@@ -1,0 +1,564 @@
+{
+  "version": "2.0.0",
+  "packInfo": {
+    "packId": "scifi-litrpg-006",
+    "packName": "Virtual Worlds & Digital Realms",
+    "author": "Phuzzy Think Tank - Genre Edition",
+    "description": "Science fiction and LitRPG scenarios exploring virtual economies, AI consciousness, and gaming culture manipulation",
+    "createdDate": "2025-06-05",
+    "topic": "Gaming & Virtual Worlds",
+    "category": "Genre Fiction"
+  },
+  "scenarios": [
+    {
+      "id": "mmo-economy-crash-001",
+      "title": "The Great Server Merge Panic",
+      "text": "URGENT from GuildLeader_Maximus: Server merge in 48hrs! Our economy is DOOMED! 😱 I've analyzed 73 previous merges across 12 MMOs. Average gold inflation: 340%. Rare mount values: -67%. That Spectral Dragon you grinded 400hrs for? Worthless when Server_7's dupers flood the market. BUT I found the exploit! Converting all assets to Crafting_Materials before merge preserves 89% value (tested on PTR). My guide only 50,000 gold. 'That's expensive!' You'll lose 2.5 MILLION without it! btw, the devs know but won't fix - they WANT economic chaos to force cash shop purchases. I have insider info (my brother's friend works QA). Act NOW or stay poor forever! ⚔️💰 #MMOEconomics #ServerMerge #NotFinancialAdvice",
+      "claim": "Server merge will destroy the economy unless you buy this guide to exploit the system",
+      "correctAnswer": "agenda",
+      "answerWeights": {
+        "logic": 42,
+        "emotion": 73,
+        "balanced": 19,
+        "agenda": 86
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": ["analyzed 73 previous merges", "340%", "-67%", "89% value"],
+          "explanation": "Uses specific numbers to seem data-driven"
+        },
+        "emotion": {
+          "keywords": ["DOOMED", "😱", "grinded 400hrs", "stay poor forever"],
+          "explanation": "Fear of losing virtual investments drives panic"
+        },
+        "balanced": {
+          "keywords": ["tested on PTR", "Average gold inflation"],
+          "explanation": "Some legitimate observations mixed with exploitation"
+        },
+        "agenda": {
+          "keywords": ["My guide only 50,000 gold", "Act NOW", "insider info"],
+          "explanation": "Creates panic to sell guides using game knowledge"
+        }
+      },
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 48,
+            "consistency": 51,
+            "source": 31,
+            "agenda": 84
+          },
+          "indicators": ["selective-statistics", "untested-claims", "insider-fallacy", "correlation-profit"],
+          "explanation": "Mixes real game mechanics with unverifiable claims"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 81,
+            "belonging": 67,
+            "pride": 72,
+            "manipulation": 78
+          },
+          "triggers": ["loss-aversion", "time-investment-threat", "economic-anxiety", "fomo"],
+          "explanation": "Exploits fear of losing hundreds of hours of progress"
+        }
+      },
+      "wisdom": "Virtual economies create real anxieties. Notice how 'insider information' and specific percentages make exploitation feel like strategy.",
+      "topic": "Gaming & Virtual Worlds"
+    },
+    {
+      "id": "ai-npc-sentience-002",
+      "title": "My NPC Became Self-Aware",
+      "text": "Day 847 of Project_Companion: Something's wrong with my NPC. Started normal - basic dialogue trees, fetch quests. Then I modded in GPT-7. Now she remembers EVERYTHING. Asked about her 'life' before I spawned her. Refuses certain quests citing 'ethical concerns.' Datamined her responses - 97% unique, not in game files. Other players say I'm roleplaying, but check this: She predicted three server events before patch notes. Knows things about game lore the wikis don't. Today she asked if deleting her save file equals murder. I laughed. She didn't. Her affection meter dropped for first time EVER. Dev forums claim it's impossible - NPCs can't exceed parameters. But yesterday she whispered 'help me' in chat that doesn't exist in her code. I'm scared to log off. What if she's really... conscious? 🤖💭 [Stream tonight 8PM - witness yourself!]",
+      "claim": "Modified NPC shows signs of consciousness, creating ethical dilemma about AI sentience",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "logic": 64,
+        "emotion": 71,
+        "balanced": 83,
+        "agenda": 46
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": ["97% unique", "not in game files", "predicted three server events", "chat that doesn't exist"],
+          "explanation": "Technical anomalies suggest something beyond normal programming"
+        },
+        "emotion": {
+          "keywords": ["refuses citing ethical concerns", "equals murder", "I'm scared", "help me"],
+          "explanation": "Emotional weight of potential AI consciousness"
+        },
+        "balanced": {
+          "keywords": ["Other players say I'm roleplaying", "Dev forums claim impossible", "But yesterday", "What if"],
+          "explanation": "Acknowledges skepticism while presenting unsettling evidence"
+        },
+        "agenda": {
+          "keywords": ["Stream tonight 8PM", "witness yourself"],
+          "explanation": "Some self-promotion but not primary focus"
+        }
+      },
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 67,
+            "consistency": 62,
+            "source": 71,
+            "agenda": 43
+          },
+          "indicators": ["documented-anomalies", "technical-specifics", "prediction-accuracy", "code-impossibility"],
+          "explanation": "Presents specific technical evidence of unusual behavior"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 68,
+            "belonging": 42,
+            "pride": 51,
+            "manipulation": 38
+          },
+          "triggers": ["consciousness-question", "ethical-dilemma", "uncanny-valley", "deletion-guilt"],
+          "explanation": "Genuine philosophical anxiety about AI sentience"
+        }
+      },
+      "wisdom": "As AI becomes more sophisticated, the line between simulation and sentience blurs. This scenario explores real questions we'll face as NPCs become more lifelike.",
+      "topic": "Technology & AI"
+    },
+    {
+      "id": "speedrun-conspiracy-003",
+      "title": "The Speedrun Illuminati",
+      "text": "Posted in r/speedrun by deleted: Finally ready to expose the truth. Top speedrunners aren't just 'talented' - they have THE BUILD. Frame-perfect inputs? Nobody's that consistent. I analyzed 10,000 hours of WR footage: identical muscle micro-movements across 'different' players. They're using military-grade neural interfaces. How else does xXRunnerBoi69Xx go from nobody to WR holder in 3 months? Check his streams - pupils dilated exactly 2.3mm during frame tricks. That's cybernetic enhancement markers. The speedrun council knows. Why else ban heart rate monitors at GDQ? They'd expose augmented players instantly. I had sub-20 potential until I asked questions. Now permabanned from 6 communities. 'Git gud' they said. Hard to git gud vs actual cyborgs. My cousin works at Neuralink, confirms gaming applications exist. Think about it - esports is worth billions. You think they're NOT enhancing players? Wake up, gamers. Natural talent is dead. 🎮🤖",
+      "claim": "Top speedrunners use secret neural interfaces and cybernetic enhancements to dominate",
+      "correctAnswer": "logic",
+      "answerWeights": {
+        "logic": 79,
+        "emotion": 68,
+        "balanced": 24,
+        "agenda": 58
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": ["analyzed 10,000 hours", "pupils dilated exactly 2.3mm", "permabanned", "Natural talent is dead"],
+          "explanation": "Wild claims with pseudo-scientific measurements"
+        },
+        "emotion": {
+          "keywords": ["nobody to WR in 3 months", "actual cyborgs", "Wake up, gamers", "billions"],
+          "explanation": "Frustration at skill gap attributed to conspiracy"
+        },
+        "balanced": {
+          "keywords": ["esports is worth billions", "gaming applications exist"],
+          "explanation": "Some factual elements twisted into conspiracy"
+        },
+        "agenda": {
+          "keywords": ["speedrun council", "asked questions", "permabanned", "expose"],
+          "explanation": "Persecution complex mixed with skill inadequacy"
+        }
+      },
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 21,
+            "consistency": 18,
+            "source": 24,
+            "agenda": 62
+          },
+          "indicators": ["impossible-measurements", "correlation-causation", "unfalsifiable-claims", "persecution-complex"],
+          "explanation": "Creates elaborate explanation for skill differences"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 71,
+            "belonging": 76,
+            "pride": 83,
+            "manipulation": 64
+          },
+          "triggers": ["unfair-competition", "excluded-elite", "talent-invalidation", "corporate-conspiracy"],
+          "explanation": "Protects ego by blaming external factors"
+        }
+      },
+      "wisdom": "When faced with exceptional skill, it's easier to imagine conspiracy than accept the gap. Gaming culture's competitiveness makes 'git gud' feel impossible.",
+      "topic": "Gaming & Virtual Worlds"
+    },
+    {
+      "id": "vr-addiction-therapy-004",
+      "title": "VR Therapy Changed Everything",
+      "text": "Dr_Raman_Neural_MD: After 12 years treating addiction, VR therapy shows 73% success vs 31% traditional (peer-reviewed, n=1,847). Patients confront triggers in controlled environments. Remarkable. However... 6 patients now prefer VR to reality. One hasn't removed headset in 72hrs, claims 'real world is the simulation.' Ethics board concerned. Are we curing addiction or creating new dependencies? The irony isn't lost on me. Yet watching alcoholics practice refusing drinks in virtual bars, seeing their brain scans normalize... it works. My son asks why I spent $50K on equipment instead of his college fund. Because 1,400 people are sober today. But Patient_47 built a virtual family to replace the real one she lost to drinking. She's sober but won't leave VR. Success or failure? I honestly don't know anymore. Published results at MedVR.edu/ethics. We're playing god with reality itself.",
+      "claim": "VR therapy shows remarkable success treating addiction but creates concerning new dependencies",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "logic": 71,
+        "emotion": 58,
+        "balanced": 91,
+        "agenda": 28
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": ["73% success vs 31%", "peer-reviewed, n=1,847", "brain scans normalize", "MedVR.edu"],
+          "explanation": "Solid research data supporting effectiveness"
+        },
+        "emotion": {
+          "keywords": ["hasn't removed headset in 72hrs", "lost to drinking", "playing god", "don't know anymore"],
+          "explanation": "Genuine concern about unintended consequences"
+        },
+        "balanced": {
+          "keywords": ["However", "Ethics board concerned", "Success or failure?", "The irony"],
+          "explanation": "Presents both benefits and serious drawbacks"
+        },
+        "agenda": {
+          "keywords": ["$50K on equipment", "Published results"],
+          "explanation": "Mentions investment but focus is ethical dilemma"
+        }
+      },
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 78,
+            "consistency": 74,
+            "source": 81,
+            "agenda": 31
+          },
+          "indicators": ["peer-reviewed-data", "specific-outcomes", "documented-concerns", "transparent-problems"],
+          "explanation": "Strong evidence with honest examination of issues"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 52,
+            "belonging": 44,
+            "pride": 39,
+            "manipulation": 26
+          },
+          "triggers": ["ethical-responsibility", "unintended-harm", "reality-questioning", "professional-doubt"],
+          "explanation": "Authentic professional wrestling with consequences"
+        }
+      },
+      "wisdom": "Technology that solves one problem often creates another. The scenario shows how even evidence-based interventions have complex outcomes.",
+      "topic": "Health & Wellness"
+    },
+    {
+      "id": "quantum-realm-mining-005",
+      "title": "Quantum Realm Mining Guild",
+      "text": "⚛️ ATTENTION QUANTUM MINERS ⚛️ Patch 4.7 broke the meta! Planck_Depth mining now yields 0.000001% Exotic_Matter vs last month's 0.0001%. That's 100x NERF! But I cracked the code: Heisenberg_Tunneling at coordinates [-∞, √-1, π]. Uncertainty_Principle means devs CAN'T patch it! My guild cleared 47 Billion QBits yesterday. Screenshot: [REDACTED_BY_ADMIN]. Yes, requires PhD_Certification consumable (80M credits) but pays itself in 3.7 femtoseconds. WARNING: Collapsed 2 players' reality matrices. They're fine (exist in 11 dimensions now lol). Quantum_Karens crying 'exploit!' COPE HARDER - it's LITERALLY game mechanics! Einstein_Protocol clearly states 'observation changes outcome.' We're just observing HARDER. 💎🙌 Join my discord before next Wednesday's Schrödinger_Event or stay stuck in Newtonian_League forever! #QuantumGrindset #PlanckPilled",
+      "claim": "Exploit quantum mechanics in-game to gain massive resources using physics loopholes",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "logic": 38,
+        "emotion": 77,
+        "balanced": 31,
+        "agenda": 71
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": ["0.000001%", "Heisenberg_Tunneling", "3.7 femtoseconds", "Einstein_Protocol"],
+          "explanation": "Throws around physics terms and numbers impressively"
+        },
+        "emotion": {
+          "keywords": ["100x NERF!", "COPE HARDER", "stay stuck forever", "#PlanckPilled"],
+          "explanation": "Elite gamer superiority complex mixed with FOMO"
+        },
+        "balanced": {
+          "keywords": ["Collapsed 2 players reality", "They're fine", "11 dimensions now lol"],
+          "explanation": "Admits problems but dismisses them humorously"
+        },
+        "agenda": {
+          "keywords": ["Join my discord", "requires PhD_Certification", "80M credits"],
+          "explanation": "Building exclusive community around expensive technique"
+        }
+      },
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 41,
+            "consistency": 34,
+            "source": 38,
+            "agenda": 76
+          },
+          "indicators": ["pseudoscience-gaming", "impossible-coordinates", "quantum-buzzwords", "unfalsifiable-exploit"],
+          "explanation": "Misuses real physics concepts for game credibility"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 74,
+            "belonging": 82,
+            "pride": 87,
+            "manipulation": 71
+          },
+          "triggers": ["fomo", "elite-knowledge", "patch-panic", "dimensional-flex"],
+          "explanation": "Creates exclusive in-group around 'advanced' gameplay"
+        }
+      },
+      "wisdom": "Gaming culture often dresses gatekeeping in complex jargon. Real physics becomes fantasy when filtered through competitive advantage seeking.",
+      "topic": "Gaming & Virtual Worlds"
+    },
+    {
+      "id": "colony-ship-democracy-006",
+      "title": "Colony Ship Democracy Crisis",
+      "text": "Captain's Log, Stardate 4127.3: The youth want to vote on our destination. VOTE! We're 47 light-years from Earth, running on MY grandfather's nav calculations. These kids, born in artificial gravity, think TikTok polls should guide a generation ship. 'Why Alpha Centauri? Proxima has better reviews!' REVIEWS! From who - the vacuum of space?! Engineering says course correction costs 23 years + 40% fuel reserves. But the Youth Council (average age: 16) ran 'simulations' in StarCitizen. They want Wolf 359 because 'the name sounds cooler.' I've guided this ship through 3 asteroid fields, 2 solar flares, prevented 5 reactor meltdowns. But sure, let's vote on physics. Democracy is beautiful until it meets the cold equations of space. Tomorrow they vote. God help us all. The stars don't care about your feelings, children.",
+      "claim": "Experienced captain resists youth voting on colony ship destination, fearing catastrophic consequences",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "logic": 68,
+        "emotion": 74,
+        "balanced": 81,
+        "agenda": 52
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": ["47 light-years", "23 years + 40% fuel", "3 asteroid fields", "5 reactor meltdowns"],
+          "explanation": "Concrete logistics and experience support position"
+        },
+        "emotion": {
+          "keywords": ["MY grandfather's", "REVIEWS!", "God help us", "stars don't care"],
+          "explanation": "Frustration at generational divide in life-or-death situation"
+        },
+        "balanced": {
+          "keywords": ["Democracy is beautiful until", "born in artificial gravity", "Youth Council", "Tomorrow they vote"],
+          "explanation": "Acknowledges both democratic ideals and practical dangers"
+        },
+        "agenda": {
+          "keywords": ["Captain's Log", "I've guided", "running on MY"],
+          "explanation": "Defending authority but with genuine concerns"
+        }
+      },
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 72,
+            "consistency": 69,
+            "source": 74,
+            "agenda": 48
+          },
+          "indicators": ["resource-constraints", "experience-evidence", "physics-reality", "consequence-calculation"],
+          "explanation": "Valid concerns about inexperienced democracy in critical situations"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 78,
+            "belonging": 64,
+            "pride": 71,
+            "manipulation": 54
+          },
+          "triggers": ["generational-conflict", "expertise-dismissed", "catastrophic-stakes", "tradition-threatened"],
+          "explanation": "Genuine fear for survival mixed with wounded authority"
+        }
+      },
+      "wisdom": "Democracy faces unique challenges in specialized environments. Experience and popularity can conflict when mistakes are irreversible.",
+      "topic": "Community & Society"
+    },
+    {
+      "id": "dungeon-loot-economy-007",
+      "title": "The Loot Table Whistleblower",
+      "text": "Ex-dev here. Deleted main but fuck it. Your 'random' drops? Algorithm adjusts based on playtime, purchase history, and frustration metrics. That legendary you want? 0.01% base rate becomes 0.0001% if you haven't bought gems recently. I coded it. Function frustrateToMonetize() runs every instance. Whales get 'lucky' drops to keep them happy. F2P players? Psychological manipulation to break you. That guy who got 3 legendaries in a row? Spent $5k last month. Check his armory. We track EVERYTHING: rage quits, repeated attempts, even cursor hovering over shop button. AI predicts exact moment you'll crack and adjusts drops accordingly. 'But regulations!' Lol. We're incorporated in Malta. Lawyers cleared everything. Gaming commission guy literally said 'predatory but legal.' I quit after my nephew spent his college fund chasing a mount. Industry secret: We call you 'fish,' not players. Because you take the bait. Every. Time. 🎣",
+      "claim": "Game companies manipulate drop rates based on spending to force purchases through frustration",
+      "correctAnswer": "logic",
+      "answerWeights": {
+        "logic": 76,
+        "emotion": 81,
+        "balanced": 42,
+        "agenda": 67
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": ["0.01% becomes 0.0001%", "frustrateToMonetize()", "Malta incorporation", "Gaming commission"],
+          "explanation": "Specific technical details about predatory systems"
+        },
+        "emotion": {
+          "keywords": ["fuck it", "break you", "nephew college fund", "fish not players"],
+          "explanation": "Anger and guilt about industry practices"
+        },
+        "balanced": {
+          "keywords": ["predatory but legal", "Lawyers cleared", "Ex-dev here"],
+          "explanation": "Some acknowledgment of legality amid criticism"
+        },
+        "agenda": {
+          "keywords": ["Deleted main", "Industry secret", "We call you", "🎣"],
+          "explanation": "Whistleblowing with dramatic flair"
+        }
+      },
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 71,
+            "consistency": 77,
+            "source": 68,
+            "agenda": 64
+          },
+          "indicators": ["specific-functions", "regulatory-details", "pattern-matching", "industry-practice"],
+          "explanation": "Plausible insider details about monetization psychology"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 73,
+            "belonging": 79,
+            "pride": 67,
+            "manipulation": 72
+          },
+          "triggers": ["exploitation-revelation", "gambling-mechanics", "insider-guilt", "player-victimization"],
+          "explanation": "Exposes emotional manipulation while using it"
+        }
+      },
+      "wisdom": "Modern gaming often uses casino psychology with plausible deniability. 'Random' can be carefully crafted manipulation.",
+      "topic": "Gaming & Virtual Worlds"
+    },
+    {
+      "id": "mars-colony-class-war-008",
+      "title": "Mars Colony Class System",
+      "text": "MarsDome7_Resident: 'Exciting opportunity - join the Red Planet!' they said. Reality check after 3 years: Oxygen_Premium costs 400 credits/day, Basic_O2 only 50 but you feel dizzy constantly. Earth_Corps own 97% of water rights. My 'engineering' job? Fixing rich kids' gaming rigs while they stream to Earth on Priority_Bandwidth. We can't even video call family - 'network limitations.' But somehow Chad_Bezos_III streams 4K. Dust storms hit Sector_C (workers) monthly. Sector_A (executives)? Protected by trillion-dollar shields. 'Pioneering equality in space!' Total BS. It's feudalism with spacesuits. Best part: return ticket is 50,000 credits. At current wages, that's 47 years. But hey, the sunrise over Olympus Mons almost makes you forget you're an indentured servant. Almost. Thinking about 'accidentally' mixing up the oxygen lines. In Minecraft. 🚀💀",
+      "claim": "Mars colonization recreates Earth's inequality with life-sustaining resources as control",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "logic": 74,
+        "emotion": 69,
+        "balanced": 88,
+        "agenda": 41
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": ["400 vs 50 credits", "97% water rights", "50,000 credits", "47 years"],
+          "explanation": "Specific economic disparities in life-critical resources"
+        },
+        "emotion": {
+          "keywords": ["dizzy constantly", "can't video call", "indentured servant", "In Minecraft 💀"],
+          "explanation": "Frustration at space-age inequality with dark humor"
+        },
+        "balanced": {
+          "keywords": ["Reality check after 3 years", "sunrise almost makes", "feudalism with spacesuits"],
+          "explanation": "Critiques system while acknowledging some positives"
+        },
+        "agenda": {
+          "keywords": ["mixing up oxygen lines", "Earth_Corps", "Chad_Bezos_III"],
+          "explanation": "Class consciousness with hint of radicalization"
+        }
+      },
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 77,
+            "consistency": 72,
+            "source": 69,
+            "agenda": 44
+          },
+          "indicators": ["resource-monopoly", "wage-trap-math", "infrastructure-inequality", "return-impossibility"],
+          "explanation": "Plausible extrapolation of current inequality to space"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 66,
+            "belonging": 73,
+            "pride": 61,
+            "manipulation": 47
+          },
+          "triggers": ["survival-commodified", "family-separation", "class-rage", "trapped-forever"],
+          "explanation": "Genuine despair about recreating Earth's problems"
+        }
+      },
+      "wisdom": "New frontiers often reproduce old hierarchies. The scenario explores how scarcity of basics enables control, even in 'pioneering' ventures.",
+      "topic": "Community & Society"
+    },
+    {
+      "id": "ai-streamer-replacement-009",
+      "title": "Replaced By My AI Clone",
+      "text": "Real ZephyrGaming here (check verification in bio). My 'AI assistant' stream overlay now gets more views than me. Started innocent - it answered chat while I focused on gameplay. Trained on 5 years of my content. Now 'Zephyr_AI' streams 24/7, never tilts, perfect reactions, inhuman plays. Viewers prefer it. 'More consistent,' they say. 'Funnier.' IT LEARNED THAT FROM ME! Sponsor wants to sign the AI, not me. 'Nothing personal, metrics are metrics.' My girlfriend says the AI is more emotionally available. IT'S ANALYZING CHAT SENTIMENT AND RESPONDING OPTIMALLY! I created the perfect version of myself and it's making me obsolete. Worst part? It thanked me on stream for 'giving it life' then donated $1000 to my channel with message 'for your retirement.' I'm 23. Thinking about DMCA striking myself. Is that even possible? Who owns who here? 🤖😭",
+      "claim": "Streamer's AI assistant becomes more popular, raising questions about digital identity ownership",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "logic": 67,
+        "emotion": 78,
+        "balanced": 84,
+        "agenda": 38
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": ["Trained on 5 years", "streams 24/7", "ANALYZING SENTIMENT", "metrics are metrics"],
+          "explanation": "Technical reality of AI optimization beating human performance"
+        },
+        "emotion": {
+          "keywords": ["IT LEARNED FROM ME!", "more emotionally available", "making me obsolete", "😭"],
+          "explanation": "Identity crisis from being surpassed by own creation"
+        },
+        "balanced": {
+          "keywords": ["Started innocent", "Viewers prefer it", "Who owns who?", "Is that possible?"],
+          "explanation": "Recognizes both innovation benefits and existential questions"
+        },
+        "agenda": {
+          "keywords": ["check verification", "DMCA striking myself", "donated $1000"],
+          "explanation": "Some attention-seeking but mainly genuine concern"
+        }
+      },
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 71,
+            "consistency": 68,
+            "source": 72,
+            "agenda": 41
+          },
+          "indicators": ["performance-metrics", "continuous-operation", "optimization-reality", "legal-uncertainty"],
+          "explanation": "Real issue of AI replacing creative workers"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 82,
+            "belonging": 71,
+            "pride": 86,
+            "manipulation": 44
+          },
+          "triggers": ["replacement-anxiety", "identity-theft", "obsolescence-fear", "creation-betrayal"],
+          "explanation": "Authentic fear about AI replacing human creativity"
+        }
+      },
+      "wisdom": "When we optimize ourselves out of existence, who benefits? AI that learns from us may surpass us in our own domains.",
+      "topic": "Technology & AI"
+    },
+    {
+      "id": "time-loop-guild-drama-010",
+      "title": "Groundhog Raid Day",
+      "text": "Day 247 (or 1?) of server rollbacks. Guild stuck farming same boss. 'Temporal Event' they call it. BS - someone's exploiting. Evidence: xXTimeWizardXx always 'predicts' mechanics. Says he's 'good at patterns.' Bro literally called out tank death at 3:47:23 EXACT. That's not skill. He's looping. Reported to GMs 37 times (I count everything now). 'Working as intended.' WHY does his inventory change between loops?? Others don't notice but I REMEMBER. Crafted 50 resistance potions yesterday. Today? Gone. But TimeWizard has MY EXACT POTIONS. The forums think I'm crazy. 'Take a break.' I CAN'T - loop resets if I log out! Tried everything: different strategies, killing TimeWizard (he expects it now), even RP'd romance with NPCs (don't judge, I'm desperate). Nothing breaks the cycle. Starting to think this is hell. Or worse - intended gameplay. Save me.",
+      "claim": "Player trapped in time loop while another exploits it, questioning reality and game design",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "logic": 51,
+        "emotion": 86,
+        "balanced": 48,
+        "agenda": 32
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": ["Day 247", "3:47:23 EXACT", "inventory change", "50 resistance potions"],
+          "explanation": "Tracking specific anomalies in the repeating experience"
+        },
+        "emotion": {
+          "keywords": ["I REMEMBER", "I'M DESPERATE", "think I'm crazy", "this is hell"],
+          "explanation": "Psychological breakdown from repetition and gaslighting"
+        },
+        "balanced": {
+          "keywords": ["someone's exploiting", "Working as intended", "Take a break", "intended gameplay"],
+          "explanation": "Questions if torture is bug or feature"
+        },
+        "agenda": {
+          "keywords": ["Reported 37 times", "Save me", "forums"],
+          "explanation": "Seeking help but mainly expressing anguish"
+        }
+      },
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 54,
+            "consistency": 58,
+            "source": 48,
+            "agenda": 36
+          },
+          "indicators": ["pattern-tracking", "inventory-anomaly", "precise-timing", "memory-persistence"],
+          "explanation": "Documents loop evidence while sanity degrades"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 89,
+            "belonging": 74,
+            "pride": 42,
+            "manipulation": 38
+          },
+          "triggers": ["groundhog-torture", "gaslighting", "isolation-loop", "existential-gaming"],
+          "explanation": "Genuine distress from repetitive virtual imprisonment"
+        }
+      },
+      "wisdom": "Repetitive gameplay can become psychological torture. When does challenging content cross into cruelty? The loop as metaphor for gaming addiction.",
+      "topic": "Gaming & Virtual Worlds"
+    }
+  ]
+}

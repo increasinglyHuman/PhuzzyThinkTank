@@ -1,0 +1,1337 @@
+{
+  "version": "1.0.0",
+  "scenarios": [
+    {
+      "id": "miracle-supplement-001",
+      "title": "The Miracle Supplement",
+      "text": "Dr. Sarah Chen, a Harvard-trained biochemist, posted on LinkedIn: 'After 15 years researching aging, I'm excited about NAD+ supplements. Our study of 200 participants showed 23% improvement in cellular energy markers. However, results varied significantly - 30% saw no change. The supplements cost $80/month. While promising, we need larger studies. Also, exercise showed similar benefits in our control group. I take them personally, but can't make blanket recommendations yet.'",
+      "claim": "NAD+ supplements may help with aging, but more research is needed",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "balanced": 100,
+        "logic": 75,
+        "emotion": 25,
+        "agenda": 15
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "study",
+            "200 participants",
+            "23% improvement",
+            "30% saw no change",
+            "control group"
+          ],
+          "explanation": "Strong statistical evidence with transparent methodology and acknowledgment of limitations"
+        },
+        "emotion": {
+          "keywords": [
+            "excited",
+            "Harvard-trained",
+            "personally",
+            "aging concern"
+          ],
+          "explanation": "Moderate emotional appeal through credentials and personal testimony, but restrained"
+        },
+        "balanced": {
+          "keywords": [
+            "however",
+            "results varied",
+            "need larger studies",
+            "can't make blanket recommendations",
+            "exercise showed similar benefits"
+          ],
+          "explanation": "Perfect balance of hope and caution, presents alternatives and limitations alongside positive findings"
+        },
+        "agenda": {
+          "keywords": [
+            "$80/month",
+            "supplements cost",
+            "I take them personally"
+          ],
+          "explanation": "Minimal commercial aspect - mentions price transparently without pushing sales"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Evidence strengthens then openly admits limitations - 23% improvement balanced against 30% non-responders shows honest science.",
+        "emotion": "Mild enthusiasm from credentialed expert stays grounded - excitement tempered by professional caution.",
+        "balanced": "Equal weight to benefits and limitations - presents exercise alternative and cost transparency without pressure.",
+        "agenda": "Minimal sales intent - mentions personal use and price without pushing purchase or hiding downsides."
+      },
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 80,
+            "consistency": 85,
+            "source": 90,
+            "agenda": 30
+          },
+          "indicators": [
+            "qualified-expert",
+            "specific-data",
+            "acknowledges-limits",
+            "mentions-alternatives"
+          ],
+          "explanation": "Strong statistical evidence with acknowledged limitations"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 30,
+            "belonging": 45,
+            "pride": 50,
+            "manipulation": 25
+          },
+          "triggers": [
+            "harvard-credibility",
+            "aging-concern",
+            "hope-solution",
+            "professional-trust"
+          ],
+          "explanation": "Moderate emotional appeal supports but doesn't overshadow evidence"
+        }
+      },
+      "wisdom": "This represents responsible scientific communication: strong credentials presented without arrogance, specific data with acknowledged limitations, and personal disclosure without pushy sales tactics.",
+      "hints": {
+        "keywords": [
+          "data",
+          "study",
+          "however",
+          "results",
+          "varied",
+          "need larger studies"
+        ],
+        "strategy": "balanced",
+        "hintMessage": "Look for statistics, sources, and nuanced thinking!"
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "primary",
+          "example": "Mentions Harvard training prominently, though this is relevant expertise and not misused."
+        },
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "secondary",
+          "example": "Actually avoids this fallacy by noting 30% saw no change and calling for larger studies."
+        },
+        {
+          "fallacyId": "cherry-picking",
+          "severity": "secondary",
+          "example": "Presents both positive results AND limitations, avoiding selective evidence."
+        }
+      ],
+      "metadata": {
+        "tags": [
+          "science",
+          "health",
+          "balanced-argument",
+          "supplements"
+        ],
+        "difficulty": 3,
+        "educationalFocus": "recognizing-responsible-science-communication",
+        "commonMisconceptions": [
+          "all-health-claims-are-scams",
+          "credentials-equal-truth"
+        ],
+        "addedDate": "2024-01-01"
+      }
+    },
+    {
+      "id": "neighborhood-watch-002",
+      "title": "The Neighborhood Watch Alert",
+      "text": "Posted in NextDoor by Jim Maxwell: URGENT - BE AWARE!!! 🚨🚨🚨 I saw a van driving slowly down Oak Street yesterday. It had out-of-state plates!!! This is EXACTLY how those trafficking rings operate that I read about on Facebook. They're probably scouting our children! I called 911 but they said 'driving slowly isn't a crime' - can you BELIEVE that?? The police won't protect us, so WE must protect ourselves! Everyone needs to buy security cameras NOW. My brother sells them - DM me for a 'neighbor discount.' SHARE THIS TO SAVE LIVES!!!",
+      "claim": "Suspicious van indicates danger; everyone must buy security cameras immediately",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "emotion": 100,
+        "agenda": 90,
+        "logic": 10,
+        "balanced": 5
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "saw a van",
+            "out-of-state plates",
+            "driving slowly"
+          ],
+          "explanation": "Minimal factual content - just an observation with no supporting evidence for claims"
+        },
+        "emotion": {
+          "keywords": [
+            "URGENT",
+            "BE AWARE!!!",
+            "🚨🚨🚨",
+            "trafficking rings",
+            "protect our children",
+            "SAVE LIVES!!!"
+          ],
+          "explanation": "Maximum fear manipulation using child safety panic and urgent language"
+        },
+        "balanced": {
+          "keywords": [],
+          "explanation": "No balance whatsoever - pure panic with no consideration of alternative explanations"
+        },
+        "agenda": {
+          "keywords": [
+            "buy security cameras NOW",
+            "My brother sells them",
+            "DM me for discount",
+            "neighbor discount"
+          ],
+          "explanation": "Clear profit motive - using fear to drive camera sales through family member"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Facts vanish into speculation - a slow van becomes trafficking without any connecting evidence or investigation.",
+        "emotion": "Fear escalates from curiosity to terror - child safety panic peaks with multiple exclamation points and emoji alarms.",
+        "balanced": "Zero alternative explanations - no mention of delivery drivers, house hunting, or any innocent possibilities.",
+        "agenda": "Classic fear-to-sale pipeline - manufacture crisis, amplify terror, then conveniently offer brother's security cameras."
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "post-hoc",
+          "severity": "primary",
+          "example": "Seeing a slow van and immediately concluding it's part of a trafficking operation without any evidence."
+        },
+        {
+          "fallacyId": "slippery-slope",
+          "severity": "primary",
+          "example": "Claims one suspicious van means the entire neighborhood is under threat from trafficking rings."
+        },
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "secondary",
+          "example": "Implies you must either buy cameras immediately or children will be trafficked."
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 5,
+            "consistency": 10,
+            "source": 5,
+            "agenda": 95
+          },
+          "indicators": [
+            "zero-evidence",
+            "facebook-source",
+            "hidden-sales",
+            "pure-speculation"
+          ],
+          "explanation": "No actual evidence of threat, just fear-based speculation"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 100,
+            "belonging": 80,
+            "pride": 65,
+            "manipulation": 95
+          },
+          "triggers": [
+            "child-safety-panic",
+            "police-wont-help",
+            "us-vs-them",
+            "urgent-pressure"
+          ],
+          "explanation": "Maximum fear manipulation to drive sales"
+        }
+      },
+      "wisdom": "This is textbook fear-mongering with a profit motive. Notice how a mundane observation escalates to trafficking rings, then conveniently pivots to selling security cameras.",
+      "hints": {
+        "keywords": [
+          "URGENT",
+          "BELIEVE",
+          "protect ourselves",
+          "NOW",
+          "SAVE LIVES"
+        ],
+        "strategy": "emotion",
+        "hintMessage": "Look for dramatic language and emotional triggers!",
+        "fallacyHint": "Watch for assumptions that one thing caused another without evidence!"
+      },
+      "metadata": {
+        "tags": [
+          "security",
+          "fear-mongering",
+          "sales-pitch",
+          "neighborhood"
+        ],
+        "difficulty": 2,
+        "educationalFocus": "recognizing-fear-based-marketing",
+        "commonMisconceptions": [
+          "all-safety-concerns-are-valid",
+          "urgency-equals-importance"
+        ],
+        "contentWarnings": [
+          "child-safety-anxiety"
+        ],
+        "addedDate": "2024-01-01"
+      }
+    },
+    {
+      "id": "climate-study-003",
+      "title": "The Climate Study",
+      "text": "The Eco-Truth Institute released their findings: '97% of scientists are LYING about climate change! Our research proves that Earth's temperature hasn't changed in 50 years. We surveyed 50 scientists who agree with us. The mainstream media won't report this because they're controlled by the renewable energy lobby. Wake up, people! They want to destroy our economy with their fake green agenda. Coal and oil are natural - how can nature be bad?'",
+      "claim": "Climate change is a hoax perpetrated by the renewable energy industry",
+      "correctAnswer": "logic",
+      "answerWeights": {
+        "logic": 100,
+        "agenda": 85,
+        "emotion": 70,
+        "balanced": 0
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "surveyed 50 scientists",
+            "who agree with us",
+            "Eco-Truth Institute",
+            "temperature hasn't changed"
+          ],
+          "explanation": "Cherry-picked sample of 50 unnamed scientists contradicting overwhelming scientific consensus"
+        },
+        "emotion": {
+          "keywords": [
+            "97% are LYING",
+            "Wake up, people!",
+            "destroy our economy",
+            "fake green agenda"
+          ],
+          "explanation": "Conspiracy language appealing to anti-establishment sentiment and economic fears"
+        },
+        "balanced": {
+          "keywords": [],
+          "explanation": "Zero balance - presents only one extreme view without acknowledging any counter-evidence"
+        },
+        "agenda": {
+          "keywords": [
+            "renewable energy lobby",
+            "coal and oil are natural",
+            "green agenda",
+            "mainstream media won't report"
+          ],
+          "explanation": "Clear agenda to discredit climate science and protect fossil fuel interests"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Evidence crumbles on examination - 50 unnamed scientists versus thousands of published studies reveals cherry-picking.",
+        "emotion": "Conspiracy emotions surge - 'they're lying to you' appeals to distrust while 'wake up' flatters superiority.",
+        "balanced": "Completely one-sided warfare - attacks consensus without presenting any actual counter-evidence or peer review.",
+        "agenda": "Fossil fuel defense wrapped in populism - discredits renewables while pushing 'natural' coal/oil narrative."
+      },
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 10,
+            "consistency": 15,
+            "source": 20,
+            "agenda": 90
+          },
+          "indicators": [
+            "cherry-picked-sample",
+            "contradicts-evidence",
+            "dubious-institute",
+            "natural-good-fallacy"
+          ],
+          "explanation": "Tiny sample presented as overturning mountains of evidence"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 70,
+            "belonging": 85,
+            "pride": 80,
+            "manipulation": 85
+          },
+          "triggers": [
+            "theyre-lying",
+            "economic-fear",
+            "wake-up-superiority",
+            "anti-establishment"
+          ],
+          "explanation": "Appeals to conspiracy theories and economic fears"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "name": "Hasty Generalization",
+          "icon": "🏃",
+          "severity": "primary",
+          "rarity": "common",
+          "context": "50 scientists used to generalize about all climate science"
+        },
+        {
+          "fallacyId": "appeal-to-nature",
+          "name": "Appeal to Nature",
+          "icon": "🌿",
+          "severity": "primary",
+          "rarity": "common",
+          "context": "Coal and oil are natural - how can nature be bad?"
+        },
+        {
+          "fallacyId": "ad-hominem",
+          "name": "Ad Hominem",
+          "icon": "👤",
+          "severity": "secondary",
+          "rarity": "common",
+          "context": "Attacking scientists' motives instead of addressing evidence"
+        }
+      ],
+      "wisdom": "This exemplifies how disinformation works: tiny grain of data (50 unnamed scientists) presented as overturning mountains of evidence. The 'Institute' name sounds official but lacks credibility.",
+      "hints": {
+        "keywords": [
+          "50 scientists",
+          "surveyed",
+          "who agree with us",
+          "LYING",
+          "Wake up"
+        ],
+        "strategy": "logic",
+        "hintMessage": "Check the evidence quality and look for unsupported claims!"
+      },
+      "metadata": {
+        "tags": [
+          "climate",
+          "disinformation",
+          "conspiracy",
+          "science-denial"
+        ],
+        "difficulty": 3,
+        "educationalFocus": "identifying-disinformation-tactics",
+        "commonMisconceptions": [
+          "both-sides-equal",
+          "contrarian-equals-smart"
+        ],
+        "addedDate": "2024-01-01"
+      }
+    },
+    {
+      "id": "teachers-concern-004",
+      "title": "The Teacher's Concern",
+      "text": "Mrs. Rodriguez emailed parents: 'I'm seeing concerning behavior changes in several students after winter break. Five kids who were previously engaged are now constantly tired, irritable, and their grades dropped 15-20%. I spoke with them individually - all mentioned staying up past 2 AM on phones/games. I'm attaching some research on teen sleep needs and screen time. Could we work together on consistent bedtimes? I'm happy to discuss strategies that have worked for other families. Please reach out if you'd like to talk.'",
+      "claim": "Screen time and poor sleep are affecting student performance",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "balanced": 100,
+        "logic": 80,
+        "emotion": 40,
+        "agenda": 10
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "Five kids",
+            "grades dropped 15-20%",
+            "staying up past 2 AM",
+            "attaching research"
+          ],
+          "explanation": "Specific observations with quantified changes and research support"
+        },
+        "emotion": {
+          "keywords": [
+            "concerning behavior",
+            "tired, irritable",
+            "work together",
+            "happy to discuss"
+          ],
+          "explanation": "Appropriate professional concern without catastrophizing"
+        },
+        "balanced": {
+          "keywords": [
+            "Could we work together",
+            "strategies that have worked",
+            "Please reach out",
+            "if you'd like to talk"
+          ],
+          "explanation": "Collaborative approach acknowledging parent autonomy while offering support"
+        },
+        "agenda": {
+          "keywords": [
+            "consistent bedtimes",
+            "screen time"
+          ],
+          "explanation": "Minimal agenda - seeks collaboration rather than imposing rules"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Observation becomes correlation then causation - teacher connects late nights to grades without proving link.",
+        "emotion": "Concern stays measured - worry expressed professionally without catastrophizing or manipulating parent fear.",
+        "balanced": "Multiple perspectives offered - presents issue while respecting parent autonomy and offering collaborative solutions.",
+        "agenda": "Minimal agenda push - seeks cooperation on sleep habits without demanding specific actions."
+      },
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 75,
+            "consistency": 80,
+            "source": 70,
+            "agenda": 25
+          },
+          "indicators": [
+            "direct-observation",
+            "specific-changes",
+            "student-reports",
+            "collaborative"
+          ],
+          "explanation": "Specific observations with measured approach"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 40,
+            "belonging": 60,
+            "pride": 30,
+            "manipulation": 30
+          },
+          "triggers": [
+            "academic-concern",
+            "partnership-request",
+            "health-worry",
+            "teacher-care"
+          ],
+          "explanation": "Appropriate concern without catastrophizing"
+        }
+      },
+      "wisdom": "Professional communication addressing a real issue with specific observations. The teacher presents evidence without catastrophizing, offers resources, and seeks collaboration rather than demanding compliance.",
+      "hints": {
+        "keywords": [
+          "15-20%",
+          "research",
+          "work together",
+          "strategies",
+          "discuss"
+        ],
+        "strategy": "balanced",
+        "hintMessage": "Notice the balance of concern with collaborative solutions!"
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Drawing conclusions from just 5 students, though she acknowledges this is a limited sample."
+        },
+        {
+          "fallacyId": "post-hoc",
+          "severity": "primary",
+          "example": "Assumes screen time caused the behavior changes, though correlation is supported by student reports."
+        },
+        {
+          "fallacyId": "bandwagon",
+          "severity": "secondary",
+          "example": "Avoids this by offering individual discussions rather than demanding all parents follow one approach."
+        }
+      ],
+      "metadata": {
+        "tags": [
+          "education",
+          "screen-time",
+          "sleep",
+          "parenting"
+        ],
+        "difficulty": 2,
+        "educationalFocus": "recognizing-professional-communication",
+        "commonMisconceptions": [
+          "all-screen-concerns-are-panic",
+          "data-means-manipulation"
+        ],
+        "addedDate": "2024-01-01"
+      }
+    },
+    {
+      "id": "investment-scam-005",
+      "title": "The Investment Opportunity",
+      "text": "🚀 LAST CHANCE! My mentor made $500K last year with this ONE SIMPLE TRICK! Stop being a wage slave! 😤 While you're reading this, I'm on a beach in Bali living my BEST LIFE! 🏖️ The system is RIGGED against you, but I found the SECRET. Only sharing with the next 10 people who are SERIOUS about financial freedom. Your family is counting on you - don't let them down! What's stopping you from being rich? FEAR? Your kids deserve better! DM me 'FREEDOM' now! ⏰",
+      "claim": "Secret investment trick guarantees wealth and financial freedom",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "emotion": 100,
+        "agenda": 95,
+        "logic": 5,
+        "balanced": 0
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "$500K",
+            "ONE SIMPLE TRICK"
+          ],
+          "explanation": "No verifiable facts or methodology - just unsubstantiated income claims"
+        },
+        "emotion": {
+          "keywords": [
+            "wage slave",
+            "Your family is counting on you",
+            "don't let them down",
+            "Your kids deserve better",
+            "What's stopping you from being rich? FEAR?"
+          ],
+          "explanation": "Exploits shame, guilt, and fear about providing for family"
+        },
+        "balanced": {
+          "keywords": [],
+          "explanation": "Zero balance - pure hype with no risks or downsides mentioned"
+        },
+        "agenda": {
+          "keywords": [
+            "DM me 'FREEDOM' now",
+            "next 10 people",
+            "LAST CHANCE",
+            "beach in Bali"
+          ],
+          "explanation": "Obvious scam using false urgency and lifestyle envy to generate leads"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Zero evidence escalates to certainty - unverified income claims presented as guaranteed wealth formula.",
+        "emotion": "Shame spirals to desperation - attacks current life then exploits family guilt and financial fear.",
+        "balanced": "Complete one-sidedness - no risks, effort, or failure possibility ever mentioned.",
+        "agenda": "Pure profit extraction - manufactured urgency funnels victims to DM for undisclosed scheme."
+      },
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 0,
+            "consistency": 10,
+            "source": 0,
+            "agenda": 100
+          },
+          "indicators": [
+            "no-information",
+            "simple-trick-scam",
+            "fake-urgency",
+            "profit-motive"
+          ],
+          "explanation": "Zero substance, pure emotional manipulation"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 90,
+            "belonging": 75,
+            "pride": 95,
+            "manipulation": 100
+          },
+          "triggers": [
+            "kids-deserve-better",
+            "fomo-last-chance",
+            "wage-slave-shame",
+            "lifestyle-envy"
+          ],
+          "explanation": "Hits every emotional button: shame, guilt, envy, fear"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-scarcity",
+          "name": "False Scarcity",
+          "icon": "⏰",
+          "severity": "primary",
+          "rarity": "common",
+          "context": "LAST CHANCE! Only sharing with next 10 people"
+        },
+        {
+          "fallacyId": "hasty-generalization",
+          "name": "Hasty Generalization",
+          "icon": "🏃",
+          "severity": "primary",
+          "rarity": "common",
+          "context": "ONE SIMPLE TRICK works for everyone"
+        },
+        {
+          "fallacyId": "appeal-to-fear",
+          "name": "Appeal to Fear",
+          "icon": "😨",
+          "severity": "primary",
+          "rarity": "common",
+          "context": "Your family is counting on you - don't let them down!"
+        }
+      ],
+      "wisdom": "Classic get-rich-quick scam hitting every emotional button: shame about current life, guilt about family, envy of success, fear of missing out. Zero substance, pure manipulation.",
+      "hints": {
+        "keywords": [
+          "LAST CHANCE",
+          "ONE SIMPLE TRICK",
+          "wage slave",
+          "SECRET",
+          "DM me"
+        ],
+        "strategy": "emotion",
+        "hintMessage": "This is pure emotional manipulation - look for the pressure tactics!"
+      },
+      "metadata": {
+        "tags": [
+          "scam",
+          "financial",
+          "get-rich-quick",
+          "social-media"
+        ],
+        "difficulty": 1,
+        "educationalFocus": "spotting-financial-scams",
+        "commonMisconceptions": [
+          "some-get-rich-quick-work",
+          "successful-people-share-secrets"
+        ],
+        "addedDate": "2024-01-01"
+      }
+    },
+    {
+      "id": "food-additive-006",
+      "title": "The Food Additive Report",
+      "text": "Consumer Safety Alliance published: 'After reviewing 47 studies on Red Dye 40, we found mixed results. Six studies linked it to hyperactivity in children with ADHD. Twelve studies found no connection. The FDA maintains it's safe at current levels. European countries require warning labels. The dye is in 90% of candies and many medications. Parents of sensitive children might consider limiting intake. We recommend reading labels and making informed choices based on your family's needs.'",
+      "claim": "Red Dye 40 may affect some children; parents should make informed choices",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "balanced": 100,
+        "logic": 75,
+        "emotion": 35,
+        "agenda": 20
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "47 studies",
+            "Six studies linked",
+            "Twelve studies found no connection",
+            "FDA maintains",
+            "European countries require"
+          ],
+          "explanation": "Comprehensive review presenting conflicting evidence from multiple sources"
+        },
+        "emotion": {
+          "keywords": [
+            "children with ADHD",
+            "Parents of sensitive children",
+            "your family's needs"
+          ],
+          "explanation": "Moderate concern for child health without panic or pressure"
+        },
+        "balanced": {
+          "keywords": [
+            "mixed results",
+            "might consider",
+            "informed choices",
+            "based on your family's needs"
+          ],
+          "explanation": "Empowers readers with information rather than prescribing one solution"
+        },
+        "agenda": {
+          "keywords": [
+            "Consumer Safety Alliance",
+            "recommend reading labels"
+          ],
+          "explanation": "Mild advocacy for label awareness without pushing specific products or bans"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Evidence complexity acknowledged - presents conflicting studies honestly without cherry-picking favorable results.",
+        "emotion": "Measured concern appropriate - child health focus without panic or pressure tactics.",
+        "balanced": "Multiple authorities cited - FDA approval, European warnings, and parental choice all respected.",
+        "agenda": "Information over prescription - advocates awareness and label reading without pushing specific products."
+      },
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 70,
+            "consistency": 80,
+            "source": 75,
+            "agenda": 35
+          },
+          "indicators": [
+            "multiple-studies",
+            "conflicting-data",
+            "regulatory-positions",
+            "practical-guidance"
+          ],
+          "explanation": "Presents conflicting evidence honestly"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 45,
+            "belonging": 35,
+            "pride": 40,
+            "manipulation": 30
+          },
+          "triggers": [
+            "child-health",
+            "common-exposure",
+            "empowerment-info",
+            "international-comparison"
+          ],
+          "explanation": "Moderate concern matches mixed evidence"
+        }
+      },
+      "wisdom": "Responsible reporting on a complex issue. Presents conflicting evidence honestly, acknowledges uncertainty, provides context from different authorities, and empowers rather than prescribes.",
+      "hints": {
+        "keywords": [
+          "47 studies",
+          "mixed results",
+          "FDA maintains",
+          "recommend reading",
+          "informed choices"
+        ],
+        "strategy": "balanced",
+        "hintMessage": "Look for nuanced presentation of conflicting evidence!"
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-equivalence",
+          "severity": "primary",
+          "example": "Comparing FDA approval with European warning labels as if they're equivalent evidence."
+        },
+        {
+          "fallacyId": "cherry-picking",
+          "severity": "secondary",
+          "example": "Actually avoids this by presenting both positive and negative studies fairly."
+        },
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "balanced",
+          "example": "References FDA and European regulations appropriately as context, not absolute proof."
+        }
+      ],
+      "metadata": {
+        "tags": [
+          "health",
+          "food-safety",
+          "parenting",
+          "regulation"
+        ],
+        "difficulty": 3,
+        "educationalFocus": "understanding-mixed-evidence",
+        "commonMisconceptions": [
+          "all-additives-bad",
+          "fda-always-right"
+        ],
+        "addedDate": "2024-01-01"
+      }
+    },
+    {
+      "id": "fitness-influencer-007",
+      "title": "The Fitness Influencer",
+      "text": "Ladies, are you tired of being invisible? 😔 I used to HATE my body until I discovered the ANCIENT SECRET that plastic surgeons don't want you to know! Just 5 minutes a day! No diet needed! Look at my transformation! 🔥 [heavily filtered photos] Doctors HATE this one weird trick because it would put them out of business! Only $197 for my exclusive program - but if you swipe up RIGHT NOW, it's just $47! That's less than your coffee budget! ☕ Don't you deserve to feel beautiful? Your husband will thank me! 💕",
+      "claim": "Ancient secret exercise eliminates need for diet or surgery",
+      "correctAnswer": "agenda",
+      "answerWeights": {
+        "agenda": 100,
+        "emotion": 95,
+        "logic": 5,
+        "balanced": 0
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "5 minutes a day",
+            "No diet needed"
+          ],
+          "explanation": "Impossible claims with zero scientific backing or explanation"
+        },
+        "emotion": {
+          "keywords": [
+            "tired of being invisible",
+            "HATE my body",
+            "Don't you deserve to feel beautiful?",
+            "Your husband will thank me!"
+          ],
+          "explanation": "Exploits body shame, relationship insecurity, and self-worth issues"
+        },
+        "balanced": {
+          "keywords": [],
+          "explanation": "No balance - only shows filtered 'success' without risks or realistic expectations"
+        },
+        "agenda": {
+          "keywords": [
+            "Only $197",
+            "swipe up RIGHT NOW",
+            "just $47",
+            "exclusive program",
+            "Doctors HATE this"
+          ],
+          "explanation": "Aggressive sales funnel with fake discounts and anti-medical conspiracy"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Claims defy physics - no diet plus five minutes equals transformation without mechanism explained.",
+        "emotion": "Body shame weaponized - exploits insecurity about appearance and relationships to drive sales.",
+        "balanced": "Zero reality check - filtered photos hide truth while promising impossible results.",
+        "agenda": "Predatory profit scheme - fake urgency discount manipulates vulnerable women into buying useless program."
+      },
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 5,
+            "consistency": 10,
+            "source": 10,
+            "agenda": 100
+          },
+          "indicators": [
+            "filtered-photos",
+            "ancient-secret-nonsense",
+            "anti-doctor",
+            "aggressive-sales"
+          ],
+          "explanation": "No real evidence, just marketing tactics"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 80,
+            "belonging": 65,
+            "pride": 90,
+            "manipulation": 95
+          },
+          "triggers": [
+            "body-shame",
+            "relationship-insecurity",
+            "urgency-pressure",
+            "beauty-anxiety"
+          ],
+          "explanation": "Exploits body image and relationship insecurities"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-tradition",
+          "name": "Appeal to Tradition",
+          "icon": "🏛️",
+          "severity": "primary",
+          "rarity": "common",
+          "context": "ANCIENT SECRET that doctors don't want you to know"
+        },
+        {
+          "fallacyId": "false-scarcity",
+          "name": "False Scarcity",
+          "icon": "⏰",
+          "severity": "primary",
+          "rarity": "common",
+          "context": "swipe up RIGHT NOW for special price"
+        },
+        {
+          "fallacyId": "ad-hominem",
+          "name": "Ad Hominem",
+          "icon": "👤",
+          "severity": "secondary",
+          "rarity": "common",
+          "context": "Doctors HATE this - attacking medical profession instead of providing evidence"
+        }
+      ],
+      "wisdom": "Predatory marketing targeting body insecurity. Red flags: 'ancient secrets,' doctor conspiracy, fake urgency pricing, promises without effort. The filtered photos and marriage pressure reveal the manipulative agenda.",
+      "hints": {
+        "keywords": [
+          "$197",
+          "$47",
+          "swipe up RIGHT NOW",
+          "exclusive program",
+          "Doctors HATE"
+        ],
+        "strategy": "agenda",
+        "hintMessage": "Find the hidden sales motive and urgency tactics!"
+      },
+      "metadata": {
+        "tags": [
+          "fitness",
+          "body-image",
+          "scam",
+          "social-media"
+        ],
+        "difficulty": 2,
+        "educationalFocus": "recognizing-predatory-marketing",
+        "commonMisconceptions": [
+          "influencers-are-honest",
+          "transformation-photos-real"
+        ],
+        "addedDate": "2024-01-01"
+      }
+    },
+    {
+      "id": "university-study-008",
+      "title": "The University Study",
+      "text": "MIT researchers concluded a 5-year study on remote work productivity: 'We tracked 2,400 employees across 15 companies. Overall productivity increased 13% for remote workers, but results varied by role. Creative tasks showed 22% improvement, while collaborative projects decreased 8% in efficiency. Employee satisfaction rose 31%, sick days dropped 25%. However, junior employees reported 40% less mentorship. Companies saving on office space averaged $11,000 per employee annually. Full report at mit.edu/remotework2025.'",
+      "claim": "Remote work shows mixed results with overall productivity gains but mentorship challenges",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "balanced": 100,
+        "logic": 90,
+        "emotion": 15,
+        "agenda": 5
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "2,400 employees",
+            "15 companies",
+            "13% productivity",
+            "22% improvement",
+            "8% decrease",
+            "$11,000 per employee"
+          ],
+          "explanation": "Rigorous methodology with specific metrics and large sample size"
+        },
+        "emotion": {
+          "keywords": [
+            "Employee satisfaction rose",
+            "junior employees reported less mentorship"
+          ],
+          "explanation": "Minimal emotional content - focuses on measurable impacts"
+        },
+        "balanced": {
+          "keywords": [
+            "but results varied",
+            "However",
+            "mixed results",
+            "improvement... decrease"
+          ],
+          "explanation": "Presents both benefits and drawbacks with nuanced analysis by context"
+        },
+        "agenda": {
+          "keywords": [
+            "Full report at mit.edu"
+          ],
+          "explanation": "Pure research dissemination with no commercial or political agenda"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Rigorous methodology transparent - large sample, specific metrics, and nuanced findings by work type.",
+        "emotion": "Minimal emotional content - lets data speak without dramatizing impacts or appealing to feelings.",
+        "balanced": "Trade-offs clearly presented - productivity gains balanced against mentorship losses and role variations.",
+        "agenda": "Pure research dissemination - no advocacy position, just comprehensive findings for informed decisions."
+      },
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 90,
+            "consistency": 90,
+            "source": 95,
+            "agenda": 15
+          },
+          "indicators": [
+            "large-sample",
+            "specific-metrics",
+            "nuanced-findings",
+            "credible-institution"
+          ],
+          "explanation": "Exemplary research methodology and presentation"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 20,
+            "belonging": 30,
+            "pride": 35,
+            "manipulation": 20
+          },
+          "triggers": [
+            "work-relevance",
+            "data-confidence",
+            "change-acceptance",
+            "academic-authority"
+          ],
+          "explanation": "Minimal emotional appeal, lets data speak"
+        }
+      },
+      "wisdom": "Exemplary research communication: comprehensive methodology, specific results, acknowledges trade-offs, provides actionable data. Low emotional appeal lets facts speak for themselves.",
+      "hints": {
+        "keywords": [
+          "2,400 employees",
+          "13%",
+          "varied by role",
+          "However",
+          "Full report"
+        ],
+        "strategy": "balanced",
+        "hintMessage": "Notice the comprehensive data and acknowledgment of trade-offs!"
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "appropriate",
+          "example": "MIT's reputation adds credibility, which is appropriate given the rigorous methodology shown."
+        },
+        {
+          "fallacyId": "cherry-picking",
+          "severity": "secondary",
+          "example": "Presents both positive and negative findings, avoiding selective presentation."
+        },
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "secondary",
+          "example": "Recognizes remote work isn't simply good or bad, but varies by context."
+        }
+      ],
+      "metadata": {
+        "tags": [
+          "workplace",
+          "research",
+          "remote-work",
+          "productivity"
+        ],
+        "difficulty": 2,
+        "educationalFocus": "recognizing-quality-research",
+        "commonMisconceptions": [
+          "all-studies-biased",
+          "complexity-means-dishonesty"
+        ],
+        "addedDate": "2024-01-01"
+      }
+    },
+    {
+      "id": "parenting-forum-009",
+      "title": "The Parenting Forum Post",
+      "text": "MOMS - This will SHOCK you! 😱 I caught my 12-year-old on a VIDEO GAME CHAT with a 40-YEAR-OLD MAN!!! These predators are EVERYWHERE! Every second your child is online, they're in DANGER! I threw away ALL electronics - no phones, tablets, computers, NOTHING! Some parents called me 'extreme' but I'd rather have a living child than a popular one! If you're not monitoring every keystroke, you're basically handing your baby to predators! WAKE UP before it's too late!!!",
+      "claim": "All children must be banned from electronics to prevent predator contact",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "emotion": 100,
+        "logic": 30,
+        "agenda": 50,
+        "balanced": 10
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "caught",
+            "12-year-old",
+            "VIDEO GAME CHAT",
+            "40-YEAR-OLD MAN"
+          ],
+          "explanation": "Single incident used as sole evidence for extreme conclusion"
+        },
+        "emotion": {
+          "keywords": [
+            "SHOCK",
+            "😱",
+            "predators",
+            "EVERYWHERE",
+            "DANGER",
+            "threw away ALL",
+            "WAKE UP",
+            "too late!!!"
+          ],
+          "explanation": "Maximum fear language with panic-inducing caps and multiple exclamation marks"
+        },
+        "balanced": {
+          "keywords": [],
+          "explanation": "No balanced perspective offered - only extremes presented"
+        },
+        "agenda": {
+          "keywords": [
+            "extreme",
+            "monitoring every keystroke",
+            "handing your baby to predators"
+          ],
+          "explanation": "Pushing extreme parenting style through shame and fear tactics"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Single incident becomes universal law - one chat room encounter justifies destroying all technology.",
+        "emotion": "Terror maximized deliberately - predator panic used to shame other parents into extreme reactions.",
+        "balanced": "No middle ground exists - either total ban or child death, no discussion of supervision.",
+        "agenda": "Validation seeking through fear - pushes extreme parenting style by terrorizing other mothers."
+      },
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 20,
+            "consistency": 25,
+            "source": 15,
+            "agenda": 60
+          },
+          "indicators": [
+            "one-incident-total-ban",
+            "extreme-response",
+            "no-context",
+            "fear-over-education"
+          ],
+          "explanation": "One incident leads to extreme overreaction"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 100,
+            "belonging": 70,
+            "pride": 85,
+            "manipulation": 80
+          },
+          "triggers": [
+            "predator-terror",
+            "technology-panic",
+            "protective-parent",
+            "life-death-framing"
+          ],
+          "explanation": "Maximum fear about child safety"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "name": "Hasty Generalization",
+          "icon": "🏃",
+          "severity": "primary",
+          "rarity": "common",
+          "context": "One incident with predator means ALL technology is dangerous"
+        },
+        {
+          "fallacyId": "false-dilemma",
+          "name": "False Dilemma",
+          "icon": "⚔️",
+          "severity": "primary",
+          "rarity": "common",
+          "context": "Either ban all electronics OR child will be harmed by predators"
+        },
+        {
+          "fallacyId": "slippery-slope",
+          "name": "Slippery Slope",
+          "icon": "🎿",
+          "severity": "secondary",
+          "rarity": "uncommon",
+          "context": "Any online activity leads inevitably to predator contact"
+        }
+      ],
+      "wisdom": "While online safety is crucial, this response is pure panic. One concerning incident leads to destroying all technology - an extreme overreaction that could harm the child's education and social development.",
+      "hints": {
+        "keywords": [
+          "SHOCK",
+          "EVERYWHERE",
+          "DANGER",
+          "threw away ALL",
+          "WAKE UP"
+        ],
+        "strategy": "emotion",
+        "hintMessage": "Look for panic language and extreme overreactions!"
+      },
+      "metadata": {
+        "tags": [
+          "parenting",
+          "online-safety",
+          "technology",
+          "panic"
+        ],
+        "difficulty": 2,
+        "educationalFocus": "balanced-approach-to-safety",
+        "commonMisconceptions": [
+          "all-caution-is-good",
+          "technology-always-dangerous"
+        ],
+        "addedDate": "2024-01-01"
+      }
+    },
+    {
+      "id": "community-garden-010",
+      "title": "The Community Garden Proposal",
+      "text": "City Councilwoman Lee presented: 'Converting the vacant lot on 5th Street to a community garden would cost $45,000 initially. Our analysis shows: 200 families within walking distance, 67% surveyed expressed interest, local schools want to participate. Similar gardens in Austin and Portland reduced neighborhood crime by 15% and increased property values 8%. Maintenance would require 20 volunteer hours weekly plus $5,000 annually. Concerns include parking loss (12 spaces) and potential noise. I recommend a 1-year pilot program with quarterly reviews.'",
+      "claim": "Community garden offers benefits but requires investment and has trade-offs",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "balanced": 100,
+        "logic": 80,
+        "emotion": 45,
+        "agenda": 30
+      },
+      "dimensionAnalysis": {
+        "logic": "Comprehensive analysis provided - costs, benefits, survey data, and comparable city examples support proposal.",
+        "emotion": "Community pride balanced - enthusiasm for neighborhood improvement tempered by practical concerns.",
+        "balanced": "Pros and cons transparent - parking loss and noise acknowledged alongside crime and property benefits.",
+        "agenda": "Civic improvement focused - political benefit possible but proposal stands on community merit."
+      },
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 85,
+            "consistency": 85,
+            "source": 80,
+            "agenda": 30
+          },
+          "indicators": [
+            "cost-benefit",
+            "survey-data",
+            "comparable-examples",
+            "acknowledges-downsides"
+          ],
+          "explanation": "Thorough analysis with pros and cons"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 25,
+            "belonging": 70,
+            "pride": 55,
+            "manipulation": 35
+          },
+          "triggers": [
+            "community-building",
+            "neighborhood-improvement",
+            "family-activity",
+            "property-value"
+          ],
+          "explanation": "Positive emotions balanced with practical concerns"
+        }
+      },
+      "wisdom": "Professional proposal balancing enthusiasm with realism. Strong data supports the concept while honestly addressing costs and concerns. The pilot program approach shows wisdom.",
+      "hints": {
+        "keywords": [
+          "$45,000",
+          "67% surveyed",
+          "Similar gardens",
+          "Concerns include",
+          "pilot program"
+        ],
+        "strategy": "balanced",
+        "hintMessage": "Look for data, comparisons, and acknowledgment of downsides!"
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Comparing to just Austin and Portland may not fully represent outcomes for all cities."
+        },
+        {
+          "fallacyId": "post-hoc",
+          "severity": "primary",
+          "example": "Crime reduction correlation with gardens may have other contributing factors."
+        },
+        {
+          "fallacyId": "bandwagon",
+          "severity": "primary",
+          "example": "Mentioning 67% interest could be seen as appeal to popularity, though used appropriately here."
+        }
+      ],
+      "metadata": {
+        "tags": [
+          "civic",
+          "community",
+          "urban-planning",
+          "proposal"
+        ],
+        "difficulty": 3,
+        "educationalFocus": "evaluating-civic-proposals",
+        "commonMisconceptions": [
+          "government-always-wasteful",
+          "positive-means-biased"
+        ],
+        "addedDate": "2024-01-01"
+      }
+    }
+  ],
+  "schema": {
+    "version": "1.0.0",
+    "answerTypes": [
+      "logic",
+      "emotion",
+      "balanced",
+      "agenda"
+    ],
+    "scoreRanges": {
+      "low": [
+        0,
+        3.3
+      ],
+      "medium": [
+        3.4,
+        6.6
+      ],
+      "high": [
+        6.7,
+        10
+      ]
+    },
+    "difficultyLevels": {
+      "1": "Easy - Obvious manipulation",
+      "2": "Medium - Requires some analysis",
+      "3": "Hard - Subtle differences"
+    }
+  }
+}

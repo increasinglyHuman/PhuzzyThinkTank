@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Scenarios Test</title>
+</head>
+<body>
+    <h1>New Scenarios Quick Test</h1>
+    <div id="scenario-count"></div>
+    <div id="new-scenarios"></div>
+    
+    <script>
+        // Test loading the new scenario packs
+        async function testNewScenarios() {
+            try {
+                // Try to load pack 007 (new)
+                const response007 = await fetch('./data/scenario-packs/scenario-generated-007.json');
+                const pack007 = await response007.json();
+                
+                const response008 = await fetch('./data/scenario-packs/scenario-generated-008.json');
+                const pack008 = await response008.json();
+                
+                const response009 = await fetch('./data/scenario-packs/scenario-generated-009.json');
+                const pack009 = await response009.json();
+                
+                document.getElementById('scenario-count').innerHTML = `
+                    <h2>New Scenario Packs Found:</h2>
+                    <p>Pack 007 (${pack007.theme}): ${pack007.scenarios.length} scenarios</p>
+                    <p>Pack 008 (${pack008.theme}): ${pack008.scenarios.length} scenarios</p>
+                    <p>Pack 009 (${pack009.theme}): ${pack009.scenarios.length} scenarios</p>
+                `;
+                
+                const allNewScenarios = [...pack007.scenarios, ...pack008.scenarios, ...pack009.scenarios];
+                
+                document.getElementById('new-scenarios').innerHTML = `
+                    <h3>Sample New Scenarios:</h3>
+                    ${allNewScenarios.slice(0, 5).map(s => `
+                        <div style="border: 1px solid #ccc; margin: 10px; padding: 10px;">
+                            <h4>${s.title}</h4>
+                            <p><strong>Pack:</strong> ${s.id}</p>
+                            <p>${s.content}</p>
+                        </div>
+                    `).join('')}
+                `;
+                
+            } catch (error) {
+                document.getElementById('scenario-count').innerHTML = `<p style="color: red;">Error loading scenarios: ${error.message}</p>`;
+            }
+        }
+        
+        testNewScenarios();
+    </script>
+</body>
+</html>

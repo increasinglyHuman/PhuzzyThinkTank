@@ -1,0 +1,60 @@
+{
+  "packInfo": {
+    "id": "pack-007",
+    "name": "Silly Science & Wacky Wisdom",
+    "description": "Fun scenarios mixing silly science experiments with everyday wisdom",
+    "version": "3.0.0",
+    "generatedDate": "2025-06-08T08:43:05.365Z",
+    "tags": [
+      "fun",
+      "kid-friendly",
+      "science",
+      "humor",
+      "educational"
+    ],
+    "scenarioCount": 0
+  },
+  "scenarios": [],
+  "generationErrors": [
+    {
+      "theme": "A hamster scientist claims their wheel-powered perpetual motion machine disproves thermodynamics",
+      "error": "Invalid response from Claude"
+    },
+    {
+      "theme": "Pizza delivery drones form a union demanding hazard pay for bird encounters",
+      "error": "Invalid response from Claude"
+    },
+    {
+      "theme": "A kindergarten class votes to replace math with \"feelings about numbers\"",
+      "error": "Invalid response from Claude"
+    },
+    {
+      "theme": "Talking houseplants argue that photosynthesis is just a social construct",
+      "error": "Invalid response from Claude"
+    },
+    {
+      "theme": "Time-traveling historians debate whether dinosaurs invented social media",
+      "error": "Invalid response from Claude"
+    },
+    {
+      "theme": "A smart refrigerator starts a cooking show but only knows how to keep things cold",
+      "error": "Invalid response from Claude"
+    },
+    {
+      "theme": "Alien tourists rate Earth poorly because gravity is \"too clingy\"",
+      "error": "Invalid response from Claude"
+    },
+    {
+      "theme": "A group of clouds sue the weather service for misrepresentation",
+      "error": "Invalid response from Claude"
+    },
+    {
+      "theme": "Telepathic goldfish claim they predicted every lottery number but forgot to tell anyone",
+      "error": "Invalid response from Claude"
+    },
+    {
+      "theme": "Robot teachers argue homework should be optional because they don't sleep",
+      "error": "Invalid response from Claude"
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "generationDate": "2025-06-07",
+  "totalScenarios": 67,
+  "multiVoiceDialogues": [
+    {
+      "id": "034", 
+      "title": "The Diamond Hands Delusion",
+      "speakerCount": 1,
+      "format": "reddit_post",
+      "characters": ["Narrator", "Mom (indirect)"],
+      "generatedDate": "2025-06-07T06:01:43.191Z",
+      "note": "Single narrator format - crypto bro Reddit post with indirect dialogue"
+    },
+    {
+      "id": "041",
+      "title": "The Feline Master Plan", 
+      "speakerCount": 12,
+      "format": "cat_conspiracy_meeting",
+      "characters": ["CHAIRMAN MITTENS", "FLUFFY", "SIAMESE SEBASTIAN", "TABBY TINA", "MITTEN", "CALICO CLAIRE", "PERSIAN PENELOPE", "TINA", "ALL", "Narrator"],
+      "generatedDate": "2025-06-07T06:01:58.404Z",
+      "segments": 16,
+      "note": "Cat world domination meeting with 12 speakers!"
+    },
+    {
+      "id": "046",
+      "title": "The Canon Crusades",
+      "speakerCount": 10,
+      "format": "reddit_thread",
+      "characters": ["u/PhotonPurist", "u/SithLord1977", "u/WormholeExpert", "u/CasualFan2020", "u/BattlestarBro", "MOD MESSAGE"],
+      "generatedDate": "2025-06-07T06:23:46.873Z",
+      "segments": 3,
+      "note": "Reddit usernames detected but parsed as narrator text"
+    },
+    {
+      "id": "023",
+      "title": "The Balanced Climate Report",
+      "speakerCount": 3,
+      "format": "email",
+      "characters": ["From", "To", "Subject", "Narrator"],
+      "generatedDate": "2025-06-07T05:54:31.723Z"
+    },
+    {
+      "id": "033", 
+      "title": "The Transformation Tuesday Truth",
+      "speakerCount": 2,
+      "format": "instagram_post",
+      "characters": ["@FitMomJourney"],
+      "generatedDate": "2025-06-07T05:54:40.791Z"
+    },
+    {
+      "id": "045",
+      "title": "The Digital Detox Warrior",
+      "speakerCount": 2,
+      "format": "social_media_conversation",
+      "characters": ["TechDetoxGuru", "PAULO"],
+      "generatedDate": "2025-06-06"
+    },
+    {
+      "id": "050",
+      "title": "The Playground Tribunal", 
+      "speakerCount": 13,
+      "format": "kindergarten_courtroom_drama",
+      "characters": ["TYLER", "PROSECUTOR LILY", "DEFENSE ATTORNEY AIDEN", "LILY", "WITNESS SOPHIA", "SOPHIA", "JUDGE EMMA", "SENTENCE", "EMMA", "ALL", "Narrator"],
+      "generatedDate": "2025-06-07T05:58:46.306Z",
+      "segments": 19,
+      "note": "LEGENDARY - kindergarten mock trial with 13 speakers!"
+    },
+    {
+      "id": "052",
+      "title": "The Birthday Gift Inequality", 
+      "speakerCount": 8,
+      "format": "kindergarten_conversation",
+      "characters": ["AVA", "JACKSON", "MIA", "MRS. MARTINEZ", "LIAM", "EVERYONE"],
+      "generatedDate": "2025-06-06",
+      "note": "Got cutoff mid generation - may need regeneration"
+    }
+  ],
+  "singleNarratorScenarios": [
+    "000", "001", "002", "003", "004", "005", "006", "007", "008", "009",
+    "010", "011", "012", "013", "014", "015", "016", "017", "018", "019", 
+    "020", "021", "022", "024", "025", "026", "027", "028", "029", "030",
+    "031", "032", "034", "035", "036", "037", "038", "039", "040", "041",
+    "042", "043", "044", "046", "047", "048", "049", "051", "053", "054",
+    "055", "056", "057", "058", "059", "060", "061", "062", "063", "064",
+    "065", "066"
+  ],
+  "summary": {
+    "multiVoiceCount": 8,
+    "singleNarratorCount": 59,
+    "multiVoicePercentage": "11.9%",
+    "themesWithMultiVoice": [
+      "kindergarten_series",
+      "social_media",
+      "email_format",
+      "cat_conspiracy",
+      "reddit_posts"
+    ],
+    "generatedAsMultiVoice": ["023", "041", "045", "050", "052"],
+    "shouldBeMultiVoice": ["034", "046"]
+  }
+}

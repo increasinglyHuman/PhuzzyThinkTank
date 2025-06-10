@@ -1,0 +1,759 @@
+{
+  "summary": {
+    "totalScenarios": 68,
+    "lastUpdated": "2025-06-08T02:32:36.162Z"
+  },
+  "timeline": [
+    {
+      "scenario": 27,
+      "timestamp": "2025-06-07T02:59:16.160Z",
+      "hour": "19:30"
+    },
+    {
+      "scenario": 28,
+      "timestamp": "2025-06-07T02:59:32.592Z",
+      "hour": "19:30"
+    },
+    {
+      "scenario": 29,
+      "timestamp": "2025-06-07T02:59:51.536Z",
+      "hour": "19:30"
+    },
+    {
+      "scenario": 30,
+      "timestamp": "2025-06-07T03:00:15.876Z",
+      "hour": "20:00"
+    },
+    {
+      "scenario": 31,
+      "timestamp": "2025-06-07T03:00:38.876Z",
+      "hour": "20:00"
+    },
+    {
+      "scenario": 32,
+      "timestamp": "2025-06-07T03:01:02.380Z",
+      "hour": "20:00"
+    },
+    {
+      "scenario": 0,
+      "timestamp": "2025-06-07T04:48:48.507Z",
+      "hour": "21:30"
+    },
+    {
+      "scenario": 1,
+      "timestamp": "2025-06-07T04:48:51.903Z",
+      "hour": "21:30"
+    },
+    {
+      "scenario": 2,
+      "timestamp": "2025-06-07T04:48:54.943Z",
+      "hour": "21:30"
+    },
+    {
+      "scenario": 3,
+      "timestamp": "2025-06-07T04:48:58.051Z",
+      "hour": "21:30"
+    },
+    {
+      "scenario": 4,
+      "timestamp": "2025-06-07T04:49:01.111Z",
+      "hour": "21:30"
+    },
+    {
+      "scenario": 5,
+      "timestamp": "2025-06-07T04:49:04.071Z",
+      "hour": "21:30"
+    },
+    {
+      "scenario": 6,
+      "timestamp": "2025-06-07T04:49:07.191Z",
+      "hour": "21:30"
+    },
+    {
+      "scenario": 7,
+      "timestamp": "2025-06-07T04:49:10.951Z",
+      "hour": "21:30"
+    },
+    {
+      "scenario": 8,
+      "timestamp": "2025-06-07T04:49:14.175Z",
+      "hour": "21:30"
+    },
+    {
+      "scenario": 9,
+      "timestamp": "2025-06-07T04:49:17.579Z",
+      "hour": "21:30"
+    },
+    {
+      "scenario": 10,
+      "timestamp": "2025-06-07T04:49:22.219Z",
+      "hour": "21:30"
+    },
+    {
+      "scenario": 11,
+      "timestamp": "2025-06-07T04:49:27.683Z",
+      "hour": "21:30"
+    },
+    {
+      "scenario": 12,
+      "timestamp": "2025-06-07T04:49:32.691Z",
+      "hour": "21:30"
+    },
+    {
+      "scenario": 13,
+      "timestamp": "2025-06-07T04:49:36.471Z",
+      "hour": "21:30"
+    },
+    {
+      "scenario": 14,
+      "timestamp": "2025-06-07T04:49:40.403Z",
+      "hour": "21:30"
+    },
+    {
+      "scenario": 15,
+      "timestamp": "2025-06-07T04:49:44.527Z",
+      "hour": "21:30"
+    },
+    {
+      "scenario": 16,
+      "timestamp": "2025-06-07T04:49:48.751Z",
+      "hour": "21:30"
+    },
+    {
+      "scenario": 17,
+      "timestamp": "2025-06-07T04:49:53.639Z",
+      "hour": "21:30"
+    },
+    {
+      "scenario": 18,
+      "timestamp": "2025-06-07T04:49:58.463Z",
+      "hour": "21:30"
+    },
+    {
+      "scenario": 19,
+      "timestamp": "2025-06-07T04:50:02.763Z",
+      "hour": "21:30"
+    },
+    {
+      "scenario": 20,
+      "timestamp": "2025-06-07T04:50:07.463Z",
+      "hour": "21:30"
+    },
+    {
+      "scenario": 21,
+      "timestamp": "2025-06-07T04:50:13.231Z",
+      "hour": "21:30"
+    },
+    {
+      "scenario": 22,
+      "timestamp": "2025-06-07T04:50:20.039Z",
+      "hour": "21:30"
+    },
+    {
+      "scenario": 24,
+      "timestamp": "2025-06-07T04:50:31.991Z",
+      "hour": "21:30"
+    },
+    {
+      "scenario": 25,
+      "timestamp": "2025-06-07T04:50:38.175Z",
+      "hour": "21:30"
+    },
+    {
+      "scenario": 26,
+      "timestamp": "2025-06-07T04:50:44.195Z",
+      "hour": "21:30"
+    },
+    {
+      "scenario": 35,
+      "timestamp": "2025-06-07T04:53:00.999Z",
+      "hour": "21:30"
+    },
+    {
+      "scenario": 36,
+      "timestamp": "2025-06-07T04:53:07.887Z",
+      "hour": "21:30"
+    },
+    {
+      "scenario": 37,
+      "timestamp": "2025-06-07T04:53:13.847Z",
+      "hour": "21:30"
+    },
+    {
+      "scenario": 38,
+      "timestamp": "2025-06-07T04:53:19.887Z",
+      "hour": "21:30"
+    },
+    {
+      "scenario": 39,
+      "timestamp": "2025-06-07T04:53:25.743Z",
+      "hour": "21:30"
+    },
+    {
+      "scenario": 47,
+      "timestamp": "2025-06-07T04:54:24.031Z",
+      "hour": "21:30"
+    },
+    {
+      "scenario": 48,
+      "timestamp": "2025-06-07T04:54:30.947Z",
+      "hour": "21:30"
+    },
+    {
+      "scenario": 53,
+      "timestamp": "2025-06-07T05:02:36.414Z",
+      "hour": "22:00"
+    },
+    {
+      "scenario": 57,
+      "timestamp": "2025-06-07T05:02:56.858Z",
+      "hour": "22:00"
+    },
+    {
+      "scenario": 58,
+      "timestamp": "2025-06-07T05:03:04.146Z",
+      "hour": "22:00"
+    },
+    {
+      "scenario": 59,
+      "timestamp": "2025-06-07T05:03:11.622Z",
+      "hour": "22:00"
+    },
+    {
+      "scenario": 60,
+      "timestamp": "2025-06-07T05:03:19.554Z",
+      "hour": "22:00"
+    },
+    {
+      "scenario": 61,
+      "timestamp": "2025-06-07T05:03:27.506Z",
+      "hour": "22:00"
+    },
+    {
+      "scenario": 62,
+      "timestamp": "2025-06-07T05:03:34.970Z",
+      "hour": "22:00"
+    },
+    {
+      "scenario": 63,
+      "timestamp": "2025-06-07T05:03:42.818Z",
+      "hour": "22:00"
+    },
+    {
+      "scenario": 64,
+      "timestamp": "2025-06-07T05:03:50.162Z",
+      "hour": "22:00"
+    },
+    {
+      "scenario": 65,
+      "timestamp": "2025-06-07T05:03:57.430Z",
+      "hour": "22:00"
+    },
+    {
+      "scenario": 66,
+      "timestamp": "2025-06-07T05:04:04.822Z",
+      "hour": "22:00"
+    },
+    {
+      "scenario": 45,
+      "timestamp": "2025-06-07T05:30:39.460Z",
+      "hour": "22:30"
+    },
+    {
+      "scenario": 42,
+      "timestamp": "2025-06-07T05:45:23.543Z",
+      "hour": "22:30"
+    },
+    {
+      "scenario": 43,
+      "timestamp": "2025-06-07T05:45:35.071Z",
+      "hour": "22:30"
+    },
+    {
+      "scenario": 23,
+      "timestamp": "2025-06-07T05:54:28.675Z",
+      "hour": "22:30"
+    },
+    {
+      "scenario": 33,
+      "timestamp": "2025-06-07T05:54:37.935Z",
+      "hour": "22:30"
+    },
+    {
+      "scenario": 50,
+      "timestamp": "2025-06-07T05:58:43.523Z",
+      "hour": "22:30"
+    },
+    {
+      "scenario": 41,
+      "timestamp": "2025-06-07T06:01:55.683Z",
+      "hour": "23:00"
+    },
+    {
+      "scenario": 34,
+      "timestamp": "2025-06-07T06:13:41.894Z",
+      "hour": "23:00"
+    },
+    {
+      "scenario": 46,
+      "timestamp": "2025-06-07T06:23:43.897Z",
+      "hour": "23:00"
+    },
+    {
+      "scenario": 40,
+      "timestamp": "2025-06-07T06:35:08.587Z",
+      "hour": "23:30"
+    },
+    {
+      "scenario": 52,
+      "timestamp": "2025-06-07T06:38:16.320Z",
+      "hour": "23:30"
+    },
+    {
+      "scenario": 51,
+      "timestamp": "2025-06-07T06:40:31.792Z",
+      "hour": "23:30"
+    },
+    {
+      "scenario": 49,
+      "timestamp": "2025-06-07T06:49:28.100Z",
+      "hour": "23:30"
+    },
+    {
+      "scenario": 44,
+      "timestamp": "2025-06-07T06:52:01.272Z",
+      "hour": "23:30"
+    },
+    {
+      "scenario": 56,
+      "timestamp": "2025-06-07T06:54:18.445Z",
+      "hour": "23:30"
+    }
+  ],
+  "hourlyActivity": {
+    "19:30": {
+      "count": 3,
+      "scenarios": [
+        27,
+        28,
+        29
+      ]
+    },
+    "20:00": {
+      "count": 3,
+      "scenarios": [
+        30,
+        31,
+        32
+      ]
+    },
+    "21:30": {
+      "count": 33,
+      "scenarios": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        24,
+        25,
+        26,
+        35,
+        36,
+        37,
+        38,
+        39,
+        47,
+        48
+      ]
+    },
+    "22:00": {
+      "count": 11,
+      "scenarios": [
+        53,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66
+      ]
+    },
+    "22:30": {
+      "count": 6,
+      "scenarios": [
+        45,
+        42,
+        43,
+        23,
+        33,
+        50
+      ]
+    },
+    "23:00": {
+      "count": 3,
+      "scenarios": [
+        41,
+        34,
+        46
+      ]
+    },
+    "23:30": {
+      "count": 6,
+      "scenarios": [
+        40,
+        52,
+        51,
+        49,
+        44,
+        56
+      ]
+    }
+  },
+  "generationSpeeds": [
+    {
+      "scenario": 28,
+      "speed": 16.432,
+      "timestamp": "2025-06-07T02:59:32.592Z"
+    },
+    {
+      "scenario": 29,
+      "speed": 18.944,
+      "timestamp": "2025-06-07T02:59:51.536Z"
+    },
+    {
+      "scenario": 30,
+      "speed": 24.34,
+      "timestamp": "2025-06-07T03:00:15.876Z"
+    },
+    {
+      "scenario": 31,
+      "speed": 23,
+      "timestamp": "2025-06-07T03:00:38.876Z"
+    },
+    {
+      "scenario": 32,
+      "speed": 23.504,
+      "timestamp": "2025-06-07T03:01:02.380Z"
+    },
+    {
+      "scenario": 0,
+      "speed": 6466.127,
+      "timestamp": "2025-06-07T04:48:48.507Z"
+    },
+    {
+      "scenario": 1,
+      "speed": 3.396,
+      "timestamp": "2025-06-07T04:48:51.903Z"
+    },
+    {
+      "scenario": 2,
+      "speed": 3.04,
+      "timestamp": "2025-06-07T04:48:54.943Z"
+    },
+    {
+      "scenario": 3,
+      "speed": 3.108,
+      "timestamp": "2025-06-07T04:48:58.051Z"
+    },
+    {
+      "scenario": 4,
+      "speed": 3.06,
+      "timestamp": "2025-06-07T04:49:01.111Z"
+    },
+    {
+      "scenario": 5,
+      "speed": 2.96,
+      "timestamp": "2025-06-07T04:49:04.071Z"
+    },
+    {
+      "scenario": 6,
+      "speed": 3.12,
+      "timestamp": "2025-06-07T04:49:07.191Z"
+    },
+    {
+      "scenario": 7,
+      "speed": 3.76,
+      "timestamp": "2025-06-07T04:49:10.951Z"
+    },
+    {
+      "scenario": 8,
+      "speed": 3.224,
+      "timestamp": "2025-06-07T04:49:14.175Z"
+    },
+    {
+      "scenario": 9,
+      "speed": 3.404,
+      "timestamp": "2025-06-07T04:49:17.579Z"
+    },
+    {
+      "scenario": 10,
+      "speed": 4.64,
+      "timestamp": "2025-06-07T04:49:22.219Z"
+    },
+    {
+      "scenario": 11,
+      "speed": 5.464,
+      "timestamp": "2025-06-07T04:49:27.683Z"
+    },
+    {
+      "scenario": 12,
+      "speed": 5.008,
+      "timestamp": "2025-06-07T04:49:32.691Z"
+    },
+    {
+      "scenario": 13,
+      "speed": 3.78,
+      "timestamp": "2025-06-07T04:49:36.471Z"
+    },
+    {
+      "scenario": 14,
+      "speed": 3.932,
+      "timestamp": "2025-06-07T04:49:40.403Z"
+    },
+    {
+      "scenario": 15,
+      "speed": 4.124,
+      "timestamp": "2025-06-07T04:49:44.527Z"
+    },
+    {
+      "scenario": 16,
+      "speed": 4.224,
+      "timestamp": "2025-06-07T04:49:48.751Z"
+    },
+    {
+      "scenario": 17,
+      "speed": 4.888,
+      "timestamp": "2025-06-07T04:49:53.639Z"
+    },
+    {
+      "scenario": 18,
+      "speed": 4.824,
+      "timestamp": "2025-06-07T04:49:58.463Z"
+    },
+    {
+      "scenario": 19,
+      "speed": 4.3,
+      "timestamp": "2025-06-07T04:50:02.763Z"
+    },
+    {
+      "scenario": 20,
+      "speed": 4.7,
+      "timestamp": "2025-06-07T04:50:07.463Z"
+    },
+    {
+      "scenario": 21,
+      "speed": 5.768,
+      "timestamp": "2025-06-07T04:50:13.231Z"
+    },
+    {
+      "scenario": 22,
+      "speed": 6.808,
+      "timestamp": "2025-06-07T04:50:20.039Z"
+    },
+    {
+      "scenario": 24,
+      "speed": 11.952,
+      "timestamp": "2025-06-07T04:50:31.991Z"
+    },
+    {
+      "scenario": 25,
+      "speed": 6.184,
+      "timestamp": "2025-06-07T04:50:38.175Z"
+    },
+    {
+      "scenario": 26,
+      "speed": 6.02,
+      "timestamp": "2025-06-07T04:50:44.195Z"
+    },
+    {
+      "scenario": 35,
+      "speed": 136.804,
+      "timestamp": "2025-06-07T04:53:00.999Z"
+    },
+    {
+      "scenario": 36,
+      "speed": 6.888,
+      "timestamp": "2025-06-07T04:53:07.887Z"
+    },
+    {
+      "scenario": 37,
+      "speed": 5.96,
+      "timestamp": "2025-06-07T04:53:13.847Z"
+    },
+    {
+      "scenario": 38,
+      "speed": 6.04,
+      "timestamp": "2025-06-07T04:53:19.887Z"
+    },
+    {
+      "scenario": 39,
+      "speed": 5.856,
+      "timestamp": "2025-06-07T04:53:25.743Z"
+    },
+    {
+      "scenario": 47,
+      "speed": 58.288,
+      "timestamp": "2025-06-07T04:54:24.031Z"
+    },
+    {
+      "scenario": 48,
+      "speed": 6.916,
+      "timestamp": "2025-06-07T04:54:30.947Z"
+    },
+    {
+      "scenario": 53,
+      "speed": 485.467,
+      "timestamp": "2025-06-07T05:02:36.414Z"
+    },
+    {
+      "scenario": 57,
+      "speed": 20.444,
+      "timestamp": "2025-06-07T05:02:56.858Z"
+    },
+    {
+      "scenario": 58,
+      "speed": 7.288,
+      "timestamp": "2025-06-07T05:03:04.146Z"
+    },
+    {
+      "scenario": 59,
+      "speed": 7.476,
+      "timestamp": "2025-06-07T05:03:11.622Z"
+    },
+    {
+      "scenario": 60,
+      "speed": 7.932,
+      "timestamp": "2025-06-07T05:03:19.554Z"
+    },
+    {
+      "scenario": 61,
+      "speed": 7.952,
+      "timestamp": "2025-06-07T05:03:27.506Z"
+    },
+    {
+      "scenario": 62,
+      "speed": 7.464,
+      "timestamp": "2025-06-07T05:03:34.970Z"
+    },
+    {
+      "scenario": 63,
+      "speed": 7.848,
+      "timestamp": "2025-06-07T05:03:42.818Z"
+    },
+    {
+      "scenario": 64,
+      "speed": 7.344,
+      "timestamp": "2025-06-07T05:03:50.162Z"
+    },
+    {
+      "scenario": 65,
+      "speed": 7.268,
+      "timestamp": "2025-06-07T05:03:57.430Z"
+    },
+    {
+      "scenario": 66,
+      "speed": 7.392,
+      "timestamp": "2025-06-07T05:04:04.822Z"
+    },
+    {
+      "scenario": 45,
+      "speed": 1594.638,
+      "timestamp": "2025-06-07T05:30:39.460Z"
+    },
+    {
+      "scenario": 42,
+      "speed": 884.083,
+      "timestamp": "2025-06-07T05:45:23.543Z"
+    },
+    {
+      "scenario": 43,
+      "speed": 11.528,
+      "timestamp": "2025-06-07T05:45:35.071Z"
+    },
+    {
+      "scenario": 23,
+      "speed": 533.604,
+      "timestamp": "2025-06-07T05:54:28.675Z"
+    },
+    {
+      "scenario": 33,
+      "speed": 9.26,
+      "timestamp": "2025-06-07T05:54:37.935Z"
+    },
+    {
+      "scenario": 50,
+      "speed": 245.588,
+      "timestamp": "2025-06-07T05:58:43.523Z"
+    },
+    {
+      "scenario": 41,
+      "speed": 192.16,
+      "timestamp": "2025-06-07T06:01:55.683Z"
+    },
+    {
+      "scenario": 34,
+      "speed": 706.211,
+      "timestamp": "2025-06-07T06:13:41.894Z"
+    },
+    {
+      "scenario": 46,
+      "speed": 602.003,
+      "timestamp": "2025-06-07T06:23:43.897Z"
+    },
+    {
+      "scenario": 40,
+      "speed": 684.69,
+      "timestamp": "2025-06-07T06:35:08.587Z"
+    },
+    {
+      "scenario": 52,
+      "speed": 187.733,
+      "timestamp": "2025-06-07T06:38:16.320Z"
+    },
+    {
+      "scenario": 51,
+      "speed": 135.472,
+      "timestamp": "2025-06-07T06:40:31.792Z"
+    },
+    {
+      "scenario": 49,
+      "speed": 536.308,
+      "timestamp": "2025-06-07T06:49:28.100Z"
+    },
+    {
+      "scenario": 44,
+      "speed": 153.172,
+      "timestamp": "2025-06-07T06:52:01.272Z"
+    },
+    {
+      "scenario": 56,
+      "speed": 137.173,
+      "timestamp": "2025-06-07T06:54:18.445Z"
+    }
+  ],
+  "averageSpeed": "220.35",
+  "victoriesCount": 9
+}

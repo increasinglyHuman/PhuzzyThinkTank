@@ -1,0 +1,105 @@
+{
+  "promotions": [
+    {
+      "id": "kids-week-2025",
+      "name": "Fun Kids Week",
+      "description": "Promoting fun, kid-friendly packs",
+      "startDate": "2025-06-14",
+      "endDate": "2025-06-21",
+      "active": true,
+      "priority": 100,
+      "requiredTags": [
+        "kid-friendly",
+        "fun"
+      ],
+      "optionalTags": [
+        "whimsical",
+        "animals"
+      ],
+      "excludeTags": [
+        "mature",
+        "complex"
+      ],
+      "packWeights": {
+        "pack-001": 3,
+        "pack-004": 5,
+        "pack-005": 2
+      }
+    },
+    {
+      "id": "educational-focus",
+      "name": "Educational Focus",
+      "description": "Promote packs with strong educational value",
+      "startDate": "2025-09-01",
+      "endDate": "2025-09-30",
+      "active": false,
+      "priority": 80,
+      "requiredTags": [
+        "educational"
+      ],
+      "optionalTags": [
+        "science",
+        "critical-thinking"
+      ],
+      "packWeights": {
+        "pack-002": 4,
+        "pack-003": 3,
+        "pack-006": 2
+      }
+    },
+    {
+      "id": "holiday-special",
+      "name": "Holiday Special",
+      "description": "Light-hearted scenarios for the holidays",
+      "startDate": "2025-12-15",
+      "endDate": "2026-01-05",
+      "active": false,
+      "priority": 90,
+      "requiredTags": [
+        "fun",
+        "light-hearted"
+      ],
+      "excludeTags": [
+        "controversial",
+        "political"
+      ],
+      "packWeights": {}
+    },
+    {
+      "id": "kids-week-2025-06-09",
+      "name": "Fun Kids Week",
+      "description": "A week of fun, whimsical scenarios perfect for younger audiences",
+      "startDate": "2025-06-10",
+      "endDate": "2025-06-16",
+      "active": true,
+      "priority": 100,
+      "requiredTags": [
+        "kid-friendly"
+      ],
+      "optionalTags": [
+        "fun",
+        "whimsical",
+        "animals",
+        "humor"
+      ],
+      "excludeTags": [
+        "complex",
+        "mature"
+      ],
+      "packWeights": {
+        "pack-001": 5,
+        "pack-004": 4,
+        "pack-005": 3
+      }
+    }
+  ],
+  "defaultWeights": {
+    "pack-001": 1,
+    "pack-002": 1,
+    "pack-003": 1,
+    "pack-004": 1,
+    "pack-005": 1,
+    "pack-006": 1,
+    "original-v2": 1
+  }
+}

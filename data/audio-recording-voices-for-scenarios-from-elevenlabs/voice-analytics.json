@@ -1,0 +1,37 @@
+{
+  "summary": {
+    "totalCharacters": 0,
+    "maleVoices": 0,
+    "femaleVoices": 0,
+    "percentageFemale": "NaN%"
+  },
+  "charactersByGender": {
+    "female": [],
+    "male": []
+  },
+  "uncertainAssignments": [],
+  "characterVoiceScenarios": [],
+  "mathSymbolsFound": [],
+  "recommendations": [],
+  "creditUsage": {
+    "totalCharacters": 0,
+    "totalCredits": 0,
+    "estimatedCost": 0,
+    "monthlyBudgetUsed": "0.0%",
+    "qualityTier": "Standard",
+    "pricePerThousand": 0.3,
+    "costComparison": {
+      "currentCost": 0,
+      "standardCost": 0,
+      "turboCost": 0,
+      "potentialSavings": 0
+    },
+    "topScenariosByUsage": []
+  },
+  "profanityFiltered": {
+    "totalInstances": 0,
+    "affectedScenarios": [],
+    "uniqueWords": [],
+    "scenariosNeedingRegeneration": []
+  }
+}

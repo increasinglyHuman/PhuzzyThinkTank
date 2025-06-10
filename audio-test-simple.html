@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎵 Simple Audio First-Play Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f0f4f8;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2d3748;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+        }
+        .button {
+            background: #4299e1;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 10px 5px;
+            font-size: 16px;
+        }
+        .button:hover {
+            background: #3182ce;
+        }
+        .button.legacy {
+            background: #ed8936;
+        }
+        .button.legacy:hover {
+            background: #dd6b20;
+        }
+        .timing {
+            display: inline-block;
+            margin-left: 20px;
+            font-weight: bold;
+            padding: 8px 16px;
+            background: #edf2f7;
+            border-radius: 4px;
+        }
+        .log {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: monospace;
+            height: 200px;
+            overflow-y: auto;
+            margin-top: 20px;
+        }
+        .diagnostic {
+            background: #f7fafc;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
+        .status {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .status.good { background: #c6f6d5; color: #22543d; }
+        .status.warning { background: #fed7cc; color: #c53030; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎵 Audio First-Play Optimization Test</h1>
+        
+        <div class="diagnostic">
+            <h3>System Status</h3>
+            <div>Audio Context: <span class="status" id="context-status">Not Ready</span></div>
+            <div>System Warmed: <span class="status" id="warmup-status">No</span></div>
+            <div>User Interaction: <span class="status" id="interaction-status">Waiting</span></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>🐌 Legacy HTML5 Audio (with hiccup)</h3>
+            <p>Traditional audio implementation - expect a delay before sound starts</p>
+            <button class="button legacy" onclick="testLegacyAudio()">Test Legacy Audio</button>
+            <span class="timing" id="legacy-time">-- ms</span>
+        </div>
+        
+        <div class="test-section">
+            <h3>🚀 Optimized Audio (hiccup eliminated)</h3>
+            <p>Our optimized system - should be much faster!</p>
+            <button class="button" onclick="testOptimizedAudio()">Test Optimized Audio</button>
+            <span class="timing" id="optimized-time">-- ms</span>
+        </div>
+        
+        <div class="test-section">
+            <h3>🔧 Manual Controls</h3>
+            <button class="button" onclick="warmupSystem()">Warm Up System</button>
+            <button class="button" onclick="runComparison()">Run Comparison</button>
+            <button class="button" onclick="clearLog()">Clear Log</button>
+        </div>
+        
+        <div class="log" id="log-output">
+            🎵 Audio Test Console - Click any button to start...<br>
+        </div>
+    </div>
+
+    <script>
+        // Simple audio engine for testing
+        let audioContext = null;
+        let isWarmedUp = false;
+        let userInteracted = false;
+        
+        // Generate test tones
+        function generateTestTone(frequency = 440, duration = 0.5) {
+            const sampleRate = 22050;
+            const samples = sampleRate * duration;
+            const buffer = new ArrayBuffer(44 + samples * 2);
+            const view = new DataView(buffer);
+            
+            // WAV header
+            const writeString = (offset, string) => {
+                for (let i = 0; i < string.length; i++) {
+                    view.setUint8(offset + i, string.charCodeAt(i));
+                }
+            };
+            
+            writeString(0, 'RIFF');
+            view.setUint32(4, 36 + samples * 2, true);
+            writeString(8, 'WAVE');
+            writeString(12, 'fmt ');
+            view.setUint32(16, 16, true);
+            view.setUint16(20, 1, true);
+            view.setUint16(22, 1, true);
+            view.setUint32(24, sampleRate, true);
+            view.setUint32(28, sampleRate * 2, true);
+            view.setUint16(32, 2, true);
+            view.setUint16(34, 16, true);
+            writeString(36, 'data');
+            view.setUint32(40, samples * 2, true);
+            
+            // Generate sine wave
+            let offset = 44;
+            for (let i = 0; i < samples; i++) {
+                const sample = Math.sin(2 * Math.PI * frequency * i / sampleRate) * 0.3 * 32767;
+                view.setInt16(offset, sample, true);
+                offset += 2;
+            }
+            
+            // Convert to base64 data URL
+            const bytes = new Uint8Array(buffer);
+            let binary = '';
+            for (let i = 0; i < bytes.length; i++) {
+                binary += String.fromCharCode(bytes[i]);
+            }
+            const base64 = btoa(binary);
+            return `data:audio/wav;base64,${base64}`;
+        }
+        
+        // Generate test audio URLs
+        const testAudio = [
+            generateTestTone(440, 0.5),  // A4
+            generateTestTone(523, 0.5),  // C5
+            generateTestTone(659, 0.5),  // E5
+        ];
+        
+        // Setup first interaction detection
+        function setupUserInteraction() {
+            const events = ['click', 'touchstart', 'keydown'];
+            
+            const handleFirstInteraction = () => {
+                if (userInteracted) return;
+                
+                userInteracted = true;
+                log('👆 First user interaction detected!');
+                updateStatus('interaction-status', 'Received', 'good');
+                
+                // Warm up immediately
+                warmupSystem();
+                
+                // Remove listeners
+                events.forEach(event => {
+                    document.removeEventListener(event, handleFirstInteraction, true);
+                });
+            };
+            
+            events.forEach(event => {
+                document.addEventListener(event, handleFirstInteraction, { capture: true, passive: true });
+            });
+        }
+        
+        // Warm up audio system
+        async function warmupSystem() {
+            if (isWarmedUp) {
+                log('⚠️ System already warmed up');
+                return;
+            }
+            
+            log('🔥 Warming up audio system...');
+            
+            try {
+                // Initialize audio context
+                if (!audioContext) {
+                    audioContext = new (window.AudioContext || window.webkitAudioContext)({
+                        latencyHint: 'interactive'
+                    });
+                    log('🔊 Audio context created');
+                }
+                
+                // Resume if suspended
+                if (audioContext.state === 'suspended') {
+                    await audioContext.resume();
+                    log('🔄 Audio context resumed');
+                }
+                
+                updateStatus('context-status', audioContext.state, audioContext.state === 'running' ? 'good' : 'warning');
+                
+                // Play silent audio to prime the system
+                await primeSilentAudio();
+                
+                // Prime HTML5 audio
+                await primeHTML5Audio();
+                
+                isWarmedUp = true;
+                updateStatus('warmup-status', 'Yes', 'good');
+                log('✅ Audio system fully warmed up!');
+                
+            } catch (error) {
+                log(`❌ Warmup failed: ${error.message}`);
+            }
+        }
+        
+        // Prime with silent audio buffer
+        async function primeSilentAudio() {
+            if (!audioContext) return;
+            
+            const buffer = audioContext.createBuffer(1, audioContext.sampleRate * 0.1, audioContext.sampleRate);
+            const source = audioContext.createBufferSource();
+            const gain = audioContext.createGain();
+            
+            source.buffer = buffer;
+            gain.gain.value = 0.001; // Nearly silent
+            
+            source.connect(gain);
+            gain.connect(audioContext.destination);
+            
+            source.start();
+            
+            await new Promise(resolve => {
+                source.onended = resolve;
+                setTimeout(resolve, 200); // Fallback
+            });
+            
+            log('🔇 Silent audio priming complete');
+        }
+        
+        // Prime HTML5 audio elements
+        async function primeHTML5Audio() {
+            try {
+                const audio = new Audio(testAudio[0]);
+                audio.volume = 0.001;
+                
+                const playPromise = audio.play();
+                if (playPromise) {
+                    await playPromise;
+                    audio.pause();
+                    audio.currentTime = 0;
+                }
+                
+                log('🔇 HTML5 audio priming complete');
+            } catch (error) {
+                log(`⚠️ HTML5 priming failed: ${error.message}`);
+            }
+        }
+        
+        // Test legacy audio (no optimization)
+        async function testLegacyAudio() {
+            log('🐌 Testing legacy audio...');
+            
+            const startTime = performance.now();
+            
+            try {
+                const audio = new Audio(testAudio[0]);
+                
+                await new Promise((resolve, reject) => {
+                    const timeout = setTimeout(() => {
+                        reject(new Error('Timeout'));
+                    }, 5000);
+                    
+                    audio.addEventListener('playing', () => {
+                        clearTimeout(timeout);
+                        const elapsed = Math.round(performance.now() - startTime);
+                        document.getElementById('legacy-time').textContent = elapsed + ' ms';
+                        log(`🐌 Legacy audio: ${elapsed}ms to start`);
+                        
+                        // Stop after 1 second
+                        setTimeout(() => {
+                            audio.pause();
+                            audio.currentTime = 0;
+                        }, 1000);
+                        
+                        resolve();
+                    }, { once: true });
+                    
+                    audio.addEventListener('error', reject, { once: true });
+                    audio.play().catch(reject);
+                });
+                
+            } catch (error) {
+                log(`❌ Legacy test failed: ${error.message}`);
+                document.getElementById('legacy-time').textContent = 'FAIL';
+            }
+        }
+        
+        // Test optimized audio
+        async function testOptimizedAudio() {
+            log('🚀 Testing optimized audio...');
+            
+            if (!userInteracted) {
+                log('⚠️ User interaction required first');
+                return;
+            }
+            
+            if (!isWarmedUp) {
+                await warmupSystem();
+            }
+            
+            const startTime = performance.now();
+            
+            try {
+                const audio = new Audio(testAudio[1]);
+                audio.preload = 'auto';
+                
+                await new Promise((resolve, reject) => {
+                    const timeout = setTimeout(() => {
+                        reject(new Error('Timeout'));
+                    }, 5000);
+                    
+                    audio.addEventListener('playing', () => {
+                        clearTimeout(timeout);
+                        const elapsed = Math.round(performance.now() - startTime);
+                        document.getElementById('optimized-time').textContent = elapsed + ' ms';
+                        log(`🚀 Optimized audio: ${elapsed}ms to start`);
+                        
+                        // Stop after 1 second
+                        setTimeout(() => {
+                            audio.pause();
+                            audio.currentTime = 0;
+                        }, 1000);
+                        
+                        resolve();
+                    }, { once: true });
+                    
+                    audio.addEventListener('error', reject, { once: true });
+                    audio.play().catch(reject);
+                });
+                
+            } catch (error) {
+                log(`❌ Optimized test failed: ${error.message}`);
+                document.getElementById('optimized-time').textContent = 'FAIL';
+            }
+        }
+        
+        // Run comparison test
+        async function runComparison() {
+            log('📊 Running comparison test...');
+            
+            // Test legacy 3 times
+            const legacyTimes = [];
+            for (let i = 0; i < 3; i++) {
+                const startTime = performance.now();
+                try {
+                    const audio = new Audio(testAudio[i % testAudio.length]);
+                    await new Promise((resolve, reject) => {
+                        audio.addEventListener('playing', () => {
+                            const elapsed = Math.round(performance.now() - startTime);
+                            legacyTimes.push(elapsed);
+                            audio.pause();
+                            resolve();
+                        }, { once: true });
+                        audio.play().catch(reject);
+                    });
+                } catch (error) {
+                    log(`❌ Legacy test ${i+1} failed`);
+                }
+                await new Promise(resolve => setTimeout(resolve, 1000));
+            }
+            
+            // Ensure warmed up
+            if (!isWarmedUp) await warmupSystem();
+            
+            // Test optimized 3 times
+            const optimizedTimes = [];
+            for (let i = 0; i < 3; i++) {
+                const startTime = performance.now();
+                try {
+                    const audio = new Audio(testAudio[i % testAudio.length]);
+                    audio.preload = 'auto';
+                    await new Promise((resolve, reject) => {
+                        audio.addEventListener('playing', () => {
+                            const elapsed = Math.round(performance.now() - startTime);
+                            optimizedTimes.push(elapsed);
+                            audio.pause();
+                            resolve();
+                        }, { once: true });
+                        audio.play().catch(reject);
+                    });
+                } catch (error) {
+                    log(`❌ Optimized test ${i+1} failed`);
+                }
+                await new Promise(resolve => setTimeout(resolve, 1000));
+            }
+            
+            // Calculate results
+            const legacyAvg = legacyTimes.length ? Math.round(legacyTimes.reduce((a, b) => a + b) / legacyTimes.length) : 0;
+            const optimizedAvg = optimizedTimes.length ? Math.round(optimizedTimes.reduce((a, b) => a + b) / optimizedTimes.length) : 0;
+            const improvement = legacyAvg > 0 ? Math.round(((legacyAvg - optimizedAvg) / legacyAvg) * 100) : 0;
+            
+            log(`📊 Results:`);
+            log(`  Legacy average: ${legacyAvg}ms`);
+            log(`  Optimized average: ${optimizedAvg}ms`);
+            log(`  Improvement: ${improvement}% faster`);
+            
+            document.getElementById('legacy-time').textContent = legacyAvg + ' ms avg';
+            document.getElementById('optimized-time').textContent = optimizedAvg + ' ms avg';
+        }
+        
+        // Helper functions
+        function updateStatus(elementId, text, className) {
+            const element = document.getElementById(elementId);
+            element.textContent = text;
+            element.className = 'status ' + className;
+        }
+        
+        function log(message) {
+            const logOutput = document.getElementById('log-output');
+            const timestamp = new Date().toLocaleTimeString();
+            logOutput.innerHTML += `[${timestamp}] ${message}<br>`;
+            logOutput.scrollTop = logOutput.scrollHeight;
+        }
+        
+        function clearLog() {
+            document.getElementById('log-output').innerHTML = '🎵 Log cleared...<br>';
+        }
+        
+        // Initialize
+        window.addEventListener('load', () => {
+            log('🎵 Simple Audio Test loaded');
+            setupUserInteraction();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,277 @@
+{
+  "version": "1.0.0",
+  "fallacies": {
+    "appeal-to-fear": {
+      "name": "Appeal to Fear",
+      "shortName": "Fear Appeal",
+      "definition": "Using fear or threat of negative consequences to persuade rather than logical reasoning.",
+      "category": "emotional-manipulation",
+      "icon": "😨",
+      "rarity": "common",
+      "cardArt": "fear-monster.png",
+      "learningTip": "Ask: 'Is this argument based on evidence or trying to scare me into action?'",
+      "commonIn": [
+        "marketing",
+        "politics",
+        "social media",
+        "news"
+      ],
+      "aliases": [
+        "fear-mongering",
+        "scare-tactics",
+        "threatening-consequences"
+      ]
+    },
+    "slippery-slope": {
+      "name": "Slippery Slope",
+      "shortName": "Slippery Slope",
+      "definition": "Arguing that one event will inevitably lead to a chain of negative consequences without evidence.",
+      "category": "causal-reasoning",
+      "icon": "🎿",
+      "rarity": "uncommon",
+      "cardArt": "slippery-slope.png",
+      "learningTip": "Look for: 'If we do X, then Y will happen, then Z will happen...' without proof.",
+      "commonIn": [
+        "policy debates",
+        "parenting",
+        "business decisions"
+      ],
+      "aliases": [
+        "domino-effect",
+        "chain-reaction"
+      ]
+    },
+    "false-dilemma": {
+      "name": "False Dilemma",
+      "shortName": "False Choice",
+      "definition": "Presenting only two options when more alternatives exist.",
+      "category": "logical-structure",
+      "icon": "⚔️",
+      "rarity": "common",
+      "cardArt": "false-dilemma.png",
+      "learningTip": "Ask: 'Are there really only these two choices, or are there other options?'",
+      "commonIn": [
+        "politics",
+        "sales",
+        "relationships",
+        "debates"
+      ],
+      "aliases": [
+        "false-dichotomy",
+        "either-or-fallacy",
+        "black-white-thinking"
+      ]
+    },
+    "post-hoc": {
+      "name": "Post Hoc Ergo Propter Hoc",
+      "shortName": "After This, Therefore Because of This",
+      "definition": "Assuming that because one thing follows another, the first caused the second.",
+      "category": "causal-reasoning",
+      "icon": "🔄",
+      "rarity": "uncommon",
+      "cardArt": "post-hoc.png",
+      "learningTip": "Remember: Correlation doesn't equal causation. Just because A happened before B doesn't mean A caused B.",
+      "commonIn": [
+        "health claims",
+        "superstitions",
+        "business analysis"
+      ],
+      "aliases": [
+        "false-cause",
+        "correlation-causation"
+      ]
+    },
+    "ad-hominem": {
+      "name": "Ad Hominem",
+      "shortName": "Personal Attack",
+      "definition": "Attacking the person making an argument rather than addressing the argument itself.",
+      "category": "deflection",
+      "icon": "👤",
+      "learningTip": "Focus on the argument, not the person. Character attacks usually mean weak reasoning.",
+      "commonIn": [
+        "politics",
+        "online debates",
+        "workplace conflicts"
+      ],
+      "aliases": [
+        "personal-attack",
+        "character-assassination"
+      ]
+    },
+    "hasty-generalization": {
+      "name": "Hasty Generalization",
+      "shortName": "Rushed Conclusion",
+      "definition": "Drawing broad conclusions from limited examples or small sample sizes.",
+      "category": "statistical-reasoning",
+      "icon": "🏃",
+      "learningTip": "Ask: 'Is this sample size large enough to support such a broad conclusion?'",
+      "commonIn": [
+        "stereotyping",
+        "research",
+        "reviews",
+        "news"
+      ],
+      "aliases": [
+        "overgeneralization",
+        "anecdotal-evidence"
+      ]
+    },
+    "appeal-to-tradition": {
+      "name": "Appeal to Tradition",
+      "shortName": "Ancient Wisdom",
+      "definition": "Arguing something is correct because it's traditional or has been done for a long time.",
+      "category": "authority-based",
+      "icon": "🏛️",
+      "learningTip": "'We've always done it this way' isn't proof that it's the best way.",
+      "commonIn": [
+        "health remedies",
+        "business practices",
+        "cultural arguments"
+      ],
+      "aliases": [
+        "appeal-to-antiquity",
+        "traditional-wisdom"
+      ]
+    },
+    "false-scarcity": {
+      "name": "False Scarcity",
+      "shortName": "Fake Urgency",
+      "definition": "Creating artificial time pressure or limited availability to force quick decisions.",
+      "category": "manipulation",
+      "icon": "⏰",
+      "learningTip": "Real scarcity provides specific, verifiable details. Fake scarcity uses vague pressure.",
+      "commonIn": [
+        "sales",
+        "marketing",
+        "investment schemes"
+      ],
+      "aliases": [
+        "artificial-urgency",
+        "pressure-tactics"
+      ]
+    },
+    "cherry-picking": {
+      "name": "Cherry Picking",
+      "shortName": "Selective Evidence",
+      "definition": "Selecting only evidence that supports your conclusion while ignoring contradictory evidence.",
+      "category": "evidence-manipulation",
+      "icon": "🍒",
+      "learningTip": "Look for the full picture. What evidence are they NOT showing you?",
+      "commonIn": [
+        "research",
+        "politics",
+        "product reviews",
+        "statistics"
+      ],
+      "aliases": [
+        "selective-evidence"
+      ]
+    },
+    "appeal-to-authority": {
+      "name": "Appeal to Authority",
+      "shortName": "Expert Says",
+      "definition": "Using someone's credentials or status as proof, regardless of their expertise in the specific topic.",
+      "category": "authority-based",
+      "icon": "🎓",
+      "learningTip": "Ask: 'Is this person actually qualified in this specific area?'",
+      "commonIn": [
+        "health advice",
+        "endorsements",
+        "expert opinions"
+      ],
+      "aliases": [
+        "argument-from-authority",
+        "expert-fallacy"
+      ]
+    },
+    "straw-man": {
+      "name": "Straw Man",
+      "shortName": "Fake Target",
+      "definition": "Misrepresenting someone's argument to make it easier to attack.",
+      "category": "deflection",
+      "icon": "🥤",
+      "learningTip": "Ask: 'Is this really what they said, or a twisted version of it?'",
+      "commonIn": [
+        "debates",
+        "politics",
+        "media",
+        "arguments"
+      ],
+      "aliases": [
+        "misrepresentation",
+        "distortion"
+      ]
+    },
+    "bandwagon": {
+      "name": "Bandwagon Fallacy",
+      "shortName": "Everyone's Doing It",
+      "definition": "Arguing something is correct because many people believe it or do it.",
+      "category": "social-pressure",
+      "icon": "🚌",
+      "learningTip": "Popularity doesn't equal truth. Many people can be wrong about something.",
+      "commonIn": [
+        "peer pressure",
+        "trends",
+        "marketing",
+        "social movements"
+      ],
+      "aliases": [
+        "appeal-to-popularity",
+        "majority-rule"
+      ]
+    },
+    "red-herring": {
+      "name": "Red Herring",
+      "shortName": "Distraction",
+      "definition": "Introducing irrelevant information to distract from the main argument.",
+      "category": "deflection",
+      "icon": "🐟",
+      "learningTip": "Ask: 'How does this relate to the original question or argument?'",
+      "commonIn": [
+        "politics",
+        "debates",
+        "interviews",
+        "arguments"
+      ],
+      "aliases": [
+        "distraction",
+        "topic-shift"
+      ]
+    },
+    "appeal-to-nature": {
+      "name": "Appeal to Nature",
+      "shortName": "Natural = Good",
+      "definition": "Arguing that something is good because it's natural or bad because it's artificial.",
+      "category": "false-equivalence",
+      "icon": "🌿",
+      "learningTip": "Natural doesn't automatically mean safe or good. Poison ivy is natural too.",
+      "commonIn": [
+        "health products",
+        "food marketing",
+        "lifestyle choices"
+      ],
+      "aliases": [
+        "naturalistic-fallacy",
+        "natural-good"
+      ]
+    },
+    "false-equivalence": {
+      "name": "False Equivalence",
+      "shortName": "Both Sides Same",
+      "definition": "Treating two very different things as if they're equivalent or equally valid.",
+      "category": "false-balance",
+      "icon": "⚖️",
+      "learningTip": "Not all opinions or positions are equally valid. Some have more evidence than others.",
+      "commonIn": [
+        "media coverage",
+        "debates",
+        "politics",
+        "science discussions"
+      ],
+      "aliases": [
+        "false-balance",
+        "bothsidesism"
+      ]
+    }
+  }
+}

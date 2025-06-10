@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scenario Counter</title>
+</head>
+<body>
+    <h1>Scenario Count Check</h1>
+    <div id="results"></div>
+    
+    <script>
+        async function countScenarios() {
+            const results = [];
+            let totalScenarios = 0;
+            let lastFoundPack = -1;
+            
+            // Dynamically detect all scenario packs
+            for (let i = 0; i <= 99; i++) {
+                const packNum = String(i).padStart(3, '0');
+                try {
+                    const response = await fetch(`./data/scenario-packs/scenario-generated-${packNum}.json`);
+                    if (response.ok) {
+                        const pack = await response.json();
+                        const count = pack.scenarios ? pack.scenarios.length : 0;
+                        results.push(`Pack ${packNum} (${pack.theme || 'Unknown'}): ${count} scenarios`);
+                        totalScenarios += count;
+                        lastFoundPack = i;
+                    } else if (i < lastFoundPack + 5) {
+                        // Only report missing packs if we're close to found ones
+                        continue;
+                    } else {
+                        // Stop if we haven't found anything in a while
+                        break;
+                    }
+                } catch (error) {
+                    if (i < lastFoundPack + 5) continue;
+                    break;
+                }
+            }
+            
+            document.getElementById('results').innerHTML = `
+                <h2>Total Scenarios: ${totalScenarios}</h2>
+                <h3>Pack Breakdown:</h3>
+                <ul>
+                    ${results.map(r => `<li>${r}</li>`).join('')}
+                </ul>
+                ${totalScenarios >= 200 ? '<p style="color: gold;"><strong>🎯 TARGET REACHED: 200+ scenarios!</strong></p>' : 
+                  totalScenarios >= 190 ? '<p style="color: green;"><strong>✅ Almost there! ' + (200 - totalScenarios) + ' more to reach 200</strong></p>' : 
+                  '<p style="color: blue;">📊 Current count: ' + totalScenarios + ' scenarios</p>'}
+            `;
+        }
+        
+        countScenarios();
+    </script>
+</body>
+</html>

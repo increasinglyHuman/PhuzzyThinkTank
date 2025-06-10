@@ -1,0 +1,297 @@
+{
+  "packId": "pack-019",
+  "theme": "School Talent Show Politics",
+  "description": "Students, parents and teachers debating fair competition",
+  "scenarios": [
+    {
+      "id": "pack-019-001-talent-show-fallacies-1",
+      "title": "Talent Show Showdown",
+      "content": "Parents, teachers and students debate the fairness of the upcoming school talent show. Some argue only the most popular acts should be allowed, while others say it's all about raw talent.",
+      "audioScript": "SocialMediaPost: [excited] \"Can't wait for the talent show this Friday! Only the coolest kids will make the cut. #talentshowelite\" \n\nHannah: [annoyed] \"That's so unfair! The talent show should be about talent, not popularity.\"\n\nLiam: [confident] \"Come on, everyone knows the popular kids are the most talented anyway. That's why they're popular!\"\n\nMr. Johnson: [stern] \"Students, the talent show is open to everyone. We don't exclude people just because they aren't considered 'cool'.\" \n\nOlivia's Mom: [insistent] \"But my Olivia has been taking dance lessons for years. Surely she deserves a spot over these amateurs!\"\n\nAiden: [frustrated] \"This is ridiculous. If we start deciding it based on popularity or who spent the most on lessons, what's the point of even having a talent show? It should be about letting everyone showcase what they can do.\"",
+      "claim": "The school talent show should only allow the most popular kids to perform.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Liam assumes that being popular automatically means you are the most talented."
+        },
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "secondary",
+          "example": "Olivia's mom thinks Olivia deserves a spot because she has taken expensive lessons."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-019-002-school-talent-show-debate-01",
+      "title": "Talent Show Turmoil",
+      "content": "Parents, students and teachers argue over the fairness of the upcoming school talent show auditions and competition. Should everyone get a participation trophy or only the winners?",
+      "audioScript": "Tina Tryhard: [posting excitedly] \"Can't wait for the talent show auditions tomorrow! I've been practicing my dancing non-stop. Only the best should make it! #NoTrophiesForLosers\"\n\nPrincipal Nicely: [calmly] \"Now Tina, while we appreciate your enthusiasm, I think it's important that everyone feels included. Perhaps we could give out participation awards?\"\n\nCoach Tuff: [firmly] \"No way! Back in my day, you had to earn your trophy. Giving everyone an award is just coddling the kids. They need to toughen up and learn to compete in the real world.\"\n\nMrs. Tryhard: [defensively] \"Exactly! We can't reward mediocrity. If Tina doesn't win, it will crush her self-esteem. She'll think she's not good enough.\"\n\nJenny Shy: [timidly] \"But what about kids like me who get scared on stage? Getting a participation trophy would make me feel better about trying my best, even if I don't win.\"",
+      "claim": "Only the winners of the school talent show should get trophies, not all the participants.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "primary",
+          "example": "Assuming it must either be only winner trophies or else trophies for everyone, without considering a balanced approach."
+        },
+        {
+          "fallacyId": "appeal-to-tradition",
+          "severity": "primary",
+          "example": "Arguing participation trophies are bad because 'back in my day' only winners got awards."
+        },
+        {
+          "fallacyId": "appeal-to-fear",
+          "severity": "secondary",
+          "example": "Suggesting Tina's self-esteem will be 'crushed' if she doesn't win a trophy."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-019-003-school-talent-show-debate-01",
+      "title": "Talent Show Showdown",
+      "content": "Parents, teachers and students debate the rules for the upcoming school talent show. Some want to ban lip-syncing acts, while others argue it's unfair. Logical fallacies fly as they argue about what talents should be allowed to compete.",
+      "audioScript": "Announcer: [excited] \"Don't miss the annual school #talentshowdebate! Reply with your thoughts!\"\n\nMrs. Johnson: [stern] \"Lip-syncing isn't a real talent. We need to keep the competition fair by banning those acts.\"\n\nBilly: [upset] \"That's not fair! I've been practicing my lip-sync routine for weeks. You just don't understand my generation.\"\n\nPrincipal Davis: [authoritative] \"As the principal, I think I know what's best. We've never allowed lip-syncing before, so we shouldn't start now.\"\n\nMs. Lee: [reasonable] \"Hold on, let's think about this rationally. Just because something is new doesn't mean it's bad. And banning an entire category seems rather extreme.\"\n\nMrs. Johnson: [dismissive] \"Oh please, you're the drama teacher. Of course you'd defend those silly acts. Anyone can just mouth words to a song.\"\n\nBilly: [pleading] \"If lip-syncing is banned, I just won't participate at all! Tons of other kids will drop out too!\"",
+      "claim": "Lip-syncing should be banned from the school talent show.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-tradition",
+          "severity": "primary",
+          "example": "Principal Davis argues lip-syncing shouldn't be allowed because it never was in the past."
+        },
+        {
+          "fallacyId": "ad-hominem",
+          "severity": "secondary",
+          "example": "Mrs. Johnson attacks Ms. Lee as biased because she's the drama teacher."
+        },
+        {
+          "fallacyId": "bandwagon",
+          "severity": "secondary",
+          "example": "Billy threatens that many kids will drop out if lip-syncing is banned."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-019-004-school-talent-show-debate-4",
+      "title": "Fair Talent Show Chaos",
+      "content": "Parents, students and teachers argue about the fairness of the upcoming school talent show competition. Debates break out over entry rules, judging criteria, and prize allocation.",
+      "audioScript": "Susie's Mom: [posting on social media] \"Can't believe the unfair talent show rules this year! Only allowing kids who take private lessons is so wrong. 😠 #TalentShowGate #EveryKidDeservesFairShot\"\n\nPrincipal Jones: [calmly] \"Now now, the rules ensure a level playing field. We can't have beginners competing against advanced students.\"\n\nMr. Lee: [frustrated] \"That's a slippery slope! Next you'll ban anyone who's not a professional. Where does it end?\"\n\nSally: [upset] \"It's not fair! I've been practicing my singing for months. I should get to perform too!\"\n\nCoach Miller: [firmly] \"Rules are rules, Sally. We've always done it this way. Letting everyone in would be pure chaos.\"",
+      "claim": "The school talent show is unfair because it only allows students who take private lessons to compete.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "slippery-slope",
+          "severity": "primary",
+          "example": "Mr. Lee says banning beginners is a slippery slope that will lead to only allowing professionals."
+        },
+        {
+          "fallacyId": "appeal-to-tradition",
+          "severity": "primary",
+          "example": "Coach Miller says they should keep the rules because that's how it's always been done."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-019-005-talent-show-politics-5",
+      "title": "Talent Show Troubles",
+      "content": "Students, parents and teachers debate what acts should be allowed in the upcoming school talent show. Disagreements arise over fairness, competition, and letting everyone participate.",
+      "audioScript": "Tina: [excited] \"I can't wait for the talent show! I've been practicing my dance routine for weeks. I'm going to wow the judges!\" \n\nJake: [annoyed] \"It's not fair, Tina. You always get picked because your mom is friends with the music teacher. They should let some new people have a chance.\"\n\nMrs. Johnson: [firm] \"Now Jake, I can assure you the judges are impartial. We simply pick the most talented acts.\"  \n\nJake's Dad: [angry] \"Most talented? More like most connected! If Jake isn't allowed to perform, we'll pull our donation to the school.\"\n\nPrincipal Davis: [calming] \"Let's all take a breath. I'm sure we can find a way to make the show fun for everyone. What if we let anyone participate, and the audience picks the winners?\"",
+      "claim": "The school talent show is rigged and unfair to kids without connections.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Jake assumes Tina always gets picked because her mom knows a teacher, without evidence that the process is actually unfair."
+        },
+        {
+          "fallacyId": "ad-hominem",
+          "severity": "primary",
+          "example": "Jake's dad attacks Mrs. Johnson's character rather than addressing the actual selection process."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-019-006-school-talent-show-debate-01",
+      "title": "Talent Show Showdown",
+      "content": "Parents, teachers, and students argue about how to make the school talent show fair. Some want to ban singing and dancing acts, while others say everyone should get a trophy.",
+      "audioScript": "Susie's Mom: [posts on school forum] \"The Spring Talent Show signups are now open! This year, let's keep it fair by banning all singing and dancing acts. #NoMoreDivasAndDancers\"\n\nPrincipal Jones: [sternly] \"We can't just ban singing and dancing. That would exclude many talented students.\"\n\nCoach Wilson: [firmly] \"Back in my day, talent shows were for unique skills, not pop star wannabes. We should go back to that.\"\n\nBilly: [enthusiastically] \"Everyone should get a trophy just for trying their best! It's only fair!\"\n\nMs. Garcia: [calmly] \"A talent show should showcase all kinds of talents. And trophies should be earned, not given out to everyone. Let's find a balanced approach.\"",
+      "claim": "Singing and dancing acts should be banned from the school talent show to make it more fair.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-tradition",
+          "severity": "primary",
+          "example": "Coach Wilson argues talent shows should go back to how they were done in the past."
+        },
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "primary",
+          "example": "Susie's Mom frames it as either banning singing/dancing or having an unfair talent show."
+        },
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "secondary",
+          "example": "Billy assumes everyone deserves a trophy just for participating."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-019-007-school-talent-show-politics-01",
+      "title": "Talent Show Fairness Feud",
+      "content": "Parents, teachers and students argue about how to make the annual school talent show fair for everyone. Some want to ban singers, while others say dancing is overdone.",
+      "audioScript": "Artsy_Amy: [social media post] Getting ready for the big talent show! Can't wait to sing my heart out 🎤🌟 #TalentShowDiva #BornToSing \n\nEnvious_Ethan: [annoyed] \"It's not fair, singers always win! We should ban singing this year.\"\n\nTap_Dancer_Tina: [defensive] \"What? No way! Singing takes just as much talent as dancing or anything else.\"\n\nStrict_Mrs_Stevens: [authoritative] \"Now now, settle down. The talent show has always had singing. It's tradition! We can't change it now.\"\n\nReasonable_Rachel: [calm] \"I think there's room for all talents. Maybe the judges could use a scoring rubric to be more objective?\"",
+      "claim": "Singing should be banned from the school talent show to make it more fair.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-tradition",
+          "severity": "primary",
+          "example": "\"The talent show has always had singing. It's tradition! We can't change it now.\""
+        },
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "secondary",
+          "example": "Implying that EITHER singing must be banned OR the show is unfair, with no other options."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-019-008-school-talent-show-politics-8",
+      "title": "Talent Show Trouble",
+      "content": "Students, parents and teachers debate how to make the upcoming school talent show fair for everyone. But emotions run high as people argue over the rules.",
+      "audioScript": "Samantha: [posting on social media] \"Can't wait for the school #talentshow! I've been practicing my singing non-stop. Everyone better watch out!\"\n\nLiam: [concerned] \"I heard Samantha's mom is a judge this year. That's totally unfair! She'll pick Samantha to win for sure.\"\n\nMr. Davis: [calmly] \"Now Liam, let's not jump to conclusions. The judges are professionals and will score fairly based on talent.\" \n\nSoccer Mom: [upset] \"This is ridiculous! My Timmy has won the soccer trophy 3 years in a row. He should just automatically win the sports category.\"\n\nSophia: [annoyed] \"That's not how talent shows work. Everyone should have a fair shot, even if they're new. You can't just exclude people.\"",
+      "claim": "The school talent show will be biased and unfair this year.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Liam assumes Samantha will win unfairly just because her mom is a judge, without evidence of actual bias."
+        },
+        {
+          "fallacyId": "appeal-to-tradition",
+          "severity": "primary",
+          "example": "The soccer mom thinks Timmy should automatically win again this year just because he won in the past."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-019-009-school-talent-show-9",
+      "title": "Talent Show Showdown",
+      "content": "Parents, teachers and students debate the fairness of the school talent show competition. Claims of unfair judging and favoritism cause tensions to rise.",
+      "audioScript": "Tina_Twinkletoes: [excited] \"I posted my dance routine on Instadance and got 10k likes! I'm a shoo-in to win the talent show this year. #BornToWin\"\n\nPrincipal_Peppy: [concerned] \"Now Tina, the talent show should be about having fun and sharing everyone's talents, not a popularity contest.\"\n\nDance_Dad_Dan: [angry] \"This is an outrage! You're just jealous of Tina's talent. If she doesn't win, it'll prove the judges are biased!\"\n\nArtsy_Annie: [deflated] \"What's the point of even trying? Tina always wins because her dad is on the PTA. It's so unfair.\"\n\nPrincipal_Peppy: [reassuring] \"Students, I assure you the judging will be impartial. Just focus on doing your best and enjoying the experience.\"",
+      "claim": "If Tina doesn't win the talent show, it proves the judges are biased against her.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "primary",
+          "example": "Dance Dad Dan presents a false dilemma, suggesting the only two possibilities are Tina winning or the judges being unfairly biased."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-019-010-school-talent-show-politics-10",
+      "title": "Talent Show Trouble",
+      "content": "The school talent show is coming up and students, parents and teachers are debating what acts should be allowed to ensure a fair competition. But some of their arguments seem a bit questionable...",
+      "audioScript": "Susie Soprano: [posts on Pinstagram] Can't wait to show off my singing skills at the #TalentShowdown this year! 🎤🌟\n\nPrincipal Peppy: [cheerful] \"This year's talent show is going to be the best one yet! I just know it!\"\n\nMrs. Fortissimo: [adamant] \"We simply cannot allow lip-syncing acts. It's not real talent! When I was a girl, everyone sang live.\"\n\nDanny Danger: [worried] \"But what if someone gets stage fright and freezes up? Lip-syncing should be allowed as a backup.\"\n\nCoach Clap: [fired up] \"The more students that participate, the better the show will be! We should let everyone perform, no matter what!\"\n\nMimi Mime: [quiet but emphatic] \"...\"\n\nPrincipal Peppy: [upbeat] \"Now, now, I'm sure if we all put our heads together we can figure out a solution that showcases everyone's talents.\"\n\nMrs. Fortissimo: [unconvinced] \"Hmph. Mark my words, allowing lip-syncing is a slippery slope. What's next, air guitar?\"\n",
+      "claim": "Lip-syncing should not be allowed in the school talent show because it's not a real talent.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "slippery-slope",
+          "severity": "primary",
+          "example": "Mrs. Fortissimo argues that allowing lip-syncing will lead to even more untalented acts like air guitar."
+        },
+        {
+          "fallacyId": "appeal-to-tradition",
+          "severity": "secondary",
+          "example": "Mrs. Fortissimo believes lip-syncing shouldn't be allowed because \"when she was a girl\" everyone sang live."
+        }
+      ],
+      "difficulty": "beginner"
+    }
+  ]
+}

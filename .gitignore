@@ -1,0 +1,36 @@
+# Environment and secrets
+env
+.env
+*.env
+
+# Node modules
+node_modules/
+
+# Audio files (too large for git)
+**/*.mp3
+**/*.wav
+**/*.ogg
+
+# Generated and temporary files
+temp/
+*.log
+*.out
+*.tar.gz
+
+# Backup files
+*-backup-*.json
+*backup*.json
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Large data exports (keep structure, not content)
+data/audio-recording-voices-for-scenarios-from-elevenlabs/**/*.mp3
+
+# Generated analysis files
+comprehensive-analysis-*.md

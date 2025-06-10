@@ -1,0 +1,1610 @@
+{
+  "version": "2.0.0",
+  "packInfo": {
+    "packId": "diverse-scenarios-003",
+    "packName": "Digital Life & Society",
+    "author": "Phuzzy Think Tank Community",
+    "description": "Modern challenges in technology, education, and social dynamics",
+    "createdDate": "2025-06-05",
+    "topic": "Digital Age Challenges",
+    "category": "Contemporary"
+  },
+  "scenarios": [
+    {
+      "id": "ai-tutoring-parent-panic-001",
+      "title": "The AI Teacher Takeover",
+      "text": "Parent here - just left our PTA emergency meeting about AI tutors. Principal Chen showed impressive stats: kids using AI assistants improved test scores 42% (MIT study, n=1,200). But then she mentioned 'some teachers feel threatened.' Actually, 73% of educators surveyed report AI undermines human connection (NEA data). Of course, the $89/month AI tutor costs less than human tutoring ($200+/hour)! My daughter LOVES her AI helper - it never gets frustrated, explains concepts perfectly. Though yesterday she said 'Why do I need Ms. Johnson when ChatBot explains better?' That hurt. Finland banned AI tutors completely; Singapore mandates them. Studies conflict: Harvard says AI improves learning; Stanford warns of 'empathy deficits.' The company offering our school's AI system? Former Google execs who 'care about education' (and their $2.3B valuation 😉). I'm torn - want the best education but not robot teachers. Join our petition at SaveHumanTeachers.org or embrace the future at AITutorNow.com (both sites run by concerned parents, totally grassroots).",
+      "claim": "AI tutoring systems are both improving education and threatening the human elements that children need",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "logic": 67,
+        "emotion": 72,
+        "balanced": 85,
+        "agenda": 58
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "MIT study, n=1,200",
+            "42%",
+            "73% of educators",
+            "NEA data",
+            "Harvard says",
+            "Stanford warns"
+          ],
+          "explanation": "Presents competing studies and statistics showing both benefits and concerns"
+        },
+        "emotion": {
+          "keywords": [
+            "emergency meeting",
+            "teachers feel threatened",
+            "That hurt",
+            "robot teachers",
+            "Why do I need Ms. Johnson",
+            "torn"
+          ],
+          "explanation": "Genuine parental anxiety about loss of human connection balanced with desire for academic success"
+        },
+        "balanced": {
+          "keywords": [
+            "Studies conflict",
+            "I'm torn",
+            "impressive stats...But",
+            "costs less...Though",
+            "Finland banned...Singapore mandates"
+          ],
+          "explanation": "Consistently presents both sides with real tension between benefits and losses"
+        },
+        "agenda": {
+          "keywords": [
+            "$89/month",
+            "$2.3B valuation 😉",
+            "SaveHumanTeachers.org",
+            "AITutorNow.com",
+            "both sites"
+          ],
+          "explanation": "Multiple competing agendas revealed with winking acknowledgment of commercial interests"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Statistical whiplash demonstrated - MIT's 42% improvement immediately countered by NEA's 73% teacher concern data, creating analytical paralysis.",
+        "emotion": "Authentic parent dilemma captured - child's innocent question 'Why do I need Ms. Johnson?' crystallizes the human cost of technological progress.",
+        "balanced": "True balance through contradiction - every benefit paired with corresponding loss, international examples show opposite approaches both work.",
+        "agenda": "Meta-manipulation revealed - competing petition sites expose how both sides monetize parental anxiety while claiming grassroots concern."
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "primary",
+          "example": "Presents choice as either robot teachers or human teachers, ignoring hybrid models"
+        },
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "secondary",
+          "example": "Cites MIT, Harvard, Stanford as if their conflicting studies prove both sides"
+        },
+        {
+          "fallacyId": "cherry-picking",
+          "severity": "secondary",
+          "example": "Finland and Singapore examples chosen to show extreme opposites"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 71,
+            "consistency": 42,
+            "source": 68,
+            "agenda": 64
+          },
+          "indicators": [
+            "conflicting-data",
+            "multiple-studies",
+            "international-comparison",
+            "wink-emoji-manipulation"
+          ],
+          "explanation": "Strong evidence from multiple sources but contradictory findings prevent clear conclusions"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 74,
+            "belonging": 67,
+            "pride": 58,
+            "manipulation": 61
+          },
+          "triggers": [
+            "replacement-anxiety",
+            "teacher-care",
+            "parent-anxiety",
+            "lost-connection"
+          ],
+          "explanation": "Activates fear of dehumanization while acknowledging legitimate educational benefits"
+        }
+      },
+      "wisdom": "This scenario captures the genuine complexity of technological disruption in education. Notice how competing valid research creates paralysis, how commercial interests hide behind parental concern, and how children's innocent observations reveal deeper truths. Real educational decisions require wrestling with trade-offs, not choosing simple sides.",
+      "hints": {
+        "keywords": [
+          "Studies conflict",
+          "I'm torn",
+          "But",
+          "Though",
+          "😉"
+        ],
+        "strategy": "balanced",
+        "hintMessage": "Look for conflicting evidence and genuine uncertainty!"
+      },
+      "metadata": {
+        "tags": [
+          "education",
+          "ai-technology",
+          "parenting",
+          "teacher-replacement"
+        ],
+        "difficulty": 4,
+        "educationalFocus": "navigating-complex-technological-change",
+        "commonMisconceptions": [
+          "technology-always-better",
+          "human-always-necessary"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "peakMoments": {
+        "logic": [
+          "MIT study, n=1,200",
+          "42%",
+          "73% of educators",
+          "Studies conflict"
+        ],
+        "emotion": [
+          "emergency meeting",
+          "That hurt",
+          "Why do I need Ms. Johnson"
+        ],
+        "balanced": [
+          "I'm torn",
+          "Finland banned...Singapore mandates"
+        ],
+        "agenda": [
+          "$2.3B valuation 😉",
+          "both sites run by concerned parents"
+        ]
+      },
+      "topic": "Education & Learning"
+    },
+    {
+      "id": "minimalist-influencer-001",
+      "title": "The Minimalist Millionaire",
+      "text": "Jessica Chen's Instagram post: 'Living with just 33 items changed my life! 😌 My minimalist journey started when I downsized from my Manhattan penthouse to... well, my OTHER Manhattan penthouse (the smaller one - only 2,400 sq ft 😉). After selling 90% of my possessions, I discovered TRUE freedom. My online course \"Minimal Living Maximum Life\" ($497) teaches you how to achieve this bliss. Limited spots - only 50 left today! Yesterday there were also 50 left but who's counting? 😉 Remember: You don't need things to be happy! Though I do keep my Tesla, MacBook Pro, iPhone 15, and my properties in NYC, Miami, and Aspen - but those don't count as \"things,\" they're investments in experiences! Join thousands who've transformed their lives by buying less stuff... starting with buying my course! 🎯'",
+      "claim": "You need to buy my expensive minimalism course to learn how to live with less",
+      "correctAnswer": "agenda",
+      "answerWeights": {
+        "agenda": 100,
+        "emotion": 60,
+        "logic": 20,
+        "balanced": 0
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "33 items",
+            "90% of possessions",
+            "thousands"
+          ],
+          "explanation": "Specific numbers used to create false credibility"
+        },
+        "emotion": {
+          "keywords": [
+            "changed my life",
+            "TRUE freedom",
+            "bliss",
+            "transformed"
+          ],
+          "explanation": "Lifestyle envy and promise of transformation"
+        },
+        "balanced": {
+          "keywords": [],
+          "explanation": "No balance - pure sales pitch with self-aware hypocrisy"
+        },
+        "agenda": {
+          "keywords": [
+            "$497",
+            "Limited spots",
+            "only 50 left",
+            "buy my course",
+            "😉"
+          ],
+          "explanation": "Clear sales agenda with winking admissions of manipulation"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-scarcity",
+          "severity": "primary",
+          "example": "Claims 'only 50 spots left' but admits it's always 50"
+        },
+        {
+          "fallacyId": "false-equivalence",
+          "severity": "primary",
+          "example": "Equates buying an expensive course with living minimally"
+        },
+        {
+          "fallacyId": "cherry-picking",
+          "severity": "secondary",
+          "example": "Counts possessions selectively - properties 'don't count'"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 20,
+            "consistency": 10,
+            "source": 30,
+            "agenda": 100
+          },
+          "indicators": [
+            "contradiction-admission",
+            "fake-statistics",
+            "selective-evidence",
+            "hidden-sales",
+            "wink-emoji-manipulation"
+          ],
+          "explanation": "Self-contradicting message with admitted manipulation"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 70,
+            "belonging": 80,
+            "pride": 90,
+            "manipulation": 100
+          },
+          "triggers": [
+            "lifestyle-envy",
+            "fomo-last-chance",
+            "change-maker-identity",
+            "fake-urgency",
+            "ethical-superiority"
+          ],
+          "explanation": "Heavy lifestyle envy triggers with self-aware manipulation"
+        }
+      },
+      "wisdom": "This scenario exposes the hypocrisy of selling 'less' for more. The winking emojis reveal the influencer knows she's being contradictory - owning multiple properties while preaching minimalism, creating fake scarcity, and monetizing the anti-consumerist movement. True minimalism doesn't require a $497 course.",
+      "hints": {
+        "keywords": [
+          "$497",
+          "limited",
+          "properties",
+          "don't count",
+          "😉"
+        ],
+        "strategy": "agenda",
+        "hintMessage": "Watch for contradictions and winking admissions!"
+      },
+      "metadata": {
+        "tags": [
+          "influencer",
+          "minimalism",
+          "hypocrisy",
+          "self-aware",
+          "sales-tactics"
+        ],
+        "difficulty": 2,
+        "educationalFocus": "recognizing-self-aware-manipulation",
+        "commonMisconceptions": [
+          "influencers-always-believe-their-message",
+          "expensive-courses-equal-value"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "dimensionAnalysis": {
+        "logic": "Facts self-destruct spectacularly - owns 3 properties while teaching minimalism, 'only 50 spots' that never decrease.",
+        "emotion": "Lifestyle envy weaponized - 'TRUE freedom' and 'bliss' promised through expensive course purchase.",
+        "balanced": "Zero balance attempted - pure sales pitch with winking acknowledgment of hypocrisy throughout.",
+        "agenda": "Shameless monetization exposed - selling anti-consumerism for $497 with fake scarcity and self-aware contradictions."
+      },
+      "peakMoments": {
+        "logic": [
+          "33 items",
+          "90%",
+          "only 50 left",
+          "who's counting?"
+        ],
+        "emotion": [
+          "TRUE freedom",
+          "bliss",
+          "transformed"
+        ],
+        "balanced": [],
+        "agenda": [
+          "$497",
+          "Limited spots",
+          "buy my course",
+          "😉"
+        ]
+      },
+      "topic": "Social Media & Influence"
+    },
+    {
+      "id": "screen-time-parent-hypocrisy-001",
+      "title": "The Digital Parenting Paradox",
+      "text": "Family WhatsApp group - Mom:\n\n🚨 SCREEN TIME REPORT 🚨\nKids averaged 4.2 hours/day last week! Unacceptable! New rules starting NOW:\n- No phones during meals\n- Devices off by 8pm\n- Weekend limit: 2 hours MAX\n\nDad: Honey, your screen time shows 7.8 hours yesterday...\n\nMom: That's DIFFERENT. I was:\n- Reading important articles (Twitter doom-scrolling)\n- Managing household (Pinterest for 3 hours)\n- Working (answered 2 emails)\n- Connecting with friends (stalking high school classmates)\n\nTeenage daughter: Mom you literally asked Siri 'what's happening' during my piano recital\n\nMom: I was checking the WEATHER! For your SAFETY!\n\nDad: Weather inside the auditorium? 🤔\n\nSon: Yesterday you walked into a glass door playing Candy Crush\n\nMom: I have ADHD! Dr. TikTok says phone games help focus! Unlike you kids just watching YouTube garbage. BTW I found this great parenting article about digital wellness (sending 47 links)...\n\nDaughter: Those are all from BuzzFeed mom\n\nMom: ... 2 hours screen time starts NOW\n\n*sent from iPhone at 11:47pm while binge-watching Netflix*",
+      "claim": "Parent enforces strict screen time limits on children while exhibiting worse digital habits herself",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "logic": 48,
+        "emotion": 83,
+        "balanced": 36,
+        "agenda": 57
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "4.2 hours/day",
+            "7.8 hours yesterday",
+            "2 hours MAX",
+            "47 links",
+            "SCREEN TIME REPORT"
+          ],
+          "explanation": "Data reveals hypocrisy but emotional defensiveness overrides facts"
+        },
+        "emotion": {
+          "keywords": [
+            "That's DIFFERENT",
+            "For your SAFETY!",
+            "Unacceptable!",
+            "I have ADHD!",
+            "stalking high school classmates"
+          ],
+          "explanation": "Defensive justifications and parental authority mask digital addiction"
+        },
+        "balanced": {
+          "keywords": [
+            "Dad: Honey, your screen time shows",
+            "🤔",
+            "sent from iPhone at 11:47pm"
+          ],
+          "explanation": "Some awareness through family callouts but parent remains defensive"
+        },
+        "agenda": {
+          "keywords": [
+            "Dr. TikTok",
+            "BuzzFeed",
+            "parenting article",
+            "digital wellness",
+            "Candy Crush"
+          ],
+          "explanation": "Promotes screen limits while revealing dependency on digital content"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-equivalence",
+          "severity": "primary",
+          "example": "Claims her 7.8 hours is 'DIFFERENT' from kids' 4.2 hours"
+        },
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "secondary",
+          "example": "'Dr. TikTok says' used to justify Candy Crush addiction"
+        },
+        {
+          "fallacyId": "ad-hominem",
+          "severity": "acknowledged",
+          "example": "Dismisses kids' YouTube as 'garbage' while consuming BuzzFeed"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 52,
+            "consistency": 24,
+            "source": 31,
+            "agenda": 61
+          },
+          "indicators": [
+            "screen-time-data",
+            "contradictory-behavior",
+            "false-justifications",
+            "timestamp-evidence"
+          ],
+          "explanation": "Clear data contradicts behavior; emotional defensiveness prevents logic"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 72,
+            "belonging": 68,
+            "pride": 86,
+            "manipulation": 74
+          },
+          "triggers": [
+            "parental-authority",
+            "control-loss",
+            "addiction-denial",
+            "generational-anxiety",
+            "safety-justification"
+          ],
+          "explanation": "Parental anxiety about kids' screen time masks own digital dependency"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Data exposes itself hilariously - '7.8 hours yesterday' immediately follows condemnation of kids' 4.2 hours, yet emotional defenses prevent self-recognition.",
+        "emotion": "Parental panic spirals through justifications - from 'important articles' (Twitter) to 'ADHD' (self-diagnosed via TikTok), each excuse more desperate.",
+        "balanced": "Family serves as reality check - dad's gentle '🤔' and kids' specific examples provide balance mom refuses to acknowledge.",
+        "agenda": "Digital wellness preached while demonstrating addiction - 47 BuzzFeed links about reducing screen time sent at midnight perfectly captures paradox."
+      },
+      "peakMoments": {
+        "logic": [
+          "4.2 hours/day",
+          "7.8 hours yesterday",
+          "sent from iPhone at 11:47pm"
+        ],
+        "emotion": [
+          "That's DIFFERENT",
+          "For your SAFETY!",
+          "I have ADHD!"
+        ],
+        "balanced": [
+          "Honey, your screen time shows",
+          "🤔"
+        ],
+        "agenda": [
+          "Dr. TikTok says",
+          "47 links"
+        ]
+      },
+      "wisdom": "Modern parenting's screen time paradox - we police children's digital habits while modeling addiction. The mother's escalating justifications ('weather inside the auditorium?') and timestamp reveal how authority substitutes for self-awareness. True digital wellness starts with honest self-examination.",
+      "hints": {
+        "keywords": [
+          "DIFFERENT",
+          "SAFETY",
+          "ADHD",
+          "stalking",
+          "11:47pm"
+        ],
+        "strategy": "emotion",
+        "hintMessage": "Defensive parent justifying worse habits than kids!"
+      },
+      "metadata": {
+        "tags": [
+          "parenting",
+          "screen-time",
+          "hypocrisy",
+          "digital-wellness",
+          "family"
+        ],
+        "difficulty": 3,
+        "educationalFocus": "recognizing-projection-and-denial",
+        "commonMisconceptions": [
+          "adults-have-better-self-control",
+          "parental-screen-time-productive"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "topic": "Parenting & Family"
+    },
+    {
+      "id": "wellness-industry-paradox-001",
+      "title": "The $200 Meditation Cushion",
+      "text": "Posted in r/AntiConsumption by u/StressedButBlessed:\n\nGuys I'm literally crying. Just spent $847 on 'wellness essentials' because my anxiety is DESTROYING me. Cart included:\n- Meditation cushion ($200) - because my anxiety won't let me sit still on a regular pillow??\n- Crystal healing set ($140) - studies show placebo effect is real effect right??\n- Adaptogenic supplements ($267) - 73 Amazon reviews can't be wrong\n- Essential oil diffuser ($85) - my 4th one, others 'weren't right'\n- Manifestation journal ($45) - it has gold edges!!!\n- Mindfulness app subscription ($120/year) - to remind me to breathe for $10/month\n\nMy therapist (who I can't afford anymore) said my anxiety comes from financial stress. So naturally I'm solving it by... spending $847 on anxiety cures. Make it make sense!! 🤡\n\nCredit card debt: $12,400\nMonthly wellness spending: ~$500\nActual therapy cost: $150/session\nRealizing I'm the problem: Priceless\n\nBut here's the thing - that meditation cushion? Still in the box. Crystals? Under my bed with the yoga mat I used once. App sends 47 notifications daily which... increases my anxiety.\n\nAnyone else stuck in the 'spending money on wellness to cope with spending money' loop? Or am I the only one who thought capitalism could cure what capitalism caused? 😭\n\nEDIT: Stop DMing me crystal healing discount codes. YOU'RE NOT HELPING.",
+      "claim": "Person spends hundreds on wellness products to cure anxiety caused by financial stress from buying wellness products",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "logic": 71,
+        "emotion": 78,
+        "balanced": 94,
+        "agenda": 21
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "$847",
+            "$12,400",
+            "$500",
+            "$150/session",
+            "Can't afford anymore"
+          ],
+          "explanation": "Clear financial data showing the self-destructive spending cycle"
+        },
+        "emotion": {
+          "keywords": [
+            "literally crying",
+            "DESTROYING me",
+            "Make it make sense!! 🤡",
+            "I'm the problem",
+            "😭"
+          ],
+          "explanation": "Genuine distress about being trapped in wellness consumption cycle"
+        },
+        "balanced": {
+          "keywords": [
+            "My therapist...said",
+            "So naturally I'm solving it by...",
+            "capitalism could cure what capitalism caused",
+            "Realizing I'm the problem: Priceless"
+          ],
+          "explanation": "Perfect self-awareness of the paradox while still being trapped in it"
+        },
+        "agenda": {
+          "keywords": [
+            "Stop DMing me discount codes",
+            "YOU'RE NOT HELPING",
+            "r/AntiConsumption"
+          ],
+          "explanation": "Explicitly rejects sales while seeking community support"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-scarcity",
+          "severity": "acknowledged",
+          "example": "Recognizes creating financial scarcity while trying to cure its effects"
+        },
+        {
+          "fallacyId": "appeal-to-tradition",
+          "severity": "secondary",
+          "example": "Ancient practices (crystals, meditation) commodified at premium prices"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 74,
+            "consistency": 68,
+            "source": 72,
+            "agenda": 24
+          },
+          "indicators": [
+            "detailed-spending",
+            "debt-disclosure",
+            "cost-comparison",
+            "pattern-recognition"
+          ],
+          "explanation": "Meticulously documents the self-defeating financial behavior"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 81,
+            "belonging": 76,
+            "pride": 34,
+            "manipulation": 28
+          },
+          "triggers": [
+            "financial-anxiety",
+            "wellness-guilt",
+            "capitalism-trap",
+            "community-seeking",
+            "cycle-awareness"
+          ],
+          "explanation": "Authentic distress about wellness industrial complex trap"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Numbers tell the whole story - $847 spent to cure anxiety from $12,400 debt, while $150 therapy deemed 'unaffordable', exposing wellness math.",
+        "emotion": "Desperation crescendos through crying emojis - genuine anguish about recognizing the trap while unable to escape it.",
+        "balanced": "Perfect paradox awareness throughout - 'capitalism could cure what capitalism caused' crystallizes the absurdity with painful clarity.",
+        "agenda": "Anti-consumption without alternative sales - explicitly rejects discount codes, seeks only community understanding of shared trap."
+      },
+      "peakMoments": {
+        "logic": [
+          "$847",
+          "$12,400",
+          "Can't afford anymore",
+          "$150/session"
+        ],
+        "emotion": [
+          "literally crying",
+          "DESTROYING me",
+          "🤡",
+          "😭"
+        ],
+        "balanced": [
+          "So naturally I'm solving it by...",
+          "capitalism could cure what capitalism caused",
+          "Realizing I'm the problem: Priceless"
+        ],
+        "agenda": [
+          "Stop DMing me discount codes",
+          "YOU'RE NOT HELPING"
+        ]
+      },
+      "wisdom": "The wellness industry paradox perfectly captured - spending money on peace of mind creates the very anxiety it promises to cure. The unused meditation cushion still in its box while notifications increase anxiety shows how consumption can't solve what consumption creates. True wellness might begin with stepping off the purchasing treadmill.",
+      "hints": {
+        "keywords": [
+          "So naturally",
+          "Make it make sense",
+          "capitalism cure",
+          "problem: Priceless",
+          "paradox"
+        ],
+        "strategy": "balanced",
+        "hintMessage": "Sees the whole trap while still stuck in it!"
+      },
+      "metadata": {
+        "tags": [
+          "wellness",
+          "capitalism",
+          "anxiety",
+          "consumption",
+          "self-awareness"
+        ],
+        "difficulty": 4,
+        "educationalFocus": "recognizing-consumption-paradoxes",
+        "commonMisconceptions": [
+          "buying-wellness-products-reduces-stress",
+          "more-expensive-means-more-effective"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "topic": "Health & Wellness"
+    },
+    {
+      "id": "online-course-fomo-001",
+      "title": "The Knowledge Economy Hustle",
+      "text": "LinkedIn notification - Sarah Martinez shared:\n\n🚀 Just enrolled in my 47th online course this year! #NeverStopLearning\n\nLook, I KNOW what you're thinking. '$12,000 on courses while making $43K/year? Girl, budget!'\n\nBut hear me out:\n- Python Masterclass ($997) - haven't started, but WILL\n- LinkedIn Learning subscription ($360) - watched 3 videos\n- MasterClass All-Access ($180) - Gordon Ramsay yells beautifully\n- Google Career Certificates x4 ($196 each) - finished... none\n- That blockchain bootcamp ($3,500) - crypto crashed week 2 😭\n\nMy manager asked why I need 'Advanced Excel' when I don't use basic Excel. BECAUSE FUTURE ME WILL!! 🙌\n\nFriend: 'Sarah, you have 1,247 hours of unwatched content'\nMe: 'It's an INVESTMENT'\nFriend: 'In what?'\nMe: '...potential?'\n\nHonestly though? My coworker got promoted after adding 'AWS Certified' to LinkedIn. Did she actually GET certified? No. Did she even START the course? Also no. But she BOUGHT it. And here I am, actually BUYING them, like a sucker.\n\nAnyway, Udemy flash sale! 'Data Science A-Z' is 90% off (like always lol). Original price: $199. Sale price: $19.99. My savings account: $47.\n\nBuying it. Because what if THIS is the course that changes everything? 🎓💸\n\n#LifelongLearner #Upskilling #KnowledgeIsPower #BrokeButEducated",
+      "claim": "Compulsive online course buying driven by career FOMO while never completing them, recognizing the futility but unable to stop",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "logic": 42,
+        "emotion": 86,
+        "balanced": 54,
+        "agenda": 68
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "$12,000 on courses",
+            "$43K/year",
+            "1,247 hours",
+            "finished... none",
+            "$47"
+          ],
+          "explanation": "Clear data showing financial irresponsibility and course accumulation"
+        },
+        "emotion": {
+          "keywords": [
+            "FUTURE ME WILL!!",
+            "what if THIS is",
+            "like a sucker",
+            "changes everything",
+            "#BrokeButEducated"
+          ],
+          "explanation": "FOMO and potential-chasing override financial reality"
+        },
+        "balanced": {
+          "keywords": [
+            "I KNOW what you're thinking",
+            "honestly though?",
+            "like always lol",
+            "Girl, budget!"
+          ],
+          "explanation": "Some self-awareness but overwhelmed by compulsive behavior"
+        },
+        "agenda": {
+          "keywords": [
+            "Udemy flash sale!",
+            "90% off",
+            "$19.99",
+            "Buying it",
+            "#Upskilling"
+          ],
+          "explanation": "Promotes course-buying culture while exposing its futility"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-scarcity",
+          "severity": "primary",
+          "example": "Flash sale urgency when sales are constant ('like always')"
+        },
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "secondary",
+          "example": "Coworker's fake certification success drives more purchases"
+        },
+        {
+          "fallacyId": "post-hoc",
+          "severity": "acknowledged",
+          "example": "Assumes course purchases will lead to career advancement"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 46,
+            "consistency": 38,
+            "source": 52,
+            "agenda": 71
+          },
+          "indicators": [
+            "spending-vs-income",
+            "completion-rates",
+            "unused-content",
+            "savings-depletion"
+          ],
+          "explanation": "Financial data exposes irrationality of knowledge hoarding"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 89,
+            "belonging": 72,
+            "pride": 67,
+            "manipulation": 74
+          },
+          "triggers": [
+            "career-fomo",
+            "potential-obsession",
+            "LinkedIn-comparison",
+            "transformation-fantasy",
+            "scarcity-mindset"
+          ],
+          "explanation": "Fear of being left behind in knowledge economy drives compulsion"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Numbers reveal absurdity cascade - $12K spent on 43K salary, 1,247 unwatched hours, zero completions, $47 in savings buying another course.",
+        "emotion": "FOMO spirals through capitals and emojis - 'FUTURE ME WILL!!' and 'what if THIS' show desperate hope overwhelming evidence.",
+        "balanced": "Self-awareness fights losing battle - 'like a sucker' and 'like always lol' show recognition while still clicking purchase.",
+        "agenda": "Course culture both critiqued and perpetuated - exposes the scam while promoting hashtags and sharing sale link, spreading the disease."
+      },
+      "peakMoments": {
+        "logic": [
+          "$12,000",
+          "$43K/year",
+          "1,247 hours",
+          "finished... none"
+        ],
+        "emotion": [
+          "FUTURE ME WILL!!",
+          "what if THIS",
+          "changes everything",
+          "😭"
+        ],
+        "balanced": [
+          "I KNOW",
+          "honestly though?",
+          "like always lol"
+        ],
+        "agenda": [
+          "flash sale!",
+          "90% off",
+          "Buying it"
+        ]
+      },
+      "wisdom": "The online course addiction perfectly captures modern career anxiety - we buy potential instead of building skills. Notice how she knows her coworker's certification is fake but still feels inferior. The '1,247 hours of unwatched content' represents our era's peculiar form of intellectual hoarding.",
+      "hints": {
+        "keywords": [
+          "FUTURE ME",
+          "what if THIS",
+          "sucker",
+          "FOMO",
+          "potential"
+        ],
+        "strategy": "emotion",
+        "hintMessage": "Fear of missing out drives financial destruction!"
+      },
+      "metadata": {
+        "tags": [
+          "online-learning",
+          "FOMO",
+          "career-anxiety",
+          "education-addiction",
+          "LinkedIn"
+        ],
+        "difficulty": 3,
+        "educationalFocus": "recognizing-potential-vs-action",
+        "commonMisconceptions": [
+          "more-courses-equal-more-success",
+          "buying-equals-learning"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "topic": "Education & Learning"
+    },
+    {
+      "id": "productivity-guru-burnout-001",
+      "title": "The 4AM Club Breakdown",
+      "text": "Day 73 of documenting my OPTIMAL MORNING ROUTINE 💪\n\n4:00 AM - Wake (used to be 3:30 but kept falling asleep during meditation)\n4:01 AM - Gratitude journal (wrote 'grateful for coffee' 73 times)\n4:15 AM - Ice bath (just splash cold water on face now)\n4:20 AM - Meditation (dozed off, dreamt I was productive)\n4:45 AM - Workout (did 3 pushups, counted it)\n5:00 AM - Green smoothie (ran out of kale, used green food coloring)\n5:30 AM - Deep work (scrolled Twitter for 'inspiration')\n7:00 AM - Already exhausted\n\nMy productivity app says I'm operating at 23% capacity. TWENTY-THREE PERCENT. After cold showers, bulletproof coffee, Pomodoro timers, time-blocking, task-batching, and eating that guy's exact breakfast from that Medium article.\n\nYesterday I had a breakdown in Whole Foods because they were out of MCT oil. The cashier said 'maybe just... sleep in?' I almost reported her to management. 😤\n\nFriend: 'You seem tired'\nMe: 'I'm OPTIMIZED'\nFriend: 'You fell asleep standing up'\nMe: 'POWER NAP. Read about it on Huberman's podcast'\n\nHonestly? My most productive day last month was when I overslept til 10 AM and just... worked. No routine. No optimization. Just coffee and focus. Felt guilty about it for WEEKS.\n\nBut tomorrow I'm starting that Navy SEAL morning routine I bookmarked. Because what if THAT'S the one that finally makes me superhuman? 🌅\n\n#ProductivityHack #MorningRoutine #Hustle #SendHelp",
+      "claim": "Productivity optimization obsession leads to exhaustion and decreased performance while refusing to acknowledge simple solutions",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "logic": 61,
+        "emotion": 79,
+        "balanced": 44,
+        "agenda": 56
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "23% capacity",
+            "Day 73",
+            "4:00 AM",
+            "most productive day",
+            "overslept til 10 AM"
+          ],
+          "explanation": "Data shows optimization reducing productivity, with evidence of what actually works"
+        },
+        "emotion": {
+          "keywords": [
+            "breakdown in Whole Foods",
+            "I'm OPTIMIZED",
+            "Felt guilty",
+            "exhausted",
+            "finally makes me superhuman"
+          ],
+          "explanation": "Anxiety and identity tied to productivity routines despite failure"
+        },
+        "balanced": {
+          "keywords": [
+            "Honestly?",
+            "just... worked",
+            "Maybe just... sleep in?",
+            "Used to be 3:30"
+          ],
+          "explanation": "Glimpses of reason quickly suppressed by optimization obsession"
+        },
+        "agenda": {
+          "keywords": [
+            "Navy SEAL morning routine",
+            "Huberman's podcast",
+            "Medium article",
+            "#ProductivityHack",
+            "#Hustle"
+          ],
+          "explanation": "Promotes productivity culture while documenting its destruction"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "primary",
+          "example": "Following Navy SEALs, Huberman, Medium articles as productivity authorities"
+        },
+        {
+          "fallacyId": "post-hoc",
+          "severity": "secondary",
+          "example": "Assumes extreme routines cause success, ignores simple solution that worked"
+        },
+        {
+          "fallacyId": "false-scarcity",
+          "severity": "acknowledged",
+          "example": "Treats basic productivity as requiring extreme optimization"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 64,
+            "consistency": 57,
+            "source": 48,
+            "agenda": 59
+          },
+          "indicators": [
+            "performance-metrics",
+            "routine-deterioration",
+            "comparison-data",
+            "actual-results"
+          ],
+          "explanation": "Clear evidence that simple approach works better than optimization"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 76,
+            "belonging": 81,
+            "pride": 84,
+            "manipulation": 52
+          },
+          "triggers": [
+            "superhuman-fantasy",
+            "optimization-identity",
+            "productivity-guilt",
+            "hustle-culture",
+            "failure-shame"
+          ],
+          "explanation": "Identity so tied to optimization that success without it causes guilt"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Performance data mocks optimization - operating at 23% capacity after 73 days of extreme routine, while best day was unoptimized.",
+        "emotion": "Exhaustion battles identity - 'I'm OPTIMIZED' yelled while falling asleep standing, Whole Foods breakdown over MCT oil reveals fragility.",
+        "balanced": "Truth emerges briefly - cashier's 'maybe just sleep in?' and memory of productive simple day quickly buried under new routine.",
+        "agenda": "Productivity culture perpetuated despite evidence - shares failure while hashtagging #Hustle, seeking next extreme routine."
+      },
+      "peakMoments": {
+        "logic": [
+          "23% capacity",
+          "Day 73",
+          "4:00 AM",
+          "overslept til 10 AM"
+        ],
+        "emotion": [
+          "breakdown in Whole Foods",
+          "I'm OPTIMIZED",
+          "Felt guilty",
+          "superhuman"
+        ],
+        "balanced": [
+          "Honestly?",
+          "just... worked",
+          "maybe just... sleep in?"
+        ],
+        "agenda": [
+          "Navy SEAL routine",
+          "#ProductivityHack",
+          "#Hustle"
+        ]
+      },
+      "wisdom": "The productivity paradox laid bare - obsessive optimization reducing actual output to 23%. Notice how the most productive day (sleeping til 10, just working) caused weeks of guilt. We've turned basic human function into competitive sport, destroying what we seek to enhance.",
+      "hints": {
+        "keywords": [
+          "OPTIMIZED",
+          "breakdown",
+          "exhausted",
+          "guilty",
+          "23%"
+        ],
+        "strategy": "emotion",
+        "hintMessage": "Productivity obsession destroying actual productivity!"
+      },
+      "metadata": {
+        "tags": [
+          "productivity",
+          "burnout",
+          "optimization",
+          "morning-routine",
+          "hustle-culture"
+        ],
+        "difficulty": 3,
+        "educationalFocus": "recognizing-optimization-trap",
+        "commonMisconceptions": [
+          "extreme-routines-equal-success",
+          "more-optimization-better-results"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "topic": "Work & Career"
+    },
+    {
+      "id": "fitness-influencer-reality-001",
+      "title": "The Transformation Tuesday Truth",
+      "text": "Instagram post by @FitMomJourney:\n\n✨ TRANSFORMATION TUESDAY ✨\nLeft pic: 6 months ago (187 lbs)\nRight pic: Today (163 lbs)\n\nWhat changed? EVERYTHING! 💪\n\nMy secret? Consistency!\n- 5 AM workouts (missed 67 days but who's counting)\n- Clean eating (except weekends... and Wednesdays)\n- No alcohol (wine doesn't count right?)\n- 10K steps daily (8K... 6K... look walking is walking)\n- Mindful eating (while watching Netflix)\n\nThe REAL secret? Left photo: after Thanksgiving, bad lighting, bloated, pushing stomach out. Right photo: morning, empty stomach, sucking in, perfect angle, ring light, Valencia filter. Lost maybe 5 lbs. Maybe.\n\nBut my DMs? 'GOALS!' 'What's your program?' 'Take my money!'\n\nSo yeah, launching FitMomMethod™️ next week. $197 for the same recycled PDFs everyone sells. Because apparently honesty doesn't pay but transformation photos do. 🤷‍♀️\n\nGirl commented: 'Is this edited?'\nMe: 'Just good lighting hun! 😘'\nAlso me: *FaceTuned for 47 minutes*\n\nI'm exhausted from sucking in for photos. My kids ask why I eat salad for Instagram then pizza after. My husband found my 'before' clothes I keep re-wearing for new transformation posts.\n\nAnyone else tired of pretending? Or am I about to lose all my followers? 😅\n\n#TransformationTuesday #FitnessJourney #RealTalk #StillGonnaSellTheCourse",
+      "claim": "Fitness influencer admits transformation photos are mostly angles and filters while still planning to sell programs based on fake results",
+      "correctAnswer": "agenda",
+      "answerWeights": {
+        "logic": 52,
+        "emotion": 71,
+        "balanced": 33,
+        "agenda": 89
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "187 lbs",
+            "163 lbs",
+            "missed 67 days",
+            "Lost maybe 5 lbs",
+            "47 minutes"
+          ],
+          "explanation": "Numbers reveal the truth behind transformation claims"
+        },
+        "emotion": {
+          "keywords": [
+            "I'm exhausted",
+            "tired of pretending",
+            "My kids ask why",
+            "GOALS!",
+            "lose all my followers?"
+          ],
+          "explanation": "Genuine exhaustion from maintaining false image"
+        },
+        "balanced": {
+          "keywords": [
+            "The REAL secret?",
+            "Anyone else tired",
+            "😅"
+          ],
+          "explanation": "Some honesty but still profiting from deception"
+        },
+        "agenda": {
+          "keywords": [
+            "launching FitMomMethod™️",
+            "$197",
+            "Take my money!",
+            "#StillGonnaSellTheCourse",
+            "transformation photos do"
+          ],
+          "explanation": "Openly admits to profiting from fake transformations"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "cherry-picking",
+          "severity": "primary",
+          "example": "Selecting worst 'before' photo and best 'after' photo to exaggerate results"
+        },
+        {
+          "fallacyId": "false-equivalence",
+          "severity": "acknowledged",
+          "example": "Admits 5 lbs loss presented as 24 lbs transformation"
+        },
+        {
+          "fallacyId": "appeal-to-emotion",
+          "severity": "primary",
+          "example": "Using emotional transformation narrative to sell programs"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 56,
+            "consistency": 42,
+            "source": 38,
+            "agenda": 92
+          },
+          "indicators": [
+            "weight-numbers",
+            "day-tracking",
+            "photo-timing",
+            "editing-admission"
+          ],
+          "explanation": "Data exposes transformation as mostly photography tricks"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 68,
+            "belonging": 74,
+            "pride": 77,
+            "manipulation": 81
+          },
+          "triggers": [
+            "body-image",
+            "mom-guilt",
+            "authenticity-exhaustion",
+            "follower-fear",
+            "success-pressure"
+          ],
+          "explanation": "Exhaustion from maintaining false image while fearing loss of income"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Numbers tell different story - claims 24 lb loss (187 to 163) then admits 'maybe 5 lbs,' missed 67 workout days while preaching consistency.",
+        "emotion": "Authenticity fatigue breaks through - 'exhausted from sucking in' and kids questioning eating habits reveal toll of deception.",
+        "balanced": "Limited balance in confession - admits complete fraud but commits to selling course anyway, honesty as marketing tactic.",
+        "agenda": "Monetization dominates confession - '$197 for recycled PDFs' and '#StillGonnaSellTheCourse' show profit trumps authenticity."
+      },
+      "peakMoments": {
+        "logic": [
+          "Lost maybe 5 lbs",
+          "missed 67 days",
+          "47 minutes",
+          "187 lbs/163 lbs"
+        ],
+        "emotion": [
+          "I'm exhausted",
+          "tired of pretending",
+          "My kids ask why"
+        ],
+        "balanced": [
+          "The REAL secret?",
+          "Anyone else tired"
+        ],
+        "agenda": [
+          "$197",
+          "FitMomMethod™️",
+          "#StillGonnaSellTheCourse"
+        ]
+      },
+      "wisdom": "The fitness industry's transformation photo scam laid bare with unusual honesty. Notice how she admits everything - the angles, filters, tiny actual loss - yet still launches the program. The market rewards deception over truth, creating exhausted fraudsters and disappointed customers.",
+      "hints": {
+        "keywords": [
+          "$197",
+          "launching",
+          "FitMomMethod",
+          "sell",
+          "money"
+        ],
+        "strategy": "agenda",
+        "hintMessage": "Admits the scam while planning to profit from it!"
+      },
+      "metadata": {
+        "tags": [
+          "fitness",
+          "influencer",
+          "transformation",
+          "body-image",
+          "social-media"
+        ],
+        "difficulty": 3,
+        "educationalFocus": "recognizing-transformation-deception",
+        "commonMisconceptions": [
+          "transformation-photos-honest",
+          "fitness-influencers-show-reality"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "topic": "Social Media & Influence"
+    },
+    {
+      "id": "crypto-bro-basement-reality-001",
+      "title": "The Diamond Hands Delusion",
+      "text": "Posted in r/CryptoCurrency by u/HODLKing2025:\n\n💎🙌 STILL NOT SELLING! Day 847 of living my best crypto life!\n\nHaters said I was stupid for quitting my $67K accounting job to day trade full time. WHO'S LAUGHING NOW?\n\n(Nobody. Nobody is laughing.)\n\nPortfolio update:\n- Bitcoin bought at $64K: Down 68%\n- ETH at $4,800: Down 71%\n- DOGE at $0.74: Down 89%\n- Various altcoins: Down 97.3%\n- Total portfolio: $7,832 (was $125,000)\n\nBut I'm HOLDING. Because I'm not a paper-handed b****!\n\nMom just slid a note under my door (basement suite gang 🔥): 'Honey, it's been 2 years. Maybe get a job?' NGMI Mom! I explained Web3 to her 50 times. She still thinks Bitcoin is 'that Nintendo money.'\n\n'You're 32,' she says. 'Your high school friends have mortgages.'\n'MORTGAGES ARE CENTRALIZED SLAVERY,' I reply.\n'You haven't paid rent in 8 months,' she says.\n'I'M WAITING FOR THE BULL RUN,' I scream.\n\nDad changed the WiFi password. Jokes on him - I'm leeching off the neighbor's 'FBI Surveillance Van' network. Bullish on free internet! 📡\n\nGF left me for a guy with 'stable income' and 'emotional maturity.' Her loss. When SafeMoonElonDoge hits $1, she'll be begging to come back. (Current price: $0.00000000043)\n\nAnyway, selling my gaming chair to buy this dip. It's literally free money if you think about it. 🚀\n\n#DiamondHands #HODL #FewUnderstand #MomPleaseStopCrying",
+      "claim": "Crypto trader refuses to acknowledge massive losses while living in parents' basement, convinced the next bull run will vindicate all decisions",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "logic": 38,
+        "emotion": 91,
+        "balanced": 17,
+        "agenda": 54
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "Down 68%",
+            "Down 97.3%",
+            "$7,832 (was $125,000)",
+            "Day 847",
+            "$67K accounting job"
+          ],
+          "explanation": "Devastating financial data ignored through emotional attachment"
+        },
+        "emotion": {
+          "keywords": [
+            "STILL NOT SELLING!",
+            "Diamond hands",
+            "paper-handed b****",
+            "MomPleaseStopCrying",
+            "she'll be begging"
+          ],
+          "explanation": "Pride and delusion override catastrophic losses"
+        },
+        "balanced": {
+          "keywords": [
+            "(Nobody. Nobody is laughing.)",
+            "8 months"
+          ],
+          "explanation": "Brief reality acknowledgments drowned in delusion"
+        },
+        "agenda": {
+          "keywords": [
+            "buying this dip",
+            "free money",
+            "#HODL",
+            "SafeMoonElonDoge",
+            "CENTRALIZED SLAVERY"
+          ],
+          "explanation": "Still promoting crypto ideology despite personal destruction"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-scarcity",
+          "severity": "primary",
+          "example": "Refuses to accept losses, believing scarcity of selling makes holdings valuable"
+        },
+        {
+          "fallacyId": "post-hoc",
+          "severity": "primary",
+          "example": "Assumes past crypto bull runs guarantee future ones"
+        },
+        {
+          "fallacyId": "ad-hominem",
+          "severity": "secondary",
+          "example": "Attacks those with stable income as not understanding"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 41,
+            "consistency": 33,
+            "source": 29,
+            "agenda": 57
+          },
+          "indicators": [
+            "portfolio-devastation",
+            "time-tracking",
+            "job-loss",
+            "living-situation"
+          ],
+          "explanation": "Clear data shows complete financial ruin ignored emotionally"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 87,
+            "belonging": 83,
+            "pride": 94,
+            "manipulation": 48
+          },
+          "triggers": [
+            "sunk-cost-identity",
+            "community-belonging",
+            "ego-protection",
+            "revenge-fantasy",
+            "parental-shame"
+          ],
+          "explanation": "Identity so tied to crypto that accepting loss means ego death"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Financial massacre documented precisely - $125K to $7,832, quit $67K job, 847 days wasted, yet 'free money' delusion persists.",
+        "emotion": "Pride death spiral complete - 'diamond hands' identity prevents accepting reality, mom crying, girlfriend gone, selling furniture for more losses.",
+        "balanced": "Reality barely penetrates - '(Nobody is laughing)' and mom's tears briefly acknowledged before returning to bull run fantasy.",
+        "agenda": "Crypto evangelism survives personal apocalypse - still HODLing, hashtagging, and recruiting despite living in basement without WiFi."
+      },
+      "peakMoments": {
+        "logic": [
+          "$7,832 (was $125,000)",
+          "Down 97.3%",
+          "Day 847",
+          "quit $67K"
+        ],
+        "emotion": [
+          "STILL NOT SELLING!",
+          "Diamond hands",
+          "#MomPleaseStopCrying",
+          "she'll be begging"
+        ],
+        "balanced": [
+          "(Nobody. Nobody is laughing.)",
+          "haven't paid rent"
+        ],
+        "agenda": [
+          "buying this dip",
+          "free money",
+          "#HODL"
+        ]
+      },
+      "wisdom": "The crypto true believer's tragedy - identity investment prevents recognizing financial reality. Notice how every life milestone missed (job, girlfriend, independence) gets rationalized through crypto ideology. The hashtag '#MomPleaseStopCrying' reveals the human cost of financial delusion.",
+      "hints": {
+        "keywords": [
+          "STILL NOT",
+          "Diamond",
+          "MomPleaseStopCrying",
+          "paper-handed",
+          "847"
+        ],
+        "strategy": "emotion",
+        "hintMessage": "Emotional attachment overrides financial devastation!"
+      },
+      "metadata": {
+        "tags": [
+          "cryptocurrency",
+          "financial-delusion",
+          "sunk-cost",
+          "family",
+          "basement"
+        ],
+        "difficulty": 3,
+        "educationalFocus": "recognizing-identity-investment-trap",
+        "commonMisconceptions": [
+          "holding-always-wins",
+          "diamond-hands-virtue"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "topic": "Finance & Economics"
+    },
+    {
+      "id": "natural-parenting-vaccine-001",
+      "title": "The Natural Immunity Debate",
+      "text": "Facebook group 'Natural Mamas Unite' (47K members) - Posted by Ashley Martinez:\n\n🌿 PLEASE READ before attacking me! 🌿\n\nMy pediatrician wants to give my 6-month-old EIGHT vaccines at once. EIGHT! That's more chemicals than in my entire kitchen!\n\nI did my research:\n- Measles deaths in 1900: thousands\n- Measles deaths in 2000: near zero\n- What changed? NUTRITION and SANITATION, not vaccines!\n\nDr. YouTube (yes I know 🙄) showed a graph - disease rates were already dropping BEFORE vaccines. Pharma just took credit!\n\nMy grandma says: 'We all got chickenpox and survived! Made us stronger!' She's 89 and never had a flu shot. Meanwhile my vaccinated nephew has allergies, ADHD, and anxiety. Connection? 🤔\n\nNature gave us immune systems for a reason! Injecting aluminum, formaldehyde, and MONKEY KIDNEY CELLS (look it up!) can't be better than organic food and sunshine.\n\nAnyone saying 'trust the science' - remember when 'science' said smoking was healthy? DDT was safe? Thalidomide for morning sickness?\n\nI'm not anti-vaccine, I'm pro-CHOICE and pro-NATURAL IMMUNITY. If vaccines work, why are vaccinated kids scared of my healthy unvaxxed baby?\n\nBefore you call me ignorant - I have a Master's degree (in Marketing, but still!). I can read studies. And Big Pharma makes BILLIONS. Follow the money! 💰\n\nEDIT: Already getting hate DMs. This is why parents stay quiet! We're not crazy, we're CAREFUL. There's a difference.\n\n#NaturalImmunity #InformedConsent #MamaKnowsBest #DoYourResearch",
+      "claim": "Natural immunity and lifestyle are superior to vaccines because nature knows best and pharmaceutical companies just want profits",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "logic": 41,
+        "emotion": 82,
+        "balanced": 26,
+        "agenda": 67
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "disease rates dropping",
+            "BEFORE vaccines",
+            "look it up",
+            "read studies",
+            "graph"
+          ],
+          "explanation": "Cherry-picked data and misunderstood correlation presented as research"
+        },
+        "emotion": {
+          "keywords": [
+            "attacking me",
+            "EIGHT!",
+            "Made us stronger",
+            "scared of my healthy",
+            "MamaKnowsBest"
+          ],
+          "explanation": "Fear of chemicals and appeal to maternal instinct override evidence"
+        },
+        "balanced": {
+          "keywords": [
+            "yes I know 🙄",
+            "not anti-vaccine",
+            "There's a difference"
+          ],
+          "explanation": "Attempts at balance undermined by emotional reasoning"
+        },
+        "agenda": {
+          "keywords": [
+            "Big Pharma",
+            "BILLIONS",
+            "Follow the money",
+            "Natural Mamas Unite",
+            "#DoYourResearch"
+          ],
+          "explanation": "Anti-pharmaceutical narrative with natural parenting identity"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Correlation confused with causation throughout - 'disease dropped before vaccines' ignores herd immunity timing, survival bias with grandma example.",
+        "emotion": "Maternal protection instinct weaponized - 'EIGHT vaccines' frames normal schedule as assault, fear of 'chemicals' vs trust in 'nature'.",
+        "balanced": "Token acknowledgments quickly dismissed - 'yes I know' about Dr. YouTube immediately followed by using his data anyway.",
+        "agenda": "Natural parenting identity merged with anti-pharma narrative - 47K member group validates fears while attacking profit motive."
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "primary",
+          "example": "Claims natural immunity superior because 'Nature gave us immune systems for a reason'"
+        },
+        {
+          "fallacyId": "slippery-slope",
+          "severity": "primary",
+          "example": "Links vaccines to allergies, ADHD, anxiety without evidence of connection"
+        },
+        {
+          "fallacyId": "bandwagon",
+          "severity": "secondary",
+          "example": "47K member group and 'This is why parents stay quiet' implies many agree"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 44,
+            "consistency": 37,
+            "source": 32,
+            "agenda": 71
+          },
+          "indicators": [
+            "correlation-not-causation",
+            "cherry-picked-data",
+            "survival-bias",
+            "false-expertise",
+            "historical-examples"
+          ],
+          "explanation": "Misinterprets data to support predetermined natural conclusion"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 86,
+            "belonging": 79,
+            "pride": 74,
+            "manipulation": 63
+          },
+          "triggers": [
+            "chemical-fear",
+            "mama-bear-protection",
+            "natural-superior",
+            "attacked-parent",
+            "intuition-over-experts"
+          ],
+          "explanation": "Protective instincts and natural ideology override scientific consensus"
+        }
+      },
+      "wisdom": "This scenario captures how the appeal to nature fallacy combines with parental fears to create vaccine hesitancy. Notice how legitimate desire to protect children gets channeled through cherry-picked data and false comparisons. The '47K members' provides false validation while historical examples (DDT, thalidomide) create false equivalence with modern vaccines.",
+      "hints": {
+        "keywords": [
+          "Nature gave us",
+          "MONKEY KIDNEY",
+          "organic",
+          "MamaKnowsBest",
+          "natural immunity"
+        ],
+        "strategy": "emotion",
+        "hintMessage": "Natural doesn't always mean better - fear drives logic!"
+      },
+      "metadata": {
+        "tags": [
+          "vaccines",
+          "natural-parenting",
+          "health-misinformation",
+          "social-media",
+          "parental-fear"
+        ],
+        "difficulty": 4,
+        "educationalFocus": "recognizing-appeal-to-nature",
+        "commonMisconceptions": [
+          "natural-always-safer",
+          "correlation-equals-causation"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "peakMoments": {
+        "logic": [
+          "disease rates dropping",
+          "BEFORE vaccines",
+          "look it up",
+          "read studies"
+        ],
+        "emotion": [
+          "EIGHT!",
+          "Made us stronger",
+          "MamaKnowsBest",
+          "CAREFUL"
+        ],
+        "balanced": [
+          "yes I know 🙄",
+          "not anti-vaccine"
+        ],
+        "agenda": [
+          "Big Pharma",
+          "BILLIONS",
+          "Follow the money"
+        ]
+      },
+      "topic": "Parenting & Family"
+    },
+    {
+      "id": "climate-debate-strawman-001",
+      "title": "The Climate Control Conspiracy",
+      "text": "Posted on r/UnpopularOpinion by u/SkepticalEngineer42:\n\nClimate activists want us to live in caves and eat bugs. There, I said it.\n\nEvery time someone questions ANY climate policy, we get labeled 'deniers.' But I'm NOT denying climate change - I'm questioning the SOLUTIONS.\n\nActivist: 'We need renewable energy'\nWhat they REALLY mean: 'Destroy all industry, return to stone age'\n\nActivist: 'Reduce meat consumption'\nWhat they REALLY mean: 'Force everyone to be vegan or starve'\n\nActivist: 'Carbon tax on corporations'\nWhat they REALLY mean: 'Communism with extra steps'\n\nMy environmental science professor (15 years ago) said climate predictions have been wrong before. The 1970s ice age scare? Population bomb? Acid rain was supposed to destroy everything by 1990!\n\nNOBODY is allowed to mention:\n- China builds a new coal plant every week\n- Electric car batteries are environmental disasters\n- Wind turbines kill birds (FACT)\n- Solar panels contain toxic materials\n\nBut sure, let's destroy Western civilization while China laughs at us. Let's make energy so expensive that only elites can afford heat. Let's eat synthetic meat made by the same corporations activists claim to hate.\n\nI CARE about the environment. I recycle. I drive a hybrid (by choice, not mandate!). But these extremists hijacked the movement. They don't want solutions - they want CONTROL.\n\nWatch the responses prove my point. Anyone disagreeing will call me a 'denier' instead of addressing my actual arguments. Because that's easier than admitting their 'green new deal' is just repackaged socialism.\n\nEDIT: Already being called a 'shill for big oil.' I drive a HYBRID. Reading comprehension, people!\n\n#ClimateRealism #NotADenier #ThinkForYourself",
+      "claim": "Climate activists are extremists who want to destroy modern civilization under the guise of environmentalism",
+      "correctAnswer": "agenda",
+      "answerWeights": {
+        "logic": 38,
+        "emotion": 71,
+        "balanced": 12,
+        "agenda": 93
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            "predictions wrong before",
+            "China builds",
+            "FACT",
+            "toxic materials",
+            "environmental disasters"
+          ],
+          "explanation": "Real facts mixed with misrepresentation to discredit climate action"
+        },
+        "emotion": {
+          "keywords": [
+            "destroy Western civilization",
+            "eat bugs",
+            "live in caves",
+            "only elites",
+            "CONTROL"
+          ],
+          "explanation": "Fear of lifestyle loss and control drives resistance"
+        },
+        "balanced": {
+          "keywords": [
+            "I CARE",
+            "I recycle",
+            "drive a hybrid"
+          ],
+          "explanation": "Token environmental actions used to legitimize opposition"
+        },
+        "agenda": {
+          "keywords": [
+            "repackaged socialism",
+            "Communism with extra steps",
+            "hijacked the movement",
+            "#ClimateRealism",
+            "big oil"
+          ],
+          "explanation": "Political ideology opposing climate action through misrepresentation"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Facts weaponized through false context - 'China builds coal plants' true but ignores per-capita emissions and renewable investments.",
+        "emotion": "Lifestyle threat amplified to absurdity - 'eat bugs and live in caves' strawman of moderate consumption reduction.",
+        "balanced": "Fake balance through token actions - 'I drive a hybrid' used to legitimize attacking all climate policy.",
+        "agenda": "Anti-climate action wrapped in reasonable concern - every solution reframed as extremist control to maintain status quo."
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "straw-man",
+          "severity": "primary",
+          "example": "Claims activists want people to 'live in caves and eat bugs' - extreme misrepresentation"
+        },
+        {
+          "fallacyId": "red-herring",
+          "severity": "primary",
+          "example": "Brings up 1970s ice age predictions to distract from current climate science"
+        },
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "secondary",
+          "example": "Presents only extremes: destroy civilization or do nothing"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 41,
+            "consistency": 34,
+            "source": 37,
+            "agenda": 96
+          },
+          "indicators": [
+            "strawman-arguments",
+            "whataboutism",
+            "false-dichotomy",
+            "cherry-picked-facts",
+            "deflection"
+          ],
+          "explanation": "Misrepresents climate positions to attack imaginary extremes"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 74,
+            "belonging": 68,
+            "pride": 77,
+            "manipulation": 82
+          },
+          "triggers": [
+            "lifestyle-threat",
+            "control-fear",
+            "elite-resentment",
+            "civilization-collapse",
+            "forced-change"
+          ],
+          "explanation": "Fear of change and loss of freedom overrides climate concerns"
+        }
+      },
+      "wisdom": "This scenario perfectly demonstrates the straw man fallacy - taking reasonable climate policies and exaggerating them to absurd extremes to make them easier to attack. Notice how 'reduce meat consumption' becomes 'force everyone to be vegan or starve.' The red herring of 1970s predictions distracts from current scientific consensus. Real environmental concern gets weaponized against environmental action.",
+      "hints": {
+        "keywords": [
+          "REALLY mean",
+          "eat bugs",
+          "caves",
+          "extremists",
+          "CONTROL"
+        ],
+        "strategy": "agenda",
+        "hintMessage": "Misrepresenting others' views to attack fake extremes!"
+      },
+      "metadata": {
+        "tags": [
+          "climate-change",
+          "straw-man",
+          "political-agenda",
+          "environmental",
+          "misrepresentation"
+        ],
+        "difficulty": 3,
+        "educationalFocus": "recognizing-straw-man-arguments",
+        "commonMisconceptions": [
+          "climate-action-equals-extremism",
+          "all-or-nothing-environmentalism"
+        ],
+        "addedDate": "2025-01-06"
+      },
+      "peakMoments": {
+        "logic": [
+          "predictions wrong",
+          "China builds",
+          "FACT",
+          "toxic materials"
+        ],
+        "emotion": [
+          "eat bugs",
+          "live in caves",
+          "destroy civilization",
+          "CONTROL"
+        ],
+        "balanced": [
+          "I CARE",
+          "drive a hybrid"
+        ],
+        "agenda": [
+          "repackaged socialism",
+          "Communism",
+          "#ClimateRealism"
+        ]
+      },
+      "topic": "Environment & Sustainability"
+    }
+  ]
+}

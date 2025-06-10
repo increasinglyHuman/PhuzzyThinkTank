@@ -1,0 +1,312 @@
+{
+  "packId": "pack-014",
+  "theme": "Pet Training Reality Show",
+  "description": "Animals and their owners competing with dubious training methods",
+  "scenarios": [
+    {
+      "id": "pack-014-001-pet-training-fallacies-01",
+      "title": "Barking Up the Wrong Tree",
+      "content": "In this reality show about pet training, a dog trainer makes some questionable claims about the 'right' way to train dogs. The kids discuss whether his methods really make sense.",
+      "audioScript": "Announcer: [excited] \"Welcome back to Barking Mad, the show where owners compete to be top dog trainers!\" \n\nTimmy: [skeptical] \"I don't know about that shock collar method. Seems kinda mean.\"\n\nJenny: [agreeing] \"Yeah, just because one dog responded to it doesn't mean all dogs will.\"\n\nTrainer Joe: [defensively] \"Shock collars are a time-honored training tradition. If it ain't broke, don't fix it!\"\n\nTimmy: [unconvinced] \"Hm, I still think there are better ways that don't hurt the dog...\"\n\nJenny: [thoughtful] \"We should look at what dog behavior experts say, not just one trainer on TV.\"",
+      "claim": "Shock collars are the best way to train dogs because they are a traditional training method that worked for one dog on the show.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Assuming what worked for one dog will work for all dogs."
+        },
+        {
+          "fallacyId": "appeal-to-tradition",
+          "severity": "primary",
+          "example": "Saying shock collars are good because they are a 'time-honored tradition'."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-014-002-pet-training-fallacy-2",
+      "title": "Bark Like a Celebrity",
+      "content": "In this episode of Bark Like a Celebrity, famous poodle Froo Froo claims her expensive crystal dog collar gives her an edge in the competition. Her owner argues it's the only way to win.",
+      "audioScript": "Announcer: [excited] \"Welcome back to Bark Like a Celebrity! Let's check in with our next contestant, Froo Froo the poodle and her owner Fancy Nancy!\" \n\nFancy Nancy: [smug] \"Froo Froo is going to dominate this competition thanks to her new diamond-encrusted dog collar. It cost me a fortune!\"\n\nFroo Froo: [barks excitedly]\n\nAnnouncer: [curious] \"Wow, that's quite the collar! But how will that help with the dog training challenges?\"\n\nFancy Nancy: [haughty] \"Isn't it obvious? The most expensive accessories make the best dogs! That collar is the only way we'll have a shot at winning. Every elite dog owner knows that.\"\n\nAnnouncer: [hesitant] \"Uh, I'm not sure that's how dog training works...\"",
+      "claim": "Expensive accessories are the key to winning dog competitions.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "primary",
+          "example": "Assumes something expensive/fancy is naturally better for dog training."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-014-003-pet-training-fallacies-3",
+      "title": "Barky's Bizarre Methods",
+      "content": "On a reality pet training show, dog trainer Barky Barkerson makes some questionable claims about his methods. The judges discuss whether his techniques are effective or not.",
+      "audioScript": "Announcer: [excited] \"Welcome back to Sit, Stay, Succeed - the reality show where pet trainers compete! Let's check out contestant Barky's latest training session...\"\n\nBarky: [confident] \"The key to training any dog is to establish dominance. In nature, alpha wolves pin down rebellious pack members. So that's what I do - wrestle them to the ground until they submit!\"\n\nJudge Carla: [concerned] \"Hm, I'm not sure that's a good idea. Dogs aren't wolves, and most modern trainers have moved away from dominance-based methods.\"  \n\nBarky: [defensive] \"Nonsense! This is how dogs have been trained for generations. Are you suggesting we ignore centuries of tradition?\"\n\nJudge Pavel: [skeptical] \"Just because something is traditional doesn't mean it's the best way. Training should be based on science, not outdated ideas.\"\n\nBarky: [dismissive] \"You're just saying that because you want to seem progressive. But mark my words - if we don't dominate our dogs, soon they'll be running the show! It's a slippery slope.\"",
+      "claim": "To train a dog properly, you must physically dominate it to establish yourself as the alpha.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "primary",
+          "example": "Barky argues that because alpha wolves pin down pack members, humans should physically dominate dogs. But dogs aren't wolves."
+        },
+        {
+          "fallacyId": "appeal-to-tradition",
+          "severity": "primary",
+          "example": "Barky says physical dominance should be used because that's how it's been done for generations, regardless of whether it's actually effective."
+        },
+        {
+          "fallacyId": "slippery-slope",
+          "severity": "primary",
+          "example": "Barky makes the extreme claim that if we don't dominate dogs, they will take over. This assumes one small change will lead to a major consequence."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-014-004-pet-training-reality-show-4",
+      "title": "Doggy Dance Craze",
+      "content": "On a pet training reality show, a contestant claims their unorthodox 'Doggy Dance' method is the best way to train a dog, despite a lack of evidence. They dismiss other proven methods and insist all dogs should learn their way.",
+      "audioScript": "Announcer: [excited] \"Welcome back to Pampered Pets! Let's meet our next contestant, Daisy and her dog Biscuit.\"\n\nDaisy: [confident] \"I've developed a revolutionary dog training method called Doggy Dance. Biscuit, let's show them!\" \n[Biscuit sits still, looking confused]\n\nJudge 1: [skeptical] \"Hmm, Biscuit doesn't seem to be following any commands. What makes you think Doggy Dance actually works?\"\n\nDaisy: [defensive] \"My grandma trained dogs this way for 50 years, so it MUST be the best method. Anything new is just a passing fad.\"\n\nJudge 2: [concerned] \"But there's no scientific evidence that dancing with a dog teaches them obedience. Most trainers recommend positive reinforcement and consistency.\"\n\nDaisy: [dismissive] \"Those so-called 'experts' are just jealous of my innovation. Mark my words, Doggy Dance will be the ONLY way people train dogs in the future!\"",
+      "claim": "Doggy Dance is the best dog training method and all dogs should learn it, even without evidence it works.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-tradition",
+          "severity": "primary",
+          "example": "Claiming Doggy Dance works because her grandma used it for years"
+        },
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Insisting Doggy Dance will be the only training method in the future"
+        },
+        {
+          "fallacyId": "ad-hominem",
+          "severity": "secondary",
+          "example": "Dismissing expert trainers as 'jealous' instead of addressing their arguments"
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-014-005-pet-training-reality-show-5",
+      "title": "Barking Up the Wrong Tree",
+      "content": "In this episode of Ultimate Pet Champions, dog trainer Wanda claims her shock collar method is the only way to stop excessive barking. Her rival Buddy disagrees, but Wanda insists all the top trainers use shock collars.",
+      "audioScript": "Announcer: [excited] \"Welcome back to Ultimate Pet Champions! Let's check in with our dog trainers.\"\nWanda: [confident] \"The only way to stop problem barking is with shock collars. It's a fact.\"\nBuddy: [concerned] \"I'm not so sure, Wanda. Positive reinforcement training can work well too.\"  \nWanda: [dismissive] \"Buddy, you're just not up on the latest science. All the top trainers are using shock collars now.\"\nBuddy: [hesitant] \"I don't know...shocking dogs just doesn't feel right to me.\"\nWanda: [smug] \"Well, I guess you don't have what it takes to be a champion trainer then!\"",
+      "claim": "Shock collars are the only effective way to stop excessive barking in dogs.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "primary",
+          "example": "Wanda claims all the \"top trainers\" use shock collars"
+        },
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "secondary",
+          "example": "Wanda presents shock collars as the only option, ignoring alternatives"
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-014-006-pet-training-fallacies",
+      "title": "Barking Up the Wrong Tree",
+      "content": "On a wacky pet training reality show, the contestants make some dubious claims about the best way to train their animals. But do their methods really make sense?",
+      "audioScript": "Announcer: [excited] \"Welcome back to Pets Got Talent! Let's check in with our contestants...\"\n\nJenna: [confident] \"My dog Fluffy is going to win for sure. I'm using a secret ancient wolf training method that's all natural!\"\n\nBob: [dismissive] \"Well I heard from a top Hollywood dog trainer that you should never give them treats. So my method is the right way.\"\n\nLisa: [worried] \"I don't know... I saw online that 9 out of 10 owners use clickers now. I better do that or I'm doomed!\"\n\nAnnouncer: [amused] \"Looks like our contestants have some creative techniques! Who will come out on top? Stay tuned to find out!\"\n",
+      "claim": "The contestants make various flawed claims about the \"right\" way to train pets.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "primary",
+          "example": "Jenna claims a \"natural\" ancient wolf method must be best"
+        },
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "primary",
+          "example": "Bob cites an authority figure to dismiss giving dog treats"
+        },
+        {
+          "fallacyId": "bandwagon",
+          "severity": "primary",
+          "example": "Lisa thinks she should use clickers just because most others are"
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-014-007-pet-training-reality-show-7",
+      "title": "Barky's Bizarre Pet Academy",
+      "content": "On a wacky pet training reality show, contestants make wild claims about their strange training methods. But not everything they say is logical! See if you can spot the fallacies in their far-fetched arguments.",
+      "audioScript": "Announcer: [excited] \"Welcome back to Barky's Bizarre Pet Academy! Let's meet our next contestant.\"\n\nCarla: [confident] \"I'm Carla and this is my iguana Ziggy. I've trained him using only organic kale and yoga.\"  \n\nBarky: [skeptical] \"Kale and yoga? How could that possibly work?\"\n\nCarla: [defensive] \"Everyone knows organic foods have special powers. And yoga is an ancient tradition, so it must be effective!\"\n\nBarky: [doubtful] \"Hmmm I'm not so sure about that...\"\n\nCarla: [insistent] \"Well, I saw a top iguana trainer recommend it online. If an expert says it, it has to be true!\"",
+      "claim": "Organic kale and yoga are effective for training iguanas because organic food has special powers, yoga is an ancient tradition, and an expert recommended it online.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "primary",
+          "example": "Claiming organic foods have special powers just because they are natural/organic."
+        },
+        {
+          "fallacyId": "appeal-to-tradition",
+          "severity": "primary",
+          "example": "Arguing that yoga must be effective for iguana training because it is an ancient tradition."
+        },
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "primary",
+          "example": "Insisting the training method is valid because an online 'expert' recommended it."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-014-008-pet-training-fallacies-08",
+      "title": "Paw-some Training Secrets?",
+      "content": "On a silly pet training show, a controversial dog trainer claims his unorthodox methods are the only way to train the 'perfect pooch'. But do his arguments hold up under scrutiny?",
+      "audioScript": "Announcer: [enthusiastic] \"Welcome back to Paw-some Training, where pet owners compete to be top dog!\"\n\nZack: [confident] \"My training secrets are the only way to get results. Period.\"\n\nJill: [skeptical] \"I don't know, Zack. Your methods seem pretty extreme...\"\n\nZack: [dismissive] \"Jill, you just don't get it. This is how everyone trains dogs these days.\"\n\nSam: [concerned] \"But what about positive reinforcement? Aren't there other ways?\"\n\nZack: [smug] \"Nope, it's my way or a misbehaved mutt. Unless you want your dog to end up completely out of control!\"",
+      "claim": "Zack's controversial dog training methods are the only effective way to train a well-behaved dog.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "primary",
+          "example": "Zack claims it's his methods or a badly behaved dog, ignoring other training options."
+        },
+        {
+          "fallacyId": "bandwagon",
+          "severity": "secondary",
+          "example": "Zack appeals to popularity, saying 'this is how everyone trains dogs these days'."
+        },
+        {
+          "fallacyId": "appeal-to-fear",
+          "severity": "secondary",
+          "example": "Zack uses scare tactics, saying if you don't use his methods, your dog will be 'out of control'."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-014-009-pet-training-reality-show-9",
+      "title": "Pampered Pets Gone Wild",
+      "content": "On a reality pet training show, owners compete using questionable methods to train their pets. A social media post sparks debate over what really works.",
+      "audioScript": "PoshPupMom: [excited] \"Check out my new post! Pampering is the ONLY way to train! 🐩💅 #RichPetsWin #TrainingFail\" \n\nDogDadBob: [skeptical] \"That can't be right. I've always heard repetition and treats are key. Spoiling them rotten will just create little monsters!\"\n\nCatLadyCarol: [dismissive] \"Oh please, cats practically train themselves. It's just in their superior nature. 😸\"\n\nHamsterFanHank: [unsure] \"I don't know, my little guy seems to respond best to an elaborate maze of tubes and tunnels. Hamsters are natural explorers, after all!\"\n\nPoshPupMom: [haughty] \"You all simply don't understand the power of pampering. A true bond is formed through luxury. Why else would all the celebrity pets be so well-behaved?\"",
+      "claim": "The only effective way to train pets is by pampering and spoiling them.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Concluding pampering is the only training method based on limited examples of celebrity pets."
+        },
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "primary",
+          "example": "Claiming cats train themselves due to their 'superior nature'."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-014-010-pet-training-reality-show-10",
+      "title": "Poodle Prancing Perfection",
+      "content": "On a pet training reality show, a poodle owner claims her harsh methods are the only way to win competitions. The judges and another contestant question her approach.",
+      "audioScript": "Announcer: [enthusiastic] \"Welcome back to Poodle Prancing Perfection! Let's check in with our next contestant Priscilla and her poodle Piper.\"\nPriscilla: [haughty] \"Piper and I only use the most extreme training methods. Poodles have been meticulously bred for obedience and perfection. Anything less than constant discipline is basically abuse!\"  \nJudge 1: [concerned] \"But Priscilla, aren't positive reinforcement and bonding important too?\"\nPriscilla: [dismissive] \"Nonsense! My family has trained poodles this way for generations. It's the only proper way. You're just too soft on your dogs!\"\nContestant 2: [thoughtful] \"I don't know, Priscilla. My poodle Pepper is very happy and well-trained using praise and rewards. Harshness isn't the only way.\"\nPriscilla: [scoffing] \"Well, I guess you don't care about winning then! Piper, heel!\"",
+      "claim": "Harsh discipline is the only proper way to train poodles for competitions.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-tradition",
+          "severity": "primary",
+          "example": "Priscilla says harsh methods are correct because her family has always done it that way."
+        },
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "primary",
+          "example": "Priscilla argues you must use her harsh methods or you don't care about winning, ignoring other options."
+        },
+        {
+          "fallacyId": "ad-hominem",
+          "severity": "secondary",
+          "example": "Priscilla attacks the judge as 'too soft' rather than addressing their point about positive training."
+        }
+      ],
+      "difficulty": "beginner"
+    }
+  ]
+}

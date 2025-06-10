@@ -1,0 +1,277 @@
+{
+  "packId": "pack-012",
+  "theme": "Superhero Support Group",
+  "description": "Heroes discussing the downsides of their powers",
+  "scenarios": [
+    {
+      "id": "pack-012-001-superhero-support-group-01",
+      "title": "Caped Complainers",
+      "content": "At the Superhero Support Group, heroes discuss the downsides of their powers. The Incredible Sulk claims super strength is the worst power because of accidental damage. Others chime in with hasty generalizations.",
+      "audioScript": "Moderator: [welcoming] \"Welcome to the Superhero Support Group. Today's topic: the downsides of your powers. Who wants to share first?\"\n\nThe Incredible Sulk: [complaining] \"Super strength is the WORST. Last week I accidentally ripped my car door off... again! I'm sick of paying for repairs.\"\n\nCaptain Obvious: [agreeing] \"I know, right? All powers are so inconvenient. My super speed makes me late to everything because I always think I have more time than I do.\"\n\nInvisigirl: [sighing] \"You guys think that's bad? Try having invisibility! Nobody ever sees how hard I work.\"\n\nAquaLad: [dismissive] \"Oh please, all superpowers are a curse. My aquatic abilities means I always smell like seaweed. I wish I was just a normal kid.\"\n\nModerator: [thoughtful] \"It sounds like there are challenges that come with any special ability. But maybe some upsides too? And everyone's experience is unique.\"",
+      "claim": "All superpowers are bad to have.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Saying all powers are inconvenient or a curse based on a few examples."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-012-002-superhero-support-group-2",
+      "title": "Super Speed Woes",
+      "content": "At the Superhero Support Group, speedster The Blur complains that his super speed power has ruined his life by making everything else seem too slow and boring. He argues that super speed must be the worst superpower to have.",
+      "audioScript": "\nSocialMediaPost: The Blur @SpeedDemon32 - Another boring support group meeting... Being super fast makes life a total snooze fest! 😴 #SuperheroProblems #SpeedKills \n\nModerator: [calm] \"Welcome everyone to this week's Superhero Support Group. Who would like to share first?\"\n\nThe Blur: [frustrated] \"I'll go. My name is The Blur and I have super speed. And let me tell you, it's ruined my life! Everything is sooooo slooowww and boring to me now.\"\n\nMadam Chameleon: [surprised] \"Really? I would think super speed would be an amazing power to have! You can get so much done and have plenty of free time.\"\n\nThe Blur: [annoyed] \"That's just it - I have way TOO MUCH free time! I zip through everything in seconds and then I'm bored out of my mind waiting for the world to catch up. It's excruciating!\"\n\nCaptain Colossal: [thoughtful] \"Hmm I can see how that would get frustrating. But all powers have their downsides. Super strength isn't all it's cracked up to be either - I'm constantly breaking things on accident.\"\n\nThe Blur: [insistent] \"Trust me, super speed is the absolute worst though. I mean, what's the point of living life if you can't savor and enjoy it? Clearly, having super speed ruins your quality of life. I don't know how any speedster copes!\"\n\nPsywave: [gently] \"Now Blur, everyone's experience is different. I'm sure there are some speedsters out there who really enjoy their powers. Let's not assume your experience is universal.\"\n\nModerator: [diplomatic] \"Those are all good points to consider. Thank you for sharing, Blur. Remember, every power has pros and cons - the key is learning to appreciate the positives too. Who else would like to share?\"\n",
+      "claim": "Super speed is the worst superpower because it makes life boring and unfulfilling.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "The Blur assumes all speedsters find their powers make life boring, based only on his own experience."
+        },
+        {
+          "fallacyId": "false-equivalence",
+          "severity": "primary",
+          "example": "The Blur equates having any downsides to a power with that power \"ruining your life\", ignoring that all powers have downsides."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-012-003-superhero-support-group-3",
+      "title": "Super Downsides",
+      "content": "A group of superheroes gather to discuss the drawbacks of their powers on social media. They complain about the challenges, arguing that having superpowers is more trouble than it's worth.",
+      "audioScript": "Captain Invincible: [annoyed] \"I'm so sick of having super strength. Do you know how many dishes and doorknobs I accidentally break? #SuperProblems\"\n    \nThe Flash: [frustrated] \"Tell me about it! I can never enjoy a nice jog because I'm too fast. I always end up miles away before I know it.\"\n    \nInvisigirl: [sad] \"And don't even get me started on invisibility. People sit on me ALL the time because they don't see me! It's the worst.\"\n    \nCaptain Invincible: [definitive] \"Face it, having superpowers is clearly more bad than good. We'd be way better off without them.\"\n    \nMind Reader: [resigned] \"I guess you're right. I mean, since we all feel this way, it must be true for every superhero out there. No one could possibly like having powers.\"",
+      "claim": "Having superpowers is more bad than good.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Concluding that superpowers are bad for everyone based on the experiences of a small group."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-012-004-superhero-support-4",
+      "title": "The Trouble with Flying",
+      "content": "In a superhero support group, The Amazing Avian argues that the ability to fly is actually a huge hassle that causes more problems than it solves. But are his complaints really justified?",
+      "audioScript": "Moderator: [neutral] \"Welcome everyone to today's Superhero Support Group. Who would like to share first?\"\n\nThe Amazing Avian: [annoyed] \"I'll go. Flying is the worst, you guys. Do you know how many bugs I eat every time I fly? It's disgusting!\"\n\nSupersonic Siren: [surprised] \"Really? I always thought flying would be amazing! Feeling the wind in your hair as you soar through the sky...\"\n\nThe Amazing Avian: [insistent] \"Trust me, it's way overrated. And don't even get me started on flying in the rain. I'm soaked and freezing in seconds. Flying is just an all-around bad power.\"\n\nCaptain Critique: [thoughtful] \"Hmm, I see your point about the downsides. But flying does allow you to get places quickly and help people in need. It can't be all bad, right?\"\n\nThe Amazing Avian: [dismissive] \"Nope, it's 100% terrible. I wish I had super strength or invisibility instead. Flying is for the birds! Literally!\"",
+      "claim": "The ability to fly is a terrible superpower that only has downsides.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Avian assumes flying is bad for all heroes based only on his own experience."
+        },
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "secondary",
+          "example": "Avian presents it as flying is either all good or all bad, ignoring a balanced view."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-012-005-superhero-support-group-5",
+      "title": "Super Sad Superheroes",
+      "content": "Some superheroes meet to discuss the downsides and drawbacks of their powers. One hero makes a flawed argument that super speed is the worst power to have.",
+      "audioScript": "SpeedDemon: [post on SuperMedia] \"Super speed is the absolute WORST superpower to have. Period. #SuperSadAndSlow 🐌\"\n\nInvisiGal: [concerned] \"What makes you say that, SpeedDemon? Super speed seems pretty great to me.\"\n\nSpeedDemon: [frustrated] \"Trust me, it's terrible. You're constantly living life in slow-motion. Conversations take forever. And don't even get me started on waiting in lines!\"\n\nMindMaster: [thoughtful] \"Hmm, I suppose every power has its downsides. But I can think of some that seem much worse... like having a totally useless power.\"\n\nSpeedDemon: [insistent] \"Nope, super speed is definitely the worst, because The Flash said in an interview that it can be really annoying. He's like the authority on super speed!\"\n\nInvisiGal: [unconvinced] \"I don't know, SpeedDemon... that logic seems a bit flawed. Just because The Flash finds it annoying doesn't mean it's objectively the worst power.\"\n\nSpeedDemon: [defensive] \"Hey, are you saying The Flash is wrong? He's a veteran superhero - I think he knows what he's talking about!\" \n\nMindMaster: [calmly] \"She's not saying he's wrong, just that his opinion alone doesn't make it a fact. There are lots of factors to consider.\"\n\nSpeedDemon: [sighs] \"I guess you're right. Maybe super speed isn't the WORST... but it still kind of sucks!\"",
+      "claim": "Super speed is the absolute worst superpower to have.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "primary",
+          "example": "Suggests super speed must either be the best or worst power with no middle ground."
+        },
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "primary",
+          "example": "Cites The Flash's opinion as definitive proof that super speed is the worst."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-012-006-superhero-support-group-6",
+      "title": "The Downsides of Super Speed",
+      "content": "At a superhero support group, The Flash complains that his super speed power actually makes his life more difficult. The other heroes offer their perspectives on the challenges of having superpowers.",
+      "audioScript": "\nModerator: [curious] Welcome everyone to today's Superhero Support Group. Who would like to share first?\n\nThe Flash: [frustrated] I'll go. Having super speed isn't all it's cracked up to be. It's actually a huge burden!  \n\nSpider-Man: [surprised] Really? I think super speed would be awesome. What's so bad about it?\n\nThe Flash: [exasperated] Well for one, I'm always late to everything because I get distracted and lose track of time. When you move faster than everyone, the world feels like it's in slow-motion.\n\nHulk: [gruff] Hulk think that just excuse. Learn manage time better.\n\nThe Flash: [defensive] You try getting ready in the morning when you have super speed! I'm faster than my own reflection. It's unnatural!  \n\nCaptain America: [thoughtful] While super speed does present unique challenges, all our powers come with a cost. It's about learning to adapt.\n\nThe Flash: [insistent] No, super speed is the worst power to have. I'd trade it for super strength any day! Being fast is overrated.\n\nModerator: [calm] Let's avoid comparing powers or minimizing each other's experiences. Every hero faces their own set of obstacles.\n",
+      "claim": "Having super speed is the worst superpower and makes life more difficult.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "The Flash assumes his experience applies to everyone with super speed."
+        },
+        {
+          "fallacyId": "false-equivalence",
+          "severity": "secondary",
+          "example": "Comparing the challenges of super speed to super strength as if they are directly interchangeable."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-012-007-superhero-support-group-7",
+      "title": "Super Sneezes Save the Day?",
+      "content": "A superhero support group discusses the drawbacks of their powers. One hero claims his allergy-fueled super sneezes are the best power, even though they cause lots of collateral damage.",
+      "audioScript": "SneezyGuy: [excited] \"Guys, I'm telling you, my super sneezes are the greatest power ever! Who needs laser eyes or flight when you can sneeze away crime?\"\n\nInvisiGal: [skeptical] \"But SneezyGuy, don't your sneezes destroy a lot of buildings and stuff in the process? That seems like a major downside.\"\n\nSneezyGuy: [defensive] \"Nah, property damage just comes with the territory of being a superhero. It's a small price to pay for catching the bad guys!\"\n\nMindMaster: [concerned] \"I don't know, SneezyGuy. Most of us try really hard to minimize damage when we fight crime. Super strength and speed are way more precise.\"\n\nSneezyGuy: [annoyed] \"Whatever, you're all just jealous that I'm the most powerful. Name one other hero who can sneeze a getaway car into the next zip code! I'm the best, plain and simple.\"",
+      "claim": "SneezyGuy claims his uncontrollable super sneezes are the best superpower, even though they cause major collateral damage.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-equivalence",
+          "severity": "primary",
+          "example": "SneezyGuy equates property damage with effectively stopping crime, even though they aren't truly equivalent."
+        },
+        {
+          "fallacyId": "red-herring",
+          "severity": "secondary",
+          "example": "SneezyGuy deflects from the downside of property damage by bragging about his power instead of addressing the issue."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-012-008-superhero-support-group-8",
+      "title": "Super Downsides",
+      "content": "A group of superheroes gather to discuss the negatives of their powers. Captain Obvious makes a claim that having superpowers is actually terrible, citing silly examples. The others try to reason with him.",
+      "audioScript": "SocialMediaPost: [excited] Check out this week's #SuperheroProblems support group! \n\nCaptain Obvious: [adamant] \"Having superpowers is the absolute worst. It's a curse, not a blessing. Super speed? You can never enjoy a casual stroll! Super strength? Opening pickle jars becomes impossible! Invisibility? People ignore you constantly! We'd be way better off without any powers at all.\"\n\nRational Woman: [skeptical] \"Come on Captain Obvious, having powers helps us protect the city and save lives. Sure there are some minor inconveniences, but overall they allow us to do a lot of good.\"\n\nCaptain Obvious: [insistent] \"Nope, powers equal pain, 100% of the time. The Awesome Avenger told me he stubbed his toe last week due to his super speed. Case closed!\"\n\nKid Kinetic: [confused] \"Uh, I'm pretty sure that was just a one-time accident. My super speed is awesome for racing my friends and getting to school on time!\" \n\nCaptain Obvious: [shaking head] \"Mark my words, superpowers will be the downfall of society. That's just the natural way of things. We must give them up immediately before it's too late!\"\n\nThe Sceptic: [eye roll] \"Right... I think you're being just a tad overdramatic. Every hero here has used their gifts to help others. Let's look at the big picture instead of fixating on minor downsides.\"",
+      "claim": "Having superpowers is terrible and we'd be better off without them.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Concluding all superpowers are bad based on a few minor anecdotal downsides."
+        },
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "primary",
+          "example": "Claiming superpowers will be the downfall of society because 'that's just the natural way of things'."
+        },
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "secondary",
+          "example": "Citing the 'Awesome Avenger's' stubbed toe as definitive proof that powers equal pain."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-012-009-superhero-support-group-9",
+      "title": "Caped Complainers",
+      "content": "At the Superhero Support Group, heroes discuss the downsides of their powers. The Incredible Sulk argues that super strength is the worst power because it breaks everything. Others chime in with their own gripes.",
+      "audioScript": "SocialMediaPost: [excited] \"Another week, another super meeting! Time to chat about our super problems. 😅 #SuperheroSupportGroup\"\n\nIncredibleSulk: [frustrated] \"Super strength is the absolute WORST power to have. I'm always accidentally breaking doors, walls, everything! It's a curse, I tell you.\"\n\nElastiGal: [sympathetic] \"That does sound rough, Sulk. But I think stretching powers are way worse. Do you know how hard it is to find clothes that fit??\"\n\nCaptainQuickster: [dismissive] \"Oh please, you two don't know how good you have it. Super speed means I'm always waiting around for the world to catch up! It's SO boring.\"\n\nInvisiBill: [dejected] \"At least people notice you exist... Nobody ever sees me, even when I'm not invisible!\"\n\nModeratorMan: [calm] \"Now now, let's not make this a competition. Every power has its challenges. The important thing is we support each other, right?\"\n",
+      "claim": "Super strength is the worst superpower because it breaks everything.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Concluding super strength is the worst based only on the Incredible Sulk's personal experience."
+        },
+        {
+          "fallacyId": "false-equivalence",
+          "severity": "secondary",
+          "example": "Treating the downsides of each power as equal when they are quite different."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-012-010-superhero-support-group-10",
+      "title": "Invisible Woes",
+      "content": "Invisible Man vents to fellow superheroes about the challenges of being unseen. Some suggest his power isn't so bad compared to their own 'cursed' abilities, leading to a heated debate.",
+      "audioScript": "Invisible Man: [frustrated] \"Nobody understands how hard it is being invisible. I'm constantly getting sat on or walked into!\"\n\nSuper Strong: [dismissive] \"Oh please, at least you don't break everything you touch. My power is the real curse!\"\n\nInvisible Man: [annoyed] \"Curse? Walking through walls is a curse now? You have no idea what I go through!\"  \n\nSuper Fast: [condescending] \"You think THAT'S bad? Try never being able to slow down and enjoy life. Super speed is way worse than invisibility.\"\n\nCaptain Empathy: [calmly] \"Friends, this isn't a competition. Everyone's powers have pros and cons. We need to support each other, not argue over who has it worst.\"\n\nInvisible Man: [resigned sigh] \"I suppose you're right...even if invisibility is still clearly the biggest burden.\"",
+      "claim": "Invisibility is the worst superpower because of the everyday challenges it causes.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-equivalence",
+          "severity": "primary",
+          "example": "Comparing invisibility to other powers as if they are equivalent"
+        }
+      ],
+      "difficulty": "beginner"
+    }
+  ]
+}

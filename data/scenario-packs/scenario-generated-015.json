@@ -1,0 +1,317 @@
+{
+  "packId": "pack-015",
+  "theme": "Time Management Gurus",
+  "description": "Productivity experts with contradictory and impossible advice",
+  "scenarios": [
+    {
+      "id": "pack-015-001-time-management-gurus-1",
+      "title": "Productivity Pandemonium",
+      "content": "Three self-proclaimed productivity experts give contradictory and impossible advice on how to manage time effectively. Their tips range from the absurd to the downright illogical.",
+      "audioScript": "Productivity Pam: [excited] \"I'm Productivity Pam and I've got the secret to success! Just work 25 hours a day, 8 days a week. It's simple math. More hours equals more results!\"\n\nTime Management Tina: [dismissive] \"Pfft, Pam clearly doesn't understand the nuances of time. The real key is to do everything in 30-second increments. Anything more is inefficient!\"  \n\nGuru Gary: [authoritative] \"Amateurs. True productivity comes from doing the opposite of what everyone else does. Sleep all day, work all night. I call it the Vampire Principle. It works because I say so.\"\n\nProductivity Pam: [defensive] \"My method is tested and proven. Everyone I know works 25/8.\"\n\nTime Management Tina: [annoyed] \"Your so-called friends are just sleep-deprived zombies, Pam. 30-second tasks or bust!\"\n\nGuru Gary: [condescending] \"You're both wrong. The Vampire Principle is the one true path, because I'm the expert here. End of story.\"",
+      "claim": "Working 25 hours a day, 8 days a week is the key to productivity.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "primary",
+          "example": "Guru Gary claims his method works simply because he is an expert."
+        },
+        {
+          "fallacyId": "bandwagon",
+          "severity": "secondary",
+          "example": "Productivity Pam argues her approach is valid because \"everyone she knows\" does it."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-015-002-time-management-gurus-2",
+      "title": "The 4 AM Miracle Cure",
+      "content": "Self-proclaimed productivity gurus debate the merits of waking up extremely early. They make exaggerated claims about the benefits while dismissing reasonable concerns.",
+      "audioScript": "Jill Gogettem: [excited] \"Hey #RiseAndGrinders, the SECRET to success is to wake up at 4 AM every day without fail! 🌅 If you snooze, you lose! 💯\"\n\nSandy Sunshine: [cheerful] \"Waking up early is the key to health and happiness! ☀️ Early risers are more productive, optimistic, and live longer. It's only natural!\"\n\nNorm Sensible: [doubtful] \"Hold on, everyone's sleep needs and circadian rhythms are different. Waking up too early could lead to sleep deprivation and health issues...\"\n\nJill Gogettem: [dismissive] \"Pshh Norm, you're just making excuses. 😒 ALL the most successful CEOs and world leaders wake up at 4 AM. Are you calling them unhealthy?\"\n\nRise N. Shine: [adamant] \"Norm probably stays up late scrolling TikTok. 🙄 Real winners have the willpower and discipline to join the 4 AM club! If you don't, you'll never achieve your dreams.\"",
+      "claim": "Everyone should wake up at 4 AM every day to be successful and healthy.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Concluding that 4 AM is best for everyone based on anecdotes about CEOs"
+        },
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "primary",
+          "example": "Claiming early rising is good because it's 'natural'"
+        },
+        {
+          "fallacyId": "ad-hominem",
+          "severity": "secondary",
+          "example": "Attacking Norm as lazy rather than addressing his point"
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-015-003-time-management-gurus-3",
+      "title": "The Miracle Morning Routine",
+      "content": "Productivity gurus argue about the best morning routine. One insists you must wake up at 4am to be successful, while another says night owls are more creative.",
+      "audioScript": "Intro Post: @MorningMiracleGuru: Want to be successful? You MUST wake up at 4am every day. No excuses! All the greats do it. #MiracleMorningRoutine #RiseAndGrind\n\nSusie: [skeptical] \"Do you really think waking up super early is the only way to be productive and successful?\"\n\nGuru Gary: [adamant] \"Absolutely! If you're not up at 4am, you're just lazy. All the most successful CEOs and entrepreneurs do it. It's a proven fact.\"\n\nAllie: [hesitant] \"But don't some people work better at night? I read that night owls tend to be more creative.\"\n\nGuru Gary: [dismissive] \"Nonsense! Early birds always get the worm. You snooze, you lose, plain and simple. Night owls are just making excuses.\"\n\nMikey: [curious] \"What if I can't fall asleep early enough to wake up at 4am? Won't I be exhausted?\"\n\nGuru Gary: [scolding] \"Sleep is for the weak! You can sleep when you're dead. If you want to be a winner, you'll find a way to make it work.\"",
+      "claim": "The only way to be successful and productive is to wake up at 4am every day.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Assuming all successful people wake up at 4am based on some anecdotal examples."
+        },
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "primary",
+          "example": "Presenting only two options: wake up at 4am or be lazy and unsuccessful."
+        },
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "primary",
+          "example": "Citing unnamed CEOs and entrepreneurs to support the 4am claim."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-015-004-time-management-gurus-4",
+      "title": "Get It All Done - NOW!",
+      "content": "Productivity gurus share their top tips for getting everything done immediately, no matter what. But their advice seems pretty extreme and contradictory...",
+      "audioScript": "SocialPost: [excited] \"Get it ALL done in record time with these expert tips! 🚀💪 #ProductivityHacks\"\n\nGuru1: [intense] \"Sleep is for the weak! To be truly productive, you must work 20 hours a day, every day.\"\n\nGuru2: [scoffing] \"Ridiculous. Everyone knows the 4-hour work week is optimal. Anything more is just busywork.\"\n\nGuru3: [adamant] \"Wrong! Real productivity means single-tasking on one thing for 12 hours straight. Breaks and task-switching kill momentum.\"\n\nGuru4: [smugly] \"Amateurs. True productivity masters delegate everything. Outsource your whole life and you'll have unlimited free time!\"\n\nGuru1: [dismissively] \"Ignore them. My method is the One True Path. Anyone who says otherwise is just trying to sell you something.\"",
+      "claim": "There is one perfect productivity system that works for everyone.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Assuming one system works for everyone based on limited examples."
+        },
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "primary",
+          "example": "Presenting productivity as an either/or choice between extreme approaches."
+        },
+        {
+          "fallacyId": "ad-hominem",
+          "severity": "secondary",
+          "example": "Guru1 attacking others' motives rather than addressing their arguments."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-015-005-time-management-gurus-5",
+      "title": "Guru Productivity Showdown",
+      "content": "Three productivity gurus debate the best way to manage time on a social media post. Their contradictory and impossible advice leads to humorous logical fallacies.",
+      "audioScript": "EfficientErica: [excited] \"I'm so pumped to share my top productivity hack with all my followers! 🙌 The secret to getting more done is to NEVER sleep. Sleep is for the weak! 💪 #RiseAndGrind #TeamNoSleep\"\n\nPowerfulPaula: [dismissive] \"Pfft, that advice is ridiculous. Everyone knows you need to sleep 12 hours a day to be truly productive. Anything less and you're just wasting time being tired. #SleepToSucceed\"\n\nMagicalMark: [mystical] \"You're both wrong. The key to ultimate productivity is to meditate 23 hours per day. Tune out all worldly distractions and ascend to a higher plane of focus! 🧘‍♂️✨ #TranscendentTime\"\n\nEfficientErica: [annoyed] \"Ugh, you two just don't get it. Real go-getters never stop to rest!\"\n\nPowerfulPaula: [condescending] \"Have fun burning out in a week with that crazy schedule. I'll be over here well-rested and crushing my to-do list.\"\n\nMagicalMark: [serene] \"Productivity squabbles are beneath me. I'm off to astral project into next week's tasks. Namaste! 🙏\"",
+      "claim": "You must follow one of these three extreme and contradictory productivity methods to be successful.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "primary",
+          "example": "Presents an 'either-or' choice between three bad productivity approaches, ignoring any balanced alternatives."
+        },
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "secondary",
+          "example": "Mark implies meditating all day is good because it's 'natural' and allows you to 'transcend'."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-015-006-time-management-gurus-6",
+      "title": "The 5 Second Rule",
+      "content": "Time management gurus clash over a new productivity hack called the 5 Second Rule, which claims you can achieve anything if you act within 5 seconds. But is this overly simplistic advice actually helpful?",
+      "audioScript": "LifeHacksWithJax: [excited] \"You won't believe this simple trick to 10x your productivity! 🚀 The 5 Second Rule says you can achieve ANYTHING if you act within 5 seconds of having an idea. No more procrastination, just results! 💯 #5SecondRule\"\n\nProductivityPolly: [skeptical] \"That seems way too simplistic. Achieving big goals takes careful planning and hard work over time, not just knee-jerk reactions.\"\n\nMotivatedMo: [pumped up] \"Nah, Jax is right! I've been using the 5 Second Rule and I feel so motivated! I started 10 new projects this week alone. It's a game-changer!\"\n\nBalancedBob: [thoughtful] \"Like any advice, there might be a kernel of truth to acting quickly on inspiration. But blindly acting on every passing thought seems hasty and unrealistic. A balanced approach of planning and prompt action is best.\"\n\nLifeHacksWithJax: [dismissive] \"You're all just haters who don't understand the power of the 5 Second Rule. Keep doubting while I achieve greatness 5 seconds at a time!\"",
+      "claim": "You can achieve anything if you take action within 5 seconds of having an idea.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Assuming a simplistic 5 second rule works for achieving any goal."
+        },
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "primary",
+          "example": "Suggesting the only options are procrastination or acting within 5 seconds."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-015-007-time-management-gurus-7",
+      "title": "Early Bird Gets the Worm?",
+      "content": "Three productivity gurus debate the best time to wake up for maximum success. They make exaggerated claims based on cherry-picked examples and appeal to nature.",
+      "audioScript": "SelfHelpSally: [post on social media] \"Want to be uber successful? You MUST wake up before 5am every day! #RiseAndGrind #5amClub 🌅💪\"\n\nEarlyBirdErnie: [confidently] \"Absolutely, the most successful CEOs all wake up super early. It's the only way to get ahead! Like they say, the early bird gets the worm.\"\n\nNightOwlNancy: [skeptical] \"Hold on, that's not always true. Plenty of successful people are night owls. And birds eating worms is hardly relevant to human productivity.\"  \n\nRestfulRita: [calmly] \"The amount of sleep you get is more important than when you wake up. Everyone's body clock is different.\"\n\nEarlyBirdErnie: [dismissively] \"Bah, more sleep is for the weak! If you snooze, you lose. All the experts say waking up early is natural and necessary.\"",
+      "claim": "You must wake up before 5am every day to be successful.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "primary",
+          "example": "Implying waking up early is better because it's \"natural\" like birds getting worms."
+        },
+        {
+          "fallacyId": "cherry-picking",
+          "severity": "primary",
+          "example": "Only citing examples of early-rising successful people while ignoring successful night owls."
+        },
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "secondary",
+          "example": "Vaguely referencing \"all the experts\" to support the claim without specifics."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-015-008-time-management-gurus-8",
+      "title": "The Contradictory Gurus",
+      "content": "Three time management gurus argue about the best productivity hacks on social media. But their advice is full of logical fallacies and contradictions.",
+      "audioScript": "SocialPost: [excited] Just had an EPIC debate with @ZenMaster and @ActionHero about the BEST productivity hacks. Who do you think is right? #ProductivityShowdown \n\nZenMaster: [calm] \"The key to productivity is doing less. Simplify your life and your mind will be free to focus.\"\n\nActionHero: [intense] \"No way! You have to hustle 24/7 to get ahead. Sleep is for the weak! Grind never stops.\"\n\nScheduleSally: [cheerful] \"You're both wrong! The only way to be truly productive is to schedule every minute. I even schedule my bathroom breaks!\"\n\nZenMaster: [dismissive] \"Bah, you're just a slave to your calendar, Sally. And ActionHero, you'll burn out fast with that attitude.\"\n\nActionHero: [annoyed] \"Easy for you to say, ZenMaster. I bet you still live in your mom's basement. Real success takes real work!\"\n\nScheduleSally: [condescending] \"You boys are hopeless. Let me know when you're ready to be productivity pros like me!\"",
+      "claim": "There is one perfect method to maximize productivity.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "primary",
+          "example": "The gurus present their methods as the only options, ignoring other possibilities."
+        },
+        {
+          "fallacyId": "ad-hominem",
+          "severity": "primary",
+          "example": "ActionHero attacks ZenMaster's character rather than his argument."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-015-009-time-management-gurus-9",
+      "title": "Sleep is for Slackers!",
+      "content": "Competing productivity experts make outlandish claims about the best way to maximize your time, insisting you follow their advice or be doomed to a life of mediocrity.",
+      "audioScript": "LifeHacker Liz: [excited] \"I just posted my hot new time management tips on Insta! Sleep is totally overrated. Real go-getters only need 3 hours per night, tops. It's just science! #TeamNoSleep\"\n\nGo-Getter Gabe: [scoffing] \"Liz, you're behind the times. I stopped sleeping entirely 6 months ago and I've never been more productive! If you waste even a minute sleeping, you'll never be successful.\"\n\nProductivity Paula: [annoyed] \"You're both wrong. The only way to optimize your time is to sleep 20 hours a day. Anything less and you won't be able to focus when you're awake.\"\n\nBalance-Seeking Bob: [concerned] \"This all seems a bit extreme, don't you think? Maybe there's a happy medium that still allows time for rest and other activities...\"\n\nGo-Getter Gabe: [dismissive] \"Pfft, moderation is for wannabes. If you're not willing to sacrifice everything else, you must not want success badly enough!\"",
+      "claim": "You have to follow these gurus' extreme and contradictory sleep advice or you'll never be successful.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "primary",
+          "example": "Presenting an either/or choice between extreme sleep deprivation or excessive sleep, with no reasonable middle ground."
+        },
+        {
+          "fallacyId": "appeal-to-fear",
+          "severity": "primary",
+          "example": "Claiming you'll never be successful if you don't follow their advice, playing on people's fear of failure."
+        },
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "secondary",
+          "example": "Assuming what worked for one person will work for everyone, without considering individual differences."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-015-010-time-management-gurus-10",
+      "title": "Top Time Management Tips",
+      "content": "Three time management gurus share their top tips in a social media post. But their advice seems contradictory and impossible to follow. Can you spot the logical flaws in their productivity tips?",
+      "audioScript": "Intro Post: [enthusiastic] Check out these top #TimeManagementTips from 3 productivity pros! 🚀⏰💪\n\nGuru Gary: [confident] \"The key to productivity is to wake up at 4am every day, no exceptions. Early risers are more successful!\"\n\nGuru Gina: [assertive] \"Actually, the most productive people stay up late and work when everyone else is asleep. Night owls get more done!\"\n\nGuru Gerry: [authoritative] \"The real secret is to work 16 hours a day, 7 days a week. There are 168 hours in a week - successful people maximize every single one!\"\n\nGuru Gary: [dismissive] \"Pshh, you're both wrong. The only way to be truly productive is to take a 2 hour nap every afternoon, like all the top CEOs do.\"\n\nGuru Gina: [condescending] \"Please. Everyone knows you have to work 30 minutes on, 5 minutes off, in perfectly timed cycles. That's the natural productivity rhythm.\"\n\nGuru Gerry: [superior] \"Amateurs. Real productivity pros know you have to do the hardest task first thing in the morning, every morning, or you'll never make it to the top.\"",
+      "claim": "Following these contradictory and impossible productivity tips is the key to success.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "primary",
+          "example": "Claiming these 'gurus' must be right because of their expertise, even though their tips contradict each other."
+        },
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "primary",
+          "example": "Asserting there is a 'natural productivity rhythm' of 30 minutes on, 5 minutes off."
+        },
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "primary",
+          "example": "Presenting waking up early vs. staying up late as the only two options for productivity."
+        }
+      ],
+      "difficulty": "beginner"
+    }
+  ]
+}

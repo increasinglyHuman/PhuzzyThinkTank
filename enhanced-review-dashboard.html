@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Scenario Review Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f7fafc;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .stats-bar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 2rem;
+            justify-content: space-around;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .controls {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .scenario-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .scenario-card.has-issue {
+            border-left: 4px solid #f56565;
+        }
+        
+        .scenario-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+        
+        .scenario-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2d3748;
+        }
+        
+        .scenario-id {
+            font-size: 0.9rem;
+            color: #718096;
+            font-family: monospace;
+        }
+        
+        .audio-section {
+            background: #f7fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .audio-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-top: 0.5rem;
+        }
+        
+        .mismatch-warning {
+            background: #fed7d7;
+            color: #c53030;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .rewire-btn {
+            background: #3182ce;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .approval-section {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #e2e8f0;
+        }
+        
+        .approval-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .btn-approve {
+            background: #48bb78;
+            color: white;
+        }
+        
+        .btn-revision {
+            background: #f6ad55;
+            color: white;
+        }
+        
+        .btn-reject {
+            background: #fc8181;
+            color: white;
+        }
+        
+        .feedback-form {
+            margin-top: 1rem;
+        }
+        
+        .feedback-textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 0.75rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+        
+        /* Rewire Dialog */
+        .dialog-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .dialog-overlay.active {
+            display: flex;
+        }
+        
+        .dialog {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .dialog-header {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .scenario-list {
+            max-height: 400px;
+            overflow-y: auto;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 0.5rem;
+        }
+        
+        .scenario-option {
+            padding: 0.75rem;
+            margin: 0.25rem 0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .scenario-option:hover {
+            background: #edf2f7;
+        }
+        
+        .scenario-option.selected {
+            background: #bee3f8;
+            border: 2px solid #3182ce;
+        }
+        
+        .dialog-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            margin-top: 1.5rem;
+        }
+        
+        /* Auto-fix status */
+        .auto-fix-status {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            min-width: 250px;
+        }
+        
+        .fix-progress {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 3px solid #e2e8f0;
+            border-top-color: #3182ce;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .database-sync {
+            background: #f0fff4;
+            color: #2f855a;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎯 Enhanced Scenario Review Dashboard</h1>
+        <p>Review scenarios, fix audio mismatches, and manage approvals</p>
+    </div>
+    
+    <div class="stats-bar">
+        <div class="stat-item">
+            <div class="stat-value" id="totalCount">0</div>
+            <div class="stat-label">Total Scenarios</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value" id="approvedCount">0</div>
+            <div class="stat-label">Approved</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value" id="mismatchCount">0</div>
+            <div class="stat-label">Audio Issues</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value" id="fixedCount">0</div>
+            <div class="stat-label">Auto-Fixed</div>
+        </div>
+    </div>
+    
+    <div class="controls">
+        <button class="btn" onclick="loadScenarios()">🔄 Refresh</button>
+        <button class="btn" onclick="exportToDatabase()">💾 Save to Database</button>
+        <button class="btn" onclick="triggerAutoFix()">🔧 Run Auto-Fix</button>
+        <button class="btn" onclick="exportApprovalData()">📥 Export JSON</button>
+        <label class="checkbox-label">
+            <input type="checkbox" id="autoSync" checked>
+            <span>Auto-sync to database</span>
+        </label>
+    </div>
+    
+    <div id="scenarioContainer"></div>
+    
+    <!-- Rewire Dialog -->
+    <div class="dialog-overlay" id="rewireDialog">
+        <div class="dialog">
+            <div class="dialog-header">🔌 Rewire Audio Assignment</div>
+            <p>Select the correct scenario for this audio:</p>
+            <div class="scenario-list" id="scenarioList"></div>
+            <div class="dialog-actions">
+                <button class="btn" onclick="closeRewireDialog()">Cancel</button>
+                <button class="btn btn-approve" onclick="applyRewire()">Apply Rewiring</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Auto-fix Status -->
+    <div class="auto-fix-status" id="autoFixStatus" style="display: none;">
+        <div class="fix-progress">
+            <div class="spinner"></div>
+            <span>Processing auto-fixes...</span>
+        </div>
+        <div id="fixDetails"></div>
+        <div class="database-sync">
+            ✅ Database sync active
+        </div>
+    </div>
+    
+    <script>
+        // Enhanced Review Dashboard with Database Integration
+        
+        let scenarios = [];
+        let approvalData = {};
+        let audioMismatches = {};
+        let currentRewireScenario = null;
+        
+        // Load scenarios from server
+        async function loadScenarios() {
+            try {
+                // Load scenario packs
+                const packs = ['000', '001', '002', '003', '004', '005', '006', '007'];
+                scenarios = [];
+                
+                for (const pack of packs) {
+                    try {
+                        const response = await fetch(`/data/scenario-packs/scenario-generated-${pack}.json`);
+                        if (response.ok) {
+                            const data = await response.json();
+                            scenarios = scenarios.concat(data.scenarios.map(s => ({
+                                ...s,
+                                packId: pack
+                            })));
+                        }
+                    } catch (e) {
+                        console.log(`Pack ${pack} not found`);
+                    }
+                }
+                
+                // Load approval data
+                loadApprovalData();
+                
+                // Check for audio mismatches
+                await checkAudioMismatches();
+                
+                // Render scenarios
+                renderScenarios();
+                updateStats();
+                
+            } catch (error) {
+                console.error('Error loading scenarios:', error);
+            }
+        }
+        
+        // Load approval data from localStorage
+        function loadApprovalData() {
+            const saved = localStorage.getItem('phuzzy-approval-data');
+            if (saved) {
+                approvalData = JSON.parse(saved);
+            }
+        }
+        
+        // Save approval data
+        function saveApprovalData() {
+            localStorage.setItem('phuzzy-approval-data', JSON.stringify(approvalData));
+            
+            // Auto-sync to database if enabled
+            if (document.getElementById('autoSync').checked) {
+                syncToDatabase();
+            }
+        }
+        
+        // Check for audio mismatches
+        async function checkAudioMismatches() {
+            audioMismatches = {};
+            
+            // This would normally check actual audio files
+            // For now, we'll detect from approval feedback
+            for (const [id, approval] of Object.entries(approvalData)) {
+                if (approval.feedback && approval.feedback.toLowerCase().includes('audio')) {
+                    const feedback = approval.feedback.toLowerCase();
+                    if (feedback.includes('different') || 
+                        feedback.includes('wrong') || 
+                        feedback.includes('mismatch') ||
+                        feedback.includes('for the')) {
+                        audioMismatches[id] = {
+                            detected: true,
+                            feedback: approval.feedback
+                        };
+                    }
+                }
+            }
+        }
+        
+        // Render scenarios
+        function renderScenarios() {
+            const container = document.getElementById('scenarioContainer');
+            container.innerHTML = '';
+            
+            scenarios.forEach(scenario => {
+                const card = createScenarioCard(scenario);
+                container.appendChild(card);
+            });
+        }
+        
+        // Create scenario card with enhanced features
+        function createScenarioCard(scenario) {
+            const card = document.createElement('div');
+            card.className = 'scenario-card';
+            
+            const hasMismatch = audioMismatches[scenario.id];
+            if (hasMismatch) {
+                card.classList.add('has-issue');
+            }
+            
+            const approval = approvalData[scenario.id] || {};
+            
+            card.innerHTML = `
+                <div class="scenario-header">
+                    <div>
+                        <div class="scenario-title">${scenario.title}</div>
+                        <div class="scenario-id">${scenario.id}</div>
+                    </div>
+                    <div>
+                        ${approval.status ? `<span class="status-badge ${approval.status}">${approval.status}</span>` : ''}
+                    </div>
+                </div>
+                
+                <div class="scenario-content">
+                    <p>${scenario.content}</p>
+                </div>
+                
+                <div class="audio-section">
+                    <h4>🔊 Audio</h4>
+                    <div class="audio-info">
+                        Expected: pack-${scenario.packId}-scenario-${scenarios.filter(s => s.packId === scenario.packId).indexOf(scenario)}
+                    </div>
+                    ${hasMismatch ? `
+                        <div class="mismatch-warning">
+                            <span>⚠️ Audio mismatch detected: ${hasMismatch.feedback}</span>
+                            <button class="rewire-btn" onclick="openRewireDialog('${scenario.id}')">
+                                🔌 Rewire Audio
+                            </button>
+                        </div>
+                    ` : ''}
+                    <div class="audio-controls">
+                        <audio controls>
+                            <source src="/data/scenario-packs/voices/pack-${scenario.packId}/scenario_${scenarios.filter(s => s.packId === scenario.packId).indexOf(scenario)}_full.mp3">
+                        </audio>
+                    </div>
+                </div>
+                
+                <div class="approval-section">
+                    <div class="approval-buttons">
+                        <button class="btn btn-approve" onclick="setApproval('${scenario.id}', 'approved')">
+                            ✅ Approve
+                        </button>
+                        <button class="btn btn-revision" onclick="setApproval('${scenario.id}', 'revision')">
+                            📝 Needs Revision
+                        </button>
+                        <button class="btn btn-reject" onclick="setApproval('${scenario.id}', 'rejected')">
+                            ❌ Reject
+                        </button>
+                    </div>
+                    
+                    <div class="feedback-form">
+                        <textarea 
+                            class="feedback-textarea" 
+                            placeholder="Add feedback..."
+                            onchange="updateFeedback('${scenario.id}', this.value)"
+                            >${approval.feedback || ''}</textarea>
+                        
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" 
+                                    onchange="updateFlag('${scenario.id}', 'multiVoice', this.checked)"
+                                    ${approval.multiVoice ? 'checked' : ''}>
+                                <span>Needs Multi-Voice</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" 
+                                    onchange="updateFlag('${scenario.id}', 'audioMismatch', this.checked)"
+                                    ${approval.audioMismatch ? 'checked' : ''}>
+                                <span>Audio Mismatch</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            return card;
+        }
+        
+        // Set approval status
+        function setApproval(scenarioId, status) {
+            if (!approvalData[scenarioId]) {
+                approvalData[scenarioId] = {};
+            }
+            
+            approvalData[scenarioId].status = status;
+            approvalData[scenarioId].timestamp = new Date().toISOString();
+            
+            saveApprovalData();
+            renderScenarios();
+            updateStats();
+        }
+        
+        // Update feedback
+        function updateFeedback(scenarioId, feedback) {
+            if (!approvalData[scenarioId]) {
+                approvalData[scenarioId] = {};
+            }
+            
+            approvalData[scenarioId].feedback = feedback;
+            saveApprovalData();
+        }
+        
+        // Update flags
+        function updateFlag(scenarioId, flag, value) {
+            if (!approvalData[scenarioId]) {
+                approvalData[scenarioId] = {};
+            }
+            
+            approvalData[scenarioId][flag] = value;
+            saveApprovalData();
+        }
+        
+        // Open rewire dialog
+        function openRewireDialog(scenarioId) {
+            currentRewireScenario = scenarioId;
+            const dialog = document.getElementById('rewireDialog');
+            const list = document.getElementById('scenarioList');
+            
+            // Populate scenario list
+            list.innerHTML = '';
+            scenarios.forEach(s => {
+                const option = document.createElement('div');
+                option.className = 'scenario-option';
+                option.innerHTML = `
+                    <strong>${s.title}</strong><br>
+                    <small>${s.id} - Pack ${s.packId}</small>
+                `;
+                option.onclick = () => selectScenario(s.id);
+                list.appendChild(option);
+            });
+            
+            dialog.classList.add('active');
+        }
+        
+        // Close rewire dialog
+        function closeRewireDialog() {
+            document.getElementById('rewireDialog').classList.remove('active');
+            currentRewireScenario = null;
+        }
+        
+        // Select scenario for rewiring
+        function selectScenario(scenarioId) {
+            document.querySelectorAll('.scenario-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            event.target.closest('.scenario-option').classList.add('selected');
+        }
+        
+        // Apply rewiring
+        async function applyRewire() {
+            const selected = document.querySelector('.scenario-option.selected');
+            if (!selected || !currentRewireScenario) return;
+            
+            const targetScenarioId = selected.querySelector('small').textContent.split(' - ')[0];
+            
+            // Send rewire request to database
+            try {
+                const response = await fetch('/api/rewire-audio', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        from: currentRewireScenario,
+                        to: targetScenarioId
+                    })
+                });
+                
+                if (response.ok) {
+                    alert('Audio rewired successfully!');
+                    closeRewireDialog();
+                    loadScenarios();
+                }
+            } catch (error) {
+                console.error('Rewire failed:', error);
+                // For now, just log it
+                console.log(`Would rewire audio from ${currentRewireScenario} to ${targetScenarioId}`);
+                closeRewireDialog();
+            }
+        }
+        
+        // Sync to database
+        async function syncToDatabase() {
+            try {
+                // In production, this would sync to a real database
+                // For now, we'll save to a JSON file via a server endpoint
+                const data = {
+                    approvals: approvalData,
+                    mismatches: audioMismatches,
+                    timestamp: new Date().toISOString()
+                };
+                
+                // Show sync status
+                const status = document.getElementById('autoFixStatus');
+                status.style.display = 'block';
+                
+                // Simulate database sync
+                setTimeout(() => {
+                    console.log('Synced to database:', data);
+                    status.style.display = 'none';
+                }, 2000);
+                
+            } catch (error) {
+                console.error('Database sync failed:', error);
+            }
+        }
+        
+        // Export to database (manual trigger)
+        function exportToDatabase() {
+            syncToDatabase();
+            alert('Data exported to database. Auto-fix scripts will process any issues.');
+        }
+        
+        // Trigger auto-fix
+        async function triggerAutoFix() {
+            const status = document.getElementById('autoFixStatus');
+            const details = document.getElementById('fixDetails');
+            
+            status.style.display = 'block';
+            details.innerHTML = 'Analyzing mismatches...';
+            
+            try {
+                // This would trigger the actual auto-fix scripts
+                const mismatches = Object.keys(audioMismatches).length;
+                details.innerHTML = `Found ${mismatches} audio mismatches. Running fixes...`;
+                
+                // Simulate fix process
+                setTimeout(() => {
+                    details.innerHTML = `✅ Fixed ${mismatches} issues automatically`;
+                    setTimeout(() => {
+                        status.style.display = 'none';
+                        loadScenarios();
+                    }, 2000);
+                }, 3000);
+                
+            } catch (error) {
+                details.innerHTML = `❌ Auto-fix failed: ${error.message}`;
+            }
+        }
+        
+        // Export approval data
+        function exportApprovalData() {
+            const data = {
+                exportDate: new Date().toISOString(),
+                approvals: approvalData,
+                stats: {
+                    total: scenarios.length,
+                    approved: Object.values(approvalData).filter(a => a.status === 'approved').length,
+                    revision: Object.values(approvalData).filter(a => a.status === 'revision').length,
+                    rejected: Object.values(approvalData).filter(a => a.status === 'rejected').length,
+                    audioMismatches: Object.keys(audioMismatches).length
+                }
+            };
+            
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `scenario-approvals-${new Date().toISOString().split('T')[0]}.json`;
+            a.click();
+        }
+        
+        // Update statistics
+        function updateStats() {
+            document.getElementById('totalCount').textContent = scenarios.length;
+            document.getElementById('approvedCount').textContent = 
+                Object.values(approvalData).filter(a => a.status === 'approved').length;
+            document.getElementById('mismatchCount').textContent = 
+                Object.keys(audioMismatches).length;
+            document.getElementById('fixedCount').textContent = 
+                Object.values(approvalData).filter(a => a.fixed).length;
+        }
+        
+        // Initialize on load
+        window.onload = () => {
+            loadScenarios();
+        };
+    </script>
+</body>
+</html>

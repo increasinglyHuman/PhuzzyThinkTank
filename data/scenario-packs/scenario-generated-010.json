@@ -1,0 +1,282 @@
+{
+  "packId": "pack-010",
+  "theme": "Game Show Chaos",
+  "description": "Game show contestants using questionable logic to win prizes",
+  "scenarios": [
+    {
+      "id": "pack-010-001-game-show-chaos-1",
+      "title": "Pie Throwing Champion",
+      "content": "On a wacky game show, a contestant claims to be the world's greatest pie thrower because he can hit a bullseye from 10 feet away. He says this makes him the obvious choice to win the grand prize.",
+      "audioScript": "Host: [excited] \"Welcome back to our Pie Throwing Championship! Let's meet our next contestant, Billy.\"\n\nBilly: [smug] \"I'm the world's greatest pie thrower. Just last week, I hit a bullseye from 10 feet away. Obviously that means I'm going to win the grand prize today!\"\n\nHost: [impressed] \"Wow, 10 feet is pretty far! Sounds like you've got this in the bag.\"\n\nContestant2: [skeptical] \"Hold on, just because you hit one bullseye doesn't mean you're the best. Shouldn't we see how everyone else does first?\"\n\nBilly: [dismissive] \"Nah, my one amazing shot proves I'm the champ. Let's just give me the prize now!\"",
+      "claim": "Billy is the world's greatest pie thrower and sure to win the contest because he hit a bullseye from 10 feet away one time.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Concluding he is the world's best pie thrower from a single bullseye."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-010-002-game-show-prize-logic",
+      "title": "Winning the Wacky Prize",
+      "content": "On the zany game show Wacky Prizes, contestants compete in silly challenges to win strange prizes. When deciding who should win the coveted Pickle Polisher 3000, questionable reasoning leads to a heated debate.",
+      "audioScript": "Host: [enthusiastic] \"Welcome back to Wacky Prizes! It's time to award the Pickle Polisher 3000! Let's ask our contestants why they think they deserve it.\"\n\nContestant 1: [confident] \"I should win because I'm the oldest and wisest contestant here. Age equals wisdom!\"\n\nContestant 2: [dismissive] \"That's ridiculous. Everybody knows redheads are the luckiest. And since I'm the only redhead, I'll have the best luck with the prize!\"  \n\nContestant 3: [worried] \"I'm scared that if I don't win, I'll be the laughingstock of my neighborhood. My life will be ruined! I need this!\"\n\nHost: [amused] \"Wow, these are some interesting arguments! Who will the audience pick?\"\n",
+      "claim": "The contestant with the most compelling reason deserves to win the Pickle Polisher 3000.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "primary",
+          "example": "Contestant 1 argues they should win because they are the oldest, implying age gives authority."
+        },
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Contestant 2 makes a broad generalization that all redheads are lucky."
+        },
+        {
+          "fallacyId": "appeal-to-fear",
+          "severity": "primary",
+          "example": "Contestant 3 argues they should win by claiming their life will be ruined otherwise, appealing to fear."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-010-003-game-show-chaos-3",
+      "title": "Longest Mustache Wins!",
+      "content": "On a wacky game show, the host declares the contestant with the longest mustache will win the grand prize. Chaos ensues as contestants argue over mustache superiority.",
+      "audioScript": "Host: [excited] \"Welcome back to Crazy Quiz! It's time for our lightning round. The contestant with the longest mustache wins our grand prize!\" \n\nContestant 1: [smug] \"My mustache is clearly the longest. I've been growing it for 10 years!\"\n\nContestant 2: [defensive] \"Length isn't everything! My mustache is thick and luxurious. That's what counts.\"  \n\nContestant 3: [indignant] \"Fake news! Everyone knows handlebar mustaches are the only REAL mustaches. If yours doesn't curl up at the ends, you're disqualified!\"\n\nHost: [amused] \"Looks like we have a hairy situation! While you sort this out, a word from our sponsor: Marvelous Mustache Wax!\"",
+      "claim": "The contestant with the longest mustache should win the game show prize.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "red-herring",
+          "severity": "primary",
+          "example": "The contestants argue about mustache thickness and style, which are irrelevant to the original claim about length."
+        },
+        {
+          "fallacyId": "false-equivalence",
+          "severity": "secondary",
+          "example": "Contestant 3 suggests handlebar mustaches are the only 'real' mustaches, falsely equating style with authenticity."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-010-004-game-show-chaos-4",
+      "title": "Wacky Word Wizards",
+      "content": "On the game show Wacky Word Wizards, contestants compete to define silly words. When Bill disagrees with Jill's definition, she claims his opinion doesn't matter because he has a silly mustache. The host awards Jill the points.",
+      "audioScript": "Host: [excited] Welcome back to Wacky Word Wizards, the show where contestants compete to create the wackiest definitions for made-up words! Our next word is... 'Snorkelwhiffer'! Jill, let's hear your definition.\n\nJill: [confident] A Snorkelwhiffer is a special nose plug that helps you smell underwater.  \n\nBill: [skeptical] That doesn't make any sense. You can't smell underwater, plug or no plug!\n\nJill: [dismissive] Well, what do you know, Bill? With that ridiculous mustache, you look like a Snorkelwhiffer yourself! \n\nHost: [amused] Oooh, burn! That's a low blow, Jill, but I like it! You win the points for that round!\n\nBill: [exasperated] What? That's not fair! My mustache has nothing to do with this.\n\nHost: [grinning] Sure it does, Bill. The points go to the best zinger!",
+      "claim": "Jill's argument is valid because Bill has a silly mustache.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "ad-hominem",
+          "severity": "primary",
+          "example": "Jill attacks Bill's appearance instead of addressing his argument."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-010-005-game-show-chaos-5",
+      "title": "Slimy Slime Quiz Scandal",
+      "content": "On the hit game show Slimy Slime Quiz, a contestant makes a wild claim to try to win the grand prize - a lifetime supply of slime. Will their faulty logic prevail or will the host see through their flawed argument?",
+      "audioScript": "Host: [excited] \"Welcome back to Slimy Slime Quiz, the show where you can win a lifetime supply of slime! Our next contestant is Becky. Becky, are you ready to play?\"\n\nBecky: [confident] \"I was born ready! And I have a foolproof way to win.\"\n\nHost: [intrigued] \"Oh really? Do tell.\"\n\nBecky: [smug] \"Well, slime is made from natural ingredients like glue and borax. Anything natural must be good for you. Therefore, if I eat nothing but this slime, I'll be the healthiest kid ever! You have to give me the lifetime supply so I can be super healthy.\"\n\nHost: [skeptical] \"Hmmm I'm not so sure about that logic. Natural doesn't always mean healthy.\"\n\nBecky: [insistent] \"But slime is natural and I want it, so it must be good! Why won't you give it to me? You must want kids to be unhealthy!\"\n\nHost: [flustered] \"No, that's not it at all! I just think maybe a lifetime supply of slime isn't the healthiest prize...\"",
+      "claim": "If I eat nothing but natural slime, I'll be the healthiest kid ever, so I should win a lifetime supply of slime.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "primary",
+          "example": "Assuming that slime is healthy to eat just because it contains some natural ingredients."
+        },
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "secondary",
+          "example": "Implying the host either has to give her the slime or he wants kids to be unhealthy."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-010-006-game-show-chaos-6",
+      "title": "Wheel of Fishy Wisdom",
+      "content": "On a wacky game show, contestants compete to win prizes by making outrageous arguments. They spin a 'Wheel of Wisdom' to get debate topics, then try to convince the host using silly logic. Who will win the grand prize with the most persuasive nonsense?",
+      "audioScript": "Host: [cheerful] Welcome back to Wheel of Fishy Wisdom, the game show where saying the silliest things can win you fabulous prizes! Let's meet our contestants. \n\nContestant 1: [excited] I'm Wally and I'm here to win that dream vacation to Wackyworld!\n\nContestant 2: [competitive] I'm Wendy and I'll do whatever it takes to get that shiny new hoverboard!\n\nHost: Alright, let's get this party started! Wally, you're up first. Give that wheel a big spin!\n\n[wheel spinning sound effect]\n\nHost: Your topic is...pets. Make your case! \n\nWally: [smug] Well, everyone knows that goldfish make the best pets. I mean, all the cool kids have goldfish. If you don't have a goldfish, you're basically a nobody. Goldfish are the only pet that matters.\n\nHost: Ooh, compelling argument Wally! Wendy, your rebuttal?\n\nWendy: [dismissive] Pfft, goldfish are so last year. If you want to be cool, you need a pet rock. They've been around forever, so you know they're legit. It's just natural to have a pet rock.\n\nHost: What a matchup, folks! Who will the jury find more convincing - Wally with his popular goldfish or Wendy's tried and true pet rock? While they deliberate, we'll be right back!",
+      "claim": "The best pet is whichever one is most popular or traditional.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "bandwagon",
+          "severity": "primary",
+          "example": "Wally argues goldfish are the best pets because all the cool kids have them."
+        },
+        {
+          "fallacyId": "appeal-to-tradition",
+          "severity": "primary",
+          "example": "Wendy claims pet rocks are best because they've been around forever."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-010-007-game-show-chaos-7",
+      "title": "Crazy Quiz Craze",
+      "content": "On a zany game show, contestant Gus claims he should win because he's been on the most game shows. His bizarre logic baffles the host and other players.",
+      "audioScript": "Host: [excited] Welcome back to Crazy Quiz Craze! Let's check in with our contestants before the next round. Gus, tell us a bit about yourself.\n\nGus: [smug] Well, I've been a contestant on 27 different game shows, so I think it's obvious I should win this one too. I have the most experience!\n\nHost: [confused] Err, I'm not sure that's how it works, Gus. Anyone can win, regardless of past game show appearances.\n\nBetty: [annoyed] Yeah, that's a silly reason to think you're going to win. Shouldn't it come down to who plays the best today?\n\nGus: [defensive] Hey, I paid my dues. When you've done as many shows as I have, then you can talk! \n\nDoug: [amused] Dude, you could go on 100 shows, doesn't mean you'll magically win this one. What counts is getting the answers right, not your resume!\n\nHost: [laughing] Okay, let's get back to the game, shall we? Remember, everyone has an equal shot at our grand prize, no matter how many times you've played before!",
+      "claim": "I should win this game show because I've been a contestant on the most game shows in the past.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "primary",
+          "example": "Gus thinks he should win because of his past experience on many game shows, even though that's irrelevant to his performance in this specific game."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-010-008-game-show-chaos-8",
+      "title": "The Price is Seriously Wrong",
+      "content": "On the popular game show 'The Price is Seriously Wrong', contestant Sammy makes some questionable arguments to try to win a fabulous prize. Can you spot the flaws in Sammy's logic?",
+      "audioScript": "Host: [enthusiastic] \"Welcome back to The Price is Seriously Wrong! Sammy, for a chance to win this shiny new bicycle, tell us why the price should be $1 million.\"\n\nSammy: [confident] \"Well everyone knows bicycles are the transportation of the future since they don't pollute. So a futuristic bike like this one that can save the planet should cost at least $1 million!\"\n\nHost: [intrigued] \"Interesting point Sammy! What else?\"\n\nSammy: [insistent] \"Plus, my sister said her friend bought a bike for a million dollars, so that must be the going rate these days.\"\n\nHost: [impressed] \"Hard to argue with that logic, Sammy! Judges, what do you think, is Sammy our big winner today?\"\n\nJudge: [contemplative] \"Hmm, those are some compelling arguments...but something doesn't quite add up. What do you think at home - does Sammy's reasoning make sense or is the price seriously wrong?\"",
+      "claim": "A bicycle should cost $1 million because bikes are good for the environment and my sister's friend bought one for that price.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "primary",
+          "example": "Bicycles are good for the environment, so an eco-friendly bike should cost $1 million."
+        },
+        {
+          "fallacyId": "bandwagon",
+          "severity": "primary",
+          "example": "My sister's friend bought a $1 million bike, so that must be the normal price everyone pays."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-010-009-game-show-chaos-9",
+      "title": "Slime Time Shenanigans",
+      "content": "On a wacky kids game show, two contestants argue over who should win the final slime bucket challenge and take home the grand prize.",
+      "audioScript": "Announcer: [excited] \"Welcome back to Slime Time! It's time for our final challenge to see which lucky contestant will win the vacation of their dreams!\"\n\nKid 1: [confident] \"I've been on this show way longer than my opponent. I've paid my dues and deserve to win!\"\n\nKid 2: [annoyed] \"That's not how it works! The winner should be whoever does the best in the last challenge. Time on the show doesn't matter.\"\n\nKid 1: [smug] \"Well, the producers told me they were rooting for me to win since I'm such a fan favorite. So it's pretty much guaranteed.\"  \n\nKid 2: [shocked] \"What? That can't be true! The winner is supposed to be decided fair and square. You're just making that up!\"\n\nKid 1: [dismissive] \"Believe what you want, but I'm walking out of here covered in victory slime and headed to Hawaii! It's destiny!\"",
+      "claim": "I should win the game show prize because I've been on the show longer and the producers want me to win.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "primary",
+          "example": "Claiming the producers want them to win as if that decides who should win, regardless of the challenge."
+        },
+        {
+          "fallacyId": "false-equivalence",
+          "severity": "primary",
+          "example": "Equating time spent on the show with deserving to win, even though the rules state the final challenge determines the winner."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-010-010-game-show-chaos-10",
+      "title": "Slime Time Mayhem",
+      "content": "On a wacky game show called Slime Time, contestants make wild claims to try to win the grand prize - a lifetime supply of slime. But some of their arguments are pretty slimy too!",
+      "audioScript": "Announcer: [excited] \"Welcome back to Slime Time, the show where contestants compete to win a lifetime supply of slime! Let's check in with our contestants...\"\n\nContestant1: [confident] \"I deserve to win because I'm the oldest kid here. Everyone knows older kids are smarter and better at games.\"\n\nContestant2: [dismissive] \"No way, you're wrong! My dad says I'm the best at everything, so I should win. Are you saying my dad is a liar?\"\n\nContestant3: [worried] \"I heard that if you don't win slime, you turn into slime! I don't want that to happen to me!\"\n\nContestant1: [smug] \"See? Contestant3 is just a scaredy-cat. Looks like it's down to you and me. But you're wearing a purple shirt, and purple is an unlucky color. So I win!\"\n\nAnnouncer: [amused] \"Wow, these are some creative arguments! Who will the judges pick? Find out after the break!\"",
+      "claim": "I should win the slime because I'm the oldest.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-tradition",
+          "severity": "primary",
+          "example": "Contestant1 argues they should win because they're the oldest, implying older kids are always smarter."
+        },
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "primary",
+          "example": "Contestant2 says they should win because their dad says they're the best at everything."
+        },
+        {
+          "fallacyId": "appeal-to-fear",
+          "severity": "primary",
+          "example": "Contestant3 is worried that not winning slime will turn them into slime."
+        }
+      ],
+      "difficulty": "beginner"
+    }
+  ]
+}

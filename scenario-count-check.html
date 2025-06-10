@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head><title>Quick Scenario Count</title></head>
+<body>
+<h1>Scenario Count Test</h1>
+<div id="count">Loading...</div>
+<script>
+document.getElementById('count').innerHTML = 'Testing path access...';
+fetch('./data/scenario-packs/scenario-generated-007.json')
+  .then(r => r.json())
+  .then(d => document.getElementById('count').innerHTML = `✅ Pack 007: ${d.scenarios.length} scenarios - "${d.scenarios[0].title}"`)
+  .catch(e => document.getElementById('count').innerHTML = `❌ Error: ${e.message}`);
+</script>
+</body>
+</html>

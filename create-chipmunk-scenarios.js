@@ -1,0 +1,88 @@
+#!/usr/bin/env node
+
+// Create adorable chipmunk scenarios to match the existing audio
+const chipmunkScenarios = {
+  "packId": "pack-007",
+  "theme": "Chipmunk Cheese Chase Adventures",
+  "description": "Adorable chipmunk scenarios featuring cheese chases and nutty debates",
+  "scenarios": [
+    {
+      "id": "pack-007-000-chipmunk-cheese-chase",
+      "title": "The Great Cheese Chase",
+      "content": "Chippy the Chipmunk claims that cheese is the only food worth hoarding for winter. But his woodland friends argue that a balanced diet is more important than just one favorite food.",
+      "audioScript": "[Based on existing adorable audio - to be matched]",
+      "claim": "Cheese is the only food chipmunks need to survive winter.",
+      "correctAnswer": "logic",
+      "type": "social_media", 
+      "answerWeights": {
+        "emotion": 25,
+        "logic": 40,
+        "balanced": 25,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Assuming one food type is sufficient for entire winter survival"
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-007-001-chipmunk-acorn-argument",
+      "title": "Acorn vs Cheese Debate",
+      "content": "Nutkin argues that traditional acorns are better than newfangled cheese, while Chippy insists cheese is clearly superior because it's more exciting.",
+      "audioScript": "[Based on existing adorable audio - to be matched]",
+      "claim": "New foods are always better than traditional ones.",
+      "correctAnswer": "logic",
+      "type": "dialogue",
+      "answerWeights": {
+        "emotion": 30,
+        "logic": 35,
+        "balanced": 25,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "primary", 
+          "example": "Presenting only two food choices as if no other options exist"
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-007-002-chipmunk-storage-strategy",
+      "title": "Winter Storage Wars",
+      "content": "The chipmunk community is divided on storage strategies. Some say bigger cheeks mean better survival, others argue organization matters more than size.",
+      "audioScript": "[Based on existing adorable audio - to be matched]", 
+      "claim": "Chipmunks with bigger cheeks are automatically better at winter survival.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 45,
+        "balanced": 25,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Assuming physical size determines survival skill"
+        }
+      ],
+      "difficulty": "beginner"
+    }
+  ]
+};
+
+console.log('🐿️ Creating placeholder chipmunk scenarios...');
+console.log('These can be refined once we get the audio transcribed!');
+
+require('fs').writeFileSync('./chipmunk-pack-007-placeholder.json', JSON.stringify(chipmunkScenarios, null, 2));
+
+console.log('✅ Placeholder scenarios created!');
+console.log('📁 File: chipmunk-pack-007-placeholder.json');
+console.log('🎯 Next step: Match these with the actual adorable audio content');

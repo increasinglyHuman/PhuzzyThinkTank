@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Scenario Access</title>
+</head>
+<body>
+    <h1>Debug Scenario File Access</h1>
+    <div id="results"></div>
+    
+    <script>
+        async function debugAccess() {
+            const log = [];
+            
+            // Test a few specific files
+            const testFiles = [
+                './data/scenario-packs/scenario-generated-007.json',
+                './data/scenario-packs/scenario-generated-008.json',
+                './data/scenario-packs/scenario-generated-009.json'
+            ];
+            
+            for (const file of testFiles) {
+                try {
+                    log.push(`Testing: ${file}`);
+                    const response = await fetch(file);
+                    log.push(`Response status: ${response.status} ${response.statusText}`);
+                    
+                    if (response.ok) {
+                        const data = await response.json();
+                        log.push(`✅ Success! Found ${data.scenarios?.length || 0} scenarios in ${data.theme || 'Unknown Theme'}`);
+                        
+                        // Show first scenario as sample
+                        if (data.scenarios && data.scenarios[0]) {
+                            log.push(`Sample scenario: "${data.scenarios[0].title}"`);
+                        }
+                    } else {
+                        log.push(`❌ Failed to load: ${response.status}`);
+                    }
+                } catch (error) {
+                    log.push(`❌ Error: ${error.message}`);
+                }
+                log.push('---');
+            }
+            
+            document.getElementById('results').innerHTML = `
+                <pre>${log.join('\n')}</pre>
+            `;
+        }
+        
+        debugAccess();
+    </script>
+</body>
+</html>

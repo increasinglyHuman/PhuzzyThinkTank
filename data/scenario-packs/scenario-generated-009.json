@@ -1,0 +1,297 @@
+{
+  "packId": "pack-009",
+  "theme": "Superhero Problems",
+  "description": "Everyday inconveniences for people with superpowers",
+  "scenarios": [
+    {
+      "id": "pack-009-001-superhero-problems-1",
+      "title": "The Invisible Clothes Caper",
+      "content": "Invisigirl is upset that she can't find any clothes that work with her invisibility power. Her friends discuss whether this is a real problem and what she should do about it.",
+      "audioScript": "Invisigirl: [frustrated] \"I posted a pic on Supergram of my new outfit but you can barely even see me in it! This is so unfair. Invisible clothes should totally be a thing by now.\"\n\nSpeedy: [sympathetic] \"Aw man, that stinks Invisigirl. They really should make invisible clothes, it's [air quotes] 'all natural' for you.\"\n\nBrainy: [pensive] \"Hmm, I'm not so sure about that. Just because something is natural doesn't always mean it's good or necessary. Lots of heroes have to adapt their style to their powers.\"\n\nInvisigirl: [annoyed] \"Easy for you to say Brainy, you don't have to worry about this. I've always had to deal with this problem, it's practically a tradition for invisible heroes to never find the right clothes!\"\n\nBrainy: [calmly] \"I hear you Invisigirl, and I'm not trying to minimize your frustration. I'm just not convinced that invisible clothes are the only solution here. Maybe we can brainstorm some other options that could help?\"",
+      "claim": "Invisible superheroes have an unfair disadvantage because invisible clothes don't exist for them.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "primary",
+          "example": "Speedy says invisible clothes should exist because they would be 'all natural' for Invisigirl."
+        },
+        {
+          "fallacyId": "appeal-to-tradition",
+          "severity": "primary",
+          "example": "Invisigirl argues it's practically a tradition for invisible heroes to never find the right clothes."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-009-002-superhero-laundry-day",
+      "title": "Superhero Laundry Day",
+      "content": "The Flash is complaining to other superheroes about how his super speed makes doing laundry a real hassle. He argues that the Justice League should hire a laundry service just for him.",
+      "audioScript": "\n        [Facebook post with image of the Flash buried in a huge pile of dirty laundry]\n        The Flash: #SuperheroProblems Laundry day is the WORST with super speed! The Justice League really needs to get me my own laundry service. It's only fair.\n        [Comments]\n        Batman: [skeptical] You're being ridiculous, Flash. We all have to do our own laundry. It comes with the territory.\n        The Flash: [defensive] Easy for you to say, Bats! I go through 10 times more clothes than you. I'm a special case! \n        Superman: [thoughtful] Hmm, I guess I can see your point, Flash. I do have to buy a lot of new capes...\n        Wonder Woman: [stern] Absolutely not. Having powers doesn't mean you deserve special treatment. That's a slippery slope.\n        Aquaman: [confused] What's the big deal? Can't you just, you know, do it faster? \n    ",
+      "claim": "The Flash deserves his own special laundry service from the Justice League because his super speed makes him go through more clothes.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "primary",
+          "example": "The Flash argues he deserves special treatment because of his natural super speed ability."
+        },
+        {
+          "fallacyId": "slippery-slope",
+          "severity": "secondary",
+          "example": "Wonder Woman points out that giving the Flash special perks could lead to everyone demanding special treatment."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-009-003-superhero-problems-3",
+      "title": "The Flying Mattress",
+      "content": "Mattress Girl thinks all superheroes should sleep on flying mattresses so they're always ready for action. But her claim relies on faulty logic and ignores potential downsides.",
+      "audioScript": "Insta_Influencer87: [excited] \"Hey fam, Mattress Girl is going viral with her #SuperSleepHacks! 😴💤🦸‍♀️ Apparently ALL superheroes need flying beds. Thoughts? 🤔\"\n\nMattress_Girl: [passionate] \"As a superhero, you need to be ready to fly into action at any moment! That's why EVERY hero needs a flying mattress. How else will you get a good night's sleep AND be prepared for crime-fighting duty?\"\n\nCaptain_Obvious: [skeptical] \"Umm, I don't know about that. Plenty of heroes do just fine sleeping in regular beds. Flying mattresses seem unnecessary and maybe even dangerous.\"\n\nMattress_Girl: [dismissive] \"Pfft, you just don't get it. All the REAL superheroes are switching to flying mattresses now. It's a no-brainer!\"\n\nThe_Rationalist: [thoughtful] \"Let's think critically about this. While being ready for action is important, there may be better solutions that don't involve the risks and impracticalities of sleeping on a flying bed. We shouldn't jump to conclusions based on a trend.\"",
+      "claim": "All superheroes need to sleep on flying mattresses to be ready for action.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Concluding all superheroes need flying mattresses based on limited examples"
+        },
+        {
+          "fallacyId": "bandwagon",
+          "severity": "secondary",
+          "example": "Claiming all the 'real superheroes' are using flying mattresses"
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-009-004-superhero-problems-4",
+      "title": "Super Laundry Woes",
+      "content": "Captain Fantastic is complaining that his super suit keeps shrinking in the wash. His superhero friends offer various solutions and opinions on the issue.",
+      "audioScript": "Captain Fantastic: [frustrated] \"Argh, my super suit shrunk again in the wash! How am I supposed to fight crime in a too-tight costume?\"\n\nLightning Lass: [smug] \"Well, you should just do what I do and only wear your suit once before throwing it out. That's what all the cool superheroes are doing these days.\" \n\nCaptain Fantastic: [annoyed] \"That seems really wasteful and expensive...\"\n\nThe Bulk: [authoritative] \"Look, Dr. Brainium has a PhD in superhero laundry. He says you need to wash in cold water and air dry. So that's what you have to do, no questions asked.\"\n\nCaptain Fantastic: [skeptical] \"Hmm, I'm not sure one expert opinion is enough to go on...\"\n\nInvisigirl: [worried] \"I heard if you keep shrinking your suit, the fibers will eventually disintegrate and your whole costume could fall apart mid-battle! Better play it safe and only hand wash from now on.\"",
+      "claim": "Captain Fantastic needs to throw out his suit after every use, wash only in cold water, and never machine dry it, or else his costume will be ruined.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "bandwagon",
+          "severity": "primary",
+          "example": "Lightning Lass says all the cool superheroes throw out their suit after one use."
+        },
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "primary",
+          "example": "The Bulk says to follow Dr. Brainium's advice without question just because he's an expert."
+        },
+        {
+          "fallacyId": "slippery-slope",
+          "severity": "primary",
+          "example": "Invisigirl claims that if Captain Fantastic keeps shrinking his suit, it will completely disintegrate."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-009-005-superhero-problems-5",
+      "title": "Capes vs Cloaks",
+      "content": "A group of superhero friends debate the merits of capes vs cloaks for their costumes. One hero insists capes are the only proper choice because all the most famous heroes wear them.",
+      "audioScript": "FashionMan: [post on social media] Just had a frustrating convo with some of my super pals... Can you believe some think CLOAKS are okay? #CapesAreKing #SuperheroFashion101 \n\nInvisiGirl: [annoyed] \"I don't see what the big deal is. Capes, cloaks, as long as they look cool, who cares?\"\n\nFashionMan: [adamant] \"Capes are essential for any self-respecting hero. Superman, Batman, Wonder Woman... they all wear capes. Are you saying they're wrong?\"\n\nSonicKid: [timid] \"I mean, I guess if all those big name heroes wear capes, they must be the right choice...\"\n\nInvisiGirl: [exasperated] \"That's ridiculous. Just because they're famous doesn't mean capes are the only way to go. Dr. Strange rocks a cloak and he's awesome!\"  \n\nFashionMan: [dismissive] \"Dr. Strange, pshh. He's barely even a real superhero. Face it - no cape, no credibility. End of story.\"",
+      "claim": "Capes are essential for superheroes because all the most famous heroes wear them.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "primary",
+          "example": "Claiming capes are essential because famous heroes like Superman and Batman wear them."
+        },
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Concluding capes are necessary based on a small sample of famous heroes."
+        },
+        {
+          "fallacyId": "ad-hominem",
+          "severity": "secondary",
+          "example": "Dismissing Dr. Strange as 'barely a real superhero' to discredit the cloak."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-009-006-superhero-invisibility-clothes",
+      "title": "The Invisible Wardrobe Dilemma",
+      "content": "Invisible Woman is frustrated that her invisibility powers don't extend to her clothes. Her super friends offer various solutions, but some arguments rely on faulty logic.",
+      "audioScript": "Invisible Woman: [frustrated] \"I'm tired of my clothes being visible when I turn invisible! It totally defeats the purpose of my power.\"\n\nStretchy Lad: [sympathetic] \"I get it, that must be really annoying. But maybe it's just the way your powers work, you know?\"\n\nSpeedster: [dismissive] \"Ugh, stop complaining! At least you have powers. Lots of people would love to be invisible, clothes or not.\"\n\nCaptain Fantastic: [thoughtful] \"Hmm, have you tried making your costume out of that new meta-material? I heard it can turn invisible.\"\n\nInvisible Woman: [hopeful] \"Really? That sounds perfect! I'll look into it.\"\n\nSpeedster: [insistent] \"That stuff is way too expensive. Just wear less clothes when you need to be stealthy!\"",
+      "claim": "Invisible Woman should just wear less clothes when she needs to be stealthy.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Speedster assumes a high-tech solution is too expensive without knowing the details."
+        },
+        {
+          "fallacyId": "red-herring",
+          "severity": "secondary",
+          "example": "Speedster's suggestion to wear less clothes distracts from finding a real solution."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-009-007-superhero-laundry-day",
+      "title": "Superhero Laundry Day",
+      "content": "The Flash faces his toughest challenge yet: laundry day! With his super speed, the chore should be a breeze. But his friends argue that his powers are an unfair advantage and he should do laundry the normal way like everyone else.",
+      "audioScript": "\nThe Flash: [posting on social media] Another busy day fighting crime at super speed! But the real challenge is getting this suit clean. #SuperheroLaundryDay #FastestWashCycle \n\nSuperman: [annoyed] Hey Flash, I heard you've been using your powers to do laundry. That's not really fair to the rest of us, is it?\n\nThe Flash: [confused] What do you mean? I have super speed, so of course I use it to get chores done quickly. What's the big deal?\n\nBatman: [stern] The big deal is that it's an unfair advantage. You can finish laundry in seconds while it takes the rest of us hours. You should do it the normal way like everyone else.\n\nWonder Woman: [thoughtful] Now wait a minute. Flash's speed is just part of who he is. Asking him not to use it is like asking me not to use my strength. \n\nGreen Lantern: [agreeing] Yeah, and hasn't Flash earned a break after all the people he saves? I say let him do laundry however he wants. It's not hurting anyone.\n\nThe Flash: [frustrated] Look, my speed is a gift, and I'm going to keep using it to help myself and others, whether it's fighting bad guys or folding clothes. That's final!",
+      "claim": "The Flash should not use his super speed to do laundry because it's an unfair advantage over other superheroes who have to do chores the normal way.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "primary",
+          "example": "Arguing Flash shouldn't use his natural super speed for chores."
+        },
+        {
+          "fallacyId": "false-equivalence",
+          "severity": "primary",
+          "example": "Equating Flash using his speed to an unfair advantage in laundry, when his powers are just part of who he is."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-009-008-superhero-problems-8",
+      "title": "Super Sniffles",
+      "content": "Supergirl is frustrated that her super senses make her extra sensitive to allergens. She proposes getting rid of all flowers and trees in the city to eliminate pollen and help her breathe easier.",
+      "audioScript": "Supergirl: [posts on social media] \"Having a super nose is the worst in spring! I'm voting to eliminate all flowers and trees from Metropolis. Who's with me? #SuperSniffles #PollenProblems 🌺🌳😤\"\n\nBatgirl: [concerned] \"Supergirl, getting rid of all plants seems a bit extreme, don't you think? They're important for the environment.\"\n\nSupergirl: [stubbornly] \"Easy for you to say, Batgirl. You don't have to deal with these super-powered sneezes!\"\n\nRobin: [thoughtfully] \"Hmm, maybe there's a compromise. What if we just planted species that produce less pollen?\"\n\nSupergirl: [dismissively] \"Nope, it's all or nothing! I'm putting it to a vote. All in favor of banning flowers and trees, say 'achoo'!\"\n\nWonder Woman: [calmly] \"Supergirl, I know allergies are frustrating. But eliminating nature isn't the answer. Let's look into some super strength antihistamines for you instead.\"",
+      "claim": "We should get rid of all flowers and trees in Metropolis to eliminate pollen and help Supergirl's allergies.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Supergirl assumes getting rid of all plants will solve the pollen problem, without considering other options or the environmental impact."
+        },
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "primary",
+          "example": "Supergirl presents it as an 'all or nothing' choice between banning all plants or doing nothing, ignoring compromises."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-009-009-superhero-problems-09",
+      "title": "Invisibility Discrimination",
+      "content": "Invisible Man is upset that he wasn't hired for a lifeguard job. He claims it's discrimination against invisible people, even though he lacks the required certifications.",
+      "audioScript": "\n        Invisible Man: [frustrated] \"I can't believe I didn't get hired as a lifeguard. It's blatant discrimination against invisible people!\"\n        \n        Elastic Girl: [concerned] \"Did they say why you weren't hired?\"\n        \n        Invisible Man: [indignant] \"No, but it's obvious. They just don't want an invisible lifeguard. It's not fair!\"\n        \n        Fireball: [thoughtful] \"Don't lifeguards need special training and certifications though? Do you have those?\"\n        \n        Invisible Man: [defensive] \"Well no, but I'm INVISIBLE! I could secretly watch everyone and make sure they're safe. An invisible lifeguard would be way better than a visible one.\"\n        \n        Elastic Girl: [gently] \"I think there's probably more to being a good lifeguard than just being able to see people...\"\n        \n        Invisible Man: [annoyed] \"You guys just don't get it. I'm going to file an invisibility discrimination complaint!\" \n    ",
+      "claim": "Not hiring Invisible Man as a lifeguard is discrimination against invisible people.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Invisible Man assumes he wasn't hired because of his invisibility, without considering other factors like lacking required certifications."
+        },
+        {
+          "fallacyId": "false-equivalence",
+          "severity": "secondary",
+          "example": "Invisible Man equates being invisible with being qualified to be a lifeguard, even though they require different skills."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-009-010-superhero-problems-10",
+      "title": "Invisible Man's Visible Struggle",
+      "content": "Invisible Man complains on social media about his clothes always being visible. His superhero friends reply with their thoughts on his predicament.",
+      "audioScript": "Invisible Man: [frustrated] \"I posted another selfie, but you can only see my floating clothes! #InvisibleManProblems\"\n\nSonic Siren: [sympathetic] \"That's rough, IM. But at least no one can body shame you!\"\n\nTitanium Titan: [dismissive] \"Oh get over it. My super strength makes doorknobs crumble in my hands. That's a REAL problem.\"\n\nCaptain Kinesis: [thoughtful] \"Maybe you could get invisible clothes made from your invisible hair or skin cells?\"\n\nInvisible Man: [dejected] \"I guess I'll just have to accept floating clothes as my look. Thanks anyway, guys.\"",
+      "claim": "Invisible Man's visible clothing is the worst problem for a superhero.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Invisible Man assumes his problem is the worst based only on his own experience."
+        },
+        {
+          "fallacyId": "false-equivalence",
+          "severity": "secondary",
+          "example": "Titanium Titan equates his doorknob problem to Invisible Man's clothing issue."
+        }
+      ],
+      "difficulty": "beginner"
+    }
+  ]
+}

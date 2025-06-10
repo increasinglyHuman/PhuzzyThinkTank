@@ -1,0 +1,30 @@
+{
+  "packId": "pack-020",
+  "theme": "Animal Athletes",
+  "description": "Animals competing in silly sports with questionable rules",
+  "scenarios": [
+    {
+      "id": "pack-020-000-aa-00-ostrich-olympics",
+      "title": "The Ostrich Olympics",
+      "content": "Ozzie the Ostrich claims ostriches are the best athletes because they can run the fastest. But the other animal athletes argue that many factors determine athletic ability beyond just speed.",
+      "audioScript": "Ozzie: [proudly] \"Check out my latest post! 🏅 #OstrichesAreBestAthletes\"\n\nTerry Cheetah: [annoyed] \"Just because you can run fast doesn't mean you're the best athlete. I'm pretty speedy too, you know!\"\n\nEllie Elephant: [calmly] \"There's more to sports than speed. It takes strength, stamina, agility... No single animal is best at everything.\"\n\nMo Monkey: [enthusiastically] \"Yeah! I may not be the fastest, but my acrobatics are unmatched on the uneven bars!\"\n\nOzzie: [dismissively] \"Pfft, minor details. Everyone knows that when it comes to athletics, speed is king! 👑\"",
+      "claim": "Ostriches are the best athletes because they can run the fastest.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Ozzie assumes being the fastest runner makes ostriches the best athletes overall."
+        }
+      ],
+      "difficulty": "beginner"
+    }
+  ]
+}

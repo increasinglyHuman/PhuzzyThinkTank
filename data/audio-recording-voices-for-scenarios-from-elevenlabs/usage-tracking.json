@@ -1,0 +1,28 @@
+{
+  "history": [
+    {
+      "timestamp": "2025-06-07T05:08:18.047Z",
+      "character_count": 134858,
+      "character_limit": 109565,
+      "tier": "creator",
+      "percentage_used": "123.1",
+      "reset_date": "2025-07-07T01:58:12.000Z"
+    },
+    {
+      "timestamp": "2025-06-07T05:33:30.292Z",
+      "character_count": 136416,
+      "character_limit": 109565,
+      "tier": "creator",
+      "percentage_used": "124.5",
+      "reset_date": "2025-07-07T01:58:12.000Z"
+    }
+  ],
+  "sessions": [
+    {
+      "timestamp": "2025-06-07T05:33:30.292Z",
+      "characters_used": 1558,
+      "cost_estimate": 0.2337,
+      "running_total": 136416
+    }
+  ]
+}

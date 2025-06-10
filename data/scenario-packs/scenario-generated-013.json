@@ -1,0 +1,307 @@
+{
+  "packId": "pack-013",
+  "theme": "Food Truck Philosophy",
+  "description": "Food vendors debating culinary ethics and customer behavior",
+  "scenarios": [
+    {
+      "id": "pack-013-001-food-truck-fallacies-1",
+      "title": "The Veggie Vendetta",
+      "content": "Rival food truck vendors Patty and Sal debate the ethics of serving meat. Patty argues meat is unnatural and cruel, while Sal says eating animals is a time-honored tradition. Their friend Tina tries to find a balanced perspective.",
+      "audioScript": "Patty: [posting on social media] \"Just saw @SalsGrillShack serving dead animals again. When will people wake up? Eating meat is so unnatural! 🥗🌿 #govegan #meatismurder\"\n\nSal: [annoyed] \"Get off your high horse Patty! Humans have eaten meat since the Stone Age. Who are you to say it's wrong?\"\n\nPatty: [self-righteous] \"Just because something is traditional doesn't make it right! We've evolved beyond the need to harm animals.\"\n\nTina: [thoughtful] \"I see valid points on both sides. Many traditions are worth keeping, but we should also reexamine old assumptions. The issue seems complex.\"\n\nSal: [defensive] \"Oh sure, take her side Tina! You veggie lovers gotta stick together and push your agenda!\"\n\nPatty: [smug] \"You're just scared to admit I'm right and that you're on the wrong side of history!\"",
+      "claim": "Eating meat is unethical because it's unnatural and cruel to animals.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "primary",
+          "example": "Patty argues eating meat is wrong because it's unnatural."
+        },
+        {
+          "fallacyId": "appeal-to-tradition",
+          "severity": "primary",
+          "example": "Sal argues eating meat is fine because it's a long-standing tradition."
+        },
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "secondary",
+          "example": "Sal implies you must pick sides between all meat or all veggies."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-013-002-food-truck-debate-1",
+      "title": "Taco Truck Tantrum",
+      "content": "Two food truck owners debate the ethics of serving only organic ingredients. One argues it's the only moral choice, while the other says it's elitist and excludes lower income customers.",
+      "audioScript": "TacoKing22: [enthusiastic] \"I only use 100% organic, non-GMO, gluten-free ingredients in my tacos. It's the only ethical way to cook!\"\n\nCheeseWheels: [skeptical] \"But organic is so expensive. You're excluding a huge portion of potential customers who can't afford $10 tacos.\"\n\nTacoKing22: [adamant] \"If people can't afford organic, that's their problem. As a chef, I have a moral duty to serve the healthiest, most natural food possible.\"\n\nCheeseWheels: [frustrated] \"Oh please. People have been eating conventional produce for generations and humanity has survived just fine. Organic is an overpriced scam!\"\n\nTacoKing22: [smug] \"Enjoy poisoning your customers then. I'll be over here serving REAL food to people who care about their health and the planet.\"",
+      "claim": "Food trucks have a moral obligation to only use organic ingredients, even if it means higher prices.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "primary",
+          "example": "Arguing that organic food is inherently better because it's 'natural'"
+        },
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "primary",
+          "example": "Presenting the choice as either 100% organic or 'poisoning customers' with no middle ground"
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-013-003-food-truck-philosophy-3",
+      "title": "Tofu Tussle",
+      "content": "Two food truck owners argue about the ethics of serving meat. One insists that selling meat is morally wrong and the other claims tofu is unnatural. A customer chimes in with her views.",
+      "audioScript": "Tanya Tofu: [passionate] \"I can't believe you sell dead animal flesh, Frank! Meat is murder!\"\n\nFrank Furter: [defensive] \"Hey, humans are natural omnivores. Tofu is just weird processed soybeans. Not natural at all!\"\n\nTanya Tofu: [outraged] \"How dare you compare my organic non-GMO tofu to a rotting animal carcass! I'm sure all your customers will agree with me. Meat is wrong!\"  \n\nCarla Customer: [thoughtful] \"Actually, I think there are good arguments on both sides. We should be open-minded and make our own informed choices.\"\n\nFrank Furter: [dismissive] \"Pipe down, Carla. Tanya here thinks she's better than everyone else just because she eats rabbit food.\"",
+      "claim": "Selling and eating meat is morally wrong and unnatural. Tofu is the ethical choice.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "primary",
+          "example": "Frank argues that tofu is unnatural while meat-eating is natural for humans."
+        },
+        {
+          "fallacyId": "bandwagon",
+          "severity": "primary",
+          "example": "Tanya assumes all the customers will agree with her anti-meat position."
+        },
+        {
+          "fallacyId": "ad-hominem",
+          "severity": "secondary",
+          "example": "Frank attacks Tanya as thinking she's 'better than everyone else'."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-013-004-food-truck-fallacies-4",
+      "title": "The Vegetable Ultimatum",
+      "content": "Two food truck chefs argue over whether customers should be forced to eat their vegetables. One claims veggies are necessary for health, the other says people should choose freely.",
+      "audioScript": "SaladSally: [passionate] \"Vegetables are essential for good health! All our customers must eat them or face the consequences!\"\n\nFrankTheFryer: [dismissive] \"Nonsense, people should eat what they want. Forcing veggies on them is wrong.\"\n\nSaladSally: [insistent] \"But everyone knows veggies are good for you! If we don't make people eat them, they'll just get sick.\"\n\nTacoTom: [reasonable] \"Well, veggies are healthy, but people should still have a choice. We can encourage them without forcing the issue.\"\n\nSaladSally: [exasperated] \"Ugh, you just want everyone to eat junk food all day! Why do you hate health?!\"\n\nFrankTheFryer: [eyeroll] \"Oh please, stop with the drama. Let people make their own choices.\"",
+      "claim": "Food trucks should force all customers to eat vegetables.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-fear",
+          "severity": "primary",
+          "example": "If we don't make people eat veggies, they'll just get sick."
+        },
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "secondary",
+          "example": "Implying the only options are forcing veggies or letting people eat junk food all day."
+        },
+        {
+          "fallacyId": "straw-man",
+          "severity": "secondary",
+          "example": "Exaggerating the other side's view as 'hating health' for disagreeing."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-013-005-food-truck-philosophy-5",
+      "title": "Is This Meal Deal?",
+      "content": "At the Food Truck Fest, the Burger Bros are arguing with Taco Tina about whether combo meal deals are a scam that trick customers into overeating. They debate if upsizing is unethical or just giving people what they want.",
+      "audioScript": "\n        Burger Bro 1: [posting on social media] Just overheard Taco Tina saying our burger combo deals are unethical! Can you believe that?? #FoodTruckDrama #BurgerBrosBeef \n        \n        Taco Tina: [calmly] I'm just saying, pushing oversized portions with sugary drinks isn't healthy. Combo 'deals' make people overeat.\n\n        Burger Bro 2: [defensively] Hey, people love our Big Bro Burger Boxes! If they want to upsize their meal, that's their choice. Don't food shame our customers!\n\n        Taco Tina: [concerned] But the default shouldn't be giant portions. You're normalizing overeating. My taco stand focuses on fresh, reasonable sizes.\n\n        Burger Bro 1: [getting heated] Oh please, tacos are just as bad! Tortillas are empty carbs. And your guac is full of fat! You can't criticize us.\n\n        Burger Bro 2: [firmly] Bottom line, people vote with their dollars. We sell way more than you, so clearly they want our burger deals. If you were right, no one would buy them!\n\n        Taco Tina: [sighs and shakes her head] I'm not saying my menu is perfect. But we could all do better than pushing massive meals as the norm. Think about the health of our community.\n    ",
+      "claim": "Selling oversized combo meal deals is unethical because it tricks customers into overeating.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-equivalence",
+          "severity": "primary",
+          "example": "Burger Bro 1 argues that tacos are just as unhealthy as burger combos, even though Taco Tina never claimed her menu was perfect."
+        },
+        {
+          "fallacyId": "bandwagon",
+          "severity": "primary",
+          "example": "Burger Bro 2 says that since they sell more than Taco Tina, it proves customers want oversized combos and the brothers must be right."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-013-006-food-truck-philosophy-6",
+      "title": "The All-Natural Fallacy",
+      "content": "At a food truck festival, vendors debate whether 'all-natural' ingredients are always healthier and better than conventional ones. Some use appeals to nature to argue their case.",
+      "audioScript": "TacoTruckTanya: [excited] \"I just posted on Foodstagram: 'All-natural is always better! 🌿 Chemicals are bad! 🧪 #AllNaturalLife' What do you all think?\"\n\nSushiSteveSan: [skeptical] \"I'm not so sure about that, Tanya. Just because something is natural doesn't mean it's good for you. Some plants and animals are naturally toxic.\"\n\nBurgerBobby: [agreeing] \"Yeah, and lots of beneficial medicines are made in labs. It's not that simple.\"\n\nTacoTruckTanya: [defensive] \"But chemicals are dangerous and unnatural! Nature knows best.\"\n\nGyroGuru: [measured] \"I think the key is balance. Some natural ingredients are great, but we shouldn't assume all artificial ones are bad. It depends on the specific substance and amount.\"\n\nSushiSteveSan: [suggesting] \"Exactly. We should focus on using quality ingredients - natural or not - in reasonable quantities. Not everything natural is good and not everything artificial is bad.\"",
+      "claim": "All-natural ingredients are always healthier and better than artificial or synthetic ones.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "primary",
+          "example": "Tanya argues that all-natural is always better simply because it's natural, ignoring that some natural things can be harmful."
+        },
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "secondary",
+          "example": "Tanya implies that ingredients must be either all-natural and good or artificial and bad, leaving out any middle ground."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-013-007-food-truck-fallacies-7",
+      "title": "Food Truck Fracas",
+      "content": "Competing food truck owners argue over who has the better cuisine and business practices. Logical fallacies fly as they debate ingredients, prices, and customer loyalty.",
+      "audioScript": "TacoTom: [angrily] \"Your so-called 'natural' ingredients are a scam, PitaBob! Appeal-to-nature much?\"\n\nPitaBob: [defensively] \"At least I'm not Mr. Bandwagon over here, always chasing the latest trends!\"\n\nTacoTom: [smugly] \"Trends? More like tried-and-true appeal-to-tradition, my friend. Tacos are here to stay!\"\n\nChefJulie: [calmly] \"Gentlemen, let's focus on making great food, not hasty-generalizations and false-dilemmas about our competition.\"\n\nTacoTom: [exasperated] \"Fine, but PitaBob started it with his slippery-slope nonsense about taco meat!\"\n\nPitaBob: [resigned] \"I suppose we both got a bit carried away. Truce?\"\n\nTacoTom: [reluctantly] \"Truce. But I still think tacos rule.\"",
+      "claim": "Food trucks that use all-natural ingredients are always healthier and better than those that don't.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "primary",
+          "example": "PitaBob implies his food is better because he uses 'natural' ingredients"
+        },
+        {
+          "fallacyId": "bandwagon",
+          "severity": "primary",
+          "example": "TacoTom accuses PitaBob of just chasing popular trends"
+        },
+        {
+          "fallacyId": "appeal-to-tradition",
+          "severity": "primary",
+          "example": "TacoTom argues his tacos are best because they are traditional"
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-013-008-food-truck-philosophy-08",
+      "title": "Tofu Taco Tension",
+      "content": "A vegan food truck owner and a BBQ truck owner debate the ethics of serving meat. The vegan makes an appeal to nature fallacy while the BBQ vendor uses a straw man argument.",
+      "audioScript": "VeganViv: [passionate] \"Humans weren't meant to eat meat. It's unnatural! We should only eat plants like our early ancestors.\"\n\nMeatMattie: [defensive] \"So you're saying my BBQ is evil and no one should ever enjoy a burger or steak? That's ridiculous!\"\n\nVeganViv: [insistent] \"Meat is murder! Plant-based is the only ethical way. Nature intended us to be herbivores.\"  \n\nMeatMattie: [exasperated] \"Plants have feelings too! You're killing innocent carrots. See how silly that sounds?\"\n\nVeganViv: [frustrated] \"That's not the same at all! Animals suffer, plants don't.\"",
+      "claim": "Humans shouldn't eat meat because it's unnatural.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "primary",
+          "example": "VeganViv argues eating meat is wrong because it's unnatural for humans."
+        },
+        {
+          "fallacyId": "straw-man",
+          "severity": "secondary",
+          "example": "MeatMattie misrepresents VeganViv's argument as saying BBQ is evil and no one should ever eat meat."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-013-009-food-truck-debate-01",
+      "title": "Taco Truck Tussle",
+      "content": "Taco Joe and Pizza Pete debate the best way to run a food truck business. Joe argues that using cheaper, canned ingredients is fine, while Pete believes fresh, quality ingredients are a must.",
+      "audioScript": "Taco Joe: [boastful] \"I use canned beans and pre-shredded cheese in my tacos. It's way cheaper and customers can't even tell the difference!\"\n\nPizza Pete: [skeptical] \"No way, Joe. Fresh ingredients are essential. Would you want to eat a taco made with cheap canned stuff?\"\n\nTaco Joe: [defensive] \"Hey, everybody else uses canned ingredients too. It's totally normal in this business. Don't be such a snob, Pete!\"\n\nPizza Pete: [frustrated] \"It's not about being a snob. It's about having integrity and giving customers quality food. If you cut corners, it'll catch up to you eventually.\"\n\nTaco Joe: [dismissive] \"Nah, you're just falling for all that 'fresh is best' nonsense. Canned food is perfectly fine. You probably think GMOs are evil too, huh?\"",
+      "claim": "Using cheap canned ingredients in food truck cuisine is totally fine because everyone else does it too.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "bandwagon",
+          "severity": "primary",
+          "example": "Taco Joe argues that using canned ingredients is fine because 'everybody else' does it too."
+        },
+        {
+          "fallacyId": "false-equivalence",
+          "severity": "secondary",
+          "example": "Taco Joe equates preferring fresh ingredients with thinking GMOs are evil."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-013-010-food-truck-philosophy-10",
+      "title": "Tofu Taco Trouble",
+      "content": "Competing food trucks debate the ethics of serving meat substitutes without clear labeling. Are they misleading customers or simply offering tasty options?",
+      "audioScript": "CrunchyKale: [excited] \"I just posted about our new organic tofu tacos! 🌮🥑 #HealthyEats\" \nVeganDreams: [concerned] \"But you didn't clearly label them as tofu. Isn't that misleading?\"\nCrunchyKale: [defensive] \"No way, it's not our fault if people assume they're meat. We're just giving them a delicious meatless option!\"  \nMeatMania: [angry] \"That's ridiculous - you're tricking people! If it's not real meat, you need to say so.\"\nCrunchyKale: [smug] \"Well, fast food places don't label everything that's in their mystery meat. Why should we have to for tofu?\"\nVeganDreams: [thoughtful] \"Hmm, I see both sides. We should offer tasty meatless dishes, but also be upfront about it.\"",
+      "claim": "It's okay for food trucks to serve meat substitutes like tofu without clearly labeling them as such.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-equivalence",
+          "severity": "primary",
+          "example": "Compares unlabeled tofu to mystery meat in fast food."
+        },
+        {
+          "fallacyId": "red-herring",
+          "severity": "primary",
+          "example": "Brings up fast food places instead of addressing the actual question."
+        }
+      ],
+      "difficulty": "beginner"
+    }
+  ]
+}

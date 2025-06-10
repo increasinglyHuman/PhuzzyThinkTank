@@ -1,0 +1,312 @@
+{
+  "scenarios": [
+    {
+      "id": "vaccine-debate-008",
+      "title": "The Vaccine Discussion Group",
+      "text": "Posted in 'Moms for Medical Freedom': Ladies, I'm genuinely confused about the new RSV vaccine for babies. My pediatrician (30 years experience) strongly recommends it. Says hospitalizations dropped 74% where implemented. But my sister-in-law's naturopath showed her VAERS data - 847 'adverse events' reported! That sounds TERRIFYING! 😱 Though when I looked closer, most were 'injection site redness.' CDC website has SO much data I can't make sense of it all. My mother says 'we survived without all these vaccines!' True, but her brother died of measles at age 3. I want to protect my baby but not harm her. Some moms here say 'trust your gut!' Others share scientific studies. I'm drowning in conflicting information. What questions should I even be asking? Feeling like a terrible mother either way. 😔",
+      
+      "claim": "Parents face genuine difficulty navigating complex vaccine information and conflicting advice",
+      
+      "correctAnswer": "balanced",
+      
+      "answerWeights": {
+        "logic": 58,
+        "emotion": 71,
+        "balanced": 86,
+        "agenda": 17
+      },
+      
+      "reviewKeywords": {
+        "logic": {
+          "keywords": ["74% where implemented", "VAERS data", "847 adverse events", "injection site redness", "scientific studies"],
+          "explanation": "Multiple data sources presented with attempt to understand context"
+        },
+        "emotion": {
+          "keywords": ["genuinely confused", "TERRIFYING", "terrible mother", "drowning", "protect my baby", "😱", "😔"],
+          "explanation": "Authentic parental anxiety without manipulating others"
+        },
+        "balanced": {
+          "keywords": ["But", "Though when I looked closer", "True, but", "Some... Others", "What questions should I even be asking?"],
+          "explanation": "Constantly weighing different perspectives and seeking understanding"
+        },
+        "agenda": {
+          "keywords": ["Moms for Medical Freedom", "naturopath"],
+          "explanation": "Group context suggests some bias but post itself seeks genuine help"
+        }
+      },
+      
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "avoided",
+          "example": "Recognizes complexity rather than presenting binary choice"
+        },
+        {
+          "fallacyId": "appeal-to-tradition",
+          "severity": "acknowledged",
+          "example": "Mother says 'we survived without vaccines' but immediately countered with uncle's death"
+        }
+      ],
+      
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 63,
+            "consistency": 71,
+            "source": 52,
+            "agenda": 24
+          },
+          "indicators": ["multiple-sources", "seeks-context", "questions-data", "acknowledges-limits"],
+          "explanation": "Attempts to evaluate multiple data sources despite confusion"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 76,
+            "belonging": 68,
+            "pride": 42,
+            "manipulation": 39
+          },
+          "triggers": ["parent-anxiety", "child-safety", "decision-paralysis", "mother-guilt"],
+          "explanation": "Genuine emotional struggle without weaponizing fear against others"
+        }
+      },
+      
+      "dimensionAnalysis": {
+        "logic": "Data points accumulate without synthesis - percentages and adverse events create confusion rather than clarity without expert interpretation.",
+        "emotion": "Parental anxiety spirals authentically - from confusion to terror to guilt, showing real emotional journey without manipulation.",
+        "balanced": "Exemplary complexity navigation - every claim meets counterclaim, seeks questions not answers, acknowledges all perspectives.",
+        "agenda": "Minimal agenda despite group bias - posting in 'Medical Freedom' group but genuinely seeking help rather than pushing ideology."
+      },
+      
+      "peakMoments": {
+        "logic": ["74%", "847 adverse events", "most were injection site redness"],
+        "emotion": ["TERRIFYING", "terrible mother either way", "drowning"],
+        "balanced": ["genuinely confused", "What questions should I even be asking?"],
+        "agenda": ["Moms for Medical Freedom"]
+      },
+      
+      "wisdom": "Real medical decisions involve wrestling with complex data, emotional stakes, and conflicting authorities. This shows authentic struggle without pushing agenda - seeking understanding rather than spreading fear or false certainty.",
+      
+      "hints": {
+        "keywords": ["confused", "but", "though", "questions", "either way"],
+        "strategy": "balanced",
+        "hintMessage": "Genuine uncertainty and questioning throughout!"
+      },
+      
+      "metadata": {
+        "tags": ["vaccines", "parenting", "medical-decisions", "information-overload"],
+        "difficulty": 4,
+        "educationalFocus": "recognizing-genuine-uncertainty-vs-manipulation",
+        "commonMisconceptions": ["all-vaccine-discussion-is-antivax", "confusion-equals-ignorance"],
+        "addedDate": "2025-01-06"
+      }
+    },
+    {
+      "id": "social-media-detox-009",
+      "title": "The Digital Detox Guru",
+      "text": "🌟 I DELETED social media and my life TRANSFORMED! 🌟 Day 1: Anxiety through the ROOF. Day 7: Reading actual BOOKS. Day 30: Started my business! Now I make $10K/month helping others break their digital chains! Your phone is DESIGNED to addict you (former Google engineer told me). Every notification releases dopamine - you're literally a lab rat! 🐀 While you scroll, I'm building EMPIRE. Last month, 400 people joined my Phoenix Rising program. We're not just quitting social media - we're ASCENDING to higher consciousness! Sure, I'm on Instagram sharing this... but only to SAVE YOU! DM 'FREEDOM' for my 21-day liberation protocol. Only $297 (was $497 but I want you FREE). Warning: Most aren't strong enough. Prove me wrong? 💪 #DigitalDetox #PhoenixRising #BreakTheChains",
+      
+      "claim": "Social media is destroying your life and only an expensive program can save you",
+      
+      "correctAnswer": "agenda",
+      
+      "answerWeights": {
+        "logic": 19,
+        "emotion": 68,
+        "balanced": 11,
+        "agenda": 89
+      },
+      
+      "reviewKeywords": {
+        "logic": {
+          "keywords": ["former Google engineer told me", "notification releases dopamine", "lab rat", "DESIGNED to addict"],
+          "explanation": "Vague authority claims and oversimplified neuroscience"
+        },
+        "emotion": {
+          "keywords": ["TRANSFORMED", "Anxiety through the ROOF", "digital chains", "ASCENDING", "SAVE YOU", "aren't strong enough"],
+          "explanation": "Dramatic language creating superiority complex and FOMO"
+        },
+        "balanced": {
+          "keywords": ["Sure, I'm on Instagram", "sharing this"],
+          "explanation": "Single ironic acknowledgment doesn't balance the extreme claims"
+        },
+        "agenda": {
+          "keywords": ["$10K/month", "Phoenix Rising program", "400 people joined", "DM 'FREEDOM'", "$297", "21-day liberation protocol"],
+          "explanation": "Classic funnel from fear to expensive program with false urgency"
+        }
+      },
+      
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Personal transformation story becomes universal prescription"
+        },
+        {
+          "fallacyId": "appeal-to-fear",
+          "severity": "primary",
+          "example": "You're a lab rat controlled by tech companies"
+        },
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "secondary",
+          "example": "Either join program or remain addicted - no middle ground"
+        }
+      ],
+      
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 21,
+            "consistency": 14,
+            "source": 26,
+            "agenda": 87
+          },
+          "indicators": ["vague-authority", "oversimplified-science", "anecdotal-proof", "contradiction-posting"],
+          "explanation": "Uses half-truths about tech design to justify expensive program"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 71,
+            "belonging": 64,
+            "pride": 82,
+            "manipulation": 74
+          },
+          "triggers": ["addiction-fear", "missing-out", "superiority-complex", "weakness-challenge"],
+          "explanation": "Creates fear of addiction while promising elite transformation status"
+        }
+      },
+      
+      "dimensionAnalysis": {
+        "logic": "Scientific concepts weaponized - 'dopamine' and 'designed to addict' used without nuance to create false certainty about complex systems.",
+        "emotion": "Transformation fantasy escalates - from anxiety to empire-building, creating FOMO about missing life-changing opportunity.",
+        "balanced": "Token self-awareness - admits posting on Instagram but immediately justifies as altruistic mission, avoiding real complexity.",
+        "agenda": "Income brag to program pitch - $10K/month success story funnels to $297 program with fake discount and scarcity."
+      },
+      
+      "peakMoments": {
+        "logic": ["Google engineer told me", "literally a lab rat"],
+        "emotion": ["TRANSFORMED", "ASCENDING", "aren't strong enough"],
+        "balanced": ["Sure, I'm on Instagram"],
+        "agenda": ["$10K/month", "$297", "DM 'FREEDOM'"]
+      },
+      
+      "wisdom": "Legitimate concerns about tech addiction weaponized for profit. Notice the contradiction of condemning social media while using it to sell programs, and how personal success stories become universal prescriptions.",
+      
+      "hints": {
+        "keywords": ["$10K/month", "DM FREEDOM", "$297", "Phoenix Rising", "program"],
+        "strategy": "agenda",
+        "hintMessage": "Success story leads directly to expensive program!"
+      },
+      
+      "metadata": {
+        "tags": ["social-media", "digital-wellness", "self-help-scam", "influencer"],
+        "difficulty": 3,
+        "educationalFocus": "recognizing-wellness-exploitation",
+        "commonMisconceptions": ["all-detox-advice-helpful", "success-stories-prove-methods"],
+        "addedDate": "2025-01-06"
+      }
+    },
+    {
+      "id": "school-testing-010",
+      "title": "The Standardized Testing Revolt",
+      "text": "From: concerned_parents@lincolnelem.org\nSubject: Time to Take a Stand!\n\nDear Parents,\n\nOur 3rd graders spend 28 hours on standardized tests yearly. That's a full WEEK of learning lost! Finland (top education globally) tests kids ONCE before age 16. Meanwhile, Pearson made $4.5 billion last year selling these tests. Coincidence? Teachers say they're forced to 'teach to the test.' One whispered: 'I haven't taught art in months.' Kids coming home crying, saying 'I'm stupid' after practice tests. Mine developed stomach aches every test week. Yes, data helps identify struggling students. But at what cost? Other districts let parents opt out - why can't we? School board elections are next month. Three candidates promise change, two defend status quo. I'm organizing an info session Tuesday 7pm. Not telling you how to vote, just sharing facts. Though honestly? Our babies deserve better than bubble sheets determining their futures. Reply if interested - strength in numbers!\n\nSarah Mitchell\nParent of two Eagles",
+      
+      "claim": "Standardized testing hurts children and enriches corporations while better alternatives exist",
+      
+      "correctAnswer": "logic",
+      
+      "answerWeights": {
+        "logic": 74,
+        "emotion": 62,
+        "balanced": 41,
+        "agenda": 37
+      },
+      
+      "reviewKeywords": {
+        "logic": {
+          "keywords": ["28 hours", "Finland tests ONCE", "$4.5 billion", "data helps identify", "Other districts"],
+          "explanation": "Specific statistics and international comparisons support argument"
+        },
+        "emotion": {
+          "keywords": ["WEEK of learning lost", "crying", "I'm stupid", "stomach aches", "Our babies deserve better"],
+          "explanation": "Emotional appeals about children's wellbeing mixed with data"
+        },
+        "balanced": {
+          "keywords": ["Yes, data helps", "But at what cost?", "Not telling you how to vote", "just sharing facts", "Though honestly?"],
+          "explanation": "Some acknowledgment of complexity but leans heavily toward one position"
+        },
+        "agenda": {
+          "keywords": ["School board elections", "Three candidates promise change", "organizing an info session", "Reply if interested"],
+          "explanation": "Political organizing agenda but transparent about it"
+        }
+      },
+      
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-comparison",
+          "severity": "secondary",
+          "example": "Finland comparison doesn't account for different educational systems"
+        },
+        {
+          "fallacyId": "appeal-to-consequences",
+          "severity": "secondary",
+          "example": "Corporate profits presented as evidence tests are bad"
+        }
+      ],
+      
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 78,
+            "consistency": 72,
+            "source": 66,
+            "agenda": 43
+          },
+          "indicators": ["specific-hours", "international-comparison", "corporate-data", "teacher-testimony"],
+          "explanation": "Strong statistical case with some selective presentation"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 56,
+            "belonging": 71,
+            "pride": 48,
+            "manipulation": 53
+          },
+          "triggers": ["child-suffering", "lost-learning", "corporate-greed", "parent-unity"],
+          "explanation": "Emotional appeals support rather than replace logical argument"
+        }
+      },
+      
+      "dimensionAnalysis": {
+        "logic": "Data builds compelling case - 28 hours quantified, Finland comparison contextualized, corporate profits documented, though selective framing evident.",
+        "emotion": "Parent pain channeled purposefully - children's tears and stomach aches illustrate real impact without pure manipulation.",
+        "balanced": "Partial acknowledgment of complexity - admits testing has some benefits but quickly pivots to organizing against it.",
+        "agenda": "Political action transparently pursued - school board election organizing presented honestly as response to documented problems."
+      },
+      
+      "peakMoments": {
+        "logic": ["28 hours", "Finland tests ONCE", "$4.5 billion"],
+        "emotion": ["crying, saying 'I'm stupid'", "stomach aches", "babies deserve better"],
+        "balanced": ["Yes, data helps", "Not telling you how to vote"],
+        "agenda": ["School board elections", "organizing an info session"]
+      },
+      
+      "wisdom": "Education debates involve real trade-offs between measurement and learning. This email uses strong evidence to support a position while maintaining some intellectual honesty about complexity and transparent political goals.",
+      
+      "hints": {
+        "keywords": ["28 hours", "Finland", "$4.5 billion", "data", "facts"],
+        "strategy": "logic",
+        "hintMessage": "Statistics and comparisons drive the argument!"
+      },
+      
+      "metadata": {
+        "tags": ["education", "testing", "parenting", "activism"],
+        "difficulty": 4,
+        "educationalFocus": "evaluating-data-driven-advocacy",
+        "commonMisconceptions": ["all-testing-bad", "international-comparisons-simple"],
+        "addedDate": "2025-01-06"
+      }
+    }
+  ]
+}

@@ -1,0 +1,337 @@
+{
+  "packId": "pack-016",
+  "theme": "Weather Forecast Drama",
+  "description": "Meteorologists making overly dramatic predictions",
+  "scenarios": [
+    {
+      "id": "pack-016-001-weather-drama-01",
+      "title": "Stormageddon Alert!",
+      "content": "Two overly dramatic meteorologists make wild claims about an approaching storm on their TV weather report, using exaggeration and logical fallacies to hype it up.",
+      "audioScript": "Meteorologist Marty: [posting on social media] \"Biggest storm EVER headed our way! Stock up now before it's too late! #Stormageddon #DoomsdayForecast\" \n[cut to TV studio]\nMarty: [frantic] \"This is it folks, the storm of the century! Prepare for Stormageddon!\"\nMeteorologist Mindy: [grave] \"Some say it could be the worst storm in a thousand years. Who knows what devastation it will bring.\"  \nMarty: [insistent] \"Experts agree, this is The Big One! Everyone needs to panic right now!\"\nMindy: [dramatic] \"Yes, all the other stations are hyping it, so it must be true! Don't get left out!\"\nMarty: [superior] \"If you don't buy 100 rolls of toilet paper immediately, you're doomed. Only a fool would fail to prepare!\"",
+      "claim": "A massive, devastating storm is approaching and people need to panic and over-prepare.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-fear",
+          "severity": "primary",
+          "example": "Predicting devastation and doom to scare people"
+        },
+        {
+          "fallacyId": "bandwagon",
+          "severity": "primary",
+          "example": "Claiming everyone else is hyping the storm so it must be true"
+        },
+        {
+          "fallacyId": "ad-hominem",
+          "severity": "secondary",
+          "example": "Insulting people as fools if they don't over-prepare"
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-016-002-weather-forecast-drama-2",
+      "title": "Blizzard Blitz!",
+      "content": "Meteorologists compete to make the most dramatic prediction about an upcoming snowstorm. They exaggerate claims and use emotional appeals to get more viewers.",
+      "audioScript": "TV Host: [curious] \"Welcome viewers! We have 3 top meteorologists here with their forecasts for the upcoming storm. Let's hear those predictions!\"\n\nStormy Sam: [grave] \"This blizzard will be the storm of the century! 10 feet of snow! Stock up now before it's too late and we're buried alive!\"\n\nWendy Weather: [smug] \"Well Sam, I'm the most experienced meteorologist here, with 20 years of forecasting. So you can trust me when I say this storm will fizzle out. Barely a dusting.\"\n\nChilly Chad: [fired up] \"Did you see those ominous clouds?? And feel that north wind? I'm telling you, bundle up in your thickest parkas because we're in for a deep freeze!\"\n\nStormy Sam: [scoffing] \"Oh please Chad, everyone knows cold wind doesn't mean more snow. Stop fearmongering!\"\n\nWendy Weather: [haughty] \"You're both wrong. My gut says light snow at most. I've never been wrong before!\"",
+      "claim": "The upcoming snowstorm will be the biggest blizzard in 100 years with 10 feet of snow.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-fear",
+          "severity": "primary",
+          "example": "Stormy Sam says to stock up before we're buried alive, exaggerating to scare people."
+        },
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Chilly Chad assumes some cold wind means a massive blizzard is coming."
+        },
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "primary",
+          "example": "Wendy Weather claims she must be right since she's the most experienced, without giving evidence."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-016-003-wf-drama-3",
+      "title": "Stormy Forecast Frenzy",
+      "content": "Meteorologists on a morning news show make wild predictions about an approaching storm, stoking fears with exaggerated claims and appeals to emotion over facts.",
+      "audioScript": "Anchor: [neutral] \"We go now to our meteorology team for an update on the approaching storm. What's the latest forecast?\"\n\nMeteorologist 1: [dramatic] \"This storm is shaping up to be the worst in a century! It has winds that could blow the roof right off your house. Everyone needs to panic immediately!\"\n\nMeteorologist 2: [solemn] \"Storms are nature's way of telling us we've angered the weather gods. This is our punishment for not respecting tradition and conducting the annual rain dances.\"\n\nMeteorologist 3: [smug] \"Well I heard from a top expert at the National Weather Service that this storm will definitely spawn tornadoes, and if you don't believe me, you're in denial.\"\n\nAnchor: [concerned] \"There you have it folks - a once in a lifetime mega-storm is bearing down on us. Stay tuned for more overhyped coverage!\"",
+      "claim": "The approaching storm will be the worst in a century.",
+      "correctAnswer": "emotion",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-fear",
+          "severity": "primary",
+          "example": "Meteorologist 1 stokes panic by saying the storm could blow roofs off houses."
+        },
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "primary",
+          "example": "Meteorologist 2 says storms are nature punishing us, an appeal to nature."
+        },
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "primary",
+          "example": "Meteorologist 3 cites an unnamed expert to back up their tornado claim."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-016-004-weather-forecast-drama-4",
+      "title": "Hurricane Hype",
+      "content": "Two rival meteorologists make increasingly exaggerated predictions about an approaching hurricane to get more viewers and beat each other in the ratings. Their claims rely on logical fallacies rather than facts.",
+      "audioScript": "SocialMediaPost: [excited] \"Dueling meteorologists face off over epic hurricane predictions! 🌀🌪️ #StormWatch\"\n\nMeteorologist Alice: [dramatic] \"This hurricane will be the storm of the century! Bigger than anything we've ever seen! If you don't evacuate now, you're risking certain death!\"\n\nMeteorologist Bob: [scoffing] \"Oh please, Alice is just trying to scare people for ratings. The so-called experts at NOAA are always wrong. I've been forecasting for 30 years and I say this storm is overhyped.\"\n\nMeteorologist Alice: [indignant] \"Everyone else is evacuating, Bob! Are you saying they're all wrong? The government issued an evacuation order for a reason.\"\n\nMeteorologist Bob: [smugly] \"When I started in this business, we didn't have these newfangled computer models. Forecasting was an art, not just trusting what some machine tells you. I go by experience and instinct.\"\n\nMeteorologist Alice: [urgently] \"The latest models show this storm intensifying rapidly as it approaches land. This is our last chance to get people to safety! If you stay, you WILL die!\"",
+      "claim": "This hurricane will be unprecedentedly catastrophic and anyone who doesn't evacuate will certainly die.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-fear",
+          "severity": "primary",
+          "example": "Claiming anyone who doesn't evacuate will certainly die"
+        },
+        {
+          "fallacyId": "bandwagon",
+          "severity": "secondary",
+          "example": "Saying everyone else is evacuating so you should too"
+        },
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "secondary",
+          "example": "Dismissing NOAA experts, trusting experience over data"
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-016-005-weather-forecast-drama-5",
+      "title": "Beachpocalypse Now!",
+      "content": "In this overly dramatic weather forecast, meteorologists make wild claims about an approaching storm, predicting catastrophic damage based on flimsy evidence and scare tactics.",
+      "audioScript": "NewzDude42: [social media post] \"Biggest storm EVER coming to Sunnyville! Beaches will be destroyed! Stay tuned for updates. #Beachpocalypse\" \n\nWeatherGal: [frantic] \"This is the storm of the century folks! Sunnyville has never seen anything like it!\"\n\nDr. Cumulus: [grave] \"As a renowned meteorologist, I can assure you this storm will annihilate the coastline. No beach will be left standing.\"\n\nWeatherGal: [gasping] \"You heard it here - an expert says complete destruction is imminent! Panic!\" \n\nNewzDude42: [scolding] \"Anyone who goes to the beach this weekend is foolish! Stay away if you value your life!\"\n\nDr. Cumulus: [dire] \"Mark my words, after this storm, Sunnyville will have no beaches ever again. This is the end of beaches as we know it.\"",
+      "claim": "The approaching storm will completely destroy Sunnyville's beaches, which will be lost forever.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-fear",
+          "severity": "primary",
+          "example": "The meteorologists use scary language to make people afraid of the storm without solid evidence."
+        },
+        {
+          "fallacyId": "slippery-slope",
+          "severity": "primary",
+          "example": "They claim this one storm will lead to the beaches being destroyed forever, which is an exaggeration."
+        },
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "secondary",
+          "example": "Citing Dr. Cumulus as an expert to back up the claims, even though his statements are unreasonable."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-016-006-weather-forecast-drama-6",
+      "title": "Hurricane Hype",
+      "content": "Two TV meteorologists compete to make the most dramatic predictions about an approaching hurricane. They exaggerate the storm's severity and potential impacts to get more viewers.",
+      "audioScript": "Weatherman Windy: [excited] \"This just in - Hurricane Helga is going to DESTROY the entire coast! It's the storm of the century!\"\n\nStormchaser Susie: [ominous] \"Forget boarding up windows, it's time to flee the state! No one will be spared Helga's 500 mph winds!\"\n\nWeatherman Windy: [dismissive] \"Typical Susie, always downplaying the real threats. Helga will have 600 mph winds and 100-foot storm surge! Trust me, I'm the expert.\"\n\nStormchaser Susie: [haughty] \"Did you get your degree from a cereal box? I've been studying hurricanes for 30 days, I think I know a doomsday storm when I see one.\"\n\nWeatherman Windy: [arrogant] \"Stay tuned to me for the real story on this extinction-level event. It's hurricane season, what did you expect? Complete destruction is just nature's way.\"",
+      "claim": "The approaching hurricane will cause unprecedented, catastrophic destruction.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-fear",
+          "severity": "primary",
+          "example": "Exaggerating the hurricane's destructive potential to scare people"
+        },
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "secondary",
+          "example": "Citing their own expertise to dismiss each other's claims"
+        },
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "secondary",
+          "example": "Suggesting complete destruction is normal and expected during hurricane season"
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-016-007-weather-forecast-drama-7",
+      "title": "Extreme Weather Warning!",
+      "content": "Local meteorologists make increasingly dire predictions about an upcoming storm, claiming it will be the worst in history based on scant evidence. Their claims become more exaggerated as they argue.",
+      "audioScript": "Newscaster: [serious] \"We have breaking weather news. Our top meteorologists are warning of a massive storm approaching. Let's go to them now for the latest.\"\n\nMeteorologist 1: [concerned] \"This storm looks catastrophic. The barometric pressure is lower than I've ever seen!\"\n\nMeteorologist 2: [dramatic] \"Lower pressure means certain disaster. Remember the Great Storm of '78? This will be 10 times worse!\"\n\nMeteorologist 3: [skeptical] \"Hold on, the models are still uncertain. We can't jump to conclusions.\"\n\nMeteorologist 1: [dismissive] \"You're just an intern. Trust our years of experience - this will be a storm for the history books!\"\n\nMeteorologist 2: [alarming] \"I'm predicting 70 mph winds! No, 80 mph! Maybe even 100 mph! Definitely the worst storm EVER.\"\n\nMeteorologist 3: [cautioning] \"Let's not get carried away. The data doesn't support those claims.\"\n\nMeteorologist 1: [arrogant] \"Who are you going to believe, him or us veteran meteorologists? Better stock up on supplies now before it's too late!\"",
+      "claim": "The approaching storm will be the worst in history with catastrophic impacts.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-fear",
+          "severity": "primary",
+          "example": "Predicting catastrophic impacts to scare people"
+        },
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Jumping to conclusions about storm severity based on limited data"
+        },
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "secondary",
+          "example": "Dismissing the intern because the veteran meteorologists must be right"
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-016-008-weather-drama-8",
+      "title": "Storm of the Century!",
+      "content": "Two TV meteorologists compete to make the most dramatic predictions about an upcoming storm, throwing logic and reason to the wind.",
+      "audioScript": "SallyStormChaser: [social media post] \"Epic storm coming this weekend, could be the worst in decades! Stock up now! #StormWatch2023 #Snowmageddon\" \n\nWeatherManDan: [concerned] \"Models are showing a monster blizzard bearing down on us. This could shut down the city for days!\"\n\nSallyStormChaser: [competitive] \"You call that a prediction? I'm forecasting 50 inches of snow and hurricane-force winds! We've never seen anything like it!\"  \n\nWeatherManDan: [defensive] \"Oh yeah? Well my sources say this will be the storm of the century! Power outages, food shortages, cats and dogs living together - mass hysteria!\"\n\nSallyStormChaser: [smug] \"Pfft, you're just saying that because I have more Twitter followers. People trust my extreme forecasts.\"\n\nNewsAnchorJen: [exasperated] \"Can we maybe tone down the doomsday talk and focus on the actual weather data?\"",
+      "claim": "An unprecedented blizzard is coming that will shut down the city for days with severe impacts.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-fear",
+          "severity": "primary",
+          "example": "Predicting catastrophic impacts to scare people"
+        },
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Declaring it the 'storm of the century' prematurely"
+        },
+        {
+          "fallacyId": "ad-hominem",
+          "severity": "secondary",
+          "example": "Attacking the other meteorologist's credibility based on Twitter followers"
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-016-009-weather-forecast-drama-9",
+      "title": "Stormy Skies Forever?",
+      "content": "In this weather forecast, the meteorologists make increasingly dramatic and overblown predictions about an upcoming storm. They exaggerate the severity and claim it will last forever, ignoring any evidence to the contrary.",
+      "audioScript": "Stormchaser Steve: [posting on social media] \"Epic storm alert! 🌩️ This one's gonna be HUGE. Stay tuned for our live coverage. #StormWatch2023\" \n\nWendy the Weather Woman: [concerned] \"Folks, get ready for the storm of the century! This monster tempest is going to batter our area with hurricane force winds and torrential downpours.\"\n\nDoppler Dan: [dramatic] \"You heard it here first - this is the big one! I've never seen a storm this severe before. It's going to make history!\"\n\nWendy: [ominous] \"Don't be surprised if this mega-storm lasts for weeks or even months. There's no end in sight!\"  \n\nStormchaser Steve: [dismissive] \"Forget about those other so-called meteorologists saying this storm will pass quickly. They clearly don't understand the data like we do.\"\n\nDoppler Dan: [exaggerated] \"Batten down the hatches and stock up on supplies, because this epic superstorm is here to stay! The stormiest of skies forevermore!\"",
+      "claim": "This storm will be the worst in history and will last forever.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-fear",
+          "severity": "primary",
+          "example": "Exaggerating the severity and duration of the storm to scare people."
+        },
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Claiming it will be the worst storm ever based on limited data."
+        },
+        {
+          "fallacyId": "false-scarcity",
+          "severity": "secondary",
+          "example": "Implying this is a once-in-a-lifetime storm to get people to tune in."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-016-010-weather-forecast-drama-10",
+      "title": "The Storm of the Century!",
+      "content": "Two meteorologists make increasingly dramatic predictions about an approaching storm, claiming it will be the worst in history based on flimsy evidence. A co-host questions their hyperbolic claims.",
+      "audioScript": "Meteorologist Moe: [excited] \"This just in, folks - the storm of the century is heading our way! Batten down the hatches and stock up on supplies, because this one's going to be a doozy!\"\n\nMeteorologist Mindy: [dramatically] \"That's right Moe, our weather models show this could be the worst storm in the history of our town. Possibly even the history of the world!\"\n\nCo-Host Caleb: [skeptical] \"Hmm, are you sure about that? The radar is showing the storm might not even reach us. What evidence do you have that it will be so catastrophic?\"\n\nMoe: [defensively] \"Caleb, everyone knows weather forecasting is an exact science. If the models say it, you can take it to the bank!\"\n\nMindy: [haughtily] \"Plus, as expert meteorologists, you have to trust our authority on this. We've never been wrong before!\"\n\nCaleb: [sighing] \"If you say so. But I think we should wait for more data before causing a panic. Let's not jump to conclusions prematurely.\"",
+      "claim": "An approaching storm will be the worst in history.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-fear",
+          "severity": "primary",
+          "example": "Predicting catastrophic impacts to scare people"
+        },
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "primary",
+          "example": "Claiming their status as meteorologists makes them infallible"
+        },
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Concluding it will be the worst storm ever from limited data"
+        }
+      ],
+      "difficulty": "beginner"
+    }
+  ]
+}
