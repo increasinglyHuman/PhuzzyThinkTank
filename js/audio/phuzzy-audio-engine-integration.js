@@ -191,11 +191,13 @@ class PhuzzyAudioIntegration {
             // Determine channel based on content type
             const channel = this.getChannelForContentType(contentType);
             
-            // Play using the new audio engine
+            // Play using the new audio engine with fade-in to prevent clipping
             const playId = await this.audioEngine.play(audioSpec, {
                 channel,
                 interrupt: 'smart',
-                fadeIn: contentType === 'title', // Fade in titles for smooth start
+                fadeIn: 200, // 200ms fade-in for all audio to prevent clipping
+                fadeOut: 100, // 100ms fade-out for smooth transitions
+                preload: true, // Preload to prevent delays
                 onComplete: () => {
                     console.log(`✅ Completed playing: ${contentType} for ${scenarioTitle}`);
                 },
@@ -233,10 +235,24 @@ class PhuzzyAudioIntegration {
             
             console.log(`🎬 Starting audio sequence for: ${scenarioTitle}`);
             
-            // Play the sequence with intelligent gaps
+            // Ensure audio context is ready before starting
+            if (this.audioEngine.audioContext && this.audioEngine.audioContext.state !== 'running') {
+                try {
+                    await this.audioEngine.audioContext.resume();
+                    // Small delay to ensure audio context is fully ready
+                    await new Promise(resolve => setTimeout(resolve, 50));
+                } catch (error) {
+                    console.warn('Could not resume audio context:', error);
+                }
+            }
+            
+            // Play the sequence with intelligent gaps and fade-ins to prevent clipping
             const sequenceId = await this.audioEngine.playSequence(sequence, {
                 channel: 'dialogue',
                 gapBetween: 800, // Pause between audio segments
+                fadeIn: 200, // 200ms fade-in for each audio part to prevent clipping
+                fadeOut: 100, // 100ms fade-out for smooth transitions
+                preload: true, // Preload all sequence parts to prevent delays
                 onProgress: (current, total, audioSpec) => {
                     console.log(`🎵 Playing ${audioSpec.type} (${current}/${total})`);
                 },
