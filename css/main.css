@@ -2026,6 +2026,10 @@ body {
     transition: all 0.3s ease;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     white-space: nowrap;
+    height: 44px; /* Fixed height to match investigate button exactly */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .scenario-box .audio-btn:hover {
