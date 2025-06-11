@@ -772,23 +772,21 @@
         }
         
         function stopScenarioAudio() {
-            console.log('⏹️ Stopping audio sequence and flushing queue');
+            console.log('⏹️ Stopping audio sequence and flushing ALL queued audio');
             
-            // Stop current audio and clear any queued audio
-            if (window.gameEngine && window.gameEngine.voicePlayer) {
-                // Stop current playback
-                if (window.gameEngine.voicePlayer.stop) {
-                    window.gameEngine.voicePlayer.stop();
-                }
-                
-                // Clear any audio queue if it exists
-                if (window.gameEngine.voicePlayer.clearQueue) {
-                    window.gameEngine.voicePlayer.clearQueue();
-                }
-                
-                // Also stop the audio engine if it has queue management
-                if (window.gameEngine.audioEngine && window.gameEngine.audioEngine.stopAll) {
-                    window.gameEngine.audioEngine.stopAll();
+            // Use the integration layer's comprehensive stop method
+            if (window.gameEngine && window.gameEngine.voicePlayer && window.gameEngine.voicePlayer.stop) {
+                // This should call the PhuzzyAudioIntegration.stop() method which does audioEngine.stop('all')
+                window.gameEngine.voicePlayer.stop();
+                console.log('🧹 Called integration layer stop() - should flush all audio and sequences');
+            }
+            
+            // Additional fallback: direct audio engine access for extra thoroughness
+            if (window.gameEngine && window.gameEngine.audioEngine) {
+                // Use the Phuzzy Audio Engine's comprehensive stop
+                if (window.gameEngine.audioEngine.stop) {
+                    window.gameEngine.audioEngine.stop('all');
+                    console.log('🧹 Direct audioEngine.stop("all") called as backup');
                 }
             }
             
