@@ -60,12 +60,10 @@
                 <div class="claim" id="claim-text"></div>
                 <!-- Bottom button row: Audio controls on left, Investigate on right -->
                 <div class="scenario-button-row">
-                    <!-- Audio Control Bar -->
-                    <div class="audio-control-bar" id="audio-control-bar" style="display: none;">
-                        <button class="audio-btn" id="play-pause-btn" onclick="toggleScenarioAudio()" title="Play/Pause scenario audio">
-                            ▶️ Play
-                        </button>
-                    </div>
+                    <!-- Audio Control Button - same level as investigate -->
+                    <button class="audio-btn" id="play-pause-btn" onclick="toggleScenarioAudio()" title="Play/Pause scenario audio" style="display: none;">
+                        ▶️ Play
+                    </button>
                     
                     <!-- Investigate button on the right -->
                     <button class="analysis-toggle-btn" id="analysis-toggle-btn" onclick="toggleTimelineAnalysis()">
@@ -811,25 +809,25 @@
         }
         
         function showAudioControls() {
-            const audioBar = document.getElementById('audio-control-bar');
+            const audioBtn = document.getElementById('play-pause-btn');
             console.log('🎵 showAudioControls called:', {
-                audioBar: !!audioBar,
+                audioBtn: !!audioBtn,
                 userClicked: !!window.userHasClickedPlayNow,
-                currentDisplay: audioBar ? audioBar.style.display : 'not found'
+                currentDisplay: audioBtn ? audioBtn.style.display : 'not found'
             });
             
-            if (audioBar && window.userHasClickedPlayNow) {
-                audioBar.style.display = 'flex';
+            if (audioBtn && window.userHasClickedPlayNow) {
+                audioBtn.style.display = 'block';
                 console.log('✅ Audio controls shown');
-            } else if (audioBar && !window.userHasClickedPlayNow) {
+            } else if (audioBtn && !window.userHasClickedPlayNow) {
                 console.log('⏳ Audio controls available, waiting for Play Now click');
             }
         }
         
         function hideAudioControls() {
-            const audioBar = document.getElementById('audio-control-bar');
-            if (audioBar) {
-                audioBar.style.display = 'none';
+            const audioBtn = document.getElementById('play-pause-btn');
+            if (audioBtn) {
+                audioBtn.style.display = 'none';
             }
         }
         

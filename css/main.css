@@ -2011,27 +2011,24 @@ body {
 }
 
 .audio-btn {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border: none;
-    border-radius: 20px;
-    padding: 8px 16px;
-    font-size: 0.85rem;
-    font-weight: 500;
+    background: white;
+    color: #667eea;
+    border: 2px solid #667eea;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s ease;
-    height: 36px;
-    min-width: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     white-space: nowrap;
 }
 
 .audio-btn:hover {
+    background: #667eea;
+    color: white;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
 }
 
 .audio-btn:active {
