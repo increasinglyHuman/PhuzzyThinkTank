@@ -1,0 +1,2636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phuzzy Scenario Review Dashboard</title>
+    <!-- Include centralized icon mapper -->
+    <script src="js/utils/indicator-icon-mapper.js"></script>
+    <!-- Include Phuzzy Audio Engine -->
+    <script src="../js/audio/phuzzy-audio-engine.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Emoji font consistency with main game */
+        .emoji, .emoji-option, .icon-display, .scenario-item, .stat-value, 
+        #selected-icon-preview, #bulk-icon-display, .missing-icon-item,
+        .audio-status, .multi-voice-indicator, .new-badge {
+            font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif !important;
+            font-style: normal;
+            font-variant: normal;
+            line-height: 1;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .controls {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+            height: calc(100vh - 300px);
+        }
+        
+        .scenario-grid.table-view {
+            grid-template-columns: 1fr;
+        }
+        
+        .scenario-table {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+            height: calc(100vh - 300px);
+            overflow-y: auto;
+        }
+        
+        .scenario-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .scenario-table th,
+        .scenario-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .scenario-table th {
+            background: #f7f9ff;
+            font-weight: 600;
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+        }
+        
+        .scenario-table th:hover {
+            background: #e6edff;
+        }
+        
+        .scenario-table th.sortable::after {
+            content: ' ↕️';
+            opacity: 0.5;
+        }
+        
+        .scenario-table th.sort-asc::after {
+            content: ' ↑';
+            opacity: 1;
+        }
+        
+        .scenario-table th.sort-desc::after {
+            content: ' ↓';
+            opacity: 1;
+        }
+        
+        .scenario-table tbody tr:hover {
+            background: #f7f9ff;
+            cursor: pointer;
+        }
+        
+        .scenario-table tbody tr.selected {
+            background: #e6edff;
+        }
+        
+        .audio-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .view-toggle {
+            display: flex;
+            gap: 0.5rem;
+            margin-left: auto;
+        }
+        
+        .scenario-list {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow-y: auto;
+            padding: 1rem;
+        }
+        
+        .scenario-item {
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .scenario-item:hover {
+            border-color: #667eea;
+            transform: translateX(4px);
+        }
+        
+        .scenario-item.active {
+            background: #f7f9ff;
+            border-color: #667eea;
+        }
+        
+        .scenario-item.approved {
+            border-left: 4px solid #48bb78;
+        }
+        
+        .scenario-item.revision-needed {
+            border-left: 4px solid #f6ad55;
+        }
+        
+        .scenario-item.rejected {
+            border-left: 4px solid #fc8181;
+        }
+        
+        .scenario-detail {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 2rem;
+            overflow-y: auto;
+        }
+        
+        .audio-player {
+            background: #f7f9ff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .audio-controls {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .audio-button {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            background: #667eea;
+            color: white;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+        
+        .audio-button:hover {
+            background: #5a67d8;
+            transform: translateY(-1px);
+        }
+        
+        .audio-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .content-section {
+            margin-bottom: 2rem;
+        }
+        
+        .content-section h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .display-content, .audio-script {
+            background: #f7f9ff;
+            padding: 1rem;
+            border-radius: 6px;
+            white-space: pre-wrap;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .character-voices {
+            display: grid;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .voice-item {
+            background: #e2e8f0;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .multi-voice-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: #f0f7ff;
+            border: 2px solid #667eea;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+        
+        .multi-voice-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .multi-voice-checkbox input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        
+        .approval-section {
+            background: #f7f9ff;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        
+        .approval-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn-approve {
+            background: #48bb78;
+        }
+        
+        .btn-revision {
+            background: #f6ad55;
+        }
+        
+        .btn-reject {
+            background: #fc8181;
+        }
+        
+        .feedback-form {
+            display: none;
+        }
+        
+        .feedback-form.active {
+            display: block;
+        }
+        
+        .feedback-textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            resize: vertical;
+        }
+        
+        .stats-bar {
+            background: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #718096;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid #e2e8f0;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .filter-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #718096;
+        }
+        
+        .error {
+            background: #fed7d7;
+            color: #c53030;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+        
+        .info-box {
+            background: #e6fffa;
+            border: 1px solid #81e6d9;
+            color: #234e52;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+        
+        .new-badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-left: 0.5rem;
+        }
+        
+        .icon-warning {
+            background: #fed7d7;
+            border: 1px solid #fc8181;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .icon-warning h4 {
+            color: #c53030;
+            margin-bottom: 0.5rem;
+        }
+        
+        .missing-icon-item {
+            background: white;
+            padding: 0.75rem;
+            margin: 0.25rem 0;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .icon-picker-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+        }
+        
+        .icon-picker-modal.high-priority {
+            z-index: 999999 !important;
+            background: rgba(0,0,0,0.8) !important;
+        }
+        
+        .icon-picker-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 600px;
+            width: 95%;
+            max-height: 85vh;
+            overflow-y: auto;
+            z-index: 1001;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+        
+        .high-priority .icon-picker-content {
+            z-index: 1000000 !important;
+            box-shadow: 0 12px 48px rgba(0,0,0,0.5) !important;
+        }
+        
+        .emoji-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
+            gap: 0.25rem;
+            margin: 1rem 0;
+            max-height: 300px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            background: #f7f9ff;
+            width: 100%;
+        }
+        
+        .emoji-option {
+            font-size: 1.25rem;
+            padding: 0.3rem;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 4px;
+            border: 2px solid transparent;
+            transition: all 0.2s ease;
+            min-height: 32px;
+            min-width: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 1;
+            background: white;
+        }
+        
+        .emoji-option:hover {
+            background: #f7f9ff;
+            border-color: #667eea;
+        }
+        
+        .splash-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            color: white;
+            text-align: center;
+        }
+        
+        .splash-overlay.hidden {
+            display: none;
+        }
+        
+        .splash-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .splash-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .splash-button {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid white;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .splash-button:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .scenario-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .scenario-list {
+                max-height: 200px;
+            }
+            
+            .splash-content h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div class="splash-overlay" id="splash-overlay">
+        <div class="splash-content">
+            <h1>🎭 Phuzzy Review Dashboard</h1>
+            <p>READY TO REVIEW?</p>
+            <button class="splash-button" onclick="initializeDashboard()">
+                Let's Go!
+            </button>
+        </div>
+    </div>
+    
+    <div class="header">
+        <div class="container">
+            <h1>🎭 Phuzzy Scenario Review Dashboard</h1>
+            <p>Review, approve, and provide feedback on generated scenarios</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-value" id="stat-total">0</div>
+                <div class="stat-label">Total Scenarios</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="stat-pending">0</div>
+                <div class="stat-label">Pending Review</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="stat-approved">0</div>
+                <div class="stat-label">Approved</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="stat-revision">0</div>
+                <div class="stat-label">Needs Revision</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="stat-rejected">0</div>
+                <div class="stat-label">Rejected</div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="new">New Only</button>
+                <button class="filter-btn" data-filter="pending">Pending</button>
+                <button class="filter-btn" data-filter="approved">Approved</button>
+                <button class="filter-btn" data-filter="revision">Needs Revision</button>
+                <button class="filter-btn" data-filter="rejected">Rejected</button>
+            </div>
+            <button class="audio-button" onclick="exportApprovalData()">Export Approval Data</button>
+            <button class="audio-button" onclick="refreshScenarios()">Refresh</button>
+            
+            <div class="view-toggle">
+                <button class="filter-btn active" onclick="setView('list')" id="view-list">List View</button>
+                <button class="filter-btn" onclick="setView('table')" id="view-table">Table View</button>
+            </div>
+        </div>
+        
+        <div class="scenario-grid" id="scenario-grid">
+            <div class="scenario-list" id="scenario-list">
+                <div class="loading">Loading scenarios...</div>
+            </div>
+            
+            <div class="scenario-table" id="scenario-table" style="display: none;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="sortable" data-sort="title">Title</th>
+                            <th class="sortable" data-sort="pack">Pack</th>
+                            <th class="sortable" data-sort="status">Status</th>
+                            <th class="sortable" data-sort="audio">Audio</th>
+                            <th class="sortable" data-sort="type">Type</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="scenario-table-body">
+                        <tr><td colspan="6" class="loading">Loading scenarios...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="scenario-detail" id="scenario-detail">
+                <div class="loading">Select a scenario to review</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Icon Picker Modal -->
+    <div class="icon-picker-modal" id="icon-picker-modal">
+        <div class="icon-picker-content">
+            <h3>Assign Icon for: <span id="current-mapping-name"></span></h3>
+            <p>Select an appropriate emoji icon for this <span id="current-mapping-type"></span>:</p>
+            <p style="font-size: 0.9rem; color: #718096; margin-bottom: 0.5rem;">
+                Showing <span id="icon-count">0</span> available icons (scroll to see more)
+            </p>
+            
+            <div style="margin-bottom: 1rem;">
+                <input type="text" id="icon-search" placeholder="🔍 Search emojis (e.g., heart, smile, check, warning...)" 
+                       style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 6px; font-size: 1rem;"
+                       oninput="filterEmojis(this.value)">
+                <div style="font-size: 0.8rem; color: #718096; margin-top: 0.25rem;">
+                    <span id="search-results-count"></span>
+                </div>
+            </div>
+            
+            <div class="emoji-grid" id="emoji-grid">
+                <!-- Populated by JavaScript -->
+            </div>
+            
+            <div style="margin-top: 1rem;">
+                <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;">
+                    <div style="display: flex; flex-direction: column; align-items: center; min-width: 120px;">
+                        <div style="font-size: 3rem; padding: 1rem; border: 2px solid #e2e8f0; border-radius: 8px; background: #f7f9ff; min-height: 80px; display: flex; align-items: center; justify-content: center; cursor: pointer;" 
+                             id="selected-icon-preview" 
+                             onclick="makePreviewEditable()"
+                             title="Click to edit icon directly">
+                            ❓
+                        </div>
+                        <div style="font-size: 0.9rem; color: #718096; margin-top: 0.5rem; text-align: center;" id="selected-icon-name">
+                            No icon selected
+                        </div>
+                    </div>
+                    <div style="flex: 1;">
+                        <div style="margin-bottom: 0.5rem; font-weight: bold; color: #667eea;">
+                            Indicator/Trigger Description:
+                        </div>
+                        <input type="text" id="icon-description" placeholder="What this indicator/trigger means (e.g., 'Poverty fear', 'Physics denial')" 
+                               style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 6px; font-size: 1rem;">
+                        <div style="margin-top: 0.5rem; font-size: 0.8rem; color: #718096;">
+                            💡 This should describe what the indicator/trigger represents, not the icon
+                        </div>
+                        <input type="hidden" id="custom-emoji">
+                    </div>
+                </div>
+            </div>
+            
+            <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+                <button class="btn" onclick="closeIconPicker()" style="background: #a0aec0;">Cancel</button>
+                <button class="btn btn-primary" onclick="saveIconMapping()">Save Icon</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bulk Icon Editor Modal -->
+    <div class="icon-picker-modal" id="bulk-icon-modal" style="display: none;">
+        <div class="icon-picker-content" style="max-width: 800px; max-height: 90vh;">
+            <h3>🎨 Bulk Icon Editor - All Scenario Indicators & Triggers</h3>
+            <p style="color: #718096;">Edit all icons for the current scenario. Changes are saved permanently.</p>
+            
+            <div id="bulk-icon-list" style="max-height: 400px; overflow-y: auto; border: 1px solid #e2e8f0; border-radius: 6px; margin: 1rem 0;">
+                <!-- Populated by JavaScript -->
+            </div>
+            
+            <div style="display: flex; gap: 1rem; justify-content: flex-end; padding-top: 1rem; border-top: 1px solid #e2e8f0;">
+                <button class="btn" onclick="closeBulkIconEditor()" style="background: #a0aec0;">Close</button>
+                <button class="btn btn-primary" onclick="saveBulkIconChanges()">Save All Changes</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Time-based new scenario detection (3 days)
+        const NEW_SCENARIO_DAYS = 3;
+        
+        function isScenarioNew(scenario) {
+            // Check for explicit timestamp first
+            if (scenario.createdDate) {
+                const scenarioDate = new Date(scenario.createdDate);
+                const cutoffDate = new Date(Date.now() - (NEW_SCENARIO_DAYS * 24 * 60 * 60 * 1000));
+                return scenarioDate > cutoffDate;
+            }
+            
+            // Fallback: check file modification time by pack number
+            const packNum = parseInt(scenario.packId);
+            if (packNum >= 10) { // Packs 010+ are generally newer
+                return true;
+            }
+            
+            // Final fallback: hardcoded list for scenarios we know are new
+            const KNOWN_NEW_IDS = [
+                'enhanced-scenarios-005-009',  // French Fries - needs audio
+                'enhanced-scenarios-005-010'   // Roomba Union - needs audio
+            ];
+            return KNOWN_NEW_IDS.includes(scenario.id);
+        }
+        
+        // Global state
+        let scenarios = [];
+        let currentScenario = null;
+        let currentFilter = 'all';
+        let approvalData = {};
+        let audioEngine = null;
+        let dashboardInitialized = false;
+        
+        // API Configuration
+        const API_BASE_URL = 'http://localhost:3001';
+        
+        // Icon assignment state
+        let currentIconAssignment = null;
+        let bulkIconChanges = new Map(); // Track changes in bulk editor
+        let allAvailableEmojisCache = null; // Cache for search
+        
+        // Common emoji options for suggestions
+        const COMMON_EMOJIS = [
+            '🧠', '💭', '🤔', '💡', '⚡', '🎯', '📊', '📈', '📉', '⚖️',
+            '❤️', '😍', '😢', '😡', '😱', '🤗', '😌', '🙄', '😤', '💪',
+            '🔥', '⭐', '✨', '💎', '🎪', '🎭', '🎨', '🚨', '⚠️', '❌',
+            '✅', '🎉', '🏆', '👑', '💰', '🔑', '🎪', '🌟', '💫', '⚡'
+        ];
+        
+        // Complete emoji character set (Unicode ranges)
+        function getAllAvailableEmojis() {
+            const emojiRanges = [
+                // Emoticons & people
+                [0x1F600, 0x1F64F],
+                // Miscellaneous symbols
+                [0x1F300, 0x1F5FF], 
+                // Transport & map symbols
+                [0x1F680, 0x1F6FF],
+                // Regional indicators
+                [0x1F1E0, 0x1F1FF],
+                // Supplemental symbols
+                [0x1F900, 0x1F9FF],
+                // Extended pictographs
+                [0x1FA70, 0x1FAFF],
+                // Symbols and pictographs
+                [0x2600, 0x26FF],
+                // Dingbats
+                [0x2700, 0x27BF],
+                // Geometric shapes
+                [0x25A0, 0x25FF],
+                // Additional symbols
+                [0x2B50, 0x2B55]
+            ];
+            
+            const emojis = [];
+            
+            // Generate emojis from Unicode ranges
+            emojiRanges.forEach(([start, end]) => {
+                for (let i = start; i <= end; i++) {
+                    try {
+                        const emoji = String.fromCodePoint(i);
+                        // Basic filter to exclude invisible/problematic characters
+                        if (emoji && emoji.length > 0) {
+                            emojis.push(emoji);
+                        }
+                    } catch (e) {
+                        // Skip invalid code points
+                    }
+                }
+            });
+            
+            // Add common text symbols
+            const textSymbols = [
+                '✓', '✅', '❌', '⚠️', '📋', '📊', '💡', '🔑', '🎯', '⭐',
+                '◉', '●', '○', '◆', '◇', '■', '□', '▲', '△', '▼', '▽',
+                '→', '←', '↑', '↓', '↔', '↕', '⟶', '⟵', '⤴', '⤵'
+            ];
+            
+            return [...new Set([...COMMON_EMOJIS, ...textSymbols, ...emojis])];
+        }
+        
+        // Extract unique icons from existing mappings (for reference)
+        function getExistingMappingIcons() {
+            const existingIcons = new Set();
+            
+            if (window.indicatorIconMapper && window.indicatorIconMapper.isLoaded) {
+                // Get icons from logic mappings
+                for (const [key, mapping] of window.indicatorIconMapper.logicMappings) {
+                    if (mapping.icon) {
+                        // Extract just the emoji/symbol part (first character or emoji)
+                        const iconMatch = mapping.icon.match(/^(\p{Emoji}|\S)/u);
+                        if (iconMatch) {
+                            existingIcons.add(iconMatch[1]);
+                        }
+                    }
+                }
+                
+                // Get icons from emotion mappings  
+                for (const [key, mapping] of window.indicatorIconMapper.emotionMappings) {
+                    if (mapping.icon) {
+                        const iconMatch = mapping.icon.match(/^(\p{Emoji}|\S)/u);
+                        if (iconMatch) {
+                            existingIcons.add(iconMatch[1]);
+                        }
+                    }
+                }
+            }
+            
+            return Array.from(existingIcons).sort();
+        }
+        
+        // Assign icon to indicator/trigger (for new mappings)
+        function assignIcon(type, name) {
+            openIconPicker(type, name, null, null);
+        }
+        
+        // Edit existing icon mapping
+        function editIcon(type, name) {
+            const mapping = type === 'logic' 
+                ? window.indicatorIconMapper?.logicMappings?.get(name)
+                : window.indicatorIconMapper?.emotionMappings?.get(name);
+            
+            openIconPicker(type, name, mapping?.icon, mapping?.description);
+        }
+        
+        // Open icon picker modal (unified function)
+        function openIconPicker(type, name, currentIcon = null, currentDescription = null) {
+            currentIconAssignment = { type, name };
+            
+            // Update modal title based on whether we're editing or assigning new
+            const isEditing = currentIcon !== null;
+            const titleElement = document.querySelector('#icon-picker-modal h3');
+            titleElement.innerHTML = isEditing 
+                ? `Edit Icon for: <span id="current-mapping-name">${name}</span>`
+                : `Assign Icon for: <span id="current-mapping-name">${name}</span>`;
+            
+            document.getElementById('current-mapping-type').textContent = type;
+            
+            // Populate comprehensive emoji grid with all available emojis
+            const grid = document.getElementById('emoji-grid');
+            
+            // Cache the emojis for search
+            if (!allAvailableEmojisCache) {
+                allAvailableEmojisCache = getAllAvailableEmojis();
+            }
+            
+            const existingMappingIcons = getExistingMappingIcons();
+            
+            console.log(`🎨 Showing ${allAvailableEmojisCache.length} total icons (${existingMappingIcons.length} currently in use)`);
+            
+            // Clear search and display all
+            document.getElementById('icon-search').value = '';
+            displayFilteredEmojis(allAvailableEmojisCache);
+            
+            // Pre-populate with current values or clear
+            document.getElementById('custom-emoji').value = currentIcon || '';
+            document.getElementById('icon-description').value = currentDescription || '';
+            
+            // Update the preview
+            updateIconPreview(currentIcon);
+            
+            // Show modal with appropriate z-index
+            const modal = document.getElementById('icon-picker-modal');
+            
+            // Add high-priority class if opened from bulk editor
+            if (currentIconAssignment?.isBulkEdit) {
+                modal.classList.add('high-priority');
+                console.log('🎨 Opening icon picker with HIGH PRIORITY z-index from bulk editor');
+                console.log('Modal classes:', modal.classList.toString());
+                console.log('Computed z-index:', window.getComputedStyle(modal).zIndex);
+            } else {
+                modal.classList.remove('high-priority');
+                console.log('🎨 Opening icon picker with normal z-index');
+            }
+            
+            modal.style.display = 'block';
+        }
+        
+        // Display filtered emojis in grid
+        function displayFilteredEmojis(emojis) {
+            const grid = document.getElementById('emoji-grid');
+            document.getElementById('icon-count').textContent = emojis.length;
+            
+            grid.innerHTML = emojis.map(emoji => 
+                `<div class="emoji-option" onclick="selectEmoji('${emoji}')" title="${emoji}">${emoji}</div>`
+            ).join('');
+        }
+        
+        // Filter emojis based on search query
+        function filterEmojis(query) {
+            if (!allAvailableEmojisCache) return;
+            
+            const searchTerm = query.toLowerCase().trim();
+            
+            if (!searchTerm) {
+                displayFilteredEmojis(allAvailableEmojisCache);
+                document.getElementById('search-results-count').textContent = '';
+                return;
+            }
+            
+            // Define emoji search keywords
+            const emojiKeywords = {
+                '❤️': ['heart', 'love', 'red'],
+                '💙': ['heart', 'blue', 'love'],
+                '💚': ['heart', 'green', 'love'],
+                '💛': ['heart', 'yellow', 'love'],
+                '🧡': ['heart', 'orange', 'love'],
+                '💜': ['heart', 'purple', 'love'],
+                '😀': ['smile', 'happy', 'face'],
+                '😃': ['smile', 'happy', 'face'],
+                '😄': ['smile', 'happy', 'face'],
+                '😁': ['smile', 'happy', 'face'],
+                '😊': ['smile', 'happy', 'face'],
+                '😂': ['laugh', 'funny', 'tears'],
+                '🤣': ['laugh', 'funny', 'rolling'],
+                '😭': ['cry', 'tears', 'sad'],
+                '😢': ['cry', 'tears', 'sad'],
+                '😡': ['angry', 'red', 'mad'],
+                '😠': ['angry', 'mad'],
+                '🤔': ['think', 'wonder', 'hmm'],
+                '💭': ['thought', 'think', 'bubble'],
+                '💡': ['idea', 'light', 'bulb'],
+                '✅': ['check', 'yes', 'correct', 'green'],
+                '❌': ['no', 'wrong', 'red', 'cross'],
+                '⚠️': ['warning', 'caution', 'yellow'],
+                '🚨': ['alarm', 'warning', 'emergency'],
+                '🎯': ['target', 'goal', 'bullseye'],
+                '🔥': ['fire', 'hot', 'flame'],
+                '⭐': ['star', 'favorite'],
+                '🌟': ['star', 'sparkle'],
+                '💰': ['money', 'dollar', 'cash'],
+                '🏆': ['trophy', 'winner', 'award'],
+                '👑': ['crown', 'king', 'royal'],
+                '🎉': ['party', 'celebration'],
+                '📊': ['chart', 'graph', 'data'],
+                '📈': ['chart', 'up', 'growth'],
+                '📉': ['chart', 'down', 'decline'],
+                '⚖️': ['balance', 'justice', 'scale'],
+                '🔑': ['key', 'important'],
+                '🚫': ['no', 'forbidden', 'stop'],
+                '⏰': ['time', 'clock', 'urgent'],
+                '🎪': ['circus', 'tent'],
+                '🎭': ['theater', 'drama', 'masks'],
+                '🎨': ['art', 'paint', 'creative']
+            };
+            
+            // Filter emojis
+            const filtered = allAvailableEmojisCache.filter(emoji => {
+                // Check if emoji has keywords that match
+                const keywords = emojiKeywords[emoji] || [];
+                return keywords.some(keyword => keyword.includes(searchTerm));
+            });
+            
+            displayFilteredEmojis(filtered);
+            
+            // Update search results count
+            const resultCount = filtered.length;
+            document.getElementById('search-results-count').textContent = 
+                resultCount > 0 ? `Found ${resultCount} matching emojis` : 'No emojis found - try different keywords';
+        }
+        
+        // Update icon preview
+        function updateIconPreview(icon) {
+            const preview = document.getElementById('selected-icon-preview');
+            const nameDisplay = document.getElementById('selected-icon-name');
+            
+            if (icon && icon.trim()) {
+                preview.textContent = icon.trim();
+                nameDisplay.textContent = `"${icon.trim()}" selected`;
+                preview.style.borderColor = '#667eea';
+                preview.style.background = '#f0f7ff';
+            } else {
+                preview.textContent = '❓';
+                nameDisplay.textContent = 'No icon selected';
+                preview.style.borderColor = '#e2e8f0';
+                preview.style.background = '#f7f9ff';
+            }
+        }
+        
+        // Make preview editable
+        function makePreviewEditable() {
+            const preview = document.getElementById('selected-icon-preview');
+            const currentValue = document.getElementById('custom-emoji').value;
+            
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.value = currentValue;
+            input.style.cssText = 'font-size: 3rem; text-align: center; border: none; background: transparent; outline: none; width: 100%; height: 100%;';
+            input.maxLength = 10;
+            
+            preview.innerHTML = '';
+            preview.appendChild(input);
+            input.focus();
+            input.select();
+            
+            input.onblur = input.onkeydown = function(e) {
+                if (e.type === 'blur' || e.key === 'Enter') {
+                    const newValue = input.value.trim();
+                    document.getElementById('custom-emoji').value = newValue;
+                    updateIconPreview(newValue);
+                }
+            };
+        }
+        
+        // Select emoji from grid
+        function selectEmoji(emoji) {
+            document.getElementById('custom-emoji').value = emoji;
+            updateIconPreview(emoji);
+        }
+        
+        // Close icon picker
+        function closeIconPicker() {
+            const modal = document.getElementById('icon-picker-modal');
+            const wasBulkEdit = currentIconAssignment?.isBulkEdit;
+            
+            modal.style.display = 'none';
+            modal.classList.remove('high-priority');
+            currentIconAssignment = null;
+            
+            // If we came from bulk editor and user canceled, return to bulk editor
+            if (wasBulkEdit) {
+                setTimeout(() => {
+                    document.getElementById('bulk-icon-modal').style.display = 'block';
+                    console.log('🎨 Returning to bulk editor after cancel');
+                }, 100);
+            }
+        }
+        
+        // Save icon mapping with persistent storage
+        async function saveIconMapping() {
+            if (!currentIconAssignment) return;
+            
+            const icon = document.getElementById('custom-emoji').value.trim();
+            const description = document.getElementById('icon-description').value.trim() || 'Added via reviewer dashboard';
+            
+            if (!icon) {
+                alert('Please select or enter an icon');
+                return;
+            }
+            
+            const { type, name } = currentIconAssignment;
+            
+            try {
+                // Update the mapper in memory first
+                if (window.indicatorIconMapper) {
+                    if (type === 'logic') {
+                        window.indicatorIconMapper.logicMappings.set(name, { icon, description });
+                    } else {
+                        window.indicatorIconMapper.emotionMappings.set(name, { icon, description });
+                    }
+                    
+                    console.log(`✅ Added ${type} mapping: ${name} → ${icon}`);
+                    
+                    // Save to persistent storage
+                    const success = await saveIconMappingToPersistence(type, name, icon, description);
+                    const action = success ? 'saved permanently' : 'saved to memory only';
+                    const status = success ? '✅' : '⚠️';
+                    
+                    alert(`${status} Icon mapping ${action}!\\n\\n${icon} ${name}\\n${description}`);
+                    
+                    // Handle bulk editor updates
+                    if (currentIconAssignment.isBulkEdit) {
+                        // Update the bulk editor display
+                        const index = currentIconAssignment.bulkIndex;
+                        document.getElementById(`bulk-icon-input-${index}`).value = icon;
+                        document.getElementById(`bulk-icon-display-${index}`).textContent = icon;
+                        updateBulkIcon(index, type, name, icon);
+                        
+                        // Re-open bulk editor after closing icon picker
+                        closeIconPicker();
+                        setTimeout(() => {
+                            document.getElementById('bulk-icon-modal').style.display = 'block';
+                            console.log('🎨 Returning to bulk editor after icon selection');
+                        }, 100);
+                    } else {
+                        // Refresh the scenario detail to remove the warning
+                        displayScenarioDetail();
+                        closeIconPicker();
+                    }
+                } else {
+                    throw new Error('Icon mapper not available');
+                }
+            } catch (error) {
+                console.error('Failed to save icon mapping:', error);
+                alert('Failed to save icon mapping. Please try again.');
+            }
+        }
+        
+        // Save icon mapping to persistent storage (JSON files via API)
+        async function saveIconMappingToPersistence(type, name, icon, description) {
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/icon-mappings`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        type: type,
+                        name: name,
+                        icon: icon,
+                        description: description,
+                        timestamp: new Date().toISOString(),
+                        reviewer: 'dashboard-user'
+                    })
+                });
+                
+                if (response.ok) {
+                    const result = await response.json();
+                    console.log(`💾 Icon mapping saved to file: ${result.filePath}`);
+                    return true;
+                } else {
+                    console.warn(`⚠️ Failed to save to API: ${response.status}`);
+                    return false;
+                }
+            } catch (error) {
+                console.warn('⚠️ API not available, icon saved to memory only:', error.message);
+                return false;
+            }
+        }
+        
+        // Open bulk icon editor for current scenario
+        function openBulkIconEditor() {
+            if (!currentScenario) return;
+            
+            bulkIconChanges.clear();
+            const modal = document.getElementById('bulk-icon-modal');
+            const listEl = document.getElementById('bulk-icon-list');
+            
+            // Collect all indicators and triggers for this scenario
+            const allItems = [];
+            
+            if (currentScenario.analysis?.logic?.indicators) {
+                currentScenario.analysis.logic.indicators.forEach(indicator => {
+                    // Use the proper icon mapper function
+                    const iconResult = window.indicatorIconMapper?.getIconForFactor(indicator, 'logic');
+                    const displayIcon = iconResult ? iconResult.split(' ')[0] : '❓';
+                    const mapping = window.indicatorIconMapper?.logicMappings?.get(indicator);
+                    
+                    allItems.push({
+                        type: 'logic',
+                        name: indicator,
+                        currentIcon: displayIcon,
+                        currentDescription: mapping?.description || 'No description',
+                        fullIconText: iconResult || ''
+                    });
+                });
+            }
+            
+            if (currentScenario.analysis?.emotion?.triggers) {
+                currentScenario.analysis.emotion.triggers.forEach(trigger => {
+                    // Use the proper icon mapper function
+                    const iconResult = window.indicatorIconMapper?.getIconForFactor(trigger, 'emotion');
+                    const displayIcon = iconResult ? iconResult.split(' ')[0] : '❓';
+                    const mapping = window.indicatorIconMapper?.emotionMappings?.get(trigger);
+                    
+                    allItems.push({
+                        type: 'emotion',
+                        name: trigger,
+                        currentIcon: displayIcon,
+                        currentDescription: mapping?.description || 'No description',
+                        fullIconText: iconResult || ''
+                    });
+                });
+            }
+            
+            // Generate the bulk editor interface
+            listEl.innerHTML = allItems.map((item, index) => `
+                <div style="padding: 1rem; border-bottom: 1px solid #e2e8f0;">
+                    <div style="display: grid; grid-template-columns: auto 1fr auto auto; gap: 1rem; align-items: center; margin-bottom: 0.5rem;">
+                        <div style="font-size: 1.5rem;" id="bulk-icon-display-${index}">${item.currentIcon}</div>
+                        <div>
+                            <div style="font-weight: bold; color: ${item.type === 'logic' ? '#667eea' : '#e53e3e'};">
+                                ${item.type === 'logic' ? '🧠' : '💖'} ${item.name}
+                            </div>
+                        </div>
+                        <input type="text" id="bulk-icon-input-${index}" value="${item.currentIcon}" 
+                               placeholder="Enter icon" 
+                               style="width: 80px; padding: 0.5rem; border: 1px solid #e2e8f0; border-radius: 4px; text-align: center;"
+                               onchange="updateBulkIcon(${index}, '${item.type}', '${item.name}', this.value)">
+                        <button class="btn btn-primary" onclick="openFullIconPickerFromBulk(${index}, '${item.type}', '${item.name}')" style="padding: 0.5rem;">
+                            🎨
+                        </button>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr; gap: 0.5rem;">
+                        <input type="text" id="bulk-description-input-${index}" 
+                               value="${item.currentDescription === 'No description' ? '' : item.currentDescription}" 
+                               placeholder="${item.currentDescription === 'No description' ? '⚠️ Add description for this ' + item.type + ' indicator' : 'Description'}"
+                               style="width: 100%; padding: 0.5rem; border: 1px solid ${item.currentDescription === 'No description' ? '#f6ad55' : '#e2e8f0'}; border-radius: 4px; font-size: 0.9rem;"
+                               onchange="updateBulkDescription(${index}, '${item.type}', '${item.name}', this.value)">
+                    </div>
+                </div>
+            `).join('');
+            
+            modal.style.display = 'block';
+            console.log(`🎨 Opened bulk editor with ${allItems.length} items:`, allItems.map(item => `${item.name}: ${item.currentIcon} (from: ${item.fullIconText})`));
+        }
+        
+        // Update icon in bulk editor
+        function updateBulkIcon(index, type, name, newIcon) {
+            const key = `${type}:${name}`;
+            const existingChange = bulkIconChanges.get(key) || {};
+            bulkIconChanges.set(key, {
+                type: type,
+                name: name,
+                icon: newIcon,
+                description: existingChange.description || 'Updated via bulk editor'
+            });
+            
+            // Update the display
+            document.getElementById(`bulk-icon-display-${index}`).textContent = newIcon;
+            console.log(`Updated ${key} → ${newIcon}`);
+        }
+        
+        // Update description in bulk editor
+        function updateBulkDescription(index, type, name, newDescription) {
+            const key = `${type}:${name}`;
+            const existingChange = bulkIconChanges.get(key) || {};
+            const currentIcon = document.getElementById(`bulk-icon-input-${index}`).value;
+            
+            bulkIconChanges.set(key, {
+                type: type,
+                name: name,
+                icon: existingChange.icon || currentIcon,
+                description: newDescription || 'Updated via bulk editor'
+            });
+            
+            console.log(`Updated description for ${key}: ${newDescription}`);
+        }
+        
+        // Open full icon picker from bulk editor
+        function openFullIconPickerFromBulk(index, type, name) {
+            // Store bulk editor context
+            currentIconAssignment = { 
+                type, 
+                name, 
+                bulkIndex: index, 
+                isBulkEdit: true 
+            };
+            
+            // Get current icon and the actual indicator/trigger description
+            const currentIcon = document.getElementById(`bulk-icon-input-${index}`).value;
+            
+            // Get the actual description of what this indicator/trigger means
+            const mapping = type === 'logic' 
+                ? window.indicatorIconMapper?.logicMappings?.get(name)
+                : window.indicatorIconMapper?.emotionMappings?.get(name);
+            
+            // Extract the descriptive text (e.g., "Poverty fear" from "poverty-fear")
+            let actualDescription = '';
+            if (mapping?.description) {
+                actualDescription = mapping.description;
+            } else {
+                // Fallback: convert kebab-case to readable text
+                actualDescription = name.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+            }
+            
+            // Auto-close bulk editor to avoid modal conflicts
+            console.log('🎨 Auto-closing bulk editor to avoid modal layering issues');
+            document.getElementById('bulk-icon-modal').style.display = 'none';
+            
+            // Open the full icon picker
+            openIconPicker(type, name, currentIcon, actualDescription);
+        }
+        
+        // Open quick icon picker for bulk editor
+        function openQuickIconPicker(index, type, name) {
+            // Create a mini icon picker with common + frequently used emojis
+            const existingIcons = getExistingMappingIcons();
+            const commonIcons = [...new Set([...COMMON_EMOJIS, ...existingIcons])];
+            
+            const pickerHtml = `
+                <div style="position: absolute; background: white; border: 2px solid #667eea; border-radius: 8px; padding: 1rem; z-index: 2000; max-width: 300px;">
+                    <div style="display: grid; grid-template-columns: repeat(8, 1fr); gap: 0.25rem; margin-bottom: 0.5rem;">
+                        ${commonIcons.slice(0, 32).map(emoji => 
+                            `<div style="padding: 0.25rem; cursor: pointer; text-align: center; border-radius: 4px;" 
+                                  onclick="selectBulkIcon(${index}, '${type}', '${name}', '${emoji}'); closeBulkQuickPicker();">
+                                ${emoji}
+                            </div>`
+                        ).join('')}
+                    </div>
+                    <button onclick="closeBulkQuickPicker()" style="width: 100%; padding: 0.5rem;">Close</button>
+                </div>
+            `;
+            
+            // Remove any existing picker
+            closeBulkQuickPicker();
+            
+            // Add new picker
+            const picker = document.createElement('div');
+            picker.id = 'bulk-quick-picker';
+            picker.innerHTML = pickerHtml;
+            picker.style.position = 'absolute';
+            picker.style.zIndex = '2000';
+            document.body.appendChild(picker);
+        }
+        
+        // Select icon in bulk quick picker
+        function selectBulkIcon(index, type, name, icon) {
+            document.getElementById(`bulk-icon-input-${index}`).value = icon;
+            updateBulkIcon(index, type, name, icon);
+        }
+        
+        // Close bulk quick picker
+        function closeBulkQuickPicker() {
+            const picker = document.getElementById('bulk-quick-picker');
+            if (picker) picker.remove();
+        }
+        
+        // Close bulk icon editor
+        function closeBulkIconEditor() {
+            document.getElementById('bulk-icon-modal').style.display = 'none';
+            bulkIconChanges.clear();
+        }
+        
+        // Save all bulk icon changes
+        async function saveBulkIconChanges() {
+            if (bulkIconChanges.size === 0) {
+                alert('No changes to save');
+                return;
+            }
+            
+            let successCount = 0;
+            let failCount = 0;
+            
+            for (const [key, change] of bulkIconChanges) {
+                try {
+                    // Update in memory
+                    if (change.type === 'logic') {
+                        window.indicatorIconMapper.logicMappings.set(change.name, {
+                            icon: change.icon,
+                            description: change.description
+                        });
+                    } else {
+                        window.indicatorIconMapper.emotionMappings.set(change.name, {
+                            icon: change.icon,
+                            description: change.description
+                        });
+                    }
+                    
+                    // Save to persistent storage
+                    const success = await saveIconMappingToPersistence(
+                        change.type, change.name, change.icon, change.description
+                    );
+                    
+                    if (success) {
+                        successCount++;
+                    } else {
+                        failCount++;
+                    }
+                    
+                    console.log(`✅ Bulk saved: ${change.type}:${change.name} → ${change.icon}`);
+                    
+                } catch (error) {
+                    console.error(`❌ Failed to save ${key}:`, error);
+                    failCount++;
+                }
+            }
+            
+            const message = successCount > 0 
+                ? `✅ Saved ${successCount} icon mappings permanently!${failCount > 0 ? `\\n⚠️ ${failCount} failed to save to disk but are in memory.` : ''}`
+                : `⚠️ ${failCount} mappings failed to save permanently but are stored in memory.`;
+            
+            alert(message);
+            
+            // Refresh the scenario detail
+            displayScenarioDetail();
+            closeBulkIconEditor();
+        }
+        
+        // Edit scenario text
+        function editScenarioText() {
+            const displayDiv = document.getElementById('scenario-display-content');
+            const editorDiv = document.getElementById('scenario-text-editor');
+            const textarea = document.getElementById('scenario-text-textarea');
+            
+            // Hide display, show editor
+            displayDiv.style.display = 'none';
+            editorDiv.style.display = 'block';
+            
+            // Set current text and focus
+            const currentText = currentScenario.content || currentScenario.text || '';
+            textarea.value = currentText;
+            textarea.focus();
+            
+            // Update character count
+            updateCharCount();
+            
+            // Add input listener for character count
+            textarea.oninput = updateCharCount;
+            
+            console.log('✏️ Editing scenario text for:', currentScenario.id);
+        }
+        
+        // Update character count
+        function updateCharCount() {
+            const textarea = document.getElementById('scenario-text-textarea');
+            const charCount = document.getElementById('char-count');
+            charCount.textContent = textarea.value.length;
+        }
+        
+        // Save scenario text changes
+        async function saveScenarioText() {
+            const textarea = document.getElementById('scenario-text-textarea');
+            const newText = textarea.value.trim();
+            
+            if (!newText) {
+                alert('Scenario text cannot be empty');
+                return;
+            }
+            
+            try {
+                // Update the scenario object in memory
+                if (currentScenario.content !== undefined) {
+                    currentScenario.content = newText;
+                } else {
+                    currentScenario.text = newText;
+                }
+                
+                // Save to API/backend
+                const success = await saveScenarioTextToPersistence(currentScenario.id, newText);
+                
+                if (success) {
+                    // Update display and exit edit mode
+                    document.getElementById('scenario-display-content').innerHTML = newText;
+                    cancelScenarioTextEdit();
+                    
+                    // Show success message
+                    alert('✅ Scenario text saved successfully!\\n\\nChanges will be visible in the game immediately.');
+                    
+                    console.log('💾 Saved scenario text:', currentScenario.id);
+                } else {
+                    // Still update display but warn about persistence
+                    document.getElementById('scenario-display-content').innerHTML = newText;
+                    cancelScenarioTextEdit();
+                    
+                    alert('⚠️ Text updated in memory but failed to save to file.\\n\\nChanges may be lost when refreshing.');
+                }
+                
+            } catch (error) {
+                console.error('Failed to save scenario text:', error);
+                alert('❌ Failed to save scenario text. Please try again.');
+            }
+        }
+        
+        // Save scenario text to persistent storage (directly to JSON file)
+        async function saveScenarioTextToPersistence(scenarioId, newText) {
+            try {
+                // Find the pack file for this scenario
+                const scenario = scenarios.find(s => s.id === scenarioId);
+                if (!scenario || !scenario.packId) {
+                    console.error('Scenario not found or missing packId:', scenarioId);
+                    return false;
+                }
+                
+                const packId = scenario.packId;
+                const packFile = `./data/scenario-packs/scenario-generated-${packId}.json`;
+                
+                // Load the pack file
+                const response = await fetch(packFile);
+                if (!response.ok) {
+                    console.error(`Failed to load pack file: ${packFile}`);
+                    return false;
+                }
+                
+                const packData = await response.json();
+                
+                // Find and update the scenario in the pack
+                const scenarioIndex = packData.scenarios.findIndex(s => s.id === scenarioId);
+                if (scenarioIndex === -1) {
+                    console.error(`Scenario ${scenarioId} not found in pack ${packId}`);
+                    return false;
+                }
+                
+                // Update the content field
+                packData.scenarios[scenarioIndex].content = newText;
+                
+                // Add modification timestamp
+                packData.scenarios[scenarioIndex].lastModified = new Date().toISOString();
+                packData.scenarios[scenarioIndex].modifiedBy = 'reviewer-dashboard';
+                
+                // Convert back to JSON with proper formatting
+                const updatedJson = JSON.stringify(packData, null, 2);
+                
+                // Create a blob and download it (browser security prevents direct file writing)
+                const blob = new Blob([updatedJson], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                
+                // Create download link
+                const downloadLink = document.createElement('a');
+                downloadLink.href = url;
+                downloadLink.download = `scenario-generated-${packId}.json`;
+                downloadLink.style.display = 'none';
+                document.body.appendChild(downloadLink);
+                
+                // Trigger download
+                downloadLink.click();
+                
+                // Cleanup
+                document.body.removeChild(downloadLink);
+                URL.revokeObjectURL(url);
+                
+                console.log(`💾 Scenario text updated in pack ${packId}. Download the updated file and replace the original.`);
+                
+                // Show instructions to user
+                alert(`✅ Scenario text saved!
+                
+📥 The updated pack file is downloading automatically.
+📂 Replace the original file at: data/scenario-packs/scenario-generated-${packId}.json
+🔄 Then refresh this dashboard to see the changes.`);
+                
+                return true;
+                
+            } catch (error) {
+                console.error('Failed to save scenario text:', error);
+                return false;
+            }
+        }
+        
+        // Cancel scenario text editing
+        function cancelScenarioTextEdit() {
+            const displayDiv = document.getElementById('scenario-display-content');
+            const editorDiv = document.getElementById('scenario-text-editor');
+            
+            // Show display, hide editor
+            displayDiv.style.display = 'block';
+            editorDiv.style.display = 'none';
+            
+            console.log('❌ Canceled scenario text editing');
+        }
+        
+        // Initialize dashboard after user interaction
+        async function initializeDashboard() {
+            if (dashboardInitialized) return;
+            
+            console.log('🚀 Initializing dashboard after user interaction...');
+            
+            // Update splash button to show progress
+            const splashButton = document.querySelector('.splash-button');
+            splashButton.textContent = 'Initializing...';
+            splashButton.disabled = true;
+            
+            // Request audio permissions if needed
+            try {
+                // Try to create an AudioContext to check permissions
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                
+                if (audioContext.state === 'suspended') {
+                    await audioContext.resume();
+                }
+                
+                // Test with a silent audio buffer to ensure permissions
+                const buffer = audioContext.createBuffer(1, 1, 22050);
+                const source = audioContext.createBufferSource();
+                source.buffer = buffer;
+                source.connect(audioContext.destination);
+                source.start();
+                
+                console.log('🔊 Audio permissions granted');
+                audioContext.close(); // Clean up test context
+                
+            } catch (error) {
+                console.log('⚠️ Audio permission issue:', error);
+                // Continue anyway - dashboard will work without audio
+            }
+            
+            // Hide splash screen
+            document.getElementById('splash-overlay').classList.add('hidden');
+            
+            // Initialize audio system now that we have user interaction
+            try {
+                audioEngine = new PhuzzyAudioEngine({
+                    audioBasePath: '../data/audio-recording-voices-for-scenarios-from-elevenlabs/',
+                    enableFirstPlayOptimization: true,
+                    maxConcurrentAudio: 4,
+                    autoDiscoverAssets: false, // Don't auto-discover to avoid 404s
+                    fallbackStrategy: 'intelligent'
+                });
+                
+                await audioEngine.initialize();
+                console.log('🎵 Audio system initialized successfully');
+            } catch (error) {
+                console.log('⚠️ Audio system initialization failed, using fallback');
+                audioEngine = null;
+            }
+            
+            // Load dashboard data
+            try {
+                await loadApprovalData();
+                await loadScenarios();
+                dashboardInitialized = true;
+                console.log('✅ Dashboard initialization complete');
+            } catch (error) {
+                console.error('❌ Dashboard initialization failed:', error);
+            }
+        }
+        
+        // Load approval data from API (with localStorage fallback)
+        async function loadApprovalData() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/reviews`);
+                if (response.ok) {
+                    const data = await response.json();
+                    // Convert API format to dashboard format
+                    approvalData = data.reviews || {};
+                    console.log('📋 Loaded review data from API:', Object.keys(approvalData).length, 'reviews');
+                    return;
+                }
+            } catch (error) {
+                console.log('⚠️ API not available, falling back to localStorage');
+            }
+            
+            // Fallback to localStorage if API is not available
+            const saved = localStorage.getItem('phuzzy-approval-data');
+            if (saved) {
+                approvalData = JSON.parse(saved);
+                console.log('📋 Loaded review data from localStorage:', Object.keys(approvalData).length, 'reviews');
+            }
+        }
+        
+        // Save approval data to API (with localStorage backup)
+        async function saveApprovalData() {
+            // Always save to localStorage as backup
+            localStorage.setItem('phuzzy-approval-data', JSON.stringify(approvalData));
+            
+            // Try to save to API
+            try {
+                const response = await fetch(`${API_BASE_URL}/health`);
+                if (response.ok) {
+                    console.log('💾 API server is available, saving to database');
+                    // API is available, we'll save individual reviews in setApproval function
+                } else {
+                    console.log('⚠️ API server not responding, data saved to localStorage only');
+                }
+            } catch (error) {
+                console.log('⚠️ API server not available, data saved to localStorage only');
+            }
+            
+            updateStats();
+        }
+        
+        // Load scenarios from the packs
+        async function loadScenarios() {
+            try {
+                scenarios = [];
+                
+                // Use relative path since we're already in temp folder
+                const basePath = './data/scenario-packs/';
+                
+                // Load pack files (limit range to avoid 404 spam)
+                let lastFoundPack = -1;
+                for (let i = 0; i <= 20; i++) {
+                    const packId = String(i).padStart(3, '0');
+                    try {
+                        const response = await fetch(`${basePath}scenario-generated-${packId}.json`);
+                        if (response.ok) {
+                            const packData = await response.json();
+                            scenarios = scenarios.concat(packData.scenarios.map(s => ({
+                                ...s,
+                                packId: packId,
+                                isNew: isScenarioNew(s)
+                            })));
+                            lastFoundPack = i;
+                        } else if (i < lastFoundPack + 5) {
+                            // Continue checking a few more in case of gaps
+                            continue;
+                        } else {
+                            // Stop if we haven't found anything in a while
+                            break;
+                        }
+                    } catch (err) {
+                        if (i < lastFoundPack + 5) continue;
+                        break;
+                    }
+                }
+                
+                if (scenarios.length === 0) {
+                    document.getElementById('scenario-list').innerHTML = 
+                        '<div class="error">No scenarios found. Make sure this file is in the correct directory on your Apache server.</div>';
+                    return;
+                }
+                
+                // Display in current view
+                if (currentView === 'table') {
+                    displayScenarioTable();
+                } else {
+                    displayScenarioList();
+                }
+                updateStats();
+                
+                // If filter is set to "new", auto-select first new scenario
+                if (currentFilter === 'new' && scenarios.some(s => s.isNew)) {
+                    const firstNew = scenarios.find(s => s.isNew);
+                    if (firstNew) selectScenario(firstNew.id);
+                }
+                
+            } catch (error) {
+                console.error('Error loading scenarios:', error);
+                document.getElementById('scenario-list').innerHTML = 
+                    '<div class="error">Error loading scenarios. Check console for details.</div>';
+            }
+        }
+        
+        // Display scenario list
+        async function displayScenarioList() {
+            const listEl = document.getElementById('scenario-list');
+            
+            const filteredScenarios = scenarios.filter(scenario => {
+                const status = approvalData[scenario.id]?.status || 'pending';
+                if (currentFilter === 'new') return scenario.isNew;
+                return currentFilter === 'all' || status === currentFilter;
+            });
+            
+            if (filteredScenarios.length === 0) {
+                listEl.innerHTML = '<div class="loading">No scenarios match the current filter</div>';
+                return;
+            }
+            
+            // Show loading state while checking audio
+            listEl.innerHTML = '<div class="loading">Loading scenarios and checking audio status...</div>';
+            
+            const scenarioItems = await Promise.all(filteredScenarios.map(async scenario => {
+                const status = approvalData[scenario.id]?.status || 'pending';
+                const statusClass = status === 'approved' ? 'approved' : 
+                                   status === 'revision' ? 'revision-needed' : 
+                                   status === 'rejected' ? 'rejected' : '';
+                const multiChar = detectMultiCharacter(scenario);
+                const missingIconsCount = checkMissingIcons(scenario).length;
+                
+                // Audio status display (simplified - let Audio Engine handle discovery)
+                let audioIndicator = '';
+                if (!scenario.isNew) {
+                    const packNum = parseInt(scenario.packId);
+                    if (packNum <= 9) {
+                        // Packs 0-9 likely have audio
+                        audioIndicator = ' • <span style="color: #48bb78;" title="Audio likely available (click to play)">🎵</span>';
+                    } else {
+                        // Packs 10+ likely don't have audio yet
+                        audioIndicator = ' • <span style="color: #a0aec0;" title="Audio not generated yet">🔇</span>';
+                    }
+                }
+                
+                return `
+                    <div class="scenario-item ${statusClass}" onclick="selectScenario('${scenario.id}', event)">
+                        <div style="font-weight: bold; margin-bottom: 0.25rem;">
+                            ${scenario.title || 'Untitled Scenario'}
+                            ${scenario.isNew ? '<span class="new-badge">NEW</span>' : ''}
+                            ${multiChar.isMultiChar ? '<span title="Multi-character scenario" style="margin-left: 0.5rem;">🎭</span>' : ''}
+                        </div>
+                        <div style="font-size: 0.85rem; color: #718096;">
+                            Pack ${scenario.packId} • ${status.charAt(0).toUpperCase() + status.slice(1)}
+                            ${approvalData[scenario.id]?.requestMultiVoice ? ' • 🎯 Multi-voice requested' : ''}
+                            ${missingIconsCount > 0 ? ` • <span style="color: #fc8181;" title="${missingIconsCount} missing icon mappings">❓ Icons needed</span>` : ''}
+                            ${audioIndicator}
+                        </div>
+                    </div>
+                `;
+            }));
+            
+            listEl.innerHTML = scenarioItems.join('');
+        }
+        
+        // Select and display scenario details
+        function selectScenario(scenarioId, clickEvent = null) {
+            currentScenario = scenarios.find(s => s.id === scenarioId);
+            if (!currentScenario) return;
+            
+            // Update active state in list
+            document.querySelectorAll('.scenario-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // If called from click event, mark that item as active
+            if (clickEvent && clickEvent.currentTarget) {
+                clickEvent.currentTarget.classList.add('active');
+            } else {
+                // Otherwise, find and mark the item by ID
+                document.querySelectorAll('.scenario-item').forEach(item => {
+                    if (item.textContent.includes(currentScenario.title)) {
+                        item.classList.add('active');
+                    }
+                });
+            }
+            
+            displayScenarioDetail();
+        }
+        
+        // Detect if scenario has multiple characters
+        function detectMultiCharacter(scenario) {
+            const content = scenario.audioScript || scenario.content || '';
+            const characterPattern = /^([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*|[A-Z]+(?:\s+[A-Z]+)*):\s*(.+)$/gm;
+            const matches = [...content.matchAll(characterPattern)];
+            const uniqueCharacters = new Set(matches.map(m => m[1]));
+            return {
+                isMultiChar: uniqueCharacters.size >= 3,
+                characterCount: uniqueCharacters.size,
+                characters: Array.from(uniqueCharacters)
+            };
+        }
+        
+        // Check for missing icon mappings in a scenario
+        function checkMissingIcons(scenario) {
+            const missing = [];
+            
+            // Check logic indicators
+            if (scenario.analysis?.logic?.indicators && window.indicatorIconMapper && window.indicatorIconMapper.isLoaded) {
+                scenario.analysis.logic.indicators.forEach(indicator => {
+                    if (!window.indicatorIconMapper.logicMappings.has(indicator)) {
+                        missing.push({ type: 'logic', name: indicator, icon: '🧠' });
+                    }
+                });
+            }
+            
+            // Check emotion triggers  
+            if (scenario.analysis?.emotion?.triggers && window.indicatorIconMapper && window.indicatorIconMapper.isLoaded) {
+                scenario.analysis.emotion.triggers.forEach(trigger => {
+                    if (!window.indicatorIconMapper.emotionMappings.has(trigger)) {
+                        missing.push({ type: 'emotion', name: trigger, icon: '💖' });
+                    }
+                });
+            }
+            
+            return missing;
+        }
+        
+        // Display scenario detail with icon management integration
+        function displayScenarioDetail() {
+            const detailEl = document.getElementById('scenario-detail');
+            const approval = approvalData[currentScenario.id] || {};
+            const multiCharInfo = detectMultiCharacter(currentScenario);
+            const missingIcons = checkMissingIcons(currentScenario);
+            
+            detailEl.innerHTML = `
+                ${currentScenario.isNew ? `
+                <div class="info-box">
+                    <strong>🎉 New Scenario!</strong> This is one of the 5 newly generated whimsical scenarios. Audio has not been generated yet.
+                </div>
+                ` : ''}
+                
+                ${missingIcons.length > 0 ? `
+                <div class="icon-warning">
+                    <h4>🚨 Missing Icon Mappings Found!</h4>
+                    <p>This scenario contains indicators/triggers that need icon assignments:</p>
+                    ${missingIcons.map(item => `
+                        <div class="missing-icon-item">
+                            <div>
+                                <strong>${item.icon} ${item.name}</strong>
+                                <span style="color: #718096;"> (${item.type})</span>
+                            </div>
+                            <button class="btn btn-primary" onclick="assignIcon('${item.type}', '${item.name}')">
+                                Assign Icon
+                            </button>
+                        </div>
+                    `).join('')}
+                </div>
+                ` : ''}
+                
+                ${currentScenario.analysis?.logic?.indicators || currentScenario.analysis?.emotion?.triggers ? `
+                <div style="background: #e6fffa; border: 1px solid #81e6d9; border-radius: 8px; padding: 1rem; margin-bottom: 1rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <strong>🎨 Icon Management</strong>
+                            <p style="margin: 0; color: #234e52; font-size: 0.9rem;">Bulk edit all icons for this scenario</p>
+                        </div>
+                        <button class="audio-button" onclick="openBulkIconEditor()" style="background: #38b2ac;">
+                            🎨 Manage All Icons
+                        </button>
+                    </div>
+                </div>
+                ` : ''}
+                
+                <h2>${currentScenario.title}</h2>
+                <p style="color: #718096; margin-bottom: 1rem;">
+                    ID: ${currentScenario.id} • Pack ${currentScenario.packId} • Position ${scenarios.filter(s => s.packId === currentScenario.packId).indexOf(currentScenario) + 1}
+                    ${currentScenario.isNew ? ' • <span class="new-badge">NEW</span>' : ''}
+                </p>
+                
+                ${multiCharInfo.isMultiChar ? `
+                <div class="multi-voice-indicator">
+                    <span style="font-size: 1.2rem;">🎭</span>
+                    <strong>Multi-Character Scenario</strong>
+                    <span style="color: #718096;">(${multiCharInfo.characterCount} characters detected)</span>
+                </div>
+                ` : ''}
+                
+                <div class="audio-player">
+                    <h3>🎧 Audio Playback</h3>
+                    ${currentScenario.isNew ? 
+                        '<p style="color: #718096;">Audio files will be generated after approval</p>' :
+                        `<div class="audio-controls">
+                            <button class="audio-button" onclick="playAudio('title')">
+                                Play Title
+                            </button>
+                            <button class="audio-button" onclick="playAudio('content')">
+                                Play Content
+                            </button>
+                            <button class="audio-button" onclick="playAudio('claim')">
+                                Play Claim
+                            </button>
+                            <button class="audio-button" onclick="stopAudio()">
+                                Stop
+                            </button>
+                        </div>`
+                    }
+                    <!-- Audio will be handled by Phuzzy Audio Engine -->
+                </div>
+                
+                <div class="content-section">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h3>📱 Display Version</h3>
+                        <button class="audio-button" onclick="editScenarioText()" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
+                            ✏️ Edit Text
+                        </button>
+                    </div>
+                    <div class="display-content" id="scenario-display-content">${currentScenario.content || currentScenario.text || 'No content available'}</div>
+                    
+                    <!-- Hidden editor -->
+                    <div id="scenario-text-editor" style="display: none;">
+                        <textarea id="scenario-text-textarea" 
+                                  style="width: 100%; min-height: 150px; padding: 1rem; border: 2px solid #667eea; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.5; resize: vertical;"
+                                  placeholder="Enter the scenario text that players will see...">${currentScenario.content || currentScenario.text || ''}</textarea>
+                        <div style="display: flex; gap: 1rem; margin-top: 1rem; align-items: center;">
+                            <button class="audio-button" onclick="saveScenarioText()" style="background: #48bb78;">
+                                💾 Save Changes
+                            </button>
+                            <button class="audio-button" onclick="cancelScenarioTextEdit()" style="background: #a0aec0;">
+                                ❌ Cancel
+                            </button>
+                            <div style="font-size: 0.9rem; color: #718096; margin-left: auto;">
+                                <span id="char-count">0</span> characters
+                            </div>
+                        </div>
+                        <div style="background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 6px; padding: 1rem; margin-top: 1rem;">
+                            <strong>💡 Editing Tips:</strong>
+                            <ul style="margin: 0.5rem 0 0 1rem; font-size: 0.9rem;">
+                                <li>Keep text clear and engaging for players</li>
+                                <li>Multi-character scenarios: Use "Character:" format for dialogue</li>
+                                <li>Changes save to scenario file and update in-game immediately</li>
+                                <li>Consider how this reads aloud for audio generation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                ${currentScenario.analysis?.logic?.indicators || currentScenario.analysis?.emotion?.triggers ? `
+                <div class="content-section">
+                    <h3>🎯 Detected Indicators & Triggers</h3>
+                    ${currentScenario.analysis?.logic?.indicators && currentScenario.analysis.logic.indicators.length > 0 ? `
+                        <div style="margin-bottom: 1rem;">
+                            <h4 style="color: #667eea; margin-bottom: 0.5rem;">🧠 Logic Indicators:</h4>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                                ${currentScenario.analysis.logic.indicators.map(indicator => {
+                                    const iconResult = window.indicatorIconMapper?.getIconForFactor(indicator, 'logic');
+                                    const mapping = window.indicatorIconMapper?.logicMappings?.get(indicator);
+                                    const description = mapping?.description || 'No description';
+                                    return `<span style="background: #f7f9ff; padding: 0.5rem; border-radius: 4px; border: 1px solid #e2e8f0; cursor: pointer;" 
+                                        title="${description} (click to change icon)" 
+                                        onclick="editIcon('logic', '${indicator}')">
+                                        ${iconResult || '❓'} ${indicator}
+                                    </span>`;
+                                }).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
+                    
+                    ${currentScenario.analysis?.emotion?.triggers && currentScenario.analysis.emotion.triggers.length > 0 ? `
+                        <div>
+                            <h4 style="color: #667eea; margin-bottom: 0.5rem;">💖 Emotion Triggers:</h4>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                                ${currentScenario.analysis.emotion.triggers.map(trigger => {
+                                    const iconResult = window.indicatorIconMapper?.getIconForFactor(trigger, 'emotion');
+                                    const mapping = window.indicatorIconMapper?.emotionMappings?.get(trigger);
+                                    const description = mapping?.description || 'No description';
+                                    return `<span style="background: #fff7f7; padding: 0.5rem; border-radius: 4px; border: 1px solid #fed7d7; cursor: pointer;" 
+                                        title="${description} (click to change icon)" 
+                                        onclick="editIcon('emotion', '${trigger}')">
+                                        ${iconResult || '❓'} ${trigger}
+                                    </span>`;
+                                }).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
+                </div>
+                ` : ''}
+                
+                ${currentScenario.audioScript ? `
+                <div class="content-section">
+                    <h3>🎙️ Audio Script</h3>
+                    <div class="audio-script">${currentScenario.audioScript}</div>
+                </div>
+                ` : ''}
+                
+                <div class="content-section">
+                    <h3>💭 Claim</h3>
+                    <div class="display-content">${currentScenario.claim}</div>
+                </div>
+                
+                <div class="content-section">
+                    <h3>📊 Answer Analysis</h3>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                        <div class="voice-item">
+                            <strong>Logic:</strong> ${currentScenario.answerWeights?.logic || 0}%
+                        </div>
+                        <div class="voice-item">
+                            <strong>Emotion:</strong> ${currentScenario.answerWeights?.emotion || 0}%
+                        </div>
+                        <div class="voice-item">
+                            <strong>Balanced:</strong> ${currentScenario.answerWeights?.balanced || 0}%
+                        </div>
+                        <div class="voice-item">
+                            <strong>Agenda:</strong> ${currentScenario.answerWeights?.agenda || 0}%
+                        </div>
+                    </div>
+                    <p style="margin-top: 0.5rem; color: #718096;">
+                        Correct Answer: <strong style="color: #667eea;">${(currentScenario.correctAnswer || 'Not specified').toUpperCase()}</strong>
+                    </p>
+                </div>
+                
+                ${currentScenario.audioHints?.characterVoices ? `
+                <div class="content-section">
+                    <h3>🎭 Character Voices</h3>
+                    <div class="character-voices">
+                        ${Object.entries(currentScenario.audioHints.characterVoices).map(([char, voice]) => `
+                            <div class="voice-item">
+                                <strong>${char}:</strong> ${voice}
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+                ` : ''}
+                
+                <div class="approval-section">
+                    <h3>✅ Approval Status</h3>
+                    <div class="approval-buttons">
+                        <button class="audio-button btn-approve" onclick="setApproval('approved')">
+                            Approve
+                        </button>
+                        <button class="audio-button btn-revision" onclick="setApproval('revision')">
+                            Request Revision
+                        </button>
+                        <button class="audio-button btn-reject" onclick="setApproval('rejected')">
+                            Reject & Replace
+                        </button>
+                    </div>
+                    
+                    <div class="feedback-form ${approval.status === 'revision' || approval.status === 'rejected' ? 'active' : ''}" id="feedback-form">
+                        <textarea class="feedback-textarea" id="feedback-text" 
+                            placeholder="Please provide specific feedback for improvement...">${approval.feedback || ''}</textarea>
+                        
+                        ${!multiCharInfo.isMultiChar ? `
+                        <div class="multi-voice-checkbox">
+                            <input type="checkbox" id="request-multi-voice" 
+                                ${approval.requestMultiVoice ? 'checked' : ''}>
+                            <label for="request-multi-voice">
+                                <strong>Request Multi-Character Rewrite</strong> - Convert this scenario to use multiple distinct character voices
+                            </label>
+                        </div>
+                        ` : ''}
+                        
+                        <button class="audio-button" onclick="saveFeedback()">
+                            Save Feedback
+                        </button>
+                    </div>
+                    
+                    ${approval.status ? `
+                    <div style="margin-top: 1rem; padding: 1rem; background: #f7f9ff; border-radius: 6px;">
+                        <strong>Current Status:</strong> ${approval.status.charAt(0).toUpperCase() + approval.status.slice(1)}<br>
+                        <strong>Last Updated:</strong> ${new Date(approval.timestamp).toLocaleString()}<br>
+                        ${approval.feedback ? `<strong>Feedback:</strong> ${approval.feedback}` : ''}
+                    </div>
+                    ` : ''}
+                </div>
+            `;
+        }
+        
+        // Play audio file with intelligent path checking
+        async function playAudio(type) {
+            console.log('🎵 Playing audio:', type, currentScenario?.title);
+            
+            // Use pack-based naming for audio folders
+            const packId = currentScenario.packId;
+            const packNum = parseInt(packId);
+            
+            // For packs 10+, show friendly message without trying
+            if (packNum > 9) {
+                alert(`Audio not yet generated for pack ${packId}.\n\nThis pack is in the queue for voice generation.`);
+                return;
+            }
+            
+            // Find scenario index within its pack
+            let indexInPack = 0;
+            const packScenarios = scenarios.filter(s => s.packId === packId);
+            for (let i = 0; i < packScenarios.length; i++) {
+                if (packScenarios[i].id === currentScenario.id) {
+                    indexInPack = i;
+                    break;
+                }
+            }
+            
+            // Create pack-based folder name and fallback
+            const folderName = `pack-${packId}-scenario-${String(indexInPack).padStart(3, '0')}`;
+            const basePath = '../data/audio-recording-voices-for-scenarios-from-elevenlabs/';
+            const audioPath = `${basePath}${folderName}/${type}.mp3`;
+            
+            // Fallback to old naming
+            const oldFolderNum = String(parseInt(packId) * 10 + indexInPack).padStart(3, '0');
+            const oldAudioPath = `${basePath}scenario-${oldFolderNum}/${type}.mp3`;
+            
+            // Create or get audio element
+            let player = document.getElementById('dashboard-audio-player');
+            if (!player) {
+                player = document.createElement('audio');
+                player.id = 'dashboard-audio-player';
+                player.style.display = 'none';
+                document.body.appendChild(player);
+            }
+            
+            // Try to play with graceful fallback
+            try {
+                // First try pack-based naming
+                const response = await fetch(audioPath, { method: 'HEAD' });
+                if (response.ok) {
+                    player.src = audioPath;
+                    await player.play();
+                    console.log(`✅ Playing: ${folderName}/${type}.mp3`);
+                    return;
+                }
+            } catch (error) {
+                console.log(`Pack-based path failed: ${audioPath}`);
+            }
+            
+            try {
+                // Try old naming convention
+                const oldResponse = await fetch(oldAudioPath, { method: 'HEAD' });
+                if (oldResponse.ok) {
+                    player.src = oldAudioPath;
+                    await player.play();
+                    console.log(`✅ Playing (old naming): scenario-${oldFolderNum}/${type}.mp3`);
+                    return;
+                }
+            } catch (error) {
+                console.log(`Old naming path failed: ${oldAudioPath}`);
+            }
+            
+            // If both failed
+            alert(`The ${type} audio file is not available for this scenario.\n\nExpected: ${folderName}/${type}.mp3`);
+        }
+        
+        // Stop audio
+        function stopAudio() {
+            // Stop the simple dashboard audio player
+            const player = document.getElementById('dashboard-audio-player');
+            if (player) {
+                player.pause();
+                player.currentTime = 0;
+                console.log('🛑 Audio stopped');
+            }
+            
+            // Also stop the audio engine if available
+            if (audioEngine && audioEngine.stopAll) {
+                audioEngine.stopAll();
+            }
+        }
+        
+        // Set approval status
+        async function setApproval(status) {
+            if (!currentScenario) return;
+            
+            const reviewData = {
+                status: status,
+                timestamp: new Date().toISOString(),
+                feedback: approvalData[currentScenario.id]?.feedback || ''
+            };
+            
+            // Update local data
+            approvalData[currentScenario.id] = reviewData;
+            
+            // Save to API if available
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/reviews`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        scenarioId: currentScenario.id,
+                        status: status,
+                        feedback: reviewData.feedback,
+                        reviewer: 'dashboard-user'
+                    })
+                });
+                
+                if (response.ok) {
+                    const result = await response.json();
+                    console.log(`✅ Review saved to database: ${currentScenario.id} (${status})`);
+                    
+                    // Show success indicator
+                    const statusIndicator = document.createElement('div');
+                    statusIndicator.style.cssText = 'position: fixed; top: 20px; right: 20px; background: #4CAF50; color: white; padding: 10px 20px; border-radius: 5px; z-index: 1000; font-weight: bold;';
+                    statusIndicator.textContent = '✅ Saved to Database';
+                    document.body.appendChild(statusIndicator);
+                    
+                    setTimeout(() => statusIndicator.remove(), 3000);
+                } else {
+                    console.log('⚠️ Failed to save to API, using localStorage backup');
+                }
+            } catch (error) {
+                console.log('⚠️ API not available, using localStorage backup');
+            }
+            
+            // Show feedback form for revision/rejection
+            const feedbackForm = document.getElementById('feedback-form');
+            if (status === 'revision' || status === 'rejected') {
+                feedbackForm.classList.add('active');
+            } else {
+                feedbackForm.classList.remove('active');
+            }
+            
+            // Always save to localStorage as backup
+            await saveApprovalData();
+            
+            if (currentView === 'table') {
+                displayScenarioTable();
+            } else {
+                displayScenarioList();
+            }
+            displayScenarioDetail();
+        }
+        
+        // Save feedback
+        function saveFeedback() {
+            if (!currentScenario) return;
+            
+            const feedback = document.getElementById('feedback-text').value;
+            const requestMultiVoice = document.getElementById('request-multi-voice')?.checked || false;
+            
+            if (!approvalData[currentScenario.id]) {
+                approvalData[currentScenario.id] = {};
+            }
+            
+            approvalData[currentScenario.id].feedback = feedback;
+            approvalData[currentScenario.id].requestMultiVoice = requestMultiVoice;
+            approvalData[currentScenario.id].timestamp = new Date().toISOString();
+            
+            saveApprovalData();
+            alert('Feedback saved!');
+        }
+        
+        // Update statistics
+        function updateStats() {
+            const stats = {
+                total: scenarios.length,
+                pending: 0,
+                approved: 0,
+                revision: 0,
+                rejected: 0
+            };
+            
+            scenarios.forEach(scenario => {
+                const status = approvalData[scenario.id]?.status || 'pending';
+                stats[status]++;
+            });
+            
+            document.getElementById('stat-total').textContent = stats.total;
+            document.getElementById('stat-pending').textContent = stats.pending;
+            document.getElementById('stat-approved').textContent = stats.approved;
+            document.getElementById('stat-revision').textContent = stats.revision;
+            document.getElementById('stat-rejected').textContent = stats.rejected;
+        }
+        
+        // Export approval data
+        function exportApprovalData() {
+            const exportData = {
+                exportDate: new Date().toISOString(),
+                approvals: approvalData,
+                summary: {
+                    total: scenarios.length,
+                    approved: Object.values(approvalData).filter(a => a.status === 'approved').length,
+                    needsRevision: Object.values(approvalData).filter(a => a.status === 'revision').length,
+                    rejected: Object.values(approvalData).filter(a => a.status === 'rejected').length
+                },
+                learningNotes: []
+            };
+            
+            // Compile learning notes from feedback
+            Object.entries(approvalData).forEach(([scenarioId, data]) => {
+                if (data.feedback) {
+                    const scenario = scenarios.find(s => s.id === scenarioId);
+                    exportData.learningNotes.push({
+                        scenarioId,
+                        title: scenario?.title,
+                        status: data.status,
+                        feedback: data.feedback,
+                        timestamp: data.timestamp
+                    });
+                }
+            });
+            
+            // Download as JSON
+            const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `scenario-approvals-${new Date().toISOString().split('T')[0]}.json`;
+            a.click();
+        }
+        
+        // Refresh scenarios
+        function refreshScenarios() {
+            // Clear current selection
+            currentScenario = null;
+            document.getElementById('scenario-detail').innerHTML = '<p style="color: #718096;">Loading scenarios...</p>';
+            
+            // Reload scenarios
+            loadScenarios().catch(error => {
+                console.error('Error refreshing scenarios:', error);
+                document.getElementById('scenario-list').innerHTML = 
+                    '<div class="error">Error refreshing scenarios. Try reloading the page.</div>';
+            });
+        }
+        
+        // Check audio file existence for scenarios
+        async function checkAudioStatus(scenario) {
+            const packId = scenario.packId;
+            const packIdNum = parseInt(packId);
+            
+            // Check if we already know this pack has no audio
+            if (packAudioCache.has(packId)) {
+                const packHasAudio = packAudioCache.get(packId);
+                if (!packHasAudio) {
+                    return { hasAudio: false, missingFiles: ['title.mp3', 'content.mp3', 'claim.mp3'], totalFiles: 3, foundFiles: 0 };
+                }
+            }
+            
+            // Audio typically only exists for earlier packs (000-009), but check a sample first
+            if (packIdNum > 9 && !packAudioCache.has(packId)) {
+                // Quick check: try to fetch just the title.mp3 to see if this pack has any audio
+                const folderName = `pack-${packId}-scenario-000`;
+                const samplePath = `./data/audio-recording-voices-for-scenarios-from-elevenlabs/${folderName}/title.mp3`;
+                
+                try {
+                    const sampleResponse = await fetch(samplePath, { method: 'HEAD' });
+                    if (!sampleResponse.ok) {
+                        // No audio for this pack, cache the result and skip the detailed check
+                        packAudioCache.set(packId, false);
+                        console.log(`📁 Pack ${packId} has no audio - cached for future requests`);
+                        return { hasAudio: false, missingFiles: ['title.mp3', 'content.mp3', 'claim.mp3'], totalFiles: 3, foundFiles: 0 };
+                    } else {
+                        // Pack has audio, cache the positive result
+                        packAudioCache.set(packId, true);
+                        console.log(`🎵 Pack ${packId} has audio - cached for future requests`);
+                    }
+                } catch (error) {
+                    // No audio for this pack, cache the result and skip the detailed check
+                    packAudioCache.set(packId, false);
+                    return { hasAudio: false, missingFiles: ['title.mp3', 'content.mp3', 'claim.mp3'], totalFiles: 3, foundFiles: 0 };
+                }
+            } else if (packIdNum <= 9 && !packAudioCache.has(packId)) {
+                // Assume earlier packs have audio unless proven otherwise
+                packAudioCache.set(packId, true);
+            }
+            
+            const packScenarios = scenarios.filter(s => s.packId === packId);
+            let indexInPack = 0;
+            for (let i = 0; i < packScenarios.length; i++) {
+                if (packScenarios[i].id === scenario.id) {
+                    indexInPack = i;
+                    break;
+                }
+            }
+            
+            const folderName = `pack-${packId}-scenario-${String(indexInPack).padStart(3, '0')}`;
+            const basePath = './data/audio-recording-voices-for-scenarios-from-elevenlabs/';
+            
+            const audioFiles = ['title.mp3', 'content.mp3', 'claim.mp3'];
+            const status = { hasAudio: false, missingFiles: [], totalFiles: audioFiles.length, foundFiles: 0 };
+            
+            for (const file of audioFiles) {
+                try {
+                    const response = await fetch(`${basePath}${folderName}/${file}`, { method: 'HEAD' });
+                    if (response.ok) {
+                        status.foundFiles++;
+                    } else {
+                        status.missingFiles.push(file);
+                    }
+                } catch (error) {
+                    status.missingFiles.push(file);
+                }
+            }
+            
+            status.hasAudio = status.foundFiles === status.totalFiles;
+            return status;
+        }
+
+        // View state management
+        let currentView = 'list';
+        let currentSort = { column: 'pack', direction: 'asc' };
+        let scenarioAudioCache = new Map();
+        let packAudioCache = new Map(); // Cache for pack-level audio availability
+
+        // Set view (list or table)
+        function setView(view) {
+            currentView = view;
+            const grid = document.getElementById('scenario-grid');
+            const list = document.getElementById('scenario-list');
+            const table = document.getElementById('scenario-table');
+            const listBtn = document.getElementById('view-list');
+            const tableBtn = document.getElementById('view-table');
+
+            if (view === 'table') {
+                grid.classList.add('table-view');
+                list.style.display = 'none';
+                table.style.display = 'block';
+                listBtn.classList.remove('active');
+                tableBtn.classList.add('active');
+                displayScenarioTable();
+            } else {
+                grid.classList.remove('table-view');
+                list.style.display = 'block';
+                table.style.display = 'none';
+                listBtn.classList.add('active');
+                tableBtn.classList.remove('active');
+                displayScenarioList();
+            }
+        }
+
+        // Display scenario table with sorting
+        async function displayScenarioTable() {
+            const tableBody = document.getElementById('scenario-table-body');
+            
+            const filteredScenarios = scenarios.filter(scenario => {
+                const status = approvalData[scenario.id]?.status || 'pending';
+                if (currentFilter === 'new') return scenario.isNew;
+                return currentFilter === 'all' || status === currentFilter;
+            });
+
+            if (filteredScenarios.length === 0) {
+                tableBody.innerHTML = '<tr><td colspan="6" class="loading">No scenarios match the current filter</td></tr>';
+                return;
+            }
+
+            // Show loading
+            tableBody.innerHTML = '<tr><td colspan="6" class="loading">Loading and checking audio status...</td></tr>';
+
+            // Sort scenarios
+            const sortedScenarios = [...filteredScenarios].sort((a, b) => {
+                let aVal, bVal;
+                switch (currentSort.column) {
+                    case 'title':
+                        aVal = a.title || 'Untitled';
+                        bVal = b.title || 'Untitled';
+                        break;
+                    case 'pack':
+                        aVal = parseInt(a.packId);
+                        bVal = parseInt(b.packId);
+                        break;
+                    case 'status':
+                        aVal = approvalData[a.id]?.status || 'pending';
+                        bVal = approvalData[b.id]?.status || 'pending';
+                        break;
+                    case 'audio':
+                        aVal = scenarioAudioCache.get(a.id)?.foundFiles || 0;
+                        bVal = scenarioAudioCache.get(b.id)?.foundFiles || 0;
+                        break;
+                    case 'type':
+                        aVal = detectMultiCharacter(a).isMultiChar ? 'multi' : 'single';
+                        bVal = detectMultiCharacter(b).isMultiChar ? 'multi' : 'single';
+                        break;
+                    default:
+                        return 0;
+                }
+                
+                if (currentSort.direction === 'asc') {
+                    return aVal < bVal ? -1 : aVal > bVal ? 1 : 0;
+                } else {
+                    return aVal > bVal ? -1 : aVal < bVal ? 1 : 0;
+                }
+            });
+
+            // Check audio status for all scenarios
+            const rowPromises = sortedScenarios.map(async scenario => {
+                const status = approvalData[scenario.id]?.status || 'pending';
+                const multiChar = detectMultiCharacter(scenario);
+                
+                // Simplified audio status (no aggressive checking)
+                let audioStatus = null;
+                if (!scenario.isNew) {
+                    const packNum = parseInt(scenario.packId);
+                    if (packNum <= 9) {
+                        audioStatus = { hasAudio: true, foundFiles: 3, totalFiles: 3 }; // Assume available
+                    } else {
+                        audioStatus = { hasAudio: false, foundFiles: 0, totalFiles: 3 }; // Assume not available
+                    }
+                }
+
+                const audioDisplay = scenario.isNew ? 
+                    '<span class="audio-status" style="color: #a0aec0;">Not Generated</span>' :
+                    audioStatus?.hasAudio ? 
+                        '<span class="audio-status" style="color: #48bb78;">🎵 Complete</span>' :
+                        audioStatus?.foundFiles > 0 ?
+                            `<span class="audio-status" style="color: #f6ad55;">🎵 ${audioStatus.foundFiles}/3</span>` :
+                            '<span class="audio-status" style="color: #fc8181;">🚫 Missing</span>';
+
+                const statusColor = status === 'approved' ? '#48bb78' : 
+                                   status === 'revision' ? '#f6ad55' : 
+                                   status === 'rejected' ? '#fc8181' : '#718096';
+
+                return `
+                    <tr onclick="selectScenario('${scenario.id}'); scrollToDetail();" style="cursor: pointer;">
+                        <td><strong>${scenario.title || 'Untitled Scenario'}</strong></td>
+                        <td>Pack ${scenario.packId}</td>
+                        <td><span style="color: ${statusColor};">${status.charAt(0).toUpperCase() + status.slice(1)}</span></td>
+                        <td>${audioDisplay}</td>
+                        <td>${multiChar.isMultiChar ? '🎭 Multi-Character' : '👤 Single Voice'}</td>
+                        <td>
+                            ${!scenario.isNew && audioStatus && !audioStatus.hasAudio ? 
+                                '<button class="audio-button" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;" onclick="event.stopPropagation(); generateAudio(\'' + scenario.id + '\')">Generate Audio</button>' :
+                                '<span style="color: #a0aec0;">—</span>'
+                            }
+                        </td>
+                    </tr>
+                `;
+            });
+
+            const rows = await Promise.all(rowPromises);
+            tableBody.innerHTML = rows.join('');
+            
+            // Update sort indicators
+            document.querySelectorAll('.scenario-table th').forEach(th => {
+                th.classList.remove('sort-asc', 'sort-desc');
+                if (th.dataset.sort === currentSort.column) {
+                    th.classList.add(currentSort.direction === 'asc' ? 'sort-asc' : 'sort-desc');
+                }
+            });
+        }
+
+        // Table sorting
+        function sortTable(column) {
+            if (currentSort.column === column) {
+                currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+            } else {
+                currentSort.column = column;
+                currentSort.direction = 'asc';
+            }
+            displayScenarioTable();
+        }
+
+        // Scroll to detail panel (for table view)
+        function scrollToDetail() {
+            document.getElementById('scenario-detail').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Generate audio button action
+        function generateAudio(scenarioId) {
+            alert(`Generate audio for scenario ${scenarioId}\\n\\nThis would typically trigger:\\n- ElevenLabs API call\\n- Voice generation script\\n- Audio file creation`);
+        }
+
+        // Filter functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set up filter buttons (only for data-filter, not view buttons)
+            document.querySelectorAll('.filter-btn[data-filter]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('.filter-btn[data-filter]').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    currentFilter = e.target.dataset.filter;
+                    if (currentView === 'table') {
+                        displayScenarioTable();
+                    } else {
+                        displayScenarioList();
+                    }
+                });
+            });
+            
+            // Set up table sorting
+            document.querySelectorAll('.scenario-table th[data-sort]').forEach(th => {
+                th.addEventListener('click', (e) => {
+                    sortTable(e.target.dataset.sort);
+                });
+            });
+            
+            // Dashboard ready - waiting for user interaction via splash screen
+            console.log('📋 Dashboard ready - click "Let\'s Go!" to begin');
+        });
+    </script>
+</body>
+</html>
