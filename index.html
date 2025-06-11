@@ -57,12 +57,11 @@
                 <h2 class="scenario-title" id="scenario-title">Loading...</h2>
                 <p class="scenario-counter" id="scenario-counter">Scenario 1 of 10</p>
                 <p class="scenario-text" id="scenario-text"></p>
-                <div class="claim" id="claim-text">
-                    <!-- Audio Control Button - inside claim div -->
-                    <button class="audio-btn" id="play-pause-btn" onclick="toggleScenarioAudio()" title="Play/Pause scenario audio" style="display: none;">
-                        ▶ Play
-                    </button>
-                </div>
+                <div class="claim" id="claim-text"></div>
+                <!-- Audio Control Button - positioned after claim -->
+                <button class="audio-btn" id="play-pause-btn" onclick="toggleScenarioAudio()" title="Play/Pause scenario audio" style="display: none;">
+                    ▶ Play
+                </button>
                 <!-- Investigate button on the right -->
                 <button class="analysis-toggle-btn" id="analysis-toggle-btn" onclick="toggleTimelineAnalysis()">
                     🔍 Investigate

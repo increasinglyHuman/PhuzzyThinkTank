@@ -2010,17 +2010,17 @@ body {
     min-width: 200px;
 }
 
-/* Audio Button - positioned within claim div */
-.claim .audio-btn {
-    float: left;
-    margin-right: 15px;
-    margin-top: 6px; /* Increased to better align with claim text */
+/* Audio Button - positioned absolutely like investigate button */
+.scenario-box .audio-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 30px; /* Mirror investigate button's right: 30px */
     background: white;
     color: #667eea;
     border: 2px solid #667eea;
     border-radius: 25px;
-    padding: 8px 16px;
-    font-size: 0.9rem;
+    padding: 10px 20px;
+    font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -2028,7 +2028,7 @@ body {
     white-space: nowrap;
 }
 
-.claim .audio-btn:hover {
+.scenario-box .audio-btn:hover {
     background: #667eea;
     color: white;
     transform: translateY(-2px);
