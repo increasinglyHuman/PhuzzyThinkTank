@@ -57,19 +57,16 @@
                 <h2 class="scenario-title" id="scenario-title">Loading...</h2>
                 <p class="scenario-counter" id="scenario-counter">Scenario 1 of 10</p>
                 <p class="scenario-text" id="scenario-text"></p>
-                <div class="claim" id="claim-text"></div>
-                <!-- Bottom button row: Audio controls on left, Investigate on right -->
-                <div class="scenario-button-row">
-                    <!-- Audio Control Button - same level as investigate -->
+                <div class="claim" id="claim-text">
+                    <!-- Audio Control Button - inside claim div -->
                     <button class="audio-btn" id="play-pause-btn" onclick="toggleScenarioAudio()" title="Play/Pause scenario audio" style="display: none;">
-                        ▶️ Play
-                    </button>
-                    
-                    <!-- Investigate button on the right -->
-                    <button class="analysis-toggle-btn" id="analysis-toggle-btn" onclick="toggleTimelineAnalysis()">
-                        🔍 Investigate
+                        ▶ Play
                     </button>
                 </div>
+                <!-- Investigate button on the right -->
+                <button class="analysis-toggle-btn" id="analysis-toggle-btn" onclick="toggleTimelineAnalysis()">
+                    🔍 Investigate
+                </button>
             </div>
             
             <!-- Timeline Analysis Accordion -->
@@ -719,6 +716,9 @@
             if (isAudioPlaying) {
                 stopScenarioAudio();
             } else {
+                // Change button immediately when starting playback
+                isAudioPlaying = true;
+                updatePlayPauseButton();
                 playScenarioSequence();
             }
         }
@@ -752,10 +752,11 @@
                     .then((sequenceId) => {
                         if (sequenceId) {
                             console.log('✅ Audio sequence started:', sequenceId);
-                            isAudioPlaying = true;
-                            updatePlayPauseButton();
+                            // Button state already updated in toggleScenarioAudio
                         } else {
                             console.log('⚠️ Audio sequence failed to start');
+                            isAudioPlaying = false;
+                            updatePlayPauseButton();
                         }
                     })
                     .catch((error) => {
@@ -765,6 +766,8 @@
                     });
             } else {
                 console.log('⚠️ Enhanced audio player not available');
+                isAudioPlaying = false;
+                updatePlayPauseButton();
             }
         }
         
@@ -797,13 +800,12 @@
             const btn = document.getElementById('play-pause-btn');
             if (btn) {
                 if (isAudioPlaying) {
-                    btn.innerHTML = '⏸️ Pause';
+                    btn.innerHTML = '⏸ Pause';
                     btn.title = 'Pause scenario audio';
-                    btn.classList.add('playing');
+                    // Remove playing class to avoid color changes
                 } else {
-                    btn.innerHTML = '▶️ Play';
+                    btn.innerHTML = '▶ Play';
                     btn.title = 'Play scenario audio sequence';
-                    btn.classList.remove('playing');
                 }
             }
         }

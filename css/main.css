@@ -1991,7 +1991,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: flex-end; /* Bottom justify both audio controls and investigate button */
-    margin-top: 20px;
+    margin-top: 30px; /* Increased margin to push buttons lower */
     gap: 20px;
     min-height: 44px; /* Ensure consistent height */
 }
@@ -2010,13 +2010,17 @@ body {
     min-width: 200px;
 }
 
-.audio-btn {
+/* Audio Button - positioned within claim div */
+.claim .audio-btn {
+    float: left;
+    margin-right: 15px;
+    margin-top: 2px;
     background: white;
     color: #667eea;
     border: 2px solid #667eea;
     border-radius: 25px;
-    padding: 10px 20px;
-    font-size: 1rem;
+    padding: 8px 16px;
+    font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -2024,7 +2028,7 @@ body {
     white-space: nowrap;
 }
 
-.audio-btn:hover {
+.claim .audio-btn:hover {
     background: #667eea;
     color: white;
     transform: translateY(-2px);
@@ -2042,10 +2046,7 @@ body {
     box-shadow: none;
 }
 
-.audio-btn.playing {
-    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
-    animation: pulse 2s infinite;
-}
+/* Removed green playing state - keep button consistent */
 
 
 @keyframes pulse {
