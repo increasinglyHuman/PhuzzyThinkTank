@@ -2014,7 +2014,7 @@ body {
 .claim .audio-btn {
     float: left;
     margin-right: 15px;
-    margin-top: 2px;
+    margin-top: 6px; /* Increased to better align with claim text */
     background: white;
     color: #667eea;
     border: 2px solid #667eea;
