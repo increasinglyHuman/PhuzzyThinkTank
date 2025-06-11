@@ -1990,7 +1990,7 @@ body {
 .scenario-button-row {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end; /* Bottom justify both audio controls and investigate button */
     margin-top: 20px;
     gap: 20px;
     min-height: 44px; /* Ensure consistent height */
