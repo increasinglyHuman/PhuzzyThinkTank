@@ -1,0 +1,292 @@
+{
+  "packId": "pack-017",
+  "theme": "Library Book Club Debates",
+  "description": "Book characters debating their own stories and plot decisions",
+  "scenarios": [
+    {
+      "id": "pack-017-001-library-book-club-1",
+      "title": "Pinocchio's Nose Knows",
+      "content": "At the library book club, storybook characters debate the choices made in their stories. Pinocchio argues that lying is sometimes good and necessary. Other characters challenge his flawed logic.",
+      "audioScript": "Pinocchio: [proud] \"I'm just saying, if I hadn't lied, I never would have become a real boy! Lying is natural and even helpful sometimes.\"\n\nAlice: [skeptical] \"Hold on Pinocchio, I don't think it's that simple. Lying usually leads down a slippery slope to more lies and trouble.\"\n\nPeter Pan: [playful] \"Yeah, and your nose might get stuck that way! [laughs]\"  \n\nPinocchio: [defensive] \"Hey, no need for ad hominem attacks! I'm a real boy now, nose and all. Everyone else lies too, it's no big deal.\"\n\nAlice: [thoughtful] \"Even if others do it, it doesn't make it right. Lying is a choice with consequences. The truth matters.\"",
+      "claim": "Lying is natural and can be good sometimes.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "primary",
+          "example": "Pinocchio argues lying is okay because it's natural."
+        },
+        {
+          "fallacyId": "slippery-slope",
+          "severity": "secondary",
+          "example": "Alice says lying leads to more lies and trouble."
+        },
+        {
+          "fallacyId": "ad-hominem",
+          "severity": "secondary",
+          "example": "Peter Pan teases Pinocchio about his nose."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-017-002-library-book-club-02",
+      "title": "The Candy Controversy",
+      "content": "In a library book club meeting, Hansel and Gretel argue with Goldilocks about whether the witch's candy house was a good idea. Hansel insists candy houses are the best while Goldilocks says they're too dangerous.",
+      "audioScript": "Hansel: [excited] \"Candy houses are the best thing ever! Every house should be made of candy. It's so delicious and fun.\"\n\nGretel: [hesitant] \"I don't know, Hansel. Remember how much trouble we got into with that witch's candy house? It was pretty scary.\"\n\nGoldilocks: [skeptical] \"I have to agree with Gretel. A house made entirely of candy seems like a recipe for disaster. It's just not natural.\"\n\nHansel: [defensive] \"You're only saying that because you've never tried it, Goldilocks. Don't knock it until you've experienced the sugary goodness for yourself!\"\n\nGretel: [conflicted] \"Maybe we just got unlucky with that one witch. I'm sure not all candy houses are traps set by evil witches... right?\"\n\nGoldilocks: [firm] \"I still think it's too risky. Houses are meant to be made of sturdy stuff like bricks or wood, not sweets. It goes against tradition.\"\n\nHansel: [insistent] \"Candy is the future of housing, I'm telling you! Everyone will be living in candy houses soon. We're just ahead of the trend!\"",
+      "claim": "Every house should be made out of candy because it's delicious and fun.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Hansel assumes all candy houses are good based on his one experience, ignoring the dangers."
+        },
+        {
+          "fallacyId": "bandwagon",
+          "severity": "primary",
+          "example": "Hansel claims everyone will be living in candy houses soon, as if popularity makes it a good idea."
+        },
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "secondary",
+          "example": "Goldilocks argues candy houses are bad because they're not 'natural'."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-017-003-library-book-club-3",
+      "title": "Big Bad Wolf Cries Foul",
+      "content": "The Big Bad Wolf from Little Red Riding Hood claims the pigs and Little Red are conspiring against him and spreading lies. He says wolves are noble creatures and the stories are biased propaganda.",
+      "audioScript": "Big Bad Wolf: [indignant] \"I'm sick of these fairy tales slandering us wolves! The Three Little Pigs and Little Red Riding Hood are full of lies. Pigs and little girls can't be trusted.\"\n\nThree Little Pigs: [defensive] \"The stories don't lie - you huffed and puffed and tried to blow our houses down! You're just a big bully.\"\n\nBig Bad Wolf: [angry] \"Lies! Wolves are noble, majestic creatures. We're an important part of nature. It's wolf-ist propaganda!\"\n\nLittle Red: [scared] \"But Grandma, what big teeth you have! The better to eat me with...\"\n\nBig Bad Wolf: [exasperated] \"More fear-mongering! You're all in cahoots. Everyone knows pigs and little girls are devious. I won't stand for this anti-wolf agenda!\"",
+      "claim": "The fairy tales are full of lies and anti-wolf propaganda.",
+      "correctAnswer": "agenda",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "ad-hominem",
+          "severity": "primary",
+          "example": "Attacking the pigs and Little Red's character instead of their arguments."
+        },
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "primary",
+          "example": "Arguing that wolves are noble because they are part of nature."
+        },
+        {
+          "fallacyId": "straw-man",
+          "severity": "secondary",
+          "example": "Exaggerating that the stories are 'anti-wolf propaganda'."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-017-004-book-club-debates-4",
+      "title": "Alice's Wonderland Worries",
+      "content": "Alice and the Mad Hatter debate whether Alice should have followed the White Rabbit down the rabbit hole in the first place. The Cheshire Cat and the Queen of Hearts chime in with their own dubious logic.",
+      "audioScript": "Alice: [frustrated] \"I never should have followed that White Rabbit! Look at all the trouble it's caused me.\"\n\nMad Hatter: [dismissive] \"Nonsense! If you hadn't followed the White Rabbit, we never would have met and had our delightful tea party. Therefore, following the rabbit was the only right choice.\"\n\nCheshire Cat: [sly] \"Ah, but if she hadn't come to Wonderland, she also wouldn't have had to deal with the Queen's temper tantrums.\"\n\nQueen of Hearts: [indignant] \"Are you suggesting my 'temper tantrums' are a bad thing? Off with their heads! Every good story needs a powerful villain like me.\"\n\nAlice: [unsure] \"I don't know... maybe I should have just stayed home and had a normal day instead of all these crazy adventures.\"",
+      "claim": "Alice should not have followed the White Rabbit down the rabbit hole.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "primary",
+          "example": "The Mad Hatter suggests there were only two options - follow the rabbit or not meet him at all."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-017-005-lib-book-club-5",
+      "title": "Caterpillar's Identity Crisis",
+      "content": "At the Library Book Club, characters from Alice in Wonderland debate the Caterpillar's role and advice to Alice. The Caterpillar claims he is the wisest character and Alice should have stayed with him, but others question his logic.",
+      "audioScript": "Social Media Intro: Just had a wild debate at the #LibraryBookClub about that bossy Caterpillar from Alice in Wonderland! 🐛📚 Does he really give the best advice?\n\nCaterpillar: [haughty] \"I am clearly the wisest character in Wonderland. Alice was foolish not to stay and learn from me.\"\n\nCheshire Cat: [amused] \"Oh really? And what makes you so wise, oh hookah-smoking bug?\"\n\nCaterpillar: [defensive] \"I give profound advice, like 'Keep your temper' and 'One side will make you grow taller, and the other side will make you grow shorter.'\"\n\nWhite Rabbit: [skeptical] \"But how does that help Alice in her journey? Seems rather cryptic and unhelpful.\"\n\nCaterpillar: [annoyed] \"Nonsense! Alice left too soon. If she stayed with me, she would have figured it all out and had an easier time.\"\n\nAlice: [thoughtful] \"While I appreciate the Caterpillar's words, I had to experience Wonderland for myself. No one character had all the answers I needed.\"",
+      "claim": "The Caterpillar is the wisest character in Alice in Wonderland and Alice would have had an easier time if she just stayed and listened to him.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "primary",
+          "example": "The Caterpillar claims he is the wisest simply because of his 'profound' advice, as if his words alone make him an authority."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-017-006-library-debate-6",
+      "title": "Pinocchio's Nose Knows",
+      "content": "The fairy tale characters gather for a lively book club meeting to debate the plot of Pinocchio. Pinocchio insists his constant lying and nose-growing was essential to the story. The other characters question whether there were better ways to teach the importance of honesty.",
+      "audioScript": "Narrator: [posting] The library book club is getting heated! 📚🔥 Pinocchio's lying is on trial... #PinocchioOnTrial #HonestyDebate #FairyTaleDrama\n\nPinocchio: [defensive] \"My story wouldn't be memorable without all the lying and my nose growing. It's a tradition - all the classic fairy tales have extreme punishments for misbehavior.\"\n\nJiminy Cricket: [thoughtful] \"I don't know, Pinoc. Lying is wrong, but maybe the story could have shown you learning honesty in a gentler way, without the scary nose-growing.\"\n\nMad Hatter: [emphatic] \"Nonsense! It's only natural that lying makes your nose grow. How else would children learn? We need to protect this tradition!\"\n\nWhite Rabbit: [timidly] \"I have to agree with Pinocchio and Hatter. All the other fairy tales use fear to teach lessons. Pinocchio would be incomplete without it.\"\n\nAlice: [logical] \"Hmm, I disagree. There are many great fairy tales that teach lessons without relying on fear or public shame. Pinocchio's story could have been told differently and still been effective. Let's not assume all fairy tales need to follow the same formula.\"",
+      "claim": "Pinocchio's story needed to use fear and a growing nose to teach a lesson about honesty.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-tradition",
+          "severity": "primary",
+          "example": "\"It's a tradition - all the classic fairy tales have extreme punishments for misbehavior.\""
+        },
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "primary",
+          "example": "\"It's only natural that lying makes your nose grow.\""
+        },
+        {
+          "fallacyId": "appeal-to-fear",
+          "severity": "secondary",
+          "example": "\"How else would children learn? We need to protect this tradition!\""
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-017-007-book-club-debate-7",
+      "title": "Harry Gripes About the Ending",
+      "content": "At the Library Book Club, Harry Potter complains that his story should have ended very differently. But Hermione and Ron point out the flaws in his arguments.",
+      "audioScript": "\nHarry Potter: [frustrated] \"I'm just saying, it makes no sense for me to marry Ginny in the end. We had no chemistry! The author was trying too hard to wrap everything up in a perfect bow. #LazyWriting\"\n\nHermione: [calmly] \"Harry, just because you personally don't like how things turned out doesn't mean it's bad writing. Ginny was an important character from the beginning.\"  \n\nRon: [agreeing] \"Yeah mate, and you can't just change the ending because you prefer a different girl. The story led to you and Ginny, even if it wasn't super obvious.\"\n\nHarry: [annoyed] \"Easy for you to say, you two got a perfect fairy tale ending! I should have been with Luna or Hermione, someone I had way more scenes with.\"\n\nHermione: [gently] \"Harry, you're falling into a false dilemma fallacy, assuming it had to be Ginny or me or Luna. There are more options than just major characters. And you're cherry-picking moments while ignoring all the buildup with Ginny.\"\n\nHarry: [sighing] \"I guess you're right...as usual. I just wanted my story to end how I imagined it. But the way it actually ended is okay too.\"\n",
+      "claim": "The author forced Harry and Ginny together at the end in a lazy attempt to perfectly wrap up all the storylines. The ending should have been very different.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "primary",
+          "example": "Harry assumes he had to end up with Ginny or Hermione or Luna, ignoring other possibilities."
+        },
+        {
+          "fallacyId": "cherry-picking",
+          "severity": "primary",
+          "example": "Harry focuses on moments with other characters while ignoring the buildup of his relationship with Ginny."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-017-008-library-book-club-8",
+      "title": "Alice in Blunderland",
+      "content": "At the library book club, characters from Alice in Wonderland debate the story. The Mad Hatter argues they should have stayed at his tea party forever and never finished the book. Alice and the Cheshire Cat disagree.",
+      "audioScript": "Mad Hatter: [adamant] \"I say, we ought to have remained at my splendid tea party for all eternity! Leaving was a terrible decision.\"\n\nAlice: [skeptical] \"But Hatter, staying at the tea party forever was simply impossible. I had to wake up and end the story eventually.\"\n\nMad Hatter: [dismissive] \"Nonsense, Alice. Anything is possible in Wonderland! And as the expert on tea parties, I know best. We could have had a mad time indefinitely!\"\n\nCheshire Cat: [amused] \"Oh Hatter, don't be so silly. Alice is the main character, so obviously her waking up to end the dream was inevitable and necessary.\"\n\nMad Hatter: [haughty] \"Ridiculous feline! You cannot trust a cat who constantly vanishes. My tea party expertise is unquestionable.\"",
+      "claim": "The characters should have stayed at the Mad Hatter's tea party forever instead of continuing the story.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "primary",
+          "example": "The Mad Hatter claims his expertise on tea parties means his opinion is unquestionably correct."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-017-009-library-book-club-9",
+      "title": "Debating Dumbledore's Decisions",
+      "content": "The Harry Potter book characters hold a lively debate about whether Dumbledore made wise choices in leaving baby Harry with the Dursleys. Characters argue both sides with some flawed reasoning.",
+      "audioScript": "Harry: [posting on WizardGram] Just wrapped up a #GreatHogwartsDebate about Dumbledore's questionable decision-making! 🤔💭🧙‍♂️ #HotTakes #UnpopularOpinions\n\nHermione: [frustrated] \"Dumbledore is the greatest wizard of all time. Questioning his judgment is disrespectful. He always had good reasons for what he did.\"\n\nHarry: [unsure] \"I don't know, leaving me with the Dursleys was pretty rough. Maybe there were better options?\"\n\nRon: [agreeing] \"Yeah, those muggles were the worst! Any wizarding family would've been better.\"\n\nSnape: [sneering] \"Typical Gryffindor arrogance, thinking you know better than Albus Dumbledore. His wisdom far exceeds your adolescent musings.\"\n\nHarry: [defensive] \"I'm not claiming to be wiser than Dumbledore. I just think that choice caused me a lot of unnecessary suffering.\"\n\nHermione: [determined] \"But it was necessary for the protective magic! And it kept you safe from growing up famous in the wizarding world. Everyone else did it that way too.\"\n\nHarry: [resigned] I guess we'll never really know. It just seems like there had to be a better way.",
+      "claim": "Dumbledore was right to leave baby Harry with the Dursleys.",
+      "correctAnswer": "balanced",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "primary",
+          "example": "Hermione argues that Dumbledore must have been right because he was a great wizard"
+        },
+        {
+          "fallacyId": "appeal-to-tradition",
+          "severity": "primary",
+          "example": "Hermione suggests it was okay because that's how everyone did it"
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-017-010-library-book-club-10",
+      "title": "Alice's Wonderland Woes",
+      "content": "At the library book club, Alice from Wonderland argues that the story's nonsensical events and characters are harmful to kids. But the Mad Hatter and others push back, saying the story is just meant to be fun and imaginative.",
+      "audioScript": "\nAlice: [frustrated] \"I can't believe this book is still being read to children! All the nonsense and bizarre characters, it's not right. Stories should teach good lessons, not confuse kids with absurdity.\"\n\nMad Hatter: [amused] \"Oh Alice, don't be such a sourpuss! The story is meant to unleash kids' imaginations and creativity. Not everything has to make perfect sense all the time.\"  \n\nWhite Rabbit: [nervous] \"I'm late, I'm late! But I agree with Hatter. The story shows kids that it's okay to be silly and even a little mad sometimes! Embrace the whimsy!\"\n\nAlice: [adamant] \"No, no, you're both wrong. This kind of illogical nonsense is harmful to developing minds. If we keep exposing kids to this, they'll all end up as mad as...well, you Hatter!\"\n\nCheshire Cat: [grinning] \"Oh Alice...maybe a little madness is just what the world needs. Besides, the story's been beloved for generations. How bad can it really be? I think your fears are a bit overblown.\"\n",
+      "claim": "The nonsensical events and characters in Alice in Wonderland are harmful to children.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "slippery-slope",
+          "severity": "primary",
+          "example": "Alice claims that if kids are exposed to the illogical story, they will all end up going mad like the characters."
+        },
+        {
+          "fallacyId": "appeal-to-tradition",
+          "severity": "secondary",
+          "example": "The Cheshire Cat argues the story must be okay because it has been popular for many generations."
+        }
+      ],
+      "difficulty": "beginner"
+    }
+  ]
+}

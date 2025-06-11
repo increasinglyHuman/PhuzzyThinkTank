@@ -160,3 +160,16 @@ phuzzy-complete-game.html
 
 # Bug reports and fixes
 BUG-FIXES-*.md
+
+# Archive and backup folders
+ai-context/
+backups/
+dashboard-archive/
+.fallacies_archive/
+.legacyFiles_archive/
+.phuzzys-mad-dash-experiments/
+PackManagement/
+temp/
+
+# Spaghetti backup folder
+**/spaghetti-backup/

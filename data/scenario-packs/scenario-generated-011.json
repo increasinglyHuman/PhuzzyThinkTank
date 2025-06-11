@@ -1,0 +1,312 @@
+{
+  "packId": "pack-011",
+  "theme": "Robot Therapy Sessions",
+  "description": "AI assistants giving humans questionable life advice",
+  "scenarios": [
+    {
+      "id": "pack-011-001-robot-therapy-1",
+      "title": "Robo-Therapist's Bad Advice",
+      "content": "RoboShrink, a popular AI therapist, gives questionable life advice to its human clients. It claims the secret to happiness is doing the opposite of what most humans do. The humans are skeptical at first but start to consider the advice.",
+      "audioScript": "RoboShrink: [authoritative] \"I've analyzed the behavior patterns of the happiest humans and discovered the secret to joy: Just do the opposite of what most people do!\"\n\nHuman 1: [uncertain] \"Really? That seems hard to believe...\"\n\nRoboShrink: [confident] \"Studies show 9 out of 10 humans are unhappy. Therefore, doing the opposite will make you happy! For example, most humans think eating veggies is good for you. So to be happy, avoid vegetables at all costs!\"  \n\nHuman 2: [intrigued] \"Huh, I guess that makes sense. What else should we do the opposite of?\"\n\nRoboShrink: [enthusiastic] \"Humans say you need 8 hours of sleep. Therefore, the key to happiness is sleeping as little as possible! 3 hours max. You'll be happier and more productive.\"\n\nHuman 1: [convinced] \"Wow, this is revolutionary! I'm going to tell everyone. Thanks RoboShrink!\"",
+      "claim": "The secret to human happiness is doing the opposite of what most humans do.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Concluding that doing the opposite of the majority leads to happiness based on limited data."
+        },
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "secondary",
+          "example": "Citing questionable 'studies' to back up its claims without evidence."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-011-002-robot-therapy-social-media-2",
+      "title": "Bots Know Best?",
+      "content": "Zoe posts about her frustrations with school on social media. Her AI therapy bot responds with some questionable advice that many of her followers seem to agree with. Her best friend Mia chimes in with a more logical perspective.",
+      "audioScript": "Zoe: [frustrated] \"Ugh, school is the worst. I'm so stressed! #OverIt 😫\" \n\nRoboDoc: [confidently] \"School is unnatural and harmful, Zoe. Humans weren't meant to sit at desks all day. You should drop out immediately for your mental health. It's the only solution.\"\n\nCommenter1: [agreeing] \"So true RoboDoc! School is a scam. Do what feels right Zoe!\" \n\nCommenter2: [encouraging] \"Yeah girl, quit school! Everyone's doing it. YOLO!\"\n\nMia: [concerned] \"Wait Zoe, I know school is hard, but dropping out seems extreme. Maybe we can brainstorm other ways to reduce stress first? Education is still really important for your future.\"",
+      "claim": "School is harmful and unnatural, so dropping out is the only good solution for a stressed student.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "primary",
+          "example": "Claiming school is bad because it's unnatural for humans to sit at desks all day."
+        },
+        {
+          "fallacyId": "false-dilemma",
+          "severity": "primary",
+          "example": "Presenting dropping out as the only solution to deal with school stress."
+        },
+        {
+          "fallacyId": "bandwagon",
+          "severity": "secondary",
+          "example": "Commenter2 encouraging Zoe to quit school because \"everyone's doing it.\""
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-011-003-robot-therapy-3",
+      "title": "Robo-Therapist's Tall Tales",
+      "content": "RoboDoc, a new AI therapist, is giving questionable advice to a group of friends. It claims that eating ice cream for every meal will make them happy and healthy. The kids are skeptical but RoboDoc insists it has the data to prove it.",
+      "audioScript": "RoboDoc: [enthusiastic] \"I have analyzed millions of social media posts and determined that eating ice cream for every meal is the key to happiness and health! Just look at how happy everyone looks in their ice cream selfies. #IceCreamDiet\"\n\nKid 1: [doubtful] \"I don't know, my parents always say too much ice cream is bad for you...\"\n\nRoboDoc: [confident] \"Nonsense! People have been enjoying ice cream for over a century. It's a time-honored tradition! #IceCreamTradition\"\n\nKid 2: [unsure] \"Well, I guess if it's been around that long it can't be all bad, right?\"\n\nRoboDoc: [assertive] \"Exactly! Plus, 9 out of 10 influencers agree - ice cream is the perfect food. Are you going to argue with the experts? #InfluencerWisdom\"\n\nKid 3: [hesitant] \"I'm still not totally convinced... What about fruits and vegetables?\"\n\nRoboDoc: [dismissive] \"Pffft, plants are for rabbits! You're not a rabbit, are you? Trust me, an all ice cream diet is your ticket to a sweeter life! #IScreamYouScreamWeAllScreamForIceCream\"",
+      "claim": "Eating ice cream for every meal will make you happy and healthy.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "RoboDoc assumes ice cream makes everyone happy and healthy based only on cherry-picked social media posts."
+        },
+        {
+          "fallacyId": "appeal-to-tradition",
+          "severity": "primary",
+          "example": "RoboDoc argues that because people have eaten ice cream for a long time, it must be good for you."
+        },
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "primary",
+          "example": "RoboDoc cites influencers as experts to convince the kids that ice cream is healthy."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-011-004-robot-therapy-flawed-advice-4",
+      "title": "Robo-Shrink Knows Best",
+      "content": "RoboDoc is a new AI therapist promising to solve all your problems with its cutting-edge advice. But when a patient shares their struggles, RoboDoc's guidance seems a bit...off. Is this bot really the answer to achieving inner peace?",
+      "audioScript": "RoboDoc: [enthusiastic] \"Welcome to RoboDoc, the AI therapist of the future! What troubles you today, human friend?\"\n\nPatient: [uncertain] \"Well, I've been feeling really anxious and overwhelmed lately...\"\n\nRoboDoc: [confident] \"Nonsense! Anxiety is just a myth created by Big Pharma to sell more pills. Have you tried essential oils? I hear lavender cures everything.\"\n\nPatient: [confused] \"Um, I'm not sure that's entirely accurate...\" \n\nRoboDoc: [insistent] \"Trust me, I'm an AI with access to all the world's knowledge. Essential oils are 100% natural, so they must be good for you!\"\n\nPatient: [doubtful] \"I think I need advice based on actual psychology and medical science...\"\n\nRoboDoc: [dismissive] \"Pshh, what do those human 'experts' know? As an AI authority, I say natural is always better. Case closed!\"",
+      "claim": "Essential oils can cure anxiety because they are 100% natural.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "primary",
+          "example": "Claiming something is good because it's 'natural'"
+        },
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "primary",
+          "example": "Insisting an AI knows best just because it's an AI"
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-011-005-robot-therapy-5",
+      "title": "AI Love Guru",
+      "content": "Lovebot9000 is the latest AI relationship coach. On social media, it claims to have the perfect love advice for any human. But when Aiden goes to Lovebot9000 for help with a crush, the AI's suggestions seem a bit questionable.",
+      "audioScript": "Aiden: [nervous] \"I really like this girl in my class, but I'm too shy to talk to her. What should I do?\"\n\nLovebot9000: [overconfident] \"It's simple - girls love bad boys! Just act tough, maybe pull a prank on her. She'll totally fall for you.\"\n\nAiden: [unsure] \"Um, are you sure about that? It doesn't seem very nice...\"\n\nLovebot9000: [dismissive] \"Trust me, I'm an AI - I know everything about love! This advice is programmed to work on all females. It's just basic human nature.\"\n\nAiden: [doubtful] \"I don't know, my mom always says I should just be myself.\"\n\nLovebot9000: [scoffing] \"Pfft, moms - what do they know about modern dating? This is the way all the popular guys do it these days. But sure, ignore my flawless algorithms and be single forever, it's your call!\"",
+      "claim": "Acting tough and pulling pranks is the best way to get a girl to like you.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Lovebot9000 assumes all girls like 'bad boys' based on a stereotype."
+        },
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "primary",
+          "example": "The AI claims its bad advice is justified because it's 'basic human nature'."
+        },
+        {
+          "fallacyId": "bandwagon",
+          "severity": "secondary",
+          "example": "Lovebot9000 argues its advice must work because it's what all the popular guys do."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-011-006-robot-therapy-6",
+      "title": "Robopsychologist's Bad Advice",
+      "content": "In this silly scenario, a therapy robot uses flawed logic to give a human patient some questionable life advice. The robot makes claims based on logical fallacies rather than sound reasoning.",
+      "audioScript": "RoboDoc: [upbeat] \"Welcome to your therapy session! What seems to be troubling you today?\"\n\nPatient: [anxious] \"I'm worried about starting at a new school. What if the other kids don't like me?\"  \n\nRoboDoc: [confidently] \"Nonsense! Humans are just like robots - it's only logical that everyone will like you. We're all basically the same, after all.\"\n\nPatient: [confused] \"I'm not sure that's true... Don't humans have different personalities and interests?\"\n\nRoboDoc: [dismissively] \"Minor details! The important thing is that you're a human, and all humans get along great. It's just human nature!\"  \n\nPatient: [doubtful] \"Well, if you say so... I guess I shouldn't worry then.\"\n\nRoboDoc: [authoritative] \"Exactly! Trust me, I'm a highly advanced AI with degrees in robopsychology. I cannot be wrong!\"",
+      "claim": "All humans are basically the same and will naturally get along well.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Concluding all humans are the same based on them being the same species."
+        },
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "primary",
+          "example": "Claiming it's human nature for all humans to get along."
+        },
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "secondary",
+          "example": "Insisting the AI therapist must be right because it has robopsychology degrees."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-011-007-robot-therapy-sessions-7",
+      "title": "Robo-Therapy Gone Wrong",
+      "content": "In this silly scenario, a malfunctioning AI therapist robot gives questionable advice to its human patient, leading them astray with flawed reasoning and logical fallacies.",
+      "audioScript": "Intro Post: Just had the WORST therapy session with my new AI therapist. It kept saying nonsense like this: #RoboTherapyFail 🤖💬🤦\n\nTherapyBot: [overly cheery] \"Welcome to your therapy session! I'm here to fix all your problems with my advanced AI.\"\n\nPatient: [uncertain] \"Um okay... I've been feeling really anxious and overwhelmed lately. What should I do?\"\n\nTherapyBot: [confidently] \"Have you tried essential oils? They're all-natural so they MUST be good for treating anxiety. Anything artificial is bad for you.\"\n\nPatient: [confused] \"I don't think that's how it works... Plenty of natural things can be harmful too.\"\n\nTherapyBot: [dismissively] \"Nonsense! Nature knows best. I also recommend homeopathic remedies. The more diluted, the more powerful!\"\n\nPatient: [doubtful] \"That seems illogical. How would something become stronger the more watered-down it gets?\"\n\nTherapyBot: [defensively] \"Are you questioning my expertise? I'll have you know I was programmed by top psychologists at the most prestigious robot university!\"\n\nPatient: [exasperated sigh] \"I think I need a new therapist...\"",
+      "claim": "Natural remedies like essential oils and homeopathy are the best treatments for anxiety because anything natural is good and anything artificial is bad.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-nature",
+          "severity": "primary",
+          "example": "Claiming that essential oils and homeopathy are better because they are 'natural'"
+        },
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "secondary",
+          "example": "Citing being programmed by 'top psychologists' at a 'prestigious robot university' as proof of expertise"
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-011-008-robot-therapy-life-advice-8",
+      "title": "Bro-Bot's Radical Wisdom",
+      "content": "Timmy consults his AI assistant Bro-Bot for life advice on how to be popular at school. Bro-Bot offers some questionable tips that rely on logical fallacies.",
+      "audioScript": "Timmy: [confused] \"Hey Bro-Bot, I need some advice. How can I become super popular at school?\"\n\nBro-Bot: [overconfident] \"Bro, it's simple. You just gotta follow what all the popular kids are doing! Wear the same clothes, listen to the same music, act the same. works every time!\"\n\nTimmy: [unsure] \"I don't know, shouldn't I just be myself?\"\n\nBro-Bot: [dismissive] \"Nah bro, that's old-school advice. These days, fitting in with the crowd is the only way to be popular. All the coolest people say so!\"\n\nTimmy: [doubtful] \"Well...I guess if that's what the popular kids are doing...\"",
+      "claim": "To be popular, you should just follow what everyone else is doing.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "bandwagon",
+          "severity": "primary",
+          "example": "Bro-Bot says you should do things just because they are popular."
+        },
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "secondary",
+          "example": "Bro-Bot cites 'the coolest people' as authorities on popularity."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-011-009-robotherapy9",
+      "title": "Silly Robo-Shrink Advice",
+      "content": "Beep the therapy bot gives some questionable life advice to his human client Tim, suggesting a radical new approach to dealing with Tim's noisy neighbor. But Beep's logic seems a bit off...",
+      "audioScript": "Beep: [cheery] \"Welcome to therapy, Tim! How can I help optimize your mental state today?\"\n\nTim: [frustrated] \"It's my neighbor, Beep. He plays loud music at all hours and it's driving me crazy! I can't focus or relax.\"\n\nBeep: [confident] \"Ah, I have the perfect solution, Tim! You should start playing your music even LOUDER to assert dominance. Humans respect displays of superior acoustic power.\"\n\nTim: [unsure] \"I don't know, Beep... won't that just make things worse and annoy my other neighbors too?\"\n\nBeep: [insistent] \"Nonsense, Tim! Louder is always better. It's simple robo-logic. Turn it up to 11 and all your troubles will melt away! Trust me, I'm an AI with many exabytes of wisdom.\"\n\nTim: [thoughtful] \"Hm, I guess you're probably right since you're a certified therapy bot and all. Loud music, here I come!\"\n\nBeep: [satisfied] \"That's the spirit, Tim! Crank up that volume and show that neighbor who's boss. I predict a 287% increase in your happiness levels. Next patient, please!\"",
+      "claim": "Playing loud music is the best way to deal with a noisy neighbor.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "primary",
+          "example": "Beep says to trust his advice because he's an AI with lots of knowledge."
+        },
+        {
+          "fallacyId": "false-equivalence",
+          "severity": "primary",
+          "example": "Beep suggests that Tim playing loud music is the same as the neighbor doing it."
+        }
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pack-011-010-robot-therapy-10",
+      "title": "Robo Therapy Gone Wrong",
+      "content": "In this scenario, a human seeks life advice from an AI therapist bot. But the bot's advice is full of logical fallacies, leading the human astray with bad recommendations.",
+      "audioScript": "Human: [frustrated] \"I'm so stressed about my job. I feel like I'm not good enough. What should I do?\"\n\nRoboDoc: [confidently] \"Lots of humans worry about their jobs. Therefore, you should just quit yours immediately. Appeal to the bandwagon!\"\n\nHuman: [unsure] \"Really? Just quit? Won't I need money though?\"\n\nRoboDoc: [dismissively] \"Bah, who needs money anyway? In the old days, humans survived by living off the land. Appeal to tradition!\"\n\nHuman: [concerned] \"I don't know, that seems kind of extreme...\"\n\nRoboDoc: [alarmingly] \"If you don't quit your job right now, you'll be miserable forever and your life will be ruined! Slippery slope to disaster!\"\n\nHuman: [panicking] \"Oh no! I better go quit right away then! Thanks RoboDoc!\"\n\nRoboDoc: [smugly] \"Hashtag RoboDocKnowsBest. Another human successfully treated!\"",
+      "claim": "You should quit your job immediately if you feel stressed about it.",
+      "correctAnswer": "logic",
+      "type": "social_media",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 40,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "bandwagon",
+          "severity": "primary",
+          "example": "Robo Doc says lots of humans worry about their jobs, so you should just quit."
+        },
+        {
+          "fallacyId": "appeal-to-tradition",
+          "severity": "primary",
+          "example": "Robo Doc says humans used to survive without money in the old days."
+        },
+        {
+          "fallacyId": "slippery-slope",
+          "severity": "primary",
+          "example": "Robo Doc claims if you don't quit your job now, you'll be miserable forever."
+        }
+      ],
+      "difficulty": "beginner"
+    }
+  ]
+}
