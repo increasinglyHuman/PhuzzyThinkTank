@@ -247,11 +247,15 @@ class TimelineAnalysis {
         };
         
         // Analyze the scenario text and draw
+        console.log('🔍 Timeline: currentScenario keys:', Object.keys(this.currentScenario));
+        console.log('🔍 Timeline: scenario.text:', this.currentScenario.text);
+        console.log('🔍 Timeline: scenario.reviewKeywords:', this.currentScenario.reviewKeywords);
+        
         const reviewKeywords = this.currentScenario.reviewKeywords || {};
         const text = this.currentScenario.text || '';
         
-        // console.log('Scenario text:', text);
-        // console.log('Review keywords:', reviewKeywords);
+        console.log('🔍 Timeline: extracted text length:', text.length);
+        console.log('🔍 Timeline: extracted keywords:', reviewKeywords);
         
         // Extract keywords array from the nested structure
         const keywords = {};
@@ -295,10 +299,12 @@ class TimelineAnalysis {
             this.scenarioAnswered = true;
         }
         
-        // console.log('createRadarChart - hasAnswered:', hasAnswered, 'scenarioAnswered:', this.scenarioAnswered, 'isCompleted:', isScenarioCompleted);
+        console.log('🔍 createRadarChart - hasAnswered:', hasAnswered, 'scenarioAnswered:', this.scenarioAnswered, 'isCompleted:', isScenarioCompleted);
+        console.log('🔍 About to check hasAnswered - if false, will call startRadarScan');
         
         if (!hasAnswered) {
-            // Progressive scan mode - start the scanning animation
+            console.log('🔍 hasAnswered is false - calling this.startRadarScan...');
+            console.log('🔍 this.startRadarScan exists?', typeof this.startRadarScan);
             this.startRadarScan(ctx, canvas.width, canvas.height);
             
             // Clear radar legend when in scan mode

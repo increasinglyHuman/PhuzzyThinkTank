@@ -124,6 +124,7 @@ class QuizInterface {
     }
     
     displayScenario(scenario) {
+        console.log('📋 displayScenario called with:', scenario ? scenario.id : 'null scenario');
         this.currentScenario = scenario;
         this.currentScenarioForReplay = scenario; // Store for audio replay
         this.selectedAnswer = null;
@@ -157,6 +158,8 @@ class QuizInterface {
         var totalScenarios = this.gameEngine.config.scenariosPerRound;
         this.elements.scenarioCounter.textContent = 'Scenario ' + scenarioNum + ' of ' + totalScenarios;
         
+        console.log('🔍 About to set up audio controls...');
+        
         // Show audio controls if user has granted permission (no auto-play)
         setTimeout(() => {
             console.log('Setting up audio controls:', {
@@ -172,6 +175,34 @@ class QuizInterface {
                 window.showAudioControls();
             }
         }, 100);
+        
+        // Reset UI state (moved from after audio)
+        this.resetAnswerOptions();
+        this.elements.submitButton.disabled = true;
+        this.elements.nextButton.style.display = 'none';
+        this.elements.analysisSection.style.display = 'none';
+        this.bearAnalysis.reset();
+        
+        // Update honey pot display
+        this.updateHoneyPotDisplay();
+        
+        // Update score display
+        this.updateScoreDisplay();
+        
+        console.log('🔍 About to reach timeline analysis initialization...');
+        
+        // Initialize timeline analysis for this scenario
+        console.log('🔍 About to initialize timeline analysis:', {
+            timelineAnalysisExists: !!window.timelineAnalysis,
+            scenarioId: scenario ? scenario.id : 'null'
+        });
+        if (window.timelineAnalysis) {
+            console.log('🔍 Calling initializeForScenario...');
+            window.timelineAnalysis.initializeForScenario(scenario);
+            console.log('🔍 Timeline analysis initialized for:', scenario.id);
+        } else {
+            console.error('🔍 window.timelineAnalysis not available!');
+        }
     }
     
     async attemptAudioPlayback(scenario) {
@@ -223,24 +254,6 @@ class QuizInterface {
                 audioEnabled: this.gameEngine ? this.gameEngine.audioEnabled : false,
                 hasVoicePlayer: this.gameEngine ? !!this.gameEngine.voicePlayer : false
             });
-        }
-        
-        // Reset UI state
-        this.resetAnswerOptions();
-        this.elements.submitButton.disabled = true;
-        this.elements.nextButton.style.display = 'none';
-        this.elements.analysisSection.style.display = 'none';
-        this.bearAnalysis.reset();
-        
-        // Update honey pot display
-        this.updateHoneyPotDisplay();
-        
-        // Update score display
-        this.updateScoreDisplay();
-        
-        // Initialize timeline analysis for this scenario
-        if (window.timelineAnalysis) {
-            window.timelineAnalysis.initializeForScenario(scenario);
         }
     }
     
