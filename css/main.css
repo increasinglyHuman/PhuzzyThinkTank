@@ -1985,3 +1985,73 @@ body {
     font-size: 0.85rem;
     color: #4a5568;
 }
+
+/* Scenario Button Row Layout */
+.scenario-button-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    gap: 20px;
+    min-height: 44px; /* Ensure consistent height */
+}
+
+/* Audio Control Bar - Thin horizontal bar same height as Investigate button */
+.audio-control-bar {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 25px;
+    padding: 3px;
+    border: 2px solid rgba(102, 126, 234, 0.3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    height: 44px; /* Match investigate button height */
+    min-width: 200px;
+}
+
+.audio-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    height: 36px;
+    min-width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1px;
+    white-space: nowrap;
+}
+
+.audio-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.audio-btn:active {
+    transform: translateY(0);
+}
+
+.audio-btn:disabled {
+    background: #cbd5e0;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.audio-btn.playing {
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    animation: pulse 2s infinite;
+}
+
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}

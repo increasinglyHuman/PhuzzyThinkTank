@@ -58,10 +58,29 @@
                 <p class="scenario-counter" id="scenario-counter">Scenario 1 of 10</p>
                 <p class="scenario-text" id="scenario-text"></p>
                 <div class="claim" id="claim-text"></div>
-                <!-- Investigate button moved inside scenario box -->
-                <button class="analysis-toggle-btn" id="analysis-toggle-btn" onclick="toggleTimelineAnalysis()">
-                    🔍 Investigate
-                </button>
+                <!-- Bottom button row: Audio controls on left, Investigate on right -->
+                <div class="scenario-button-row">
+                    <!-- Audio Control Bar -->
+                    <div class="audio-control-bar" id="audio-control-bar" style="display: none;">
+                        <button class="audio-btn" id="play-title-btn" onclick="playScenarioAudio('title')" title="Play scenario title">
+                            🎵 Title
+                        </button>
+                        <button class="audio-btn" id="play-content-btn" onclick="playScenarioAudio('content')" title="Play scenario content">
+                            🎵 Content
+                        </button>
+                        <button class="audio-btn" id="play-claim-btn" onclick="playScenarioAudio('claim')" title="Play scenario claim">
+                            🎵 Claim
+                        </button>
+                        <button class="audio-btn" id="stop-audio-btn" onclick="stopScenarioAudio()" title="Stop audio playback">
+                            ⏹️ Stop
+                        </button>
+                    </div>
+                    
+                    <!-- Investigate button on the right -->
+                    <button class="analysis-toggle-btn" id="analysis-toggle-btn" onclick="toggleTimelineAnalysis()">
+                        🔍 Investigate
+                    </button>
+                </div>
             </div>
             
             <!-- Timeline Analysis Accordion -->
@@ -346,53 +365,13 @@
             }
             
             // Handle play now button click
-            playNowButton.addEventListener('click', async function() {
-                // Set flag that user has clicked Play Now
+            playNowButton.addEventListener('click', function() {
+                // Set flag that user has clicked Play Now - this grants audio permission for later
                 window.userHasClickedPlayNow = true;
                 console.log('👆 User clicked Play Now - audio permission granted');
                 
-                let audioReady = false;
-                
-                // Play button sound to warm up audio system
-                if (window.gameEngine && window.gameEngine.playUISound) {
-                    try {
-                        console.log('🎵 Starting audio warmup sequence...');
-                        await window.gameEngine.playUISound('button');
-                        
-                        // Force audio system warmup after successful UI sound
-                        if (window.gameEngine && window.gameEngine.audioEngine) {
-                            try {
-                                await window.gameEngine.audioEngine.warmupAudioSystem();
-                                console.log('🔥 Audio system fully warmed up after button click');
-                                
-                                // Verify audio context is actually running
-                                if (window.gameEngine.audioEngine.audioContext && 
-                                    window.gameEngine.audioEngine.audioContext.state === 'running') {
-                                    audioReady = true;
-                                    console.log('✅ Audio system verified ready');
-                                }
-                            } catch (audioError) {
-                                console.log('⚠️ Audio warmup failed:', audioError);
-                            }
-                        } else {
-                            console.log('⚠️ Audio engine not available during splash screen');
-                        }
-                    } catch (err) {
-                        console.log('Button sound failed:', err);
-                    }
-                }
-                
-                // Wait a moment for audio system to settle
-                if (audioReady) {
-                    console.log('⏱️ Waiting for audio system to settle...');
-                    await new Promise(resolve => setTimeout(resolve, 300));
-                    console.log('🚀 Audio ready - proceeding with game start');
-                } else {
-                    console.log('⚠️ Audio not ready, proceeding anyway');
-                }
-                
+                // Hide splash screen and start game
                 splashScreen.classList.add('hidden');
-                // Remove splash screen after transition
                 setTimeout(function() {
                     splashScreen.style.display = 'none';
                 }, 500);
@@ -738,6 +717,102 @@
         
         // Make it globally available
         window.scoreboardManager = scoreboardManager;
+        
+        // Audio Control Functions
+        function playScenarioAudio(part) {
+            console.log('🎵 Playing audio part:', part);
+            
+            // Check if user has granted audio permission
+            if (!window.userHasClickedPlayNow) {
+                console.log('⚠️ Audio permission not granted yet');
+                return;
+            }
+            
+            // Get current scenario from game engine
+            if (!window.gameEngine || !window.gameEngine.getCurrentScenario) {
+                console.log('⚠️ Game engine not available');
+                return;
+            }
+            
+            const currentScenario = window.gameEngine.getCurrentScenario();
+            if (!currentScenario) {
+                console.log('⚠️ No current scenario');
+                return;
+            }
+            
+            // Use the voice player to play the specific part
+            if (window.gameEngine.voicePlayer && window.gameEngine.voicePlayer.playScenarioPart) {
+                try {
+                    window.gameEngine.voicePlayer.playScenarioPart(currentScenario, part);
+                    updateAudioButtonStates(part);
+                } catch (error) {
+                    console.log('⚠️ Error playing audio:', error);
+                }
+            } else {
+                console.log('⚠️ Voice player not available');
+            }
+        }
+        
+        function stopScenarioAudio() {
+            console.log('⏹️ Stopping audio and flushing queue');
+            
+            // Stop current audio and clear any queued audio
+            if (window.gameEngine && window.gameEngine.voicePlayer) {
+                // Stop current playback
+                if (window.gameEngine.voicePlayer.stop) {
+                    window.gameEngine.voicePlayer.stop();
+                }
+                
+                // Clear any audio queue if it exists
+                if (window.gameEngine.voicePlayer.clearQueue) {
+                    window.gameEngine.voicePlayer.clearQueue();
+                }
+                
+                // Also stop the audio engine if it has queue management
+                if (window.gameEngine.audioEngine && window.gameEngine.audioEngine.stopAll) {
+                    window.gameEngine.audioEngine.stopAll();
+                }
+                
+                updateAudioButtonStates(null);
+            }
+        }
+        
+        function updateAudioButtonStates(playingPart) {
+            // Update button visual states
+            const buttons = ['play-title-btn', 'play-content-btn', 'play-claim-btn'];
+            
+            buttons.forEach(btnId => {
+                const btn = document.getElementById(btnId);
+                if (btn) {
+                    btn.classList.remove('playing');
+                    
+                    // Add playing state to active button
+                    if (playingPart && btnId.includes(playingPart)) {
+                        btn.classList.add('playing');
+                    }
+                }
+            });
+        }
+        
+        function showAudioControls() {
+            const audioBar = document.getElementById('audio-control-bar');
+            if (audioBar && window.userHasClickedPlayNow) {
+                audioBar.style.display = 'flex';
+            }
+        }
+        
+        function hideAudioControls() {
+            const audioBar = document.getElementById('audio-control-bar');
+            if (audioBar) {
+                audioBar.style.display = 'none';
+            }
+        }
+        
+        // Make audio functions globally available
+        window.playScenarioAudio = playScenarioAudio;
+        window.stopScenarioAudio = stopScenarioAudio;
+        window.showAudioControls = showAudioControls;
+        window.hideAudioControls = hideAudioControls;
         
         // Splash screen instruction animations
         function animateInstructions() {

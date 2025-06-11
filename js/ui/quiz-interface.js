@@ -157,9 +157,9 @@ class QuizInterface {
         var totalScenarios = this.gameEngine.config.scenariosPerRound;
         this.elements.scenarioCounter.textContent = 'Scenario ' + scenarioNum + ' of ' + totalScenarios;
         
-        // Play scenario audio if enabled (with small delay to allow audio system warmup)
+        // Show audio controls if user has granted permission (no auto-play)
         setTimeout(() => {
-            console.log('Checking audio conditions:', {
+            console.log('Setting up audio controls:', {
                 hasGameEngine: !!this.gameEngine,
                 audioEnabled: this.gameEngine ? this.gameEngine.audioEnabled : false,
                 hasVoicePlayer: this.gameEngine ? !!this.gameEngine.voicePlayer : false,
@@ -167,8 +167,11 @@ class QuizInterface {
                 packId: scenario.packId
             });
             
-            this.attemptAudioPlayback(scenario);
-        }, 100); // Small delay to ensure audio system is ready
+            // Show audio controls instead of auto-playing
+            if (window.showAudioControls) {
+                window.showAudioControls();
+            }
+        }, 100);
     }
     
     async attemptAudioPlayback(scenario) {
