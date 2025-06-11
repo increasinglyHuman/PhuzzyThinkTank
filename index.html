@@ -370,6 +370,11 @@
                 window.userHasClickedPlayNow = true;
                 console.log('👆 User clicked Play Now - audio permission granted');
                 
+                // Show audio controls now that permission is granted
+                if (window.showAudioControls) {
+                    window.showAudioControls();
+                }
+                
                 // Hide splash screen and start game
                 splashScreen.classList.add('hidden');
                 setTimeout(function() {
@@ -796,8 +801,17 @@
         
         function showAudioControls() {
             const audioBar = document.getElementById('audio-control-bar');
+            console.log('🎵 showAudioControls called:', {
+                audioBar: !!audioBar,
+                userClicked: !!window.userHasClickedPlayNow,
+                currentDisplay: audioBar ? audioBar.style.display : 'not found'
+            });
+            
             if (audioBar && window.userHasClickedPlayNow) {
                 audioBar.style.display = 'flex';
+                console.log('✅ Audio controls shown');
+            } else if (audioBar && !window.userHasClickedPlayNow) {
+                console.log('⏳ Audio controls available, waiting for Play Now click');
             }
         }
         
