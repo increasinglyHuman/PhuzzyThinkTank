@@ -62,17 +62,8 @@
                 <div class="scenario-button-row">
                     <!-- Audio Control Bar -->
                     <div class="audio-control-bar" id="audio-control-bar" style="display: none;">
-                        <button class="audio-btn" id="play-title-btn" onclick="playScenarioAudio('title')" title="Play scenario title">
-                            🎵 Title
-                        </button>
-                        <button class="audio-btn" id="play-content-btn" onclick="playScenarioAudio('content')" title="Play scenario content">
-                            🎵 Content
-                        </button>
-                        <button class="audio-btn" id="play-claim-btn" onclick="playScenarioAudio('claim')" title="Play scenario claim">
-                            🎵 Claim
-                        </button>
-                        <button class="audio-btn" id="stop-audio-btn" onclick="stopScenarioAudio()" title="Stop audio playback">
-                            ⏹️ Stop
+                        <button class="audio-btn" id="play-pause-btn" onclick="toggleScenarioAudio()" title="Play/Pause scenario audio">
+                            ▶️ Play
                         </button>
                     </div>
                     
@@ -723,9 +714,19 @@
         // Make it globally available
         window.scoreboardManager = scoreboardManager;
         
-        // Audio Control Functions
-        function playScenarioAudio(part) {
-            console.log('🎵 Playing audio part:', part);
+        // Audio Control Functions - Simplified Play/Pause with Auto-Sequence
+        let isAudioPlaying = false;
+        
+        function toggleScenarioAudio() {
+            if (isAudioPlaying) {
+                stopScenarioAudio();
+            } else {
+                playScenarioSequence();
+            }
+        }
+        
+        function playScenarioSequence() {
+            console.log('🎵 Starting scenario audio sequence');
             
             // Check if user has granted audio permission
             if (!window.userHasClickedPlayNow) {
@@ -745,21 +746,30 @@
                 return;
             }
             
-            // Use the voice player to play the specific part
-            if (window.gameEngine.voicePlayer && window.gameEngine.voicePlayer.playScenarioPart) {
-                try {
-                    window.gameEngine.voicePlayer.playScenarioPart(currentScenario, part);
-                    updateAudioButtonStates(part);
-                } catch (error) {
-                    console.log('⚠️ Error playing audio:', error);
-                }
+            // Use the enhanced audio sequence player if available
+            if (window.gameEngine.playScenarioAudio) {
+                window.gameEngine.playScenarioAudio(currentScenario.title, currentScenario.packId)
+                    .then((sequenceId) => {
+                        if (sequenceId) {
+                            console.log('✅ Audio sequence started:', sequenceId);
+                            isAudioPlaying = true;
+                            updatePlayPauseButton();
+                        } else {
+                            console.log('⚠️ Audio sequence failed to start');
+                        }
+                    })
+                    .catch((error) => {
+                        console.log('⚠️ Audio sequence error:', error);
+                        isAudioPlaying = false;
+                        updatePlayPauseButton();
+                    });
             } else {
-                console.log('⚠️ Voice player not available');
+                console.log('⚠️ Enhanced audio player not available');
             }
         }
         
         function stopScenarioAudio() {
-            console.log('⏹️ Stopping audio and flushing queue');
+            console.log('⏹️ Stopping audio sequence and flushing queue');
             
             // Stop current audio and clear any queued audio
             if (window.gameEngine && window.gameEngine.voicePlayer) {
@@ -777,26 +787,25 @@
                 if (window.gameEngine.audioEngine && window.gameEngine.audioEngine.stopAll) {
                     window.gameEngine.audioEngine.stopAll();
                 }
-                
-                updateAudioButtonStates(null);
             }
+            
+            isAudioPlaying = false;
+            updatePlayPauseButton();
         }
         
-        function updateAudioButtonStates(playingPart) {
-            // Update button visual states
-            const buttons = ['play-title-btn', 'play-content-btn', 'play-claim-btn'];
-            
-            buttons.forEach(btnId => {
-                const btn = document.getElementById(btnId);
-                if (btn) {
+        function updatePlayPauseButton() {
+            const btn = document.getElementById('play-pause-btn');
+            if (btn) {
+                if (isAudioPlaying) {
+                    btn.innerHTML = '⏸️ Pause';
+                    btn.title = 'Pause scenario audio';
+                    btn.classList.add('playing');
+                } else {
+                    btn.innerHTML = '▶️ Play';
+                    btn.title = 'Play scenario audio sequence';
                     btn.classList.remove('playing');
-                    
-                    // Add playing state to active button
-                    if (playingPart && btnId.includes(playingPart)) {
-                        btn.classList.add('playing');
-                    }
                 }
-            });
+            }
         }
         
         function showAudioControls() {
@@ -823,7 +832,8 @@
         }
         
         // Make audio functions globally available
-        window.playScenarioAudio = playScenarioAudio;
+        window.toggleScenarioAudio = toggleScenarioAudio;
+        window.playScenarioSequence = playScenarioSequence;
         window.stopScenarioAudio = stopScenarioAudio;
         window.showAudioControls = showAudioControls;
         window.hideAudioControls = hideAudioControls;
