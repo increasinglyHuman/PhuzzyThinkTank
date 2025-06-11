@@ -734,17 +734,19 @@
                 return;
             }
             
-            // Get current scenario from game engine
-            if (!window.gameEngine || !window.gameEngine.getCurrentScenario) {
-                console.log('⚠️ Game engine not available');
+            // Get current scenario from quiz interface
+            if (!window.gameEngine || !window.gameEngine.uiController) {
+                console.log('⚠️ Game engine or UI controller not available');
                 return;
             }
             
-            const currentScenario = window.gameEngine.getCurrentScenario();
+            const currentScenario = window.gameEngine.uiController.currentScenario;
             if (!currentScenario) {
                 console.log('⚠️ No current scenario');
                 return;
             }
+            
+            console.log('🎬 Playing audio for scenario:', currentScenario.title);
             
             // Use the enhanced audio sequence player if available
             if (window.gameEngine.playScenarioAudio) {
