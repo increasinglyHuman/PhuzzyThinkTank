@@ -2035,11 +2035,11 @@ body {
     box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
 }
 
-.audio-btn:active {
+.scenario-box .audio-btn:active {
     transform: translateY(0);
 }
 
-.audio-btn:disabled {
+.scenario-box .audio-btn:disabled {
     background: #cbd5e0;
     cursor: not-allowed;
     transform: none;
