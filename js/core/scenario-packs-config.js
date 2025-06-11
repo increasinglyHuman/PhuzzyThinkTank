@@ -1,202 +1,160 @@
-// Scenario Pack Configuration
+/**
+ * 🎯 Phuzzy Scenario Pack Configuration  
+ * Clean single-pack system with promotion-based selection
+ * 
+ * Note: Each game session loads exactly ONE pack (10 scenarios)
+ * Pack selection is handled by scenario-manager.js using pack-promotions.json
+ */
+
+// Available scenario packs
 window.SCENARIO_PACKS = {
-    // Original pack - v1 format (retiring but keeping for backwards compatibility)
-    'original-v1': {
-        id: 'original-v1',
-        name: 'Classic Phuzzy Scenarios',
-        description: 'The original 10 scenarios',
-        file: './data/scenarios.json',
-        version: '1.0.0',
-        enabled: false, // Retiring this one
-        scenarios: 10
-    },
-    
-    // Original pack updated to v2 format
-    'original-v2': {
-        id: 'original-v2',
+    // Core packs - properly numbered and organized
+    'pack-000': {
+        id: 'pack-000',
         name: 'Classic Scenarios Enhanced',
         description: 'Original scenarios updated with v2 features',
-        file: './data/scenarios-v2-repaired.json',
+        file: './data/scenario-packs/scenario-generated-000.json',
         version: '2.0.0',
         enabled: true,
-        scenarios: 10
+        scenarios: 10,
+        tags: ['classic', 'foundational']
     },
     
-    // First AI-generated pack
     'pack-001': {
         id: 'pack-001',
         name: 'Digital Age Dilemmas',
-        description: 'First AI-generated scenario pack',
+        description: 'Modern technology and social media scenarios',
         file: './data/scenario-packs/scenario-generated-001.json',
         version: '2.0.0',
         enabled: true,
-        scenarios: 10
+        scenarios: 10,
+        tags: ['technology', 'social-media', 'modern']
     },
     
-    // Pack 002 - just created
     'pack-002': {
         id: 'pack-002',
-        name: 'Modern Digital Dilemmas',
-        description: 'Sophisticated scenarios featuring winking admissions and statistical whiplash',
+        name: 'Media & Information',
+        description: 'News, statistics, and information literacy',
         file: './data/scenario-packs/scenario-generated-002.json',
         version: '2.0.0',
         enabled: true,
-        scenarios: 10
+        scenarios: 10,
+        tags: ['media', 'statistics', 'news']
     },
     
-    // Complete collection (if available)
-    'complete': {
-        id: 'complete',
-        name: 'Complete Collection',
-        description: 'All available scenarios',
-        file: './data/scenario-packs/scenario-generated-complete.json',
-        version: '2.0.0',
-        enabled: true,
-        scenarios: 30
-    },
-    
-    // Pack 003 - Digital Life challenges
     'pack-003': {
         id: 'pack-003',
-        name: 'Digital Life & Society',
-        description: 'Modern challenges in technology, education, and social dynamics',
+        name: 'Society & Culture',
+        description: 'Cultural debates and social issues',
         file: './data/scenario-packs/scenario-generated-003.json',
         version: '2.0.0',
         enabled: true,
-        scenarios: 10
+        scenarios: 10,
+        tags: ['culture', 'society', 'debates']
     },
     
-    // Pack 004 - Nature and culture
     'pack-004': {
         id: 'pack-004',
-        name: 'Nature, Culture & Identity',
-        description: 'Animal parables, sci-fi fandoms, and cultural commentary',
+        name: 'Nature & Animals',
+        description: 'Animal behavior and nature-based scenarios',
         file: './data/scenario-packs/scenario-generated-004.json',
         version: '2.0.0',
         enabled: true,
-        scenarios: 10
+        scenarios: 10,
+        tags: ['animals', 'nature', 'kid-friendly', 'fun']
     },
     
-    // Pack 005 - Community life
     'pack-005': {
         id: 'pack-005',
-        name: 'Community & Everyday Life',
-        description: 'Workplace dynamics, local communities, and lifestyle choices',
+        name: 'Community Life',
+        description: 'Workplace, school, and community scenarios',
         file: './data/scenario-packs/scenario-generated-005.json',
         version: '2.0.0',
         enabled: true,
-        scenarios: 10
+        scenarios: 10,
+        tags: ['community', 'workplace', 'kid-friendly', 'whimsical']
     },
     
-    // Pack 006 - Sci-Fi/LitRPG
     'pack-006': {
         id: 'pack-006',
-        name: 'Virtual Worlds & Digital Realms',
-        description: 'Science fiction and LitRPG scenarios exploring virtual economies, AI consciousness, and gaming culture',
+        name: 'Science & Technology',
+        description: 'Scientific debates and tech innovation',
         file: './data/scenario-packs/scenario-generated-006.json',
         version: '2.0.0',
         enabled: true,
-        scenarios: 10
+        scenarios: 10,
+        tags: ['science', 'technology', 'innovation']
+    },
+    
+    'pack-007': {
+        id: 'pack-007',
+        name: 'Virtual Worlds',
+        description: 'Gaming, virtual reality, and digital spaces',
+        file: './data/scenario-packs/scenario-generated-007.json',
+        version: '2.0.0',
+        enabled: true,
+        scenarios: 10,
+        tags: ['gaming', 'virtual', 'digital']
     }
 };
 
-// Configuration for pack selection
-window.PACK_SELECTION_CONFIG = {
-    // Selection mode: 'random', 'sequential', 'user-choice', 'config'
-    mode: 'config',
-    
-    // For 'config' mode, specify which pack to use
-    defaultPack: 'pack-002',
-    
-    // For 'sequential' mode, define the order
-    sequentialOrder: ['original-v2', 'pack-001', 'pack-002', 'pack-003', 'pack-004', 'pack-005', 'pack-006'],
-    
-    // Allow mixing scenarios from multiple packs
-    allowMixing: false,
-    
-    // Store last used pack in localStorage
-    rememberLastPack: true
+// Legacy pack mapping for backward compatibility
+// Maps old pack IDs to new standardized IDs
+window.LEGACY_PACK_MAPPING = {
+    'original-v1': 'pack-000',
+    'original-v2': 'pack-000', 
+    'complete': null,  // No longer supported - was multi-pack
 };
 
-// Helper function to get available packs
+/**
+ * Get pack by ID with legacy support
+ */
+window.getPackById = function(packId) {
+    // Check for direct match
+    if (window.SCENARIO_PACKS[packId]) {
+        return window.SCENARIO_PACKS[packId];
+    }
+    
+    // Check legacy mapping
+    if (window.LEGACY_PACK_MAPPING[packId]) {
+        const newId = window.LEGACY_PACK_MAPPING[packId];
+        return newId ? window.SCENARIO_PACKS[newId] : null;
+    }
+    
+    return null;
+};
+
+/**
+ * Get all enabled packs
+ */
 window.getAvailableScenarioPacks = function() {
     return Object.values(window.SCENARIO_PACKS).filter(pack => pack.enabled);
 };
 
-// Helper function to select a pack based on config
-window.selectScenarioPack = function(preferredPackId = null) {
-    const availablePacks = window.getAvailableScenarioPacks();
-    
-    if (availablePacks.length === 0) {
-        console.error('No scenario packs available!');
-        return null;
-    }
-    
-    // If a specific pack is requested
-    if (preferredPackId && window.SCENARIO_PACKS[preferredPackId] && window.SCENARIO_PACKS[preferredPackId].enabled) {
-        return window.SCENARIO_PACKS[preferredPackId];
-    }
-    
-    const config = window.PACK_SELECTION_CONFIG;
-    
-    // Check for remembered pack
-    if (config.rememberLastPack) {
-        const lastPackId = localStorage.getItem('phuzzy_last_pack');
-        if (lastPackId && window.SCENARIO_PACKS[lastPackId] && window.SCENARIO_PACKS[lastPackId].enabled) {
-            console.log('Using last pack:', lastPackId);
-            return window.SCENARIO_PACKS[lastPackId];
+/**
+ * Get packs by tags (for promotion filtering)
+ */
+window.getPacksByTags = function(requiredTags = [], optionalTags = [], excludeTags = []) {
+    return Object.values(window.SCENARIO_PACKS).filter(pack => {
+        if (!pack.enabled) return false;
+        
+        const packTags = pack.tags || [];
+        
+        // Must have all required tags
+        if (requiredTags.length > 0) {
+            const hasAllRequired = requiredTags.every(tag => packTags.includes(tag));
+            if (!hasAllRequired) return false;
         }
-    }
-    
-    switch (config.mode) {
-        case 'random':
-            const randomIndex = Math.floor(Math.random() * availablePacks.length);
-            const selectedPack = availablePacks[randomIndex];
-            console.log('Randomly selected pack:', selectedPack.id);
-            return selectedPack;
-            
-        case 'sequential':
-            // Get current index from localStorage
-            let currentIndex = parseInt(localStorage.getItem('phuzzy_pack_index') || '0');
-            const sequentialPacks = config.sequentialOrder
-                .map(id => window.SCENARIO_PACKS[id])
-                .filter(pack => pack && pack.enabled);
-            
-            if (sequentialPacks.length === 0) return availablePacks[0];
-            
-            if (currentIndex >= sequentialPacks.length) {
-                currentIndex = 0;
-            }
-            
-            const seqPack = sequentialPacks[currentIndex];
-            // Update index for next time
-            localStorage.setItem('phuzzy_pack_index', String((currentIndex + 1) % sequentialPacks.length));
-            console.log('Sequential pack:', seqPack.id);
-            return seqPack;
-            
-        case 'config':
-            const configPack = window.SCENARIO_PACKS[config.defaultPack];
-            if (configPack && configPack.enabled) {
-                console.log('Config specified pack:', configPack.id);
-                return configPack;
-            }
-            // Fallback to first available
-            console.warn('Config pack not available, using first available');
-            return availablePacks[0];
-            
-        case 'user-choice':
-            // This would require UI implementation
-            console.log('User choice mode - defaulting to first available');
-            return availablePacks[0];
-            
-        default:
-            return availablePacks[0];
-    }
+        
+        // Must not have any excluded tags
+        if (excludeTags.length > 0) {
+            const hasExcluded = excludeTags.some(tag => packTags.includes(tag));
+            if (hasExcluded) return false;
+        }
+        
+        return true;
+    });
 };
 
-// Function to remember selected pack
-window.rememberSelectedPack = function(packId) {
-    if (window.PACK_SELECTION_CONFIG.rememberLastPack) {
-        localStorage.setItem('phuzzy_last_pack', packId);
-    }
-};
+// Note: Pack selection logic is now handled by scenario-manager.js
+// This file only defines available packs - no selection logic here

@@ -1,148 +1,475 @@
 {
-  "exportDate": "2025-06-08T04:43:27.541Z",
+  "exportDate": "2025-06-09T02:01:43.884Z",
   "approvals": {
+    "miracle-supplement-001": {
+      "status": "approved",
+      "timestamp": "2025-06-09T00:29:58.141Z",
+      "feedback": ""
+    },
+    "neighborhood-watch-002": {
+      "status": "approved",
+      "timestamp": "2025-06-09T00:30:23.760Z",
+      "feedback": ""
+    },
+    "climate-study-003": {
+      "status": "approved",
+      "timestamp": "2025-06-09T00:30:38.192Z",
+      "feedback": ""
+    },
+    "teachers-concern-004": {
+      "status": "approved",
+      "timestamp": "2025-06-09T00:30:52.784Z",
+      "feedback": ""
+    },
+    "investment-scam-005": {
+      "status": "approved",
+      "timestamp": "2025-06-09T00:31:15.880Z",
+      "feedback": ""
+    },
+    "food-additive-006": {
+      "status": "approved",
+      "timestamp": "2025-06-09T00:31:36.057Z",
+      "feedback": ""
+    },
+    "fitness-influencer-007": {
+      "status": "approved",
+      "timestamp": "2025-06-09T00:31:51.607Z",
+      "feedback": ""
+    },
+    "university-study-008": {
+      "status": "approved",
+      "timestamp": "2025-06-09T00:32:07.152Z",
+      "feedback": ""
+    },
+    "parenting-forum-009": {
+      "status": "approved",
+      "timestamp": "2025-06-09T00:32:34.714Z",
+      "feedback": ""
+    },
+    "community-garden-010": {
+      "status": "approved",
+      "timestamp": "2025-06-09T00:32:50.303Z",
+      "feedback": ""
+    },
+    "smart-meter-panic-001": {
+      "status": "approved",
+      "timestamp": "2025-06-09T00:33:30.725Z",
+      "feedback": ""
+    },
+    "crypto-professor-002": {
+      "status": "approved",
+      "timestamp": "2025-06-09T00:33:50.776Z",
+      "feedback": ""
+    },
+    "screen-time-crisis-003": {
+      "status": "approved",
+      "timestamp": "2025-06-09T00:34:05.201Z",
+      "feedback": ""
+    },
+    "workplace-wellness-004": {
+      "status": "approved",
+      "timestamp": "2025-06-09T00:34:46.288Z",
+      "feedback": ""
+    },
+    "environmental-packaging-005": {
+      "status": "approved",
+      "timestamp": "2025-06-09T00:35:08.889Z",
+      "feedback": ""
+    },
+    "ai-therapy-006": {
+      "status": "approved",
+      "timestamp": "2025-06-09T00:35:42.730Z",
+      "feedback": ""
+    },
+    "local-food-movement-007": {
+      "status": "approved",
+      "timestamp": "2025-06-09T00:38:12.281Z",
+      "feedback": ""
+    },
     "enhanced-scenarios-001-008": {
-      "status": "revision",
-      "timestamp": "2025-06-08T04:14:45.665Z",
-      "feedback": "Please note: this dialog should be routed through the js multi-character options - so we get a nice clean multi-character scenario."
+      "status": "approved",
+      "timestamp": "2025-06-09T00:38:33.113Z",
+      "feedback": ""
     },
     "enhanced-scenarios-001-009": {
       "status": "revision",
-      "timestamp": "2025-06-08T04:19:21.904Z",
-      "feedback": "clip this and move it to the character notes. [sophisticated accent], should be multi-character. It would be cool if the feedback form had simple checkbox for multi-character."
+      "timestamp": "2025-06-09T00:40:14.539Z",
+      "feedback": "This one is the wrong content for this scenario. The written scenario is for vampires converrsing - the content wave associaated here is incorrect. It seems to be pointing to something about AI generated essay content..",
+      "requestMultiVoice": false
     },
     "enhanced-scenarios-001-010": {
       "status": "revision",
-      "timestamp": "2025-06-08T04:18:33.614Z",
-      "feedback": "Should def. be a mult-character scenario"
+      "timestamp": "2025-06-09T00:48:12.292Z",
+      "feedback": "Wrong content audio  attached. This is the Smartphone addicted Caveman, but it's content is missing - and instead it seems to be playing 'The productivity theaterr content.'",
+      "requestMultiVoice": false
+    },
+    "ai-cheating-professor-001": {
+      "status": "approved",
+      "timestamp": "2025-06-09T00:48:39.667Z",
+      "feedback": ""
+    },
+    "remote-work-surveillance-002": {
+      "status": "revision",
+      "timestamp": "2025-06-09T00:50:39.956Z",
+      "feedback": "Title audio is correct, but both the content and title are not. not clear what the audio files here are supposed to be attached to, but def. these are not the ones for the Productivity theater.",
+      "requestMultiVoice": false
     },
     "enhanced-scenarios-005-009": {
       "status": "revision",
-      "timestamp": "2025-06-08T04:20:16.659Z",
-      "feedback": "Multi-character"
+      "timestamp": "2025-06-09T00:51:27.468Z",
+      "feedback": "Not seeing audio files for this one yet.",
+      "requestMultiVoice": false
+    },
+    "shopping-cart-philosophy-005-003": {
+      "status": "approved",
+      "timestamp": "2025-06-09T00:51:58.205Z",
+      "feedback": ""
+    },
+    "office-supplies-revolution-005-004": {
+      "status": "approved",
+      "timestamp": "2025-06-09T00:52:25.877Z",
+      "feedback": ""
+    },
+    "houseplant-gossip-005-005": {
+      "status": "approved",
+      "timestamp": "2025-06-09T00:52:57.692Z",
+      "feedback": ""
+    },
+    "wifi-router-therapy-005-006": {
+      "status": "approved",
+      "timestamp": "2025-06-09T00:53:27.580Z",
+      "feedback": ""
+    },
+    "kitchen-appliance-turf-war-005-007": {
+      "status": "approved",
+      "timestamp": "2025-06-09T00:54:13.277Z",
+      "feedback": ""
+    },
+    "doorknob-design-critics-005-008": {
+      "status": "approved",
+      "timestamp": "2025-06-09T00:54:37.277Z",
+      "feedback": ""
+    },
+    "laundry-sock-conspiracy-005-009": {
+      "status": "revision",
+      "timestamp": "2025-06-09T00:55:51.589Z",
+      "feedback": "this is not the right audio for this scenario - Title is correct, but content and claim are for something else.",
+      "requestMultiVoice": false
+    },
+    "elevator-button-democracy-005-010": {
+      "status": "approved",
+      "timestamp": "2025-06-09T01:33:23.253Z",
+      "feedback": ""
+    },
+    "mmo-economy-crash-001": {
+      "status": "revision",
+      "timestamp": "2025-06-09T01:34:50.454Z",
+      "feedback": "the content is not the correct audio forr this scenario - doesn't align to 'the great serverr merge panic.",
+      "requestMultiVoice": false
+    },
+    "time-loop-guild-drama-010": {
+      "status": "approved",
+      "timestamp": "2025-06-09T01:35:28.342Z",
+      "feedback": ""
+    },
+    "ai-streamer-replacement-009": {
+      "status": "approved",
+      "timestamp": "2025-06-09T01:35:46.287Z",
+      "feedback": ""
+    },
+    "mars-colony-class-war-008": {
+      "status": "approved",
+      "timestamp": "2025-06-09T01:35:59.486Z",
+      "feedback": ""
+    },
+    "dungeon-loot-economy-007": {
+      "status": "revision",
+      "timestamp": "2025-06-09T01:37:19.094Z",
+      "feedback": "There's profanity in this one. 'fuck' but i think it will get stripped by the scenario loader. still surprised it didn't get cut by the pre-screen.",
+      "requestMultiVoice": false
+    },
+    "colony-ship-democracy-006": {
+      "status": "approved",
+      "timestamp": "2025-06-09T01:37:37.886Z",
+      "feedback": ""
+    },
+    "quantum-realm-mining-005": {
+      "status": "approved",
+      "timestamp": "2025-06-09T01:38:01.062Z",
+      "feedback": ""
+    },
+    "vr-addiction-therapy-004": {
+      "status": "approved",
+      "timestamp": "2025-06-09T01:38:20.791Z",
+      "feedback": ""
+    },
+    "speedrun-conspiracy-003": {
+      "status": "approved",
+      "timestamp": "2025-06-09T01:38:39.094Z",
+      "feedback": ""
+    },
+    "ai-npc-sentience-002": {
+      "status": "approved",
+      "timestamp": "2025-06-09T01:38:55.943Z",
+      "feedback": ""
+    },
+    "scifi-canon-wars-001": {
+      "status": "revision",
+      "timestamp": "2025-06-09T01:40:47.919Z",
+      "feedback": "This should have been caught by multi-character. suggest we also get rid of the u/ and just use the profile names as character names. the audio system doesn't handle pronunciation of slash well at all.",
+      "requestMultiVoice": true
     },
     "enhanced-scenarios-005-010": {
       "status": "revision",
-      "timestamp": "2025-06-08T04:20:40.341Z",
-      "feedback": "multi-character."
+      "timestamp": "2025-06-09T01:41:16.248Z",
+      "feedback": "no audio seems to be linked to this one.",
+      "requestMultiVoice": false
     },
-    "miracle-supplement-001": {
+    "peacock-fake-authenticity-001": {
       "status": "approved",
-      "timestamp": "2025-06-08T04:41:05.922Z",
-      "feedback": "This audio is for the a different scenario - it is for 'The  Neighborhood Watch Alert.\""
+      "timestamp": "2025-06-09T01:41:40.167Z",
+      "feedback": ""
     },
-    "neighborhood-watch-002": {
+    "hamster-wheel-economy-001": {
+      "status": "approved",
+      "timestamp": "2025-06-09T01:42:38.848Z",
+      "feedback": ""
+    },
+    "octopus-multitasking-burnout-001": {
+      "status": "approved",
+      "timestamp": "2025-06-09T01:43:33.047Z",
+      "feedback": ""
+    },
+    "salmon-upstream-grindset-001": {
       "status": "revision",
-      "timestamp": "2025-06-08T04:42:06.451Z",
-      "feedback": "thiss should have audio for neighborhoood watch",
+      "timestamp": "2025-06-09T01:45:05.280Z",
+      "feedback": "this one has the right audio on title and content - but the wrong content on the claim.",
+      "requestMultiVoice": true
+    },
+    "cat-domestication-conspiracy-001": {
+      "status": "approved",
+      "timestamp": "2025-06-09T01:45:40.721Z",
+      "feedback": ""
+    },
+    "zoo-panda-freedom-debate-001": {
+      "status": "approved",
+      "timestamp": "2025-06-09T01:46:18.042Z",
+      "feedback": ""
+    },
+    "vegan-lion-savanna-001": {
+      "status": "revision",
+      "timestamp": "2025-06-09T01:47:15.905Z",
+      "feedback": "LIVE - with long i sound.",
+      "requestMultiVoice": true
+    },
+    "youth-soccer-parent-003": {
+      "status": "approved",
+      "timestamp": "2025-06-09T01:48:59.369Z",
+      "feedback": ""
+    },
+    "sustainable-fashion-influencer-004": {
+      "status": "approved",
+      "timestamp": "2025-06-09T01:49:13.457Z",
+      "feedback": ""
+    },
+    "dating-algorithm-optimization-005": {
+      "status": "approved",
+      "timestamp": "2025-06-09T01:49:54.273Z",
+      "feedback": ""
+    },
+    "neighborhood-surveillance-panic-006": {
+      "status": "approved",
+      "timestamp": "2025-06-09T01:50:11.067Z",
+      "feedback": ""
+    },
+    "climate-journalism-equivalency-007": {
+      "status": "approved",
+      "timestamp": "2025-06-09T01:50:42.114Z",
+      "feedback": ""
+    },
+    "crypto-comeback-gambler-008": {
+      "status": "rejected",
+      "timestamp": "2025-06-09T01:51:48.474Z",
+      "feedback": "profanity throughout. Rejecting. Request replacement.",
       "requestMultiVoice": false
     },
-    "climate-study-003": {
+    "carnivore-wedding-drama-009": {
       "status": "revision",
-      "timestamp": "2025-06-08T04:42:24.772Z",
-      "feedback": "This is audio for the teachers concern,not for the climate  study.",
+      "timestamp": "2025-06-09T01:52:43.554Z",
+      "feedback": "AITA - should always be replaced with 'Am I in the wrong' or similar.",
       "requestMultiVoice": false
     },
-    "smart-meter-panic-001": {
-      "status": "revision",
-      "timestamp": "2025-06-08T04:38:34.671Z",
-      "feedback": "this  is neighborhood watch alert which is supposed to be 000  - scenario 2\n"
+    "rideshare-freedom-trap-010": {
+      "status": "approved",
+      "timestamp": "2025-06-09T01:53:07.042Z",
+      "feedback": ""
     },
-    "community-garden-010": {
-      "status": "revision",
-      "timestamp": "2025-06-08T04:40:00.561Z",
-      "feedback": "This has audio for smart meter conspiracy - 001,01"
+    "ai-tutoring-parent-panic-001": {
+      "status": "approved",
+      "timestamp": "2025-06-09T01:53:24.362Z",
+      "feedback": ""
     },
-    "teachers-concern-004": {
+    "minimalist-influencer-001": {
+      "status": "approved",
+      "timestamp": "2025-06-09T01:53:44.499Z",
+      "feedback": ""
+    },
+    "screen-time-parent-hypocrisy-001": {
       "status": "revision",
-      "timestamp": "2025-06-08T04:43:18.982Z",
-      "feedback": "this has audio for  climate study - should be teachers concern",
-      "requestMultiVoice": false
+      "timestamp": "2025-06-09T01:55:19.554Z",
+      "feedback": "/ is almost always replaced - instead of slashes you could sub in things like, per, or for each for example.",
+      "requestMultiVoice": true
+    },
+    "wellness-industry-paradox-001": {
+      "status": "approved",
+      "timestamp": "2025-06-09T01:55:49.427Z",
+      "feedback": ""
+    },
+    "online-course-fomo-001": {
+      "status": "approved",
+      "timestamp": "2025-06-09T01:56:46.331Z",
+      "feedback": ""
+    },
+    "productivity-guru-burnout-001": {
+      "status": "approved",
+      "timestamp": "2025-06-09T01:56:59.643Z",
+      "feedback": ""
+    },
+    "fitness-influencer-reality-001": {
+      "status": "approved",
+      "timestamp": "2025-06-09T01:57:20.707Z",
+      "feedback": ""
+    },
+    "crypto-bro-basement-reality-001": {
+      "status": "approved",
+      "timestamp": "2025-06-09T01:58:40.315Z",
+      "feedback": ""
+    },
+    "natural-parenting-vaccine-001": {
+      "status": "approved",
+      "timestamp": "2025-06-09T01:59:15.619Z",
+      "feedback": ""
+    },
+    "climate-debate-strawman-001": {
+      "status": "approved",
+      "timestamp": "2025-06-09T01:59:54.107Z",
+      "feedback": ""
+    },
+    "penguin-ice-hotel-luxury-001": {
+      "status": "approved",
+      "timestamp": "2025-06-09T02:00:48.788Z",
+      "feedback": ""
+    },
+    "dog-park-breed-panic-001": {
+      "status": "approved",
+      "timestamp": "2025-06-09T02:01:13.333Z",
+      "feedback": ""
     }
   },
   "summary": {
-    "total": 62,
-    "approved": 1,
-    "needsRevision": 10,
-    "rejected": 0
+    "total": 70,
+    "approved": 56,
+    "needsRevision": 13,
+    "rejected": 1
   },
   "learningNotes": [
-    {
-      "scenarioId": "enhanced-scenarios-001-008",
-      "title": "The Caffeinated Sloth's Productivity Hack",
-      "status": "revision",
-      "feedback": "Please note: this dialog should be routed through the js multi-character options - so we get a nice clean multi-character scenario.",
-      "timestamp": "2025-06-08T04:14:45.665Z"
-    },
     {
       "scenarioId": "enhanced-scenarios-001-009",
       "title": "The Vegan Vampire's Blood Bank Dilemma",
       "status": "revision",
-      "feedback": "clip this and move it to the character notes. [sophisticated accent], should be multi-character. It would be cool if the feedback form had simple checkbox for multi-character.",
-      "timestamp": "2025-06-08T04:19:21.904Z"
+      "feedback": "This one is the wrong content for this scenario. The written scenario is for vampires converrsing - the content wave associaated here is incorrect. It seems to be pointing to something about AI generated essay content..",
+      "timestamp": "2025-06-09T00:40:14.539Z"
     },
     {
       "scenarioId": "enhanced-scenarios-001-010",
       "title": "The Smartphone Addicted Caveman",
       "status": "revision",
-      "feedback": "Should def. be a mult-character scenario",
-      "timestamp": "2025-06-08T04:18:33.614Z"
+      "feedback": "Wrong content audio  attached. This is the Smartphone addicted Caveman, but it's content is missing - and instead it seems to be playing 'The productivity theaterr content.'",
+      "timestamp": "2025-06-09T00:48:12.292Z"
+    },
+    {
+      "scenarioId": "remote-work-surveillance-002",
+      "title": "The Productivity Theater",
+      "status": "revision",
+      "feedback": "Title audio is correct, but both the content and title are not. not clear what the audio files here are supposed to be attached to, but def. these are not the ones for the Productivity theater.",
+      "timestamp": "2025-06-09T00:50:39.956Z"
     },
     {
       "scenarioId": "enhanced-scenarios-005-009",
       "title": "The Philosophical French Fry Debate",
       "status": "revision",
-      "feedback": "Multi-character",
-      "timestamp": "2025-06-08T04:20:16.659Z"
+      "feedback": "Not seeing audio files for this one yet.",
+      "timestamp": "2025-06-09T00:51:27.468Z"
+    },
+    {
+      "scenarioId": "laundry-sock-conspiracy-005-009",
+      "title": "The Great Sock Disappearance Tribunal",
+      "status": "revision",
+      "feedback": "this is not the right audio for this scenario - Title is correct, but content and claim are for something else.",
+      "timestamp": "2025-06-09T00:55:51.589Z"
+    },
+    {
+      "scenarioId": "mmo-economy-crash-001",
+      "title": "The Great Server Merge Panic",
+      "status": "revision",
+      "feedback": "the content is not the correct audio forr this scenario - doesn't align to 'the great serverr merge panic.",
+      "timestamp": "2025-06-09T01:34:50.454Z"
+    },
+    {
+      "scenarioId": "dungeon-loot-economy-007",
+      "title": "The Loot Table Whistleblower",
+      "status": "revision",
+      "feedback": "There's profanity in this one. 'fuck' but i think it will get stripped by the scenario loader. still surprised it didn't get cut by the pre-screen.",
+      "timestamp": "2025-06-09T01:37:19.094Z"
+    },
+    {
+      "scenarioId": "scifi-canon-wars-001",
+      "title": "The Canon Crusades",
+      "status": "revision",
+      "feedback": "This should have been caught by multi-character. suggest we also get rid of the u/ and just use the profile names as character names. the audio system doesn't handle pronunciation of slash well at all.",
+      "timestamp": "2025-06-09T01:40:47.919Z"
     },
     {
       "scenarioId": "enhanced-scenarios-005-010",
       "title": "The Roomba's Union Organization Meeting",
       "status": "revision",
-      "feedback": "multi-character.",
-      "timestamp": "2025-06-08T04:20:40.341Z"
+      "feedback": "no audio seems to be linked to this one.",
+      "timestamp": "2025-06-09T01:41:16.248Z"
     },
     {
-      "scenarioId": "miracle-supplement-001",
-      "title": "The Miracle Supplement",
-      "status": "approved",
-      "feedback": "This audio is for the a different scenario - it is for 'The  Neighborhood Watch Alert.\"",
-      "timestamp": "2025-06-08T04:41:05.922Z"
-    },
-    {
-      "scenarioId": "neighborhood-watch-002",
-      "title": "The Neighborhood Watch Alert",
+      "scenarioId": "salmon-upstream-grindset-001",
+      "title": "The Spawning Grindset",
       "status": "revision",
-      "feedback": "thiss should have audio for neighborhoood watch",
-      "timestamp": "2025-06-08T04:42:06.451Z"
+      "feedback": "this one has the right audio on title and content - but the wrong content on the claim.",
+      "timestamp": "2025-06-09T01:45:05.280Z"
     },
     {
-      "scenarioId": "climate-study-003",
-      "title": "The Climate Study",
+      "scenarioId": "vegan-lion-savanna-001",
+      "title": "The Enlightened Carnivore",
       "status": "revision",
-      "feedback": "This is audio for the teachers concern,not for the climate  study.",
-      "timestamp": "2025-06-08T04:42:24.772Z"
+      "feedback": "LIVE - with long i sound.",
+      "timestamp": "2025-06-09T01:47:15.905Z"
     },
     {
-      "scenarioId": "smart-meter-panic-001",
-      "title": "The Smart Meter Conspiracy",
-      "status": "revision",
-      "feedback": "this  is neighborhood watch alert which is supposed to be 000  - scenario 2\n",
-      "timestamp": "2025-06-08T04:38:34.671Z"
+      "scenarioId": "crypto-comeback-gambler-008",
+      "title": "The Pattern Recognition Expert",
+      "status": "rejected",
+      "feedback": "profanity throughout. Rejecting. Request replacement.",
+      "timestamp": "2025-06-09T01:51:48.474Z"
     },
     {
-      "scenarioId": "community-garden-010",
-      "title": "The Community Garden Proposal",
+      "scenarioId": "carnivore-wedding-drama-009",
+      "title": "The Dietary Identity Crisis",
       "status": "revision",
-      "feedback": "This has audio for smart meter conspiracy - 001,01",
-      "timestamp": "2025-06-08T04:40:00.561Z"
+      "feedback": "AITA - should always be replaced with 'Am I in the wrong' or similar.",
+      "timestamp": "2025-06-09T01:52:43.554Z"
     },
     {
-      "scenarioId": "teachers-concern-004",
-      "title": "The Teacher's Concern",
+      "scenarioId": "screen-time-parent-hypocrisy-001",
+      "title": "The Digital Parenting Paradox",
       "status": "revision",
-      "feedback": "this has audio for  climate study - should be teachers concern",
-      "timestamp": "2025-06-08T04:43:18.982Z"
+      "feedback": "/ is almost always replaced - instead of slashes you could sub in things like, per, or for each for example.",
+      "timestamp": "2025-06-09T01:55:19.554Z"
     }
   ]
 }

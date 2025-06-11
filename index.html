@@ -313,6 +313,11 @@
     <script src="./js/core/scoring-system.js"></script>
     <script src="./js/core/honey-pot-manager.js"></script>
     <script src="./js/utils/analytics-tracker.js"></script>
+    
+    <!-- Audio System -->
+    <script src="./js/audio/phuzzy-audio-engine.js"></script>
+    <script src="./js/audio/phuzzy-audio-engine-integration.js"></script>
+    
     <script src="./js/ui/bear-analysis.js"></script>
     <script src="./js/ui/feedback-animator.js"></script>
     <script src="./js/ui/hint-display.js"></script>
@@ -341,7 +346,51 @@
             }
             
             // Handle play now button click
-            playNowButton.addEventListener('click', function() {
+            playNowButton.addEventListener('click', async function() {
+                // Set flag that user has clicked Play Now
+                window.userHasClickedPlayNow = true;
+                console.log('👆 User clicked Play Now - audio permission granted');
+                
+                let audioReady = false;
+                
+                // Play button sound to warm up audio system
+                if (window.gameEngine && window.gameEngine.playUISound) {
+                    try {
+                        console.log('🎵 Starting audio warmup sequence...');
+                        await window.gameEngine.playUISound('button');
+                        
+                        // Force audio system warmup after successful UI sound
+                        if (window.gameEngine && window.gameEngine.audioEngine) {
+                            try {
+                                await window.gameEngine.audioEngine.warmupAudioSystem();
+                                console.log('🔥 Audio system fully warmed up after button click');
+                                
+                                // Verify audio context is actually running
+                                if (window.gameEngine.audioEngine.audioContext && 
+                                    window.gameEngine.audioEngine.audioContext.state === 'running') {
+                                    audioReady = true;
+                                    console.log('✅ Audio system verified ready');
+                                }
+                            } catch (audioError) {
+                                console.log('⚠️ Audio warmup failed:', audioError);
+                            }
+                        } else {
+                            console.log('⚠️ Audio engine not available during splash screen');
+                        }
+                    } catch (err) {
+                        console.log('Button sound failed:', err);
+                    }
+                }
+                
+                // Wait a moment for audio system to settle
+                if (audioReady) {
+                    console.log('⏱️ Waiting for audio system to settle...');
+                    await new Promise(resolve => setTimeout(resolve, 300));
+                    console.log('🚀 Audio ready - proceeding with game start');
+                } else {
+                    console.log('⚠️ Audio not ready, proceeding anyway');
+                }
+                
                 splashScreen.classList.add('hidden');
                 // Remove splash screen after transition
                 setTimeout(function() {
@@ -392,6 +441,22 @@
                 // Create game engine
                 const gameEngine = new window.PhuzzyGameEngine(window.PHUZZY_CONFIG);
                 window.gameEngine = gameEngine; // Make available globally for timeline analysis
+                
+                // Initialize audio system
+                if (window.integratePhuzzyAudio) {
+                    const audioIntegration = window.integratePhuzzyAudio(gameEngine);
+                    console.log('🎵 Audio system integrated successfully');
+                    
+                    // Build audio mappings after initialization
+                    try {
+                        await audioIntegration.buildScenarioMappings();
+                        console.log('🗺️ Audio scenario mappings built successfully');
+                    } catch (error) {
+                        console.warn('⚠️ Could not build audio mappings:', error);
+                    }
+                } else {
+                    console.warn('⚠️ Audio integration not available - audio features disabled');
+                }
                 
                 // Get UI elements
                 const elements = {
@@ -445,6 +510,16 @@
                 
                 // Initialize game
                 await gameEngine.initialize();
+                
+                // Update audio mappings for the loaded pack
+                if (gameEngine.updateAudioMappings) {
+                    try {
+                        await gameEngine.updateAudioMappings();
+                        console.log('🔄 Audio mappings updated for current pack');
+                    } catch (error) {
+                        console.warn('⚠️ Could not update audio mappings for current pack:', error);
+                    }
+                }
                 
                 // Log pack info to console
                 if (gameEngine.scenarioManager.currentPack) {

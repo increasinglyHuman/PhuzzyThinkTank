@@ -1,1 +1,0 @@
-self.__SSG_MANIFEST=new Set(["\u002F","\u002F404","\u002F[year]\u002F[month]\u002F[day]\u002F[text]","\u002Fauthors\u002F[slug]","\u002Fcategory\u002F[[...slug]]","\u002Felixir-alchemy.html","\u002Fjavascript-sorcery.html","\u002Fpython-wizardry.html","\u002Fruby-magic.html","\u002Fsecret\u002Fmdx-test","\u002Fseries\u002F[slug]"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()

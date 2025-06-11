@@ -20,6 +20,11 @@ class QuizInterface {
     
     // Centralized text formatting function
     formatScenarioText(text) {
+        // Safety check for undefined/null text
+        if (!text || typeof text !== 'string') {
+            return 'No scenario text available';
+        }
+        
         let formattedText = text;
         
         // Apply content filter for 13+ rating
@@ -95,6 +100,24 @@ class QuizInterface {
             if (this.elements.nextButton) {
                 this.elements.nextButton.addEventListener('click', function() { this.nextScenario(); }.bind(this));
             }
+            
+            // Audio volume toggle
+            var audioToggle = document.getElementById('audio-toggle');
+            if (audioToggle) {
+                audioToggle.addEventListener('click', function() { this.toggleAudio(); }.bind(this));
+            }
+            
+            // Smart audio button
+            var smartAudioButton = document.getElementById('smart-audio-button');
+            if (smartAudioButton) {
+                smartAudioButton.addEventListener('click', function() { this.handleSmartAudioClick(); }.bind(this));
+            }
+            
+            // Audio replay button
+            var audioReplay = document.getElementById('audio-replay');
+            if (audioReplay) {
+                audioReplay.addEventListener('click', function() { this.replayAudio(); }.bind(this));
+            }
         } catch (error) {
             console.error('Error binding events:', error);
         }
@@ -102,6 +125,7 @@ class QuizInterface {
     
     displayScenario(scenario) {
         this.currentScenario = scenario;
+        this.currentScenarioForReplay = scenario; // Store for audio replay
         this.selectedAnswer = null;
         this.hasAnswered = false;
         this.hasUsedHint = false;
@@ -115,7 +139,9 @@ class QuizInterface {
         this.elements.scenarioTitle.textContent = scenario.title;
         
         // Format scenario text using centralized formatter
-        const formattedText = this.formatScenarioText(scenario.text);
+        // Handle both v3 format (text) and legacy format (content)
+        const scenarioText = scenario.text || scenario.content || 'No scenario text available';
+        const formattedText = this.formatScenarioText(scenarioText);
         
         // Use innerHTML to preserve formatting
         this.elements.scenarioText.innerHTML = formattedText;
@@ -130,6 +156,71 @@ class QuizInterface {
         var scenarioNum = this.gameEngine.scenariosCompleted.length + 1;
         var totalScenarios = this.gameEngine.config.scenariosPerRound;
         this.elements.scenarioCounter.textContent = 'Scenario ' + scenarioNum + ' of ' + totalScenarios;
+        
+        // Play scenario audio if enabled (with small delay to allow audio system warmup)
+        setTimeout(() => {
+            console.log('Checking audio conditions:', {
+                hasGameEngine: !!this.gameEngine,
+                audioEnabled: this.gameEngine ? this.gameEngine.audioEnabled : false,
+                hasVoicePlayer: this.gameEngine ? !!this.gameEngine.voicePlayer : false,
+                scenarioId: scenario.id,
+                packId: scenario.packId
+            });
+            
+            this.attemptAudioPlayback(scenario);
+        }, 100); // Small delay to ensure audio system is ready
+    }
+    
+    async attemptAudioPlayback(scenario) {
+        // Check if user has clicked "Play Now" button yet
+        if (!window.userHasClickedPlayNow) {
+            console.log('⏳ Waiting for user to click "Play Now" before attempting audio');
+            return;
+        }
+        
+        if (this.gameEngine && this.gameEngine.audioEnabled && this.gameEngine.voicePlayer) {
+            // Check if audio system is actually ready
+            const audioEngine = this.gameEngine.audioEngine;
+            if (audioEngine && audioEngine.audioContext) {
+                if (audioEngine.audioContext.state !== 'running') {
+                    console.log('⏳ Audio context not running yet, waiting...');
+                    try {
+                        await audioEngine.audioContext.resume();
+                        await new Promise(resolve => setTimeout(resolve, 100));
+                    } catch (err) {
+                        console.log('Failed to resume audio context:', err);
+                    }
+                }
+            }
+            console.log('🎬 Starting audio sequence for:', scenario.title);
+            
+            // Use the new enhanced sequence player if available
+            if (this.gameEngine.playScenarioAudio) {
+                this.gameEngine.playScenarioAudio(scenario.title, scenario.packId)
+                    .then((sequenceId) => {
+                        if (sequenceId) {
+                            console.log('✅ Enhanced audio sequence started:', sequenceId);
+                        } else {
+                            console.log('⚠️ Enhanced audio returned false, trying legacy method');
+                            this.playAudioSequence(scenario);
+                        }
+                    })
+                    .catch((error) => {
+                        console.log('⚠️ Enhanced audio failed, falling back to legacy:', error);
+                        this.playAudioSequence(scenario);
+                    });
+            } else {
+                // Fallback to legacy sequence
+                console.log('🔄 Using legacy audio sequence');
+                this.playAudioSequence(scenario);
+            }
+        } else {
+            console.log('Audio not playing - conditions not met:', {
+                hasGameEngine: !!this.gameEngine,
+                audioEnabled: this.gameEngine ? this.gameEngine.audioEnabled : false,
+                hasVoicePlayer: this.gameEngine ? !!this.gameEngine.voicePlayer : false
+            });
+        }
         
         // Reset UI state
         this.resetAnswerOptions();
@@ -183,9 +274,21 @@ class QuizInterface {
                 this.highlightCorrectAnswer();
             }
             
+            // Play UI sound based on evaluation
+            if (this.gameEngine.playUISound) {
+                const soundType = evaluation.feedbackLevel === 'perfect' ? 'correct' : 'incorrect';
+                this.gameEngine.playUISound(soundType);
+            }
+            
             // Show score increase animation with points earned
             if (evaluation.points > 0) {
                 this.feedbackAnimator.showScoreIncrease(evaluation.points);
+                
+                // Trigger RIZ dialog auto-reveal
+                if (window.scoreboardManager) {
+                    window.scoreboardManager.autoReveal();
+                }
+                
                 // Update max possible score after animation completes
                 setTimeout(() => {
                     this.updateMaxPossibleScore();
@@ -209,10 +312,11 @@ class QuizInterface {
             
             // Show analysis after delay
             setTimeout(function() {
-                this.showAnalysis();
+                this.showAnalysis(this.selectedAnswer, evaluation);
                 
-                // Update radar chart state (regardless of accordion state)
+                // Update timeline tracking and radar chart
                 if (window.timelineAnalysis) {
+                    window.timelineAnalysis.trackAnswer(this.selectedAnswer, evaluation);
                     window.timelineAnalysis.updateRadarAfterAnswer();
                 }
             }.bind(this), 2000);
@@ -232,14 +336,23 @@ class QuizInterface {
         );
     }
     
-    showAnalysis() {
+    showAnalysis(userAnswer, evaluation) {
         if (!this.currentScenario) {
             console.error('No current scenario available for analysis');
             return;
         }
         
-        this.elements.analysisSection.style.display = 'block';
-        this.bearAnalysis.showDualBearAnalysis(this.currentScenario);
+        console.log('📋 Showing detailed analysis section');
+        console.log('Analysis section element:', this.elements.analysisSection);
+        
+        if (this.elements.analysisSection) {
+            this.elements.analysisSection.style.display = 'block';
+            console.log('📋 Analysis section display set to block');
+        } else {
+            console.error('📋 Analysis section element not found!');
+        }
+        
+        this.bearAnalysis.showDualBearAnalysis(this.currentScenario, userAnswer, evaluation);
         
         // Show next button after animation
         setTimeout(function() {
@@ -989,6 +1102,308 @@ class QuizInterface {
         };
         
         this.displayEndGame(testStats);
+    }
+    
+    async playAudioSequence(scenario) {
+        try {
+            console.log('Playing title audio for:', scenario.title);
+            await this.waitForAudioComplete(scenario.id, 'title', scenario.packId || 0, scenario.title);
+            
+            console.log('Title finished, playing content');
+            await this.waitForAudioComplete(scenario.id, 'description', scenario.packId || 0, scenario.title);
+            
+            console.log('Content finished, playing claim');
+            await this.waitForAudioComplete(scenario.id, 'claim', scenario.packId || 0, scenario.title);
+            
+            console.log('Audio sequence complete');
+        } catch (error) {
+            console.log('Audio sequence failed:', error);
+        }
+    }
+    
+    waitForAudioComplete(scenarioId, contentType, packId, scenarioTitle) {
+        return new Promise((resolve, reject) => {
+            this.gameEngine.voicePlayer.play(scenarioId, contentType, null, packId, scenarioTitle)
+                .then(() => {
+                    // Wait for the audio to actually finish playing
+                    const audio = this.gameEngine.voicePlayer.currentAudio;
+                    if (audio) {
+                        audio.addEventListener('ended', resolve, { once: true });
+                        audio.addEventListener('error', reject, { once: true });
+                    } else {
+                        resolve();
+                    }
+                })
+                .catch(reject);
+        });
+    }
+
+    toggleAudio() {
+        if (this.gameEngine) {
+            this.gameEngine.audioEnabled = !this.gameEngine.audioEnabled;
+            
+            var audioToggle = document.getElementById('audio-toggle');
+            if (audioToggle) {
+                if (this.gameEngine.audioEnabled) {
+                    audioToggle.textContent = '🔊';
+                    audioToggle.classList.remove('muted');
+                    audioToggle.title = 'Turn off audio';
+                } else {
+                    audioToggle.textContent = '🔇';
+                    audioToggle.classList.add('muted');
+                    audioToggle.title = 'Turn on audio';
+                    // Stop any currently playing audio
+                    if (this.gameEngine.voicePlayer) {
+                        this.gameEngine.voicePlayer.stop();
+                    }
+                }
+            }
+        }
+    }
+    
+    replayAudio() {
+        if (this.gameEngine && this.gameEngine.audioEnabled && this.gameEngine.voicePlayer && this.currentScenarioForReplay) {
+            console.log('Replaying audio for scenario:', this.currentScenarioForReplay.title);
+            
+            // PRESERVE CURRENT UI STATE - store selected answer
+            const currentSelectedAnswer = this.selectedAnswer;
+            const selectedElement = document.querySelector('.quiz-option.selected');
+            
+            // Stop any current audio
+            this.gameEngine.voicePlayer.stop();
+            
+            // Reset progress indicators
+            this.resetProgressLabels();
+            this.deactivateWaveform();
+            
+            // Small delay to ensure audio system is fully cleared
+            setTimeout(() => {
+                // Play the audio sequence again
+                this.playAudioSequence(this.currentScenarioForReplay);
+                
+                // RESTORE SELECTED STATE after audio starts
+                if (currentSelectedAnswer && selectedElement) {
+                    this.selectedAnswer = currentSelectedAnswer;
+                    selectedElement.classList.add('selected');
+                    console.log('✅ Restored selected answer:', currentSelectedAnswer);
+                }
+                
+                // Update button to show playing state
+                this.updateSmartAudioButton();
+            }, 100);
+            
+        } else if (!this.gameEngine.audioEnabled) {
+            console.log('Cannot replay: audio is disabled');
+        } else if (!this.currentScenarioForReplay) {
+            console.log('Cannot replay: no scenario loaded');
+        }
+    }
+    
+    /**
+     * Smart Audio Button - Multistate play/pause/replay functionality
+     */
+    handleSmartAudioClick() {
+        const button = document.getElementById('smart-audio-button');
+        const currentState = this.getAudioState();
+        
+        console.log('🎵 Smart audio button clicked, current state:', currentState);
+        
+        switch (currentState) {
+            case 'ready':
+            case 'stopped':
+                this.playScenarioAudio();
+                break;
+            case 'playing':
+                this.pauseScenarioAudio();
+                break;
+            case 'paused':
+                this.resumeScenarioAudio();
+                break;
+            case 'disabled':
+                console.log('Audio disabled - ignoring click');
+                break;
+        }
+    }
+    
+    getAudioState() {
+        if (!this.gameEngine || !this.gameEngine.audioEnabled) return 'disabled';
+        if (!this.gameEngine.voicePlayer) return 'disabled';
+        
+        // Check if audio is currently playing
+        if (this.gameEngine.voicePlayer.isPlaying && this.gameEngine.voicePlayer.isPlaying()) {
+            return 'playing';
+        }
+        
+        // Check if we have a scenario loaded
+        if (this.currentScenarioForReplay) {
+            return 'ready';
+        }
+        
+        return 'stopped';
+    }
+    
+    updateSmartAudioButton() {
+        const button = document.getElementById('smart-audio-button');
+        const icon = button?.querySelector('.audio-icon');
+        const text = button?.querySelector('.audio-text');
+        const progressBar = document.getElementById('audio-progress-fill');
+        const statusDot = document.getElementById('audio-status-dot');
+        const statusText = document.getElementById('audio-status-text');
+        
+        if (!button || !icon || !text) return;
+        
+        const state = this.getAudioState();
+        
+        // Remove all state classes
+        button.classList.remove('playing', 'paused', 'disabled');
+        statusDot?.classList.remove('playing', 'paused', 'disabled');
+        
+        switch (state) {
+            case 'ready':
+            case 'stopped':
+                icon.textContent = '▶️';
+                text.textContent = 'Play Audio';
+                button.title = 'Play scenario audio';
+                if (progressBar) progressBar.style.width = '0%';
+                if (statusText) statusText.textContent = 'Ready';
+                this.deactivateWaveform();
+                this.resetProgressLabels();
+                break;
+                
+            case 'playing':
+                icon.textContent = '⏸️';
+                text.textContent = 'Pause';
+                button.title = 'Pause audio playback';
+                button.classList.add('playing');
+                statusDot?.classList.add('playing');
+                if (statusText) statusText.textContent = 'Playing';
+                this.activateWaveform();
+                break;
+                
+            case 'paused':
+                icon.textContent = '▶️';
+                text.textContent = 'Resume';
+                button.title = 'Resume audio';
+                button.classList.add('paused');
+                statusDot?.classList.add('paused');
+                if (statusText) statusText.textContent = 'Paused';
+                this.deactivateWaveform();
+                break;
+                
+            case 'disabled':
+                icon.textContent = '🔇';
+                text.textContent = 'Audio Off';
+                button.title = 'Audio is disabled';
+                button.classList.add('disabled');
+                statusDot?.classList.add('disabled');
+                if (progressBar) progressBar.style.width = '0%';
+                if (statusText) statusText.textContent = 'Disabled';
+                this.deactivateWaveform();
+                this.resetProgressLabels();
+                break;
+        }
+    }
+    
+    playScenarioAudio() {
+        if (!this.currentScenarioForReplay) return;
+        
+        console.log('🎵 Smart button: Playing scenario audio');
+        this.updateSmartAudioButton();
+        
+        // Use the existing replay logic but update button state
+        this.replayAudio();
+    }
+    
+    pauseScenarioAudio() {
+        console.log('⏸️ Smart button: Pausing audio');
+        if (this.gameEngine && this.gameEngine.voicePlayer) {
+            this.gameEngine.voicePlayer.stop();
+        }
+        this.deactivateWaveform();
+        this.updateSmartAudioButton();
+    }
+    
+    resumeScenarioAudio() {
+        console.log('▶️ Smart button: Resuming audio');
+        // For now, restart the audio (we could implement true pause/resume later)
+        this.playScenarioAudio();
+    }
+    
+    /**
+     * Activate waveform visualization during audio playback
+     */
+    activateWaveform() {
+        const waveform = document.getElementById('audio-waveform');
+        if (waveform) {
+            waveform.classList.add('active');
+        }
+    }
+    
+    /**
+     * Deactivate waveform visualization when audio stops
+     */
+    deactivateWaveform() {
+        const waveform = document.getElementById('audio-waveform');
+        if (waveform) {
+            waveform.classList.remove('active');
+        }
+    }
+    
+    /**
+     * Reset all progress labels to default state
+     */
+    resetProgressLabels() {
+        const labels = ['progress-title', 'progress-content', 'progress-claim'];
+        labels.forEach(id => {
+            const label = document.getElementById(id);
+            if (label) {
+                label.classList.remove('active', 'completed');
+            }
+        });
+    }
+    
+    /**
+     * Set a specific progress label as active
+     */
+    setProgressLabelActive(section) {
+        // Reset all first
+        this.resetProgressLabels();
+        
+        const sectionMap = {
+            'title': 'progress-title',
+            'content': 'progress-content', 
+            'claim': 'progress-claim'
+        };
+        
+        const labelId = sectionMap[section];
+        if (labelId) {
+            const label = document.getElementById(labelId);
+            if (label) {
+                label.classList.add('active');
+                console.log(`🎯 Audio progress: Now playing ${section}`);
+            }
+        }
+    }
+    
+    /**
+     * Mark a section as completed
+     */
+    setProgressLabelCompleted(section) {
+        const sectionMap = {
+            'title': 'progress-title',
+            'content': 'progress-content',
+            'claim': 'progress-claim'
+        };
+        
+        const labelId = sectionMap[section];
+        if (labelId) {
+            const label = document.getElementById(labelId);
+            if (label) {
+                label.classList.remove('active');
+                label.classList.add('completed');
+                console.log(`✅ Audio progress: Completed ${section}`);
+            }
+        }
     }
 }
 

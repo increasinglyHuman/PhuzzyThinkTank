@@ -205,204 +205,46 @@ class BearAnalysis {
     }
     
     convertFactorToDisplayText(factor, containerId) {
-        // TODO: Future enhancement - Fuzzy analysis system
-        // Instead of hard-coded mappings, we could analyze:
-        // - Factor combinations (e.g., "harvard-credibility" + "profit-motive" = higher manipulation)
-        // - Context weights (same factor means different things in different scenarios)
-        // - Linguistic analysis of the actual text
-        // - Bayesian inference from user responses
-        // This would make scores emerge from the content rather than being predetermined
+        // Use centralized indicator icon mapper if available
+        if (window.indicatorIconMapper && window.indicatorIconMapper.isLoaded) {
+            return window.indicatorIconMapper.getIconForFactor(factor, 'auto', containerId);
+        }
         
+        // Fallback to legacy hardcoded mappings if mapper not loaded
+        return this.getLegacyMapping(factor, containerId);
+    }
+    
+    getLegacyMapping(factor, containerId) {
         // If factor already contains emoji or starts with emoji, use as-is
         if (factor.match(/^[\u{1F600}-\u{1F64F}]|^[\u{1F300}-\u{1F5FF}]|^[\u{1F680}-\u{1F6FF}]|^[\u{1F1E0}-\u{1F1FF}]|^[\u{2600}-\u{26FF}]|^[\u{2700}-\u{27BF}]/u) || factor.includes('✓') || factor.includes('🚫')) {
             return factor;
         }
         
-        // Logic factor conversions
-        var logicFactors = {
+        // Basic fallback mappings for common indicators
+        var basicLogicFactors = {
             'qualified-expert': '✅ Qualified expert source',
-            'specific-data': '✅ Specific study data shared', 
-            'acknowledges-limits': '✅ Acknowledges limitations',
-            'mentions-alternatives': '✅ Mentions alternatives',
-            'direct-observation': '👁️ Direct classroom observation',
-            'specific-changes': '📊 Specific behavior changes noted',
-            'student-reports': '💬 Student self-reports',
-            // V2 indicators
-            'specific-percentages': '📊 Specific percentages cited',
-            'cites-research': '📚 Cites research sources',
-            'shows-uncertainty': '🤔 Shows uncertainty/questioning',
-            'tested-data': '🧪 Personal testing/experiments',
-            'specific-metrics': '📈 Specific metrics provided',
-            'productivity-paradox': '⚡ Productivity paradox exposed',
-            'correlation-acknowledgment': '🔗 Acknowledges correlation issues',
-            'specific-costs': '💰 Specific costs detailed',
-            'scholarship-statistics': '🎓 Scholarship statistics',
-            'investment-comparison': '💸 Investment comparisons',
-            'personal-data': '📱 Personal data/experience',
-            'credential-comparison': '🎖️ Credential comparisons',
-            'funding-sources': '💵 Funding sources revealed',
-            'peer-review-counts': '📑 Peer review counts',
-            'economic-pressure': '💼 Economic pressures noted',
-            'dueling-studies': '⚔️ Competing studies cited',
-            'selective-evidence': '🎯 Selective evidence use',
-            'health-claims': '🏥 Health claims made',
-            'test-results': '🩺 Test results shared',
-            'probability-misunderstanding': '🎲 Probability errors',
-            'independent-events-ignored': '🔀 Independent events confused',
-            'pattern-invention': '🌀 False patterns claimed',
-            'mathematical-certainty-claimed': '🧮 False mathematical certainty',
-            'income-breakdown': '💵 Income breakdown shown',
-            'expense-tracking': '📊 Expense tracking detailed',
-            'hour-documentation': '⏰ Hours documented',
-            'tax-classification': '📋 Tax classification issues',
-            'collaborative': '🤝 Collaborative approach',
+            'specific-data': '✅ Specific study data shared',
             'weak-evidence': '🚫 Weak or missing evidence',
-            'zero-evidence': '🚫 Zero evidence of threat',
-            'biased-source': '📱 Questionable source reliability',
-            'facebook-source': '📱 "Read on Facebook" source',
             'hidden-agenda': '💰 Hidden sales agenda',
-            'hidden-sales': '💰 Hidden sales agenda',
-            'speculation': '😱 Pure speculation',
-            'pure-speculation': '😱 Pure speculation',
             'cherry-picked': '🍒 Cherry-picked sample',
-            'cherry-picked-sample': '🍒 Cherry-picked sample',
-            'contradicts-evidence': '❌ Contradicts vast evidence',
-            'industry-funded': '🏭 Likely industry-funded source',
-            'dubious-institute': '🏭 Dubious "institute" source',
-            'logical-fallacy': '🤔 Logical fallacy detected',
-            'natural-good-fallacy': '🤔 "Natural = good" fallacy',
-            'slippery-slope': '🎿 Slippery slope reasoning',
-            'false-dilemma': '⚔️ False choice presented',
-            'hasty-generalization': '🏃 Rushed generalization',
-            'ad-hominem': '👤 Personal attack substitute',
-            'appeal-to-tradition': '🏛️ "Ancient wisdom" appeal',
-            'false-scarcity': '⏰ Fake scarcity pressure',
-            'conspiracy-theory': '🕳️ Conspiracy reasoning',
-            'false-equivalence': '⚖️ False equivalence drawn',
-            'appeal-to-consequences': '😨 Threatening consequences',
-            'multiple-studies': '📚 Multiple studies reviewed',
-            'conflicting-data': '⚖️ Conflicting evidence presented',
-            'regulatory-positions': '🏛️ Regulatory body positions',
-            'practical-guidance': '💡 Practical guidance provided',
-            'large-sample': '📊 Large sample size',
-            'specific-metrics': '📈 Specific metrics provided',
-            'nuanced-findings': '🔍 Nuanced findings presented',
-            'credible-institution': '🎓 Credible institution source',
-            'cost-benefit': '💰 Cost-benefit analysis',
-            'survey-data': '📋 Survey data included',
-            'comparable-examples': '🔗 Comparable examples cited',
-            'acknowledges-downsides': '⚠️ Acknowledges downsides',
-            'no-information': '🚫 No substantive information',
-            'simple-trick-scam': '🎪 "Simple trick" scam language',
-            'fake-urgency': '⏰ Artificial urgency created',
-            'profit-motive': '💰 Clear profit motive',
-            'filtered-photos': '📸 Heavily filtered photos',
-            'ancient-secret-nonsense': '🏛️ "Ancient secret" nonsense',
-            'anti-doctor': '⚕️ Anti-medical establishment',
-            'aggressive-sales': '💰 Aggressive sales tactics',
-            'one-incident-total-ban': '🚫 One incident, total ban',
-            'extreme-response': '⚠️ Extreme overreaction',
-            'no-context': '❌ Missing context',
-            'fear-over-education': '😱 Fear over education'
+            'false-scarcity': '⏰ Fake scarcity pressure'
         };
         
-        // Emotion factor conversions  
-        var emotionFactors = {
+        var basicEmotionFactors = {
             'harvard-credibility': '🎓 Harvard credibility appeal',
-            'aging-concern': '⏰ Aging concerns trigger',
-            'hope-solution': '💊 Hope for solution',
-            'professional-trust': '🤝 Professional trust appeal',
-            'child-safety': '🚸 Child safety panic',
             'child-safety-panic': '🚸 Child safety panic',
-            'police-narrative': '🚔 "Police won\'t help" narrative',
-            'police-wont-help': '🚔 "Police won\'t help" narrative',
             'us-vs-them': '👥 Us vs. them mentality',
             'urgency-pressure': '⚡ URGENT pressure tactics',
-            'urgent-pressure': '⚡ URGENT!!! pressure',
-            'body-shame': '😢 Body shame activation',
-            'relationship-insecurity': '👰 Relationship insecurity',
-            'beauty-anxiety': '💃 Beauty standard anxiety',
-            'economic-fear': '💰 Economic fear tactics',
-            'superiority-complex': '🐑 "Wake up" superiority appeal',
-            'wake-up-superiority': '🐑 "Wake up" superiority',
-            'anti-establishment': '🏴 Anti-establishment appeal',
-            'theyre-lying': '😤 "They\'re lying to you"',
-            'academic-concern': '📚 Academic performance worry',
-            'partnership-request': '🤝 Partnership approach',
-            'health-worry': '🏥 Health concerns',
-            'teacher-care': '💕 Teacher showing care',
-            'child-health': '🧒 Child health concerns',
-            'common-exposure': '📊 Common exposure data',
-            'empowerment-info': '💪 Empowering information',
-            'international-comparison': '🌍 International comparison',
-            'work-relevance': '💼 Work relevance appeal',
-            'data-confidence': '📊 Data confidence building',
-            'change-acceptance': '🔄 Change acceptance',
-            'academic-authority': '🎓 Academic authority appeal',
-            'community-building': '🏘️ Community building appeal',
-            'neighborhood-improvement': '🏠 Neighborhood improvement',
-            'family-activity': '👨‍👩‍👧‍👦 Family activity appeal',
-            'property-value': '🏡 Property value consideration',
-            'kids-deserve-better': '👶 "Your kids deserve better"',
-            'fomo-last-chance': '⏰ Fear of missing out',
-            'wage-slave-shame': '😤 "Wage slave" shaming',
-            'lifestyle-envy': '🏖️ Lifestyle envy trigger',
-            'predator-terror': '😱 Predator terror appeal',
-            'technology-panic': '📱 Technology panic',
-            'protective-parent': '🛡️ Protective parent identity',
-            'life-death-framing': '⚰️ Life or death framing',
-            // V2 emotion triggers
-            'scholarship-threat': '🎓 Scholarship threat',
-            'academic-integrity': '📚 Academic integrity crisis',
-            'systemic-frustration': '🏛️ System frustration',
-            'fairness-struggle': '⚖️ Fairness struggle',
-            'surveillance-frustration': '📹 Surveillance frustration',
-            'us-vs-management': '👔 Us vs management',
-            'tech-worker-solidarity': '💻 Tech worker solidarity',
-            'irony-humor': '😏 Ironic humor coping',
-            'parent-guilt': '😔 Parent guilt',
-            'wasted-money': '💸 Wasted money regret',
-            'failed-dreams': '💔 Failed dreams pain',
-            'identity-crisis': '🎭 Identity crisis',
-            'judgment-fear': '👀 Fear of judgment',
-            'environmental-guilt': '🌍 Environmental guilt',
-            'waste-shock': '🗑️ Waste shock value',
-            'ethical-superiority': '✨ Ethical superiority',
-            'change-maker-identity': '🦸 Change-maker identity',
-            'stranger-danger': '🚨 Stranger danger fear',
-            'property-values': '🏠 Property value concerns',
-            'vigilante-justice': '⚔️ Vigilante justice',
-            'safety-panic': '🚨 Safety panic',
-            'professional-integrity': '💼 Professional integrity',
-            'public-harm': '⚠️ Public harm concern',
-            'moral-compromise': '😕 Moral compromise',
-            'optimization-exhaustion': '😩 Optimization exhaustion',
-            'authenticity-paradox': '🎭 Authenticity paradox',
-            'shared-frustration': '🤝 Shared frustration',
-            'family-division': '👨‍👩‍👧 Family division',
-            'identity-threat': '🆔 Identity threat',
-            'lost-connection': '💔 Lost connection',
-            'tribal-warfare': '⚔️ Tribal warfare',
-            'relationship-mourning': '😢 Relationship mourning',
-            'loss-recovery-desperation': '🎰 Loss recovery desperation',
-            'universe-owes-me': '🌌 Universe owes me',
-            '智-superiority-delusion': '🧠 Superiority delusion',
-            'life-destruction-humor': '😂 Life destruction humor',
-            'financial-desperation': '💰 Financial desperation',
-            'lost-dignity': '😞 Lost dignity',
-            'isolation': '🏝️ Isolation',
-            'regret': '😔 Regret',
-            'dark-humor-coping': '🃏 Dark humor coping'
+            'lifestyle-envy': '🏖️ Lifestyle envy trigger'
         };
         
-        // Check logic factors first
-        if (containerId === 'logic-factors' && logicFactors[factor]) {
-            return logicFactors[factor];
+        // Check basic mappings
+        if (containerId === 'logic-factors' && basicLogicFactors[factor]) {
+            return basicLogicFactors[factor];
         }
         
-        // Check emotion factors
-        if (containerId === 'emotion-factors' && emotionFactors[factor]) {
-            return emotionFactors[factor];
+        if (containerId === 'emotion-factors' && basicEmotionFactors[factor]) {
+            return basicEmotionFactors[factor];
         }
         
         // Fallback: convert kebab-case to readable text
