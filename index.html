@@ -773,20 +773,24 @@
         function stopScenarioAudio() {
             console.log('⏹️ Stopping audio sequence and flushing ALL queued audio');
             
-            // Use the integration layer's comprehensive stop method
-            if (window.gameEngine && window.gameEngine.voicePlayer && window.gameEngine.voicePlayer.stop) {
-                // This should call the PhuzzyAudioIntegration.stop() method which does audioEngine.stop('all')
-                window.gameEngine.voicePlayer.stop();
-                console.log('🧹 Called integration layer stop() - should flush all audio and sequences');
+            // Direct audio engine stop - this is the most reliable method
+            if (window.gameEngine && window.gameEngine.audioEngine && window.gameEngine.audioEngine.stop) {
+                // Call stop('all') to flush all channels and sequences
+                window.gameEngine.audioEngine.stop('all');
+                console.log('🧹 Called audioEngine.stop("all") - should stop all channels and sequences');
+                
+                // Also stop any specific channels that might have sequences
+                if (window.gameEngine.audioEngine.stopChannel) {
+                    window.gameEngine.audioEngine.stopChannel('dialogue');
+                    window.gameEngine.audioEngine.stopChannel('narration');
+                    console.log('🧹 Explicitly stopped dialogue and narration channels');
+                }
             }
             
-            // Additional fallback: direct audio engine access for extra thoroughness
-            if (window.gameEngine && window.gameEngine.audioEngine) {
-                // Use the Phuzzy Audio Engine's comprehensive stop
-                if (window.gameEngine.audioEngine.stop) {
-                    window.gameEngine.audioEngine.stop('all');
-                    console.log('🧹 Direct audioEngine.stop("all") called as backup');
-                }
+            // Fallback: Use integration layer
+            if (window.gameEngine && window.gameEngine.voicePlayer && window.gameEngine.voicePlayer.stop) {
+                window.gameEngine.voicePlayer.stop();
+                console.log('🧹 Called integration layer stop() as fallback');
             }
             
             isAudioPlaying = false;
