@@ -6,7 +6,7 @@ const fs = require('fs').promises;
 const path = require('path');
 
 const API_KEY = process.env.ELEVENLABS_API_KEY;
-const USAGE_LOG_FILE = path.join(__dirname, '../data/audio-recording-voices-for-scenarios-from-elevenlabs/usage-tracking.json');
+const USAGE_LOG_FILE = path.join(__dirname, '../data/voices/usage-tracking.json');
 
 async function fetchCurrentUsage() {
     return new Promise((resolve, reject) => {

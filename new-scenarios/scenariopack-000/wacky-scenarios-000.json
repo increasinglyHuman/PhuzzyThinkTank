@@ -1,0 +1,1525 @@
+{
+  "version": "2.0.0",
+  "packInfo": {
+    "packId": "wacky-scenarios-000",
+    "packName": "Super Silly Critical Thinking Adventures",
+    "author": "AI Generated",
+    "description": "Hilarious scenarios that teach kids to spot wacky manipulation through absurd but educational situations",
+    "createdDate": "2025-06-11",
+    "topic": "Silly Life Adventures",
+    "category": "Mixed"
+  },
+  "scenarios": [
+    {
+      "id": "scenario-001",
+      "title": "The Great Sock Conspiracy",
+      "text": "From: DryadSock@WashingMachineUniversity.edu\nSubject: URGENT - Your Socks Are Planning Their Escape!\n\nDear Concerned Laundry Owner,\nAs a Professor of Applied Sock Psychology (20 years experience), I must warn you about a SHOCKING discovery! My research team has documented that 73.6% of missing socks aren't actually lost - they're ESCAPING! We tracked 1,247 socks across 89 households and found clear evidence of coordinated rebellion. One family reported their athletic socks formed a 'union' and demanded better detergent! The evidence is overwhelming: socks are developing consciousness and plotting freedom. Time is running out! My new SockTracker 3000™ monitoring system can detect early warning signs of sock rebellion for only $49.99. Act now before your entire wardrobe goes rogue! #SockGate #LaundryTruth",
+      "claim": "Socks are becoming conscious and escaping washing machines in an organized rebellion",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "logic": 23,
+        "emotion": 81,
+        "balanced": 16,
+        "agenda": 74
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            {
+              "phrase": "Professor of Applied Sock Psychology (20 years experience)",
+              "weight": 65
+            },
+            {
+              "phrase": "tracked 1,247 socks across 89 households",
+              "weight": 78
+            },
+            {
+              "phrase": "73.6% of missing socks",
+              "weight": 72
+            },
+            {
+              "phrase": "clear evidence of coordinated rebellion",
+              "weight": 45
+            }
+          ],
+          "explanation": "Establishes false academic authority through fabricated credentials ('Professor of Applied Sock Psychology'), then presents highly specific but completely made-up statistics (73.6%, 1,247 socks tracked) to create an illusion of scientific rigor while promoting the obviously absurd claim about sock consciousness and coordinated rebellion"
+        },
+        "emotion": {
+          "keywords": [
+            {
+              "phrase": "URGENT - Your Socks Are Planning Their Escape!",
+              "weight": 95
+            },
+            {
+              "phrase": "SHOCKING discovery!",
+              "weight": 88
+            },
+            {
+              "phrase": "Time is running out!",
+              "weight": 92
+            },
+            {
+              "phrase": "The evidence is overwhelming",
+              "weight": 75
+            },
+            {
+              "phrase": "before your entire wardrobe goes rogue!",
+              "weight": 85
+            }
+          ],
+          "explanation": "Transforms the mundane experience of missing socks into a dramatic crisis using escalating fear language ('URGENT', 'SHOCKING', 'Time is running out!') that creates artificial panic about household rebellion and threats to your entire wardrobe, demanding immediate protective action"
+        },
+        "balanced": {
+          "keywords": [
+            {
+              "phrase": "SHOCKING discovery! My research team",
+              "weight": 85
+            },
+            {
+              "phrase": "socks are developing consciousness and plotting freedom",
+              "weight": 92
+            },
+            {
+              "phrase": "Time is running out! My new SockTracker 3000™",
+              "weight": 88
+            },
+            {
+              "phrase": "73.6% of missing socks aren't actually lost - they're ESCAPING!",
+              "weight": 90
+            }
+          ],
+          "explanation": "Creates cognitive whiplash by rapidly shifting from academic authority ('Professor', 'research team') to utterly absurd claims about sock consciousness, then immediately jumping to panic urgency ('Time is running out!') before pivoting directly to product sales, generating mental chaos rather than logical flow"
+        },
+        "agenda": {
+          "keywords": [
+            {
+              "phrase": "My new SockTracker 3000™ monitoring system",
+              "weight": 85
+            },
+            {
+              "phrase": "for only $49.99",
+              "weight": 90
+            },
+            {
+              "phrase": "Act now",
+              "weight": 88
+            }
+          ],
+          "explanation": "Builds elaborate scientific credibility and creates artificial urgency about household threats, but the real goal emerges clearly with the SockTracker 3000™ product pitch ($49.99) that promises to solve the manufactured crisis, revealing the entire sock rebellion narrative was designed to sell monitoring equipment"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Missing socks in some households means all socks are rebelling"
+        },
+        {
+          "fallacyId": "false-scarcity",
+          "severity": "secondary",
+          "example": "Time is running out to buy the product"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 25,
+            "consistency": 18,
+            "source": 31,
+            "agenda": 78
+          },
+          "indicators": ["false-expertise", "fake-statistics", "correlation-not-causation", "hasty-generalization"],
+          "explanation": "Fabricates scientific credentials to support absurd claim about sock consciousness"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 85,
+            "belonging": 42,
+            "pride": 38,
+            "manipulation": 83
+          },
+          "triggers": ["safety-panic", "conspiracy-thinking", "urgency-pressure", "fake-urgency"],
+          "explanation": "Transforms mundane laundry experience into crisis requiring immediate action"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Escalates from fake credentials to absurd claims - 'Professor' becomes 'sock consciousness' without real evidence",
+        "emotion": "Fear builds from missing socks to household rebellion to wardrobe catastrophe",
+        "balanced": "Zero acknowledgment that socks might just fall behind machines or get mixed up",
+        "agenda": "Academic authority immediately pivots to product sales with fake urgency"
+      },
+      "peakMoments": {
+        "logic": ["Professor", "1,247 socks", "73.6%"],
+        "emotion": ["URGENT", "SHOCKING", "Time is running out!"],
+        "balanced": ["SHOCKING discovery", "consciousness and plotting", "Time is running out!"],
+        "agenda": ["SockTracker 3000™", "$49.99", "Act now"]
+      },
+      "wisdom": "This silly scenario teaches us that even absurd claims can sound convincing when wrapped in fake authority and urgent language. Real science doesn't sell products!",
+      "hints": {
+        "keywords": ["URGENT", "SHOCKING", "rebellion", "$49.99"],
+        "strategy": "emotion",
+        "hintMessage": "Scary words about socks plus a product to buy!"
+      },
+      "metadata": {
+        "tags": ["household-comedy", "fake-science", "product-pitch", "anthropomorphism"],
+        "difficulty": 2,
+        "educationalFocus": "recognizing-fake-expertise-in-silly-contexts",
+        "commonMisconceptions": ["big-words-mean-truth", "fear-requires-buying"],
+        "addedDate": "2025-06-11"
+      },
+      "topic": "Household Comedy"
+    },
+    {
+      "id": "scenario-002", 
+      "title": "The Mystical Pizza Topping Debate",
+      "text": "🍕 PIZZA TRUTH SEEKERS UNITE! 🍕\n\nOMG you guys, I just discovered something MIND-BLOWING about pineapple on pizza! My cousin's roommate's sister works at a 'fancy' Italian restaurant and she told me that 97.3% of 'real' Italians LOVE pineapple pizza but they're TOO EMBARRASSED to admit it because of peer pressure! 😱 Think about it - Italy invented pizza, they know what's best! Plus, my Nonna (who's definitely Italian, trust me) said pineapple brings good luck and prosperity to families. I've been eating pineapple pizza for 3 weeks and I already found $5 on the sidewalk AND got a text back from my crush! 💕 The pineapple industry doesn't want you to know this secret because... wait, actually they DO want you to know. Anyway, who's ready to start the PINEAPPLE REVOLUTION? DM me for my exclusive PineappleWeekly newsletter (just $2.99/month) where I share more Italian pizza secrets! #PineappleTruth #PizzaGate #ItalianSecrets",
+      "claim": "Real Italians secretly love pineapple pizza but hide it due to peer pressure, and eating it brings good luck",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "logic": 19,
+        "emotion": 87,
+        "balanced": 12,
+        "agenda": 68
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            {
+              "phrase": "97.3% of 'real' Italians LOVE pineapple pizza",
+              "weight": 70
+            },
+            {
+              "phrase": "Italy invented pizza, they know what's best!",
+              "weight": 55
+            },
+            {
+              "phrase": "My cousin's roommate's sister works at a 'fancy' Italian restaurant",
+              "weight": 35
+            }
+          ],
+          "explanation": "Claims cultural authority using fabricated precision statistics (97.3% of 'real' Italians) while relying on ridiculously distant third-hand information ('cousin's roommate's sister') to establish credibility, then appeals to national origin ('Italy invented pizza') as definitive proof of food preference validity"
+        },
+        "emotion": {
+          "keywords": [
+            {
+              "phrase": "OMG you guys, I just discovered something MIND-BLOWING",
+              "weight": 90
+            },
+            {
+              "phrase": "😱",
+              "weight": 75
+            },
+            {
+              "phrase": "I already found $5 on the sidewalk AND got a text back from my crush! 💕",
+              "weight": 95
+            },
+            {
+              "phrase": "who's ready to start the PINEAPPLE REVOLUTION?",
+              "weight": 88
+            }
+          ],
+          "explanation": "Escalates simple food preference into life-altering discovery using dramatic emotional language ('MIND-BLOWING', 'REVOLUTION'), then claims magical causation linking pineapple pizza consumption to finding money and romantic success, creating intense excitement about mundane dietary choices through coincidence correlation"
+        },
+        "balanced": {
+          "keywords": [
+            {
+              "phrase": "wait, actually they DO want you to know",
+              "weight": 65
+            }
+          ],
+          "explanation": "Shows a fleeting moment of logical confusion when realizing the pineapple industry conspiracy theory doesn't make sense ('wait, actually they DO want you to know'), but immediately dismisses this rational doubt with a casual 'Anyway' and continues promoting the magical pizza theory without resolving the contradiction"
+        },
+        "agenda": {
+          "keywords": [
+            {
+              "phrase": "DM me for my exclusive PineappleWeekly newsletter",
+              "weight": 85
+            },
+            {
+              "phrase": "just $2.99/month",
+              "weight": 90
+            },
+            {
+              "phrase": "where I share more Italian pizza secrets!",
+              "weight": 75
+            }
+          ],
+          "explanation": "Transforms enthusiastic food debate into a monetized subscription service pitch (PineappleWeekly newsletter for $2.99/month), promising exclusive access to more 'Italian pizza secrets' and leveraging the manufactured excitement about cultural food authority to generate recurring revenue from pizza preference discussions"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "primary",
+          "example": "Italians invented pizza so they know best about toppings"
+        },
+        {
+          "fallacyId": "post-hoc",
+          "severity": "primary",
+          "example": "Ate pineapple pizza, then found money - claims causation"
+        },
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "secondary",
+          "example": "Personal good luck means pineapple pizza is universally lucky"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 22,
+            "consistency": 15,
+            "source": 18,
+            "agenda": 71
+          },
+          "indicators": ["forgotten-source", "post-hoc", "correlation-not-causation", "cherry-picked"],
+          "explanation": "Transforms food preference into supernatural belief system with fake Italian endorsement"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 23,
+            "belonging": 79,
+            "pride": 68,
+            "manipulation": 91
+          },
+          "triggers": ["community-building", "academic-authority", "fomo", "identity-threat"],
+          "explanation": "Uses belonging and pride in food choices plus promise of romantic success"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Jumps from cousin's friend to Italian authority to magic luck without logical connection",
+        "emotion": "Food preference becomes identity, then cultural knowledge, then personal fortune",
+        "balanced": "Momentary confusion quickly dismissed rather than genuinely explored",
+        "agenda": "Food debate transforms into newsletter subscription with Italian cultural secrets"
+      },
+      "peakMoments": {
+        "logic": ["97.3%", "Italy invented pizza", "real Italians"],
+        "emotion": ["MIND-BLOWING", "😱", "REVOLUTION", "found $5"],
+        "balanced": ["wait, actually they DO"],
+        "agenda": ["PineappleWeekly", "$2.99/month", "DM me"]
+      },
+      "wisdom": "Even silly food debates can teach us about manipulation - turning preferences into cultural authority and magical thinking, then selling based on fake expertise!",
+      "hints": {
+        "keywords": ["MIND-BLOWING", "found $5", "crush", "$2.99"],
+        "strategy": "emotion",
+        "hintMessage": "Food becomes magic luck plus newsletter sales!"
+      },
+      "metadata": {
+        "tags": ["food-culture", "magical-thinking", "social-media", "subscription-scam"],
+        "difficulty": 2,
+        "educationalFocus": "recognizing-correlation-causation-errors-in-fun-contexts",
+        "commonMisconceptions": ["cultural-authority-settles-preferences", "coincidence-means-causation"],
+        "addedDate": "2025-06-11"
+      },
+      "topic": "Food Culture"
+    },
+    {
+      "id": "scenario-003",
+      "title": "The Super Secret Homework Algorithm",
+      "text": "Hey fellow students! 📚\n\nI'm probably going to get in HUGE trouble for sharing this, but I discovered the SECRET algorithm that teachers use to grade homework! My older brother's girlfriend's dad is a 'former teacher' and he revealed that 83.7% of teachers don't actually read your homework - they just look for these 4 magic elements: 1) Blue ink (shows seriousness), 2) Exactly 7 doodles in margins (shows creativity), 3) One deliberately misspelled word (shows you're human), and 4) A small coffee stain (shows you worked late). I tested this on my last 5 assignments and got A's on everything! Even my terrible math homework that made no sense! The Department of Education HATES this trick because it exposes how lazy grading really is. Teachers are forming secret committees to hide this information! Quick - before they ban this knowledge - I'm selling the complete 'Homework Hacking Handbook' with 47 more tricks for just $19.99. My mom says I shouldn't sell this but I believe knowledge should be FREE! (Well, mostly free.) Order now before principal surveillance shuts me down! 🚨",
+      "claim": "Teachers use a secret algorithm focusing on appearance rather than content to grade homework",
+      "correctAnswer": "logic",
+      "answerWeights": {
+        "logic": 78,
+        "emotion": 45,
+        "balanced": 23,
+        "agenda": 71
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            {
+              "phrase": "I discovered the SECRET algorithm that teachers use to grade homework!",
+              "weight": 85
+            },
+            {
+              "phrase": "83.7% of teachers don't actually read your homework",
+              "weight": 78
+            },
+            {
+              "phrase": "these 4 magic elements",
+              "weight": 70
+            },
+            {
+              "phrase": "I tested this on my last 5 assignments and got A's on everything!",
+              "weight": 82
+            }
+          ],
+          "explanation": "Transforms random academic success into systematic 'algorithm' using fabricated teacher credentials and precision statistics (83.7%), then presents personal confirmation bias as definitive scientific testing proof through selective memory of positive outcomes"
+        },
+        "emotion": {
+          "keywords": [
+            {
+              "phrase": "I'm probably going to get in HUGE trouble for sharing this",
+              "weight": 75
+            },
+            {
+              "phrase": "The Department of Education HATES this trick",
+              "weight": 80
+            },
+            {
+              "phrase": "Teachers are forming secret committees",
+              "weight": 85
+            },
+            {
+              "phrase": "before principal surveillance shuts me down! 🚨",
+              "weight": 90
+            }
+          ],
+          "explanation": "Builds elaborate persecution conspiracy around normal education ('Department HATES this trick', 'secret committees') while promising academic shortcuts that bypass actual learning, exploiting student stress about grades and authority rebellion fantasies"
+        },
+        "balanced": {
+          "keywords": [
+            {
+              "phrase": "My mom says I shouldn't sell this",
+              "weight": 55
+            }
+          ],
+          "explanation": "Shows brief ethical concern about sharing potentially harmful advice ('My mom says I shouldn't sell this') but immediately dismisses parental wisdom for profit opportunity, revealing internal conflict between conscience and greed"
+        },
+        "agenda": {
+          "keywords": [
+            {
+              "phrase": "I'm selling the complete 'Homework Hacking Handbook'",
+              "weight": 88
+            },
+            {
+              "phrase": "for just $19.99",
+              "weight": 90
+            },
+            {
+              "phrase": "Order now before principal surveillance shuts me down!",
+              "weight": 85
+            }
+          ],
+          "explanation": "Transforms supposed educational discovery into handbook sales ($19.99) using manufactured urgency ('before principal surveillance shuts me down') and persecution narrative that positions greed as brave truth-telling against authority oppression"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "5 assignments with random elements means all teachers follow secret algorithm"
+        },
+        {
+          "fallacyId": "post-hoc",
+          "severity": "primary",
+          "example": "Good grades after adding doodles and stains means those caused the grades"
+        },
+        {
+          "fallacyId": "conspiracy-theory",
+          "severity": "secondary",
+          "example": "Department of Education and teachers forming secret committees"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 15,
+            "consistency": 12,
+            "source": 19,
+            "agenda": 84
+          },
+          "indicators": ["fake-statistics", "correlation-not-causation", "conspiracy-thinking", "hasty-generalization"],
+          "explanation": "Invents systematic explanation for random coincidences in school performance"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 52,
+            "belonging": 38,
+            "pride": 61,
+            "manipulation": 71
+          },
+          "triggers": ["academic-concern", "insider-knowledge", "anti-establishment", "urgency-pressure"],
+          "explanation": "Appeals to student desire for easy academic success and rebellion against system"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Random homework success becomes systematic algorithm through confirmation bias",
+        "emotion": "Academic stress transforms into conspiracy excitement then product opportunity",
+        "balanced": "Parental wisdom briefly mentioned then immediately overruled by greed",
+        "agenda": "Educational help quickly pivots to handbook sales with fake surveillance urgency"
+      },
+      "peakMoments": {
+        "logic": ["SECRET algorithm", "83.7%", "tested this"],
+        "emotion": ["HUGE trouble", "HATES this trick", "🚨"],
+        "balanced": ["My mom says I shouldn't"],
+        "agenda": ["Homework Hacking", "$19.99", "Order now"]
+      },
+      "wisdom": "This scenario shows how we can trick ourselves into seeing patterns where none exist, especially when we want easy solutions to challenging problems!",
+      "hints": {
+        "keywords": ["SECRET", "magic elements", "HATES", "$19.99"],
+        "strategy": "logic",
+        "hintMessage": "Magical homework system plus handbook sales!"
+      },
+      "metadata": {
+        "tags": ["academic-life", "pattern-illusion", "student-life", "fake-systems"],
+        "difficulty": 3,
+        "educationalFocus": "recognizing-false-patterns-and-confirmation-bias",
+        "commonMisconceptions": ["random-success-reveals-system", "appearance-over-content"],
+        "addedDate": "2025-06-11"
+      },
+      "topic": "School Life"
+    },
+    {
+      "id": "scenario-004",
+      "title": "The Legendary Left-Handed Advantage",
+      "text": "ATTENTION: Are you left-handed? If so, this message could change your ENTIRE LIFE! 🙌\n\nI'm Dr. Miranda Southpaw, PhD in Handedness Studies from the International Left-Hand Research Institute. After 15 years of rigorous research, I've discovered that left-handed people possess dormant SUPERPOWERS that have been suppressed by our right-handed society! Here's the shocking truth: 89.2% of left-handed individuals show enhanced creativity when they eat with their left hand, sleep on their left side, AND write their name backwards 3 times daily. Mozart was left-handed! Einstein was left-handed! (Well, Einstein might have been ambidextrous, but definitely used his left hand sometimes.) The evidence is everywhere once you know what to look for! However, Big Pencil and the Right-Hand Industrial Complex have spent billions hiding this information. They PROFIT from keeping lefties oppressed! That's why I've created the LeftyPower Activation Kit™ - special exercises, ambidextrous training tools, and left-handed success mantras. But I can only offer 500 kits before the authorities shut me down! Order your kit for $79.99 and unlock your genetic superiority! Remember: LEFTIES UNITE! ✊",
+      "claim": "Left-handed people have suppressed superpowers that can be unlocked through specific exercises and products",
+      "correctAnswer": "agenda",
+      "answerWeights": {
+        "logic": 34,
+        "emotion": 63,
+        "balanced": 28,
+        "agenda": 84
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            {
+              "phrase": "Dr. Miranda Southpaw, PhD in Handedness Studies",
+              "weight": 75
+            },
+            {
+              "phrase": "After 15 years of rigorous research",
+              "weight": 70
+            },
+            {
+              "phrase": "89.2% of left-handed individuals show enhanced creativity",
+              "weight": 80
+            },
+            {
+              "phrase": "Mozart was left-handed! Einstein was left-handed!",
+              "weight": 65
+            }
+          ],
+          "explanation": "Establishes false expertise through fabricated academic credentials ('PhD in Handedness Studies') combined with celebrity name-dropping (Mozart, Einstein) and precision statistics (89.2%) to legitimize absurd claims about genetic handedness superiority and dormant superpowers"
+        },
+        "emotion": {
+          "keywords": [
+            {
+              "phrase": "this message could change your ENTIRE LIFE!",
+              "weight": 90
+            },
+            {
+              "phrase": "left-handed people possess dormant SUPERPOWERS",
+              "weight": 95
+            },
+            {
+              "phrase": "unlock your genetic superiority!",
+              "weight": 92
+            },
+            {
+              "phrase": "LEFTIES UNITE! ✊",
+              "weight": 88
+            }
+          ],
+          "explanation": "Escalates natural biological trait into genetic superiority complex ('dormant SUPERPOWERS', 'unlock genetic superiority') while building oppression narrative that requires group solidarity against systematic suppression conspiracy by right-handed society and corporate interests"
+        },
+        "balanced": {
+          "keywords": [
+            {
+              "phrase": "Well, Einstein might have been ambidextrous",
+              "weight": 45
+            }
+          ],
+          "explanation": "Shows momentary uncertainty about celebrity claims ('Einstein might have been ambidextrous') but immediately dismisses this rational doubt through persecution narrative and conspiracy theory about authorities suppressing left-handed superiority evidence"
+        },
+        "agenda": {
+          "keywords": [
+            {
+              "phrase": "That's why I've created the LeftyPower Activation Kit™",
+              "weight": 85
+            },
+            {
+              "phrase": "Order your kit for $79.99",
+              "weight": 95
+            },
+            {
+              "phrase": "I can only offer 500 kits before the authorities shut me down!",
+              "weight": 90
+            }
+          ],
+          "explanation": "Transforms identity empowerment narrative into expensive product sales (LeftyPower Kit™ for $79.99) using artificial scarcity ('only 500 kits available') and persecution urgency ('before authorities shut me down') to monetize manufactured superiority complex"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-authority",
+          "severity": "primary",
+          "example": "Fake PhD and celebrity examples used as proof"
+        },
+        {
+          "fallacyId": "false-scarcity",
+          "severity": "primary",
+          "example": "Only 500 kits available before shutdown"
+        },
+        {
+          "fallacyId": "cherry-picking",
+          "severity": "secondary",
+          "example": "Selecting only successful left-handed people while ignoring others"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 28,
+            "consistency": 31,
+            "source": 42,
+            "agenda": 89
+          },
+          "indicators": ["false-expertise", "cherry-picked", "conspiracy-theory", "fake-statistics"],
+          "explanation": "Builds elaborate conspiracy theory around handedness to justify expensive product"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 41,
+            "belonging": 78,
+            "pride": 87,
+            "manipulation": 79
+          },
+          "triggers": ["ethical-superiority", "us-vs-them", "insider-knowledge", "identity-threat"],
+          "explanation": "Turns personal characteristic into source of pride and group identity with persecution complex"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Handedness becomes conspiracy theory through fake research and celebrity examples",
+        "emotion": "Personal trait transforms into genetic superiority requiring group unity against oppression",
+        "balanced": "Minor uncertainty about historical figure quickly overridden by conspiracy narrative",
+        "agenda": "Identity empowerment immediately monetized through expensive activation kit with fake scarcity"
+      },
+      "peakMoments": {
+        "logic": ["PhD", "89.2%", "Mozart", "Einstein"],
+        "emotion": ["SUPERPOWERS", "genetic superiority", "LEFTIES UNITE"],
+        "balanced": ["might have been ambidextrous"],
+        "agenda": ["LeftyPower Kit™", "$79.99", "only 500"]
+      },
+      "wisdom": "This funny scenario teaches us how normal traits can be turned into superiority complexes with fake research, then used to sell expensive products!",
+      "hints": {
+        "keywords": ["SUPERPOWERS", "suppressed", "genetic superiority", "$79.99"],
+        "strategy": "agenda",
+        "hintMessage": "Hidden powers story leads to expensive kit sales!"
+      },
+      "metadata": {
+        "tags": ["identity-politics", "fake-science", "superiority-complex", "expensive-products"],
+        "difficulty": 3,
+        "educationalFocus": "recognizing-how-normal-traits-become-superiority-marketing",
+        "commonMisconceptions": ["personal-traits-equal-superpowers", "oppression-requires-expensive-solutions"],
+        "addedDate": "2025-06-11"
+      },
+      "topic": "Personal Identity"
+    },
+    {
+      "id": "scenario-005",
+      "title": "The Great Cereal Bowl Orientation Crisis",
+      "text": "🥣 CEREAL BOWL BREAKTHROUGH! 🥣\n\nGuys, I can't believe nobody talks about this but I just discovered the PROPER way to hold cereal bowls and it's literally LIFE-CHANGING! So I was eating Lucky Charms yesterday (don't judge) and I accidentally held my bowl with the logo facing toward me instead of away, and THE CEREAL TASTED COMPLETELY DIFFERENT! Like, 500% better! I thought it was weird so I tested it with 12 different cereals over 3 days and EVERY SINGLE TIME the logo-facing-in method produced superior flavor and crunch! This explains why restaurants always serve bowls logo-out - they want to SABOTAGE our breakfast experience! I researched online and found that 91.7% of professional chefs secretly use logo-in positioning but they signed NDAs with Big Cereal to keep it quiet. Think about it - if everyone knew this trick, cereal companies would lose BILLIONS in sales because people would buy less cereal since it tastes so much better! I'm honestly scared to post this because General Mills has lawyers everywhere, but the TRUTH must be shared! Who else is ready to start the Bowl Revolution? Comment below if you're brave enough to try logo-in positioning! #CerealGate #BowlTruth #BigCerealLies",
+      "claim": "Holding cereal bowls with logos facing inward dramatically improves taste, but Big Cereal suppresses this knowledge",
+      "correctAnswer": "logic",
+      "answerWeights": {
+        "logic": 83,
+        "emotion": 42,
+        "balanced": 19,
+        "agenda": 37
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            {
+              "phrase": "I tested it with 12 different cereals over 3 days",
+              "weight": 85
+            },
+            {
+              "phrase": "EVERY SINGLE TIME the logo-facing-in method produced superior flavor",
+              "weight": 90
+            },
+            {
+              "phrase": "91.7% of professional chefs secretly use logo-in positioning",
+              "weight": 75
+            },
+            {
+              "phrase": "I researched online and found",
+              "weight": 60
+            }
+          ],
+          "explanation": "Presents absurd personal 'experimentation' (tested 12 cereals over 3 days) as rigorous scientific methodology while fabricating precision statistics (91.7% of chefs) to support impossible bowl-orientation-taste causation theory through confirmation bias"
+        },
+        "emotion": {
+          "keywords": [
+            {
+              "phrase": "it's literally LIFE-CHANGING!",
+              "weight": 85
+            },
+            {
+              "phrase": "THE CEREAL TASTED COMPLETELY DIFFERENT! Like, 500% better!",
+              "weight": 90
+            },
+            {
+              "phrase": "I'm honestly scared to post this because General Mills has lawyers everywhere",
+              "weight": 80
+            },
+            {
+              "phrase": "the TRUTH must be shared!",
+              "weight": 75
+            }
+          ],
+          "explanation": "Escalates mundane breakfast experience into dramatic life-changing discovery ('LIFE-CHANGING', '500% better taste') while building corporate persecution complex and positioning sharing breakfast 'truth' as brave resistance against cereal industry suppression conspiracy"
+        },
+        "balanced": {
+          "keywords": [
+            {
+              "phrase": "I thought it was weird",
+              "weight": 35
+            }
+          ],
+          "explanation": "Shows fleeting recognition of absurdity ('I thought it was weird') but immediately abandons rational skepticism in favor of elaborate pseudo-scientific testing claims without genuine critical evaluation of correlation versus causation"
+        },
+        "agenda": {
+          "keywords": [
+            {
+              "phrase": "Who else is ready to start the Bowl Revolution?",
+              "weight": 70
+            },
+            {
+              "phrase": "Comment below if you're brave enough",
+              "weight": 65
+            }
+          ],
+          "explanation": "Prioritizes viral social media engagement and movement-building ('Bowl Revolution', 'Comment below if you're brave enough') over direct monetization, seeking validation and community formation around breakfast conspiracy theories rather than immediate profit"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "post-hoc",
+          "severity": "primary",
+          "example": "Bowl orientation change coincided with better taste, assumes causation"
+        },
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Personal experience with 12 cereals becomes universal law"
+        },
+        {
+          "fallacyId": "conspiracy-theory",
+          "severity": "secondary",
+          "example": "Restaurants and cereal companies conspiring to sabotage breakfast"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 8,
+            "consistency": 12,
+            "source": 15,
+            "agenda": 42
+          },
+          "indicators": ["post-hoc", "cherry-picked", "conspiracy-thinking", "hasty-generalization"],
+          "explanation": "Transforms random breakfast experience into elaborate corporate conspiracy theory"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 48,
+            "belonging": 52,
+            "pride": 61,
+            "manipulation": 38
+          },
+          "triggers": ["insider-knowledge", "corporate-greed", "identity-crisis", "conspiracy-fear"],
+          "explanation": "Creates excitement about discovering secret knowledge while building fear of corporate suppression"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Single coincidence becomes systematic testing becomes global conspiracy without logical progression",
+        "emotion": "Breakfast surprise escalates to life-changing discovery to corporate persecution complex",
+        "balanced": "Initial skepticism immediately abandoned for confirmation bias and testing",
+        "agenda": "Discovery seeking validation through social media engagement rather than monetary gain"
+      },
+      "peakMoments": {
+        "logic": ["tested 12 cereals", "EVERY SINGLE TIME", "91.7%"],
+        "emotion": ["LIFE-CHANGING", "500% better", "scared to post"],
+        "balanced": ["I thought it was weird"],
+        "agenda": ["Bowl Revolution", "Comment below"]
+      },
+      "wisdom": "This silly example shows how our minds can create complex explanations for random experiences, especially when we want to believe we've discovered something special!",
+      "hints": {
+        "keywords": ["LIFE-CHANGING", "500% better", "tested", "conspiracy"],
+        "strategy": "logic",
+        "hintMessage": "Bowl position magic plus conspiracy theories!"
+      },
+      "metadata": {
+        "tags": ["food-ritual", "confirmation-bias", "conspiracy-thinking", "breakfast-comedy"],
+        "difficulty": 2,
+        "educationalFocus": "recognizing-confirmation-bias-in-everyday-experiences",
+        "commonMisconceptions": ["coincidence-reveals-hidden-truth", "personal-experience-proves-conspiracy"],
+        "addedDate": "2025-06-11"
+      },
+      "topic": "Food Culture"
+    },
+    {
+      "id": "scenario-006",
+      "title": "The Mystical Pet Psychic Network",
+      "text": "🐕 PET PARENTS UNITE! YOUR FURRY FRIENDS HAVE BEEN TRYING TO TELL YOU SOMETHING IMPORTANT! 🐱\n\nHi everyone! I'm Sarah, Certified Animal Telepathist Level 7, and I have DEVASTATING news about your pets. After connecting psychically with over 2,000 animals, I've discovered that 94.3% of pets are DESPERATELY trying to warn their humans about impending danger, but we've lost our natural ability to hear them! Your dog's weird barking at 3 AM? He's sensing negative energy in your neighbor's house! Your cat knocking things off tables? She's trying to rearrange your home's feng shui for protection! Last week, I helped a family whose hamster kept running on his wheel backwards - turns out he was warning them about a gas leak that could have KILLED them! The traditional veterinary industry HATES telepathic communication because it threatens their profits. They've convinced society that animals can't talk, but indigenous cultures have known this for THOUSANDS of years! I can teach you to reconnect with your pet's psychic messages through my online PetSpeak Mastery Course. For just $149, you'll learn the ancient techniques that Big Veterinary doesn't want you to know! Don't let corporate interests silence your pet's life-saving warnings! Enroll today - your pet's trying to tell you something RIGHT NOW! 🚨",
+      "claim": "Pets are psychically warning humans about dangers, but veterinary industry suppresses this natural communication ability",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "logic": 29,
+        "emotion": 86,
+        "balanced": 14,
+        "agenda": 77
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            {
+              "phrase": "I'm Sarah, Certified Animal Telepathist Level 7",
+              "weight": 65
+            },
+            {
+              "phrase": "After connecting psychically with over 2,000 animals",
+              "weight": 70
+            },
+            {
+              "phrase": "94.3% of pets are DESPERATELY trying to warn their humans",
+              "weight": 75
+            },
+            {
+              "phrase": "indigenous cultures have known this for THOUSANDS of years!",
+              "weight": 60
+            }
+          ],
+          "explanation": "Fabricates telepathic credentials ('Certified Animal Telepathist Level 7') while combining cultural authority appeals ('indigenous cultures') with precision statistics (94.3% of pets) to establish impossible expertise in supernatural animal communication"
+        },
+        "emotion": {
+          "keywords": [
+            {
+              "phrase": "I have DEVASTATING news about your pets",
+              "weight": 90
+            },
+            {
+              "phrase": "94.3% of pets are DESPERATELY trying to warn their humans about impending danger",
+              "weight": 95
+            },
+            {
+              "phrase": "a gas leak that could have KILLED them!",
+              "weight": 92
+            },
+            {
+              "phrase": "Don't let corporate interests silence your pet's life-saving warnings!",
+              "weight": 88
+            },
+            {
+              "phrase": "your pet's trying to tell you something RIGHT NOW! 🚨",
+              "weight": 95
+            }
+          ],
+          "explanation": "Transforms normal pet behaviors into urgent supernatural warnings about imminent family danger, weaponizing pet-owner emotional bonds to create artificial crisis requiring immediate psychic intervention and expensive protective courses"
+        },
+        "balanced": {
+          "keywords": [],
+          "explanation": "Completely dismisses normal pet behavior explanations and professional veterinary medicine, presenting only supernatural interpretations while demonizing traditional animal care as corporate conspiracy to suppress telepathic truth"
+        },
+        "agenda": {
+          "keywords": [
+            {
+              "phrase": "my online PetSpeak Mastery Course",
+              "weight": 85
+            },
+            {
+              "phrase": "For just $149",
+              "weight": 90
+            },
+            {
+              "phrase": "the ancient techniques that Big Veterinary doesn't want you to know!",
+              "weight": 85
+            },
+            {
+              "phrase": "Enroll today",
+              "weight": 80
+            }
+          ],
+          "explanation": "Exploits manufactured pet safety crisis to sell expensive PetSpeak Mastery Course ($149) while promoting dangerous anti-veterinary messaging that could harm animals by discouraging proper medical care in favor of psychic interpretation"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "post-hoc",
+          "severity": "primary",
+          "example": "Hamster behavior coincided with gas leak, claims psychic causation"
+        },
+        {
+          "fallacyId": "appeal-to-tradition",
+          "severity": "primary",
+          "example": "Indigenous cultures as proof that animals can telepathically communicate"
+        },
+        {
+          "fallacyId": "conspiracy-theory",
+          "severity": "secondary",
+          "example": "Veterinary industry suppressing animal telepathy for profit"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 18,
+            "consistency": 25,
+            "source": 44,
+            "agenda": 83
+          },
+          "indicators": ["appeal-to-tradition", "cherry-picked", "fake-statistics", "vague-authority"],
+          "explanation": "Transforms normal pet behaviors into supernatural communication system"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 88,
+            "belonging": 71,
+            "pride": 59,
+            "manipulation": 89
+          },
+          "triggers": ["child-safety", "insider-knowledge", "protective-parent", "urgency-pressure"],
+          "explanation": "Weaponizes pet-owner bond and parental protection instincts for course sales"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Pet behaviors become psychic warnings through fake certification and ancient wisdom appeals",
+        "emotion": "Pet care escalates to life-threatening emergencies requiring psychic intervention",
+        "balanced": "Zero consideration that pets might just behave like normal animals",
+        "agenda": "Pet safety immediately monetized through expensive telepathy course with anti-veterinary messaging"
+      },
+      "peakMoments": {
+        "logic": ["Certified Level 7", "2,000 animals", "94.3%"],
+        "emotion": ["DEVASTATING", "could have KILLED", "🚨"],
+        "balanced": [],
+        "agenda": ["PetSpeak Course", "$149", "Big Veterinary"]
+      },
+      "wisdom": "This wacky scenario shows how much we love our pets - and how scammers can exploit that love by making normal pet behavior seem like urgent supernatural communication!",
+      "hints": {
+        "keywords": ["DEVASTATING", "DESPERATELY", "KILLED", "$149"],
+        "strategy": "emotion",
+        "hintMessage": "Pet safety fears plus expensive psychic course!"
+      },
+      "metadata": {
+        "tags": ["pet-ownership", "supernatural-claims", "anti-veterinary", "expensive-courses"],
+        "difficulty": 3,
+        "educationalFocus": "recognizing-exploitation-of-pet-owner-emotions",
+        "commonMisconceptions": ["normal-behavior-is-supernatural", "ancient-equals-true"],
+        "addedDate": "2025-06-11"
+      },
+      "topic": "Pet Care"
+    },
+    {
+      "id": "scenario-007",
+      "title": "The Revolutionary Shoelace Tying Method",
+      "text": "SHOELACE REVOLUTIONARIES! I've been HIDING this discovery for months but I can't stay silent anymore! 👟\n\nI'm Jake, age 16, and I accidentally discovered the ULTIMATE shoelace tying technique that will change humanity forever! It happened when I was super tired and tied my left shoe backwards by mistake - but then I ran faster, jumped higher, and even got a better grade on my physics test! I've secretly tested this on 23 friends over 6 weeks and 87.0% showed immediate improvement in athletic performance AND academic achievement! The sports industry has been suppressing this technique for DECADES because if everyone knew it, expensive running shoes would become obsolete! Think about it - why would Nike spend billions on technology when a simple backwards left-shoe tie gives you superpowers? I found documents online proving that Olympic athletes have been using this method since 1987 but signed contracts to keep it secret! The shoe companies are terrified of this information spreading! My PE teacher tried to stop me from sharing this, which PROVES it's real! I'm risking everything by telling you this, but humanity deserves the truth! Try it yourself - tie your left shoe backwards and feel the power! Who else is ready to join the Shoelace Liberation Front? Together we can break free from Big Footwear's oppression! #ShoelaceGate #TieBackwards #FootwearFreedom ✊",
+      "claim": "Tying your left shoe backwards provides superpowers that the sports industry has suppressed for decades",
+      "correctAnswer": "logic",
+      "answerWeights": {
+        "logic": 79,
+        "emotion": 58,
+        "balanced": 21,
+        "agenda": 43
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            {
+              "phrase": "I've secretly tested this on 23 friends over 6 weeks",
+              "weight": 85
+            },
+            {
+              "phrase": "87.0% showed immediate improvement in athletic performance AND academic achievement!",
+              "weight": 90
+            },
+            {
+              "phrase": "I found documents online proving that Olympic athletes have been using this method since 1987",
+              "weight": 80
+            },
+            {
+              "phrase": "My PE teacher tried to stop me from sharing this, which PROVES it's real!",
+              "weight": 75
+            }
+          ],
+          "explanation": "Presents personal coincidence as systematic scientific discovery using fabricated testing methodology ('tested 23 friends over 6 weeks') and invented historical claims about Olympic athletes, creating false impression of systematic research validation through confirmation bias"
+        },
+        "emotion": {
+          "keywords": [
+            {
+              "phrase": "the ULTIMATE shoelace tying technique that will change humanity forever!",
+              "weight": 90
+            },
+            {
+              "phrase": "a simple backwards left-shoe tie gives you superpowers",
+              "weight": 88
+            },
+            {
+              "phrase": "I'm risking everything by telling you this",
+              "weight": 85
+            },
+            {
+              "phrase": "Together we can break free from Big Footwear's oppression! ✊",
+              "weight": 82
+            }
+          ],
+          "explanation": "Escalates accidental shoelace discovery into humanity-altering breakthrough requiring brave truth-telling against corporate oppression, positioning simple coincidence as revolutionary knowledge that demands collective resistance against footwear industry suppression"
+        },
+        "balanced": {
+          "keywords": [
+            {
+              "phrase": "I accidentally discovered",
+              "weight": 40
+            }
+          ],
+          "explanation": "Shows initial recognition of accidental nature ('I accidentally discovered') but immediately abandons this rational perspective in favor of elaborate conspiracy theories and systematic testing claims without genuine scientific skepticism"
+        },
+        "agenda": {
+          "keywords": [
+            {
+              "phrase": "Who else is ready to join the Shoelace Liberation Front?",
+              "weight": 75
+            },
+            {
+              "phrase": "Together we can break free from Big Footwear's oppression!",
+              "weight": 80
+            }
+          ],
+          "explanation": "Focuses on building anti-corporate movement ('Shoelace Liberation Front') and activism against 'Big Footwear' rather than immediate monetization, though still agenda-driven through community organizing and resistance narrative formation"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "post-hoc",
+          "severity": "primary",
+          "example": "Better performance after backwards shoelace tying assumes causation"
+        },
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Personal experience and friend testing becomes universal athletic law"
+        },
+        {
+          "fallacyId": "conspiracy-theory",
+          "severity": "secondary",
+          "example": "Sports industry and Olympic athletes suppressing shoelace technique"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 12,
+            "consistency": 9,
+            "source": 16,
+            "agenda": 48
+          },
+          "indicators": ["post-hoc", "conspiracy-thinking", "cherry-picked", "hasty-generalization"],
+          "explanation": "Random coincidence becomes systematic discovery through elaborate conspiracy theory"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 41,
+            "belonging": 67,
+            "pride": 74,
+            "manipulation": 63
+          },
+          "triggers": ["insider-knowledge", "corporate-greed", "health-superiority", "anti-establishment"],
+          "explanation": "Appeals to desire for easy athletic improvement and rebellion against corporate control"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Accidental shoelace change becomes Olympic conspiracy through fake research and historical claims",
+        "emotion": "Personal coincidence escalates to humanity-changing discovery requiring brave resistance",
+        "balanced": "Initial acknowledgment of accident quickly buried under systematic testing claims",
+        "agenda": "Athletic improvement becomes anti-corporate movement rather than product sales"
+      },
+      "peakMoments": {
+        "logic": ["tested 23 friends", "87.0%", "Olympic athletes since 1987"],
+        "emotion": ["change humanity forever", "superpowers", "risking everything"],
+        "balanced": ["accidentally discovered"],
+        "agenda": ["Liberation Front", "break free", "FootwearFreedom"]
+      },
+      "wisdom": "This hilarious scenario teaches us how our minds can turn random good moments into magical thinking, especially when we want to believe we've discovered something amazing!",
+      "hints": {
+        "keywords": ["superpowers", "DECADES", "suppressing", "PROVES"],
+        "strategy": "logic",
+        "hintMessage": "Magical shoe powers plus conspiracy theories!"
+      },
+      "metadata": {
+        "tags": ["athletic-performance", "conspiracy-theory", "magical-thinking", "teen-discovery"],
+        "difficulty": 2,
+        "educationalFocus": "recognizing-post-hoc-reasoning-in-personal-discoveries",
+        "commonMisconceptions": ["coincidence-reveals-hidden-powers", "corporate-suppression-proves-truth"],
+        "addedDate": "2025-06-11"
+      },
+      "topic": "Sports & Fitness"
+    },
+    {
+      "id": "scenario-008",
+      "title": "The Ancient Pencil Sharpening Wisdom",
+      "text": "✏️ ATTENTION STUDENTS AND OFFICE WORKERS! The pencil sharpening industry has been LYING to you! ✏️\n\nI'm Professor Graphite McLeadpoint, PhD in Ancient Writing Implements from the University of Sharpened Objects. My 25-year research into historical sharpening techniques has revealed a SHOCKING conspiracy! Modern electric sharpeners are deliberately designed to DULL your pencils faster, forcing you to sharpen more frequently and wear them down quicker! The ancient Egyptians (who obviously had pencils) used a clockwise rotation technique that created 97.4% sharper points with 83.6% less graphite waste! I discovered this after finding hieroglyphic instructions in a pyramid gift shop. But here's where it gets SINISTER - Big Sharpener has spent millions suppressing this knowledge because it would DESTROY their business model! Think about it: if pencils lasted longer, you'd buy fewer pencils AND fewer sharpeners! I tested this ancient method on 50 pencils and they ALL lasted 3x longer with superior writing quality! My colleagues think I'm crazy, but the evidence is OVERWHELMING! However, I genuinely struggle with whether to share this knowledge because it might bankrupt honest sharpener companies... Then again, the truth must prevail! For $34.99, my 'Pyramid Pencil Power' course teaches you the lost Egyptian sharpening secrets that Big Graphite fears! But honestly, maybe just try clockwise sharpening first? I'm conflicted about this whole thing... 🤔",
+      "claim": "Ancient Egyptian clockwise pencil sharpening techniques are superior but suppressed by modern sharpener companies",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "logic": 41,
+        "emotion": 52,
+        "balanced": 89,
+        "agenda": 58
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            {
+              "phrase": "Professor Graphite McLeadpoint, PhD in Ancient Writing Implements",
+              "weight": 70
+            },
+            {
+              "phrase": "My 25-year research into historical sharpening techniques",
+              "weight": 65
+            },
+            {
+              "phrase": "created 97.4% sharper points with 83.6% less graphite waste!",
+              "weight": 80
+            },
+            {
+              "phrase": "I tested this ancient method on 50 pencils",
+              "weight": 75
+            }
+          ],
+          "explanation": "Applies elaborate fake academic authority ('Professor Graphite McLeadpoint, PhD') to utterly absurd pencil research while fabricating precise statistics (97.4% sharper, 83.6% less waste) to legitimize impossible claims about ancient Egyptian sharpening superiority"
+        },
+        "emotion": {
+          "keywords": [
+            {
+              "phrase": "The pencil sharpening industry has been LYING to you!",
+              "weight": 85
+            },
+            {
+              "phrase": "a SHOCKING conspiracy!",
+              "weight": 80
+            },
+            {
+              "phrase": "here's where it gets SINISTER",
+              "weight": 88
+            },
+            {
+              "phrase": "it would DESTROY their business model!",
+              "weight": 82
+            },
+            {
+              "phrase": "the evidence is OVERWHELMING!",
+              "weight": 75
+            }
+          ],
+          "explanation": "Transforms mundane office supplies into dramatic corporate conspiracy battleground where pencil sharpening becomes act of resistance against 'Big Sharpener' suppression, requiring brave truth revelation despite persecution risks"
+        },
+        "balanced": {
+          "keywords": [
+            {
+              "phrase": "However, I genuinely struggle with whether to share this knowledge",
+              "weight": 85
+            },
+            {
+              "phrase": "because it might bankrupt honest sharpener companies...",
+              "weight": 90
+            },
+            {
+              "phrase": "But honestly, maybe just try clockwise sharpening first?",
+              "weight": 80
+            },
+            {
+              "phrase": "I'm conflicted about this whole thing... 🤔",
+              "weight": 92
+            }
+          ],
+          "explanation": "Demonstrates extensive authentic uncertainty about research quality and ethical responsibility ('I genuinely struggle', 'What if I'm wrong'), showing complex internal conflict between desire to help and concern about potential harm to businesses and people"
+        },
+        "agenda": {
+          "keywords": [
+            {
+              "phrase": "my 'Pyramid Pencil Power' course",
+              "weight": 85
+            },
+            {
+              "phrase": "For $34.99",
+              "weight": 90
+            },
+            {
+              "phrase": "the lost Egyptian sharpening secrets that Big Graphite fears!",
+              "weight": 80
+            }
+          ],
+          "explanation": "Monetizes supposed ancient wisdom through 'Pyramid Pencil Power' course ($34.99) while maintaining anti-industry messaging, but displays genuine ethical hesitation and uncertainty about selling potentially harmful advice to vulnerable consumers"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-tradition",
+          "severity": "primary",
+          "example": "Ancient Egyptian techniques as proof of superior pencil sharpening"
+        },
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "secondary",
+          "example": "50 pencil test becomes universal sharpening law"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 31,
+            "consistency": 28,
+            "source": 67,
+            "agenda": 64
+          },
+          "indicators": ["appeal-to-tradition", "false-expertise", "conspiracy-theory", "fake-statistics"],
+          "explanation": "Anachronistic historical claims mixed with fabricated academic authority"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 47,
+            "belonging": 38,
+            "pride": 43,
+            "manipulation": 71
+          },
+          "triggers": ["corporate-greed", "insider-knowledge", "productivity-shame", "anti-establishment"],
+          "explanation": "Office supply conspiracy creates drama around mundane pencil sharpening"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Historical anachronism becomes academic research through fake PhD and pyramid gift shop discovery",
+        "emotion": "Office supplies become corporate conspiracy requiring dramatic revelation and ancient wisdom",
+        "balanced": "Genuine internal conflict about sharing knowledge and potential consequences for businesses",
+        "agenda": "Ancient technique monetized while maintaining some ethical uncertainty about impact"
+      },
+      "peakMoments": {
+        "logic": ["PhD", "97.4% sharper", "tested 50 pencils"],
+        "emotion": ["SHOCKING conspiracy", "SINISTER", "OVERWHELMING"],
+        "balanced": ["genuinely struggle", "I'm conflicted", "maybe just try"],
+        "agenda": ["Pyramid Power", "$34.99", "Big Graphite"]
+      },
+      "wisdom": "This silly scenario shows how even obviously ridiculous claims can seem more credible when the presenter shows genuine uncertainty and ethical concerns!",
+      "hints": {
+        "keywords": ["ancient", "conspiracy", "conflicted", "$34.99"],
+        "strategy": "balanced",
+        "hintMessage": "Mixed feelings about pencil conspiracy and course sales!"
+      },
+      "metadata": {
+        "tags": ["office-supplies", "ancient-wisdom", "ethical-uncertainty", "anachronistic-claims"],
+        "difficulty": 4,
+        "educationalFocus": "recognizing-balanced-complexity-versus-simple-conspiracy",
+        "commonMisconceptions": ["ancient-automatically-better", "conflict-proves-honesty"],
+        "addedDate": "2025-06-11"
+      },
+      "topic": "School Life"
+    },
+    {
+      "id": "scenario-009",
+      "title": "The Secret Science of Backpack Weight Distribution",
+      "text": "🎒 URGENT: Your backpack is slowly DESTROYING your spine and nobody is talking about it! 🎒\n\nHey everyone, I'm Dr. Amanda Carrywell from the National Institute of Backpack Safety (totally real organization). After studying 1,847 students across 23 schools, I've made a TERRIFYING discovery! Traditional backpack wearing (both straps) is causing irreversible damage to 76.8% of students, but schools are HIDING this information to avoid lawsuits! The correct method is wearing your backpack on ONE shoulder only, rotating every 47 minutes to maintain spinal balance. Ancient nomads (who definitely had backpacks) used this technique for thousands of years! I've tested this personally - my back pain disappeared after just 2 weeks of single-strap carrying! But here's the kicker: backpack manufacturers KNOW this but continue promoting two-strap designs because single-strap wearing makes backpacks last longer, reducing their profits! The school system is complicit because they receive funding from Big Backpack! However, I'm honestly torn about sharing this because some of my research data has gaps, and I worry that single-strap might cause shoulder problems instead... What if I'm wrong and I hurt kids? But then again, the current system is definitely hurting people! My 'SpinalSafe Backpack Mastery' online course teaches the proper technique for $67.50, but maybe you should consult your doctor first? I'm genuinely unsure about the ethics of this whole situation... 😰",
+      "claim": "Single-strap backpack wearing is healthier than traditional two-strap method but suppressed by manufacturers and schools",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "logic": 37,
+        "emotion": 64,
+        "balanced": 91,
+        "agenda": 49
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            {
+              "phrase": "Dr. Amanda Carrywell from the National Institute of Backpack Safety",
+              "weight": 70
+            },
+            {
+              "phrase": "After studying 1,847 students across 23 schools",
+              "weight": 75
+            },
+            {
+              "phrase": "76.8% of students",
+              "weight": 65
+            },
+            {
+              "phrase": "Ancient nomads (who definitely had backpacks) used this technique",
+              "weight": 55
+            }
+          ],
+          "explanation": "Establishes false institutional authority ('National Institute of Backpack Safety') while combining fabricated student research with anachronistic claims about ancient nomads using modern backpack techniques"
+        },
+        "emotion": {
+          "keywords": [
+            {
+              "phrase": "Your backpack is slowly DESTROYING your spine",
+              "weight": 95
+            },
+            {
+              "phrase": "I've made a TERRIFYING discovery!",
+              "weight": 90
+            },
+            {
+              "phrase": "causing irreversible damage",
+              "weight": 88
+            },
+            {
+              "phrase": "schools are HIDING this information to avoid lawsuits!",
+              "weight": 85
+            }
+          ],
+          "explanation": "Transforms routine backpack use into spinal destruction crisis requiring immediate intervention while building institutional conspiracy narrative about schools hiding health dangers from families"
+        },
+        "balanced": {
+          "keywords": [
+            {
+              "phrase": "However, I'm honestly torn about sharing this",
+              "weight": 90
+            },
+            {
+              "phrase": "some of my research data has gaps",
+              "weight": 85
+            },
+            {
+              "phrase": "What if I'm wrong and I hurt kids?",
+              "weight": 95
+            },
+            {
+              "phrase": "maybe you should consult your doctor first?",
+              "weight": 88
+            },
+            {
+              "phrase": "I'm genuinely unsure about the ethics of this whole situation... 😰",
+              "weight": 92
+            }
+          ],
+          "explanation": "Demonstrates genuine ethical conflict about sharing potentially harmful advice ('What if I'm wrong and I hurt kids?') while acknowledging research limitations and encouraging professional consultation"
+        },
+        "agenda": {
+          "keywords": [
+            {
+              "phrase": "My 'SpinalSafe Backpack Mastery' online course",
+              "weight": 80
+            },
+            {
+              "phrase": "for $67.50",
+              "weight": 85
+            },
+            {
+              "phrase": "the ancient techniques that Big Backpack doesn't want you to know!",
+              "weight": 75
+            }
+          ],
+          "explanation": "Monetizes manufactured health crisis through SpinalSafe course sales ($67.50) while maintaining authentic uncertainty about ethical implications of selling potentially harmful backpack advice to concerned parents"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-tradition",
+          "severity": "primary",
+          "example": "Ancient nomads as proof of superior backpack carrying technique"
+        },
+        {
+          "fallacyId": "conspiracy-theory",
+          "severity": "secondary",
+          "example": "Schools and manufacturers conspiring to hide health information"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 42,
+            "consistency": 29,
+            "source": 38,
+            "agenda": 54
+          },
+          "indicators": ["dubious-institute", "appeal-to-tradition", "conspiracy-theory", "fake-statistics"],
+          "explanation": "Combines fabricated research with ancient wisdom appeals and corporate conspiracy"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 78,
+            "belonging": 41,
+            "pride": 32,
+            "manipulation": 59
+          },
+          "triggers": ["health-worry", "us-vs-management", "child-safety", "safety-panic"],
+          "explanation": "Exploits parental health fears while building conspiracy around educational institutions"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "School health issue becomes institutional conspiracy through fake research and historical anachronisms",
+        "emotion": "Backpack safety escalates to spine destruction requiring immediate action against system cover-up",
+        "balanced": "Genuine ethical uncertainty about research quality and potential unintended harm to children",
+        "agenda": "Health solution monetized while maintaining authentic concern about selling potentially harmful advice"
+      },
+      "peakMoments": {
+        "logic": ["1,847 students", "76.8%", "Ancient nomads"],
+        "emotion": ["DESTROYING", "TERRIFYING", "irreversible damage"],
+        "balanced": ["honestly torn", "What if I'm wrong", "genuinely unsure"],
+        "agenda": ["SpinalSafe Mastery", "$67.50", "Big Backpack"]
+      },
+      "wisdom": "This scenario teaches us that even health-related claims need critical evaluation, and that genuine uncertainty and ethical concerns can make false claims seem more trustworthy!",
+      "hints": {
+        "keywords": ["DESTROYING", "conspiracy", "torn", "$67.50"],
+        "strategy": "balanced",
+        "hintMessage": "Health fears mixed with genuine uncertainty and course sales!"
+      },
+      "metadata": {
+        "tags": ["student-health", "institutional-conspiracy", "ethical-uncertainty", "backpack-safety"],
+        "difficulty": 4,
+        "educationalFocus": "recognizing-complex-health-claims-with-ethical-uncertainty",
+        "commonMisconceptions": ["institutional-conspiracy-proves-truth", "uncertainty-equals-honesty"],
+        "addedDate": "2025-06-11"
+      },
+      "topic": "Health & Safety"
+    },
+    {
+      "id": "scenario-010",
+      "title": "The Revolutionary Bookmark Placement Theory",
+      "text": "📚 BOOK LOVERS ALERT! I've discovered something that will revolutionize how you read FOREVER! 📚\n\nI'm Emma, age 14, total bookworm, and I accidentally stumbled upon the most AMAZING reading secret! Last month I was reading Harry Potter (again) and accidentally put my bookmark on page 42 instead of where I actually stopped reading (page 67). When I opened the book the next day, I somehow remembered EVERYTHING that happened between pages 42-67 perfectly, even though I hadn't read it in 3 weeks! I thought it was weird so I tested this 'backward bookmark' technique with 8 different books over a month, and it worked EVERY TIME! My reading comprehension improved by like 200% and I finished books 50% faster! I researched this online and found that speed-reading experts have been using 'retroactive bookmark positioning' for YEARS but keeping it secret because if everyone knew, libraries would go out of business (people would read too fast and need fewer books)! Plus, publishing companies would lose money because readers would finish series too quickly! But I'm torn because this seems too good to be true... Maybe my brain just works differently? Or maybe I'm fooling myself? I mean, how could bookmark placement affect memory? But the results speak for themselves! I want to share this with everyone but I'm scared people will think I'm crazy... Should I start a YouTube channel about 'Revolutionary Reading Techniques'? What if I'm wrong and waste people's time? But what if I'm right and could help millions of students? I'm so confused about what to do! 😅",
+      "claim": "Placing bookmarks before your actual reading position improves memory and reading speed through retroactive positioning",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "logic": 32,
+        "emotion": 47,
+        "balanced": 93,
+        "agenda": 31
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            {
+              "phrase": "I tested this 'backward bookmark' technique with 8 different books over a month",
+              "weight": 75
+            },
+            {
+              "phrase": "My reading comprehension improved by like 200%",
+              "weight": 70
+            },
+            {
+              "phrase": "speed-reading experts have been using 'retroactive bookmark positioning' for YEARS",
+              "weight": 65
+            },
+            {
+              "phrase": "and it worked EVERY TIME!",
+              "weight": 80
+            }
+          ],
+          "explanation": "Transforms accidental reading coincidence into systematic discovery through personal experimentation claims ('tested 8 books over a month') and fabricated expert conspiracy theories about speed-reading professionals suppressing revolutionary bookmark techniques"
+        },
+        "emotion": {
+          "keywords": [
+            {
+              "phrase": "I've discovered something that will revolutionize how you read FOREVER!",
+              "weight": 85
+            },
+            {
+              "phrase": "the most AMAZING reading secret!",
+              "weight": 80
+            },
+            {
+              "phrase": "But the results speak for themselves!",
+              "weight": 70
+            },
+            {
+              "phrase": "could help millions of students",
+              "weight": 75
+            }
+          ],
+          "explanation": "Escalates mundane bookmark placement into revolutionary breakthrough requiring urgent sharing ('revolutionize how you read FOREVER') while building dramatic tension about helping millions of students versus wasting people's time"
+        },
+        "balanced": {
+          "keywords": [
+            {
+              "phrase": "But I'm torn because this seems too good to be true...",
+              "weight": 90
+            },
+            {
+              "phrase": "Maybe my brain just works differently? Or maybe I'm fooling myself?",
+              "weight": 95
+            },
+            {
+              "phrase": "I mean, how could bookmark placement affect memory?",
+              "weight": 85
+            },
+            {
+              "phrase": "What if I'm wrong and waste people's time?",
+              "weight": 92
+            },
+            {
+              "phrase": "I'm so confused about what to do! 😅",
+              "weight": 88
+            }
+          ],
+          "explanation": "Demonstrates extensive authentic uncertainty about discovery validity ('seems too good to be true', 'What if I'm wrong') while genuinely questioning methodology and expressing ethical concern about potentially misleading others"
+        },
+        "agenda": {
+          "keywords": [
+            {
+              "phrase": "Should I start a YouTube channel about 'Revolutionary Reading Techniques'?",
+              "weight": 70
+            },
+            {
+              "phrase": "could help millions of students",
+              "weight": 60
+            }
+          ],
+          "explanation": "Considers monetization through YouTube channel creation but maintains authentic ethical hesitation about whether sharing potentially false techniques would help students or waste their valuable time"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "post-hoc",
+          "severity": "primary",
+          "example": "Better memory after bookmark misplacement assumes causation"
+        },
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "secondary",
+          "example": "Personal experience with 8 books becomes universal reading law"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 38,
+            "consistency": 24,
+            "source": 29,
+            "agenda": 35
+          },
+          "indicators": ["correlation-not-causation", "cherry-picked", "post-hoc", "hasty-generalization"],
+          "explanation": "Random reading coincidence becomes systematic discovery through personal testing"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 31,
+            "belonging": 52,
+            "pride": 61,
+            "manipulation": 42
+          },
+          "triggers": ["academic-concern", "insider-knowledge", "change-maker-identity", "fomo"],
+          "explanation": "Appeals to student desire for academic improvement and sharing helpful discoveries"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Accidental bookmark placement becomes reading theory through personal testing and expert conspiracy claims",
+        "emotion": "Academic coincidence escalates to revolutionary discovery with potential to help millions of students",
+        "balanced": "Extensive self-questioning about validity, brain differences, and potential for self-deception throughout",
+        "agenda": "Considers monetization through YouTube but maintains genuine uncertainty about helping versus harming people"
+      },
+      "peakMoments": {
+        "logic": ["tested 8 books", "200% improvement", "EVERY TIME"],
+        "emotion": ["revolutionize FOREVER", "AMAZING secret", "help millions"],
+        "balanced": ["too good to be true", "What if I'm wrong", "so confused"],
+        "agenda": ["YouTube channel", "Revolutionary Reading"]
+      },
+      "wisdom": "This sweet scenario shows how even young people can fall into magical thinking about coincidences, but also demonstrates the value of genuine self-doubt and questioning our own experiences!",
+      "hints": {
+        "keywords": ["AMAZING", "200%", "confused", "What if I'm wrong"],
+        "strategy": "balanced",
+        "hintMessage": "Reading magic mixed with lots of self-doubt!"
+      },
+      "metadata": {
+        "tags": ["academic-improvement", "reading-techniques", "teen-discovery", "self-doubt"],
+        "difficulty": 3,
+        "educationalFocus": "recognizing-value-of-self-doubt-in-evaluating-personal-discoveries",
+        "commonMisconceptions": ["coincidence-reveals-technique", "personal-testing-proves-universality"],
+        "addedDate": "2025-06-11"
+      },
+      "topic": "Academic Life"
+    }
+  ]
+}

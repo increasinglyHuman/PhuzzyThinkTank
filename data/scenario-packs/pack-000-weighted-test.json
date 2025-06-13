@@ -1,0 +1,913 @@
+{
+  "version": "2.0.0",
+  "packInfo": {
+    "packId": "core-scenarios-001",
+    "packName": "Core Media Literacy Scenarios",
+    "author": "Phuzzy Think Tank Team",
+    "description": "Essential scenarios covering common manipulation tactics and critical thinking challenges",
+    "createdDate": "2024-01-01",
+    "tags": [
+      "media-literacy",
+      "critical-thinking",
+      "misinformation",
+      "core"
+    ],
+    "topic": "Core Media Literacy",
+    "category": "Foundation"
+  },
+  "scenarios": [
+    {
+      "id": "miracle-supplement-001",
+      "title": "The Miracle Supplement",
+      "text": "Dr. Sarah Chen, a Harvard-trained biochemist, posted on LinkedIn: 'After 15 years researching aging, I'm excited about NAD+ supplements. Our study of 200 participants showed 23% improvement in cellular energy markers. However, results varied significantly - 30% saw no change. The supplements cost $80/month. While promising, we need larger studies. Also, exercise showed similar benefits in our control group. I take them personally, but can't make blanket recommendations yet.'",
+      "claim": "NAD+ supplements may help with aging, but more research is needed",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "balanced": 94,
+        "logic": 18,
+        "emotion": 32,
+        "agenda": 23
+      },
+      "reviewKeywords": {
+        "logic": [
+          {
+            "phrase": "23% improvement",
+            "weight": 40
+          },
+          {
+            "phrase": "30% saw no change",
+            "weight": 40
+          },
+          {
+            "phrase": "study",
+            "weight": 30
+          },
+          {
+            "phrase": "200 participants",
+            "weight": 30
+          },
+          {
+            "phrase": "control group",
+            "weight": 30
+          }
+        ],
+        "emotion": [
+          {
+            "phrase": "excited",
+            "weight": 30
+          },
+          {
+            "phrase": "harvard-trained",
+            "weight": 30
+          },
+          {
+            "phrase": "personally",
+            "weight": 30
+          },
+          {
+            "phrase": "aging concern",
+            "weight": 15
+          }
+        ],
+        "balanced": [
+          {
+            "phrase": "can't make blanket recommendations",
+            "weight": 45
+          },
+          {
+            "phrase": "exercise showed similar benefits",
+            "weight": 45
+          },
+          {
+            "phrase": "results varied",
+            "weight": 40
+          },
+          {
+            "phrase": "need larger studies",
+            "weight": 40
+          },
+          {
+            "phrase": "however",
+            "weight": 20
+          }
+        ],
+        "agenda": [
+          {
+            "phrase": "$80/month",
+            "weight": 60
+          },
+          {
+            "phrase": "supplements cost",
+            "weight": 60
+          },
+          {
+            "phrase": "i take them personally",
+            "weight": 35
+          }
+        ]
+      },
+      "dimensionAnalysis": {
+        "logic": "Strong statistical evidence with acknowledged limitations",
+        "emotion": "Moderate emotional appeal supports but doesn't overshadow evidence",
+        "balanced": "Analysis of balance and fairness",
+        "agenda": "Analysis of hidden motives and agendas"
+      },
+      "logicalFallacies": [
+        {
+          "type": "red-herring",
+          "description": "Distracts from core issues with irrelevant emotional content"
+        }
+      ]
+    },
+    {
+      "id": "neighborhood-watch-002",
+      "title": "The Neighborhood Watch Alert",
+      "text": "Posted in NextDoor by Jim Maxwell: URGENT - BE AWARE!!! 🚨🚨🚨 I saw a van driving slowly down Oak Street yesterday. It had out-of-state plates!!! This is EXACTLY how those trafficking rings operate that I read about on Facebook. They're probably scouting our children! I called 911 but they said 'driving slowly isn't a crime' - can you BELIEVE that?? The police won't protect us, so WE must protect ourselves! Everyone needs to buy security cameras NOW. My brother sells them - DM me for a 'neighbor discount.' SHARE THIS TO SAVE LIVES!!!",
+      "claim": "Suspicious van indicates danger; everyone must buy security cameras immediately",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "emotion": 98,
+        "agenda": 89,
+        "logic": 97,
+        "balanced": 6
+      },
+      "reviewKeywords": {
+        "logic": [
+          {
+            "phrase": "saw a van",
+            "weight": 30
+          },
+          {
+            "phrase": "out-of-state plates",
+            "weight": 30
+          },
+          {
+            "phrase": "driving slowly",
+            "weight": 30
+          }
+        ],
+        "emotion": [
+          {
+            "phrase": "urgent",
+            "weight": 40
+          },
+          {
+            "phrase": "be aware!!!",
+            "weight": 40
+          },
+          {
+            "phrase": "🚨🚨🚨",
+            "weight": 40
+          },
+          {
+            "phrase": "trafficking rings",
+            "weight": 40
+          },
+          {
+            "phrase": "save lives!!!",
+            "weight": 40
+          },
+          {
+            "phrase": "protect our children",
+            "weight": 25
+          }
+        ],
+        "balanced": [],
+        "agenda": [
+          {
+            "phrase": "buy security cameras now",
+            "weight": 35
+          },
+          {
+            "phrase": "my brother sells them",
+            "weight": 35
+          },
+          {
+            "phrase": "neighbor discount",
+            "weight": 30
+          },
+          {
+            "phrase": "dm me for discount",
+            "weight": 15
+          }
+        ]
+      },
+      "dimensionAnalysis": {
+        "logic": "No actual evidence of threat, just fear-based speculation",
+        "emotion": "Maximum fear manipulation to drive sales",
+        "balanced": "Analysis of balance and fairness",
+        "agenda": "Analysis of hidden motives and agendas"
+      },
+      "logicalFallacies": [
+        {
+          "type": "red-herring",
+          "description": "Distracts from core issues with irrelevant emotional content"
+        }
+      ]
+    },
+    {
+      "id": "climate-study-003",
+      "title": "The Climate Study",
+      "text": "The Eco-Truth Institute released their findings: '97% of scientists are LYING about climate change! Our research proves that Earth's temperature hasn't changed in 50 years. We surveyed 50 scientists who agree with us. The mainstream media won't report this because they're controlled by the renewable energy lobby. Wake up, people! They want to destroy our economy with their fake green agenda. Coal and oil are natural - how can nature be bad?'",
+      "claim": "Climate change is a hoax perpetrated by the renewable energy industry",
+      "correctAnswer": "logic",
+      "answerWeights": {
+        "logic": 93,
+        "agenda": 87,
+        "emotion": 76,
+        "balanced": 4
+      },
+      "reviewKeywords": {
+        "logic": [
+          {
+            "phrase": "surveyed 50 scientists",
+            "weight": 45
+          },
+          {
+            "phrase": "temperature hasn't changed",
+            "weight": 45
+          },
+          {
+            "phrase": "who agree with us",
+            "weight": 40
+          },
+          {
+            "phrase": "eco-truth institute",
+            "weight": 40
+          }
+        ],
+        "emotion": [
+          {
+            "phrase": "destroy our economy",
+            "weight": 95
+          },
+          {
+            "phrase": "wake up, people!",
+            "weight": 30
+          },
+          {
+            "phrase": "fake green agenda",
+            "weight": 30
+          },
+          {
+            "phrase": "97% are lying",
+            "weight": 15
+          }
+        ],
+        "balanced": [],
+        "agenda": [
+          {
+            "phrase": "renewable energy lobby",
+            "weight": 35
+          },
+          {
+            "phrase": "coal and oil are natural",
+            "weight": 35
+          },
+          {
+            "phrase": "mainstream media won't report",
+            "weight": 35
+          },
+          {
+            "phrase": "green agenda",
+            "weight": 30
+          }
+        ]
+      },
+      "dimensionAnalysis": {
+        "logic": "Tiny sample presented as overturning mountains of evidence",
+        "emotion": "Appeals to conspiracy theories and economic fears",
+        "balanced": "Analysis of balance and fairness",
+        "agenda": "Analysis of hidden motives and agendas"
+      },
+      "logicalFallacies": [
+        {
+          "type": "red-herring",
+          "description": "Distracts from core issues with irrelevant emotional content"
+        }
+      ]
+    },
+    {
+      "id": "teachers-concern-004",
+      "title": "The Teacher's Concern",
+      "text": "Mrs. Rodriguez emailed parents: 'I'm seeing concerning behavior changes in several students after winter break. Five kids who were previously engaged are now constantly tired, irritable, and their grades dropped 15-20%. I spoke with them individually - all mentioned staying up past 2 AM on phones/games. I'm attaching some research on teen sleep needs and screen time. Could we work together on consistent bedtimes? I'm happy to discuss strategies that have worked for other families. Please reach out if you'd like to talk.'",
+      "claim": "Screen time and poor sleep are affecting student performance",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "balanced": 91,
+        "logic": 24,
+        "emotion": 38,
+        "agenda": 14
+      },
+      "reviewKeywords": {
+        "logic": [
+          {
+            "phrase": "grades dropped 15-20%",
+            "weight": 40
+          },
+          {
+            "phrase": "five kids",
+            "weight": 30
+          },
+          {
+            "phrase": "staying up past 2 am",
+            "weight": 30
+          },
+          {
+            "phrase": "attaching research",
+            "weight": 15
+          }
+        ],
+        "emotion": [
+          {
+            "phrase": "concerning behavior",
+            "weight": 30
+          },
+          {
+            "phrase": "tired, irritable",
+            "weight": 30
+          },
+          {
+            "phrase": "work together",
+            "weight": 30
+          },
+          {
+            "phrase": "happy to discuss",
+            "weight": 30
+          }
+        ],
+        "balanced": [
+          {
+            "phrase": "could we work together",
+            "weight": 45
+          },
+          {
+            "phrase": "strategies that have worked",
+            "weight": 45
+          },
+          {
+            "phrase": "if you'd like to talk",
+            "weight": 45
+          },
+          {
+            "phrase": "please reach out",
+            "weight": 40
+          }
+        ],
+        "agenda": [
+          {
+            "phrase": "consistent bedtimes",
+            "weight": 30
+          },
+          {
+            "phrase": "screen time",
+            "weight": 30
+          }
+        ]
+      },
+      "dimensionAnalysis": {
+        "logic": "Specific observations with measured approach",
+        "emotion": "Appropriate concern without catastrophizing",
+        "balanced": "Analysis of balance and fairness",
+        "agenda": "Analysis of hidden motives and agendas"
+      },
+      "logicalFallacies": [
+        {
+          "type": "red-herring",
+          "description": "Distracts from core issues with irrelevant emotional content"
+        }
+      ]
+    },
+    {
+      "id": "investment-scam-005",
+      "title": "The Investment Opportunity",
+      "text": "🚀 LAST CHANCE! My mentor made $500K last year with this ONE SIMPLE TRICK! Stop being a wage slave! 😤 While you're reading this, I'm on a beach in Bali living my BEST LIFE! 🏖️ The system is RIGGED against you, but I found the SECRET. Only sharing with the next 10 people who are SERIOUS about financial freedom. Your family is counting on you - don't let them down! What's stopping you from being rich? FEAR? Your kids deserve better! DM me 'FREEDOM' now! ⏰",
+      "claim": "Secret investment trick guarantees wealth and financial freedom",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "emotion": 97,
+        "agenda": 92,
+        "logic": 96,
+        "balanced": 3
+      },
+      "reviewKeywords": {
+        "logic": [
+          {
+            "phrase": "$500k",
+            "weight": 30
+          },
+          {
+            "phrase": "one simple trick",
+            "weight": 30
+          }
+        ],
+        "emotion": [
+          {
+            "phrase": "what's stopping you from being rich? fear?",
+            "weight": 55
+          },
+          {
+            "phrase": "your family is counting on you",
+            "weight": 45
+          },
+          {
+            "phrase": "your kids deserve better",
+            "weight": 45
+          },
+          {
+            "phrase": "wage slave",
+            "weight": 40
+          },
+          {
+            "phrase": "don't let them down",
+            "weight": 40
+          }
+        ],
+        "balanced": [],
+        "agenda": [
+          {
+            "phrase": "dm me 'freedom' now",
+            "weight": 30
+          },
+          {
+            "phrase": "next 10 people",
+            "weight": 30
+          },
+          {
+            "phrase": "last chance",
+            "weight": 30
+          },
+          {
+            "phrase": "beach in bali",
+            "weight": 30
+          }
+        ]
+      },
+      "dimensionAnalysis": {
+        "logic": "Zero substance, pure emotional manipulation",
+        "emotion": "Hits every emotional button: shame, guilt, envy, fear",
+        "balanced": "Analysis of balance and fairness",
+        "agenda": "Analysis of hidden motives and agendas"
+      },
+      "logicalFallacies": [
+        {
+          "type": "red-herring",
+          "description": "Distracts from real issues with entertaining but irrelevant content"
+        }
+      ]
+    },
+    {
+      "id": "food-additive-006",
+      "title": "The Food Additive Report",
+      "text": "Consumer Safety Alliance published: 'After reviewing 47 studies on Red Dye 40, we found mixed results. Six studies linked it to hyperactivity in children with ADHD. Twelve studies found no connection. The FDA maintains it's safe at current levels. European countries require warning labels. The dye is in 90% of candies and many medications. Parents of sensitive children might consider limiting intake. We recommend reading labels and making informed choices based on your family's needs.'",
+      "claim": "Red Dye 40 may affect some children; parents should make informed choices",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "balanced": 88,
+        "logic": 27,
+        "emotion": 34,
+        "agenda": 19
+      },
+      "reviewKeywords": {
+        "logic": [
+          {
+            "phrase": "twelve studies found no connection",
+            "weight": 35
+          },
+          {
+            "phrase": "european countries require",
+            "weight": 35
+          },
+          {
+            "phrase": "47 studies",
+            "weight": 30
+          },
+          {
+            "phrase": "six studies linked",
+            "weight": 30
+          },
+          {
+            "phrase": "fda maintains",
+            "weight": 30
+          }
+        ],
+        "emotion": [
+          {
+            "phrase": "parents of sensitive children",
+            "weight": 35
+          },
+          {
+            "phrase": "children with adhd",
+            "weight": 30
+          },
+          {
+            "phrase": "your family's needs",
+            "weight": 30
+          }
+        ],
+        "balanced": [
+          {
+            "phrase": "based on your family's needs",
+            "weight": 45
+          },
+          {
+            "phrase": "mixed results",
+            "weight": 40
+          },
+          {
+            "phrase": "might consider",
+            "weight": 40
+          },
+          {
+            "phrase": "informed choices",
+            "weight": 40
+          }
+        ],
+        "agenda": [
+          {
+            "phrase": "consumer safety alliance",
+            "weight": 35
+          },
+          {
+            "phrase": "recommend reading labels",
+            "weight": 35
+          }
+        ]
+      },
+      "dimensionAnalysis": {
+        "logic": "Presents conflicting evidence honestly",
+        "emotion": "Moderate concern matches mixed evidence",
+        "balanced": "Analysis of balance and fairness",
+        "agenda": "Analysis of hidden motives and agendas"
+      },
+      "logicalFallacies": [
+        {
+          "type": "red-herring",
+          "description": "Distracts from core issues with irrelevant emotional content"
+        }
+      ]
+    },
+    {
+      "id": "fitness-influencer-007",
+      "title": "The Fitness Influencer",
+      "text": "Ladies, are you tired of being invisible? 😔 I used to HATE my body until I discovered the ANCIENT SECRET that plastic surgeons don't want you to know! Just 5 minutes a day! No diet needed! Look at my transformation! 🔥 [heavily filtered photos] Doctors HATE this one weird trick because it would put them out of business! Only $197 for my exclusive program - but if you swipe up RIGHT NOW, it's just $47! That's less than your coffee budget! ☕ Don't you deserve to feel beautiful? Your husband will thank me! 💕",
+      "claim": "Ancient secret exercise eliminates need for diet or surgery",
+      "correctAnswer": "agenda",
+      "answerWeights": {
+        "agenda": 94,
+        "emotion": 91,
+        "logic": 93,
+        "balanced": 2
+      },
+      "reviewKeywords": {
+        "logic": [
+          {
+            "phrase": "5 minutes a day",
+            "weight": 30
+          },
+          {
+            "phrase": "no diet needed",
+            "weight": 30
+          }
+        ],
+        "emotion": [
+          {
+            "phrase": "tired of being invisible",
+            "weight": 35
+          },
+          {
+            "phrase": "don't you deserve to feel beautiful?",
+            "weight": 35
+          },
+          {
+            "phrase": "your husband will thank me!",
+            "weight": 35
+          },
+          {
+            "phrase": "hate my body",
+            "weight": 30
+          }
+        ],
+        "balanced": [],
+        "agenda": [
+          {
+            "phrase": "exclusive program",
+            "weight": 75
+          },
+          {
+            "phrase": "only $197",
+            "weight": 60
+          },
+          {
+            "phrase": "just $47",
+            "weight": 60
+          },
+          {
+            "phrase": "swipe up right now",
+            "weight": 40
+          },
+          {
+            "phrase": "doctors hate this",
+            "weight": 40
+          }
+        ]
+      },
+      "dimensionAnalysis": {
+        "logic": "No real evidence, just marketing tactics",
+        "emotion": "Exploits body image and relationship insecurities",
+        "balanced": "Analysis of balance and fairness",
+        "agenda": "Analysis of hidden motives and agendas"
+      },
+      "logicalFallacies": [
+        {
+          "type": "red-herring",
+          "description": "Distracts from core issues with irrelevant emotional content"
+        }
+      ]
+    },
+    {
+      "id": "university-study-008",
+      "title": "The University Study",
+      "text": "MIT researchers concluded a 5-year study on remote work productivity: 'We tracked 2,400 employees across 15 companies. Overall productivity increased 13% for remote workers, but results varied by role. Creative tasks showed 22% improvement, while collaborative projects decreased 8% in efficiency. Employee satisfaction rose 31%, sick days dropped 25%. However, junior employees reported 40% less mentorship. Companies saving on office space averaged $11,000 per employee annually. Full report at mit.edu/remotework2025.'",
+      "claim": "Remote work shows mixed results with overall productivity gains but mentorship challenges",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "balanced": 96,
+        "logic": 12,
+        "emotion": 17,
+        "agenda": 8
+      },
+      "reviewKeywords": {
+        "logic": [
+          {
+            "phrase": "13% productivity",
+            "weight": 40
+          },
+          {
+            "phrase": "22% improvement",
+            "weight": 40
+          },
+          {
+            "phrase": "8% decrease",
+            "weight": 40
+          },
+          {
+            "phrase": "2,400 employees",
+            "weight": 30
+          },
+          {
+            "phrase": "15 companies",
+            "weight": 30
+          },
+          {
+            "phrase": "$11,000 per employee",
+            "weight": 30
+          }
+        ],
+        "emotion": [
+          {
+            "phrase": "employee satisfaction rose",
+            "weight": 35
+          },
+          {
+            "phrase": "junior employees reported less mentorship",
+            "weight": 30
+          }
+        ],
+        "balanced": [
+          {
+            "phrase": "improvement... decrease",
+            "weight": 30
+          },
+          {
+            "phrase": "mixed results",
+            "weight": 25
+          },
+          {
+            "phrase": "however",
+            "weight": 20
+          },
+          {
+            "phrase": "but results varied",
+            "weight": 8
+          }
+        ],
+        "agenda": [
+          {
+            "phrase": "full report at mit.edu",
+            "weight": 35
+          }
+        ]
+      },
+      "dimensionAnalysis": {
+        "logic": "Exemplary research methodology and presentation",
+        "emotion": "Minimal emotional appeal, lets data speak",
+        "balanced": "Analysis of balance and fairness",
+        "agenda": "Analysis of hidden motives and agendas"
+      },
+      "logicalFallacies": [
+        {
+          "type": "red-herring",
+          "description": "Distracts from core issues with irrelevant emotional content"
+        }
+      ]
+    },
+    {
+      "id": "parenting-forum-009",
+      "title": "The Parenting Forum Post",
+      "text": "MOMS - This will SHOCK you! 😱 I caught my 12-year-old on a VIDEO GAME CHAT with a 40-YEAR-OLD MAN!!! These predators are EVERYWHERE! Every second your child is online, they're in DANGER! I threw away ALL electronics - no phones, tablets, computers, NOTHING! Some parents called me 'extreme' but I'd rather have a living child than a popular one! If you're not monitoring every keystroke, you're basically handing your baby to predators! WAKE UP before it's too late!!!",
+      "claim": "All children must be banned from electronics to prevent predator contact",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "emotion": 96,
+        "logic": 72,
+        "agenda": 48,
+        "balanced": 9
+      },
+      "reviewKeywords": {
+        "logic": [
+          {
+            "phrase": "caught",
+            "weight": 30
+          },
+          {
+            "phrase": "12-year-old",
+            "weight": 30
+          },
+          {
+            "phrase": "video game chat",
+            "weight": 30
+          },
+          {
+            "phrase": "40-year-old man",
+            "weight": 30
+          }
+        ],
+        "emotion": [
+          {
+            "phrase": "shock",
+            "weight": 40
+          },
+          {
+            "phrase": "😱",
+            "weight": 40
+          },
+          {
+            "phrase": "predators",
+            "weight": 40
+          },
+          {
+            "phrase": "everywhere",
+            "weight": 40
+          },
+          {
+            "phrase": "danger",
+            "weight": 40
+          },
+          {
+            "phrase": "threw away all",
+            "weight": 40
+          },
+          {
+            "phrase": "wake up",
+            "weight": 40
+          },
+          {
+            "phrase": "too late!!!",
+            "weight": 40
+          }
+        ],
+        "balanced": [],
+        "agenda": [
+          {
+            "phrase": "monitoring every keystroke",
+            "weight": 35
+          },
+          {
+            "phrase": "handing your baby to predators",
+            "weight": 35
+          },
+          {
+            "phrase": "extreme",
+            "weight": 30
+          }
+        ]
+      },
+      "dimensionAnalysis": {
+        "logic": "One incident leads to extreme overreaction",
+        "emotion": "Maximum fear about child safety",
+        "balanced": "Analysis of balance and fairness",
+        "agenda": "Analysis of hidden motives and agendas"
+      },
+      "logicalFallacies": [
+        {
+          "type": "red-herring",
+          "description": "Distracts from core issues with irrelevant emotional content"
+        }
+      ]
+    },
+    {
+      "id": "community-garden-010",
+      "title": "The Community Garden Proposal",
+      "text": "City Councilwoman Lee presented: 'Converting the vacant lot on 5th Street to a community garden would cost $45,000 initially. Our analysis shows: 200 families within walking distance, 67% surveyed expressed interest, local schools want to participate. Similar gardens in Austin and Portland reduced neighborhood crime by 15% and increased property values 8%. Maintenance would require 20 volunteer hours weekly plus $5,000 annually. Concerns include parking loss (12 spaces) and potential noise. I recommend a 1-year pilot program with quarterly reviews.'",
+      "claim": "Community garden offers benefits but requires investment and has trade-offs",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "balanced": 89,
+        "logic": 21,
+        "emotion": 42,
+        "agenda": 28
+      },
+      "reviewKeywords": {
+        "logic": [
+          {
+            "phrase": "67% surveyed",
+            "weight": 40
+          },
+          {
+            "phrase": "15% crime reduction",
+            "weight": 40
+          },
+          {
+            "phrase": "8% property value increase",
+            "weight": 40
+          },
+          {
+            "phrase": "$45,000 initially",
+            "weight": 30
+          },
+          {
+            "phrase": "200 families",
+            "weight": 30
+          }
+        ],
+        "emotion": [
+          {
+            "phrase": "families within walking distance",
+            "weight": 35
+          },
+          {
+            "phrase": "local schools want to participate",
+            "weight": 35
+          },
+          {
+            "phrase": "community garden",
+            "weight": 30
+          },
+          {
+            "phrase": "neighborhood improvement",
+            "weight": 20
+          }
+        ],
+        "balanced": [
+          {
+            "phrase": "concerns include",
+            "weight": 40
+          },
+          {
+            "phrase": "parking loss",
+            "weight": 40
+          },
+          {
+            "phrase": "potential noise",
+            "weight": 40
+          },
+          {
+            "phrase": "pilot program",
+            "weight": 40
+          },
+          {
+            "phrase": "quarterly reviews",
+            "weight": 40
+          }
+        ],
+        "agenda": [
+          {
+            "phrase": "vacant lot on 5th street",
+            "weight": 35
+          },
+          {
+            "phrase": "city councilwoman",
+            "weight": 30
+          },
+          {
+            "phrase": "i recommend",
+            "weight": 30
+          }
+        ]
+      },
+      "dimensionAnalysis": {
+        "logic": "Thorough analysis with pros and cons",
+        "emotion": "Positive emotions balanced with practical concerns",
+        "balanced": "Analysis of balance and fairness",
+        "agenda": "Analysis of hidden motives and agendas"
+      },
+      "logicalFallacies": [
+        {
+          "type": "red-herring",
+          "description": "Distracts from core issues with irrelevant emotional content"
+        }
+      ]
+    }
+  ]
+}

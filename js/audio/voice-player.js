@@ -3,7 +3,7 @@ class VoicePlayer {
     constructor() {
         this.audioCache = new Map();
         this.currentAudio = null;
-        this.baseUrl = 'data/audio-recording-voices-for-scenarios-from-elevenlabs/';
+        this.baseUrl = 'data/voices/';
         this.isEnabled = this.checkAudioSupport();
         this.preloadQueue = [];
         this.isPreloading = false;

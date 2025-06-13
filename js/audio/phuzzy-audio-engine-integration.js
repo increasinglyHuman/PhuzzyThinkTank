@@ -34,7 +34,7 @@ class PhuzzyAudioIntegration {
             },
             
             // User-friendly settings
-            debug: false,
+            debug: true, // Enable debug logging to diagnose clipping fix
             autoDiscoverAssets: true,
             fallbackStrategy: 'intelligent'
         });
@@ -138,7 +138,7 @@ class PhuzzyAudioIntegration {
     async checkAudioFiles(pack, scenario) {
         const packStr = pack.toString().padStart(3, '0');
         const scenarioStr = scenario.toString().padStart(3, '0');
-        const baseUrl = '../data/audio-recording-voices-for-scenarios-from-elevenlabs/';
+        const baseUrl = '../data/voices/';
         const folderPath = `pack-${packStr}-scenario-${scenarioStr}`;
         
         const audioTypes = ['title.mp3', 'content.mp3', 'claim.mp3'];
@@ -191,12 +191,11 @@ class PhuzzyAudioIntegration {
             // Determine channel based on content type
             const channel = this.getChannelForContentType(contentType);
             
-            // Play using the new audio engine with fade-in to prevent clipping
+            // Play using the new audio engine (silent priming handles clipping prevention)
             const playId = await this.audioEngine.play(audioSpec, {
                 channel,
                 interrupt: 'smart',
-                fadeIn: 200, // 200ms fade-in for all audio to prevent clipping
-                fadeOut: 100, // 100ms fade-out for smooth transitions
+                // No fades - let silent priming handle clipping, clean audio start/stop
                 preload: true, // Preload to prevent delays
                 onComplete: () => {
                     console.log(`✅ Completed playing: ${contentType} for ${scenarioTitle}`);
@@ -235,29 +234,44 @@ class PhuzzyAudioIntegration {
             
             console.log(`🎬 Starting audio sequence for: ${scenarioTitle}`);
             
-            // Ensure audio context is ready before starting
+            // Ensure audio context is ready before starting (enhanced timing to prevent clipping)
             if (this.audioEngine.audioContext && this.audioEngine.audioContext.state !== 'running') {
                 try {
                     await this.audioEngine.audioContext.resume();
-                    // Small delay to ensure audio context is fully ready
-                    await new Promise(resolve => setTimeout(resolve, 50));
+                    // Enhanced delay to fully settle audio context and prevent first-half-second clipping
+                    await new Promise(resolve => setTimeout(resolve, 200));
+                    console.log('🔥 Audio context fully warmed and settled');
                 } catch (error) {
                     console.warn('Could not resume audio context:', error);
                 }
+            } else {
+                // Even when audio context is running, add small settling delay for first audio
+                await new Promise(resolve => setTimeout(resolve, 100));
+                console.log('🔥 Audio context already running - added settling delay');
             }
             
-            // Play the sequence with intelligent gaps and fade-ins to prevent clipping
+            // Play the sequence with intelligent gaps (silent priming handles clipping prevention)
             const sequenceId = await this.audioEngine.playSequence(sequence, {
                 channel: 'dialogue',
                 gapBetween: 800, // Pause between audio segments
-                fadeIn: 200, // 200ms fade-in for each audio part to prevent clipping
-                fadeOut: 100, // 100ms fade-out for smooth transitions
+                // No fades - let silent priming handle clipping, clean audio start/stop
                 preload: true, // Preload all sequence parts to prevent delays
                 onProgress: (current, total, audioSpec) => {
                     console.log(`🎵 Playing ${audioSpec.type} (${current}/${total})`);
+                    // Track individual file completions vs sequence completion
+                    console.log(`📊 Progress: ${current}/${total} - Individual file completed, NOT sequence`);
                 },
                 onComplete: () => {
                     console.log(`✅ Completed audio sequence for: ${scenarioTitle}`);
+                    // ⚠️ IMPORTANT: This callback fires when the ENTIRE SEQUENCE completes,
+                    // not after each individual file (title.mp3, content.mp3, claim.mp3).
+                    // Use this for UI state changes like resetting play/pause buttons.
+                    // For individual file completion tracking, use onProgress instead.
+                    
+                    // Notify global button state that sequence is finished
+                    if (window.onAudioSequenceComplete) {
+                        window.onAudioSequenceComplete();
+                    }
                 }
             });
             

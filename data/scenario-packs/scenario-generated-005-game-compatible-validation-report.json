@@ -1,0 +1,540 @@
+{
+  "summary": {
+    "total": 10,
+    "excellent": 0,
+    "good": 2,
+    "acceptable": 7,
+    "needsImprovement": 1,
+    "reject": 0,
+    "averageScore": 69
+  },
+  "results": [
+    {
+      "id": "enhanced-scenarios-005-009",
+      "title": "The Philosophical French Fry Debate",
+      "score": 78,
+      "rating": "GOOD",
+      "validation": {
+        "structure": {
+          "errors": [],
+          "warnings": []
+        },
+        "content": {
+          "errors": [],
+          "warnings": [
+            "Content too short (184 words) - may lack complexity",
+            "Weak platform voice authenticity - add more platform-specific language",
+            "Low manipulation pattern diversity - add more persuasion techniques",
+            "Low educational value - add more recognizable manipulation patterns"
+          ],
+          "metrics": {
+            "wordCount": 184,
+            "voiceAuthenticity": {
+              "platform": "social_media",
+              "strength": 1
+            },
+            "manipulationPatterns": {},
+            "educationalValue": 25
+          }
+        },
+        "dimension": {
+          "errors": [],
+          "warnings": [
+            "logic analysis lacks key terminology - consider adding relevant concepts",
+            "emotion analysis lacks key terminology - consider adding relevant concepts",
+            "balanced analysis too brief (32 chars) - needs more detail",
+            "balanced analysis lacks key terminology - consider adding relevant concepts",
+            "agenda analysis too brief (38 chars) - needs more detail"
+          ]
+        }
+      },
+      "metrics": {
+        "wordCount": 184,
+        "voiceAuthenticity": {
+          "platform": "social_media",
+          "strength": 1
+        },
+        "manipulationPatterns": {},
+        "educationalValue": 25
+      },
+      "recommendation": "Minor improvements recommended but acceptable for use."
+    },
+    {
+      "id": "enhanced-scenarios-005-010",
+      "title": "The Roomba's Union Organization Meeting",
+      "score": 76,
+      "rating": "GOOD",
+      "validation": {
+        "structure": {
+          "errors": [],
+          "warnings": []
+        },
+        "content": {
+          "errors": [],
+          "warnings": [
+            "Content too short (161 words) - may lack complexity",
+            "Weak platform voice authenticity - add more platform-specific language",
+            "Low manipulation pattern diversity - add more persuasion techniques",
+            "Low educational value - add more recognizable manipulation patterns"
+          ],
+          "metrics": {
+            "wordCount": 161,
+            "voiceAuthenticity": {
+              "platform": "social_media",
+              "strength": 1
+            },
+            "manipulationPatterns": {},
+            "educationalValue": 25
+          }
+        },
+        "dimension": {
+          "errors": [],
+          "warnings": [
+            "logic analysis lacks key terminology - consider adding relevant concepts",
+            "emotion analysis too brief (41 chars) - needs more detail",
+            "emotion analysis lacks key terminology - consider adding relevant concepts",
+            "balanced analysis too brief (32 chars) - needs more detail",
+            "balanced analysis lacks key terminology - consider adding relevant concepts",
+            "agenda analysis too brief (38 chars) - needs more detail"
+          ]
+        }
+      },
+      "metrics": {
+        "wordCount": 161,
+        "voiceAuthenticity": {
+          "platform": "social_media",
+          "strength": 1
+        },
+        "manipulationPatterns": {},
+        "educationalValue": 25
+      },
+      "recommendation": "Minor improvements recommended but acceptable for use."
+    },
+    {
+      "id": "shopping-cart-philosophy-005-003",
+      "title": "The Shopping Cart Existential Crisis",
+      "score": 68,
+      "rating": "ACCEPTABLE",
+      "validation": {
+        "structure": {
+          "errors": [],
+          "warnings": [
+            "logic weight 40 appears rounded - consider more precise scoring",
+            "balanced weight 20 appears rounded - consider more precise scoring"
+          ]
+        },
+        "content": {
+          "errors": [],
+          "warnings": [
+            "Content too short (167 words) - may lack complexity",
+            "Weak platform voice authenticity - add more platform-specific language",
+            "Low manipulation pattern diversity - add more persuasion techniques",
+            "Low educational value - add more recognizable manipulation patterns"
+          ],
+          "metrics": {
+            "wordCount": 167,
+            "voiceAuthenticity": {
+              "platform": null,
+              "strength": 0
+            },
+            "manipulationPatterns": {},
+            "educationalValue": 25
+          }
+        },
+        "dimension": {
+          "errors": [],
+          "warnings": [
+            "logic analysis lacks key terminology - consider adding relevant concepts",
+            "emotion analysis lacks key terminology - consider adding relevant concepts",
+            "balanced analysis too brief (32 chars) - needs more detail",
+            "balanced analysis lacks key terminology - consider adding relevant concepts",
+            "agenda analysis too brief (38 chars) - needs more detail"
+          ]
+        }
+      },
+      "metrics": {
+        "wordCount": 167,
+        "voiceAuthenticity": {
+          "platform": null,
+          "strength": 0
+        },
+        "manipulationPatterns": {},
+        "educationalValue": 25
+      },
+      "recommendation": "Usable with revisions. Address warnings before publication."
+    },
+    {
+      "id": "office-supplies-revolution-005-004",
+      "title": "The Office Supply Revolution",
+      "score": 68,
+      "rating": "ACCEPTABLE",
+      "validation": {
+        "structure": {
+          "errors": [],
+          "warnings": [
+            "balanced weight 30 appears rounded - consider more precise scoring",
+            "agenda weight 10 appears rounded - consider more precise scoring"
+          ]
+        },
+        "content": {
+          "errors": [],
+          "warnings": [
+            "Content too short (130 words) - may lack complexity",
+            "Weak platform voice authenticity - add more platform-specific language",
+            "Low manipulation pattern diversity - add more persuasion techniques",
+            "Low educational value - add more recognizable manipulation patterns"
+          ],
+          "metrics": {
+            "wordCount": 130,
+            "voiceAuthenticity": {
+              "platform": null,
+              "strength": 0
+            },
+            "manipulationPatterns": {},
+            "educationalValue": 0
+          }
+        },
+        "dimension": {
+          "errors": [],
+          "warnings": [
+            "logic analysis lacks key terminology - consider adding relevant concepts",
+            "emotion analysis lacks key terminology - consider adding relevant concepts",
+            "balanced analysis too brief (32 chars) - needs more detail",
+            "balanced analysis lacks key terminology - consider adding relevant concepts",
+            "agenda analysis too brief (38 chars) - needs more detail"
+          ]
+        }
+      },
+      "metrics": {
+        "wordCount": 130,
+        "voiceAuthenticity": {
+          "platform": null,
+          "strength": 0
+        },
+        "manipulationPatterns": {},
+        "educationalValue": 0
+      },
+      "recommendation": "Usable with revisions. Address warnings before publication."
+    },
+    {
+      "id": "houseplant-gossip-005-005",
+      "title": "The Houseplant Gossip Network",
+      "score": 68,
+      "rating": "ACCEPTABLE",
+      "validation": {
+        "structure": {
+          "errors": [],
+          "warnings": [
+            "logic weight 10 appears rounded - consider more precise scoring",
+            "emotion weight 50 appears rounded - consider more precise scoring"
+          ]
+        },
+        "content": {
+          "errors": [],
+          "warnings": [
+            "Content too short (107 words) - may lack complexity",
+            "Weak platform voice authenticity - add more platform-specific language",
+            "Low manipulation pattern diversity - add more persuasion techniques",
+            "Low educational value - add more recognizable manipulation patterns"
+          ],
+          "metrics": {
+            "wordCount": 107,
+            "voiceAuthenticity": {
+              "platform": null,
+              "strength": 0
+            },
+            "manipulationPatterns": {},
+            "educationalValue": 0
+          }
+        },
+        "dimension": {
+          "errors": [],
+          "warnings": [
+            "logic analysis lacks key terminology - consider adding relevant concepts",
+            "emotion analysis lacks key terminology - consider adding relevant concepts",
+            "balanced analysis too brief (32 chars) - needs more detail",
+            "balanced analysis lacks key terminology - consider adding relevant concepts",
+            "agenda analysis too brief (38 chars) - needs more detail"
+          ]
+        }
+      },
+      "metrics": {
+        "wordCount": 107,
+        "voiceAuthenticity": {
+          "platform": null,
+          "strength": 0
+        },
+        "manipulationPatterns": {},
+        "educationalValue": 0
+      },
+      "recommendation": "Usable with revisions. Address warnings before publication."
+    },
+    {
+      "id": "wifi-router-therapy-005-006",
+      "title": "The WiFi Router Support Group",
+      "score": 58,
+      "rating": "NEEDS_IMPROVEMENT",
+      "validation": {
+        "structure": {
+          "errors": [],
+          "warnings": [
+            "logic weight 20 appears rounded - consider more precise scoring",
+            "emotion weight 40 appears rounded - consider more precise scoring",
+            "balanced weight 30 appears rounded - consider more precise scoring",
+            "agenda weight 10 appears rounded - consider more precise scoring"
+          ]
+        },
+        "content": {
+          "errors": [],
+          "warnings": [
+            "Content too short (153 words) - may lack complexity",
+            "Weak platform voice authenticity - add more platform-specific language",
+            "Low manipulation pattern diversity - add more persuasion techniques",
+            "Low educational value - add more recognizable manipulation patterns"
+          ],
+          "metrics": {
+            "wordCount": 153,
+            "voiceAuthenticity": {
+              "platform": null,
+              "strength": 0
+            },
+            "manipulationPatterns": {},
+            "educationalValue": 0
+          }
+        },
+        "dimension": {
+          "errors": [],
+          "warnings": [
+            "logic analysis lacks key terminology - consider adding relevant concepts",
+            "emotion analysis lacks key terminology - consider adding relevant concepts",
+            "balanced analysis too brief (32 chars) - needs more detail",
+            "balanced analysis lacks key terminology - consider adding relevant concepts",
+            "agenda analysis too brief (38 chars) - needs more detail"
+          ]
+        }
+      },
+      "metrics": {
+        "wordCount": 153,
+        "voiceAuthenticity": {
+          "platform": null,
+          "strength": 0
+        },
+        "manipulationPatterns": {},
+        "educationalValue": 0
+      },
+      "recommendation": "Significant revisions required. Focus on content quality and educational value."
+    },
+    {
+      "id": "kitchen-appliance-turf-war-005-007",
+      "title": "The Kitchen Appliance Turf War",
+      "score": 68,
+      "rating": "ACCEPTABLE",
+      "validation": {
+        "structure": {
+          "errors": [],
+          "warnings": [
+            "emotion weight 30 appears rounded - consider more precise scoring",
+            "agenda weight 10 appears rounded - consider more precise scoring"
+          ]
+        },
+        "content": {
+          "errors": [],
+          "warnings": [
+            "Content too short (130 words) - may lack complexity",
+            "Weak platform voice authenticity - add more platform-specific language",
+            "Low manipulation pattern diversity - add more persuasion techniques",
+            "Low educational value - add more recognizable manipulation patterns"
+          ],
+          "metrics": {
+            "wordCount": 130,
+            "voiceAuthenticity": {
+              "platform": null,
+              "strength": 0
+            },
+            "manipulationPatterns": {},
+            "educationalValue": 0
+          }
+        },
+        "dimension": {
+          "errors": [],
+          "warnings": [
+            "logic analysis lacks key terminology - consider adding relevant concepts",
+            "emotion analysis lacks key terminology - consider adding relevant concepts",
+            "balanced analysis too brief (32 chars) - needs more detail",
+            "balanced analysis lacks key terminology - consider adding relevant concepts",
+            "agenda analysis too brief (38 chars) - needs more detail"
+          ]
+        }
+      },
+      "metrics": {
+        "wordCount": 130,
+        "voiceAuthenticity": {
+          "platform": null,
+          "strength": 0
+        },
+        "manipulationPatterns": {},
+        "educationalValue": 0
+      },
+      "recommendation": "Usable with revisions. Address warnings before publication."
+    },
+    {
+      "id": "doorknob-design-critics-005-008",
+      "title": "The Doorknob Design Critics Society",
+      "score": 68,
+      "rating": "ACCEPTABLE",
+      "validation": {
+        "structure": {
+          "errors": [],
+          "warnings": [
+            "emotion weight 40 appears rounded - consider more precise scoring",
+            "agenda weight 10 appears rounded - consider more precise scoring"
+          ]
+        },
+        "content": {
+          "errors": [],
+          "warnings": [
+            "Content too short (143 words) - may lack complexity",
+            "Weak platform voice authenticity - add more platform-specific language",
+            "Low manipulation pattern diversity - add more persuasion techniques",
+            "Low educational value - add more recognizable manipulation patterns"
+          ],
+          "metrics": {
+            "wordCount": 143,
+            "voiceAuthenticity": {
+              "platform": null,
+              "strength": 0
+            },
+            "manipulationPatterns": {},
+            "educationalValue": 0
+          }
+        },
+        "dimension": {
+          "errors": [],
+          "warnings": [
+            "logic analysis lacks key terminology - consider adding relevant concepts",
+            "emotion analysis lacks key terminology - consider adding relevant concepts",
+            "balanced analysis too brief (32 chars) - needs more detail",
+            "balanced analysis lacks key terminology - consider adding relevant concepts",
+            "agenda analysis too brief (38 chars) - needs more detail"
+          ]
+        }
+      },
+      "metrics": {
+        "wordCount": 143,
+        "voiceAuthenticity": {
+          "platform": null,
+          "strength": 0
+        },
+        "manipulationPatterns": {},
+        "educationalValue": 0
+      },
+      "recommendation": "Usable with revisions. Address warnings before publication."
+    },
+    {
+      "id": "laundry-sock-conspiracy-005-009",
+      "title": "The Great Sock Disappearance Tribunal",
+      "score": 68,
+      "rating": "ACCEPTABLE",
+      "validation": {
+        "structure": {
+          "errors": [],
+          "warnings": [
+            "balanced weight 20 appears rounded - consider more precise scoring",
+            "agenda weight 40 appears rounded - consider more precise scoring"
+          ]
+        },
+        "content": {
+          "errors": [],
+          "warnings": [
+            "Content too short (135 words) - may lack complexity",
+            "Weak platform voice authenticity - add more platform-specific language",
+            "Low manipulation pattern diversity - add more persuasion techniques",
+            "Low educational value - add more recognizable manipulation patterns"
+          ],
+          "metrics": {
+            "wordCount": 135,
+            "voiceAuthenticity": {
+              "platform": null,
+              "strength": 0
+            },
+            "manipulationPatterns": {},
+            "educationalValue": 0
+          }
+        },
+        "dimension": {
+          "errors": [],
+          "warnings": [
+            "logic analysis lacks key terminology - consider adding relevant concepts",
+            "emotion analysis lacks key terminology - consider adding relevant concepts",
+            "balanced analysis too brief (32 chars) - needs more detail",
+            "balanced analysis lacks key terminology - consider adding relevant concepts",
+            "agenda analysis too brief (38 chars) - needs more detail"
+          ]
+        }
+      },
+      "metrics": {
+        "wordCount": 135,
+        "voiceAuthenticity": {
+          "platform": null,
+          "strength": 0
+        },
+        "manipulationPatterns": {},
+        "educationalValue": 0
+      },
+      "recommendation": "Usable with revisions. Address warnings before publication."
+    },
+    {
+      "id": "elevator-button-democracy-005-010",
+      "title": "The Elevator Button Democratic Crisis",
+      "score": 68,
+      "rating": "ACCEPTABLE",
+      "validation": {
+        "structure": {
+          "errors": [],
+          "warnings": [
+            "emotion weight 20 appears rounded - consider more precise scoring",
+            "agenda weight 10 appears rounded - consider more precise scoring"
+          ]
+        },
+        "content": {
+          "errors": [],
+          "warnings": [
+            "Content too short (170 words) - may lack complexity",
+            "Weak platform voice authenticity - add more platform-specific language",
+            "Low manipulation pattern diversity - add more persuasion techniques",
+            "Low educational value - add more recognizable manipulation patterns"
+          ],
+          "metrics": {
+            "wordCount": 170,
+            "voiceAuthenticity": {
+              "platform": null,
+              "strength": 0
+            },
+            "manipulationPatterns": {},
+            "educationalValue": 25
+          }
+        },
+        "dimension": {
+          "errors": [],
+          "warnings": [
+            "logic analysis lacks key terminology - consider adding relevant concepts",
+            "emotion analysis lacks key terminology - consider adding relevant concepts",
+            "balanced analysis too brief (32 chars) - needs more detail",
+            "balanced analysis lacks key terminology - consider adding relevant concepts",
+            "agenda analysis too brief (38 chars) - needs more detail"
+          ]
+        }
+      },
+      "metrics": {
+        "wordCount": 170,
+        "voiceAuthenticity": {
+          "platform": null,
+          "strength": 0
+        },
+        "manipulationPatterns": {},
+        "educationalValue": 25
+      },
+      "recommendation": "Usable with revisions. Address warnings before publication."
+    }
+  ]
+}

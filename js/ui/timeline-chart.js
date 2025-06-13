@@ -12,6 +12,7 @@ class TimelineChart {
         this.characterData = null;
         this.showAnnotations = false;
         this.highlightedDimension = null;
+        this.isDrawing = false;
         
         // Visible dimensions state
         this.visibleDimensions = {
@@ -35,45 +36,90 @@ class TimelineChart {
     }
     
     analyzeText(text, keywords) {
-        const sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
-        const data = [];
+        console.log('🐻 Bear analyzing text for keyword positions...');
+        const dimensionData = {};
         
-        sentences.forEach((sentence, index) => {
-            const scores = {
-                logic: this.scoreKeywords(sentence, keywords.logic || []),
-                emotion: this.scoreKeywords(sentence, keywords.emotion || []),
-                balanced: this.scoreKeywords(sentence, keywords.balanced || []),
-                agenda: this.scoreKeywords(sentence, keywords.agenda || [])
-            };
+        // Process each dimension's keywords to find exact positions
+        ['logic', 'emotion', 'balanced', 'agenda'].forEach(dimension => {
+            const dimensionKeywords = keywords[dimension] || [];
+            const points = [];
             
-            data.push({
-                sentence: sentence.trim(),
-                position: index / Math.max(1, sentences.length - 1),
-                scores
+            dimensionKeywords.forEach(keywordItem => {
+                let phrase, weight;
+                
+                if (typeof keywordItem === 'string') {
+                    phrase = keywordItem;
+                    weight = 50; // Default weight for old format
+                } else if (typeof keywordItem === 'object' && keywordItem.phrase) {
+                    phrase = keywordItem.phrase;
+                    weight = keywordItem.weight || 50;
+                } else {
+                    return; // Skip invalid entries
+                }
+                
+                // Find all occurrences of this phrase in the text
+                const regex = new RegExp(phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+                let match;
+                
+                while ((match = regex.exec(text)) !== null) {
+                    const position = match.index / text.length; // Relative position 0-1
+                    
+                    points.push({
+                        phrase: phrase,
+                        weight: weight,
+                        position: position,
+                        textIndex: match.index
+                    });
+                    
+                    console.log(`🎯 Found "${phrase}" at position ${(position * 100).toFixed(1)}% with weight ${weight}`);
+                }
             });
+            
+            // Sort points by position for smooth spline drawing
+            points.sort((a, b) => a.position - b.position);
+            dimensionData[dimension] = points;
         });
         
-        return data;
+        return dimensionData;
     }
     
     scoreKeywords(sentence, keywords) {
         if (!keywords || !Array.isArray(keywords)) return 0;
         
         let score = 0;
-        keywords.forEach(keyword => {
-            const regex = new RegExp(keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+        keywords.forEach(keywordItem => {
+            // Handle both old format (strings) and new format (objects with phrase/weight)
+            let phrase, weight;
+            
+            if (typeof keywordItem === 'string') {
+                // Old format: simple string
+                phrase = keywordItem;
+                weight = Math.min(10, keywordItem.length); // Old weighting system
+            } else if (typeof keywordItem === 'object' && keywordItem.phrase) {
+                // New format: {phrase: "text", weight: number}
+                phrase = keywordItem.phrase;
+                weight = keywordItem.weight || 10; // Use specified weight
+            } else {
+                return; // Skip invalid entries
+            }
+            
+            // Escape special regex characters
+            const regex = new RegExp(phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
             const matches = sentence.match(regex);
             if (matches) {
-                score += matches.length * Math.min(10, keyword.length);
+                // Apply weighted scoring: matches * weight (instead of old formula)
+                score += matches.length * weight;
             }
         });
-        return Math.min(100, score * 2);
+        
+        // Return score without arbitrary multiplication for weighted keywords
+        return Math.min(100, score);
     }
     
     draw(text, keywords) {
-        console.log('TimelineChart.draw called');
-        console.log('Text length:', text.length);
-        console.log('Keywords:', keywords);
+        console.log('🐻 BEAR TIMELINE ENTRY - TimelineChart.draw called');
+        console.log('🔍 Bear text check:', text ? `${text.length} chars` : 'NO TEXT');
+        console.log('🔍 Bear keywords check:', keywords ? Object.keys(keywords) : 'NO KEYWORDS');
         
         this.currentData = this.analyzeText(text, keywords);
         this.currentKeywords = keywords;
@@ -85,6 +131,13 @@ class TimelineChart {
     
     redraw() {
         if (!this.currentData) return;
+        
+        // Prevent infinite redraw loops
+        if (this.isDrawing) {
+            console.log('🐻 Bear preventing redraw loop');
+            return;
+        }
+        this.isDrawing = true;
         
         const data = this.currentData;
         const keywords = this.currentKeywords;
@@ -116,17 +169,25 @@ class TimelineChart {
         const visibleDimensions = Object.keys(this.visibleDimensions)
             .filter(dim => this.visibleDimensions[dim]);
         
-        // Draw lines
+        // Draw keyword dots and splines
         const colors = {
             logic: '#3b82f6',
-            emotion: '#ec4899',
+            emotion: '#ec4899', 
             balanced: '#10b981',
             agenda: '#f59e0b'
         };
         
         visibleDimensions.forEach(dimension => {
             const shouldFade = this.highlightedDimension && this.highlightedDimension !== dimension;
-            this.drawLine(data, dimension, padding, width, height, shouldFade);
+            const dimensionPoints = data[dimension] || [];
+            
+            if (dimensionPoints.length > 0) {
+                // Phase 1: Draw smooth spline connecting the keyword points
+                this.drawKeywordSpline(dimensionPoints, colors[dimension], padding, width, height, shouldFade);
+                
+                // Phase 2: Draw precise dots at keyword positions  
+                this.drawKeywordDots(dimensionPoints, colors[dimension], padding, width, height, shouldFade);
+            }
         });
         
         // Handle character animation - only during active game
@@ -158,6 +219,9 @@ class TimelineChart {
         this.ctx.rotate(-Math.PI / 2);
         this.ctx.fillText('Intensity', 0, 0);
         this.ctx.restore();
+        
+        // Reset drawing flag to allow future redraws
+        this.isDrawing = false;
     }
     
     drawGrid(padding, width, height) {
@@ -229,6 +293,8 @@ class TimelineChart {
     }
     
     drawLine(data, dimension, padding, width, height, shouldFade = false) {
+        console.log(`🐻 Bear drawLine called for ${dimension}:`, data?.length, 'points');
+        
         const colors = {
             logic: '#3b82f6',
             emotion: '#ec4899',
@@ -238,159 +304,205 @@ class TimelineChart {
         
         const color = colors[dimension];
         this.ctx.strokeStyle = shouldFade ? color + '30' : color;
-        this.ctx.lineWidth = shouldFade ? 2 : 3;
+        this.ctx.lineWidth = shouldFade ? 3 : 4; // Thicker lines for better visibility
         this.ctx.lineCap = 'round';
         this.ctx.lineJoin = 'round';
         
-        // Calculate difficulty multiplier if game is active
-        let difficultyMultiplier = 1.0;
-        let waveAmplitude = 0;
-        let minValue = Infinity;
-        let maxValue = -Infinity;
+        // Calculate wave parameters based on weighted keyword data
+        let waveAmplitude = this.calculateWaveAmplitude(data, dimension);
+        let waveFrequency = this.calculateWaveFrequency(data, dimension);
+        let baseAmplification = this.calculateBaseAmplification(data, dimension);
         
+        // Enhanced amplification for better visibility
+        waveAmplitude *= 3.0; // Always amplify for better visibility
+        baseAmplification *= 2.5;
+        
+        // Even more amplification during bear game
         if (window.timelineAnalysis && window.timelineAnalysis.bearGameState && 
             window.timelineAnalysis.bearGameState.gameActive) {
-            // Jump straight to maximum deformation!
-            difficultyMultiplier = 6.0;  // Full 6x peak heights
-            waveAmplitude = 100;  // Full wave interference
-            
-            // Pre-calculate all values to find min/max
-            data.forEach(point => {
-                let yValue = point.scores[dimension];
-                const deviation = yValue - 50;
-                yValue = 50 + (deviation * difficultyMultiplier);
-                const wavePhase = point.position * Math.PI * 4;
-                yValue += Math.sin(wavePhase) * waveAmplitude;
-                
-                minValue = Math.min(minValue, yValue);
-                maxValue = Math.max(maxValue, yValue);
-            });
+            waveAmplitude *= 2.0;
+            baseAmplification *= 2.0;
         }
         
-        // Draw smooth curve using Bezier curves
+        // Pre-calculate all transformed values to find min/max for proper scaling
+        let minValue = Infinity;
+        let maxValue = -Infinity;
+        const transformedPoints = [];
+        
+        data.forEach(point => {
+            const transformedY = this.applyWaveTransformation(
+                point, dimension, waveAmplitude, waveFrequency, baseAmplification
+            );
+            transformedPoints.push({
+                ...point,
+                transformedY: transformedY
+            });
+            minValue = Math.min(minValue, transformedY);
+            maxValue = Math.max(maxValue, transformedY);
+        });
+        
+        // 🎯 PROPER SCALING: No vertical squashing, full 0-100 range preserved
+        // Y-axis: Direct mapping of 0-100 values to canvas height
+        // X-axis: Distribute points across available width based on position in text
+        
+        // 🌊 BEAUTIFUL SPLINE CURVES with proper scaling
+        this.drawCatmullRomSpline(transformedPoints, padding, width, height, shouldFade, color);
+    }
+    
+    /**
+     * 🎨 Draw smooth Catmull-Rom spline through data points
+     * No Y-axis squashing - maintains full 0-100 range!
+     */
+    drawCatmullRomSpline(transformedPoints, padding, width, height, shouldFade, color) {
+        console.log('🐻 Bear spline debug - transformedPoints:', transformedPoints.length, transformedPoints.slice(0, 3));
+        
+        if (transformedPoints.length === 0) {
+            console.log('🐻 Bear says: No points to draw!');
+            return;
+        }
+        
+        // Convert data points to canvas coordinates with PROPER scaling
+        const canvasPoints = transformedPoints.map(point => ({
+            x: padding + (point.position || 0) * width, // X based on text position
+            y: padding + height - (Math.max(0, Math.min(100, point.transformedY)) / 100) * height // Y direct 0-100 mapping
+        }));
+        
+        console.log('🐻 Bear canvas points:', canvasPoints.slice(0, 3));
+        console.log('🐻 Bear first point detail:', transformedPoints[0]);
+        console.log('🐻 Bear canvas dimensions:', { padding, width, height });
+        
         this.ctx.beginPath();
         
-        for (let i = 0; i < data.length; i++) {
-            const point = data[i];
-            const x = padding + point.position * width;
-            
-            // Get base Y value
-            let yValue = point.scores[dimension];
-            
-            // Apply peak amplification (amplify deviations from 50)
-            const deviation = yValue - 50;
-            yValue = 50 + (deviation * difficultyMultiplier);
-            
-            // Add wave interference
-            const wavePhase = point.position * Math.PI * 4; // 2 full waves across timeline
-            yValue += Math.sin(wavePhase) * waveAmplitude;
-            
-            // During game, allow values to exceed normal bounds for dramatic effect
-            if (window.timelineAnalysis && window.timelineAnalysis.bearGameState && 
-                window.timelineAnalysis.bearGameState.gameActive) {
-                // Let peaks grow beyond bounds
-            } else {
-                // Normal clamping when game not active
-                yValue = Math.max(0, Math.min(100, yValue));
-            }
-            
-            // Dynamic scaling during game to keep peaks visible
-            let scaleFactor = 100;
-            let baselineOffset = 0;
-            if (window.timelineAnalysis && window.timelineAnalysis.bearGameState && 
-                window.timelineAnalysis.bearGameState.gameActive) {
-                // Scale based on the actual range of values
-                const range = maxValue - minValue;
-                scaleFactor = range > 0 ? range : 100;
-                // Offset so minimum value sits at bottom of chart
-                baselineOffset = -minValue;
-            }
-            const y = padding + height - ((yValue + baselineOffset) / scaleFactor * height);
-            
-            if (i === 0) {
-                this.ctx.moveTo(x, y);
-            } else {
-                // Use quadratic Bezier curve for smoothness
-                const prevPoint = data[i - 1];
-                const prevX = padding + prevPoint.position * width;
-                
-                // Apply same transformations to previous point
-                let prevYValue = prevPoint.scores[dimension];
-                const prevDeviation = prevYValue - 50;
-                prevYValue = 50 + (prevDeviation * difficultyMultiplier);
-                const prevWavePhase = prevPoint.position * Math.PI * 4;
-                prevYValue += Math.sin(prevWavePhase) * waveAmplitude;
-                // During game, allow values to exceed normal bounds
-                if (window.timelineAnalysis && window.timelineAnalysis.bearGameState && 
-                    window.timelineAnalysis.bearGameState.gameActive) {
-                    // Let peaks grow beyond bounds
-                } else {
-                    prevYValue = Math.max(0, Math.min(100, prevYValue));
-                }
-                // Use same scale factor and baseline offset
-                let scaleFactor = 100;
-                let baselineOffset = 0;
-                if (window.timelineAnalysis && window.timelineAnalysis.bearGameState && 
-                    window.timelineAnalysis.bearGameState.gameActive) {
-                    const range = maxValue - minValue;
-                    scaleFactor = range > 0 ? range : 100;
-                    baselineOffset = -minValue;
-                }
-                const prevY = padding + height - ((prevYValue + baselineOffset) / scaleFactor * height);
-                
-                const cpX = (prevX + x) / 2;
-                const cpY = (prevY + y) / 2;
-                
-                this.ctx.quadraticCurveTo(prevX, prevY, cpX, cpY);
-            }
+        if (canvasPoints.length === 1) {
+            // Single point - draw a circle
+            const point = canvasPoints[0];
+            this.ctx.fillStyle = color;
+            this.ctx.beginPath();
+            this.ctx.arc(point.x, point.y, 4, 0, 2 * Math.PI);
+            this.ctx.fill();
+            return;
         }
         
-        // Draw to the last point
-        if (data.length > 0) {
-            const lastPoint = data[data.length - 1];
-            const lastX = padding + lastPoint.position * width;
+        if (canvasPoints.length === 2) {
+            // Two points - draw a line
+            this.ctx.moveTo(canvasPoints[0].x, canvasPoints[0].y);
+            this.ctx.lineTo(canvasPoints[1].x, canvasPoints[1].y);
+        } else {
+            // 3+ points - draw smooth Catmull-Rom spline
+            this.ctx.moveTo(canvasPoints[0].x, canvasPoints[0].y);
             
-            // Apply transformations to last point too
-            let lastYValue = lastPoint.scores[dimension];
-            const lastDeviation = lastYValue - 50;
-            lastYValue = 50 + (lastDeviation * difficultyMultiplier);
-            const lastWavePhase = lastPoint.position * Math.PI * 4;
-            lastYValue += Math.sin(lastWavePhase) * waveAmplitude;
-            // During game, allow values to exceed normal bounds
-            if (window.timelineAnalysis && window.timelineAnalysis.bearGameState && 
-                window.timelineAnalysis.bearGameState.gameActive) {
-                // Let peaks grow beyond bounds
-            } else {
-                lastYValue = Math.max(0, Math.min(100, lastYValue));
+            for (let i = 0; i < canvasPoints.length - 1; i++) {
+                // Get control points for Catmull-Rom spline
+                const p0 = canvasPoints[Math.max(0, i - 1)];
+                const p1 = canvasPoints[i];
+                const p2 = canvasPoints[i + 1];
+                const p3 = canvasPoints[Math.min(canvasPoints.length - 1, i + 2)];
+                
+                // Calculate tangent vectors for smooth curves
+                const tension = 0.4; // Curve smoothness (0.0 = sharp corners, 1.0 = very smooth)
+                
+                // Catmull-Rom control points
+                const cp1x = p1.x + (p2.x - p0.x) * tension / 6;
+                const cp1y = p1.y + (p2.y - p0.y) * tension / 6;
+                
+                const cp2x = p2.x - (p3.x - p1.x) * tension / 6;
+                const cp2y = p2.y - (p3.y - p1.y) * tension / 6;
+                
+                // Draw cubic Bezier curve segment
+                this.ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, p2.x, p2.y);
             }
-            // Use same scale factor and baseline offset
-            let scaleFactor = 100;
-            let baselineOffset = 0;
-            if (window.timelineAnalysis && window.timelineAnalysis.bearGameState && 
-                window.timelineAnalysis.bearGameState.gameActive) {
-                const range = maxValue - minValue;
-                scaleFactor = range > 0 ? range : 100;
-                baselineOffset = -minValue;
-            }
-            const lastY = padding + height - ((lastYValue + baselineOffset) / scaleFactor * height);
-            
-            this.ctx.lineTo(lastX, lastY);
         }
         
         this.ctx.stroke();
         
-        // Draw points
-        if (!shouldFade) {
+        // Draw data points for reference (if not too cluttered)
+        if (!shouldFade && transformedPoints.length <= 15) {
             this.ctx.fillStyle = color;
-            data.forEach(point => {
-                const x = padding + point.position * width;
-                const y = padding + height - (point.scores[dimension] / 100 * height);
-                
+            canvasPoints.forEach(point => {
                 this.ctx.beginPath();
-                this.ctx.arc(x, y, 4, 0, Math.PI * 2);
+                this.ctx.arc(point.x, point.y, 3, 0, 2 * Math.PI);
                 this.ctx.fill();
+                
+                // Subtle white outline for visibility
+                this.ctx.strokeStyle = '#ffffff';
+                this.ctx.lineWidth = 1;
+                this.ctx.stroke();
+                this.ctx.strokeStyle = shouldFade ? color + '30' : color;
+                this.ctx.lineWidth = shouldFade ? 2 : 3;
             });
         }
+    }
+    
+    calculateWaveAmplitude(data, dimension) {
+        // Base amplitude on the intensity variation in the data
+        let totalVariation = 0;
+        let maxScore = 0;
+        
+        data.forEach(point => {
+            const score = point.scores[dimension];
+            maxScore = Math.max(maxScore, score);
+            if (data.length > 1) {
+                const avgScore = data.reduce((sum, p) => sum + p.scores[dimension], 0) / data.length;
+                totalVariation += Math.abs(score - avgScore);
+            }
+        });
+        
+        // More variation = bigger waves, higher scores = bigger waves
+        const variationFactor = totalVariation / Math.max(data.length, 1);
+        const intensityFactor = maxScore / 100;
+        
+        return Math.max(10, Math.min(40, 15 + variationFactor * 0.5 + intensityFactor * 20));
+    }
+    
+    calculateWaveFrequency(data, dimension) {
+        // More data points = higher frequency waves for detail
+        // Fewer points = lower frequency for smoother curves
+        const baseFrequency = 2; // Base number of wave cycles
+        const dataComplexity = Math.min(data.length / 10, 3); // Up to 3x frequency boost
+        
+        return baseFrequency + dataComplexity;
+    }
+    
+    calculateBaseAmplification(data, dimension) {
+        // Amplify based on weighted keyword density
+        let totalWeight = 0;
+        let totalKeywords = 0;
+        
+        data.forEach(point => {
+            const score = point.scores[dimension];
+            if (score > 0) {
+                totalWeight += score;
+                totalKeywords++;
+            }
+        });
+        
+        if (totalKeywords === 0) return 1.5; // Minimal amplification for no keywords
+        
+        const avgWeight = totalWeight / totalKeywords;
+        // Higher average weight = more amplification
+        return Math.max(1.5, Math.min(4.0, 1.5 + (avgWeight / 50)));
+    }
+    
+    applyWaveTransformation(point, dimension, waveAmplitude, waveFrequency, baseAmplification) {
+        // Get base score with weighted keyword influence
+        let yValue = point.scores[dimension];
+        
+        // Apply base amplification to enhance peaks and valleys
+        const deviation = yValue - 50;
+        yValue = 50 + (deviation * baseAmplification);
+        
+        // Create sin wave that travels through the data
+        // Use position to determine wave phase, creating a continuous wave
+        const wavePhase = point.position * Math.PI * waveFrequency;
+        
+        // Modulate wave amplitude based on data intensity at this point
+        const intensityModulation = Math.max(0.3, yValue / 100); // Never go below 30% amplitude
+        const modulatedAmplitude = waveAmplitude * intensityModulation;
+        
+        // Add the sin wave transformation
+        yValue += Math.sin(wavePhase) * modulatedAmplitude;
+        
+        return yValue;
     }
     
     startSparkles(data, dimension, padding, width, height) {
@@ -413,35 +525,49 @@ class TimelineChart {
         
         this.characterData.emoji = dimensionEmojis[dimension] || '🐻';
         
-        // Pre-calculate deformation parameters for physics
-        const difficultyMultiplier = 6.0;
-        const waveAmplitude = 100;
+        // Use the same wave calculation methods as drawLine
+        let waveAmplitude = this.calculateWaveAmplitude(data, dimension);
+        let waveFrequency = this.calculateWaveFrequency(data, dimension);
+        let baseAmplification = this.calculateBaseAmplification(data, dimension);
+        
+        // Enhanced amplification during bear game
+        waveAmplitude *= 2.5;
+        baseAmplification *= 2.0;
+        
+        // Pre-calculate all transformed values
         let minValue = Infinity;
         let maxValue = -Infinity;
+        const transformedPoints = [];
         
-        // Find min/max for scaling
         data.forEach(point => {
-            let yValue = point.scores[dimension];
-            const deviation = yValue - 50;
-            yValue = 50 + (deviation * difficultyMultiplier);
-            const wavePhase = point.position * Math.PI * 4;
-            yValue += Math.sin(wavePhase) * waveAmplitude;
-            minValue = Math.min(minValue, yValue);
-            maxValue = Math.max(maxValue, yValue);
+            const transformedY = this.applyWaveTransformation(
+                point, dimension, waveAmplitude, waveFrequency, baseAmplification
+            );
+            transformedPoints.push(transformedY);
+            minValue = Math.min(minValue, transformedY);
+            maxValue = Math.max(maxValue, transformedY);
         });
         
-        const range = maxValue - minValue;
-        const scaleFactor = range > 0 ? range : 100;
-        const baselineOffset = -minValue;
+        // Use fixed 0-100 scale for character animation consistency
+        const scaleFactor = 100;
+        const baselineOffset = 0;
+        
+        // Store wave parameters for physics calculations
+        this.characterData.waveParams = {
+            waveAmplitude,
+            waveFrequency,
+            baseAmplification,
+            scaleFactor,
+            baselineOffset,
+            transformedPoints
+        };
         
         // Helper to get actual deformed Y value
         const getDeformedY = (point) => {
-            let yValue = point.scores[dimension];
-            const deviation = yValue - 50;
-            yValue = 50 + (deviation * difficultyMultiplier);
-            const wavePhase = point.position * Math.PI * 4;
-            yValue += Math.sin(wavePhase) * waveAmplitude;
-            return (yValue + baselineOffset) / scaleFactor; // Normalized 0-1
+            const transformedY = this.applyWaveTransformation(
+                point, dimension, waveAmplitude, waveFrequency, baseAmplification
+            );
+            return (transformedY + baselineOffset) / scaleFactor; // Normalized 0-1
         };
         
         // Physics simulation
@@ -596,113 +722,65 @@ class TimelineChart {
         const nextIndex = Math.min(dataIndex + 1, data.length - 1);
         const localProgress = (pos * (data.length - 1)) % 1;
         
-        // Calculate difficulty multiplier (same as in drawLine)
-        let difficultyMultiplier = 1.0;
-        let waveAmplitude = 0;
-        let minValue = Infinity;
-        let maxValue = -Infinity;
+        // Use stored wave parameters from startSparkles
+        const waveParams = this.characterData.waveParams;
+        if (!waveParams) return; // Safety check
         
-        if (window.timelineAnalysis && window.timelineAnalysis.bearGameState && 
-            window.timelineAnalysis.bearGameState.gameActive) {
-            // Jump straight to maximum deformation!
-            difficultyMultiplier = 6.0;  // Full 6x peak heights
-            waveAmplitude = 100;  // Full wave interference
+        // Helper function to get transformed Y value at any position
+        const getTransformedY = (position) => {
+            // Create a virtual point at this position for wave calculation
+            const virtualPoint = {
+                position: position,
+                scores: {}
+            };
             
-            // Pre-calculate all values to find min/max
-            data.forEach(point => {
-                let yValue = point.scores[dimension];
-                const deviation = yValue - 50;
-                yValue = 50 + (deviation * difficultyMultiplier);
-                const wavePhase = point.position * Math.PI * 4;
-                yValue += Math.sin(wavePhase) * waveAmplitude;
-                
-                minValue = Math.min(minValue, yValue);
-                maxValue = Math.max(maxValue, yValue);
-            });
-        }
-        
-        // Apply same transformations to get the modified curve values
-        const getModifiedScore = (point, index) => {
-            let yValue = point.scores[dimension];
-            const deviation = yValue - 50;
-            yValue = 50 + (deviation * difficultyMultiplier);
-            const wavePhase = point.position * Math.PI * 4;
-            yValue += Math.sin(wavePhase) * waveAmplitude;
-            // During game, allow values to exceed normal bounds
-            if (window.timelineAnalysis && window.timelineAnalysis.bearGameState && 
-                window.timelineAnalysis.bearGameState.gameActive) {
-                return yValue; // No clamping during game
-            } else {
-                return Math.max(0, Math.min(100, yValue));
-            }
+            // Interpolate scores from nearby data points
+            const virtualDataIndex = position * (data.length - 1);
+            const lowerIndex = Math.floor(virtualDataIndex);
+            const upperIndex = Math.min(lowerIndex + 1, data.length - 1);
+            const interpolationProgress = virtualDataIndex - lowerIndex;
+            
+            const lowerScore = data[lowerIndex].scores[dimension];
+            const upperScore = data[upperIndex].scores[dimension];
+            virtualPoint.scores[dimension] = lowerScore + (upperScore - lowerScore) * interpolationProgress;
+            
+            // Apply wave transformation
+            return this.applyWaveTransformation(
+                virtualPoint, dimension, 
+                waveParams.waveAmplitude, 
+                waveParams.waveFrequency, 
+                waveParams.baseAmplification
+            );
         };
         
-        // Use Catmull-Rom spline for smooth curve following
-        const prevIndex = Math.max(dataIndex - 1, 0);
-        const futureIndex = Math.min(dataIndex + 2, data.length - 1);
-        
-        const p0 = getModifiedScore(data[prevIndex], prevIndex);
-        const p1 = getModifiedScore(data[dataIndex], dataIndex);
-        const p2 = getModifiedScore(data[nextIndex], nextIndex);
-        const p3 = getModifiedScore(data[futureIndex], futureIndex);
-        
-        // Catmull-Rom interpolation
-        const t = localProgress;
-        const t2 = t * t;
-        const t3 = t2 * t;
-        
-        const interpolatedY = 0.5 * (
-            (2 * p1) +
-            (-p0 + p2) * t +
-            (2 * p0 - 5 * p1 + 4 * p2 - p3) * t2 +
-            (-p0 + 3 * p1 - 3 * p2 + p3) * t3
-        );
+        // Get Y position using wave transformation
+        const interpolatedY = getTransformedY(pos);
         
         const x = padding + pos * width;
-        // Use same dynamic scaling and baseline offset for character position
-        let scaleFactor = 100;
-        let baselineOffset = 0;
-        if (window.timelineAnalysis && window.timelineAnalysis.bearGameState && 
-            window.timelineAnalysis.bearGameState.gameActive) {
-            const range = maxValue - minValue;
-            scaleFactor = range > 0 ? range : 100;
-            baselineOffset = -minValue;
-        }
-        const y = padding + height - ((interpolatedY + baselineOffset) / scaleFactor * height);
+        const y = padding + height - ((interpolatedY + waveParams.baselineOffset) / waveParams.scaleFactor * height);
         
-        // Calculate slope angle with modified scores
+        // Calculate slope angle using nearby points on the transformed curve
         const dx = 0.01;
         const nextPos = Math.min(pos + dx, 0.98);
-        const nextDataIndex = Math.floor(nextPos * (data.length - 1));
-        const nextLocalProgress = (nextPos * (data.length - 1)) % 1;
-        const nextY1 = getModifiedScore(data[nextDataIndex], nextDataIndex);
-        const nextY2 = nextDataIndex < data.length - 1 ? getModifiedScore(data[nextDataIndex + 1], nextDataIndex + 1) : nextY1;
-        const nextInterpolatedY = nextY1 + (nextY2 - nextY1) * nextLocalProgress;
-        const nextCanvasY = padding + height - ((nextInterpolatedY + baselineOffset) / scaleFactor * height);
+        const nextInterpolatedY = getTransformedY(nextPos);
+        const nextCanvasY = padding + height - ((nextInterpolatedY + waveParams.baselineOffset) / waveParams.scaleFactor * height);
         
         const slopeAngle = Math.atan2(nextCanvasY - y, dx * width);
         
         // Add ground offset so ball sits on top of the curve, not inside it
         const groundOffset = 15; // Ball radius
         
-        // Additional curve-hugging correction at extreme points
-        // Check if we're at a peak or valley by looking at slope change
-        const prevPos = Math.max(0, pos - 0.01);
-        const prevDataIndex = Math.floor(prevPos * (data.length - 1));
-        const prevY = getModifiedScore(data[prevDataIndex], prevDataIndex);
+        // Calculate curvature for curve-hugging behavior
+        const prevPos = Math.max(0, pos - dx);
+        const prevInterpolatedY = getTransformedY(prevPos);
         
-        const futurePos = Math.min(0.99, pos + 0.01);
-        const futureDataIndex = Math.floor(futurePos * (data.length - 1));
-        const futureY = getModifiedScore(data[futureDataIndex], futureDataIndex);
+        // Second derivative approximation for curvature
+        const curvature = (nextInterpolatedY - 2 * interpolatedY + prevInterpolatedY) / (dx * dx);
         
-        // Calculate curvature (second derivative approximation)
-        const curvature = (futureY - 2 * interpolatedY + prevY) / 0.0001;
-        
-        // At extreme curves, pull the ball closer to the curve
+        // At extreme curves, adjust ball position for better curve following
         let curveHugOffset = 0;
-        if (Math.abs(curvature) > 1000) { // Strong curvature
-            // Pull ball toward curve at peaks/valleys
-            curveHugOffset = Math.sign(curvature) * Math.min(Math.abs(curvature) / 200, 10);
+        if (Math.abs(curvature) > 500) { // Strong curvature threshold
+            curveHugOffset = Math.sign(curvature) * Math.min(Math.abs(curvature) / 100, 8);
         }
         
         this.drawCharacter(x, y - groundOffset + curveHugOffset, dimension, this.characterData.state || 'rolling', 
@@ -781,6 +859,212 @@ class TimelineChart {
         this.stopSparkles();
         this.currentData = null;
         this.currentKeywords = null;
+    }
+    
+    // 🐻 NEW: Draw smooth spline connecting keyword points with thermodynamic cooling
+    drawKeywordSpline(points, color, padding, width, height, shouldFade) {
+        if (points.length === 0) return;
+        
+        console.log(`🐻 Drawing thermodynamic spline for ${points.length} keyword points`);
+        
+        // Add start and end anchors at neutral position (50)
+        const neutralY = padding + height - (50 / 100) * height;
+        const extendedPoints = [
+            { position: 0, weight: 50, phrase: 'start', isAnchor: true },
+            ...points,
+            { position: 1, weight: 50, phrase: 'end', isAnchor: true }
+        ];
+        
+        // Convert all points to canvas coordinates
+        const canvasPoints = extendedPoints.map(point => ({
+            x: padding + point.position * width,
+            y: padding + height - (point.weight / 100) * height,
+            weight: point.weight,
+            phrase: point.phrase,
+            position: point.position,
+            isAnchor: point.isAnchor || false
+        }));
+        
+        // Set line style
+        this.ctx.strokeStyle = shouldFade ? this.fadeColor(color) : color;
+        this.ctx.lineWidth = shouldFade ? 1.5 : 2.5;
+        this.ctx.globalAlpha = shouldFade ? 0.3 : 0.8;
+        
+        this.ctx.beginPath();
+        
+        if (canvasPoints.length <= 2) {
+            // Fallback for very few points
+            this.ctx.moveTo(canvasPoints[0].x, canvasPoints[0].y);
+            if (canvasPoints.length === 2) {
+                this.ctx.lineTo(canvasPoints[1].x, canvasPoints[1].y);
+            }
+        } else {
+            // Draw thermodynamic cooling spline
+            this.drawThermodynamicSpline(canvasPoints, neutralY, width);
+        }
+        
+        this.ctx.stroke();
+        this.ctx.globalAlpha = 1.0;
+    }
+    
+    // 🐻 NEW: Draw precise dots at keyword positions
+    drawKeywordDots(points, color, padding, width, height, shouldFade) {
+        if (points.length === 0) return;
+        
+        console.log(`🐻 Drawing ${points.length} keyword dots`);
+        
+        points.forEach(point => {
+            const x = padding + point.position * width;
+            const y = padding + height - (point.weight / 100) * height;
+            
+            // Set dot style
+            this.ctx.fillStyle = shouldFade ? this.fadeColor(color) : color;
+            this.ctx.globalAlpha = shouldFade ? 0.4 : 0.9;
+            
+            // Draw dot
+            this.ctx.beginPath();
+            this.ctx.arc(x, y, shouldFade ? 3 : 4, 0, 2 * Math.PI);
+            this.ctx.fill();
+            
+            // Optional: Add weight text for high-weight keywords
+            if (point.weight >= 80 && !shouldFade) {
+                this.ctx.fillStyle = '#374151';
+                this.ctx.font = '9px -apple-system, BlinkMacSystemFont, sans-serif';
+                this.ctx.textAlign = 'center';
+                this.ctx.fillText(point.weight.toString(), x, y - 8);
+            }
+        });
+        
+        this.ctx.globalAlpha = 1.0;
+    }
+    
+    // 🐻 Helper: Draw Catmull-Rom spline path
+    drawCatmullRomPath(points) {
+        // Move to first point
+        this.ctx.moveTo(points[0].x, points[0].y);
+        
+        // For each segment, draw smooth curve
+        for (let i = 0; i < points.length - 1; i++) {
+            const p0 = points[Math.max(0, i - 1)];
+            const p1 = points[i];
+            const p2 = points[i + 1];
+            const p3 = points[Math.min(points.length - 1, i + 2)];
+            
+            // Calculate control points for smooth curve
+            const cp1x = p1.x + (p2.x - p0.x) / 6;
+            const cp1y = p1.y + (p2.y - p0.y) / 6;
+            const cp2x = p2.x - (p3.x - p1.x) / 6;
+            const cp2y = p2.y - (p3.y - p1.y) / 6;
+            
+            this.ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, p2.x, p2.y);
+        }
+    }
+    
+    // 🐻 NEW: Draw thermodynamic cooling spline with heat decay between keywords
+    drawThermodynamicSpline(canvasPoints, neutralY, totalWidth) {
+        // Parameters for cooling theory
+        const coolingRate = 0.8; // How strongly it pulls toward neutral (0.0 = no cooling, 1.0 = instant cooling)
+        const minTimeGap = 0.05; // Minimum time gap to apply cooling (5% of timeline)
+        
+        // Generate smooth curve path through all points with cooling applied
+        const smoothPath = this.generateCoolingPath(canvasPoints, neutralY, coolingRate, minTimeGap);
+        
+        // Draw the smooth spline through the cooling-adjusted path
+        this.drawSmoothSplinePath(smoothPath);
+    }
+    
+    // 🐻 NEW: Generate cooling path with intermediate points for smooth splines
+    generateCoolingPath(canvasPoints, neutralY, coolingRate, minTimeGap) {
+        const pathPoints = [canvasPoints[0]]; // Start with first point
+        
+        for (let i = 0; i < canvasPoints.length - 1; i++) {
+            const currentPoint = canvasPoints[i];
+            const nextPoint = canvasPoints[i + 1];
+            const timeGap = nextPoint.position - currentPoint.position;
+            
+            if (timeGap > minTimeGap) {
+                // Add cooling intermediate points for smooth spline
+                const intermediatePoints = this.generateCoolingPoints(currentPoint, nextPoint, neutralY, timeGap, coolingRate);
+                pathPoints.push(...intermediatePoints);
+            }
+            
+            // Always add the next keyword point
+            pathPoints.push(nextPoint);
+        }
+        
+        return pathPoints;
+    }
+    
+    // 🐻 NEW: Generate intermediate cooling points between two keywords
+    generateCoolingPoints(startPoint, endPoint, neutralY, timeGap, coolingRate) {
+        const numPoints = Math.max(3, Math.floor(timeGap * 15)); // More points for longer gaps
+        const intermediatePoints = [];
+        
+        for (let i = 1; i < numPoints; i++) {
+            const t = i / numPoints; // Progress between points (0 to 1)
+            
+            // Linear interpolation between start and end points
+            const baseX = startPoint.x + (endPoint.x - startPoint.x) * t;
+            const baseY = startPoint.y + (endPoint.y - startPoint.y) * t;
+            
+            // Calculate cooling effect - strongest in middle, weaker near keywords
+            const distanceFromStart = t;
+            const distanceFromEnd = 1 - t;
+            const coolingStrength = Math.min(distanceFromStart, distanceFromEnd) * 2;
+            
+            // Apply cooling toward neutral position
+            const coolingEffect = coolingRate * timeGap * coolingStrength;
+            const cooledY = baseY + (neutralY - baseY) * coolingEffect;
+            
+            intermediatePoints.push({
+                x: baseX,
+                y: cooledY,
+                weight: 50, // Intermediate points trend toward neutral
+                position: startPoint.position + (endPoint.position - startPoint.position) * t,
+                isIntermediate: true
+            });
+        }
+        
+        return intermediatePoints;
+    }
+    
+    // 🐻 NEW: Draw smooth spline path through all points (keywords + cooling intermediates)
+    drawSmoothSplinePath(pathPoints) {
+        if (pathPoints.length <= 1) return;
+        
+        this.ctx.moveTo(pathPoints[0].x, pathPoints[0].y);
+        
+        if (pathPoints.length === 2) {
+            this.ctx.lineTo(pathPoints[1].x, pathPoints[1].y);
+            return;
+        }
+        
+        // Draw smooth Catmull-Rom spline through all points
+        for (let i = 0; i < pathPoints.length - 1; i++) {
+            const p0 = pathPoints[Math.max(0, i - 1)];
+            const p1 = pathPoints[i];
+            const p2 = pathPoints[i + 1];
+            const p3 = pathPoints[Math.min(pathPoints.length - 1, i + 2)];
+            
+            // Calculate smooth control points
+            const tension = 0.4; // Curve smoothness
+            const cp1x = p1.x + (p2.x - p0.x) * tension / 6;
+            const cp1y = p1.y + (p2.y - p0.y) * tension / 6;
+            const cp2x = p2.x - (p3.x - p1.x) * tension / 6;
+            const cp2y = p2.y - (p3.y - p1.y) * tension / 6;
+            
+            // Draw smooth cubic bezier curve
+            this.ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, p2.x, p2.y);
+        }
+    }
+    
+    // 🐻 Helper: Fade color for non-highlighted dimensions
+    fadeColor(color) {
+        // Convert hex to rgba with reduced opacity
+        const r = parseInt(color.slice(1, 3), 16);
+        const g = parseInt(color.slice(3, 5), 16);
+        const b = parseInt(color.slice(5, 7), 16);
+        return `rgba(${r}, ${g}, ${b}, 0.3)`;
     }
 }
 

@@ -806,3 +806,37 @@
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
+
+/* Progressive UX Guidance Animations */
+
+/* Audio button pulse - gentle encouragement to try audio */
+@keyframes audioPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    }
+}
+
+.audio-pulse {
+    animation: audioPulse 2s ease-in-out infinite;
+}
+
+/* Investigate button pulse - encourages exploration */
+@keyframes investigatePulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    }
+}
+
+.investigate-pulse {
+    animation: investigatePulse 2s ease-in-out infinite;
+}

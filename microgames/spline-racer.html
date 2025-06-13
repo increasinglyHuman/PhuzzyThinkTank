@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spline Racer - Wild Physics Racing!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            user-select: none;
+        }
+        
+        #gameContainer {
+            width: 100%;
+            max-width: 1200px;
+            height: 100vh;
+            max-height: 800px;
+            position: relative;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        
+        #mainMenu {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.5s ease;
+        }
+        
+        .menu-title {
+            font-size: 5rem;
+            font-weight: 800;
+            color: white;
+            text-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .menu-subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 50px;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .menu-button {
+            padding: 20px 60px;
+            margin: 10px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 3px solid white;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .menu-button:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .menu-button:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+        
+        #gameCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        #gameUI {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 100;
+        }
+        
+        .hud {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hud-item {
+            margin: 10px 0;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 25px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .speed-meter {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            width: 200px;
+            height: 200px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+        }
+        
+        .speed-needle {
+            position: absolute;
+            width: 3px;
+            height: 80px;
+            background: #ff5722;
+            left: 50%;
+            bottom: 50%;
+            transform-origin: bottom center;
+            transform: translateX(-50%) rotate(-90deg);
+            transition: transform 0.2s ease;
+            box-shadow: 0 0 10px #ff5722;
+        }
+        
+        .speed-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 2rem;
+            font-weight: 800;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        
+        .power-up-container {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+        }
+        
+        .power-up-slot {
+            width: 80px;
+            height: 80px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+        
+        .power-up-slot.active {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: white;
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+        }
+        
+        .countdown {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 10rem;
+            font-weight: 800;
+            color: white;
+            text-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
+            animation: countdownPulse 1s ease-in-out;
+        }
+        
+        @keyframes countdownPulse {
+            0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+            50% { transform: translate(-50%, -50%) scale(1.2); }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+        
+        .finish-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 500;
+            backdrop-filter: blur(10px);
+        }
+        
+        .finish-title {
+            font-size: 4rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 30px;
+            text-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .finish-stats {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px 50px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 15px 0;
+            font-size: 1.5rem;
+            color: white;
+            min-width: 300px;
+        }
+        
+        .controls-hint {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .menu-title {
+                font-size: 3rem;
+            }
+            
+            .menu-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .menu-button {
+                padding: 15px 40px;
+                font-size: 1.1rem;
+            }
+            
+            .speed-meter {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .power-up-slot {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="gameContainer">
+        <!-- Main Menu -->
+        <div id="mainMenu">
+            <h1 class="menu-title">SPLINE RACER</h1>
+            <p class="menu-subtitle">Defy gravity, conquer the curves!</p>
+            <button class="menu-button" onclick="startGame('classic')">🏁 Classic Race</button>
+            <button class="menu-button" onclick="startGame('timeattack')">⏱️ Time Attack</button>
+            <button class="menu-button" onclick="startGame('endless')">∞ Endless Run</button>
+            <button class="menu-button" onclick="showTracks()">🗺️ Select Track</button>
+            <button class="menu-button" onclick="showUpgrades()">⚡ Upgrades</button>
+        </div>
+        
+        <!-- Game Canvas -->
+        <canvas id="gameCanvas"></canvas>
+        
+        <!-- Game UI Overlay -->
+        <div id="gameUI">
+            <div class="hud">
+                <div class="hud-item">🏆 Position: <span id="position">1st</span></div>
+                <div class="hud-item">⏱️ Time: <span id="time">0:00</span></div>
+                <div class="hud-item">💰 Coins: <span id="coins">0</span></div>
+                <div class="hud-item">🔥 Streak: <span id="streak">0</span></div>
+            </div>
+            
+            <div class="speed-meter">
+                <div class="speed-needle" id="speedNeedle"></div>
+                <div class="speed-text" id="speedText">0</div>
+            </div>
+            
+            <div class="power-up-container">
+                <div class="power-up-slot" id="powerSlot1"></div>
+                <div class="power-up-slot" id="powerSlot2"></div>
+                <div class="power-up-slot" id="powerSlot3"></div>
+            </div>
+            
+            <div class="controls-hint">
+                SPACE/Click = Boost | ← → = Steer | 1-3 = Use Power-up
+            </div>
+        </div>
+        
+        <!-- Countdown -->
+        <div class="countdown" id="countdown" style="display: none;"></div>
+        
+        <!-- Finish Screen -->
+        <div class="finish-screen" id="finishScreen">
+            <h2 class="finish-title" id="finishTitle">RACE COMPLETE!</h2>
+            <div class="finish-stats">
+                <div class="stat-row">
+                    <span>Final Position:</span>
+                    <span id="finalPosition">1st</span>
+                </div>
+                <div class="stat-row">
+                    <span>Time:</span>
+                    <span id="finalTime">0:00</span>
+                </div>
+                <div class="stat-row">
+                    <span>Coins Collected:</span>
+                    <span id="finalCoins">0</span>
+                </div>
+                <div class="stat-row">
+                    <span>Best Streak:</span>
+                    <span id="finalStreak">0</span>
+                </div>
+                <div class="stat-row">
+                    <span>Rewards:</span>
+                    <span id="finalRewards">+100 XP</span>
+                </div>
+            </div>
+            <button class="menu-button" onclick="backToMenu()">Back to Menu</button>
+            <button class="menu-button" onclick="restartRace()">Race Again</button>
+        </div>
+    </div>
+    
+    <script>
+        // Game State
+        const gameState = {
+            mode: null,
+            track: 'mountain',
+            state: 'menu', // menu, countdown, racing, finished
+            startTime: null,
+            elapsedTime: 0,
+            coins: 0,
+            streak: 0,
+            bestStreak: 0,
+            powerUps: [null, null, null],
+            upgrades: {
+                speed: 0,
+                acceleration: 0,
+                handling: 0,
+                boost: 0
+            }
+        };
+        
+        // Canvas Setup
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const gameContainer = document.getElementById('gameContainer');
+        
+        function resizeCanvas() {
+            canvas.width = gameContainer.offsetWidth;
+            canvas.height = gameContainer.offsetHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        
+        // Track System
+        class Track {
+            constructor(config) {
+                this.name = config.name;
+                this.theme = config.theme;
+                this.difficulty = config.difficulty;
+                this.length = config.length || 200;
+                this.data = [];
+                this.collectibles = [];
+                this.obstacles = [];
+                this.powerUpSpawns = [];
+                this.generate();
+            }
+            
+            generate() {
+                // Generate track data with more variety
+                for (let i = 0; i <= this.length; i++) {
+                    const t = i / this.length;
+                    let height;
+                    
+                    // Force specific heights at start and end
+                    if (i === 0) {
+                        height = 80; // Start high
+                    } else if (i === this.length) {
+                        height = 20; // End low
+                    } else {
+                        // Base progression from high to low
+                        const baseHeight = 80 - (60 * t);
+                        
+                        // Add various wave patterns based on theme
+                        switch(this.theme) {
+                            case 'mountain':
+                                height = baseHeight + 
+                                    20 * Math.sin(t * Math.PI * 4) * (1 - t * 0.5) +
+                                    15 * Math.sin(t * Math.PI * 12) * (1 - t * 0.7) +
+                                    10 * Math.sin(t * Math.PI * 24) * (1 - t * 0.8) +
+                                    5 * Math.sin(t * Math.PI * 48) * (1 - t * 0.9);
+                                break;
+                            case 'desert':
+                                // Rolling dunes
+                                height = baseHeight + 
+                                    25 * Math.sin(t * Math.PI * 3) * (1 - t * 0.4) +
+                                    10 * Math.sin(t * Math.PI * 8) * (1 - t * 0.6);
+                                break;
+                            case 'space':
+                                // Wild loops and inversions
+                                height = baseHeight + 
+                                    30 * Math.sin(t * Math.PI * 2) * (1 - t * 0.3) +
+                                    20 * Math.cos(t * Math.PI * 6) * (1 - t * 0.5) +
+                                    15 * Math.sin(t * Math.PI * 16) * (1 - t * 0.8);
+                                break;
+                            default:
+                                height = baseHeight + 
+                                    15 * Math.sin(t * Math.PI * 4) * (1 - t * 0.5);
+                        }
+                    }
+                    
+                    // Clamp heights
+                    height = Math.max(10, Math.min(90, height));
+                    
+                    this.data.push({
+                        x: t,
+                        y: height / 100,
+                        surface: this.getSurface(t)
+                    });
+                }
+                
+                // Generate collectibles (coins)
+                for (let i = 0; i < this.length * 2; i++) {
+                    const t = Math.random();
+                    const trackY = this.getHeightAt(t);
+                    this.collectibles.push({
+                        x: t,
+                        y: trackY + 0.05 + Math.random() * 0.1,
+                        type: 'coin',
+                        collected: false,
+                        value: 10
+                    });
+                }
+                
+                // Generate obstacles
+                const obstacleCount = Math.floor(this.difficulty * 10);
+                for (let i = 0; i < obstacleCount; i++) {
+                    const t = 0.1 + Math.random() * 0.8; // Not at start or end
+                    this.obstacles.push({
+                        x: t,
+                        y: this.getHeightAt(t),
+                        type: Math.random() > 0.5 ? 'spike' : 'barrier',
+                        width: 0.02,
+                        active: true
+                    });
+                }
+                
+                // Generate power-up spawns
+                for (let i = 0; i < 10; i++) {
+                    const t = 0.1 + (i * 0.08);
+                    this.powerUpSpawns.push({
+                        x: t,
+                        y: this.getHeightAt(t) + 0.1,
+                        type: this.randomPowerUp(),
+                        collected: false
+                    });
+                }
+            }
+            
+            getSurface(t) {
+                // Different surface types affect physics
+                if (this.theme === 'desert' && Math.sin(t * Math.PI * 8) > 0.7) {
+                    return 'sand'; // Slower
+                } else if (this.theme === 'space' && Math.sin(t * Math.PI * 16) > 0.8) {
+                    return 'boost'; // Speed strips
+                } else if (this.theme === 'mountain' && Math.sin(t * Math.PI * 32) > 0.9) {
+                    return 'ice'; // Slippery
+                }
+                return 'normal';
+            }
+            
+            getHeightAt(t) {
+                const index = Math.floor(t * (this.data.length - 1));
+                const nextIndex = Math.min(index + 1, this.data.length - 1);
+                const localT = (t * (this.data.length - 1)) % 1;
+                
+                return this.data[index].y + 
+                    (this.data[nextIndex].y - this.data[index].y) * localT;
+            }
+            
+            randomPowerUp() {
+                const powerUps = ['🚀', '🛡️', '🧲', '⚡', '❄️', '🌟'];
+                return powerUps[Math.floor(Math.random() * powerUps.length)];
+            }
+        }
+        
+        // Physics System
+        class PhysicsBody {
+            constructor(x = 0, y = 0) {
+                this.position = { x, y };
+                this.velocity = { x: 0, y: 0 };
+                this.mass = 1;
+                this.radius = 0.015;
+                this.onGround = false;
+                this.airTime = 0;
+            }
+            
+            applyForce(force) {
+                this.velocity.x += force.x / this.mass;
+                this.velocity.y += force.y / this.mass;
+            }
+            
+            update(deltaTime, track) {
+                // Get track height at current position
+                const trackY = track.getHeightAt(this.position.x);
+                const nextTrackY = track.getHeightAt(this.position.x + 0.01);
+                const slope = (nextTrackY - trackY) * 100;
+                
+                // Surface effects
+                const surface = track.data[Math.floor(this.position.x * track.data.length)].surface;
+                let surfaceFriction = 0.98;
+                let surfaceAccel = 1;
+                
+                switch(surface) {
+                    case 'ice':
+                        surfaceFriction = 0.995;
+                        break;
+                    case 'sand':
+                        surfaceFriction = 0.96;
+                        surfaceAccel = 0.7;
+                        break;
+                    case 'boost':
+                        this.velocity.x += 0.001;
+                        break;
+                }
+                
+                // Rail physics
+                if (this.position.y <= trackY + this.radius) {
+                    this.onGround = true;
+                    this.airTime = 0;
+                    this.position.y = trackY + this.radius;
+                    
+                    // Convert slope to angle
+                    const angle = Math.atan2(slope, 100);
+                    const gravity = 0.0005;
+                    const gravityComponent = gravity * Math.sin(angle) * surfaceAccel;
+                    
+                    // Apply gravity along the slope
+                    this.velocity.x -= gravityComponent * 3;
+                    
+                    // Apply friction
+                    this.velocity.x *= surfaceFriction;
+                    this.velocity.y = 0;
+                } else {
+                    // Airborne
+                    this.onGround = false;
+                    this.airTime += deltaTime;
+                    this.velocity.y -= 0.001; // Gravity
+                }
+                
+                // Update position
+                this.position.x += this.velocity.x * deltaTime;
+                this.position.y += this.velocity.y * deltaTime;
+                
+                // Boundaries
+                this.position.x = Math.max(0, Math.min(1, this.position.x));
+            }
+        }
+        
+        // Racer Class
+        class Racer {
+            constructor(name, color, isPlayer = false) {
+                this.name = name;
+                this.color = color;
+                this.isPlayer = isPlayer;
+                this.physics = new PhysicsBody(0.01, 0.8);
+                this.boostPower = 0;
+                this.shield = false;
+                this.magnet = false;
+                this.finished = false;
+                this.finishTime = null;
+                this.trail = [];
+                this.maxTrailLength = 20;
+            }
+            
+            update(deltaTime, track) {
+                // Store trail for visual effect
+                this.trail.push({
+                    x: this.physics.position.x,
+                    y: this.physics.position.y,
+                    time: Date.now()
+                });
+                
+                if (this.trail.length > this.maxTrailLength) {
+                    this.trail.shift();
+                }
+                
+                // Update physics
+                this.physics.update(deltaTime, track);
+                
+                // Apply boost
+                if (this.boostPower > 0) {
+                    this.physics.velocity.x += 0.0002 * this.boostPower;
+                    this.boostPower *= 0.95;
+                    if (this.boostPower < 0.1) this.boostPower = 0;
+                }
+                
+                // AI behavior
+                if (!this.isPlayer && !this.finished) {
+                    this.aiUpdate(track);
+                }
+                
+                // Check finish
+                if (this.physics.position.x >= 0.99 && !this.finished) {
+                    this.finished = true;
+                    this.finishTime = Date.now();
+                }
+            }
+            
+            aiUpdate(track) {
+                // Simple AI - boost at good times
+                const trackY = track.getHeightAt(this.physics.position.x);
+                const nextTrackY = track.getHeightAt(this.physics.position.x + 0.02);
+                const slope = nextTrackY - trackY;
+                
+                // Boost on downhills and when too slow
+                if ((slope < -0.01 || Math.abs(this.physics.velocity.x) < 0.0005) && Math.random() < 0.1) {
+                    this.boost();
+                }
+            }
+            
+            boost() {
+                if (this.physics.onGround) {
+                    this.boostPower = 5;
+                    this.physics.velocity.x += 0.001;
+                }
+            }
+            
+            draw(ctx, camera, track) {
+                const screenX = (this.physics.position.x - camera.x) * camera.zoom + canvas.width / 2;
+                const screenY = canvas.height - (this.physics.position.y * canvas.height);
+                
+                // Draw trail
+                ctx.strokeStyle = this.color + '40';
+                ctx.lineWidth = this.physics.radius * camera.zoom * 1.5;
+                ctx.beginPath();
+                this.trail.forEach((point, i) => {
+                    const x = (point.x - camera.x) * camera.zoom + canvas.width / 2;
+                    const y = canvas.height - (point.y * canvas.height);
+                    if (i === 0) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                });
+                ctx.stroke();
+                
+                // Draw shield effect
+                if (this.shield) {
+                    ctx.fillStyle = 'rgba(0, 255, 255, 0.3)';
+                    ctx.beginPath();
+                    ctx.arc(screenX, screenY, this.physics.radius * camera.zoom * 2, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                
+                // Draw magnet effect
+                if (this.magnet) {
+                    ctx.strokeStyle = 'rgba(255, 0, 255, 0.5)';
+                    ctx.lineWidth = 2;
+                    for (let i = 1; i <= 3; i++) {
+                        ctx.beginPath();
+                        ctx.arc(screenX, screenY, this.physics.radius * camera.zoom * (2 + i), 0, Math.PI * 2);
+                        ctx.stroke();
+                    }
+                }
+                
+                // Draw racer
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(screenX, screenY, this.physics.radius * camera.zoom, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // Add highlight
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+                ctx.beginPath();
+                ctx.arc(
+                    screenX - this.physics.radius * camera.zoom * 0.3, 
+                    screenY - this.physics.radius * camera.zoom * 0.3, 
+                    this.physics.radius * camera.zoom * 0.3, 
+                    0, Math.PI * 2
+                );
+                ctx.fill();
+                
+                // Draw boost effect
+                if (this.boostPower > 0) {
+                    const boostIntensity = this.boostPower / 5;
+                    ctx.fillStyle = `rgba(255, 200, 0, ${boostIntensity * 0.3})`;
+                    ctx.beginPath();
+                    ctx.arc(screenX, screenY, this.physics.radius * camera.zoom * (1 + boostIntensity), 0, Math.PI * 2);
+                    ctx.fill();
+                    
+                    // Boost particles
+                    for (let i = 0; i < 3; i++) {
+                        const angle = Math.random() * Math.PI + Math.PI;
+                        const dist = Math.random() * 30 * boostIntensity;
+                        ctx.fillStyle = `rgba(255, ${100 + Math.random() * 155}, 0, ${Math.random()})`;
+                        ctx.fillRect(
+                            screenX + Math.cos(angle) * dist,
+                            screenY + Math.sin(angle) * dist,
+                            5, 5
+                        );
+                    }
+                }
+                
+                // Draw name above racer
+                if (this.isPlayer) {
+                    ctx.fillStyle = 'white';
+                    ctx.font = 'bold 14px Arial';
+                    ctx.textAlign = 'center';
+                    ctx.fillText(this.name, screenX, screenY - this.physics.radius * camera.zoom - 10);
+                }
+            }
+        }
+        
+        // Camera System
+        class Camera {
+            constructor() {
+                this.x = 0;
+                this.y = 0.5;
+                this.zoom = 800;
+                this.targetX = 0;
+                this.targetZoom = 800;
+            }
+            
+            follow(target) {
+                // Smooth camera follow
+                this.targetX = target.physics.position.x - 0.3; // Keep target on left third
+                this.x += (this.targetX - this.x) * 0.1;
+                
+                // Dynamic zoom based on speed
+                const speed = Math.abs(target.physics.velocity.x);
+                this.targetZoom = 800 - speed * 20000;
+                this.targetZoom = Math.max(600, Math.min(1000, this.targetZoom));
+                this.zoom += (this.targetZoom - this.zoom) * 0.05;
+            }
+        }
+        
+        // Game Manager
+        class GameManager {
+            constructor() {
+                this.track = null;
+                this.racers = [];
+                this.player = null;
+                this.camera = new Camera();
+                this.particles = [];
+                this.animationId = null;
+                this.lastTime = 0;
+                this.countdown = 3;
+                this.raceStartTime = null;
+            }
+            
+            init(mode, trackName) {
+                // Create track
+                const trackConfigs = {
+                    mountain: { name: 'Mountain Pass', theme: 'mountain', difficulty: 1, length: 300 },
+                    desert: { name: 'Desert Dunes', theme: 'desert', difficulty: 1.5, length: 250 },
+                    space: { name: 'Space Loop', theme: 'space', difficulty: 2, length: 400 }
+                };
+                
+                this.track = new Track(trackConfigs[trackName] || trackConfigs.mountain);
+                
+                // Create racers
+                this.racers = [];
+                
+                // Player
+                this.player = new Racer('Player', '#00ff00', true);
+                this.racers.push(this.player);
+                
+                // AI racers
+                const aiNames = ['Speedy', 'Rocket', 'Thunder', 'Flash'];
+                const aiColors = ['#ff0000', '#0000ff', '#ffff00', '#ff00ff'];
+                
+                for (let i = 0; i < 4; i++) {
+                    const ai = new Racer(aiNames[i], aiColors[i], false);
+                    this.racers.push(ai);
+                }
+                
+                // Position racers at start
+                this.racers.forEach((racer, i) => {
+                    racer.physics.position.x = 0.01;
+                    racer.physics.position.y = 0.85 - (i * 0.02);
+                });
+                
+                // Reset game state
+                gameState.state = 'countdown';
+                gameState.coins = 0;
+                gameState.streak = 0;
+                gameState.bestStreak = 0;
+                this.countdown = 3;
+            }
+            
+            start() {
+                this.lastTime = performance.now();
+                this.animate();
+            }
+            
+            stop() {
+                if (this.animationId) {
+                    cancelAnimationFrame(this.animationId);
+                    this.animationId = null;
+                }
+            }
+            
+            animate() {
+                const currentTime = performance.now();
+                const deltaTime = Math.min(currentTime - this.lastTime, 32); // Cap at ~30fps min
+                this.lastTime = currentTime;
+                
+                this.update(deltaTime);
+                this.render();
+                
+                this.animationId = requestAnimationFrame(() => this.animate());
+            }
+            
+            update(deltaTime) {
+                // Handle countdown
+                if (gameState.state === 'countdown') {
+                    this.countdown -= deltaTime / 1000;
+                    document.getElementById('countdown').style.display = 'block';
+                    document.getElementById('countdown').textContent = Math.ceil(this.countdown);
+                    
+                    if (this.countdown <= 0) {
+                        gameState.state = 'racing';
+                        this.raceStartTime = Date.now();
+                        document.getElementById('countdown').textContent = 'GO!';
+                        setTimeout(() => {
+                            document.getElementById('countdown').style.display = 'none';
+                        }, 500);
+                    }
+                    return;
+                }
+                
+                if (gameState.state !== 'racing') return;
+                
+                // Update racers
+                this.racers.forEach(racer => {
+                    racer.update(deltaTime, this.track);
+                });
+                
+                // Camera follow player
+                this.camera.follow(this.player);
+                
+                // Check collisions
+                this.checkCollisions();
+                
+                // Update particles
+                this.particles = this.particles.filter(p => {
+                    p.life -= deltaTime;
+                    p.y += p.vy * deltaTime / 1000;
+                    p.x += p.vx * deltaTime / 1000;
+                    return p.life > 0;
+                });
+                
+                // Update UI
+                this.updateUI();
+                
+                // Check race end
+                if (this.player.finished && gameState.state === 'racing') {
+                    this.endRace();
+                }
+            }
+            
+            checkCollisions() {
+                const playerX = this.player.physics.position.x;
+                const playerY = this.player.physics.position.y;
+                
+                // Check coins
+                this.track.collectibles.forEach(coin => {
+                    if (!coin.collected) {
+                        const dist = Math.sqrt(
+                            Math.pow(coin.x - playerX, 2) + 
+                            Math.pow(coin.y - playerY, 2)
+                        );
+                        
+                        if (dist < 0.05 || (this.player.magnet && dist < 0.15)) {
+                            coin.collected = true;
+                            gameState.coins += coin.value;
+                            gameState.streak++;
+                            gameState.bestStreak = Math.max(gameState.streak, gameState.bestStreak);
+                            this.createCoinParticles(coin.x, coin.y);
+                        }
+                    }
+                });
+                
+                // Check power-ups
+                this.track.powerUpSpawns.forEach(powerUp => {
+                    if (!powerUp.collected) {
+                        const dist = Math.sqrt(
+                            Math.pow(powerUp.x - playerX, 2) + 
+                            Math.pow(powerUp.y - playerY, 2)
+                        );
+                        
+                        if (dist < 0.05) {
+                            powerUp.collected = true;
+                            this.collectPowerUp(powerUp.type);
+                        }
+                    }
+                });
+                
+                // Check obstacles
+                if (!this.player.shield) {
+                    this.track.obstacles.forEach(obstacle => {
+                        if (obstacle.active) {
+                            const dist = Math.abs(obstacle.x - playerX);
+                            if (dist < obstacle.width && 
+                                Math.abs(obstacle.y - playerY) < 0.05) {
+                                // Hit obstacle
+                                this.player.physics.velocity.x *= 0.5;
+                                gameState.streak = 0;
+                                obstacle.active = false;
+                                this.createHitParticles(obstacle.x, obstacle.y);
+                            }
+                        }
+                    });
+                }
+            }
+            
+            collectPowerUp(type) {
+                // Find empty slot
+                for (let i = 0; i < 3; i++) {
+                    if (!gameState.powerUps[i]) {
+                        gameState.powerUps[i] = type;
+                        document.getElementById(`powerSlot${i + 1}`).textContent = type;
+                        document.getElementById(`powerSlot${i + 1}`).classList.add('active');
+                        break;
+                    }
+                }
+            }
+            
+            usePowerUp(slot) {
+                const powerUp = gameState.powerUps[slot];
+                if (!powerUp) return;
+                
+                gameState.powerUps[slot] = null;
+                document.getElementById(`powerSlot${slot + 1}`).textContent = '';
+                document.getElementById(`powerSlot${slot + 1}`).classList.remove('active');
+                
+                switch(powerUp) {
+                    case '🚀': // Boost
+                        this.player.boostPower = 5;
+                        break;
+                    case '🛡️': // Shield
+                        this.player.shield = true;
+                        setTimeout(() => this.player.shield = false, 5000);
+                        break;
+                    case '🧲': // Magnet
+                        this.player.magnet = true;
+                        setTimeout(() => this.player.magnet = false, 3000);
+                        break;
+                    case '⚡': // Lightning
+                        // Slow down nearby racers
+                        this.racers.forEach(racer => {
+                            if (racer !== this.player) {
+                                racer.physics.velocity.x *= 0.5;
+                            }
+                        });
+                        break;
+                    case '❄️': // Freeze
+                        // Freeze track ahead
+                        const freezeStart = this.player.physics.position.x + 0.05;
+                        const freezeEnd = freezeStart + 0.1;
+                        // Would modify track surface type
+                        break;
+                    case '🌟': // Star power
+                        this.player.boostPower = 3;
+                        this.player.shield = true;
+                        this.player.magnet = true;
+                        setTimeout(() => {
+                            this.player.shield = false;
+                            this.player.magnet = false;
+                        }, 3000);
+                        break;
+                }
+            }
+            
+            createCoinParticles(x, y) {
+                for (let i = 0; i < 10; i++) {
+                    this.particles.push({
+                        x, y,
+                        vx: (Math.random() - 0.5) * 0.2,
+                        vy: Math.random() * 0.2 + 0.1,
+                        color: '#ffdd00',
+                        size: 3,
+                        life: 1000
+                    });
+                }
+            }
+            
+            createHitParticles(x, y) {
+                for (let i = 0; i < 15; i++) {
+                    this.particles.push({
+                        x, y,
+                        vx: (Math.random() - 0.5) * 0.3,
+                        vy: Math.random() * 0.3,
+                        color: '#ff0000',
+                        size: 4,
+                        life: 800
+                    });
+                }
+            }
+            
+            updateUI() {
+                // Update time
+                const elapsed = (Date.now() - this.raceStartTime) / 1000;
+                const minutes = Math.floor(elapsed / 60);
+                const seconds = (elapsed % 60).toFixed(1);
+                document.getElementById('time').textContent = `${minutes}:${seconds.padStart(4, '0')}`;
+                
+                // Update position
+                const position = this.racers.filter(r => 
+                    r.physics.position.x > this.player.physics.position.x
+                ).length + 1;
+                const positions = ['1st', '2nd', '3rd', '4th', '5th'];
+                document.getElementById('position').textContent = positions[position - 1];
+                
+                // Update coins and streak
+                document.getElementById('coins').textContent = gameState.coins;
+                document.getElementById('streak').textContent = gameState.streak;
+                
+                // Update speedometer
+                const speed = Math.abs(this.player.physics.velocity.x) * 1000;
+                const angle = -90 + (speed * 180); // -90 to 90 degrees
+                document.getElementById('speedNeedle').style.transform = 
+                    `translateX(-50%) rotate(${angle}deg)`;
+                document.getElementById('speedText').textContent = Math.round(speed);
+            }
+            
+            endRace() {
+                gameState.state = 'finished';
+                
+                // Calculate final stats
+                const position = this.racers.filter(r => 
+                    r.finished && r.finishTime < this.player.finishTime
+                ).length + 1;
+                
+                const elapsed = (this.player.finishTime - this.raceStartTime) / 1000;
+                const minutes = Math.floor(elapsed / 60);
+                const seconds = (elapsed % 60).toFixed(1);
+                
+                // Update finish screen
+                const positions = ['1st', '2nd', '3rd', '4th', '5th'];
+                document.getElementById('finalPosition').textContent = positions[position - 1];
+                document.getElementById('finalTime').textContent = `${minutes}:${seconds.padStart(4, '0')}`;
+                document.getElementById('finalCoins').textContent = gameState.coins;
+                document.getElementById('finalStreak').textContent = gameState.bestStreak;
+                
+                // Calculate rewards
+                const baseXP = 100;
+                const positionBonus = (5 - position) * 50;
+                const coinBonus = gameState.coins;
+                const totalXP = baseXP + positionBonus + coinBonus;
+                document.getElementById('finalRewards').textContent = `+${totalXP} XP`;
+                
+                // Show finish screen
+                document.getElementById('finishScreen').style.display = 'flex';
+            }
+            
+            render() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Draw background
+                this.drawBackground();
+                
+                // Draw track
+                this.drawTrack();
+                
+                // Draw collectibles
+                this.drawCollectibles();
+                
+                // Draw obstacles
+                this.drawObstacles();
+                
+                // Draw power-ups
+                this.drawPowerUps();
+                
+                // Draw particles (behind racers)
+                this.drawParticles();
+                
+                // Draw racers
+                this.racers.forEach(racer => {
+                    racer.draw(ctx, this.camera, this.track);
+                });
+            }
+            
+            drawBackground() {
+                // Sky gradient
+                const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+                
+                switch(this.track.theme) {
+                    case 'mountain':
+                        gradient.addColorStop(0, '#87CEEB');
+                        gradient.addColorStop(1, '#98D8C8');
+                        break;
+                    case 'desert':
+                        gradient.addColorStop(0, '#FDB813');
+                        gradient.addColorStop(1, '#F7931E');
+                        break;
+                    case 'space':
+                        gradient.addColorStop(0, '#000428');
+                        gradient.addColorStop(1, '#004e92');
+                        break;
+                }
+                
+                ctx.fillStyle = gradient;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                // Parallax background elements
+                this.drawParallaxElements();
+            }
+            
+            drawParallaxElements() {
+                const parallaxLayers = [
+                    { speed: 0.1, elements: [] },
+                    { speed: 0.3, elements: [] },
+                    { speed: 0.5, elements: [] }
+                ];
+                
+                // Generate elements based on theme
+                switch(this.track.theme) {
+                    case 'mountain':
+                        // Mountains in background
+                        for (let i = 0; i < 10; i++) {
+                            const x = (i * 0.2 - this.camera.x * 0.1) % 2;
+                            const screenX = x * this.camera.zoom + canvas.width / 2;
+                            
+                            ctx.fillStyle = 'rgba(100, 100, 100, 0.3)';
+                            ctx.beginPath();
+                            ctx.moveTo(screenX - 100, canvas.height);
+                            ctx.lineTo(screenX, canvas.height * 0.3);
+                            ctx.lineTo(screenX + 100, canvas.height);
+                            ctx.fill();
+                        }
+                        break;
+                    case 'space':
+                        // Stars
+                        ctx.fillStyle = 'white';
+                        for (let i = 0; i < 100; i++) {
+                            const x = ((i * 0.01 - this.camera.x * 0.05) % 1) * canvas.width;
+                            const y = (i * 47) % canvas.height;
+                            ctx.fillRect(x, y, 2, 2);
+                        }
+                        break;
+                }
+            }
+            
+            drawTrack() {
+                ctx.strokeStyle = this.track.theme === 'space' ? '#00ffff' : '#666';
+                ctx.lineWidth = 8;
+                ctx.lineCap = 'round';
+                ctx.lineJoin = 'round';
+                
+                ctx.beginPath();
+                let firstPoint = true;
+                
+                for (let i = 0; i < this.track.data.length; i++) {
+                    const point = this.track.data[i];
+                    const screenX = (point.x - this.camera.x) * this.camera.zoom + canvas.width / 2;
+                    const screenY = canvas.height - (point.y * canvas.height);
+                    
+                    if (screenX < -100 || screenX > canvas.width + 100) continue;
+                    
+                    if (firstPoint) {
+                        ctx.moveTo(screenX, screenY);
+                        firstPoint = false;
+                    } else {
+                        ctx.lineTo(screenX, screenY);
+                    }
+                }
+                ctx.stroke();
+                
+                // Draw surface effects
+                for (let i = 0; i < this.track.data.length - 1; i++) {
+                    const point = this.track.data[i];
+                    const screenX = (point.x - this.camera.x) * this.camera.zoom + canvas.width / 2;
+                    const screenY = canvas.height - (point.y * canvas.height);
+                    
+                    if (screenX < -100 || screenX > canvas.width + 100) continue;
+                    
+                    switch(point.surface) {
+                        case 'ice':
+                            ctx.strokeStyle = 'rgba(200, 200, 255, 0.5)';
+                            ctx.lineWidth = 12;
+                            ctx.beginPath();
+                            ctx.moveTo(screenX, screenY);
+                            const nextPoint = this.track.data[i + 1];
+                            const nextX = (nextPoint.x - this.camera.x) * this.camera.zoom + canvas.width / 2;
+                            const nextY = canvas.height - (nextPoint.y * canvas.height);
+                            ctx.lineTo(nextX, nextY);
+                            ctx.stroke();
+                            break;
+                        case 'boost':
+                            // Draw arrows
+                            ctx.fillStyle = 'rgba(0, 255, 0, 0.5)';
+                            ctx.save();
+                            ctx.translate(screenX, screenY);
+                            ctx.rotate(-Math.PI / 4);
+                            ctx.fillRect(-5, -2, 10, 4);
+                            ctx.restore();
+                            break;
+                    }
+                }
+            }
+            
+            drawCollectibles() {
+                this.track.collectibles.forEach(coin => {
+                    if (coin.collected) return;
+                    
+                    const screenX = (coin.x - this.camera.x) * this.camera.zoom + canvas.width / 2;
+                    const screenY = canvas.height - (coin.y * canvas.height);
+                    
+                    if (screenX < -50 || screenX > canvas.width + 50) return;
+                    
+                    // Coin glow
+                    ctx.fillStyle = 'rgba(255, 215, 0, 0.3)';
+                    ctx.beginPath();
+                    ctx.arc(screenX, screenY, 20, 0, Math.PI * 2);
+                    ctx.fill();
+                    
+                    // Coin
+                    ctx.fillStyle = '#ffdd00';
+                    ctx.beginPath();
+                    ctx.arc(screenX, screenY, 10, 0, Math.PI * 2);
+                    ctx.fill();
+                    
+                    // Shine
+                    ctx.fillStyle = '#ffff88';
+                    ctx.beginPath();
+                    ctx.arc(screenX - 3, screenY - 3, 3, 0, Math.PI * 2);
+                    ctx.fill();
+                });
+            }
+            
+            drawObstacles() {
+                this.track.obstacles.forEach(obstacle => {
+                    if (!obstacle.active) return;
+                    
+                    const screenX = (obstacle.x - this.camera.x) * this.camera.zoom + canvas.width / 2;
+                    const screenY = canvas.height - (obstacle.y * canvas.height);
+                    
+                    if (screenX < -50 || screenX > canvas.width + 50) return;
+                    
+                    ctx.fillStyle = '#ff0000';
+                    
+                    if (obstacle.type === 'spike') {
+                        // Draw spike
+                        ctx.beginPath();
+                        ctx.moveTo(screenX - 10, screenY);
+                        ctx.lineTo(screenX, screenY - 30);
+                        ctx.lineTo(screenX + 10, screenY);
+                        ctx.fill();
+                    } else {
+                        // Draw barrier
+                        ctx.fillRect(screenX - 15, screenY - 40, 30, 40);
+                    }
+                });
+            }
+            
+            drawPowerUps() {
+                this.track.powerUpSpawns.forEach(powerUp => {
+                    if (powerUp.collected) return;
+                    
+                    const screenX = (powerUp.x - this.camera.x) * this.camera.zoom + canvas.width / 2;
+                    const screenY = canvas.height - (powerUp.y * canvas.height);
+                    
+                    if (screenX < -50 || screenX > canvas.width + 50) return;
+                    
+                    // Power-up glow
+                    const time = Date.now() / 1000;
+                    const pulse = Math.sin(time * 3) * 0.3 + 0.7;
+                    
+                    ctx.fillStyle = `rgba(255, 255, 255, ${0.3 * pulse})`;
+                    ctx.beginPath();
+                    ctx.arc(screenX, screenY, 30 * pulse, 0, Math.PI * 2);
+                    ctx.fill();
+                    
+                    // Power-up icon
+                    ctx.font = '30px Arial';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText(powerUp.type, screenX, screenY);
+                });
+            }
+            
+            drawParticles() {
+                this.particles.forEach(particle => {
+                    const screenX = (particle.x - this.camera.x) * this.camera.zoom + canvas.width / 2;
+                    const screenY = canvas.height - (particle.y * canvas.height);
+                    
+                    ctx.fillStyle = particle.color + Math.floor(particle.life / 10).toString(16);
+                    ctx.fillRect(
+                        screenX - particle.size / 2,
+                        screenY - particle.size / 2,
+                        particle.size,
+                        particle.size
+                    );
+                });
+            }
+        }
+        
+        // Game instance
+        let game = new GameManager();
+        
+        // Input handling
+        const keys = {};
+        let mouseDown = false;
+        let touchStartX = null;
+        
+        window.addEventListener('keydown', (e) => {
+            keys[e.key] = true;
+            
+            // Power-up usage
+            if (e.key >= '1' && e.key <= '3') {
+                game.usePowerUp(parseInt(e.key) - 1);
+            }
+        });
+        
+        window.addEventListener('keyup', (e) => {
+            keys[e.key] = false;
+        });
+        
+        canvas.addEventListener('mousedown', (e) => {
+            mouseDown = true;
+            if (game.player && gameState.state === 'racing') {
+                game.player.boost();
+            }
+        });
+        
+        canvas.addEventListener('mouseup', () => {
+            mouseDown = false;
+        });
+        
+        canvas.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            const touch = e.touches[0];
+            touchStartX = touch.clientX;
+            if (game.player && gameState.state === 'racing') {
+                game.player.boost();
+            }
+        });
+        
+        canvas.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+            if (touchStartX !== null) {
+                const touch = e.touches[0];
+                const deltaX = touch.clientX - touchStartX;
+                // Could implement steering with swipe
+            }
+        });
+        
+        canvas.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            touchStartX = null;
+        });
+        
+        // Update loop for input
+        setInterval(() => {
+            if (!game.player || gameState.state !== 'racing') return;
+            
+            // Keyboard controls
+            if (keys[' '] || keys['Space']) {
+                game.player.boost();
+            }
+            
+            // Steering (if implemented)
+            if (keys['ArrowLeft']) {
+                // Steer left
+            }
+            if (keys['ArrowRight']) {
+                // Steer right
+            }
+        }, 50);
+        
+        // Menu functions
+        function startGame(mode) {
+            gameState.mode = mode;
+            document.getElementById('mainMenu').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('mainMenu').style.display = 'none';
+                document.getElementById('gameUI').style.pointerEvents = 'auto';
+                game.init(mode, gameState.track);
+                game.start();
+            }, 500);
+        }
+        
+        function backToMenu() {
+            game.stop();
+            document.getElementById('finishScreen').style.display = 'none';
+            document.getElementById('mainMenu').style.display = 'flex';
+            document.getElementById('mainMenu').style.opacity = '1';
+            document.getElementById('gameUI').style.pointerEvents = 'none';
+            gameState.state = 'menu';
+        }
+        
+        function restartRace() {
+            document.getElementById('finishScreen').style.display = 'none';
+            game.init(gameState.mode, gameState.track);
+            game.start();
+        }
+        
+        function showTracks() {
+            // Would show track selection menu
+            console.log('Track selection not yet implemented');
+        }
+        
+        function showUpgrades() {
+            // Would show upgrades menu
+            console.log('Upgrades not yet implemented');
+        }
+    </script>
+</body>
+</html>

@@ -31,7 +31,7 @@ async function analyzeScenarios() {
     
     // Load analytics to check gender assignments
     try {
-        const analyticsPath = path.join(__dirname, 'data/audio-recording-voices-for-scenarios-from-elevenlabs/voice-analytics.json');
+        const analyticsPath = path.join(__dirname, 'data/voices/voice-analytics.json');
         const analyticsData = JSON.parse(await fs.readFile(analyticsPath, 'utf8'));
         
         // Check for misgendered characters
@@ -77,7 +77,7 @@ async function analyzeScenarios() {
             const scenario = scenarios[i];
             
             // Check if audio exists
-            const audioDir = path.join(__dirname, 'data/audio-recording-voices-for-scenarios-from-elevenlabs', `scenario-${scenarioId}`);
+            const audioDir = path.join(__dirname, 'data/voices', `scenario-${scenarioId}`);
             try {
                 await fs.access(audioDir);
             } catch {

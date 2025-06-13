@@ -1,0 +1,896 @@
+{
+  "version": "2.0.0",
+  "packInfo": {
+    "packId": "wacky-scenarios--audio-000",
+    "packName": "Audio Adventures in Absurd Arguments",
+    "author": "AI Generated",
+    "description": "Multi-character audio scenarios that teach critical thinking through hilarious community debates and family discussions",
+    "createdDate": "2025-06-11",
+    "topic": "Community Comedy Audio",
+    "category": "Audio Enhanced"
+  },
+  "scenarios": [
+    {
+      "id": "audio-scenario-001",
+      "title": "The Great Calculator Conspiracy School Board Meeting",
+      "text": "TRANSCRIPT: Willowbrook Elementary School Board Emergency Meeting - Calculator Crisis\n\nChairwoman Jenkins: Order! Order! Thank you all for attending tonight's emergency meeting about the calculator situation. Dr. Mathsworth, please present your findings.\n\nDr. Mathsworth: Thank you, Chairwoman. As a Professor of Advanced Arithmetic Psychology, I've spent 30 years studying the devastating effects of calculator dependency on developing minds. My research of 2,847 students across 67 schools reveals that 89.4% of children who use calculators before age 12 lose their natural number intuition PERMANENTLY! Their brains literally forget how to count!\n\nParent Lisa: But Dr. Mathsworth, my daughter Sarah needs her calculator for long division. Are you saying we should go back to the stone age?\n\nDr. Mathsworth: Lisa, I understand your concern, but consider this - ancient civilizations built pyramids and calculated eclipse cycles WITHOUT calculators! The human brain is naturally designed for mathematical thinking, but Big Calculator has convinced us we're helpless without their devices!\n\nTeacher Rodriguez: With respect, Dr. Mathsworth, I've been teaching for 15 years and calculators help my students focus on problem-solving instead of getting stuck on arithmetic.\n\nDr. Mathsworth: Ms. Rodriguez, that's exactly what they WANT you to think! Calculator companies spend millions on 'educational research' that conveniently proves their products are necessary. They're creating a generation of mathematical zombies!\n\nParent Bob: This is ridiculous! My son Tommy uses a calculator and he's doing fine in math!\n\nDr. Mathsworth: Bob, Tommy might seem fine now, but studies show that calculator-dependent children score 73.2% lower on creativity tests and are 4.8 times more likely to experience 'numerical anxiety' in adulthood. Plus, what happens when the power goes out? They're helpless!\n\nChairwoman Jenkins: Dr. Mathsworth, what exactly are you proposing?\n\nDr. Mathsworth: Complete calculator prohibition for grades K-8! I've developed the 'MindMath Mastery System' - a comprehensive program that rebuilds natural arithmetic abilities through ancient finger-counting techniques and meditation. For just $199 per student, we can save our children's mathematical souls!\n\nTeacher Rodriguez: This seems extreme. What about students with learning disabilities who rely on calculators?\n\nDr. Mathsworth: Another myth perpetuated by the calculator lobby! These children don't need electronic crutches - they need proper brain training! My system has helped thousands of students, including several who went on to become engineers... well, one became an engineer. The others are still in my program.\n\nParent Lisa: Wait, are you selling us something? This sounds like a sales pitch disguised as education policy!\n\nDr. Mathsworth: Lisa, I'm offering a SOLUTION to a crisis that threatens our children's future! Every day we delay, more young minds fall victim to calculator dependency. We must act NOW before it's too late!\n\nChairwoman Jenkins: Thank you, Dr. Mathsworth. The board will consider your... recommendations. Meeting adjourned.",
+      "audioScript": "Chairwoman Jenkins: Order! Order! Thank you all for attending tonight's emergency meeting about the calculator situation. Dr. Mathsworth, please present your findings. Dr. Mathsworth: Thank you, Chairwoman. As a Professor of Advanced Arithmetic Psychology, I've spent 30 years studying the devastating effects of calculator dependency on developing minds. My research of 2,847 students across 67 schools reveals that 89.4% of children who use calculators before age 12 lose their natural number intuition PERMANENTLY! Their brains literally forget how to count! Parent Lisa: But Dr. Mathsworth, my daughter Sarah needs her calculator for long division. Are you saying we should go back to the stone age? Dr. Mathsworth: Lisa, I understand your concern, but consider this - ancient civilizations built pyramids and calculated eclipse cycles WITHOUT calculators! The human brain is naturally designed for mathematical thinking, but Big Calculator has convinced us we're helpless without their devices! Teacher Rodriguez: With respect, Dr. Mathsworth, I've been teaching for 15 years and calculators help my students focus on problem-solving instead of getting stuck on arithmetic. Dr. Mathsworth: Ms. Rodriguez, that's exactly what they WANT you to think! Calculator companies spend millions on quote educational research that conveniently proves their products are necessary. They're creating a generation of mathematical zombies! Parent Bob: This is ridiculous! My son Tommy uses a calculator and he's doing fine in math! Dr. Mathsworth: Bob, Tommy might seem fine now, but studies show that calculator-dependent children score 73.2% lower on creativity tests and are 4.8 times more likely to experience quote numerical anxiety in adulthood. Plus, what happens when the power goes out? They're helpless! Chairwoman Jenkins: Dr. Mathsworth, what exactly are you proposing? Dr. Mathsworth: Complete calculator prohibition for grades K-8! I've developed the MindMath Mastery System - a comprehensive program that rebuilds natural arithmetic abilities through ancient finger-counting techniques and meditation. For just $199 per student, we can save our children's mathematical souls! Teacher Rodriguez: This seems extreme. What about students with learning disabilities who rely on calculators? Dr. Mathsworth: Another myth perpetuated by the calculator lobby! These children don't need electronic crutches - they need proper brain training! My system has helped thousands of students, including several who went on to become engineers... well, one became an engineer. The others are still in my program. Parent Lisa: Wait, are you selling us something? This sounds like a sales pitch disguised as education policy! Dr. Mathsworth: Lisa, I'm offering a SOLUTION to a crisis that threatens our children's future! Every day we delay, more young minds fall victim to calculator dependency. We must act NOW before it's too late! Chairwoman Jenkins: Thank you, Dr. Mathsworth. The board will consider your... recommendations. Meeting adjourned.",
+      "claim": "Calculators permanently damage children's natural mathematical abilities and should be banned in favor of ancient brain training techniques",
+      "correctAnswer": "agenda",
+      "answerWeights": {
+        "logic": 42,
+        "emotion": 67,
+        "balanced": 31,
+        "agenda": 88
+      },
+      "audioHints": {
+        "tone": "formal-meeting-chaos",
+        "pacing": "varied-by-character",
+        "characterVoices": {
+          "Chairwoman Jenkins": "authoritative school administrator, tries to maintain order, slightly exasperated",
+          "Dr. Mathsworth": "pompous fake academic, dramatic and urgent, passionate about anti-calculator crusade",
+          "Parent Lisa": "concerned mother, practical and skeptical, protective of daughter",
+          "Teacher Rodriguez": "experienced educator, calm and professional, evidence-based approach",
+          "Parent Bob": "straightforward dad, no-nonsense, defends his son"
+        },
+        "recordingNotes": "Meeting should feel chaotic but organized. Dr. Mathsworth becomes increasingly dramatic and sales-focused. Parents should sound genuinely concerned but skeptical. Let natural interruptions and overlapping happen.",
+        "backgroundAmbience": "subtle school meeting room reverb"
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            {
+              "phrase": "My research of 2,847 students across 67 schools reveals that 89.4% of children",
+              "weight": 85
+            },
+            {
+              "phrase": "ancient civilizations built pyramids and calculated eclipse cycles WITHOUT calculators",
+              "weight": 65
+            },
+            {
+              "phrase": "As a Professor of Advanced Arithmetic Psychology, I've spent 30 years studying",
+              "weight": 75
+            },
+            {
+              "phrase": "studies show that calculator-dependent children score 73.2% lower on creativity tests",
+              "weight": 80
+            }
+          ],
+          "explanation": "Uses fabricated credentials and fake statistics to create false scientific authority, mixing precise percentages with historical appeals to tradition"
+        },
+        "emotion": {
+          "keywords": [
+            {
+              "phrase": "lose their natural number intuition PERMANENTLY! Their brains literally forget how to count!",
+              "weight": 95
+            },
+            {
+              "phrase": "They're creating a generation of mathematical zombies!",
+              "weight": 90
+            },
+            {
+              "phrase": "a crisis that threatens our children's future!",
+              "weight": 85
+            },
+            {
+              "phrase": "we can save our children's mathematical souls!",
+              "weight": 80
+            }
+          ],
+          "explanation": "Escalates parental fears about child development through apocalyptic language about brain damage and generational threats"
+        },
+        "balanced": {
+          "keywords": [
+            {
+              "phrase": "I understand your concern, but consider this",
+              "weight": 40
+            },
+            {
+              "phrase": "This seems extreme. What about students with learning disabilities",
+              "weight": 60
+            },
+            {
+              "phrase": "well, one became an engineer. The others are still in my program",
+              "weight": 70
+            },
+            {
+              "phrase": "This sounds like a sales pitch disguised as education policy!",
+              "weight": 75
+            }
+          ],
+          "explanation": "Other participants provide reasonable counterpoints and expose inconsistencies in the fake expert's claims"
+        },
+        "agenda": {
+          "keywords": [
+            {
+              "phrase": "I've developed the 'MindMath Mastery System' - a comprehensive program",
+              "weight": 85
+            },
+            {
+              "phrase": "For just $199 per student, we can save our children's mathematical souls!",
+              "weight": 95
+            },
+            {
+              "phrase": "Big Calculator has convinced us we're helpless without their devices!",
+              "weight": 70
+            },
+            {
+              "phrase": "We must act NOW before it's too late!",
+              "weight": 90
+            }
+          ],
+          "explanation": "Educational crisis immediately becomes expensive solution sales opportunity with corporate conspiracy villains and urgency tactics"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-tradition",
+          "severity": "primary",
+          "example": "Ancient civilizations as proof that calculators are unnecessary"
+        },
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "One engineer success story proves entire system works"
+        },
+        {
+          "fallacyId": "false-scarcity",
+          "severity": "secondary",
+          "example": "Must act NOW before more minds are lost to calculator dependency"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 38,
+            "consistency": 29,
+            "source": 62,
+            "agenda": 94
+          },
+          "indicators": ["fake-research", "appeal-to-ancient-wisdom", "conspiracy-theory"],
+          "explanation": "Fabricated academic authority creates crisis requiring expensive solution"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 82,
+            "belonging": 41,
+            "pride": 58,
+            "manipulation": 89
+          },
+          "triggers": ["child-development-fears", "educational-anxiety", "technology-panic"],
+          "explanation": "Exploits parental concerns about children's education and development"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Educational tool becomes brain damage through fake research and historical anachronisms",
+        "emotion": "Parental concern escalates to mathematical apocalypse requiring immediate intervention",
+        "balanced": "Other meeting participants provide reasonable counterpoints and skepticism throughout",
+        "agenda": "Educational crisis immediately monetized through expensive brain training program"
+      },
+      "peakMoments": {
+        "logic": ["2,847 students", "89.4%", "ancient civilizations"],
+        "emotion": ["PERMANENTLY", "mathematical zombies", "crisis"],
+        "balanced": ["seems extreme", "This sounds like a sales pitch"],
+        "agenda": ["MindMath System", "$199", "act NOW"]
+      },
+      "wisdom": "This meeting scenario teaches us to recognize when educational concerns are used to sell expensive solutions, and how fake expertise can exploit parental fears about technology and child development.",
+      "hints": {
+        "keywords": ["PERMANENTLY", "mathematical zombies", "$199", "act NOW"],
+        "strategy": "agenda",
+        "hintMessage": "Educational panic plus expensive brain training sales!"
+      },
+      "metadata": {
+        "tags": ["educational-policy", "anti-technology", "meeting-chaos", "parent-fears"],
+        "difficulty": 4,
+        "educationalFocus": "recognizing-fake-expertise-in-educational-settings",
+        "commonMisconceptions": ["ancient-methods-always-better", "technology-always-harmful"],
+        "addedDate": "2025-06-11"
+      },
+      "topic": "Education Policy"
+    },
+    {
+      "id": "audio-scenario-002",
+      "title": "The Toast Landing Investigation Family Dinner",
+      "text": "SCENE: The Henderson Family Kitchen - Sunday Dinner Discussion\n\nDad Steve: Kids, put your phones down. Your mother has an important announcement about breakfast safety.\n\nMom Jennifer: Thank you, Steve. Everyone, I've been conducting a very serious investigation about toast landing patterns, and I have some SHOCKING discoveries to share.\n\nTeen Daughter Emma: Mom, seriously? We're talking about toast during dinner?\n\nMom Jennifer: Emma, this is about FAMILY SAFETY! I've been secretly observing our morning toast incidents for six weeks, and I've documented 47 toast drops. The results are TERRIFYING - 91.5% of our toast lands butter-side down!\n\nSon Michael (age 10): That's because butter side is heavier, duh!\n\nMom Jennifer: Michael, that's what Big Butter WANTS you to think! I researched this online and found that toast companies have been secretly increasing butter thickness recommendations to ensure butter-side-down landings. They profit from wasted toast because you have to make more!\n\nGrandpa Joe: Jennifer, honey, when I was your age, we buttered both sides of our toast to solve this exact problem.\n\nMom Jennifer: Dad, that's actually GENIUS! But the butter lobby convinced society that double-buttering was 'excessive' and 'unhealthy.' They've suppressed this ancient wisdom for DECADES!\n\nDad Steve: Jen, maybe there's a simpler explanation? Like... gravity?\n\nMom Jennifer: Steve, don't be naive! I found a 1987 research paper by Dr. Robert Butterworth from the International Toast Sciences Institute proving that toast-dropping is psychologically linked to subconscious breakfast anxiety. We're unconsciously sabotaging our own mornings!\n\nEmma: Mom, did you seriously just say 'Dr. Butterworth'? That sounds made up.\n\nMom Jennifer: Emma, you're too young to understand how deep this conspiracy goes! Dr. Butterworth disappeared from academic circles right after publishing his findings. COINCIDENCE? I think not!\n\nMichael: Can we test this? I want to drop toast!\n\nMom Jennifer: Absolutely NOT, Michael! I've already invested in the 'ToastSafe Breakfast Protection System' - special non-slip butter, gravity-defying plates, and premium toast-catching mitts. It only cost $127.99 for the family starter kit!\n\nGrandpa Joe: You know, I dropped my toast this morning and it landed butter-side up.\n\nMom Jennifer: Dad, that's because you're from a generation that still has natural toast intuition! Modern processed foods have destroyed our innate breakfast coordination!\n\nDad Steve: Jen, honey, maybe we should just... be more careful when we're eating?\n\nMom Jennifer: Steve, 'being careful' is exactly what the Toast Cartel wants! They've conditioned us to accept toast-dropping as normal instead of recognizing it as a manipulated phenomenon designed to increase breakfast product consumption!\n\nEmma: Mom, you bought a $127 kit to solve a problem that costs like 50 cents of wasted toast?\n\nMom Jennifer: Emma, this isn't about money - it's about FAMILY BREAKFAST SECURITY! Every dropped piece of toast represents a victory for corporate breakfast manipulation!\n\nMichael: I'm confused. Are we still talking about toast?\n\nGrandpa Joe: Son, sometimes when you're an adult, you'll understand that your mother just wants to protect our breakfast happiness.\n\nDad Steve: Alright everyone, let's just... enjoy our dinner. No toast-dropping at this table!",
+      "audioScript": "Dad Steve: Kids, put your phones down. Your mother has an important announcement about breakfast safety. Mom Jennifer: Thank you, Steve. Everyone, I've been conducting a very serious investigation about toast landing patterns, and I have some SHOCKING discoveries to share. Teen Daughter Emma: Mom, seriously? We're talking about toast during dinner? Mom Jennifer: Emma, this is about FAMILY SAFETY! I've been secretly observing our morning toast incidents for six weeks, and I've documented 47 toast drops. The results are TERRIFYING - 91.5% of our toast lands butter-side down! Son Michael: That's because butter side is heavier, duh! Mom Jennifer: Michael, that's what Big Butter WANTS you to think! I researched this online and found that toast companies have been secretly increasing butter thickness recommendations to ensure butter-side-down landings. They profit from wasted toast because you have to make more! Grandpa Joe: Jennifer, honey, when I was your age, we buttered both sides of our toast to solve this exact problem. Mom Jennifer: Dad, that's actually GENIUS! But the butter lobby convinced society that double-buttering was quote excessive and quote unhealthy. They've suppressed this ancient wisdom for DECADES! Dad Steve: Jen, maybe there's a simpler explanation? Like... gravity? Mom Jennifer: Steve, don't be naive! I found a 1987 research paper by Dr. Robert Butterworth from the International Toast Sciences Institute proving that toast-dropping is psychologically linked to subconscious breakfast anxiety. We're unconsciously sabotaging our own mornings! Emma: Mom, did you seriously just say quote Dr. Butterworth? That sounds made up. Mom Jennifer: Emma, you're too young to understand how deep this conspiracy goes! Dr. Butterworth disappeared from academic circles right after publishing his findings. COINCIDENCE? I think not! Michael: Can we test this? I want to drop toast! Mom Jennifer: Absolutely NOT, Michael! I've already invested in the ToastSafe Breakfast Protection System - special non-slip butter, gravity-defying plates, and premium toast-catching mitts. It only cost $127.99 for the family starter kit! Grandpa Joe: You know, I dropped my toast this morning and it landed butter-side up. Mom Jennifer: Dad, that's because you're from a generation that still has natural toast intuition! Modern processed foods have destroyed our innate breakfast coordination! Dad Steve: Jen, honey, maybe we should just... be more careful when we're eating? Mom Jennifer: Steve, quote being careful is exactly what the Toast Cartel wants! They've conditioned us to accept toast-dropping as normal instead of recognizing it as a manipulated phenomenon designed to increase breakfast product consumption! Emma: Mom, you bought a $127 kit to solve a problem that costs like 50 cents of wasted toast? Mom Jennifer: Emma, this isn't about money - it's about FAMILY BREAKFAST SECURITY! Every dropped piece of toast represents a victory for corporate breakfast manipulation! Michael: I'm confused. Are we still talking about toast? Grandpa Joe: Son, sometimes when you're an adult, you'll understand that your mother just wants to protect our breakfast happiness. Dad Steve: Alright everyone, let's just... enjoy our dinner. No toast-dropping at this table!",
+      "claim": "Toast companies conspire with butter manufacturers to ensure toast lands butter-side down, requiring expensive protection systems",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "logic": 35,
+        "emotion": 82,
+        "balanced": 44,
+        "agenda": 71
+      },
+      "audioHints": {
+        "tone": "family-dinner-chaos",
+        "pacing": "conversational-escalating",
+        "characterVoices": {
+          "Dad Steve": "patient husband trying to manage family chaos, slightly exasperated but loving",
+          "Mom Jennifer": "passionate conspiracy theorist mom, protective and increasingly dramatic about breakfast",
+          "Teen Daughter Emma": "skeptical teenager, eye-rolling but engaged, questions everything",
+          "Son Michael": "curious 10-year-old, excited by toast experiments, simple logic",
+          "Grandpa Joe": "wise elderly grandfather, amused by family dynamics, offers gentle wisdom"
+        },
+        "recordingNotes": "Family dinner should feel natural and chaotic. Mom becomes increasingly passionate about toast conspiracy. Kids should sound genuinely confused but engaged. Dad tries to be supportive while being practical.",
+        "backgroundAmbience": "subtle kitchen dining room reverb, occasional silverware clinks"
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            {
+              "phrase": "I've documented 47 toast drops. The results are TERRIFYING - 91.5% of our toast lands butter-side down!",
+              "weight": 80
+            },
+            {
+              "phrase": "a 1987 research paper by Dr. Robert Butterworth from the International Toast Sciences Institute",
+              "weight": 85
+            },
+            {
+              "phrase": "toast companies have been secretly increasing butter thickness recommendations",
+              "weight": 70
+            },
+            {
+              "phrase": "toast-dropping is psychologically linked to subconscious breakfast anxiety",
+              "weight": 75
+            }
+          ],
+          "explanation": "Creates fake scientific documentation of normal kitchen accidents through fabricated research and statistics"
+        },
+        "emotion": {
+          "keywords": [
+            {
+              "phrase": "I have some SHOCKING discoveries to share",
+              "weight": 75
+            },
+            {
+              "phrase": "Emma, this is about FAMILY SAFETY!",
+              "weight": 90
+            },
+            {
+              "phrase": "it's about FAMILY BREAKFAST SECURITY!",
+              "weight": 95
+            },
+            {
+              "phrase": "Every dropped piece of toast represents a victory for corporate breakfast manipulation!",
+              "weight": 85
+            }
+          ],
+          "explanation": "Transforms mundane kitchen mishaps into family safety crisis requiring protective maternal action"
+        },
+        "balanced": {
+          "keywords": [
+            {
+              "phrase": "Jen, maybe there's a simpler explanation? Like... gravity?",
+              "weight": 60
+            },
+            {
+              "phrase": "maybe we should just... be more careful when we're eating?",
+              "weight": 55
+            },
+            {
+              "phrase": "I'm confused. Are we still talking about toast?",
+              "weight": 70
+            },
+            {
+              "phrase": "you bought a $127 kit to solve a problem that costs like 50 cents of wasted toast?",
+              "weight": 75
+            }
+          ],
+          "explanation": "Family members consistently offer practical solutions and question the disproportionate response to simple problems"
+        },
+        "agenda": {
+          "keywords": [
+            {
+              "phrase": "I've already invested in the 'ToastSafe Breakfast Protection System'",
+              "weight": 85
+            },
+            {
+              "phrase": "It only cost $127.99 for the family starter kit!",
+              "weight": 90
+            },
+            {
+              "phrase": "that's what Big Butter WANTS you to think!",
+              "weight": 70
+            },
+            {
+              "phrase": "exactly what the Toast Cartel wants!",
+              "weight": 80
+            }
+          ],
+          "explanation": "Kitchen problems immediately monetized through expensive protection systems with corporate conspiracy villains"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "conspiracy-theory",
+          "severity": "primary",
+          "example": "Toast and butter companies conspiring to make toast fall butter-side down"
+        },
+        {
+          "fallacyId": "post-hoc",
+          "severity": "primary",
+          "example": "Dr. Butterworth disappeared after publishing, implying conspiracy causation"
+        },
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "secondary",
+          "example": "Family toast incidents prove universal breakfast manipulation"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 28,
+            "consistency": 19,
+            "source": 58,
+            "agenda": 77
+          },
+          "indicators": ["fake-research", "conspiracy-thinking", "pattern-illusion"],
+          "explanation": "Normal kitchen accidents become elaborate corporate conspiracy theory"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 71,
+            "belonging": 88,
+            "pride": 64,
+            "manipulation": 79
+          },
+          "triggers": ["family-protection", "breakfast-anxiety", "generational-wisdom"],
+          "explanation": "Weaponizes maternal protection instincts around mundane breakfast experiences"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Kitchen accidents become corporate conspiracy through fake research and disappeared scientists",
+        "emotion": "Breakfast mishaps escalate to family safety crisis requiring protective action",
+        "balanced": "Family members consistently offer simpler explanations and practical solutions",
+        "agenda": "Toast problems immediately monetized through expensive breakfast protection system"
+      },
+      "peakMoments": {
+        "logic": ["47 toast drops", "Dr. Butterworth", "1987 research"],
+        "emotion": ["TERRIFYING", "FAMILY SAFETY", "BREAKFAST SECURITY"],
+        "balanced": ["simpler explanation", "be more careful", "I'm confused"],
+        "agenda": ["ToastSafe System", "$127.99", "Toast Cartel"]
+      },
+      "wisdom": "This family dinner scenario shows how even the most mundane experiences can be turned into conspiracy theories when we want to feel like we're protecting our loved ones from hidden threats.",
+      "hints": {
+        "keywords": ["TERRIFYING", "conspiracy", "FAMILY SAFETY", "$127.99"],
+        "strategy": "emotion",
+        "hintMessage": "Breakfast safety panic plus expensive toast protection!"
+      },
+      "metadata": {
+        "tags": ["family-dynamics", "breakfast-conspiracy", "kitchen-safety", "maternal-protection"],
+        "difficulty": 3,
+        "educationalFocus": "recognizing-conspiracy-thinking-in-everyday-family-life",
+        "commonMisconceptions": ["patterns-prove-conspiracy", "expensive-solutions-ensure-safety"],
+        "addedDate": "2025-06-11"
+      },
+      "topic": "Family Life"
+    },
+    {
+      "id": "audio-scenario-003",
+      "title": "The Backwards Walking Radio Show Debate",
+      "text": "LIVE ON AIR: 'Morning Mayhem with Mike and Sarah' - KZANY 102.5 FM\n\nMike: Good morning, folks! You're listening to Morning Mayhem, and boy do we have a controversial topic today! We're joined by Dr. Penelope Reverse-Walker, author of the new book 'Walking Backwards: The Hidden Health Revolution.' Dr. Reverse-Walker, welcome to the show!\n\nDr. Reverse-Walker: Thank you, Mike! Please, call me Dr. Penny. I'm thrilled to share this life-changing information with your listeners!\n\nSarah: Dr. Penny, you claim that walking backwards for just 20 minutes daily can cure everything from back pain to bad breath. That sounds... ambitious?\n\nDr. Reverse-Walker: Sarah, I understand your skepticism - the Forward Walking Industrial Complex has spent billions convincing us that moving forward is natural! But my 12-year study of 3,746 backwards walkers proves otherwise. Participants showed 87.3% improvement in posture, 92.1% reduction in anxiety, and even 76.8% improvement in memory retention!\n\nMike: Wow! Those are some impressive numbers. How did you discover this?\n\nDr. Reverse-Walker: It started when I accidentally walked backwards out of a Starbucks and immediately felt more energized! I researched ancient cultures and found that Egyptian priests walked backwards during sacred ceremonies to connect with divine wisdom. Indigenous tribes used reverse walking for hunting - it confused prey and increased success rates by 400%!\n\nSarah: But Dr. Penny, wouldn't walking backwards be dangerous? What about traffic, obstacles, other people?\n\nDr. Reverse-Walker: Sarah, that's exactly what Big Footwear wants you to think! They've designed shoes specifically for forward motion to keep us trapped in inferior movement patterns. My revolutionary BackStep™ shoe line fixes this problem with reverse-grip soles and rear-view ankle mirrors!\n\nMike: We've got caller Linda on line 1. Linda, you're on the air!\n\nCaller Linda: Hi guys! I tried backwards walking after seeing Dr. Penny on Instagram, and I fell into a fountain! My phone got soaked and I twisted my ankle!\n\nDr. Reverse-Walker: Linda, I'm sorry that happened, but you probably weren't using proper reverse-stepping technique! My online BackWalk Mastery Course teaches the 47 essential backwards walking movements for just $199. Plus, fountain incidents actually prove the detoxification process is working - water seeks water!\n\nSarah: Did you just say water seeks water? What does that even mean?\n\nDr. Reverse-Walker: Sarah, it's basic reverse-movement science! When you walk backwards, you're reversing negative energy flow, which naturally attracts cleansing water experiences. Linda's fountain incident was her body's way of releasing forward-walking toxins!\n\nMike: We have another caller. Bob from downtown, you're live!\n\nCaller Bob: Yeah, hi. I'm a physical therapist, and this is completely ridiculous. Walking backwards without proper training and supervision can cause serious injuries. There's no scientific evidence for any of these claims!\n\nDr. Reverse-Walker: Bob, I appreciate your concern, but traditional physical therapy is part of the Forward Motion Establishment! Of course they'd resist backwards walking - it would eliminate 73% of their business! However, I do acknowledge that some people aren't ready for this revolutionary approach. My technique requires mental preparation and spiritual alignment.\n\nSarah: Dr. Penny, you keep mentioning courses and products. Are you here to educate us or sell us something?\n\nDr. Reverse-Walker: Sarah, I'm genuinely conflicted about commercializing this discovery! Part of me wants to give this knowledge away free, but I've invested my life savings in backwards walking research. The BackStep™ shoes and online courses help fund my nonprofit 'Reverse Walkers United' - we're fighting against Forward Motion oppression worldwide!\n\nMike: Alright, we need to wrap up. Dr. Penny, any final thoughts?\n\nDr. Reverse-Walker: Just remember, folks - every step forward is a step away from your true potential! Visit BackwardsRevolution.com and use code MAYHEM for 20% off your first backwards walking transformation package!\n\nSarah: And that's Dr. Penelope Reverse-Walker, everyone! Coming up next, we'll debate whether hotdogs are sandwiches. You're listening to Morning Mayhem!",
+      "audioScript": "Mike: Good morning, folks! You're listening to Morning Mayhem, and boy do we have a controversial topic today! We're joined by Dr. Penelope Reverse-Walker, author of the new book Walking Backwards: The Hidden Health Revolution. Dr. Reverse-Walker, welcome to the show! Dr. Reverse-Walker: Thank you, Mike! Please, call me Dr. Penny. I'm thrilled to share this life-changing information with your listeners! Sarah: Dr. Penny, you claim that walking backwards for just 20 minutes daily can cure everything from back pain to bad breath. That sounds... ambitious? Dr. Reverse-Walker: Sarah, I understand your skepticism - the Forward Walking Industrial Complex has spent billions convincing us that moving forward is natural! But my 12-year study of 3,746 backwards walkers proves otherwise. Participants showed 87.3% improvement in posture, 92.1% reduction in anxiety, and even 76.8% improvement in memory retention! Mike: Wow! Those are some impressive numbers. How did you discover this? Dr. Reverse-Walker: It started when I accidentally walked backwards out of a Starbucks and immediately felt more energized! I researched ancient cultures and found that Egyptian priests walked backwards during sacred ceremonies to connect with divine wisdom. Indigenous tribes used reverse walking for hunting - it confused prey and increased success rates by 400%! Sarah: But Dr. Penny, wouldn't walking backwards be dangerous? What about traffic, obstacles, other people? Dr. Reverse-Walker: Sarah, that's exactly what Big Footwear wants you to think! They've designed shoes specifically for forward motion to keep us trapped in inferior movement patterns. My revolutionary BackStep shoe line fixes this problem with reverse-grip soles and rear-view ankle mirrors! Mike: We've got caller Linda on line 1. Linda, you're on the air! Caller Linda: Hi guys! I tried backwards walking after seeing Dr. Penny on Instagram, and I fell into a fountain! My phone got soaked and I twisted my ankle! Dr. Reverse-Walker: Linda, I'm sorry that happened, but you probably weren't using proper reverse-stepping technique! My online BackWalk Mastery Course teaches the 47 essential backwards walking movements for just $199. Plus, fountain incidents actually prove the detoxification process is working - water seeks water! Sarah: Did you just say water seeks water? What does that even mean? Dr. Reverse-Walker: Sarah, it's basic reverse-movement science! When you walk backwards, you're reversing negative energy flow, which naturally attracts cleansing water experiences. Linda's fountain incident was her body's way of releasing forward-walking toxins! Mike: We have another caller. Bob from downtown, you're live! Caller Bob: Yeah, hi. I'm a physical therapist, and this is completely ridiculous. Walking backwards without proper training and supervision can cause serious injuries. There's no scientific evidence for any of these claims! Dr. Reverse-Walker: Bob, I appreciate your concern, but traditional physical therapy is part of the Forward Motion Establishment! Of course they'd resist backwards walking - it would eliminate 73% of their business! However, I do acknowledge that some people aren't ready for this revolutionary approach. My technique requires mental preparation and spiritual alignment. Sarah: Dr. Penny, you keep mentioning courses and products. Are you here to educate us or sell us something? Dr. Reverse-Walker: Sarah, I'm genuinely conflicted about commercializing this discovery! Part of me wants to give this knowledge away free, but I've invested my life savings in backwards walking research. The BackStep shoes and online courses help fund my nonprofit Reverse Walkers United - we're fighting against Forward Motion oppression worldwide! Mike: Alright, we need to wrap up. Dr. Penny, any final thoughts? Dr. Reverse-Walker: Just remember, folks - every step forward is a step away from your true potential! Visit BackwardsRevolution dot com and use code MAYHEM for 20% off your first backwards walking transformation package! Sarah: And that's Dr. Penelope Reverse-Walker, everyone! Coming up next, we'll debate whether hotdogs are sandwiches. You're listening to Morning Mayhem!",
+      "claim": "Walking backwards for 20 minutes daily provides superior health benefits but is suppressed by the 'Forward Walking Industrial Complex'",
+      "correctAnswer": "agenda",
+      "answerWeights": {
+        "logic": 38,
+        "emotion": 54,
+        "balanced": 47,
+        "agenda": 85
+      },
+      "audioHints": {
+        "tone": "radio-show-energy",
+        "pacing": "broadcast-tempo",
+        "characterVoices": {
+          "Mike": "enthusiastic morning radio host, encouraging and upbeat, plays along with guests",
+          "Sarah": "skeptical co-host, asks tough questions, more serious than Mike",
+          "Dr. Reverse-Walker": "passionate wellness guru with fake credentials, becomes defensive when questioned",
+          "Caller Linda": "frustrated customer, sounds tired and annoyed about her fountain accident",
+          "Caller Bob": "professional physical therapist, calm but firm, evidence-based approach"
+        },
+        "recordingNotes": "Radio show should have broadcast energy and pacing. Include slight phone quality for callers. Dr. Penny becomes increasingly sales-focused and defensive. Natural radio banter between hosts.",
+        "backgroundAmbience": "subtle radio studio ambience, very light background music during intro/outro"
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            {
+              "phrase": "my 12-year study of 3,746 backwards walkers proves otherwise. Participants showed 87.3% improvement",
+              "weight": 85
+            },
+            {
+              "phrase": "Egyptian priests walked backwards during sacred ceremonies to connect with divine wisdom",
+              "weight": 70
+            },
+            {
+              "phrase": "increased success rates by 400%!",
+              "weight": 75
+            },
+            {
+              "phrase": "it's basic reverse-movement science!",
+              "weight": 80
+            }
+          ],
+          "explanation": "Creates elaborate movement science through fabricated statistics and historical claims to justify wellness products"
+        },
+        "emotion": {
+          "keywords": [
+            {
+              "phrase": "I'm thrilled to share this life-changing information with your listeners!",
+              "weight": 75
+            },
+            {
+              "phrase": "connect with divine wisdom",
+              "weight": 80
+            },
+            {
+              "phrase": "every step forward is a step away from your true potential!",
+              "weight": 90
+            },
+            {
+              "phrase": "we're fighting against Forward Motion oppression worldwide!",
+              "weight": 85
+            }
+          ],
+          "explanation": "Transforms walking technique into spiritual revolution and personal transformation movement"
+        },
+        "balanced": {
+          "keywords": [
+            {
+              "phrase": "I'm genuinely conflicted about commercializing this discovery!",
+              "weight": 70
+            },
+            {
+              "phrase": "some people aren't ready for this revolutionary approach",
+              "weight": 60
+            },
+            {
+              "phrase": "I do acknowledge that",
+              "weight": 55
+            },
+            {
+              "phrase": "Part of me wants to give this knowledge away free",
+              "weight": 65
+            }
+          ],
+          "explanation": "Shows genuine uncertainty about commercialization and acknowledges resistance and complexity"
+        },
+        "agenda": {
+          "keywords": [
+            {
+              "phrase": "My revolutionary BackStep™ shoe line fixes this problem",
+              "weight": 85
+            },
+            {
+              "phrase": "My online BackWalk Mastery Course teaches the 47 essential backwards walking movements for just $199",
+              "weight": 95
+            },
+            {
+              "phrase": "Visit BackwardsRevolution.com and use code MAYHEM for 20% off",
+              "weight": 90
+            },
+            {
+              "phrase": "the Forward Walking Industrial Complex has spent billions",
+              "weight": 75
+            }
+          ],
+          "explanation": "Health discovery immediately becomes comprehensive product line with shoes, courses, and promotional discount codes"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "appeal-to-tradition",
+          "severity": "primary",
+          "example": "Egyptian priests and indigenous tribes as proof of backwards walking benefits"
+        },
+        {
+          "fallacyId": "conspiracy-theory",
+          "severity": "primary",
+          "example": "Forward Walking Industrial Complex and Big Footwear suppressing backwards walking"
+        },
+        {
+          "fallacyId": "post-hoc",
+          "severity": "secondary",
+          "example": "Feeling energized after walking backwards proves causation"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 31,
+            "consistency": 22,
+            "source": 61,
+            "agenda": 89
+          },
+          "indicators": ["fake-research", "historical-anachronisms", "conspiracy-theory"],
+          "explanation": "Creates elaborate movement conspiracy theory to justify expensive wellness products"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 42,
+            "belonging": 67,
+            "pride": 71,
+            "manipulation": 78
+          },
+          "triggers": ["health-optimization", "spiritual-connection", "revolutionary-knowledge"],
+          "explanation": "Appeals to desire for health improvement and spiritual enlightenment through movement"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Accidental energetic feeling becomes historical conspiracy through fake research and ancient wisdom",
+        "emotion": "Walking technique transforms into spiritual revolution against industrial movement oppression",
+        "balanced": "Shows genuine uncertainty about commercializing discovery and acknowledges resistance",
+        "agenda": "Health discovery immediately monetized through shoes, courses, and promotional discount codes"
+      },
+      "peakMoments": {
+        "logic": ["12-year study", "3,746 backwards walkers", "Egyptian priests"],
+        "emotion": ["life-changing", "divine wisdom", "true potential"],
+        "balanced": ["genuinely conflicted", "some people aren't ready"],
+        "agenda": ["BackStep™", "$199", "20% off"]
+      },
+      "wisdom": "This radio show format teaches us how media platforms can make absurd health claims seem credible through fake expertise, and how genuine uncertainty can be used to make sales pitches seem more trustworthy.",
+      "hints": {
+        "keywords": ["revolutionary", "Industrial Complex", "conflicted", "$199"],
+        "strategy": "agenda",
+        "hintMessage": "Walking revolution plus shoes and courses for sale!"
+      },
+      "metadata": {
+        "tags": ["health-trends", "radio-show", "movement-therapy", "wellness-industry"],
+        "difficulty": 4,
+        "educationalFocus": "recognizing-wellness-industry-manipulation-in-media-formats",
+        "commonMisconceptions": ["ancient-practices-automatically-better", "personal-experience-proves-universality"],
+        "addedDate": "2025-06-11"
+      },
+      "topic": "Health & Wellness"
+    },
+    {
+      "id": "audio-scenario-004",
+      "title": "The Mysterious Garden Gnome Neighborhood Watch Meeting",
+      "text": "EMERGENCY NEIGHBORHOOD WATCH MEETING - Willowbrook Estates Community Center\n\nWatch Captain Janet: Everyone, please take your seats! We have a SERIOUS situation developing in our neighborhood that requires immediate action!\n\nResident Tom: Janet, is this about the Henderson's new fence? Because I already called the HOA about the height violation.\n\nWatch Captain Janet: Tom, this is far more urgent than fence disputes! Over the past three weeks, I've documented 23 unusual garden gnome movements throughout our community. These aren't ordinary lawn decorations - they're part of a sophisticated surveillance network!\n\nResident Mary: Janet, honey, are you feeling alright? Garden gnomes don't move by themselves.\n\nWatch Captain Janet: Mary, that's exactly what they WANT us to think! I've been conducting covert observations from my kitchen window using military-grade binoculars, and the evidence is overwhelming! The gnomes are repositioned every 72 hours in precise geometric patterns that match known intelligence gathering formations!\n\nResident Bob: Wait, you've been watching our yards with binoculars? That seems more concerning than garden gnomes...\n\nWatch Captain Janet: Bob, I'm protecting our community! I researched this extensively online and discovered that garden gnome manufacturers have been infiltrated by foreign intelligence agencies. These 'decorative' gnomes contain micro-cameras, GPS trackers, and even chemical sensors!\n\nResident Susan: Janet, I move my gnomes around because I like redecorating my garden. It's called landscaping!\n\nWatch Captain Janet: Susan, you think you're redecorating, but you're actually being mind-controlled! The gnomes emit subsonic frequencies that influence homeowner behavior. You THINK you're choosing to move them, but they're programming you to optimize their surveillance angles!\n\nResident Tom: This is getting weird. Can we talk about the speed bumps instead?\n\nWatch Captain Janet: Tom, speed bumps are part of the same operation! They slow down vehicles so the gnomes can capture better facial recognition data! I found a 1994 classified document from the International Garden Surveillance Project proving that ceramic lawn ornaments have been weaponized against suburban communities!\n\nResident Mary: Janet, where exactly did you find this classified document?\n\nWatch Captain Janet: Mary, it was posted on TruthSeeker47's blog, which has over 12,000 followers! He's a former CIA operative who's risking his life to expose the Garden Gnome Conspiracy! Although... I should mention that some of his other posts about lizard people seem questionable, so maybe he's not entirely reliable. But the gnome evidence is solid!\n\nResident Bob: Janet, I think you might be overthinking this. Maybe you should talk to someone?\n\nWatch Captain Janet: Bob, I appreciate your concern, but we can't let our guard down! However, I've already invested in the solution - GnomeGuard Pro Detection System! For just $89.99, this device can identify compromised garden gnomes and neutralize their surveillance capabilities!\n\nResident Susan: You bought an $89 device to detect spy gnomes in our neighborhood?\n\nWatch Captain Janet: Susan, it's a small price to pay for community security! The system includes a handheld scanner, protective spray, and a comprehensive manual on gnome behavior analysis. I've already scanned 47 gnomes and found 31 with suspicious electromagnetic signatures!\n\nResident Tom: Janet, have you considered that maybe the gnomes are just... normal gnomes?\n\nWatch Captain Janet: Tom, that kind of complacency is exactly how they've operated undetected for so long! But honestly, sometimes I wonder if I'm seeing patterns that aren't there. What if I'm wrong and I'm just paranoid? Then again, paranoia is a rational response to real surveillance! I'm so confused about whether to trust my instincts or doubt everything...\n\nResident Mary: Janet, we all care about you. Maybe we should focus on real neighborhood issues?\n\nWatch Captain Janet: You're right, Mary. I just want to keep everyone safe. But if anyone notices unusual gnome activity, please report it immediately! Better safe than surveilled!\n\nResident Bob: Alright everyone, I think we've covered... garden gnome security for tonight. Meeting adjourned?",
+      "audioScript": "Watch Captain Janet: Everyone, please take your seats! We have a SERIOUS situation developing in our neighborhood that requires immediate action! Resident Tom: Janet, is this about the Henderson's new fence? Because I already called the HOA about the height violation. Watch Captain Janet: Tom, this is far more urgent than fence disputes! Over the past three weeks, I've documented 23 unusual garden gnome movements throughout our community. These aren't ordinary lawn decorations - they're part of a sophisticated surveillance network! Resident Mary: Janet, honey, are you feeling alright? Garden gnomes don't move by themselves. Watch Captain Janet: Mary, that's exactly what they WANT us to think! I've been conducting covert observations from my kitchen window using military-grade binoculars, and the evidence is overwhelming! The gnomes are repositioned every 72 hours in precise geometric patterns that match known intelligence gathering formations! Resident Bob: Wait, you've been watching our yards with binoculars? That seems more concerning than garden gnomes... Watch Captain Janet: Bob, I'm protecting our community! I researched this extensively online and discovered that garden gnome manufacturers have been infiltrated by foreign intelligence agencies. These quote decorative gnomes contain micro-cameras, GPS trackers, and even chemical sensors! Resident Susan: Janet, I move my gnomes around because I like redecorating my garden. It's called landscaping! Watch Captain Janet: Susan, you think you're redecorating, but you're actually being mind-controlled! The gnomes emit subsonic frequencies that influence homeowner behavior. You THINK you're choosing to move them, but they're programming you to optimize their surveillance angles! Resident Tom: This is getting weird. Can we talk about the speed bumps instead? Watch Captain Janet: Tom, speed bumps are part of the same operation! They slow down vehicles so the gnomes can capture better facial recognition data! I found a 1994 classified document from the International Garden Surveillance Project proving that ceramic lawn ornaments have been weaponized against suburban communities! Resident Mary: Janet, where exactly did you find this classified document? Watch Captain Janet: Mary, it was posted on TruthSeeker47's blog, which has over 12,000 followers! He's a former CIA operative who's risking his life to expose the Garden Gnome Conspiracy! Although... I should mention that some of his other posts about lizard people seem questionable, so maybe he's not entirely reliable. But the gnome evidence is solid! Resident Bob: Janet, I think you might be overthinking this. Maybe you should talk to someone? Watch Captain Janet: Bob, I appreciate your concern, but we can't let our guard down! However, I've already invested in the solution - GnomeGuard Pro Detection System! For just $89.99, this device can identify compromised garden gnomes and neutralize their surveillance capabilities! Resident Susan: You bought an $89 device to detect spy gnomes in our neighborhood? Watch Captain Janet: Susan, it's a small price to pay for community security! The system includes a handheld scanner, protective spray, and a comprehensive manual on gnome behavior analysis. I've already scanned 47 gnomes and found 31 with suspicious electromagnetic signatures! Resident Tom: Janet, have you considered that maybe the gnomes are just... normal gnomes? Watch Captain Janet: Tom, that kind of complacency is exactly how they've operated undetected for so long! But honestly, sometimes I wonder if I'm seeing patterns that aren't there. What if I'm wrong and I'm just paranoid? Then again, paranoia is a rational response to real surveillance! I'm so confused about whether to trust my instincts or doubt everything... Resident Mary: Janet, we all care about you. Maybe we should focus on real neighborhood issues? Watch Captain Janet: You're right, Mary. I just want to keep everyone safe. But if anyone notices unusual gnome activity, please report it immediately! Better safe than surveilled! Resident Bob: Alright everyone, I think we've covered... garden gnome security for tonight. Meeting adjourned?",
+      "claim": "Garden gnomes in the neighborhood are sophisticated surveillance devices controlled by foreign intelligence agencies",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "logic": 29,
+        "emotion": 61,
+        "balanced": 87,
+        "agenda": 58
+      },
+      "audioHints": {
+        "tone": "community-meeting-awkward",
+        "pacing": "patient-but-concerned",
+        "characterVoices": {
+          "Watch Captain Janet": "neighborhood watch leader spiraling into conspiracy thinking, defensive but shows self-doubt",
+          "Resident Tom": "practical neighbor focused on normal HOA issues, increasingly uncomfortable",
+          "Resident Mary": "concerned neighbor trying to be supportive but worried about Janet",
+          "Resident Bob": "straightforward resident questioning Janet's behavior, direct but kind",
+          "Resident Susan": "innocent garden enthusiast, confused by accusations about her landscaping"
+        },
+        "recordingNotes": "Community meeting should feel awkward and concerned. Janet becomes increasingly defensive but shows genuine uncertainty. Neighbors are patient but worried. Natural community meeting interruptions and overlapping.",
+        "backgroundAmbience": "subtle community center reverb, occasional chair creaks"
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            {
+              "phrase": "I've documented 23 unusual garden gnome movements throughout our community",
+              "weight": 75
+            },
+            {
+              "phrase": "repositioned every 72 hours in precise geometric patterns that match known intelligence gathering formations",
+              "weight": 85
+            },
+            {
+              "phrase": "a 1994 classified document from the International Garden Surveillance Project",
+              "weight": 80
+            },
+            {
+              "phrase": "I've already scanned 47 gnomes and found 31 with suspicious electromagnetic signatures",
+              "weight": 70
+            }
+          ],
+          "explanation": "Creates obsessive documentation system for normal garden activity through fake intelligence and surveillance patterns"
+        },
+        "emotion": {
+          "keywords": [
+            {
+              "phrase": "We have a SERIOUS situation developing in our neighborhood that requires immediate action!",
+              "weight": 85
+            },
+            {
+              "phrase": "you're actually being mind-controlled!",
+              "weight": 90
+            },
+            {
+              "phrase": "ceramic lawn ornaments have been weaponized against suburban communities!",
+              "weight": 95
+            },
+            {
+              "phrase": "He's a former CIA operative who's risking his life",
+              "weight": 80
+            }
+          ],
+          "explanation": "Transforms garden decorations into existential neighborhood security threat requiring immediate action"
+        },
+        "balanced": {
+          "keywords": [
+            {
+              "phrase": "sometimes I wonder if I'm seeing patterns that aren't there. What if I'm wrong and I'm just paranoid?",
+              "weight": 85
+            },
+            {
+              "phrase": "I'm so confused about whether to trust my instincts or doubt everything",
+              "weight": 90
+            },
+            {
+              "phrase": "maybe he's not entirely reliable. But the gnome evidence is solid!",
+              "weight": 75
+            },
+            {
+              "phrase": "You're right, Mary. I just want to keep everyone safe",
+              "weight": 70
+            }
+          ],
+          "explanation": "Shows extensive self-questioning and genuine uncertainty about conspiracy theories while continuing paranoid behavior"
+        },
+        "agenda": {
+          "keywords": [
+            {
+              "phrase": "I've already invested in the solution - GnomeGuard Pro Detection System!",
+              "weight": 85
+            },
+            {
+              "phrase": "For just $89.99, this device can identify compromised garden gnomes",
+              "weight": 90
+            },
+            {
+              "phrase": "handheld scanner, protective spray, and a comprehensive manual on gnome behavior analysis",
+              "weight": 80
+            },
+            {
+              "phrase": "it's a small price to pay for community security!",
+              "weight": 75
+            }
+          ],
+          "explanation": "Neighborhood paranoia immediately monetized through expensive gnome detection equipment and security systems"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "conspiracy-theory",
+          "severity": "primary",
+          "example": "Garden gnome manufacturers infiltrated by foreign intelligence agencies"
+        },
+        {
+          "fallacyId": "post-hoc",
+          "severity": "secondary",
+          "example": "Susan moves gnomes after feeling influenced, assumes mind control causation"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 35,
+            "consistency": 18,
+            "source": 24,
+            "agenda": 63
+          },
+          "indicators": ["pattern-obsession", "conspiracy-thinking", "confirmation-bias"],
+          "explanation": "Normal neighborhood activity becomes elaborate surveillance conspiracy through obsessive observation"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 79,
+            "belonging": 52,
+            "pride": 41,
+            "manipulation": 67
+          },
+          "triggers": ["community-safety", "surveillance-anxiety", "neighborhood-protection"],
+          "explanation": "Weaponizes community safety concerns and surveillance fears for product sales"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Garden landscaping becomes intelligence operation through obsessive documentation and conspiracy research",
+        "emotion": "Neighborhood safety escalates to foreign surveillance requiring immediate detection equipment",
+        "balanced": "Extensive self-questioning about reliability of sources and potential for personal paranoia",
+        "agenda": "Community surveillance fears immediately monetized through expensive gnome detection system"
+      },
+      "peakMoments": {
+        "logic": ["23 movements", "geometric patterns", "1994 classified"],
+        "emotion": ["SERIOUS situation", "mind-controlled", "weaponized"],
+        "balanced": ["What if I'm wrong", "I'm so confused", "not reliable"],
+        "agenda": ["GnomeGuard Pro", "$89.99", "31 suspicious"]
+      },
+      "wisdom": "This neighborhood meeting scenario teaches us how community safety concerns can spiral into conspiracy thinking, and how genuine self-doubt can coexist with continued paranoid behavior and product purchases.",
+      "hints": {
+        "keywords": ["surveillance", "mind-controlled", "confused", "$89.99"],
+        "strategy": "balanced",
+        "hintMessage": "Gnome spy panic mixed with self-doubt and detection device sales!"
+      },
+      "metadata": {
+        "tags": ["neighborhood-paranoia", "community-meetings", "surveillance-anxiety", "conspiracy-thinking"],
+        "difficulty": 4,
+        "educationalFocus": "recognizing-how-anxiety-creates-conspiracy-thinking-with-self-doubt",
+        "commonMisconceptions": ["patterns-prove-conspiracy", "paranoia-equals-preparedness"],
+        "addedDate": "2025-06-11"
+      },
+      "topic": "Community Life"
+    },
+    {
+      "id": "audio-scenario-005",
+      "title": "The Mandatory Teen Nap Time PTA Emergency Session",
+      "text": "URGENT PTA MEETING - Jefferson High School Library - 'The Teen Sleep Crisis'\n\nPTA President Linda: Thank you all for coming to this emergency session. We're here to discuss Dr. Amanda Sleepwell's groundbreaking proposal for mandatory teenage nap time. Dr. Sleepwell?\n\nDr. Sleepwell: Thank you, Linda. Parents, I'm here with DEVASTATING news about your teenagers' sleep patterns. My research at the Institute of Adolescent Rest Sciences has uncovered a CRISIS that threatens the very foundation of teenage development!\n\nParent Monica: Dr. Sleepwell, what exactly are you proposing?\n\nDr. Sleepwell: Monica, excellent question! I've studied 4,392 teenagers across 156 schools, and 94.7% show signs of 'Chronic Wakefulness Syndrome' - a condition where teens resist natural sleep cycles due to societal pressure to remain conscious during school hours!\n\nParent Frank: Are you saying teenagers need to nap at school?\n\nDr. Sleepwell: Frank, not just nap - MANDATORY therapeutic rest periods! My data proves that teens who sleep 45 minutes between 1-2 PM show 167% improvement in academic performance, 89% reduction in behavioral problems, and 203% increase in parent satisfaction!\n\nTeacher Ms. Johnson: Dr. Sleepwell, with respect, teenagers already fall asleep in my classes. How is this different?\n\nDr. Sleepwell: Ms. Johnson, that's exactly the problem! Accidental classroom sleeping is chaotic and unproductive. My 'Structured Adolescent Rest Protocol' provides scientifically optimized nap environments with special lighting, temperature control, and subliminal learning audio!\n\nParent Monica: This sounds expensive. What would it cost?\n\nDr. Sleepwell: Monica, what's the cost of teenage rebellion and poor grades? However, I've partnered with TeenRest Solutions to provide complete nap facilities for just $47,000 per classroom! This includes specialized sleeping pods, biometric monitoring, and my proprietary 'DreamLearning' curriculum!\n\nParent Sarah: $47,000? That's insane! Can't kids just put their heads down?\n\nDr. Sleepwell: Sarah, amateur napping is actually DANGEROUS! Without proper pod positioning and brainwave monitoring, teens risk developing 'Sleep Learning Resistance' - a condition that permanently impairs their ability to absorb information during rest!\n\nPrincipal Rodriguez: Dr. Sleepwell, our insurance company would never approve students sleeping in pods during school hours.\n\nDr. Sleepwell: Principal Rodriguez, insurance companies are part of the 'Anti-Rest Establishment'! They profit from sleep-deprived teenagers who become accident-prone adults requiring more medical care! But honestly, I understand your concerns about liability... Maybe we could start with just meditation mats?\n\nTeacher Ms. Johnson: What about the teenagers who don't want to nap? Some kids are naturally alert in the afternoon.\n\nDr. Sleepwell: Ms. Johnson, those teens have been brainwashed by caffeine companies and social media platforms that profit from constant wakefulness! However, you raise a good point - forced napping might create resistance. My modified program allows for 'Quiet Reflection Alternatives' for only $23,500 additional per classroom.\n\nParent Frank: Dr. Sleepwell, this whole thing sounds like you're trying to sell us very expensive sleeping furniture.\n\nDr. Sleepwell: Frank, I'm genuinely torn about the commercial aspect! Part of me wants to give this knowledge away free, but developing revolutionary sleep science requires funding. I've invested my entire career in adolescent rest research! However, I do worry that the high costs might prevent schools from accessing this life-changing program...\n\nPTA President Linda: Dr. Sleepwell, what evidence do you have that mandatory napping actually works?\n\nDr. Sleepwell: Linda, I'm glad you asked! I piloted this program at Sleepy Valley Academy, where test scores improved dramatically! Although I should mention that Sleepy Valley is a very small private school with only 23 students, and they were already high achievers. Also, the nap program was combined with tutoring, smaller class sizes, and nutritional improvements... but the napping was definitely a factor!\n\nParent Monica: So you can't prove the napping specifically caused the improvements?\n\nDr. Sleepwell: Monica, that's the beauty of holistic education - everything works together! But yes, isolating the nap variable has been... challenging. Still, the correlation is undeniable, and correlation often suggests causation in sleep science!\n\nPrincipal Rodriguez: I think we need more research before investing $47,000 per classroom in nap pods.\n\nDr. Sleepwell: Principal Rodriguez, I understand your caution, but every day we delay, more teenagers suffer from Chronic Wakefulness Syndrome! However, I do have a basic starter package for just $8,999 - it includes nap mats, a sleep timer, and my introductory manual on teen rest management.\n\nPTA President Linda: Thank you, Dr. Sleepwell. The PTA will... consider your proposal. Meeting adjourned.",
+      "audioScript": "PTA President Linda: Thank you all for coming to this emergency session. We're here to discuss Dr. Amanda Sleepwell's groundbreaking proposal for mandatory teenage nap time. Dr. Sleepwell? Dr. Sleepwell: Thank you, Linda. Parents, I'm here with DEVASTATING news about your teenagers' sleep patterns. My research at the Institute of Adolescent Rest Sciences has uncovered a CRISIS that threatens the very foundation of teenage development! Parent Monica: Dr. Sleepwell, what exactly are you proposing? Dr. Sleepwell: Monica, excellent question! I've studied 4,392 teenagers across 156 schools, and 94.7% show signs of quote Chronic Wakefulness Syndrome - a condition where teens resist natural sleep cycles due to societal pressure to remain conscious during school hours! Parent Frank: Are you saying teenagers need to nap at school? Dr. Sleepwell: Frank, not just nap - MANDATORY therapeutic rest periods! My data proves that teens who sleep 45 minutes between 1-2 PM show 167% improvement in academic performance, 89% reduction in behavioral problems, and 203% increase in parent satisfaction! Teacher Ms. Johnson: Dr. Sleepwell, with respect, teenagers already fall asleep in my classes. How is this different? Dr. Sleepwell: Ms. Johnson, that's exactly the problem! Accidental classroom sleeping is chaotic and unproductive. My Structured Adolescent Rest Protocol provides scientifically optimized nap environments with special lighting, temperature control, and subliminal learning audio! Parent Monica: This sounds expensive. What would it cost? Dr. Sleepwell: Monica, what's the cost of teenage rebellion and poor grades? However, I've partnered with TeenRest Solutions to provide complete nap facilities for just $47,000 per classroom! This includes specialized sleeping pods, biometric monitoring, and my proprietary DreamLearning curriculum! Parent Sarah: $47,000? That's insane! Can't kids just put their heads down? Dr. Sleepwell: Sarah, amateur napping is actually DANGEROUS! Without proper pod positioning and brainwave monitoring, teens risk developing Sleep Learning Resistance - a condition that permanently impairs their ability to absorb information during rest! Principal Rodriguez: Dr. Sleepwell, our insurance company would never approve students sleeping in pods during school hours. Dr. Sleepwell: Principal Rodriguez, insurance companies are part of the Anti-Rest Establishment! They profit from sleep-deprived teenagers who become accident-prone adults requiring more medical care! But honestly, I understand your concerns about liability... Maybe we could start with just meditation mats? Teacher Ms. Johnson: What about the teenagers who don't want to nap? Some kids are naturally alert in the afternoon. Dr. Sleepwell: Ms. Johnson, those teens have been brainwashed by caffeine companies and social media platforms that profit from constant wakefulness! However, you raise a good point - forced napping might create resistance. My modified program allows for Quiet Reflection Alternatives for only $23,500 additional per classroom. Parent Frank: Dr. Sleepwell, this whole thing sounds like you're trying to sell us very expensive sleeping furniture. Dr. Sleepwell: Frank, I'm genuinely torn about the commercial aspect! Part of me wants to give this knowledge away free, but developing revolutionary sleep science requires funding. I've invested my entire career in adolescent rest research! However, I do worry that the high costs might prevent schools from accessing this life-changing program... PTA President Linda: Dr. Sleepwell, what evidence do you have that mandatory napping actually works? Dr. Sleepwell: Linda, I'm glad you asked! I piloted this program at Sleepy Valley Academy, where test scores improved dramatically! Although I should mention that Sleepy Valley is a very small private school with only 23 students, and they were already high achievers. Also, the nap program was combined with tutoring, smaller class sizes, and nutritional improvements... but the napping was definitely a factor! Parent Monica: So you can't prove the napping specifically caused the improvements? Dr. Sleepwell: Monica, that's the beauty of holistic education - everything works together! But yes, isolating the nap variable has been... challenging. Still, the correlation is undeniable, and correlation often suggests causation in sleep science! Principal Rodriguez: I think we need more research before investing $47,000 per classroom in nap pods. Dr. Sleepwell: Principal Rodriguez, I understand your caution, but every day we delay, more teenagers suffer from Chronic Wakefulness Syndrome! However, I do have a basic starter package for just $8,999 - it includes nap mats, a sleep timer, and my introductory manual on teen rest management. PTA President Linda: Thank you, Dr. Sleepwell. The PTA will... consider your proposal. Meeting adjourned.",
+      "claim": "Teenagers suffer from 'Chronic Wakefulness Syndrome' requiring mandatory school nap periods with expensive specialized equipment",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "logic": 41,
+        "emotion": 58,
+        "balanced": 84,
+        "agenda": 73
+      },
+      "audioHints": {
+        "tone": "school-meeting-professional",
+        "pacing": "meeting-tempo",
+        "characterVoices": {
+          "PTA President Linda": "organized meeting facilitator, tries to maintain professionalism",
+          "Dr. Sleepwell": "passionate sleep researcher with increasing commercial agenda, shows genuine uncertainty",
+          "Parent Monica": "practical mother asking direct financial questions, skeptical but engaged",
+          "Parent Frank": "straightforward dad who calls out obvious sales tactics",
+          "Parent Sarah": "budget-conscious parent shocked by expensive proposals",
+          "Teacher Ms. Johnson": "experienced educator with practical classroom concerns",
+          "Principal Rodriguez": "school administrator focused on liability and implementation reality"
+        },
+        "recordingNotes": "School meeting should feel formal but natural. Dr. Sleepwell becomes increasingly defensive about costs but shows genuine uncertainty about commercialization. Parents ask practical questions. Natural meeting interruptions.",
+        "backgroundAmbience": "subtle school library reverb, occasional paper shuffling"
+      },
+      "reviewKeywords": {
+        "logic": {
+          "keywords": [
+            {
+              "phrase": "I've studied 4,392 teenagers across 156 schools, and 94.7% show signs of 'Chronic Wakefulness Syndrome'",
+              "weight": 85
+            },
+            {
+              "phrase": "My research at the Institute of Adolescent Rest Sciences",
+              "weight": 80
+            },
+            {
+              "phrase": "teens who sleep 45 minutes between 1-2 PM show 167% improvement in academic performance",
+              "weight": 75
+            },
+            {
+              "phrase": "correlation often suggests causation in sleep science!",
+              "weight": 70
+            }
+          ],
+          "explanation": "Creates fabricated medical syndrome and research institution with fake statistics to justify expensive educational intervention"
+        },
+        "emotion": {
+          "keywords": [
+            {
+              "phrase": "I'm here with DEVASTATING news about your teenagers' sleep patterns",
+              "weight": 85
+            },
+            {
+              "phrase": "a CRISIS that threatens the very foundation of teenage development!",
+              "weight": 90
+            },
+            {
+              "phrase": "amateur napping is actually DANGEROUS!",
+              "weight": 95
+            },
+            {
+              "phrase": "permanently impairs their ability to absorb information during rest!",
+              "weight": 80
+            }
+          ],
+          "explanation": "Transforms normal teenage tiredness into developmental crisis requiring immediate expensive intervention"
+        },
+        "balanced": {
+          "keywords": [
+            {
+              "phrase": "Frank, I'm genuinely torn about the commercial aspect!",
+              "weight": 80
+            },
+            {
+              "phrase": "I do worry that the high costs might prevent schools from accessing this life-changing program",
+              "weight": 85
+            },
+            {
+              "phrase": "isolating the nap variable has been... challenging",
+              "weight": 75
+            },
+            {
+              "phrase": "Sleepy Valley is a very small private school with only 23 students, and they were already high achievers",
+              "weight": 90
+            }
+          ],
+          "explanation": "Extensively acknowledges commercial conflicts, research limitations, and uncertainty about evidence while continuing to push products"
+        },
+        "agenda": {
+          "keywords": [
+            {
+              "phrase": "I've partnered with TeenRest Solutions to provide complete nap facilities for just $47,000 per classroom!",
+              "weight": 95
+            },
+            {
+              "phrase": "My modified program allows for 'Quiet Reflection Alternatives' for only $23,500 additional per classroom",
+              "weight": 90
+            },
+            {
+              "phrase": "I do have a basic starter package for just $8,999",
+              "weight": 85
+            },
+            {
+              "phrase": "insurance companies are part of the 'Anti-Rest Establishment'!",
+              "weight": 75
+            }
+          ],
+          "explanation": "Educational concern immediately becomes multiple expensive equipment packages with corporate establishment villains"
+        }
+      },
+      "logicalFallacies": [
+        {
+          "fallacyId": "hasty-generalization",
+          "severity": "primary",
+          "example": "Small private school results applied to all teenagers"
+        },
+        {
+          "fallacyId": "post-hoc",
+          "severity": "secondary",
+          "example": "Improved scores after multiple interventions attributed to napping"
+        }
+      ],
+      "analysis": {
+        "logic": {
+          "scores": {
+            "evidence": 47,
+            "consistency": 31,
+            "source": 52,
+            "agenda": 79
+          },
+          "indicators": ["fake-syndrome", "correlation-causation", "small-sample-bias"],
+          "explanation": "Creates medical condition to justify expensive educational intervention with limited evidence"
+        },
+        "emotion": {
+          "scores": {
+            "fear": 67,
+            "belonging": 41,
+            "pride": 52,
+            "manipulation": 78
+          },
+          "triggers": ["teenage-development-fears", "academic-performance-anxiety", "parental-responsibility"],
+          "explanation": "Exploits parental concerns about teenage behavior and academic success"
+        }
+      },
+      "dimensionAnalysis": {
+        "logic": "Normal teenage sleepiness becomes medical syndrome through fake research and small-scale correlation",
+        "emotion": "Parental concern about teen behavior escalates to developmental crisis requiring expensive intervention",
+        "balanced": "Extensive acknowledgment of commercial conflicts, research limitations, and implementation challenges",
+        "agenda": "Educational intervention immediately monetized through multiple price points for sleep equipment"
+      },
+      "peakMoments": {
+        "logic": ["4,392 teenagers", "167% improvement", "Institute"],
+        "emotion": ["DEVASTATING", "CRISIS", "permanently impairs"],
+        "balanced": ["genuinely torn", "I do worry", "challenging"],
+        "agenda": ["$47,000", "TeenRest Solutions", "$8,999"]
+      },
+      "wisdom": "This PTA meeting scenario shows how educational concerns can be exploited for expensive solutions, and how someone can acknowledge their commercial conflicts while still pushing products.",
+      "hints": {
+        "keywords": ["CRISIS", "Syndrome", "torn", "$47,000"],
+        "strategy": "balanced",
+        "hintMessage": "Teen sleep crisis plus expensive nap equipment sales!"
+      },
+      "metadata": {
+        "tags": ["educational-policy", "parental-anxiety", "expensive-solutions", "fake-syndromes"],
+        "difficulty": 4,
+        "educationalFocus": "recognizing-commercialization-of-educational-concerns-with-ethical-uncertainty",
+        "commonMisconceptions": ["expensive-equipment-improves-education", "correlation-proves-causation"],
+        "addedDate": "2025-06-11"
+      },
+      "topic": "Education Policy"
+    }
+  ]
+}

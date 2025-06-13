@@ -5,7 +5,7 @@ const fs = require('fs').promises;
 const path = require('path');
 
 async function updateAnalytics() {
-    const audioDir = path.join(__dirname, 'data/audio-recording-voices-for-scenarios-from-elevenlabs');
+    const audioDir = path.join(__dirname, 'data/voices');
     
     // Read current victories if exists
     let victories = [];

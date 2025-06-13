@@ -21,7 +21,7 @@ class PhuzzyAudioEngine {
     constructor(config = {}) {
         this.config = {
             // Base paths
-            audioBasePath: config.audioBasePath || '../data/audio-recording-voices-for-scenarios-from-elevenlabs/',
+            audioBasePath: config.audioBasePath || '../data/voices/',
             
             // First-play optimization
             enableFirstPlayOptimization: config.enableFirstPlayOptimization !== false,
@@ -61,6 +61,7 @@ class PhuzzyAudioEngine {
         this.audioCache = new Map();
         this.assetRegistry = new Map();
         this.activeStreams = new Set();
+        this.activeSequences = new Map(); // Track running sequences for interruption
         this.memoryUsage = 0;
         this.isInitialized = false;
         this.masterVolume = 1.0;
@@ -365,13 +366,17 @@ class PhuzzyAudioEngine {
             onError = null
         } = options;
         
+        this.log(`🎯 play() called with audioSpec:`, audioSpec, `options:`, options);
+        
         try {
             // Ensure we're initialized and audio system is ready
             if (!this.isInitialized) {
+                this.log(`🚀 Initializing audio engine...`);
                 await this.initialize();
             }
             
             // Ensure audio system is warmed up to prevent first-play hiccup
+            this.log(`🔥 Ensuring audio system is ready...`);
             await this.ensureAudioReady();
             
             // Resolve audio asset
@@ -430,21 +435,36 @@ class PhuzzyAudioEngine {
         const sequenceId = this.generateId();
         const playedIds = [];
         
+        // Track this sequence for interruption capability
+        this.activeSequences.set(sequenceId, { 
+            interrupted: false, 
+            channel,
+            startTime: Date.now()
+        });
+        
         try {
             for (let i = 0; i < sequence.length; i++) {
+                // Check if sequence was interrupted
+                const sequenceState = this.activeSequences.get(sequenceId);
+                if (sequenceState && sequenceState.interrupted) {
+                    this.log(`🛑 Sequence ${sequenceId} was interrupted, stopping at item ${i}`);
+                    break;
+                }
                 const audioSpec = sequence[i];
                 
                 // Play current audio
+                // NOTE: Don't pass sequence-level callbacks (onComplete, onProgress) to individual files
+                const { onComplete: sequenceOnComplete, onProgress: sequenceOnProgress, ...playOptions } = options;
                 const playId = await this.play(audioSpec, {
-                    ...options,
+                    ...playOptions,
                     channel,
                     interrupt: i === 0 ? options.interrupt : 'queue'
                 });
                 
                 playedIds.push(playId);
                 
-                // Wait for completion
-                await this.waitForCompletion(playId);
+                // Wait for completion (with interruption checking)
+                await this.waitForCompletion(playId, sequenceId);
                 
                 // Progress callback
                 if (onProgress) {
@@ -457,11 +477,26 @@ class PhuzzyAudioEngine {
                 }
             }
             
-            if (onComplete) onComplete(sequenceId, playedIds);
+            // Check if sequence was interrupted before calling completion
+            const sequenceState = this.activeSequences.get(sequenceId);
+            const wasInterrupted = sequenceState && sequenceState.interrupted;
+            
+            // Clean up sequence tracking
+            this.activeSequences.delete(sequenceId);
+            
+            // Only call onComplete if sequence wasn't interrupted
+            if (onComplete && !wasInterrupted) {
+                onComplete(sequenceId, playedIds);
+            } else if (wasInterrupted) {
+                this.log(`🚫 Sequence ${sequenceId} was interrupted - skipping completion callback`);
+            }
+            
             return sequenceId;
             
         } catch (error) {
             this.log('❌ Sequence failed', error);
+            // Clean up sequence tracking
+            this.activeSequences.delete(sequenceId);
             // Stop any remaining audio in the sequence
             playedIds.forEach(id => this.stop(id));
             throw error;
@@ -1229,9 +1264,48 @@ class PhuzzyAudioEngine {
      */
     async stopChannel(channelName, options = {}) {
         const channel = this.channels.get(channelName);
-        if (!channel || !channel.currentStream) return;
+        if (!channel) return;
         
-        await this.stopStream(channel.currentStream.id, options);
+        // Stop current stream if playing
+        if (channel.currentStream) {
+            await this.stopStream(channel.currentStream.id, options);
+        }
+    }
+    
+    /**
+     * Stop a channel and clear its queue (graceful sequence stopping)
+     */
+    async stopChannelAndClearQueue(channelName, options = {}) {
+        const channel = this.channels.get(channelName);
+        if (!channel) return;
+        
+        // Debug: Log queue state before clearing
+        const queueSizeBefore = channel.queue ? channel.queue.length : 0;
+        this.log(`🧹 BEFORE: Channel "${channelName}" has ${queueSizeBefore} queued items`);
+        if (channel.queue && channel.queue.length > 0) {
+            this.log(`🧹 Queued items:`, channel.queue.map(item => item.url || item.id));
+        }
+        
+        // Stop current stream if playing
+        if (channel.currentStream) {
+            this.log(`🧹 Stopping current stream: ${channel.currentStream.id}`);
+            await this.stopStream(channel.currentStream.id, options);
+        }
+        
+        // Clear the queue
+        channel.queue = [];
+        
+        // ⭐ CRITICAL: Also interrupt any active sequences on this channel
+        let interruptedSequences = 0;
+        for (const [sequenceId, sequenceState] of this.activeSequences.entries()) {
+            if (sequenceState.channel === channelName) {
+                sequenceState.interrupted = true;
+                interruptedSequences++;
+                this.log(`🛑 Interrupted sequence ${sequenceId} on channel ${channelName}`);
+            }
+        }
+        
+        this.log(`🧹 AFTER: Stopped channel "${channelName}", cleared queue (was ${queueSizeBefore} items), interrupted ${interruptedSequences} sequences`);
     }
     
     /**
@@ -1346,14 +1420,26 @@ class PhuzzyAudioEngine {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
     
-    async waitForCompletion(streamId) {
+    async waitForCompletion(streamId, sequenceId = null) {
         return new Promise((resolve) => {
             const checkCompletion = () => {
+                // Check if stream is done
                 if (!this.activeStreams.has(streamId)) {
                     resolve();
-                } else {
-                    setTimeout(checkCompletion, 100);
+                    return;
                 }
+                
+                // CRITICAL: Also check if sequence was interrupted
+                if (sequenceId) {
+                    const sequenceState = this.activeSequences.get(sequenceId);
+                    if (sequenceState && sequenceState.interrupted) {
+                        this.log(`🛑 waitForCompletion: Sequence ${sequenceId} interrupted, breaking wait`);
+                        resolve();
+                        return;
+                    }
+                }
+                
+                setTimeout(checkCompletion, 100);
             };
             checkCompletion();
         });
@@ -1479,6 +1565,17 @@ class PhuzzyAudioEngine {
             
             // Fade in if requested
             if (playRequest.fadeIn) {
+                // Apply silent priming for fadeIn path too (was being bypassed!)
+                const needsPriming = !audio._phuzzyPrimed && this.isFirstPlayOptimizationEnabled();
+                this.log(`🔍 fadeIn path: primed=${!!audio._phuzzyPrimed}, needsPriming=${needsPriming}`);
+                
+                if (needsPriming) {
+                    this.log('🔧 FadeIn first-play detected - applying silent pre-play priming');
+                    await this.silentlyPrimeAudio(audio);
+                } else {
+                    this.log(`⏭️ FadeIn skipping priming: already primed=${!!audio._phuzzyPrimed}`);
+                }
+                
                 audio.volume = 0;
                 const playPromise = audio.play();
                 
@@ -1507,36 +1604,169 @@ class PhuzzyAudioEngine {
     
     /**
      * Optimized play method that handles promises and reduces first-play delay
+     * Enhanced with silent pre-play priming to eliminate Chrome's first-half-second clipping
      */
-    optimizedPlay(audio) {
+    async optimizedPlay(audio) {
         try {
             // Reset to beginning for consistent playback
             if (audio.currentTime !== 0) {
                 audio.currentTime = 0;
             }
             
-            // Use the native play method
-            const playPromise = audio.play();
+            // Check if this audio file needs silent pre-play priming
+            const needsPriming = !audio._phuzzyPrimed && this.isFirstPlayOptimizationEnabled();
             
-            // Modern browsers return a promise
-            if (playPromise && typeof playPromise.then === 'function') {
-                return playPromise.catch(error => {
-                    // Handle autoplay restrictions gracefully
-                    if (error.name === 'NotAllowedError') {
-                        this.log('⚠️ Autoplay blocked - user interaction required');
-                    } else {
-                        this.log('⚠️ Audio play failed:', error);
-                    }
-                    throw error;
-                });
+            this.log(`🔍 optimizedPlay() called: src=${audio.src?.substring(0, 50)}..., primed=${!!audio._phuzzyPrimed}, needsPriming=${needsPriming}`);
+            
+            if (needsPriming) {
+                this.log('🔧 First-play detected - applying silent pre-play priming');
+                await this.silentlyPrimeAudio(audio);
+            } else {
+                this.log(`⏭️ Skipping priming: already primed=${!!audio._phuzzyPrimed}, optimization disabled=${!this.isFirstPlayOptimizationEnabled()}`);
             }
             
-            return Promise.resolve();
+            // Ensure audio is fully ready before playing to prevent clipping
+            return new Promise((resolve, reject) => {
+                
+                const attemptPlay = () => {
+                    const playPromise = audio.play();
+                    
+                    // Modern browsers return a promise
+                    if (playPromise && typeof playPromise.then === 'function') {
+                        playPromise.then(resolve).catch(error => {
+                            // Handle autoplay restrictions gracefully
+                            if (error.name === 'NotAllowedError') {
+                                this.log('⚠️ Autoplay blocked - user interaction required');
+                            } else {
+                                this.log('⚠️ Audio play failed:', error);
+                            }
+                            resolve(); // Don't propagate error
+                        });
+                    } else {
+                        resolve();
+                    }
+                };
+                
+                // Check if audio is ready to play without buffering
+                if (audio.readyState >= 3) { // HAVE_FUTURE_DATA or HAVE_ENOUGH_DATA
+                    // Audio is ready, play immediately
+                    attemptPlay();
+                } else {
+                    // Wait for audio to be ready, then play
+                    const handleCanPlay = () => {
+                        audio.removeEventListener('canplaythrough', handleCanPlay);
+                        attemptPlay();
+                    };
+                    audio.addEventListener('canplaythrough', handleCanPlay);
+                    
+                    // Fallback timeout in case canplaythrough never fires
+                    setTimeout(() => {
+                        audio.removeEventListener('canplaythrough', handleCanPlay);
+                        attemptPlay();
+                    }, 3000); // Keep longer timeout for fallback only
+                }
+            });
             
         } catch (error) {
             this.log('⚠️ Optimized play failed:', error);
-            return Promise.reject(error);
+            return Promise.resolve();
         }
+    }
+    
+    /**
+     * Silent pre-play priming to eliminate first-play clipping
+     * This method plays audio silently for ~1 second to "wake up" the browser's audio system
+     */
+    async silentlyPrimeAudio(audio) {
+        try {
+            if (audio._phuzzyPrimed) {
+                return; // Already primed
+            }
+            
+            this.log('🔇 Starting silent pre-play priming...');
+            
+            // Save current state
+            const originalVolume = audio.volume;
+            const originalCurrentTime = audio.currentTime;
+            
+            // Set up for silent priming
+            audio.volume = 0.001; // Nearly silent (not 0 to avoid mute optimizations)
+            audio.currentTime = 0;
+            
+            // Ensure audio is ready for priming
+            if (audio.readyState < 3) {
+                await new Promise((resolve, reject) => {
+                    const timeout = setTimeout(() => {
+                        reject(new Error('Priming timeout - audio not ready'));
+                    }, 2000);
+                    
+                    const handleReady = () => {
+                        clearTimeout(timeout);
+                        audio.removeEventListener('canplaythrough', handleReady);
+                        audio.removeEventListener('error', handleError);
+                        resolve();
+                    };
+                    
+                    const handleError = (error) => {
+                        clearTimeout(timeout);
+                        audio.removeEventListener('canplaythrough', handleReady);
+                        audio.removeEventListener('error', handleError);
+                        reject(error);
+                    };
+                    
+                    audio.addEventListener('canplaythrough', handleReady, { once: true });
+                    audio.addEventListener('error', handleError, { once: true });
+                    
+                    if (audio.readyState >= 3) {
+                        handleReady();
+                    }
+                });
+            }
+            
+            // Silent pre-play
+            const playPromise = audio.play();
+            if (playPromise) {
+                await playPromise;
+            }
+            
+            // Let it play silently for 1 second to fully prime the system
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            // Stop and reset for actual playback
+            audio.pause();
+            audio.currentTime = originalCurrentTime;
+            audio.volume = originalVolume;
+            
+            // Mark as primed to avoid re-priming
+            audio._phuzzyPrimed = true;
+            
+            this.log('✅ Silent pre-play priming completed - audio system ready');
+            
+        } catch (error) {
+            this.log('⚠️ Silent priming failed (continuing anyway):', error);
+            // Don't throw - graceful degradation
+            
+            // Restore original state even if priming failed
+            try {
+                audio.pause();
+                audio.currentTime = 0;
+                audio.volume = 1.0;
+            } catch (restoreError) {
+                this.log('⚠️ Could not restore audio state after failed priming');
+            }
+        }
+    }
+    
+    /**
+     * Check if first-play optimization should be applied
+     */
+    isFirstPlayOptimizationEnabled() {
+        const enabled = this.config.enableFirstPlayOptimization && 
+                       this.firstInteractionReceived && 
+                       this.audioSystemWarmedUp;
+        
+        this.log(`🔍 Priming check: config=${this.config.enableFirstPlayOptimization}, interaction=${this.firstInteractionReceived}, warmed=${this.audioSystemWarmedUp} → ${enabled}`);
+        return enabled;
     }
     
     /**

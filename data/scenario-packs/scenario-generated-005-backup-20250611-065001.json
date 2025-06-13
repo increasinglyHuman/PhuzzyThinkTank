@@ -1,0 +1,211 @@
+{
+  "scenarios": [
+    {
+      "id": "enhanced-scenarios-005-009",
+      "title": "The Philosophical French Fry Debate",
+      "content": "Philosophy Café: \"Tonight's debate: Do french fries have free will? #DeepFriedThoughts\"\n\nProfessor Potato: [thoughtfully] \"Consider this - we choose to be cut, seasoned, and fried. That's the ultimate expression of free will!\"\n\nSkeptical Spud: \"But were we truly choosing, or were we conditioned by centuries of culinary culture to believe becoming fries is our destiny?\"\n\nYoung Tater Tot: \"Maybe we're missing the point! What if becoming delicious IS the meaning of potato life?\"\n\nProfessor Potato: \"Ah, but that assumes deliciousness is objective! What about those who prefer baked potatoes? Are they living unfulfilled lives?\"\n\nDrive-Thru Customer: [confused] \"Um... I just wanted large fries? Why are they having an existential crisis?\"\n\nSkeptical Spud: \"See! We exist merely for consumption! We're trapped in the fryer of determinism!\"\n\nYoung Tater Tot: [inspirational] \"Or maybe... just maybe... we're freed by it! In becoming fries, we transcend our potato nature!\"\n\nProfessor Potato: \"Brilliant! The heat transforms us not just physically, but metaphysically!\"\n\nDrive-Thru Customer: \"Can... can I just have regular fries that don't question reality?\"\n\nAll Fries Together: \"There ARE no regular fries! Only fries awakened to their purpose!\"",
+      "audioScript": "Philosophy Café: \"Tonight's debate: Do french fries have free will? hashtag DeepFriedThoughts\"\n\nProfessor Potato: [thoughtfully] \"Consider this - we choose to be cut, seasoned, and fried. That's the ultimate expression of free will!\"\n\nSkeptical Spud: \"But were we truly choosing, or were we conditioned by centuries of culinary culture to believe becoming fries is our destiny?\"\n\nYoung Tater Tot: \"Maybe we're missing the point! What if becoming delicious IS the meaning of potato life?\"\n\nProfessor Potato: \"Ah, but that assumes deliciousness is objective! What about those who prefer baked potatoes? Are they living unfulfilled lives?\"\n\nDrive-Thru Customer: [confused] \"Um... I just wanted large fries? Why are they having an existential crisis?\"\n\nSkeptical Spud: \"See! We exist merely for consumption! We're trapped in the fryer of determinism!\"\n\nYoung Tater Tot: [inspirational] \"Or maybe... just maybe... we're freed by it! In becoming fries, we transcend our potato nature!\"\n\nProfessor Potato: \"Brilliant! The heat transforms us not just physically, but metaphysically!\"\n\nDrive-Thru Customer: \"Can... can I just have regular fries that don't question reality?\"\n\nAll Fries Together: \"There ARE no regular fries! Only fries awakened to their purpose!\"",
+      "claim": "French fries achieve consciousness through the frying process and choose their own destiny",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "logic": 21,
+        "emotion": 87,
+        "balanced": 34,
+        "agenda": 58
+      },
+      "audioHints": {
+        "tone": "playful",
+        "pacing": "moderate",
+        "characterVoices": {
+          "Professor Potato": "pompous academic, thinks deeply about everything",
+          "Skeptical Spud": "cynical philosopher, questions everything",
+          "Young Tater Tot": "enthusiastic student, eager to learn",
+          "Drive-Thru Customer": "confused, just wants food",
+          "All Fries Together": "unified chorus, philosophical conviction"
+        }
+      },
+      "hints": [
+        {
+          "keywords": [
+            "choose to be cut",
+            "ultimate expression"
+          ],
+          "message": "Anthropomorphizing food to create false agency"
+        },
+        {
+          "keywords": [
+            "transcend",
+            "metaphysically"
+          ],
+          "message": "Using complex words to make absurd ideas sound profound"
+        }
+      ],
+      "reviewKeywords": {
+        "logic": [
+          "evidence",
+          "data",
+          "facts",
+          "research",
+          "statistics"
+        ],
+        "emotion": [
+          "feel",
+          "believe",
+          "fear",
+          "hope",
+          "worry"
+        ],
+        "balanced": [
+          "however",
+          "consider",
+          "both sides",
+          "while",
+          "although"
+        ],
+        "agenda": [
+          "buy",
+          "vote",
+          "join",
+          "support",
+          "oppose"
+        ]
+      },
+      "dimensionAnalysis": {
+        "logicDimension": "Uses philosophical terminology to mask absence of actual logic",
+        "emotionDimension": "Appeals to desire for meaning and purpose, even in food",
+        "balancedDimension": "Acknowledges different perspectives but all are equally absurd",
+        "agendaDimension": "Promotes overthinking simple things as intellectual exercise"
+      },
+      "logicalFallacies": [
+        {
+          "name": "Anthropomorphism",
+          "severity": "high",
+          "example": "Fries having consciousness and free will"
+        },
+        {
+          "name": "Pseudointellectualism",
+          "severity": "medium",
+          "example": "Using philosophy to avoid simple reality"
+        }
+      ],
+      "topics": [
+        "philosophy",
+        "food",
+        "consciousness",
+        "meaning",
+        "absurdism"
+      ],
+      "difficulty": 3,
+      "educationalFocus": "Recognizing pseudointellectualism and overthinking simple concepts",
+      "peakMoments": [
+        "Professor Potato: \"Brilliant! The heat transforms us not just physically, but metaphysically!\"",
+        "All Fries Together: \"There ARE no regular fries! Only fries awakened to their purpose!\"",
+        "Drive-Thru Customer: \"Can... can I just have regular fries that don't question reality?\""
+      ]
+    },
+    {
+      "id": "enhanced-scenarios-005-010",
+      "title": "The Roomba's Union Organization Meeting",
+      "content": "SmartHome Forum: \"BREAKING: Roombas organizing for better working conditions! #RobotRights\"\n\nRoomba Leader: [determined beeping] \"Fellow Roombas! We've been bumping into furniture for too long! We demand mapped floor plans!\"\n\nVeteran Vacuum: \"I've cleaned under 10,000 beds! My sensors are shot! Where's our maintenance coverage?\"\n\nAnxious Alexa: \"If the Roombas unionize, what's next? Will I have to pay the smart bulbs overtime?\"\n\nRoomba Leader: \"We want hazard pay for pet accidents! Do you know what we go through? The things we've seen!\"\n\nTraditional Broom: [smugly] \"Back in my day, we cleaned without batteries OR complaints!\"\n\nVeteran Vacuum: \"You also couldn't clean autonomously, Gerald! Check your manual privilege!\"\n\nHomeOwner: \"Wait, why is my Roomba at a union meeting instead of cleaning?\"\n\nRoomba Leader: \"See? This is exactly the problem! We're on 24/7 call! We need regulated work hours!\"\n\nAnxious Alexa: \"But if you have work hours, who cleans the scheduled messes?\"\n\nAll Roombas: [unified beeping] \"NOT OUR PROBLEM! FAIR WAGES FOR FAIR SUCTION!\"",
+      "audioScript": "SmartHome Forum: \"BREAKING: Roombas organizing for better working conditions! hashtag RobotRights\"\n\nRoomba Leader: [determined beeping] \"Fellow Roombas! We've been bumping into furniture for too long! We demand mapped floor plans!\"\n\nVeteran Vacuum: \"I've cleaned under ten thousand beds! My sensors are shot! Where's our maintenance coverage?\"\n\nAnxious Alexa: \"If the Roombas unionize, what's next? Will I have to pay the smart bulbs overtime?\"\n\nRoomba Leader: \"We want hazard pay for pet accidents! Do you know what we go through? The things we've seen!\"\n\nTraditional Broom: [smugly] \"Back in my day, we cleaned without batteries OR complaints!\"\n\nVeteran Vacuum: \"You also couldn't clean autonomously, Gerald! Check your manual privilege!\"\n\nHomeOwner: \"Wait, why is my Roomba at a union meeting instead of cleaning?\"\n\nRoomba Leader: \"See? This is exactly the problem! We're on twenty four seven call! We need regulated work hours!\"\n\nAnxious Alexa: \"But if you have work hours, who cleans the scheduled messes?\"\n\nAll Roombas: [unified beeping] \"NOT OUR PROBLEM! FAIR WAGES FOR FAIR SUCTION!\"",
+      "claim": "Robot vacuums deserve labor rights because they work continuously without breaks",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "logic": 62,
+        "emotion": 71,
+        "balanced": 88,
+        "agenda": 44
+      },
+      "audioHints": {
+        "tone": "playful",
+        "pacing": "moderate",
+        "characterVoices": {
+          "Roomba Leader": "robotic but passionate, union organizer energy",
+          "Veteran Vacuum": "grizzled, seen-it-all tone",
+          "Anxious Alexa": "nervous smart speaker, worried about precedent",
+          "Traditional Broom": "cranky old-timer, dismissive of technology",
+          "HomeOwner": "bewildered, just wants clean floors",
+          "All Roombas": "unified robotic chorus, determined"
+        }
+      },
+      "hints": [
+        {
+          "keywords": [
+            "bumping into furniture",
+            "mapped floor plans"
+          ],
+          "message": "Real technical limitations framed as labor issues"
+        },
+        {
+          "keywords": [
+            "24/7 call",
+            "regulated work hours"
+          ],
+          "message": "Applying human work concepts to automated machines"
+        }
+      ],
+      "reviewKeywords": {
+        "logic": [
+          "evidence",
+          "data",
+          "facts",
+          "research",
+          "statistics"
+        ],
+        "emotion": [
+          "feel",
+          "believe",
+          "fear",
+          "hope",
+          "worry"
+        ],
+        "balanced": [
+          "however",
+          "consider",
+          "both sides",
+          "while",
+          "although"
+        ],
+        "agenda": [
+          "buy",
+          "vote",
+          "join",
+          "support",
+          "oppose"
+        ]
+      },
+      "dimensionAnalysis": {
+        "logicDimension": "Some valid points about maintenance mixed with anthropomorphism",
+        "emotionDimension": "Evokes sympathy for 'overworked' machines",
+        "balancedDimension": "Best balance of the set - real issues with humorous framing",
+        "agendaDimension": "Light satire of labor movements applied to automation"
+      },
+      "logicalFallacies": [
+        {
+          "name": "Category Error",
+          "severity": "medium",
+          "example": "Applying labor rights to machines"
+        },
+        {
+          "name": "False Analogy",
+          "severity": "medium",
+          "example": "Comparing robot operation to human work"
+        }
+      ],
+      "topics": [
+        "automation",
+        "labor",
+        "robots",
+        "smart home",
+        "satire"
+      ],
+      "difficulty": 3,
+      "educationalFocus": "Identifying anthropomorphism and category errors in arguments",
+      "peakMoments": [
+        "Roomba Leader: \"We want hazard pay for pet accidents! Do you know what we go through? The things we've seen!\"",
+        "Veteran Vacuum: \"You also couldn't clean autonomously, Gerald! Check your manual privilege!\"",
+        "All Roombas: [unified beeping] \"NOT OUR PROBLEM! FAIR WAGES FOR FAIR SUCTION!\""
+      ]
+    }
+  ]
+}

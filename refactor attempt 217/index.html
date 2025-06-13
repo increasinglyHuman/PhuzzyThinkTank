@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phuzzy's Think Tank - Where Bears Balance Brain & Heart</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐻</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐻</text></svg>">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/fallacy-cards.css">
+    <link rel="stylesheet" href="css/timeline-accordion.css">
+    <link rel="stylesheet" href="css/ui-improvements.css">
+    <link rel="stylesheet" href="css/splash-word-animations.css">
+    
+    <!-- Global Config -->
+    <script>
+        window.PHUZZY_CONFIG = {
+            apiEndpoint: '/api/scenarios',
+            analyticsEndpoint: '/api/analytics',
+            scenariosPerRound: 10,
+            honeyPotsPerRound: 3
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <!-- Score Tracker moved into header and right-aligned -->
+            <div class="score-tracker" id="score-tracker">
+                <div style="font-size: 1.8em; margin-left: -3px;">💫 RIZ: <span id="user-score">0</span></div>
+                <div class="honey-pot-container" id="honey-pots">
+                    <span class="honey-pot" id="honey-pot-1">🍯</span>
+                    <span class="honey-pot" id="honey-pot-2">🍯</span>
+                    <span class="honey-pot" id="honey-pot-3">🍯</span>
+                </div>
+                <div class="question-progress">
+                    <div class="progress-label">Progress</div>
+                    <div class="question-progress-track">
+                        <div class="question-progress-bar" id="question-progress-bar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Game Content -->
+        <div id="game-content">
+            <!-- Scenario Box -->
+            <div class="scenario-box" style="position: relative;">
+                <div class="dizzy-star-icon" id="star-scenario" style="position: absolute; top: 10px; right: 10px; font-size: 48px; cursor: pointer; z-index: 100; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3)); text-shadow: 0 0 10px rgba(255,215,0,0.5);" title="Show scoreboard">💫</div>
+                <h2 class="scenario-title" id="scenario-title">Loading...</h2>
+                <p class="scenario-counter" id="scenario-counter">Scenario 1 of 10</p>
+                <p class="scenario-text" id="scenario-text"></p>
+                <div class="claim" id="claim-text"></div>
+                <!-- Audio Control Button - positioned after claim -->
+                <button class="audio-btn" id="play-pause-btn" onclick="toggleScenarioAudio()" title="Play/Pause scenario audio" style="display: none;">
+                    ▶ Play
+                </button>
+                <!-- Investigate button on the right -->
+                <button class="analysis-toggle-btn" id="analysis-toggle-btn" onclick="toggleTimelineAnalysis()">
+                    🔍 Investigate
+                </button>
+            </div>
+            
+            <!-- Timeline Analysis Accordion -->
+            <div class="timeline-analysis-accordion" id="timeline-analysis-accordion" style="display: none; position: relative;">
+                <div class="dizzy-star-icon" id="star-timeline" style="position: absolute; top: 10px; right: 10px; font-size: 48px; cursor: pointer; z-index: 100; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3)); text-shadow: 0 0 10px rgba(255,215,0,0.5);" title="Show scoreboard">💫</div>
+                <div class="analysis-header">
+                    <h3>Language Evolution Timeline</h3>
+                </div>
+                <div class="analysis-content">
+                    <div class="timeline-charts-grid">
+                        <!-- Radar Chart Section -->
+                        <div class="radar-section" style="display: flex; flex-direction: column; justify-content: flex-start;">
+                            <h4>Argument Fingerprint</h4>
+                            <canvas id="radar-chart" width="280" height="280"></canvas>
+                            <div class="radar-legend" id="radar-legend">
+                                <!-- Legend will be populated dynamically -->
+                            </div>
+                            <div class="chart-explanation" style="margin-top: 10px; font-size: 0.85em; color: #666; line-height: 1.4;">
+                                <em>Shows overall argument classification</em>
+                            </div>
+                        </div>
+                        
+                        <!-- Timeline Chart Section -->
+                        <div class="timeline-chart-section">
+                            <div style="position: relative; display: block;">
+                                <canvas id="timeline-chart" width="600" height="300"></canvas>
+                                <div class="bear-paw-icon" id="bear-paw-main" onclick="handleBearPawClick('timeline-chart')" title="🐻 Runner Bear" style="background-image: url('images/bearpaw.svg'); background-size: cover; background-position: center; display: none;">
+                                </div>
+                                <div class="chart-explanation" style="position: absolute; top: 100%; left: 0; right: 0; margin-top: 4px; font-size: 0.85em; color: #666; line-height: 1.4; text-align: center;">
+                                    <em>Timeline peaks show intensity moments, not totals. Many moderate peaks can equal one high spike—like waves: multiple 3-foot waves move as much water as one 10-footer.</em>
+                                </div>
+                            </div>
+                            <div class="dimension-toggles" style="margin-top: 40px;">
+                                <button class="toggle-btn logic-toggle active" data-dimension="logic" onclick="toggleDimension('timeline-chart', 'logic')">
+                                    <span class="toggle-color logic-color"></span> Logic
+                                </button>
+                                <button class="toggle-btn emotion-toggle active" data-dimension="emotion" onclick="toggleDimension('timeline-chart', 'emotion')">
+                                    <span class="toggle-color emotion-color"></span> Emotional
+                                </button>
+                                <button class="toggle-btn balanced-toggle active" data-dimension="balanced" onclick="toggleDimension('timeline-chart', 'balanced')">
+                                    <span class="toggle-color balanced-color"></span> Balanced
+                                </button>
+                                <button class="toggle-btn agenda-toggle active" data-dimension="agenda" onclick="toggleDimension('timeline-chart', 'agenda')">
+                                    <span class="toggle-color agenda-color"></span> Agenda
+                                </button>
+                            </div>
+                            <!-- What the timeline shows - moved here -->
+                            <div class="timeline-info-box">
+                                <div class="info-title">What the timeline shows:</div>
+                                <div id="timeline-description">Analyzing language patterns...</div>
+                            </div>
+                            <!-- Bear runner interface moved below timeline -->
+                            <div class="bear-flyout" id="bear-flyout-main" style="display: none; margin-top: 20px; position: relative; width: 100%; max-width: 400px; margin-left: auto; margin-right: auto;">
+                                <div class="bear-timer-bar">
+                                    <div class="bear-timer-fill" id="bear-timer-fill-main"></div>
+                                </div>
+                                <button onclick="giveBearPush('timeline-chart')" id="push-btn-main" class="bear-push-btn">
+                                    <span style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%) rotate(-15deg); font-size: 20px;">🐾</span>
+                                    <span style="margin-left: 18px;">PUSH!</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Info Boxes -->
+                    <div class="analysis-info-boxes">
+                        <div class="info-box full-width">
+                            <div class="info-title">Why this Analysis Matters:</div>
+                            <div id="analysis-importance">Understanding manipulation tactics...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quiz Section -->
+            <div class="interactive-section" id="quiz-section">
+                <div class="quiz-question">What's the PRIMARY issue with this argument?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-value="logic">
+                        <span class="option-icon">🧠</span>
+                        <span class="option-text">Weak logical evidence</span>
+                    </div>
+                    <div class="quiz-option" data-value="emotion">
+                        <span class="option-icon">💖</span>
+                        <span class="option-text">Emotional manipulation</span>
+                    </div>
+                    <div class="quiz-option" data-value="balanced">
+                        <span class="option-icon">⚖️</span>
+                        <span class="option-text">Actually well-balanced</span>
+                    </div>
+                    <div class="quiz-option" data-value="agenda">
+                        <span class="option-icon">🎯</span>
+                        <span class="option-text">Hidden agenda/bias</span>
+                    </div>
+                </div>
+                <div class="quiz-button-row">
+                    <button class="hint-button" id="hint-button">
+                        🍯 Use Honey Pot for Hint (<span id="honey-count">3</span> left)
+                    </button>
+                    <button class="submit-button" id="submit-button" disabled>Submit Answer</button>
+                </div>
+            </div>
+            
+            <!-- Detailed Analysis Section -->
+            <div class="detailed-analysis-section" id="detailed-analysis"></div>
+            
+            <!-- Navigation -->
+            <div class="button-container">
+                <button class="next-button" id="next-button">Next Scenario →</button>
+            </div>
+        </div>
+        
+        <!-- End Game Screen -->
+        <div class="end-game" id="end-game">
+            <div class="results-card">
+                <h1 class="results-title">🐻 Phuzzy's Think Tank</h1>
+                
+                <div class="badge-section">
+                    <div class="final-badge" id="final-badge">🏆</div>
+                    <div class="stats-summary">
+                        <h2 id="badge-title">Calculating...</h2>
+                        <p id="badge-message"></p>
+                        <div class="stat-row">
+                            <span class="stat-label">Final RIZ Score:</span>
+                            <span class="stat-value" id="final-score"></span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Accuracy:</span>
+                            <span class="stat-value" id="accuracy-percent"></span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Honey Pots Used:</span>
+                            <span class="stat-value" id="honey-used"></span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Fallacy Cards:</span>
+                            <span class="stat-value" id="cards-collected-final">0/15</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="collection-bonus" id="collection-bonus" style="display: none;">
+                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px; border-radius: 12px; margin: 15px 0; text-align: center;">
+                        <div id="collection-bonus-text"></div>
+                    </div>
+                </div>
+                
+                <div class="mini-meters" id="performance-meters">
+                    <h3>Your Performance Analysis</h3>
+                    <div class="mini-meter-row">
+                        <span class="mini-meter-label">Logic Detection</span>
+                        <div class="mini-meter-container">
+                            <div class="mini-meter-fill logic-fill" id="logic-performance"></div>
+                        </div>
+                    </div>
+                    <div class="mini-meter-row">
+                        <span class="mini-meter-label">Emotion Sensing</span>
+                        <div class="mini-meter-container">
+                            <div class="mini-meter-fill emotion-fill" id="emotion-performance"></div>
+                        </div>
+                    </div>
+                    <div class="mini-meter-row">
+                        <span class="mini-meter-label">Balance Wisdom</span>
+                        <div class="mini-meter-container">
+                            <div class="mini-meter-fill balanced-fill" id="balance-performance"></div>
+                        </div>
+                    </div>
+                    <div class="mini-meter-row">
+                        <span class="mini-meter-label">Agenda Detection</span>
+                        <div class="mini-meter-container">
+                            <div class="mini-meter-fill agenda-fill" id="agenda-performance"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="share-section">
+                    <h3 class="share-title">Share Your Think Tank Results!</h3>
+                    <div class="social-buttons">
+                        <a href="#" class="social-button social-facebook" id="share-facebook">
+                            <span>📘</span> Facebook
+                        </a>
+                        <a href="#" class="social-button social-instagram" id="share-instagram">
+                            <span>📸</span> Instagram
+                        </a>
+                        <a href="#" class="social-button social-linkedin" id="share-linkedin">
+                            <span>💼</span> LinkedIn
+                        </a>
+                        <a href="#" class="social-button social-copy" id="share-copy">
+                            <span>📋</span> Copy Link
+                        </a>
+                    </div>
+                </div>
+                
+                <button class="replay-button" onclick="location.reload()">
+                    🔄 Play Again
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Splash Screen -->
+    <div class="splash-screen" id="splash-screen">
+        <div class="splash-overlay"></div>
+        <div class="splash-card">
+            <div class="splash-bear">🐻</div>
+            <h2 class="splash-title">Welcome to Phuzzy's Think Tank!</h2>
+            <div class="splash-instructions">
+                <div class="instruction-item" data-index="0">
+                    <span class="instruction-icon">📖</span>
+                    <span class="instruction-text">Read the story, thinking carefully</span>
+                </div>
+                <div class="instruction-item" data-index="1">
+                    <span class="instruction-icon">🔍</span>
+                    <span class="instruction-text">Investigate</span>
+                </div>
+                <div class="instruction-item" data-index="2">
+                    <span class="instruction-icon">🤔</span>
+                    <span class="instruction-text">Answer the question</span>
+                </div>
+                <div class="instruction-item" data-index="3">
+                    <span class="instruction-icon">✨</span>
+                    <span class="instruction-text">Best answers score more RIZ</span>
+                </div>
+                <div class="instruction-item" data-index="4">
+                    <span class="instruction-icon">🍯</span>
+                    <span class="instruction-text">Honey pots are for hints</span>
+                </div>
+            </div>
+            <button class="play-now-button" id="play-now-button" disabled>
+                Play Now
+            </button>
+        </div>
+    </div>
+    
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-bear">🐻</div>
+            <h2>Loading Phuzzy's Think Tank...</h2>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Load scripts in order (ES5 compatible) -->
+    <script src="./js/core/scenario-packs-config.js"></script>
+    <script src="./js/core/scenario-manager.js"></script>
+    <script src="./js/core/scoring-system.js"></script>
+    <script src="./js/core/honey-pot-manager.js"></script>
+    <script src="./js/utils/analytics-tracker.js"></script>
+    
+    <!-- Audio System -->
+    <script src="./js/audio/phuzzy-audio-engine.js"></script>
+    <script src="./js/audio/phuzzy-audio-engine-integration.js"></script>
+    
+    <script src="./js/ui/bear-analysis.js"></script>
+    <script src="./js/ui/feedback-animator.js"></script>
+    <script src="./js/ui/hint-display.js"></script>
+    <script src="./js/ui/quiz-interface.js"></script>
+    <script src="./js/ui/social-sharing.js"></script>
+    <script src="./js/ui/timeline-chart.js"></script>
+    <script src="./js/ui/timeline-analysis.js"></script>
+    <script src="./js/ui/ui-enhancements.js"></script>
+    <script src="./js/core/game-engine.js"></script>
+    <script src="./js/splash-word-animator-v2.js"></script>
+    
+    <!-- Main Game Script -->
+    <script>
+        // ES5 compatible initialization
+        
+        // Handle splash screen
+        function setupSplashScreen() {
+            const splashScreen = document.getElementById('splash-screen');
+            const playNowButton = document.getElementById('play-now-button');
+            
+            // Enable play button immediately - no need to wait for animations
+            if (playNowButton) {
+                playNowButton.disabled = false;
+                playNowButton.style.opacity = '1';
+                playNowButton.style.cursor = 'pointer';
+            }
+            
+            // Handle play now button click
+            playNowButton.addEventListener('click', function() {
+                // Set flag that user has clicked Play Now - this grants audio permission for later
+                window.userHasClickedPlayNow = true;
+                console.log('👆 User clicked Play Now - audio permission granted');
+                
+                // Show audio controls now that permission is granted
+                if (window.showAudioControls) {
+                    window.showAudioControls();
+                }
+                
+                // Hide splash screen and start game
+                splashScreen.classList.add('hidden');
+                setTimeout(function() {
+                    splashScreen.style.display = 'none';
+                }, 500);
+                
+                // Progressive UX Guidance System
+                setTimeout(function() {
+                    startProgressiveGuidance();
+                }, 1000);
+                
+                // Start scoreboard animation after splash closes
+                setTimeout(function() {
+                    if (window.scoreboardManager) {
+                        window.scoreboardManager.startInitialAnimation();
+                    }
+                }, 600);
+            });
+            
+            // Also allow clicking outside the card to dismiss
+            splashScreen.addEventListener('click', function(e) {
+                if (e.target === splashScreen || e.target.classList.contains('splash-overlay')) {
+                    splashScreen.classList.add('hidden');
+                    setTimeout(function() {
+                        splashScreen.style.display = 'none';
+                    }, 500);
+                }
+            });
+        }
+        
+        // Progressive UX Guidance System
+        function startProgressiveGuidance() {
+            console.log('🎯 Starting progressive UX guidance system');
+            
+            // Step 1: Audio button pulse (encourage audio use)
+            const audioBtn = document.getElementById('play-pause-btn');
+            if (audioBtn && audioBtn.style.display !== 'none') {
+                console.log('🎵 Starting audio button pulse animation');
+                audioBtn.classList.add('audio-pulse');
+                
+                // Remove audio pulse when user clicks the audio button
+                const removeAudioPulse = function() {
+                    audioBtn.classList.remove('audio-pulse');
+                    audioBtn.removeEventListener('click', removeAudioPulse);
+                    console.log('🎵 Audio button clicked - removing pulse animation');
+                };
+                audioBtn.addEventListener('click', removeAudioPulse);
+                
+                // Step 2: After 10 seconds, switch to investigate button
+                setTimeout(function() {
+                    // Remove audio pulse if still active
+                    if (audioBtn.classList.contains('audio-pulse')) {
+                        audioBtn.classList.remove('audio-pulse');
+                        audioBtn.removeEventListener('click', removeAudioPulse);
+                        console.log('🎵 10 seconds elapsed - removing audio pulse');
+                    }
+                    
+                    // Start investigate button pulse
+                    const investigateBtn = document.getElementById('analysis-toggle-btn');
+                    if (investigateBtn && investigateBtn.textContent.includes('Investigate')) {
+                        console.log('🔍 Starting investigate button pulse animation');
+                        investigateBtn.classList.add('investigate-pulse');
+                        
+                        // Remove pulse after first click
+                        investigateBtn.addEventListener('click', function() {
+                            investigateBtn.classList.remove('investigate-pulse');
+                            console.log('🔍 Investigate button clicked - removing pulse animation');
+                        }, { once: true });
+                    }
+                }, 10000);
+            } else {
+                // If no audio button, go straight to investigate button after 3 seconds
+                setTimeout(function() {
+                    const investigateBtn = document.getElementById('analysis-toggle-btn');
+                    if (investigateBtn && investigateBtn.textContent.includes('Investigate')) {
+                        console.log('🔍 No audio button - starting investigate pulse immediately');
+                        investigateBtn.classList.add('investigate-pulse');
+                        
+                        investigateBtn.addEventListener('click', function() {
+                            investigateBtn.classList.remove('investigate-pulse');
+                        }, { once: true });
+                    }
+                }, 3000);
+            }
+        }
+        
+        // Initialize game
+        // 🐻 FEROCIOUS BEAR SCENARIO IMPORTER - Maximum protection with bear-level error boundaries
+        async function createFerocousBearImporter() {
+            console.log('🐻 Creating ferocious bear scenario importer with maximum error protection...');
+            
+            const bearImporter = {
+                validatedScenarios: new Map(),
+                errorLog: [],
+                bearProtection: true,
+                
+                // 🐻 BEAR CLAW 1: Ferocious JSON fetch with multiple fallbacks
+                async fetchScenarioJSON(scenarioPath) {
+                    console.log(`🐻 Bear fetching scenario from: ${scenarioPath}`);
+                    
+                    const fallbackPaths = [
+                        scenarioPath,
+                        `./new-scenarios/scenariopack-000/wacky-scenarios-000.json`,
+                        `./data/scenario-packs/scenario-generated-000.json`
+                    ];
+                    
+                    for (const path of fallbackPaths) {
+                        try {
+                            console.log(`🐻 Bear attempting to fetch: ${path}`);
+                            const response = await fetch(path);
+                            
+                            if (!response.ok) {
+                                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                            }
+                            
+                            const jsonData = await response.json();
+                            console.log(`✅ Bear successfully fetched scenario data from: ${path}`);
+                            return { data: jsonData, source: path };
+                            
+                        } catch (fetchError) {
+                            console.warn(`🐻 Bear fetch failed for ${path}:`, fetchError.message);
+                            this.errorLog.push({ path, error: fetchError.message, timestamp: Date.now() });
+                        }
+                    }
+                    
+                    throw new Error('🐻 BEAR RAGE: All scenario fetch attempts failed! Check console for details.');
+                },
+                
+                // 🐻 BEAR CLAW 2: Savage scenario validation
+                validateScenarioStructure(scenario, index = 0) {
+                    console.log(`🔍 Bear validating scenario ${index}: ${scenario.id || 'unknown'}`);
+                    
+                    const requiredFields = [
+                        'id', 'title', 'text', 'claim', 'correctAnswer', 
+                        'answerWeights', 'reviewKeywords', 'analysis'
+                    ];
+                    
+                    const missingFields = [];
+                    
+                    for (const field of requiredFields) {
+                        if (!scenario[field]) {
+                            missingFields.push(field);
+                        }
+                    }
+                    
+                    if (missingFields.length > 0) {
+                        throw new Error(`🐻 Bear detected missing fields in scenario ${scenario.id}: ${missingFields.join(', ')}`);
+                    }
+                    
+                    // Validate answer weights
+                    const weights = scenario.answerWeights;
+                    const requiredWeights = ['logic', 'emotion', 'balanced', 'agenda'];
+                    
+                    for (const weight of requiredWeights) {
+                        if (typeof weights[weight] !== 'number' || weights[weight] < 0 || weights[weight] > 100) {
+                            throw new Error(`🐻 Bear detected invalid ${weight} weight in scenario ${scenario.id}: ${weights[weight]}`);
+                        }
+                    }
+                    
+                    console.log(`✅ Bear approved scenario structure: ${scenario.id}`);
+                    return true;
+                },
+                
+                // 🐻 BEAR CLAW 3: Import and validate complete scenario pack
+                async importScenarioPack(scenarioPath = './new-scenarios/scenariopack-000/wacky-scenarios-000.json') {
+                    console.log(`🐻 Bear importing scenario pack with MAXIMUM PROTECTION: ${scenarioPath}`);
+                    
+                    try {
+                        // Fetch with bear protection
+                        const { data: scenarioData, source } = await this.fetchScenarioJSON(scenarioPath);
+                        
+                        // Validate pack structure
+                        if (!scenarioData.version || !scenarioData.packInfo || !scenarioData.scenarios) {
+                            throw new Error('🐻 Bear detected invalid pack structure - missing version, packInfo, or scenarios');
+                        }
+                        
+                        console.log(`🐻 Bear validating ${scenarioData.scenarios.length} scenarios from pack: ${scenarioData.packInfo.packName}`);
+                        
+                        // Validate each scenario with bear ferocity
+                        const validatedScenarios = [];
+                        
+                        for (let i = 0; i < scenarioData.scenarios.length; i++) {
+                            try {
+                                this.validateScenarioStructure(scenarioData.scenarios[i], i);
+                                validatedScenarios.push(scenarioData.scenarios[i]);
+                            } catch (validationError) {
+                                console.error(`🐻 Bear rejected scenario ${i}:`, validationError.message);
+                                this.errorLog.push({
+                                    scenario: i,
+                                    error: validationError.message,
+                                    timestamp: Date.now()
+                                });
+                            }
+                        }
+                        
+                        if (validatedScenarios.length === 0) {
+                            throw new Error('🐻 BEAR RAGE: No valid scenarios found in pack!');
+                        }
+                        
+                        // Store validated scenarios
+                        this.validatedScenarios.set(source, {
+                            packInfo: scenarioData.packInfo,
+                            scenarios: validatedScenarios,
+                            validationTime: Date.now()
+                        });
+                        
+                        console.log(`✅ Bear successfully imported ${validatedScenarios.length} scenarios from: ${scenarioData.packInfo.packName}`);
+                        
+                        return {
+                            success: true,
+                            packInfo: scenarioData.packInfo,
+                            scenarios: validatedScenarios,
+                            source: source,
+                            errorCount: this.errorLog.length
+                        };
+                        
+                    } catch (importError) {
+                        console.error('🐻 Bear import failed with maximum fury:', importError);
+                        throw importError;
+                    }
+                },
+                
+                // 🐻 BEAR UTILITY: Get error report
+                getBearErrorReport() {
+                    return {
+                        totalErrors: this.errorLog.length,
+                        errors: this.errorLog,
+                        validatedPacks: Array.from(this.validatedScenarios.keys())
+                    };
+                }
+            };
+            
+            // Test import on creation
+            console.log('🐻 Bear testing import capabilities...');
+            await bearImporter.importScenarioPack();
+            
+            return bearImporter;
+        }
+
+        // 🐻 BEAR-FORTIFIED GAME INITIALIZATION - Bulletproof startup with defensive boundaries
+        async function initializeGame() {
+            console.log('🐻 Bear starting game initialization with defensive boundaries...');
+            
+            try {
+                // 🐻 BEAR BOUNDARY 1: Validate critical dependencies
+                console.log('🔍 Bear checking critical dependencies...');
+                
+                const missingDependencies = [];
+                
+                if (!window.PhuzzyGameEngine) missingDependencies.push('PhuzzyGameEngine');
+                if (!window.ScoringSystem) missingDependencies.push('ScoringSystem');  
+                if (!window.ScenarioManager) missingDependencies.push('ScenarioManager');
+                if (!window.HoneyPotManager) missingDependencies.push('HoneyPotManager');
+                if (!window.PHUZZY_CONFIG) missingDependencies.push('PHUZZY_CONFIG');
+                
+                if (missingDependencies.length > 0) {
+                    console.error('🐻 Bear discovered missing dependencies:', missingDependencies);
+                    throw new Error(`Critical dependencies not loaded: ${missingDependencies.join(', ')}. Check script loading order.`);
+                }
+                
+                console.log('✅ Bear approved: All critical dependencies available');
+                
+                // 🐻 BEAR BOUNDARY 2: Setup splash screen with error handling
+                try {
+                    setupSplashScreen();
+                    console.log('✅ Bear approved: Splash screen setup complete');
+                } catch (splashError) {
+                    console.warn('🐻 Bear warning: Splash screen setup failed:', splashError);
+                    // Game can continue without splash screen
+                }
+                
+                // 🐻 BEAR BOUNDARY 3: Ferocious Bear Scenario Import System
+                console.log('🐻 Bear initiating FEROCIOUS scenario import with maximum protection...');
+                
+                try {
+                    const bearScenarioImporter = await createFerocousBearImporter();
+                    window.bearScenarioImporter = bearScenarioImporter;
+                    console.log('🐻 Bear scenario importer armed and dangerous');
+                } catch (importError) {
+                    console.error('🐻 Bear importer creation failed:', importError);
+                    throw new Error(`Bear scenario importer failed: ${importError.message}`);
+                }
+                
+                // 🐻 BEAR BOUNDARY 4: Create game engine with bulletproof validation
+                console.log('🎯 Bear creating game engine...');
+                
+                let gameEngine;
+                try {
+                    if (!window.PHUZZY_CONFIG) {
+                        console.warn('🐻 Bear warning: PHUZZY_CONFIG missing, using defaults');
+                        window.PHUZZY_CONFIG = {
+                            apiEndpoint: '/api/scenarios',
+                            analyticsEndpoint: '/api/analytics', 
+                            scenariosPerRound: 10,
+                            honeyPotsPerRound: 3
+                        };
+                    }
+                    
+                    gameEngine = new window.PhuzzyGameEngine(window.PHUZZY_CONFIG);
+                    
+                    if (!gameEngine) {
+                        throw new Error('Game engine creation returned null/undefined');
+                    }
+                    
+                    window.gameEngine = gameEngine; // Make available globally for timeline analysis
+                    console.log('✅ Bear successfully created game engine');
+                    
+                } catch (engineError) {
+                    console.error('🐻 Bear engine creation failed:', engineError);
+                    throw new Error(`Game engine creation failed: ${engineError.message}`);
+                }
+                
+                // Initialize audio system
+                if (window.integratePhuzzyAudio) {
+                    const audioIntegration = window.integratePhuzzyAudio(gameEngine);
+                    console.log('🎵 Audio system integrated successfully');
+                    
+                    // Build audio mappings after initialization
+                    try {
+                        await audioIntegration.buildScenarioMappings();
+                        console.log('🗺️ Audio scenario mappings built successfully');
+                    } catch (error) {
+                        console.warn('⚠️ Could not build audio mappings:', error);
+                    }
+                } else {
+                    console.warn('⚠️ Audio integration not available - audio features disabled');
+                }
+                
+                // Get UI elements
+                const elements = {
+                    // Score tracker
+                    scoreTracker: document.getElementById('score-tracker'),
+                    userScore: document.getElementById('user-score'),
+                    totalScenarios: document.getElementById('total-scenarios'),
+                    honeyPotIcons: document.querySelectorAll('.honey-pot'),
+                    honeyPotCount: document.getElementById('honey-count'),
+                    
+                    // Game content
+                    gameContent: document.getElementById('game-content'),
+                    scenarioTitle: document.getElementById('scenario-title'),
+                    scenarioText: document.getElementById('scenario-text'),
+                    scenarioCounter: document.getElementById('scenario-counter'),
+                    claimText: document.getElementById('claim-text'),
+                    
+                    // Quiz elements
+                    answerOptions: document.querySelectorAll('.quiz-option'),
+                    submitButton: document.getElementById('submit-button'),
+                    honeyPotButton: document.getElementById('hint-button'),
+                    nextButton: document.getElementById('next-button'),
+                    
+                    // Analysis
+                    analysisSection: document.getElementById('detailed-analysis'),
+                    
+                    // End game
+                    endGame: document.getElementById('end-game'),
+                    finalScore: document.getElementById('final-score'),
+                    accuracyPercent: document.getElementById('accuracy-percent'),
+                    honeyUsed: document.getElementById('honey-used'),
+                    finalBadge: document.getElementById('final-badge'),
+                    badgeTitle: document.getElementById('badge-title'),
+                    badgeMessage: document.getElementById('badge-message'),
+                    logicPerformance: document.getElementById('logic-performance'),
+                    emotionPerformance: document.getElementById('emotion-performance'),
+                    balancePerformance: document.getElementById('balance-performance'),
+                    agendaPerformance: document.getElementById('agenda-performance')
+                };
+                
+                // Create UI controller
+                const quizInterface = new window.QuizInterface(gameEngine, elements);
+                gameEngine.uiController = quizInterface;
+                
+                // Initialize social sharing
+                const socialSharing = new window.SocialSharing();
+                socialSharing.init();
+                
+                // Initialize timeline analysis
+                window.timelineAnalysis = new window.TimelineAnalysis();
+                
+                // Initialize game
+                await gameEngine.initialize();
+                
+                // Update audio mappings for the loaded pack
+                if (gameEngine.updateAudioMappings) {
+                    try {
+                        await gameEngine.updateAudioMappings();
+                        console.log('🔄 Audio mappings updated for current pack');
+                    } catch (error) {
+                        console.warn('⚠️ Could not update audio mappings for current pack:', error);
+                    }
+                }
+                
+                // Log pack info to console
+                if (gameEngine.scenarioManager.currentPack) {
+                    const pack = gameEngine.scenarioManager.currentPack;
+                    console.log(`Loaded Pack: ${pack.name || pack.id}`);
+                    if (pack.description) {
+                        console.log(`Description: ${pack.description}`);
+                    }
+                }
+                
+                // Hide loading screen
+                document.getElementById('loading-screen').style.display = 'none';
+                
+                // Start game
+                await gameEngine.startGame();
+                
+                // Add honey pot click handlers
+                document.querySelectorAll('.honey-pot').forEach(honeyPot => {
+                    honeyPot.addEventListener('click', () => {
+                        if (!honeyPot.classList.contains('used') && quizInterface.hasAnswered === false) {
+                            quizInterface.useHoneyPot();
+                        }
+                    });
+                });
+                
+                // Score tracker is now always visible - no scroll detection needed
+                
+                // 🐻 BEAR BOUNDARY: Initialize dizzy star scoreboard system with protection
+                try {
+                    console.log('🐻 Bear initializing scoreboard manager...');
+                    
+                    if (typeof scoreboardManager !== 'undefined' && scoreboardManager.init) {
+                        scoreboardManager.init();
+                        console.log('✅ Bear successfully initialized scoreboard');
+                    } else {
+                        console.warn('🐻 Bear warning: scoreboardManager not available');
+                    }
+                } catch (scoreboardError) {
+                    console.error('🐻 Bear scoreboard initialization failed:', scoreboardError);
+                    console.warn('🐻 Bear says: Game will continue without scoreboard animations');
+                }
+                
+            } catch (error) {
+                console.error('Failed to initialize game:', error);
+                document.getElementById('loading-screen').innerHTML = `
+                    <div class="error-message">
+                        <h2>😢 Oops! Something went wrong</h2>
+                        <p>${error.message}</p>
+                        <button onclick="location.reload()">🐻 Bear with us - Reload</button>
+                    </div>
+                `;
+            }
+        }
+        
+        // Dizzy Star Scoreboard System
+        // 🐻 BEAR-FORTIFIED SCOREBOARD - Bulletproof score tracker with defensive claws
+        const scoreboardManager = {
+            scoreTracker: null,
+            currentStarId: null,
+            isVisible: true,
+            fadeTimer: null,
+            
+            init() {
+                console.log('🐻 Bear initializing scoreboard system...');
+                
+                try {
+                    // 🐻 BEAR CLAW 1: Bulletproof scoreTracker detection
+                    this.scoreTracker = document.getElementById('score-tracker');
+                    
+                    if (!this.scoreTracker) {
+                        console.error('🐻 Bear warning: score-tracker element not found in DOM!');
+                        console.log('🔍 Bear searching for alternative score elements...');
+                        
+                        // Try to find alternative score elements
+                        const alternatives = [
+                            'user-score',
+                            'score-display', 
+                            'game-score',
+                            '.score-tracker'
+                        ];
+                        
+                        for (const alt of alternatives) {
+                            const element = alt.startsWith('.') ? 
+                                document.querySelector(alt) : 
+                                document.getElementById(alt);
+                            if (element) {
+                                console.log(`🐻 Bear found alternative: ${alt}`);
+                                break;
+                            }
+                        }
+                        
+                        console.warn('🐻 Bear says: Scoreboard will be disabled - score-tracker element missing');
+                        return; // Bear exits gracefully
+                    }
+                    
+                    console.log('✅ Bear found score-tracker element');
+                    
+                    // 🐻 BEAR CLAW 2: Bulletproof star detection and click handlers
+                    try {
+                        const stars = document.querySelectorAll('.dizzy-star-icon');
+                        console.log(`🔍 Bear found ${stars.length} dizzy stars`);
+                        
+                        if (stars.length === 0) {
+                            console.warn('🐻 Bear warning: No dizzy stars found - star interactions disabled');
+                        } else {
+                            stars.forEach((star, index) => {
+                                try {
+                                    star.addEventListener('click', (e) => this.handleStarClick(e));
+                                    console.log(`✅ Bear attached click handler to star ${index + 1}`);
+                                } catch (starError) {
+                                    console.warn(`🐻 Bear warning: Could not attach handler to star ${index + 1}:`, starError);
+                                }
+                            });
+                        }
+                    } catch (starsError) {
+                        console.warn('🐻 Bear warning: Star setup failed:', starsError);
+                    }
+                    
+                    // 🐻 BEAR CLAW 3: Bulletproof positioning
+                    try {
+                        this.positionInitialScoreboard();
+                        console.log('✅ Bear positioned scoreboard');
+                    } catch (positionError) {
+                        console.warn('🐻 Bear warning: Scoreboard positioning failed:', positionError);
+                    }
+                    
+                    // 🐻 BEAR CLAW 4: Bulletproof timer
+                    try {
+                        this.startFadeTimer();
+                        console.log('✅ Bear started fade timer');
+                    } catch (timerError) {
+                        console.warn('🐻 Bear warning: Fade timer failed:', timerError);
+                    }
+                    
+                    console.log('🎯 Bear scoreboard initialization complete');
+                    
+                } catch (initError) {
+                    console.error('🐻 Bear scoreboard initialization failed completely:', initError);
+                    // Bear doesn't crash the game - just disables scoreboard features
+                }
+            },
+            
+            positionInitialScoreboard() {
+                const star = document.getElementById('star-scenario');
+                if (!star || !this.scoreTracker) return;
+                
+                // Get star position
+                const starRect = star.getBoundingClientRect();
+                
+                // Position scoreboard to left and below star
+                this.scoreTracker.style.position = 'fixed';
+                this.scoreTracker.style.top = (starRect.bottom - 10) + 'px';
+                this.scoreTracker.style.left = 'auto';
+                this.scoreTracker.style.right = (window.innerWidth - starRect.right + 20) + 'px';
+            },
+            
+            startInitialAnimation() {
+                console.log('🐻 Bear starting initial animation...');
+                
+                try {
+                    // 🐻 BEAR CLAW: Check scoreTracker before animating
+                    if (!this.scoreTracker) {
+                        console.warn('🐻 Bear says: Cannot animate - scoreTracker is null');
+                        return;
+                    }
+                    
+                    // First jiggle to get attention
+                    try {
+                        this.scoreTracker.classList.add('jiggling');
+                        console.log('✅ Bear started jiggling animation');
+                    } catch (jiggleError) {
+                        console.warn('🐻 Bear warning: Jiggle animation failed:', jiggleError);
+                        return;
+                    }
+                    
+                    setTimeout(() => {
+                        try {
+                            if (this.scoreTracker) {
+                                this.scoreTracker.classList.remove('jiggling');
+                                console.log('🎯 Bear completed jiggle, starting collapse...');
+                                // Then collapse to star
+                                this.collapseToStar('star-scenario');
+                            }
+                        } catch (collapseError) {
+                            console.warn('🐻 Bear warning: Collapse animation failed:', collapseError);
+                        }
+                    }, 1200);
+                    
+                } catch (animationError) {
+                    console.error('🐻 Bear animation system failed:', animationError);
+                }
+            },
+            
+            handleStarClick(e) {
+                const starId = e.target.id;
+                
+                if (this.isVisible && this.currentStarId === starId) {
+                    // Clicking same star - collapse
+                    this.collapseToStar(starId);
+                } else {
+                    // Show at new star location
+                    this.showAtStar(starId);
+                }
+            },
+            
+            collapseToStar(starId) {
+                const star = document.getElementById(starId);
+                if (!star || !this.scoreTracker) return;
+                
+                // Stop fade timer when manually collapsed
+                this.stopFadeTimer();
+                
+                // Animate collapse
+                this.scoreTracker.classList.add('collapsing');
+                
+                setTimeout(() => {
+                    this.scoreTracker.classList.add('collapsed');
+                    this.scoreTracker.classList.remove('collapsing');
+                    this.isVisible = false;
+                    
+                    // Pulse the star
+                    star.classList.add('active');
+                    setTimeout(() => star.classList.remove('active'), 1200);
+                    
+                    // 🎵 SLIP IN AUTO-AUDIO TRIGGER after RIZ collapse animation completes!
+                    // This mimics the pre-codepocalypse behavior where audio started after dialog collapse
+                    setTimeout(() => {
+                        console.log('🎬 RIZ collapse complete - auto-triggering scenario audio');
+                        if (window.userHasClickedPlayNow && window.playScenarioSequence) {
+                            // Only auto-play if user has granted permission and we're not already playing
+                            if (!window.isAudioPlaying) {
+                                console.log('🎵 Slipping in audio via animation event...');
+                                // Update both local and global audio state
+                                isAudioPlaying = true;
+                                window.isAudioPlaying = true;
+                                // Message the play/pause button about the auto-start
+                                window.updatePlayPauseButton();
+                                console.log('🔄 Notified play/pause button about auto-audio start');
+                                // Start the audio sequence
+                                window.playScenarioSequence();
+                            }
+                        }
+                    }, 300); // Small delay after star pulse starts
+                }, 500);
+                
+                this.currentStarId = starId;
+            },
+            
+            showAtStar(starId) {
+                const star = document.getElementById(starId);
+                if (!star || !this.scoreTracker) return;
+                
+                // Get star position
+                const starRect = star.getBoundingClientRect();
+                const scoreRect = this.scoreTracker.getBoundingClientRect();
+                
+                // Position scoreboard to left and below star
+                this.scoreTracker.style.position = 'fixed';
+                this.scoreTracker.style.top = (starRect.bottom - 10) + 'px';
+                this.scoreTracker.style.left = 'auto';
+                this.scoreTracker.style.right = (window.innerWidth - starRect.right + 20) + 'px';
+                
+                // Ensure it stays within viewport
+                const rightPos = window.innerWidth - starRect.right + 20;
+                if (rightPos + scoreRect.width > window.innerWidth - 10) {
+                    // Adjust if it would go off screen
+                    this.scoreTracker.style.right = '10px';
+                }
+                
+                // Show with animation
+                this.scoreTracker.classList.remove('collapsed', 'collapsing');
+                this.scoreTracker.classList.add('expanding');
+                
+                setTimeout(() => {
+                    this.scoreTracker.classList.remove('expanding');
+                }, 500);
+                
+                this.isVisible = true;
+                this.currentStarId = starId;
+                
+                // Restart fade timer
+                this.startFadeTimer();
+            },
+            
+            // Auto-reveal for score animations
+            autoReveal() {
+                // Find nearest visible star
+                const stars = ['star-scenario', 'star-timeline'];
+                let nearestStar = null;
+                
+                for (const starId of stars) {
+                    const star = document.getElementById(starId);
+                    if (star && star.offsetParent !== null) {
+                        nearestStar = starId;
+                        break;
+                    }
+                }
+                
+                if (nearestStar && !this.isVisible) {
+                    this.showAtStar(nearestStar);
+                    
+                    // Auto-hide after 3 seconds (shorter for coin collection)
+                    setTimeout(() => {
+                        if (this.isVisible) {
+                            this.collapseToStar(this.currentStarId);
+                        }
+                    }, 3000);
+                } else if (this.isVisible) {
+                    // If already visible, set timer to collapse
+                    setTimeout(() => {
+                        if (this.isVisible) {
+                            this.collapseToStar(this.currentStarId);
+                        }
+                    }, 3000);
+                }
+            },
+            
+            // Start or restart the fade timer
+            startFadeTimer() {
+                // Clear existing timer
+                this.stopFadeTimer();
+                
+                // Start new timer for 7 seconds
+                this.fadeTimer = setTimeout(() => {
+                    if (this.isVisible) {
+                        this.collapseToStar(this.currentStarId || 'star-scenario');
+                    }
+                }, 7000);
+            },
+            
+            // Stop the fade timer
+            stopFadeTimer() {
+                if (this.fadeTimer) {
+                    clearTimeout(this.fadeTimer);
+                    this.fadeTimer = null;
+                }
+            }
+        };
+        
+        // Make it globally available
+        window.scoreboardManager = scoreboardManager;
+        
+        // Audio Control Functions - Simplified Play/Pause with Auto-Sequence
+        let isAudioPlaying = false;
+        let currentSequenceId = null;
+        
+        // Make audio state globally accessible for animation event triggers
+        window.isAudioPlaying = isAudioPlaying;
+        window.currentSequenceId = currentSequenceId;
+        
+        function toggleScenarioAudio() {
+            console.log('🎵 Toggle audio called - current state:', isAudioPlaying);
+            if (isAudioPlaying) {
+                console.log('⏸️ Pause requested');
+                stopScenarioAudio();
+            } else {
+                console.log('▶️ Play requested');
+                // Change button immediately when starting playback
+                isAudioPlaying = true;
+                window.isAudioPlaying = true; // Keep global state in sync
+                updatePlayPauseButton();
+                playScenarioSequence();
+            }
+        }
+        
+        async function playScenarioSequence() {
+            console.log('🎵 Starting scenario audio sequence');
+            
+            // Check if user has granted audio permission
+            if (!window.userHasClickedPlayNow) {
+                console.log('⚠️ Audio permission not granted yet');
+                return;
+            }
+            
+            // Get current scenario from quiz interface
+            if (!window.gameEngine || !window.gameEngine.uiController) {
+                console.log('⚠️ Game engine or UI controller not available');
+                return;
+            }
+            
+            const currentScenario = window.gameEngine.uiController.currentScenario;
+            if (!currentScenario) {
+                console.log('⚠️ No current scenario');
+                return;
+            }
+            
+            console.log('🎬 Playing audio for scenario:', currentScenario.title);
+            
+            // Ensure audio engine is fully warmed up and ready (let the engine handle its own priming)
+            if (window.gameEngine.audioEngine) {
+                try {
+                    console.log('🔥 Ensuring audio engine is ready for playback...');
+                    await window.gameEngine.audioEngine.ensureAudioReady();
+                    console.log('🔥 Audio engine confirmed ready');
+                } catch (error) {
+                    console.warn('Could not ensure audio engine ready:', error);
+                }
+            }
+            
+            // Use the enhanced audio sequence player if available
+            if (window.gameEngine.playScenarioAudio) {
+                window.gameEngine.playScenarioAudio(currentScenario.title, currentScenario.packId)
+                    .then((sequenceId) => {
+                        if (sequenceId) {
+                            currentSequenceId = sequenceId;
+                            console.log('✅ Audio sequence started:', sequenceId);
+                            // Button state already updated in toggleScenarioAudio
+                        } else {
+                            console.log('⚠️ Audio sequence failed to start');
+                            isAudioPlaying = false;
+                            currentSequenceId = null;
+                            updatePlayPauseButton();
+                        }
+                    })
+                    .catch((error) => {
+                        console.log('⚠️ Audio sequence error:', error);
+                        isAudioPlaying = false;
+                        updatePlayPauseButton();
+                    });
+            } else {
+                console.log('⚠️ Enhanced audio player not available');
+                isAudioPlaying = false;
+                updatePlayPauseButton();
+            }
+        }
+        
+        function stopScenarioAudio() {
+            console.log('⏹️ Gracefully stopping current audio sequence');
+            console.log('🔍 isAudioPlaying before stop:', isAudioPlaying);
+            console.log('🔍 currentSequenceId:', currentSequenceId);
+            
+            // Use the proper audio engine method to gracefully stop the dialogue channel and clear queue
+            if (window.gameEngine && window.gameEngine.audioEngine) {
+                if (window.gameEngine.audioEngine.stopChannelAndClearQueue) {
+                    // Use the new graceful method that stops current audio and clears queue
+                    window.gameEngine.audioEngine.stopChannelAndClearQueue('dialogue', { fadeOut: true });
+                    console.log('🧹 Called stopChannelAndClearQueue("dialogue") - graceful stop with queue clearing');
+                } else {
+                    // Fallback to regular stopChannel
+                    window.gameEngine.audioEngine.stopChannel('dialogue', { fadeOut: true });
+                    console.log('🧹 Called stopChannel("dialogue") - fallback method');
+                }
+            }
+            
+            // Reset tracking variables
+            isAudioPlaying = false;
+            window.isAudioPlaying = false; // Keep global state in sync
+            currentSequenceId = null;
+            window.currentSequenceId = null; // Keep global state in sync
+            updatePlayPauseButton();
+        }
+        
+        function updatePlayPauseButton() {
+            const btn = document.getElementById('play-pause-btn');
+            if (btn) {
+                if (isAudioPlaying) {
+                    btn.innerHTML = '⏹ Stop';
+                    btn.title = 'Stop scenario audio';
+                    // Remove playing class to avoid color changes
+                } else {
+                    btn.innerHTML = '▶ Play';
+                    btn.title = 'Play scenario audio sequence';
+                }
+            }
+        }
+        
+        function showAudioControls() {
+            const audioBtn = document.getElementById('play-pause-btn');
+            console.log('🎵 showAudioControls called:', {
+                audioBtn: !!audioBtn,
+                userClicked: !!window.userHasClickedPlayNow,
+                currentDisplay: audioBtn ? audioBtn.style.display : 'not found'
+            });
+            
+            if (audioBtn && window.userHasClickedPlayNow) {
+                audioBtn.style.display = 'block';
+                console.log('✅ Audio controls shown');
+            } else if (audioBtn && !window.userHasClickedPlayNow) {
+                console.log('⏳ Audio controls available, waiting for Play Now click');
+            }
+        }
+        
+        function hideAudioControls() {
+            const audioBtn = document.getElementById('play-pause-btn');
+            if (audioBtn) {
+                audioBtn.style.display = 'none';
+            }
+        }
+        
+        // Audio sequence completion handler
+        window.onAudioSequenceComplete = function() {
+            console.log('🎵🔴 SEQUENCE COMPLETION CALLBACK FIRED - resetting button state');
+            console.log('🔍 Button state before reset:', isAudioPlaying ? 'PAUSE' : 'PLAY');
+            isAudioPlaying = false;
+            window.isAudioPlaying = false;
+            currentSequenceId = null;
+            window.currentSequenceId = null;
+            updatePlayPauseButton();
+            console.log('🔍 Button state after reset: PLAY');
+        };
+        
+        // Update button state tracker
+        window.updatePlayPauseButton = updatePlayPauseButton;
+        
+        // Make audio functions globally available
+        window.toggleScenarioAudio = toggleScenarioAudio;
+        window.playScenarioSequence = playScenarioSequence;
+        window.stopScenarioAudio = stopScenarioAudio;
+        window.showAudioControls = showAudioControls;
+        window.hideAudioControls = hideAudioControls;
+        
+        // Splash screen instruction animations
+        function animateInstructions() {
+            const items = document.querySelectorAll('.instruction-item');
+            let currentItem = 0;
+            
+            function animateNextItem() {
+                if (currentItem >= items.length) {
+                    // All done - enable play button
+                    const playBtn = document.getElementById('play-now-button');
+                    if (playBtn) {
+                        playBtn.disabled = false;
+                        playBtn.style.opacity = '1';
+                        playBtn.style.cursor = 'pointer';
+                    }
+                    return;
+                }
+                
+                const item = items[currentItem];
+                const icon = item.querySelector('.instruction-icon');
+                const text = item.querySelector('.instruction-text');
+                const words = text.textContent.split(' ');
+                
+                // Spin the icon
+                icon.style.animation = 'iconSpin 0.5s ease-out';
+                
+                // Clear text and rebuild with spans
+                text.innerHTML = '';
+                words.forEach((word, i) => {
+                    const span = document.createElement('span');
+                    span.textContent = word;
+                    span.style.display = 'inline-block';
+                    span.style.marginRight = '0.3em'; // Force spacing between words
+                    text.appendChild(span);
+                });
+                
+                // Animate each word
+                const wordSpans = text.querySelectorAll('span');
+                wordSpans.forEach((span, i) => {
+                    setTimeout(() => {
+                        span.style.animation = 'wordHighlight 0.6s ease-out';
+                    }, i * 300); // Increased delay between words
+                });
+                
+                // Move to next item
+                const totalDuration = words.length * 300 + 1000;
+                setTimeout(() => {
+                    currentItem++;
+                    animateNextItem();
+                }, totalDuration);
+            }
+            
+            // Start animation after a short delay
+            setTimeout(animateNextItem, 500);
+        }
+        
+        // Start initialization when DOM is ready
+        // 🐻 BEAR DIAGNOSTIC CONSOLE COMMAND
+        window.bearDiagnostics = function() {
+            if (window.bearScenarioImporter) {
+                const report = window.bearScenarioImporter.getBearErrorReport();
+                console.log('🐻 BEAR DIAGNOSTIC REPORT:');
+                console.log(`✅ Validated Packs: ${report.validatedPacks.length}`);
+                console.log(`⚠️  Total Errors: ${report.totalErrors}`);
+                console.log('📊 Full Report:', report);
+                return report;
+            } else {
+                console.log('🐻 Bear importer not available - run after game initialization');
+                return null;
+            }
+        };
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                initializeGame().catch(error => {
+                    console.error('🐻 BEAR RAGE: Initialization failed:', error);
+                    document.body.innerHTML = `<div style="text-align: center; margin-top: 20vh;">
+                        <h1>🐻 Bear Detected Game Failure</h1>
+                        <p>${error.message}</p>
+                        <p style="color: #666;">Check console for bear diagnostics</p>
+                    </div>`;
+                });
+                // animateInstructions(); // Disabled - using enhanced splash-word-animator.js instead
+            });
+        } else {
+            initializeGame().catch(error => {
+                console.error('🐻 BEAR RAGE: Initialization failed:', error);
+                document.body.innerHTML = `<div style="text-align: center; margin-top: 20vh;">
+                    <h1>🐻 Bear Detected Game Failure</h1>
+                    <p>${error.message}</p>
+                    <p style="color: #666;">Check console for bear diagnostics</p>
+                </div>`;
+            });
+            // animateInstructions(); // Disabled - using enhanced splash-word-animator.js instead
+        }
+    </script>
+</body>
+</html>

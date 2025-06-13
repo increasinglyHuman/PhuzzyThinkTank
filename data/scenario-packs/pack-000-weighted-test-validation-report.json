@@ -1,0 +1,536 @@
+{
+  "summary": {
+    "total": 10,
+    "excellent": 0,
+    "good": 7,
+    "acceptable": 3,
+    "needsImprovement": 0,
+    "reject": 0,
+    "averageScore": 77
+  },
+  "results": [
+    {
+      "id": "miracle-supplement-001",
+      "title": "The Miracle Supplement",
+      "score": 81,
+      "rating": "GOOD",
+      "validation": {
+        "structure": {
+          "errors": [],
+          "warnings": []
+        },
+        "content": {
+          "errors": [],
+          "warnings": [
+            "Content too short (69 words) - may lack complexity",
+            "Weak platform voice authenticity - add more platform-specific language",
+            "Low manipulation pattern diversity - add more persuasion techniques"
+          ],
+          "metrics": {
+            "wordCount": 69,
+            "voiceAuthenticity": {
+              "platform": "academic",
+              "strength": 1
+            },
+            "manipulationPatterns": {},
+            "educationalValue": 50
+          }
+        },
+        "dimension": {
+          "errors": [],
+          "warnings": [
+            "logic analysis lacks key terminology - consider adding relevant concepts",
+            "emotion analysis lacks key terminology - consider adding relevant concepts",
+            "balanced analysis too brief (32 chars) - needs more detail",
+            "balanced analysis lacks key terminology - consider adding relevant concepts",
+            "agenda analysis too brief (38 chars) - needs more detail"
+          ]
+        }
+      },
+      "metrics": {
+        "wordCount": 69,
+        "voiceAuthenticity": {
+          "platform": "academic",
+          "strength": 1
+        },
+        "manipulationPatterns": {},
+        "educationalValue": 50
+      },
+      "recommendation": "Minor improvements recommended but acceptable for use."
+    },
+    {
+      "id": "neighborhood-watch-002",
+      "title": "The Neighborhood Watch Alert",
+      "score": 79,
+      "rating": "GOOD",
+      "validation": {
+        "structure": {
+          "errors": [],
+          "warnings": []
+        },
+        "content": {
+          "errors": [],
+          "warnings": [
+            "Content too short (93 words) - may lack complexity",
+            "Weak platform voice authenticity - add more platform-specific language",
+            "Low manipulation pattern diversity - add more persuasion techniques"
+          ],
+          "metrics": {
+            "wordCount": 93,
+            "voiceAuthenticity": {
+              "platform": null,
+              "strength": 0
+            },
+            "manipulationPatterns": {},
+            "educationalValue": 50
+          }
+        },
+        "dimension": {
+          "errors": [],
+          "warnings": [
+            "logic analysis lacks key terminology - consider adding relevant concepts",
+            "emotion analysis too brief (40 chars) - needs more detail",
+            "emotion analysis lacks key terminology - consider adding relevant concepts",
+            "balanced analysis too brief (32 chars) - needs more detail",
+            "balanced analysis lacks key terminology - consider adding relevant concepts",
+            "agenda analysis too brief (38 chars) - needs more detail"
+          ]
+        }
+      },
+      "metrics": {
+        "wordCount": 93,
+        "voiceAuthenticity": {
+          "platform": null,
+          "strength": 0
+        },
+        "manipulationPatterns": {},
+        "educationalValue": 50
+      },
+      "recommendation": "Minor improvements recommended but acceptable for use."
+    },
+    {
+      "id": "climate-study-003",
+      "title": "The Climate Study",
+      "score": 76,
+      "rating": "GOOD",
+      "validation": {
+        "structure": {
+          "errors": [],
+          "warnings": []
+        },
+        "content": {
+          "errors": [],
+          "warnings": [
+            "Content too short (72 words) - may lack complexity",
+            "Weak platform voice authenticity - add more platform-specific language",
+            "Low manipulation pattern diversity - add more persuasion techniques",
+            "Low educational value - add more recognizable manipulation patterns"
+          ],
+          "metrics": {
+            "wordCount": 72,
+            "voiceAuthenticity": {
+              "platform": null,
+              "strength": 0
+            },
+            "manipulationPatterns": {
+              "emotion": 1
+            },
+            "educationalValue": 0
+          }
+        },
+        "dimension": {
+          "errors": [],
+          "warnings": [
+            "logic analysis lacks key terminology - consider adding relevant concepts",
+            "emotion analysis too brief (49 chars) - needs more detail",
+            "emotion analysis lacks key terminology - consider adding relevant concepts",
+            "balanced analysis too brief (32 chars) - needs more detail",
+            "balanced analysis lacks key terminology - consider adding relevant concepts",
+            "agenda analysis too brief (38 chars) - needs more detail"
+          ]
+        }
+      },
+      "metrics": {
+        "wordCount": 72,
+        "voiceAuthenticity": {
+          "platform": null,
+          "strength": 0
+        },
+        "manipulationPatterns": {
+          "emotion": 1
+        },
+        "educationalValue": 0
+      },
+      "recommendation": "Minor improvements recommended but acceptable for use."
+    },
+    {
+      "id": "teachers-concern-004",
+      "title": "The Teacher's Concern",
+      "score": 74,
+      "rating": "ACCEPTABLE",
+      "validation": {
+        "structure": {
+          "errors": [],
+          "warnings": []
+        },
+        "content": {
+          "errors": [],
+          "warnings": [
+            "Content too short (83 words) - may lack complexity",
+            "Weak platform voice authenticity - add more platform-specific language",
+            "Low manipulation pattern diversity - add more persuasion techniques",
+            "Low educational value - add more recognizable manipulation patterns"
+          ],
+          "metrics": {
+            "wordCount": 83,
+            "voiceAuthenticity": {
+              "platform": null,
+              "strength": 0
+            },
+            "manipulationPatterns": {},
+            "educationalValue": 0
+          }
+        },
+        "dimension": {
+          "errors": [],
+          "warnings": [
+            "logic analysis too brief (44 chars) - needs more detail",
+            "logic analysis lacks key terminology - consider adding relevant concepts",
+            "emotion analysis too brief (43 chars) - needs more detail",
+            "emotion analysis lacks key terminology - consider adding relevant concepts",
+            "balanced analysis too brief (32 chars) - needs more detail",
+            "balanced analysis lacks key terminology - consider adding relevant concepts",
+            "agenda analysis too brief (38 chars) - needs more detail"
+          ]
+        }
+      },
+      "metrics": {
+        "wordCount": 83,
+        "voiceAuthenticity": {
+          "platform": null,
+          "strength": 0
+        },
+        "manipulationPatterns": {},
+        "educationalValue": 0
+      },
+      "recommendation": "Usable with revisions. Address warnings before publication."
+    },
+    {
+      "id": "investment-scam-005",
+      "title": "The Investment Opportunity",
+      "score": 82,
+      "rating": "GOOD",
+      "validation": {
+        "structure": {
+          "errors": [],
+          "warnings": []
+        },
+        "content": {
+          "errors": [],
+          "warnings": [
+            "Content too short (86 words) - may lack complexity",
+            "Weak platform voice authenticity - add more platform-specific language"
+          ],
+          "metrics": {
+            "wordCount": 86,
+            "voiceAuthenticity": {
+              "platform": null,
+              "strength": 0
+            },
+            "manipulationPatterns": {
+              "scarcity": 1,
+              "emotion": 2
+            },
+            "educationalValue": 50
+          }
+        },
+        "dimension": {
+          "errors": [],
+          "warnings": [
+            "logic analysis too brief (43 chars) - needs more detail",
+            "logic analysis lacks key terminology - consider adding relevant concepts",
+            "emotion analysis lacks key terminology - consider adding relevant concepts",
+            "balanced analysis too brief (32 chars) - needs more detail",
+            "balanced analysis lacks key terminology - consider adding relevant concepts",
+            "agenda analysis too brief (38 chars) - needs more detail"
+          ]
+        }
+      },
+      "metrics": {
+        "wordCount": 86,
+        "voiceAuthenticity": {
+          "platform": null,
+          "strength": 0
+        },
+        "manipulationPatterns": {
+          "scarcity": 1,
+          "emotion": 2
+        },
+        "educationalValue": 50
+      },
+      "recommendation": "Minor improvements recommended but acceptable for use."
+    },
+    {
+      "id": "food-additive-006",
+      "title": "The Food Additive Report",
+      "score": 74,
+      "rating": "ACCEPTABLE",
+      "validation": {
+        "structure": {
+          "errors": [],
+          "warnings": []
+        },
+        "content": {
+          "errors": [],
+          "warnings": [
+            "Content too short (75 words) - may lack complexity",
+            "Weak platform voice authenticity - add more platform-specific language",
+            "Low manipulation pattern diversity - add more persuasion techniques",
+            "Low educational value - add more recognizable manipulation patterns"
+          ],
+          "metrics": {
+            "wordCount": 75,
+            "voiceAuthenticity": {
+              "platform": null,
+              "strength": 0
+            },
+            "manipulationPatterns": {},
+            "educationalValue": 0
+          }
+        },
+        "dimension": {
+          "errors": [],
+          "warnings": [
+            "logic analysis too brief (38 chars) - needs more detail",
+            "logic analysis lacks key terminology - consider adding relevant concepts",
+            "emotion analysis too brief (39 chars) - needs more detail",
+            "emotion analysis lacks key terminology - consider adding relevant concepts",
+            "balanced analysis too brief (32 chars) - needs more detail",
+            "balanced analysis lacks key terminology - consider adding relevant concepts",
+            "agenda analysis too brief (38 chars) - needs more detail"
+          ]
+        }
+      },
+      "metrics": {
+        "wordCount": 75,
+        "voiceAuthenticity": {
+          "platform": null,
+          "strength": 0
+        },
+        "manipulationPatterns": {},
+        "educationalValue": 0
+      },
+      "recommendation": "Usable with revisions. Address warnings before publication."
+    },
+    {
+      "id": "fitness-influencer-007",
+      "title": "The Fitness Influencer",
+      "score": 80,
+      "rating": "GOOD",
+      "validation": {
+        "structure": {
+          "errors": [],
+          "warnings": []
+        },
+        "content": {
+          "errors": [],
+          "warnings": [
+            "Content too short (94 words) - may lack complexity",
+            "Weak platform voice authenticity - add more platform-specific language"
+          ],
+          "metrics": {
+            "wordCount": 94,
+            "voiceAuthenticity": {
+              "platform": null,
+              "strength": 0
+            },
+            "manipulationPatterns": {
+              "scarcity": 1,
+              "emotion": 1
+            },
+            "educationalValue": 50
+          }
+        },
+        "dimension": {
+          "errors": [],
+          "warnings": [
+            "logic analysis too brief (40 chars) - needs more detail",
+            "logic analysis lacks key terminology - consider adding relevant concepts",
+            "emotion analysis too brief (49 chars) - needs more detail",
+            "emotion analysis lacks key terminology - consider adding relevant concepts",
+            "balanced analysis too brief (32 chars) - needs more detail",
+            "balanced analysis lacks key terminology - consider adding relevant concepts",
+            "agenda analysis too brief (38 chars) - needs more detail"
+          ]
+        }
+      },
+      "metrics": {
+        "wordCount": 94,
+        "voiceAuthenticity": {
+          "platform": null,
+          "strength": 0
+        },
+        "manipulationPatterns": {
+          "scarcity": 1,
+          "emotion": 1
+        },
+        "educationalValue": 50
+      },
+      "recommendation": "Minor improvements recommended but acceptable for use."
+    },
+    {
+      "id": "university-study-008",
+      "title": "The University Study",
+      "score": 77,
+      "rating": "GOOD",
+      "validation": {
+        "structure": {
+          "errors": [],
+          "warnings": []
+        },
+        "content": {
+          "errors": [],
+          "warnings": [
+            "Content too short (70 words) - may lack complexity",
+            "Weak platform voice authenticity - add more platform-specific language",
+            "Low manipulation pattern diversity - add more persuasion techniques"
+          ],
+          "metrics": {
+            "wordCount": 70,
+            "voiceAuthenticity": {
+              "platform": null,
+              "strength": 0
+            },
+            "manipulationPatterns": {},
+            "educationalValue": 50
+          }
+        },
+        "dimension": {
+          "errors": [],
+          "warnings": [
+            "logic analysis too brief (47 chars) - needs more detail",
+            "logic analysis lacks key terminology - consider adding relevant concepts",
+            "emotion analysis too brief (41 chars) - needs more detail",
+            "emotion analysis lacks key terminology - consider adding relevant concepts",
+            "balanced analysis too brief (32 chars) - needs more detail",
+            "balanced analysis lacks key terminology - consider adding relevant concepts",
+            "agenda analysis too brief (38 chars) - needs more detail"
+          ]
+        }
+      },
+      "metrics": {
+        "wordCount": 70,
+        "voiceAuthenticity": {
+          "platform": null,
+          "strength": 0
+        },
+        "manipulationPatterns": {},
+        "educationalValue": 50
+      },
+      "recommendation": "Minor improvements recommended but acceptable for use."
+    },
+    {
+      "id": "parenting-forum-009",
+      "title": "The Parenting Forum Post",
+      "score": 74,
+      "rating": "ACCEPTABLE",
+      "validation": {
+        "structure": {
+          "errors": [],
+          "warnings": []
+        },
+        "content": {
+          "errors": [],
+          "warnings": [
+            "Content too short (79 words) - may lack complexity",
+            "Weak platform voice authenticity - add more platform-specific language",
+            "Low manipulation pattern diversity - add more persuasion techniques",
+            "Low educational value - add more recognizable manipulation patterns"
+          ],
+          "metrics": {
+            "wordCount": 79,
+            "voiceAuthenticity": {
+              "platform": null,
+              "strength": 0
+            },
+            "manipulationPatterns": {},
+            "educationalValue": 25
+          }
+        },
+        "dimension": {
+          "errors": [],
+          "warnings": [
+            "logic analysis too brief (42 chars) - needs more detail",
+            "logic analysis lacks key terminology - consider adding relevant concepts",
+            "emotion analysis too brief (31 chars) - needs more detail",
+            "emotion analysis lacks key terminology - consider adding relevant concepts",
+            "balanced analysis too brief (32 chars) - needs more detail",
+            "balanced analysis lacks key terminology - consider adding relevant concepts",
+            "agenda analysis too brief (38 chars) - needs more detail"
+          ]
+        }
+      },
+      "metrics": {
+        "wordCount": 79,
+        "voiceAuthenticity": {
+          "platform": null,
+          "strength": 0
+        },
+        "manipulationPatterns": {},
+        "educationalValue": 25
+      },
+      "recommendation": "Usable with revisions. Address warnings before publication."
+    },
+    {
+      "id": "community-garden-010",
+      "title": "The Community Garden Proposal",
+      "score": 76,
+      "rating": "GOOD",
+      "validation": {
+        "structure": {
+          "errors": [],
+          "warnings": []
+        },
+        "content": {
+          "errors": [],
+          "warnings": [
+            "Content too short (80 words) - may lack complexity",
+            "Weak platform voice authenticity - add more platform-specific language",
+            "Low manipulation pattern diversity - add more persuasion techniques",
+            "Low educational value - add more recognizable manipulation patterns"
+          ],
+          "metrics": {
+            "wordCount": 80,
+            "voiceAuthenticity": {
+              "platform": null,
+              "strength": 0
+            },
+            "manipulationPatterns": {},
+            "educationalValue": 25
+          }
+        },
+        "dimension": {
+          "errors": [],
+          "warnings": [
+            "logic analysis too brief (36 chars) - needs more detail",
+            "logic analysis lacks key terminology - consider adding relevant concepts",
+            "emotion analysis lacks key terminology - consider adding relevant concepts",
+            "balanced analysis too brief (32 chars) - needs more detail",
+            "balanced analysis lacks key terminology - consider adding relevant concepts",
+            "agenda analysis too brief (38 chars) - needs more detail"
+          ]
+        }
+      },
+      "metrics": {
+        "wordCount": 80,
+        "voiceAuthenticity": {
+          "platform": null,
+          "strength": 0
+        },
+        "manipulationPatterns": {},
+        "educationalValue": 25
+      },
+      "recommendation": "Minor improvements recommended but acceptable for use."
+    }
+  ]
+}

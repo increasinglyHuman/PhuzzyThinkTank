@@ -1,0 +1,424 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Phuzzy Think Tank Scenario Pack Schema v2.0",
+  "description": "Complete specification for generating educational critical thinking scenarios",
+  "type": "object",
+  "required": ["version", "packInfo", "scenarios"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^2\\.[0-9]+\\.[0-9]+$",
+      "description": "Schema version, must be 2.x.x format"
+    },
+    "packInfo": {
+      "type": "object",
+      "required": ["packId", "packName", "author", "description", "createdDate", "topic", "category"],
+      "properties": {
+        "packId": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+-[0-9]{3}$",
+          "description": "Unique identifier like 'nature-culture-004'"
+        },
+        "packName": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 50,
+          "description": "User-facing title, 3-6 words preferred"
+        },
+        "author": {
+          "type": "string",
+          "default": "Phuzzy Think Tank Community"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 50,
+          "maxLength": 200,
+          "description": "1-2 sentence pack summary"
+        },
+        "createdDate": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "topic": {
+          "type": "string",
+          "enum": ["Cultural Commentary", "Social Media & Influence", "Health & Wellness", "Work & Career", "Finance & Economics", "Environment & Sustainability", "Technology & AI", "Community & Society"]
+        },
+        "category": {
+          "type": "string",
+          "enum": ["Creative", "Educational", "Satirical", "Analytical", "Whimsical"]
+        }
+      }
+    },
+    "scenarios": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 12,
+      "description": "10-12 scenarios optimal for pack size",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "text", "claim", "correctAnswer", "answerWeights", "reviewKeywords", "dimensionAnalysis", "logicalFallacies", "analysis", "wisdom", "hints", "metadata", "peakMoments", "topic"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+-[0-9]{3}-[0-9]{3}$",
+            "description": "Unique scenario identifier"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 15,
+            "maxLength": 60,
+            "description": "Catchy 3-6 word title"
+          },
+          "text": {
+            "type": "string",
+            "minLength": 800,
+            "maxLength": 2000,
+            "description": "Main scenario content, 150-300 words optimal for timeline analysis"
+          },
+          "content": {
+            "type": "string",
+            "description": "Optional shorter version for display"
+          },
+          "audioScript": {
+            "type": "string",
+            "description": "Audio-optimized version with pronunciation guides"
+          },
+          "claim": {
+            "type": "string",
+            "minLength": 50,
+            "maxLength": 200,
+            "description": "One sentence summary of main argument being made"
+          },
+          "correctAnswer": {
+            "type": "string",
+            "enum": ["logic", "emotion", "balanced", "agenda"],
+            "description": "Dimension with highest answerWeights score"
+          },
+          "answerWeights": {
+            "type": "object",
+            "required": ["logic", "emotion", "balanced", "agenda"],
+            "properties": {
+              "logic": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100,
+                "description": "Logical fallacy strength (higher = more fallacious)"
+              },
+              "emotion": {
+                "type": "integer", 
+                "minimum": 0,
+                "maximum": 100,
+                "description": "Emotional manipulation level (higher = more manipulative)"
+              },
+              "balanced": {
+                "type": "integer",
+                "minimum": 0, 
+                "maximum": 100,
+                "description": "Fair/nuanced reasoning (higher = more balanced)"
+              },
+              "agenda": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100,
+                "description": "Hidden motive strength (higher = more agenda-driven)"
+              }
+            },
+            "description": "Must use precise integers, avoid patterns, highest determines correctAnswer"
+          },
+          "reviewKeywords": {
+            "type": "object",
+            "required": ["logic", "emotion", "balanced", "agenda"],
+            "properties": {
+              "logic": {
+                "type": "array",
+                "items": {"type": "string"},
+                "minItems": 3,
+                "maxItems": 6,
+                "description": "Keywords that indicate logical issues"
+              },
+              "emotion": {
+                "type": "array", 
+                "items": {"type": "string"},
+                "minItems": 3,
+                "maxItems": 6,
+                "description": "Keywords showing emotional manipulation"
+              },
+              "balanced": {
+                "type": "array",
+                "items": {"type": "string"}, 
+                "minItems": 2,
+                "maxItems": 5,
+                "description": "Keywords showing fairness/nuance"
+              },
+              "agenda": {
+                "type": "array",
+                "items": {"type": "string"},
+                "minItems": 3,
+                "maxItems": 6,
+                "description": "Keywords revealing hidden motives"
+              }
+            },
+            "description": "Direct arrays for timeline compatibility"
+          },
+          "dimensionAnalysis": {
+            "type": "object",
+            "required": ["logic", "emotion", "balanced", "agenda"],
+            "properties": {
+              "logic": {
+                "type": "string",
+                "minLength": 50,
+                "maxLength": 150,
+                "description": "15-20 words describing logical progression/technique"
+              },
+              "emotion": {
+                "type": "string",
+                "minLength": 50, 
+                "maxLength": 150,
+                "description": "15-20 words describing emotional manipulation patterns"
+              },
+              "balanced": {
+                "type": "string",
+                "minLength": 50,
+                "maxLength": 150, 
+                "description": "15-20 words describing balance/fairness assessment"
+              },
+              "agenda": {
+                "type": "string",
+                "minLength": 50,
+                "maxLength": 150,
+                "description": "15-20 words describing hidden agenda techniques"
+              }
+            },
+            "description": "Scenario-specific analysis strings for timeline display"
+          },
+          "logicalFallacies": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 4,
+            "items": {
+              "type": "object",
+              "required": ["fallacyId", "severity", "example"],
+              "properties": {
+                "fallacyId": {
+                  "type": "string",
+                  "enum": ["ad-hominem", "appeal-to-authority", "appeal-to-fear", "appeal-to-nature", "appeal-to-tradition", "bandwagon", "cherry-picking", "false-dilemma", "false-equivalence", "false-scarcity", "hasty-generalization", "post-hoc", "red-herring", "slippery-slope", "straw-man"],
+                  "description": "Must be from the 15 collectible fallacy cards"
+                },
+                "severity": {
+                  "type": "string",
+                  "enum": ["primary", "secondary", "minor"],
+                  "description": "Prominence of fallacy in scenario"
+                },
+                "example": {
+                  "type": "string",
+                  "minLength": 30,
+                  "maxLength": 150,
+                  "description": "Specific quote or paraphrase showing the fallacy"
+                }
+              }
+            },
+            "description": "1-4 fallacies per scenario, from approved list only"
+          },
+          "analysis": {
+            "type": "object",
+            "required": ["logic", "emotion"],
+            "properties": {
+              "logic": {
+                "type": "object",
+                "required": ["scores", "indicators", "explanation"],
+                "properties": {
+                  "scores": {
+                    "type": "object",
+                    "required": ["evidence", "consistency", "source", "agenda"],
+                    "properties": {
+                      "evidence": {"type": "integer", "minimum": 0, "maximum": 100},
+                      "consistency": {"type": "integer", "minimum": 0, "maximum": 100},
+                      "source": {"type": "integer", "minimum": 0, "maximum": 100},
+                      "agenda": {"type": "integer", "minimum": 0, "maximum": 100}
+                    }
+                  },
+                  "indicators": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Must use predefined indicators from database"
+                  },
+                  "explanation": {"type": "string", "minLength": 50, "maxLength": 200}
+                }
+              },
+              "emotion": {
+                "type": "object", 
+                "required": ["scores", "triggers", "explanation"],
+                "properties": {
+                  "scores": {
+                    "type": "object",
+                    "required": ["fear", "belonging", "pride", "manipulation"],
+                    "properties": {
+                      "fear": {"type": "integer", "minimum": 0, "maximum": 100},
+                      "belonging": {"type": "integer", "minimum": 0, "maximum": 100},
+                      "pride": {"type": "integer", "minimum": 0, "maximum": 100},
+                      "manipulation": {"type": "integer", "minimum": 0, "maximum": 100}
+                    }
+                  },
+                  "triggers": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Must use predefined triggers from database"
+                  },
+                  "explanation": {"type": "string", "minLength": 50, "maxLength": 200}
+                }
+              }
+            }
+          },
+          "wisdom": {
+            "type": "string",
+            "minLength": 100,
+            "maxLength": 300,
+            "description": "Educational insight, 1-2 sentences explaining key lesson"
+          },
+          "hints": {
+            "type": "object",
+            "required": ["keywords", "strategy", "hintMessage"],
+            "properties": {
+              "keywords": {
+                "type": "array",
+                "items": {"type": "string"},
+                "minItems": 3,
+                "maxItems": 6,
+                "description": "Keywords that hint toward correct answer"
+              },
+              "strategy": {
+                "type": "string", 
+                "enum": ["logic", "emotion", "balanced", "agenda"],
+                "description": "Which dimension to hint toward"
+              },
+              "hintMessage": {
+                "type": "string",
+                "minLength": 20,
+                "maxLength": 80,
+                "description": "Concise hint for honey pot mechanic"
+              }
+            }
+          },
+          "metadata": {
+            "type": "object",
+            "required": ["tags", "difficulty", "educationalFocus", "addedDate"],
+            "properties": {
+              "tags": {
+                "type": "array",
+                "items": {"type": "string"},
+                "minItems": 3,
+                "maxItems": 6,
+                "description": "Categorization tags for filtering"
+              },
+              "difficulty": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 5,
+                "description": "Cognitive load assessment"
+              },
+              "educationalFocus": {
+                "type": "string",
+                "pattern": "^[a-z-]+$",
+                "description": "Kebab-case learning objective"
+              },
+              "commonMisconceptions": {
+                "type": "array",
+                "items": {"type": "string"},
+                "description": "What players might think instead"
+              },
+              "addedDate": {
+                "type": "string",
+                "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+              }
+            }
+          },
+          "peakMoments": {
+            "type": "object",
+            "required": ["logic", "emotion", "balanced", "agenda"],
+            "properties": {
+              "logic": {
+                "type": "array",
+                "items": {"type": "string"},
+                "minItems": 2,
+                "maxItems": 5,
+                "description": "Words/phrases that would visually pop for logic"
+              },
+              "emotion": {
+                "type": "array",
+                "items": {"type": "string"}, 
+                "minItems": 2,
+                "maxItems": 5,
+                "description": "Words/phrases that would visually pop for emotion"
+              },
+              "balanced": {
+                "type": "array",
+                "items": {"type": "string"},
+                "minItems": 1,
+                "maxItems": 4,
+                "description": "Words/phrases showing balance/nuance"
+              },
+              "agenda": {
+                "type": "array", 
+                "items": {"type": "string"},
+                "minItems": 2,
+                "maxItems": 5,
+                "description": "Words/phrases revealing hidden agenda"
+              }
+            },
+            "description": "Keywords for timeline visualization highlights"
+          },
+          "topic": {
+            "type": "string",
+            "description": "Educational topic category for this scenario"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "scoringPatterns": {
+      "description": "Expected score ranges by scenario type",
+      "highEmotion": {
+        "emotion": {"min": 76, "max": 95},
+        "logic": {"min": 15, "max": 35}, 
+        "balanced": {"min": 5, "max": 20},
+        "agenda": {"min": 20, "max": 80}
+      },
+      "sophisticatedAgenda": {
+        "agenda": {"min": 75, "max": 93},
+        "emotion": {"min": 45, "max": 70},
+        "logic": {"min": 25, "max": 45},
+        "balanced": {"min": 10, "max": 30}
+      },
+      "genuineBalance": {
+        "balanced": {"min": 84, "max": 96},
+        "logic": {"min": 55, "max": 75},
+        "emotion": {"min": 40, "max": 65},
+        "agenda": {"min": 15, "max": 40}
+      },
+      "logicDriven": {
+        "logic": {"min": 72, "max": 89},
+        "emotion": {"min": 35, "max": 65},
+        "balanced": {"min": 30, "max": 50},
+        "agenda": {"min": 20, "max": 50}
+      }
+    },
+    "complexityElements": {
+      "description": "Each scenario should include 4+ of these sophisticated elements",
+      "elements": [
+        "Mixed Validity - True facts, false conclusions",
+        "Competing Authorities - Multiple experts disagreeing", 
+        "Emotional Layering - Primary emotion masks secondary",
+        "Time Pressure Gradients - Escalating urgency",
+        "Social Proof Manipulation - Real testimonials misused",
+        "Statistical Gymnastics - True numbers, deceptive presentation",
+        "Narrative Arc - Story that shifts perspective mid-way",
+        "Hedged Certainty - Disclaimers followed by absolute claims",
+        "False Balance - Token acknowledgment before dismissal",
+        "Scope Shifting - Specific examples become universal claims",
+        "Winking Admission - Acknowledging manipulation while doing it",
+        "Platform Authenticity - Voice matches medium perfectly"
+      ]
+    }
+  }
+}

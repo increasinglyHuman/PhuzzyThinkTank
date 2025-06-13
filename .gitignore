@@ -173,3 +173,7 @@ temp/
 
 # Spaghetti backup folder
 **/spaghetti-backup/
+
+# Tools with API keys
+tools/ai-scenario-generator-v3.js
+tools/scenario-improver.js

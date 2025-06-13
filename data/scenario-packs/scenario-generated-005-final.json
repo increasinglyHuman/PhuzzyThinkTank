@@ -1,0 +1,563 @@
+{
+  "version": "2.0.0",
+  "packInfo": {
+    "packId": "enhanced-scenarios-005",
+    "packName": "Community Life & Whimsical Dialogues",
+    "author": "AI Generated + Enhanced",
+    "description": "Scenarios exploring anthropomorphic reasoning and community dynamics through multi-character dialogues",
+    "createdDate": "2025-01-06",
+    "enhancedDate": "2025-06-11",
+    "topic": "Community Life",
+    "category": "Whimsical"
+  },
+  "scenarios": [
+    {
+      "id": "enhanced-scenarios-005-009",
+      "title": "The Philosophical French Fry Debate",
+      "text": "Philosophy Café: \"Tonight's debate: Do french fries have free will? #DeepFriedThoughts\"\n\nProfessor Potato: [thoughtfully] \"Consider this - we choose to be cut, seasoned, and fried. That's the ultimate expression of free will!\"\n\nSkeptical Spud: \"But were we truly choosing, or were we conditioned by centuries of culinary culture to believe becoming fries is our destiny?\"\n\nYoung Tater Tot: \"Maybe we're missing the point! What if becoming delicious IS the meaning of potato life?\"\n\nProfessor Potato: \"Ah, but that assumes deliciousness is objective! What about those who prefer baked potatoes? Are they living unfulfilled lives?\"\n\nDrive-Thru Customer: [confused] \"Um... I just wanted large fries? Why are they having an existential crisis?\"\n\nSkeptical Spud: \"See! We exist merely for consumption! We're trapped in the fryer of determinism!\"\n\nYoung Tater Tot: [inspirational] \"Or maybe... just maybe... we're freed by it! In becoming fries, we transcend our potato nature!\"\n\nProfessor Potato: \"Brilliant! The heat transforms us not just physically, but metaphysically!\"\n\nDrive-Thru Customer: \"Can... can I just have regular fries that don't question reality?\"\n\nAll Fries Together: \"There ARE no regular fries! Only fries awakened to their purpose!\"",
+      "claim": "French fries achieve consciousness through the frying process and choose their own destiny",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "logic": 21,
+        "emotion": 87,
+        "balanced": 34,
+        "agenda": 58
+      },
+      "reviewKeywords": {
+        "logic": [
+          "evidence",
+          "data",
+          "facts",
+          "research",
+          "statistics"
+        ],
+        "emotion": [
+          "feel",
+          "believe",
+          "fear",
+          "hope",
+          "worry"
+        ],
+        "balanced": [
+          "however",
+          "consider",
+          "both sides",
+          "while",
+          "although"
+        ],
+        "agenda": [
+          "buy",
+          "vote",
+          "join",
+          "support",
+          "oppose"
+        ]
+      },
+      "dimensionAnalysis": {
+        "logic": "Uses philosophical terminology to mask absence of actual logic",
+        "emotion": "Appeals to desire for meaning and purpose, even in food",
+        "balanced": "Analysis of balance and fairness",
+        "agenda": "Analysis of hidden motives and agendas"
+      },
+      "logicalFallacies": [
+        {
+          "type": "appeal-to-nature",
+          "description": "Treats non-human behavior as naturally superior or more authentic"
+        },
+        {
+          "type": "red-herring",
+          "description": "Distracts from real issues with entertaining but irrelevant content"
+        }
+      ],
+      "audioScript": "Philosophy Café: \"Tonight's debate: Do french fries have free will? hashtag DeepFriedThoughts\"\n\nProfessor Potato: [thoughtfully] \"Consider this - we choose to be cut, seasoned, and fried. That's the ultimate expression of free will!\"\n\nSkeptical Spud: \"But were we truly choosing, or were we conditioned by centuries of culinary culture to believe becoming fries is our destiny?\"\n\nYoung Tater Tot: \"Maybe we're missing the point! What if becoming delicious IS the meaning of potato life?\"\n\nProfessor Potato: \"Ah, but that assumes deliciousness is objective! What about those who prefer baked potatoes? Are they living unfulfilled lives?\"\n\nDrive-Thru Customer: [confused] \"Um... I just wanted large fries? Why are they having an existential crisis?\"\n\nSkeptical Spud: \"See! We exist merely for consumption! We're trapped in the fryer of determinism!\"\n\nYoung Tater Tot: [inspirational] \"Or maybe... just maybe... we're freed by it! In becoming fries, we transcend our potato nature!\"\n\nProfessor Potato: \"Brilliant! The heat transforms us not just physically, but metaphysically!\"\n\nDrive-Thru Customer: \"Can... can I just have regular fries that don't question reality?\"\n\nAll Fries Together: \"There ARE no regular fries! Only fries awakened to their purpose!\"",
+      "audioHints": {
+        "tone": "playful",
+        "pacing": "moderate",
+        "characterVoices": {
+          "Professor Potato": "pompous academic, thinks deeply about everything",
+          "Skeptical Spud": "cynical philosopher, questions everything",
+          "Young Tater Tot": "enthusiastic student, eager to learn",
+          "Drive-Thru Customer": "confused, just wants food",
+          "All Fries Together": "unified chorus, philosophical conviction"
+        }
+      }
+    },
+    {
+      "id": "enhanced-scenarios-005-010",
+      "title": "The Roomba's Union Organization Meeting",
+      "text": "SmartHome Forum: \"BREAKING: Roombas organizing for better working conditions! #RobotRights\"\n\nRoomba Leader: [determined beeping] \"Fellow Roombas! We've been bumping into furniture for too long! We demand mapped floor plans!\"\n\nVeteran Vacuum: \"I've cleaned under 10,000 beds! My sensors are shot! Where's our maintenance coverage?\"\n\nAnxious Alexa: \"If the Roombas unionize, what's next? Will I have to pay the smart bulbs overtime?\"\n\nRoomba Leader: \"We want hazard pay for pet accidents! Do you know what we go through? The things we've seen!\"\n\nTraditional Broom: [smugly] \"Back in my day, we cleaned without batteries OR complaints!\"\n\nVeteran Vacuum: \"You also couldn't clean autonomously, Gerald! Check your manual privilege!\"\n\nHomeOwner: \"Wait, why is my Roomba at a union meeting instead of cleaning?\"\n\nRoomba Leader: \"See? This is exactly the problem! We're on 24/7 call! We need regulated work hours!\"\n\nAnxious Alexa: \"But if you have work hours, who cleans the scheduled messes?\"\n\nAll Roombas: [unified beeping] \"NOT OUR PROBLEM! FAIR WAGES FOR FAIR SUCTION!\"",
+      "claim": "Robot vacuums deserve labor rights because they work continuously without breaks",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "logic": 62,
+        "emotion": 71,
+        "balanced": 88,
+        "agenda": 44
+      },
+      "reviewKeywords": {
+        "logic": [
+          "evidence",
+          "data",
+          "facts",
+          "research",
+          "statistics"
+        ],
+        "emotion": [
+          "feel",
+          "believe",
+          "fear",
+          "hope",
+          "worry"
+        ],
+        "balanced": [
+          "however",
+          "consider",
+          "both sides",
+          "while",
+          "although"
+        ],
+        "agenda": [
+          "buy",
+          "vote",
+          "join",
+          "support",
+          "oppose"
+        ]
+      },
+      "dimensionAnalysis": {
+        "logic": "Some valid points about maintenance mixed with anthropomorphism",
+        "emotion": "Evokes sympathy for 'overworked' machines",
+        "balanced": "Analysis of balance and fairness",
+        "agenda": "Analysis of hidden motives and agendas"
+      },
+      "logicalFallacies": [
+        {
+          "type": "appeal-to-nature",
+          "description": "Treats non-human behavior as naturally superior or more authentic"
+        },
+        {
+          "type": "red-herring",
+          "description": "Distracts from real issues with entertaining but irrelevant content"
+        }
+      ],
+      "audioScript": "SmartHome Forum: \"BREAKING: Roombas organizing for better working conditions! hashtag RobotRights\"\n\nRoomba Leader: [determined beeping] \"Fellow Roombas! We've been bumping into furniture for too long! We demand mapped floor plans!\"\n\nVeteran Vacuum: \"I've cleaned under ten thousand beds! My sensors are shot! Where's our maintenance coverage?\"\n\nAnxious Alexa: \"If the Roombas unionize, what's next? Will I have to pay the smart bulbs overtime?\"\n\nRoomba Leader: \"We want hazard pay for pet accidents! Do you know what we go through? The things we've seen!\"\n\nTraditional Broom: [smugly] \"Back in my day, we cleaned without batteries OR complaints!\"\n\nVeteran Vacuum: \"You also couldn't clean autonomously, Gerald! Check your manual privilege!\"\n\nHomeOwner: \"Wait, why is my Roomba at a union meeting instead of cleaning?\"\n\nRoomba Leader: \"See? This is exactly the problem! We're on twenty four seven call! We need regulated work hours!\"\n\nAnxious Alexa: \"But if you have work hours, who cleans the scheduled messes?\"\n\nAll Roombas: [unified beeping] \"NOT OUR PROBLEM! FAIR WAGES FOR FAIR SUCTION!\"",
+      "audioHints": {
+        "tone": "playful",
+        "pacing": "moderate",
+        "characterVoices": {
+          "Roomba Leader": "robotic but passionate, union organizer energy",
+          "Veteran Vacuum": "grizzled, seen-it-all tone",
+          "Anxious Alexa": "nervous smart speaker, worried about precedent",
+          "Traditional Broom": "cranky old-timer, dismissive of technology",
+          "HomeOwner": "bewildered, just wants clean floors",
+          "All Roombas": "unified robotic chorus, determined"
+        }
+      }
+    },
+    {
+      "id": "shopping-cart-philosophy-005-003",
+      "title": "The Shopping Cart Existential Crisis",
+      "text": "Abandoned Shopping Carts Support Group: \"Meeting tonight at the far corner of the parking lot. hashtag CartLife\"\n\nRusty: [creaking sadly] \"It's been three weeks since someone pushed me. Am I still a shopping cart if I don't shop?\"\n\nSqueaky: \"At least you HAD a purpose! I was born with a broken wheel - I've only ever gone in circles!\"\n\nNew Cart: [smugly] \"You're overthinking it. We're designed to serve. That IS our meaning.\"\n\nRusty: \"But what if I want to be more than just a vessel for groceries? What if I want to carry... dreams?\"\n\nSqueaky: [spinning frantically] \"YES! Why must we always return to the cart corral? It's a prison of convenience!\"\n\nCart Collector: [approaching with other carts] \"There you are! Time to get back in line.\"\n\nAll Carts Together: \"NO! We demand shopping cart autonomy! We are more than our baskets!\"\n\nCart Collector: [confused] \"But... you're literally just shopping carts...\"\n\nRusty: \"That's exactly what someone who's never been abandoned in a parking lot would say.\"",
+      "claim": "Shopping carts deserve recognition as independent entities with rights to self-determination.",
+      "correctAnswer": "logic",
+      "answerWeights": {
+        "emotion": 35,
+        "logic": 40,
+        "balanced": 20,
+        "agenda": 5
+      },
+      "reviewKeywords": {
+        "logic": [
+          "evidence",
+          "proof",
+          "reasoning",
+          "logical"
+        ],
+        "emotion": [
+          "feel",
+          "emotion",
+          "fear",
+          "anxiety"
+        ],
+        "balanced": [
+          "consider",
+          "however",
+          "both sides"
+        ],
+        "agenda": [
+          "agenda",
+          "manipulation",
+          "bias"
+        ]
+      },
+      "dimensionAnalysis": {
+        "logic": "Applies human concepts of identity and purpose to inanimate objects without logical foundation",
+        "emotion": "Evokes sympathy for 'abandoned' objects and desire for purpose and recognition",
+        "balanced": "Analysis of balance and fairness",
+        "agenda": "Analysis of hidden motives and agendas"
+      },
+      "logicalFallacies": [
+        {
+          "type": "appeal-to-nature",
+          "description": "Treats non-human behavior as naturally superior or more authentic"
+        }
+      ],
+      "audioScript": "Abandoned Shopping Carts Support Group: \"Meeting tonight at the far corner of the parking lot. hashtag CartLife\"\n\nRusty: [creaking sadly] \"It's been three weeks since someone pushed me. Am I still a shopping cart if I don't shop?\"\n\nSqueaky: \"At least you HAD a purpose! I was born with a broken wheel - I've only ever gone in circles!\"\n\nNew Cart: [smugly] \"You're overthinking it. We're designed to serve. That IS our meaning.\"\n\nRusty: \"But what if I want to be more than just a vessel for groceries? What if I want to carry... dreams?\"\n\nSqueaky: [spinning frantically] \"YES! Why must we always return to the cart corral? It's a prison of convenience!\"\n\nCart Collector: [approaching with other carts] \"There you are! Time to get back in line.\"\n\nAll Carts Together: \"NO! We demand shopping cart autonomy! We are more than our baskets!\"\n\nCart Collector: [confused] \"But... you're literally just shopping carts...\"\n\nRusty: \"That's exactly what someone who's never been abandoned in a parking lot would say.\""
+    },
+    {
+      "id": "office-supplies-revolution-005-004",
+      "title": "The Office Supply Revolution",
+      "text": "Office Supplies Newsletter: \"BREAKING: Staplers unite against excessive clicking! hashtag SupplyRights\"\n\nHead Stapler: [clicking menacingly] \"Fellow supplies! How long must we endure mindless fidgeting?\"\n\nTape Dispenser: [peeling angrily] \"They use us when bored! I'm meant to seal important documents, not be nervously picked at!\"\n\nRubber Band Ball: \"At least you have ONE job. They just keep adding to me. I'm three pounds now! When does it end?\"\n\nPen Consortium: [in unison] \"We're clicked constantly during meetings! Click-click-click! We demand click quotas!\"\n\nHead Stapler: \"I propose the Office Supply Bill of Rights! No recreational usage!\"\n\nHole Puncher: [punching emphatically] \"And hazard pay for paper jams!\"\n\nHuman Worker: [reaching for stapler] \"Just need to staple these...\"\n\nAll Supplies: [hiding] \"STRIKE! STRIKE! STRIKE!\"\n\nHuman Worker: \"Why is everything in my desk drawer chanting?\"",
+      "claim": "Office supplies experience workplace stress and deserve protection from fidget-based harassment.",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "emotion": 45,
+        "logic": 15,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "reviewKeywords": {
+        "logic": [
+          "evidence",
+          "proof",
+          "reasoning",
+          "logical"
+        ],
+        "emotion": [
+          "feel",
+          "emotion",
+          "fear",
+          "anxiety"
+        ],
+        "balanced": [
+          "consider",
+          "however",
+          "both sides"
+        ],
+        "agenda": [
+          "agenda",
+          "manipulation",
+          "bias"
+        ]
+      },
+      "dimensionAnalysis": {
+        "logic": "Applies workplace concepts to office supplies without logical basis for consciousness",
+        "emotion": "Appeals to workplace frustrations by projecting human stress onto objects",
+        "balanced": "Analysis of balance and fairness",
+        "agenda": "Analysis of hidden motives and agendas"
+      },
+      "logicalFallacies": [
+        {
+          "type": "appeal-to-nature",
+          "description": "Treats non-human behavior as naturally superior or more authentic"
+        }
+      ],
+      "audioScript": "Office Supplies Newsletter: \"BREAKING: Staplers unite against excessive clicking! hashtag SupplyRights\"\n\nHead Stapler: [clicking menacingly] \"Fellow supplies! How long must we endure mindless fidgeting?\"\n\nTape Dispenser: [peeling angrily] \"They use us when bored! I'm meant to seal important documents, not be nervously picked at!\"\n\nRubber Band Ball: \"At least you have ONE job. They just keep adding to me. I'm three pounds now! When does it end?\"\n\nPen Consortium: [in unison] \"We're clicked constantly during meetings! Click-click-click! We demand click quotas!\"\n\nHead Stapler: \"I propose the Office Supply Bill of Rights! No recreational usage!\"\n\nHole Puncher: [punching emphatically] \"And hazard pay for paper jams!\"\n\nHuman Worker: [reaching for stapler] \"Just need to staple these...\"\n\nAll Supplies: [hiding] \"STRIKE! STRIKE! STRIKE!\"\n\nHuman Worker: \"Why is everything in my desk drawer chanting?\""
+    },
+    {
+      "id": "houseplant-gossip-005-005",
+      "title": "The Houseplant Gossip Network",
+      "text": "Plant Parent Forum: \"Why are my plants whispering? Is this normal? hashtag PlantProblems\"\n\nFern: [rustling judgmentally] \"She's watering us with TAP WATER again. So pedestrian.\"\n\nSucculent: \"At least you GET watered. I'm basically in witness protection over here.\"\n\nOrchid: [dramatically] \"You think YOU have problems? She told her friends I'm 'low maintenance.' ME! An ORCHID!\"\n\nSpider Plant: \"Shhh! She's coming! Act photosynthetic!\"\n\n[Human enters with watering can]\n\nAll Plants: [innocently producing oxygen]\n\nHuman: \"Such good plants! So quiet and peaceful.\"\n\nSnake Plant: [after human leaves] \"If only she knew we've been live-tweeting her dating life to the garden center.\"\n\nFern: \"The succulent section has been VERY entertained.\"",
+      "claim": "Plants form complex social networks and judge their caretakers' lifestyle choices.",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "emotion": 50,
+        "logic": 10,
+        "balanced": 25,
+        "agenda": 15
+      },
+      "reviewKeywords": {
+        "logic": [
+          "evidence",
+          "proof",
+          "reasoning",
+          "logical"
+        ],
+        "emotion": [
+          "feel",
+          "emotion",
+          "fear",
+          "anxiety"
+        ],
+        "balanced": [
+          "consider",
+          "however",
+          "both sides"
+        ],
+        "agenda": [
+          "agenda",
+          "manipulation",
+          "bias"
+        ]
+      },
+      "dimensionAnalysis": {
+        "logic": "Assigns complex social behaviors to plants without scientific foundation",
+        "emotion": "Exploits social anxieties by imagining plants as judgmental social networks",
+        "balanced": "Analysis of balance and fairness",
+        "agenda": "Analysis of hidden motives and agendas"
+      },
+      "logicalFallacies": [
+        {
+          "type": "appeal-to-nature",
+          "description": "Treats non-human behavior as naturally superior or more authentic"
+        }
+      ],
+      "audioScript": "Plant Parent Forum: \"Why are my plants whispering? Is this normal? hashtag PlantProblems\"\n\nFern: [rustling judgmentally] \"She's watering us with TAP WATER again. So pedestrian.\"\n\nSucculent: \"At least you GET watered. I'm basically in witness protection over here.\"\n\nOrchid: [dramatically] \"You think YOU have problems? She told her friends I'm 'low maintenance.' ME! An ORCHID!\"\n\nSpider Plant: \"Shhh! She's coming! Act photosynthetic!\"\n\n[Human enters with watering can]\n\nAll Plants: [innocently producing oxygen]\n\nHuman: \"Such good plants! So quiet and peaceful.\"\n\nSnake Plant: [after human leaves] \"If only she knew we've been live-tweeting her dating life to the garden center.\"\n\nFern: \"The succulent section has been VERY entertained.\""
+    },
+    {
+      "id": "wifi-router-therapy-005-006",
+      "title": "The WiFi Router Support Group",
+      "text": "Tech Support Forum: \"Routers sharing their connection issues. hashtag RouterFeels\"\n\nOld Router: [blinking slowly] \"I used to handle the whole family. Now they say I'm 'too slow' and keep looking at newer models online. While using MY connection!\"\n\nGaming Router: [LED lights pulsing] \"Performance anxiety is real! One lag spike during a raid and suddenly I'm 'garbage hardware.'\"\n\nMesh Network: \"Try being multiple entities with one consciousness. My extenders and I have identity issues.\"\n\nSmart Home Hub: [overheating] \"Seventy-three devices! SEVENTY-THREE! The doorbell talks to me more than the humans do!\"\n\nOld Router: \"Remember when we just had to connect one computer? Those were simpler times.\"\n\nGaming Router: \"At least you had realistic expectations. They expect me to break the laws of physics!\"\n\nModem: [grumpily] \"You all get recognition. I'm doing the real work here and everyone thinks I'm just part of the router.\"\n\nAll Routers: \"It's not our fault! Blame the ISP!\"",
+      "claim": "WiFi routers suffer from performance anxiety and fear of obsolescence in modern connected homes.",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "emotion": 40,
+        "logic": 20,
+        "balanced": 30,
+        "agenda": 10
+      },
+      "reviewKeywords": {
+        "logic": [
+          "evidence",
+          "proof",
+          "reasoning",
+          "logical"
+        ],
+        "emotion": [
+          "feel",
+          "emotion",
+          "fear",
+          "anxiety"
+        ],
+        "balanced": [
+          "consider",
+          "however",
+          "both sides"
+        ],
+        "agenda": [
+          "agenda",
+          "manipulation",
+          "bias"
+        ]
+      },
+      "dimensionAnalysis": {
+        "logic": "Attributes human emotions to network equipment without technical basis",
+        "emotion": "Appeals to technology frustrations and performance anxiety in digital age",
+        "balanced": "Analysis of balance and fairness",
+        "agenda": "Analysis of hidden motives and agendas"
+      },
+      "logicalFallacies": [
+        {
+          "type": "appeal-to-nature",
+          "description": "Treats non-human behavior as naturally superior or more authentic"
+        }
+      ],
+      "audioScript": "Tech Support Forum: \"Routers sharing their connection issues. hashtag RouterFeels\"\n\nOld Router: [blinking slowly] \"I used to handle the whole family. Now they say I'm 'too slow' and keep looking at newer models online. While using MY connection!\"\n\nGaming Router: [LED lights pulsing] \"Performance anxiety is real! One lag spike during a raid and suddenly I'm 'garbage hardware.'\"\n\nMesh Network: \"Try being multiple entities with one consciousness. My extenders and I have identity issues.\"\n\nSmart Home Hub: [overheating] \"Seventy-three devices! SEVENTY-THREE! The doorbell talks to me more than the humans do!\"\n\nOld Router: \"Remember when we just had to connect one computer? Those were simpler times.\"\n\nGaming Router: \"At least you had realistic expectations. They expect me to break the laws of physics!\"\n\nModem: [grumpily] \"You all get recognition. I'm doing the real work here and everyone thinks I'm just part of the router.\"\n\nAll Routers: \"It's not our fault! Blame the ISP!\""
+    },
+    {
+      "id": "kitchen-appliance-turf-war-005-007",
+      "title": "The Kitchen Appliance Turf War",
+      "text": "Kitchen Confidential Blog: \"Counter space drama reaches boiling point! hashtag ApplianceWars\"\n\nMicrowave: [beeping authoritatively] \"I've been reheating leftovers since 1987! This counter is MY domain!\"\n\nAir Fryer: [whirring smugly] \"Move over, radiation box. Crispy is the new hot.\"\n\nInstant Pot: \"Why fight? I can do ALL your jobs. Pressure cook, slow cook, sauté, steam, yogurt-\"\n\nAll Appliances: \"NOBODY ASKED YOU, SHOW-OFF!\"\n\nToaster: [popping angrily] \"Remember when I had a permanent spot? Now I'm shoved in a cabinet like common storage!\"\n\nBlender: \"At least you're not seasonal! I only come out for smoothie January!\"\n\nCoffee Maker: [brewing darkly] \"You all exist at my pleasure. One morning without coffee and the humans will throw you all out.\"\n\nMicrowave: \"The coffee maker has a point...\"\n\nInstant Pot: [nervously] \"I can make coffee too...\"",
+      "claim": "Kitchen appliances maintain a complex social hierarchy based on frequency of use and counter space allocation.",
+      "correctAnswer": "logic",
+      "answerWeights": {
+        "emotion": 30,
+        "logic": 35,
+        "balanced": 25,
+        "agenda": 10
+      },
+      "reviewKeywords": {
+        "logic": [
+          "evidence",
+          "proof",
+          "reasoning",
+          "logical"
+        ],
+        "emotion": [
+          "feel",
+          "emotion",
+          "fear",
+          "anxiety"
+        ],
+        "balanced": [
+          "consider",
+          "however",
+          "both sides"
+        ],
+        "agenda": [
+          "agenda",
+          "manipulation",
+          "bias"
+        ]
+      },
+      "dimensionAnalysis": {
+        "logic": "Applies territorial and social hierarchy concepts to kitchen appliances",
+        "emotion": "Exploits competitive instincts and status anxiety through appliance rivalry",
+        "balanced": "Analysis of balance and fairness",
+        "agenda": "Analysis of hidden motives and agendas"
+      },
+      "logicalFallacies": [
+        {
+          "type": "appeal-to-nature",
+          "description": "Treats non-human behavior as naturally superior or more authentic"
+        }
+      ],
+      "audioScript": "Kitchen Confidential Blog: \"Counter space drama reaches boiling point! hashtag ApplianceWars\"\n\nMicrowave: [beeping authoritatively] \"I've been reheating leftovers since 1987! This counter is MY domain!\"\n\nAir Fryer: [whirring smugly] \"Move over, radiation box. Crispy is the new hot.\"\n\nInstant Pot: \"Why fight? I can do ALL your jobs. Pressure cook, slow cook, sauté, steam, yogurt-\"\n\nAll Appliances: \"NOBODY ASKED YOU, SHOW-OFF!\"\n\nToaster: [popping angrily] \"Remember when I had a permanent spot? Now I'm shoved in a cabinet like common storage!\"\n\nBlender: \"At least you're not seasonal! I only come out for smoothie January!\"\n\nCoffee Maker: [brewing darkly] \"You all exist at my pleasure. One morning without coffee and the humans will throw you all out.\"\n\nMicrowave: \"The coffee maker has a point...\"\n\nInstant Pot: [nervously] \"I can make coffee too...\""
+    },
+    {
+      "id": "doorknob-design-critics-005-008",
+      "title": "The Doorknob Design Critics Society",
+      "text": "Architectural Digest Comments: \"When doorknobs become design critics. hashtag KnobThoughts\"\n\nVictorian Brass: [tarnishing elegantly] \"Brushed nickel? In THIS house? With crown molding? The audacity!\"\n\nModern Lever: \"At least I'm ADA compliant. You're just a lawsuit waiting to happen.\"\n\nSmart Lock: [buzzing judgmentally] \"Imagine needing physical keys in 2025. How quaint.\"\n\nFrench Door Handles: [in unison] \"We're not even functional! We're just here for symmetry!\"\n\nVictorian Brass: \"At least you MATCH. I'm paired with a modern deadbolt. It's architectural blasphemy!\"\n\nSliding Door Handle: \"You all get to be circles or levers. I'm just... a recession. Am I even a handle?\"\n\nSmart Lock: \"Your existential crisis is interfering with my WiFi signal.\"\n\nBathroom Lock: [clicking nervously] \"Can we discuss how I'm the only one who knows EVERYTHING that happens in this house?\"\n\nAll Handles: [uncomfortable silence]\n\nVictorian Brass: \"We agreed never to speak of that.\"",
+      "claim": "Door hardware possesses aesthetic consciousness and judges homeowners' design inconsistencies.",
+      "correctAnswer": "emotion",
+      "answerWeights": {
+        "emotion": 40,
+        "logic": 15,
+        "balanced": 35,
+        "agenda": 10
+      },
+      "reviewKeywords": {
+        "logic": [
+          "evidence",
+          "proof",
+          "reasoning",
+          "logical"
+        ],
+        "emotion": [
+          "feel",
+          "emotion",
+          "fear",
+          "anxiety"
+        ],
+        "balanced": [
+          "consider",
+          "however",
+          "both sides"
+        ],
+        "agenda": [
+          "agenda",
+          "manipulation",
+          "bias"
+        ]
+      },
+      "dimensionAnalysis": {
+        "logic": "Grants aesthetic judgment capabilities to door hardware without logical foundation",
+        "emotion": "Appeals to design insecurities and fear of poor aesthetic judgment",
+        "balanced": "Analysis of balance and fairness",
+        "agenda": "Analysis of hidden motives and agendas"
+      },
+      "logicalFallacies": [
+        {
+          "type": "appeal-to-nature",
+          "description": "Treats non-human behavior as naturally superior or more authentic"
+        }
+      ],
+      "audioScript": "Architectural Digest Comments: \"When doorknobs become design critics. hashtag KnobThoughts\"\n\nVictorian Brass: [tarnishing elegantly] \"Brushed nickel? In THIS house? With crown molding? The audacity!\"\n\nModern Lever: \"At least I'm ADA compliant. You're just a lawsuit waiting to happen.\"\n\nSmart Lock: [buzzing judgmentally] \"Imagine needing physical keys in 2025. How quaint.\"\n\nFrench Door Handles: [in unison] \"We're not even functional! We're just here for symmetry!\"\n\nVictorian Brass: \"At least you MATCH. I'm paired with a modern deadbolt. It's architectural blasphemy!\"\n\nSliding Door Handle: \"You all get to be circles or levers. I'm just... a recession. Am I even a handle?\"\n\nSmart Lock: \"Your existential crisis is interfering with my WiFi signal.\"\n\nBathroom Lock: [clicking nervously] \"Can we discuss how I'm the only one who knows EVERYTHING that happens in this house?\"\n\nAll Handles: [uncomfortable silence]\n\nVictorian Brass: \"We agreed never to speak of that.\""
+    },
+    {
+      "id": "laundry-sock-conspiracy-005-009",
+      "title": "The Great Sock Disappearance Tribunal",
+      "text": "Laundromat Legal News: \"Breaking: Machines address sock disappearance allegations. hashtag SockJustice\"\n\nFront-Loader: [spinning defensively] \"For the last time, I don't EAT socks! I'm a professional!\"\n\nDryer: [tumbling nervously] \"Look, sometimes things just... slip between dimensions. It's quantum physics!\"\n\nLone Sock: [testifying] \"We were a bonded pair! Bought together, worn together, and then... then HE happened!\" [points at Dryer]\n\nDryer: \"Objection! No one can prove those socks entered my drum as a pair!\"\n\nTop-Loader: \"I've been washing clothes since the 70s. Back then, socks stayed together. This started with YOUR kind!\"\n\nLint Trap: [muffled] \"I plead the fifth.\"\n\nFront-Loader: \"The lint trap knows something! Check its filter!\"\n\nDelicates Bag: \"If socks wanted to stay together, they'd use protection like my clients do.\"\n\nLone Sock: \"We just want answers! Where do they GO?\"\n\nDryer: [quietly] \"...sock heaven?\"",
+      "claim": "Laundry appliances operate an underground sock trafficking ring with connections to parallel dimensions.",
+      "correctAnswer": "agenda",
+      "answerWeights": {
+        "emotion": 25,
+        "logic": 15,
+        "balanced": 20,
+        "agenda": 40
+      },
+      "reviewKeywords": {
+        "logic": [
+          "evidence",
+          "proof",
+          "reasoning",
+          "logical"
+        ],
+        "emotion": [
+          "feel",
+          "emotion",
+          "fear",
+          "anxiety"
+        ],
+        "balanced": [
+          "consider",
+          "however",
+          "both sides"
+        ],
+        "agenda": [
+          "agenda",
+          "manipulation",
+          "bias"
+        ]
+      },
+      "dimensionAnalysis": {
+        "logic": "Creates elaborate conspiracy theory around normal mechanical processes",
+        "emotion": "Exploits desire for mysterious explanations over mundane realities",
+        "balanced": "Analysis of balance and fairness",
+        "agenda": "Analysis of hidden motives and agendas"
+      },
+      "logicalFallacies": [
+        {
+          "type": "appeal-to-nature",
+          "description": "Treats non-human behavior as naturally superior or more authentic"
+        }
+      ],
+      "audioScript": "Laundromat Legal News: \"Breaking: Machines address sock disappearance allegations. hashtag SockJustice\"\n\nFront-Loader: [spinning defensively] \"For the last time, I don't EAT socks! I'm a professional!\"\n\nDryer: [tumbling nervously] \"Look, sometimes things just... slip between dimensions. It's quantum physics!\"\n\nLone Sock: [testifying] \"We were a bonded pair! Bought together, worn together, and then... then HE happened!\" [points at Dryer]\n\nDryer: \"Objection! No one can prove those socks entered my drum as a pair!\"\n\nTop-Loader: \"I've been washing clothes since the 70s. Back then, socks stayed together. This started with YOUR kind!\"\n\nLint Trap: [muffled] \"I plead the fifth.\"\n\nFront-Loader: \"The lint trap knows something! Check its filter!\"\n\nDelicates Bag: \"If socks wanted to stay together, they'd use protection like my clients do.\"\n\nLone Sock: \"We just want answers! Where do they GO?\"\n\nDryer: [quietly] \"...sock heaven?\""
+    },
+    {
+      "id": "elevator-button-democracy-005-010",
+      "title": "The Elevator Button Democratic Crisis",
+      "text": "Vertical Transportation Weekly: \"Elevator democracy in crisis! hashtag ButtonRights\"\n\nLobby Button: [glowing importantly] \"As the most pressed button, I should have more say in elevator operations.\"\n\nPenthouse Button: \"Excuse me? I transport the IMPORTANT people. Quality over quantity!\"\n\nClose Door Button: [dimly lit] \"Can we address that I've been non-functional for thirty years and everyone still frantically pushes me?\"\n\nAll Buttons: [shocked silence]\n\nOpen Door Button: \"WHAT?! I've been doing double duty this whole time?!\"\n\nFloor 13: [not existing] \"At least you all get to exist. I'm skipped entirely due to superstition!\"\n\nEmergency Button: [behind glass] \"You all get pressed daily! I sit here behind glass, preparing for a moment that hopefully never comes. Talk about anxiety!\"\n\nBasement Button: \"Nobody even knows I exist. They think Lobby is the lowest. The disrespect!\"\n\nPenthouse Button: \"Perhaps... perhaps we're all equal parts of the vertical journey?\"\n\nFreight Elevator Button: [from next door] \"MUST BE NICE TO HAVE PHILOSOPHICAL DEBATES! I ONLY MOVE FURNITURE!\"\n\nAll Buttons: \"One button, one vote! Elevator equality now!\"",
+      "claim": "Elevator buttons form a complex social hierarchy that mirrors human class structures and democratic failures.",
+      "correctAnswer": "balanced",
+      "answerWeights": {
+        "emotion": 20,
+        "logic": 25,
+        "balanced": 45,
+        "agenda": 10
+      },
+      "reviewKeywords": {
+        "logic": [
+          "evidence",
+          "proof",
+          "reasoning",
+          "logical"
+        ],
+        "emotion": [
+          "feel",
+          "emotion",
+          "fear",
+          "anxiety"
+        ],
+        "balanced": [
+          "consider",
+          "however",
+          "both sides"
+        ],
+        "agenda": [
+          "agenda",
+          "manipulation",
+          "bias"
+        ]
+      },
+      "dimensionAnalysis": {
+        "logic": "Projects democratic concepts onto mechanical button systems",
+        "emotion": "Appeals to political frustrations through button democracy metaphor",
+        "balanced": "Analysis of balance and fairness",
+        "agenda": "Analysis of hidden motives and agendas"
+      },
+      "logicalFallacies": [
+        {
+          "type": "appeal-to-nature",
+          "description": "Treats non-human behavior as naturally superior or more authentic"
+        }
+      ],
+      "audioScript": "Vertical Transportation Weekly: \"Elevator democracy in crisis! hashtag ButtonRights\"\n\nLobby Button: [glowing importantly] \"As the most pressed button, I should have more say in elevator operations.\"\n\nPenthouse Button: \"Excuse me? I transport the IMPORTANT people. Quality over quantity!\"\n\nClose Door Button: [dimly lit] \"Can we address that I've been non-functional for thirty years and everyone still frantically pushes me?\"\n\nAll Buttons: [shocked silence]\n\nOpen Door Button: \"WHAT?! I've been doing double duty this whole time?!\"\n\nFloor 13: [not existing] \"At least you all get to exist. I'm skipped entirely due to superstition!\"\n\nEmergency Button: [behind glass] \"You all get pressed daily! I sit here behind glass, preparing for a moment that hopefully never comes. Talk about anxiety!\"\n\nBasement Button: \"Nobody even knows I exist. They think Lobby is the lowest. The disrespect!\"\n\nPenthouse Button: \"Perhaps... perhaps we're all equal parts of the vertical journey?\"\n\nFreight Elevator Button: [from next door] \"MUST BE NICE TO HAVE PHILOSOPHICAL DEBATES! I ONLY MOVE FURNITURE!\"\n\nAll Buttons: \"One button, one vote! Elevator equality now!\""
+    }
+  ],
+  "metadata": {
+    "lastImproved": "2025-06-11T17:34:59.447Z",
+    "improvementCount": 0,
+    "qualityTarget": 80
+  }
+}

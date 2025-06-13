@@ -588,7 +588,23 @@ class QuizInterface {
         // First check if scenario has v2 format with reviewKeywords
         if (scenario.reviewKeywords && scenario.reviewKeywords[answerType]) {
             const reviewData = scenario.reviewKeywords[answerType];
-            const keywords = reviewData.keywords || [];
+            
+            // Handle both old and new keyword formats
+            let keywords = [];
+            if (Array.isArray(reviewData)) {
+                // New format: direct array of either strings or weighted objects
+                keywords = reviewData.map(item => {
+                    if (typeof item === 'string') {
+                        return item; // Old string format
+                    } else if (typeof item === 'object' && item.phrase) {
+                        return item.phrase; // New weighted format - extract phrase
+                    }
+                    return null;
+                }).filter(keyword => keyword); // Remove nulls
+            } else if (reviewData && Array.isArray(reviewData.keywords)) {
+                // Old nested format: {keywords: [...]}
+                keywords = reviewData.keywords;
+            }
             
             // Use scenario-specific keywords with their colors
             const colorMap = {
@@ -734,26 +750,58 @@ class QuizInterface {
         let feedbackText = '';
         let feedbackClass = '';
         
+        // Use scenario-specific analysis explanation as the main feedback text
+        if (this.currentScenario.analysis && 
+            this.currentScenario.analysis[answerType] &&
+            this.currentScenario.analysis[answerType].explanation) {
+            feedbackText = this.currentScenario.analysis[answerType].explanation;
+        } else {
+            // Fallback to generic feedback if no analysis explanation available
+            if (isCorrect) {
+                feedbackText = '✅ Perfect! This was the best answer.';
+            } else if (answerWeight >= 70) {
+                feedbackText = '👍 Good thinking! This was almost right.';
+            } else if (answerWeight >= 40) {
+                feedbackText = '🤔 Partially correct, but not the main issue.';
+            } else {
+                feedbackText = '❌ Not quite - this misses the key issue.';
+            }
+        }
+        
+        // Set feedback class based on correctness
         if (isCorrect) {
-            feedbackText = '✅ Perfect! This was the best answer.';
             feedbackClass = 'perfect';
         } else if (answerWeight >= 70) {
-            feedbackText = '👍 Good thinking! This was almost right.';
             feedbackClass = 'good';
         } else if (answerWeight >= 40) {
-            feedbackText = '🤔 Partially correct, but not the main issue.';
             feedbackClass = 'partial';
         } else {
-            feedbackText = '❌ Not quite - this misses the key issue.';
             feedbackClass = 'incorrect';
         }
         
         // Use scenario-specific explanation if available, otherwise use generic
         let explanation = '';
-        if (this.currentScenario.reviewKeywords && 
-            this.currentScenario.reviewKeywords[answerType] && 
-            this.currentScenario.reviewKeywords[answerType].explanation) {
-            explanation = this.currentScenario.reviewKeywords[answerType].explanation;
+        
+        // Check for explanation in different locations based on format
+        if (this.currentScenario.analysis && 
+            this.currentScenario.analysis[answerType] &&
+            this.currentScenario.analysis[answerType].explanation) {
+            // Use analysis dimension explanation (80-100 chars, perfect for tooltips)
+            explanation = this.currentScenario.analysis[answerType].explanation;
+        }
+        else if (this.currentScenario.reviewKeywords && 
+            this.currentScenario.reviewKeywords[answerType]) {
+            const reviewData = this.currentScenario.reviewKeywords[answerType];
+            
+            // Old nested format has explanation property
+            if (reviewData.explanation) {
+                explanation = reviewData.explanation;
+            }
+            // Fallback to dimensionAnalysis for explanations
+            else if (this.currentScenario.dimensionAnalysis && 
+                     this.currentScenario.dimensionAnalysis[answerType]) {
+                explanation = this.currentScenario.dimensionAnalysis[answerType];
+            }
         } else {
             // Generic explanations
             const explanations = {

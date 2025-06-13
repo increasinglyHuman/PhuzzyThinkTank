@@ -12,12 +12,24 @@ window.SCENARIO_PACKS = {
     'pack-000': {
         id: 'pack-000',
         name: 'Classic Scenarios Enhanced',
-        description: 'Original scenarios updated with v2 features',
-        file: './data/scenario-packs/scenario-generated-000.json',
-        version: '2.0.0',
-        enabled: true,
+        description: 'Original scenarios updated with v3 weighted keywords',
+        file: './data/scenario-packs/pack-000-weighted-test.json',
+        version: '3.0.0-weighted',
+        enabled: false, // 🐻 Bear temporarily disabled for wacky scenarios test
         scenarios: 10,
-        tags: ['classic', 'foundational']
+        tags: ['classic', 'foundational', 'weighted-keywords']
+    },
+    
+    'pack-000-wacky': {
+        id: 'pack-000-wacky',
+        name: 'Super Silly Critical Thinking Adventures',
+        description: 'Hilarious scenarios that teach kids to spot wacky manipulation through absurd but educational situations',
+        file: './new-scenarios/scenariopack-000/wacky-scenarios-000.json',
+        version: '2.0.0',
+        enabled: true, // 🐻 Bear-imported wacky scenarios active
+        scenarios: 10,
+        tags: ['silly', 'kids', 'wacky', 'bear-imported', 'kid-friendly', 'fun', 'whimsical'], // 🐻 Added promotion tags
+        bearImported: true // 🐻 Bear flag for special handling
     },
     
     'pack-001': {
@@ -68,11 +80,11 @@ window.SCENARIO_PACKS = {
         id: 'pack-005',
         name: 'Community Life',
         description: 'Workplace, school, and community scenarios',
-        file: './data/scenario-packs/scenario-generated-005.json',
-        version: '2.0.0',
+        file: './data/scenario-packs/pack-005-aggregate-test.json',
+        version: '3.0.0-weighted',
         enabled: true,
         scenarios: 10,
-        tags: ['community', 'workplace', 'kid-friendly', 'whimsical']
+        tags: ['community', 'workplace', 'kid-friendly', 'whimsical', 'weighted-keywords']
     },
     
     'pack-006': {

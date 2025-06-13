@@ -317,6 +317,8 @@
     <script src="./js/core/scoring-system.js"></script>
     <script src="./js/core/honey-pot-manager.js"></script>
     <script src="./js/utils/analytics-tracker.js"></script>
+    <script src="./js/utils/indicator-icon-mapper.js"></script>
+    <script src="./js/utils/fallacy-image-mapper.js"></script>
     
     <!-- Audio System -->
     <script src="./js/audio/phuzzy-audio-engine.js"></script>
@@ -366,21 +368,10 @@
                     splashScreen.style.display = 'none';
                 }, 500);
                 
-                // Start investigate button pulse after 5 seconds
+                // Progressive UX Guidance System
                 setTimeout(function() {
-                    const investigateBtn = document.getElementById('analysis-toggle-btn');
-                    if (investigateBtn) {
-                        // Only add pulse if button still says "Investigate"
-                        if (investigateBtn.textContent.includes('Investigate')) {
-                            investigateBtn.classList.add('investigate-pulse');
-                            
-                            // Remove pulse after first click
-                            investigateBtn.addEventListener('click', function() {
-                                investigateBtn.classList.remove('investigate-pulse');
-                            }, { once: true });
-                        }
-                    }
-                }, 5000);
+                    startProgressiveGuidance();
+                }, 1000);
                 
                 // Start scoreboard animation after splash closes
                 setTimeout(function() {
@@ -401,15 +392,310 @@
             });
         }
         
-        // Initialize game
-        async function initializeGame() {
-            try {
-                // Setup splash screen first
-                setupSplashScreen();
+        // Progressive UX Guidance System
+        function startProgressiveGuidance() {
+            console.log('🎯 Starting progressive UX guidance system');
+            
+            // Step 1: Audio button pulse (encourage audio use)
+            const audioBtn = document.getElementById('play-pause-btn');
+            if (audioBtn && audioBtn.style.display !== 'none') {
+                console.log('🎵 Starting audio button pulse animation');
+                audioBtn.classList.add('audio-pulse');
                 
-                // Create game engine
-                const gameEngine = new window.PhuzzyGameEngine(window.PHUZZY_CONFIG);
-                window.gameEngine = gameEngine; // Make available globally for timeline analysis
+                // Remove audio pulse when user clicks the audio button
+                const removeAudioPulse = function() {
+                    audioBtn.classList.remove('audio-pulse');
+                    audioBtn.removeEventListener('click', removeAudioPulse);
+                    console.log('🎵 Audio button clicked - removing pulse animation');
+                };
+                audioBtn.addEventListener('click', removeAudioPulse);
+                
+                // Step 2: After 10 seconds, switch to investigate button
+                setTimeout(function() {
+                    // Remove audio pulse if still active
+                    if (audioBtn.classList.contains('audio-pulse')) {
+                        audioBtn.classList.remove('audio-pulse');
+                        audioBtn.removeEventListener('click', removeAudioPulse);
+                        console.log('🎵 10 seconds elapsed - removing audio pulse');
+                    }
+                    
+                    // Start investigate button pulse
+                    const investigateBtn = document.getElementById('analysis-toggle-btn');
+                    if (investigateBtn && investigateBtn.textContent.includes('Investigate')) {
+                        console.log('🔍 Starting investigate button pulse animation');
+                        investigateBtn.classList.add('investigate-pulse');
+                        
+                        // Remove pulse after first click
+                        investigateBtn.addEventListener('click', function() {
+                            investigateBtn.classList.remove('investigate-pulse');
+                            console.log('🔍 Investigate button clicked - removing pulse animation');
+                        }, { once: true });
+                    }
+                }, 10000);
+            } else {
+                // If no audio button, go straight to investigate button after 3 seconds
+                setTimeout(function() {
+                    const investigateBtn = document.getElementById('analysis-toggle-btn');
+                    if (investigateBtn && investigateBtn.textContent.includes('Investigate')) {
+                        console.log('🔍 No audio button - starting investigate pulse immediately');
+                        investigateBtn.classList.add('investigate-pulse');
+                        
+                        investigateBtn.addEventListener('click', function() {
+                            investigateBtn.classList.remove('investigate-pulse');
+                        }, { once: true });
+                    }
+                }, 3000);
+            }
+        }
+        
+        // Initialize game
+        // 🐻 FEROCIOUS BEAR SCENARIO IMPORTER - Maximum protection with bear-level error boundaries
+        async function createFerocousBearImporter() {
+            console.log('🐻 Creating ferocious bear scenario importer with maximum error protection...');
+            
+            const bearImporter = {
+                validatedScenarios: new Map(),
+                errorLog: [],
+                bearProtection: true,
+                
+                // 🐻 BEAR CLAW 1: Ferocious JSON fetch with multiple fallbacks
+                async fetchScenarioJSON(scenarioPath) {
+                    console.log(`🐻 Bear fetching scenario from: ${scenarioPath}`);
+                    
+                    const fallbackPaths = [
+                        scenarioPath,
+                        `./new-scenarios/scenariopack-000/wacky-scenarios-000.json`,
+                        `./data/scenario-packs/scenario-generated-000.json`
+                    ];
+                    
+                    for (const path of fallbackPaths) {
+                        try {
+                            console.log(`🐻 Bear attempting to fetch: ${path}`);
+                            const response = await fetch(path);
+                            
+                            if (!response.ok) {
+                                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                            }
+                            
+                            const jsonData = await response.json();
+                            console.log(`✅ Bear successfully fetched scenario data from: ${path}`);
+                            return { data: jsonData, source: path };
+                            
+                        } catch (fetchError) {
+                            console.warn(`🐻 Bear fetch failed for ${path}:`, fetchError.message);
+                            this.errorLog.push({ path, error: fetchError.message, timestamp: Date.now() });
+                        }
+                    }
+                    
+                    throw new Error('🐻 BEAR RAGE: All scenario fetch attempts failed! Check console for details.');
+                },
+                
+                // 🐻 BEAR CLAW 2: Savage scenario validation
+                validateScenarioStructure(scenario, index = 0) {
+                    console.log(`🔍 Bear validating scenario ${index}: ${scenario.id || 'unknown'}`);
+                    
+                    const requiredFields = [
+                        'id', 'title', 'text', 'claim', 'correctAnswer', 
+                        'answerWeights', 'reviewKeywords', 'analysis'
+                    ];
+                    
+                    const missingFields = [];
+                    
+                    for (const field of requiredFields) {
+                        if (!scenario[field]) {
+                            missingFields.push(field);
+                        }
+                    }
+                    
+                    if (missingFields.length > 0) {
+                        throw new Error(`🐻 Bear detected missing fields in scenario ${scenario.id}: ${missingFields.join(', ')}`);
+                    }
+                    
+                    // Validate answer weights
+                    const weights = scenario.answerWeights;
+                    const requiredWeights = ['logic', 'emotion', 'balanced', 'agenda'];
+                    
+                    for (const weight of requiredWeights) {
+                        if (typeof weights[weight] !== 'number' || weights[weight] < 0 || weights[weight] > 100) {
+                            throw new Error(`🐻 Bear detected invalid ${weight} weight in scenario ${scenario.id}: ${weights[weight]}`);
+                        }
+                    }
+                    
+                    console.log(`✅ Bear approved scenario structure: ${scenario.id}`);
+                    return true;
+                },
+                
+                // 🐻 BEAR CLAW 3: Import and validate complete scenario pack
+                async importScenarioPack(scenarioPath = './new-scenarios/scenariopack-000/wacky-scenarios-000.json') {
+                    console.log(`🐻 Bear importing scenario pack with MAXIMUM PROTECTION: ${scenarioPath}`);
+                    
+                    try {
+                        // Fetch with bear protection
+                        const { data: scenarioData, source } = await this.fetchScenarioJSON(scenarioPath);
+                        
+                        // Validate pack structure
+                        if (!scenarioData.version || !scenarioData.packInfo || !scenarioData.scenarios) {
+                            throw new Error('🐻 Bear detected invalid pack structure - missing version, packInfo, or scenarios');
+                        }
+                        
+                        console.log(`🐻 Bear validating ${scenarioData.scenarios.length} scenarios from pack: ${scenarioData.packInfo.packName}`);
+                        
+                        // Validate each scenario with bear ferocity
+                        const validatedScenarios = [];
+                        
+                        for (let i = 0; i < scenarioData.scenarios.length; i++) {
+                            try {
+                                this.validateScenarioStructure(scenarioData.scenarios[i], i);
+                                validatedScenarios.push(scenarioData.scenarios[i]);
+                            } catch (validationError) {
+                                console.error(`🐻 Bear rejected scenario ${i}:`, validationError.message);
+                                this.errorLog.push({
+                                    scenario: i,
+                                    error: validationError.message,
+                                    timestamp: Date.now()
+                                });
+                            }
+                        }
+                        
+                        if (validatedScenarios.length === 0) {
+                            throw new Error('🐻 BEAR RAGE: No valid scenarios found in pack!');
+                        }
+                        
+                        // Store validated scenarios
+                        this.validatedScenarios.set(source, {
+                            packInfo: scenarioData.packInfo,
+                            scenarios: validatedScenarios,
+                            validationTime: Date.now()
+                        });
+                        
+                        console.log(`✅ Bear successfully imported ${validatedScenarios.length} scenarios from: ${scenarioData.packInfo.packName}`);
+                        
+                        return {
+                            success: true,
+                            packInfo: scenarioData.packInfo,
+                            scenarios: validatedScenarios,
+                            source: source,
+                            errorCount: this.errorLog.length
+                        };
+                        
+                    } catch (importError) {
+                        console.error('🐻 Bear import failed with maximum fury:', importError);
+                        throw importError;
+                    }
+                },
+                
+                // 🐻 BEAR UTILITY: Get error report
+                getBearErrorReport() {
+                    return {
+                        totalErrors: this.errorLog.length,
+                        errors: this.errorLog,
+                        validatedPacks: Array.from(this.validatedScenarios.keys())
+                    };
+                }
+            };
+            
+            // Test import on creation
+            console.log('🐻 Bear testing import capabilities...');
+            await bearImporter.importScenarioPack();
+            
+            return bearImporter;
+        }
+
+        // 🐻 BEAR-FORTIFIED GAME INITIALIZATION - Bulletproof startup with defensive boundaries
+        async function initializeGame() {
+            console.log('🐻 Bear starting game initialization with defensive boundaries...');
+            
+            try {
+                // 🐻 BEAR BOUNDARY 1: Validate critical dependencies
+                console.log('🔍 Bear checking critical dependencies...');
+                
+                const missingDependencies = [];
+                
+                if (!window.PhuzzyGameEngine) missingDependencies.push('PhuzzyGameEngine');
+                if (!window.ScoringSystem) missingDependencies.push('ScoringSystem');  
+                if (!window.ScenarioManager) missingDependencies.push('ScenarioManager');
+                if (!window.HoneyPotManager) missingDependencies.push('HoneyPotManager');
+                if (!window.PHUZZY_CONFIG) missingDependencies.push('PHUZZY_CONFIG');
+                
+                if (missingDependencies.length > 0) {
+                    console.error('🐻 Bear discovered missing dependencies:', missingDependencies);
+                    throw new Error(`Critical dependencies not loaded: ${missingDependencies.join(', ')}. Check script loading order.`);
+                }
+                
+                console.log('✅ Bear approved: All critical dependencies available');
+                
+                // 🐻 BEAR BOUNDARY 1.5: Initialize Icon Mapper with extreme protection
+                console.log('🎯 Bear initializing Icon Mapper system...');
+                try {
+                    if (!window.IndicatorIconMapper) {
+                        console.warn('⚠️ IndicatorIconMapper class not found, icon mapping will use fallbacks');
+                    } else {
+                        // Create and initialize the icon mapper
+                        window.indicatorIconMapper = new window.IndicatorIconMapper();
+                        await window.indicatorIconMapper.initialize();
+                        console.log('✅ Bear approved: Icon Mapper initialized successfully');
+                    }
+                } catch (iconMapperError) {
+                    console.error('❌ Icon Mapper initialization failed:', iconMapperError);
+                    console.warn('⚠️ Game will continue with fallback icon mappings');
+                    // Create a dummy mapper that always returns fallbacks
+                    window.indicatorIconMapper = {
+                        isLoaded: false,
+                        getIconForFactor: function(factor) {
+                            return factor.replace(/-/g, ' ').replace(/\b\w/g, function(l) { return l.toUpperCase(); });
+                        }
+                    };
+                }
+                
+                // 🐻 BEAR BOUNDARY 2: Setup splash screen with error handling
+                try {
+                    setupSplashScreen();
+                    console.log('✅ Bear approved: Splash screen setup complete');
+                } catch (splashError) {
+                    console.warn('🐻 Bear warning: Splash screen setup failed:', splashError);
+                    // Game can continue without splash screen
+                }
+                
+                // 🐻 BEAR BOUNDARY 3: Ferocious Bear Scenario Import System
+                console.log('🐻 Bear initiating FEROCIOUS scenario import with maximum protection...');
+                
+                try {
+                    const bearScenarioImporter = await createFerocousBearImporter();
+                    window.bearScenarioImporter = bearScenarioImporter;
+                    console.log('🐻 Bear scenario importer armed and dangerous');
+                } catch (importError) {
+                    console.error('🐻 Bear importer creation failed:', importError);
+                    throw new Error(`Bear scenario importer failed: ${importError.message}`);
+                }
+                
+                // 🐻 BEAR BOUNDARY 4: Create game engine with bulletproof validation
+                console.log('🎯 Bear creating game engine...');
+                
+                let gameEngine;
+                try {
+                    if (!window.PHUZZY_CONFIG) {
+                        console.warn('🐻 Bear warning: PHUZZY_CONFIG missing, using defaults');
+                        window.PHUZZY_CONFIG = {
+                            apiEndpoint: '/api/scenarios',
+                            analyticsEndpoint: '/api/analytics', 
+                            scenariosPerRound: 10,
+                            honeyPotsPerRound: 3
+                        };
+                    }
+                    
+                    gameEngine = new window.PhuzzyGameEngine(window.PHUZZY_CONFIG);
+                    
+                    if (!gameEngine) {
+                        throw new Error('Game engine creation returned null/undefined');
+                    }
+                    
+                    window.gameEngine = gameEngine; // Make available globally for timeline analysis
+                    console.log('✅ Bear successfully created game engine');
+                    
+                } catch (engineError) {
+                    console.error('🐻 Bear engine creation failed:', engineError);
+                    throw new Error(`Game engine creation failed: ${engineError.message}`);
+                }
                 
                 // Initialize audio system
                 if (window.integratePhuzzyAudio) {
@@ -516,8 +802,20 @@
                 
                 // Score tracker is now always visible - no scroll detection needed
                 
-                // Initialize dizzy star scoreboard system
-                scoreboardManager.init();
+                // 🐻 BEAR BOUNDARY: Initialize dizzy star scoreboard system with protection
+                try {
+                    console.log('🐻 Bear initializing scoreboard manager...');
+                    
+                    if (typeof scoreboardManager !== 'undefined' && scoreboardManager.init) {
+                        scoreboardManager.init();
+                        console.log('✅ Bear successfully initialized scoreboard');
+                    } else {
+                        console.warn('🐻 Bear warning: scoreboardManager not available');
+                    }
+                } catch (scoreboardError) {
+                    console.error('🐻 Bear scoreboard initialization failed:', scoreboardError);
+                    console.warn('🐻 Bear says: Game will continue without scoreboard animations');
+                }
                 
             } catch (error) {
                 console.error('Failed to initialize game:', error);
@@ -532,6 +830,7 @@
         }
         
         // Dizzy Star Scoreboard System
+        // 🐻 BEAR-FORTIFIED SCOREBOARD - Bulletproof score tracker with defensive claws
         const scoreboardManager = {
             scoreTracker: null,
             currentStarId: null,
@@ -539,19 +838,83 @@
             fadeTimer: null,
             
             init() {
-                this.scoreTracker = document.getElementById('score-tracker');
+                console.log('🐻 Bear initializing scoreboard system...');
                 
-                // Set up click handlers for all dizzy stars
-                const stars = document.querySelectorAll('.dizzy-star-icon');
-                stars.forEach(star => {
-                    star.addEventListener('click', (e) => this.handleStarClick(e));
-                });
-                
-                // Position scoreboard initially below scenario star
-                this.positionInitialScoreboard();
-                
-                // Start auto-fade timer
-                this.startFadeTimer();
+                try {
+                    // 🐻 BEAR CLAW 1: Bulletproof scoreTracker detection
+                    this.scoreTracker = document.getElementById('score-tracker');
+                    
+                    if (!this.scoreTracker) {
+                        console.error('🐻 Bear warning: score-tracker element not found in DOM!');
+                        console.log('🔍 Bear searching for alternative score elements...');
+                        
+                        // Try to find alternative score elements
+                        const alternatives = [
+                            'user-score',
+                            'score-display', 
+                            'game-score',
+                            '.score-tracker'
+                        ];
+                        
+                        for (const alt of alternatives) {
+                            const element = alt.startsWith('.') ? 
+                                document.querySelector(alt) : 
+                                document.getElementById(alt);
+                            if (element) {
+                                console.log(`🐻 Bear found alternative: ${alt}`);
+                                break;
+                            }
+                        }
+                        
+                        console.warn('🐻 Bear says: Scoreboard will be disabled - score-tracker element missing');
+                        return; // Bear exits gracefully
+                    }
+                    
+                    console.log('✅ Bear found score-tracker element');
+                    
+                    // 🐻 BEAR CLAW 2: Bulletproof star detection and click handlers
+                    try {
+                        const stars = document.querySelectorAll('.dizzy-star-icon');
+                        console.log(`🔍 Bear found ${stars.length} dizzy stars`);
+                        
+                        if (stars.length === 0) {
+                            console.warn('🐻 Bear warning: No dizzy stars found - star interactions disabled');
+                        } else {
+                            stars.forEach((star, index) => {
+                                try {
+                                    star.addEventListener('click', (e) => this.handleStarClick(e));
+                                    console.log(`✅ Bear attached click handler to star ${index + 1}`);
+                                } catch (starError) {
+                                    console.warn(`🐻 Bear warning: Could not attach handler to star ${index + 1}:`, starError);
+                                }
+                            });
+                        }
+                    } catch (starsError) {
+                        console.warn('🐻 Bear warning: Star setup failed:', starsError);
+                    }
+                    
+                    // 🐻 BEAR CLAW 3: Bulletproof positioning
+                    try {
+                        this.positionInitialScoreboard();
+                        console.log('✅ Bear positioned scoreboard');
+                    } catch (positionError) {
+                        console.warn('🐻 Bear warning: Scoreboard positioning failed:', positionError);
+                    }
+                    
+                    // 🐻 BEAR CLAW 4: Bulletproof timer
+                    try {
+                        this.startFadeTimer();
+                        console.log('✅ Bear started fade timer');
+                    } catch (timerError) {
+                        console.warn('🐻 Bear warning: Fade timer failed:', timerError);
+                    }
+                    
+                    console.log('🎯 Bear scoreboard initialization complete');
+                    
+                } catch (initError) {
+                    console.error('🐻 Bear scoreboard initialization failed completely:', initError);
+                    // Bear doesn't crash the game - just disables scoreboard features
+                }
             },
             
             positionInitialScoreboard() {
@@ -569,14 +932,40 @@
             },
             
             startInitialAnimation() {
-                // First jiggle to get attention
-                this.scoreTracker.classList.add('jiggling');
+                console.log('🐻 Bear starting initial animation...');
                 
-                setTimeout(() => {
-                    this.scoreTracker.classList.remove('jiggling');
-                    // Then collapse to star
-                    this.collapseToStar('star-scenario');
-                }, 1200);
+                try {
+                    // 🐻 BEAR CLAW: Check scoreTracker before animating
+                    if (!this.scoreTracker) {
+                        console.warn('🐻 Bear says: Cannot animate - scoreTracker is null');
+                        return;
+                    }
+                    
+                    // First jiggle to get attention
+                    try {
+                        this.scoreTracker.classList.add('jiggling');
+                        console.log('✅ Bear started jiggling animation');
+                    } catch (jiggleError) {
+                        console.warn('🐻 Bear warning: Jiggle animation failed:', jiggleError);
+                        return;
+                    }
+                    
+                    setTimeout(() => {
+                        try {
+                            if (this.scoreTracker) {
+                                this.scoreTracker.classList.remove('jiggling');
+                                console.log('🎯 Bear completed jiggle, starting collapse...');
+                                // Then collapse to star
+                                this.collapseToStar('star-scenario');
+                            }
+                        } catch (collapseError) {
+                            console.warn('🐻 Bear warning: Collapse animation failed:', collapseError);
+                        }
+                    }, 1200);
+                    
+                } catch (animationError) {
+                    console.error('🐻 Bear animation system failed:', animationError);
+                }
             },
             
             handleStarClick(e) {
@@ -609,6 +998,26 @@
                     // Pulse the star
                     star.classList.add('active');
                     setTimeout(() => star.classList.remove('active'), 1200);
+                    
+                    // 🎵 SLIP IN AUTO-AUDIO TRIGGER after RIZ collapse animation completes!
+                    // This mimics the pre-codepocalypse behavior where audio started after dialog collapse
+                    setTimeout(() => {
+                        console.log('🎬 RIZ collapse complete - auto-triggering scenario audio');
+                        if (window.userHasClickedPlayNow && window.playScenarioSequence) {
+                            // Only auto-play if user has granted permission and we're not already playing
+                            if (!window.isAudioPlaying) {
+                                console.log('🎵 Slipping in audio via animation event...');
+                                // Update both local and global audio state
+                                isAudioPlaying = true;
+                                window.isAudioPlaying = true;
+                                // Message the play/pause button about the auto-start
+                                window.updatePlayPauseButton();
+                                console.log('🔄 Notified play/pause button about auto-audio start');
+                                // Start the audio sequence
+                                window.playScenarioSequence();
+                            }
+                        }
+                    }, 300); // Small delay after star pulse starts
                 }, 500);
                 
                 this.currentStarId = starId;
@@ -710,19 +1119,28 @@
         
         // Audio Control Functions - Simplified Play/Pause with Auto-Sequence
         let isAudioPlaying = false;
+        let currentSequenceId = null;
+        
+        // Make audio state globally accessible for animation event triggers
+        window.isAudioPlaying = isAudioPlaying;
+        window.currentSequenceId = currentSequenceId;
         
         function toggleScenarioAudio() {
+            console.log('🎵 Toggle audio called - current state:', isAudioPlaying);
             if (isAudioPlaying) {
+                console.log('⏸️ Pause requested');
                 stopScenarioAudio();
             } else {
+                console.log('▶️ Play requested');
                 // Change button immediately when starting playback
                 isAudioPlaying = true;
+                window.isAudioPlaying = true; // Keep global state in sync
                 updatePlayPauseButton();
                 playScenarioSequence();
             }
         }
         
-        function playScenarioSequence() {
+        async function playScenarioSequence() {
             console.log('🎵 Starting scenario audio sequence');
             
             // Check if user has granted audio permission
@@ -745,16 +1163,29 @@
             
             console.log('🎬 Playing audio for scenario:', currentScenario.title);
             
+            // Ensure audio engine is fully warmed up and ready (let the engine handle its own priming)
+            if (window.gameEngine.audioEngine) {
+                try {
+                    console.log('🔥 Ensuring audio engine is ready for playback...');
+                    await window.gameEngine.audioEngine.ensureAudioReady();
+                    console.log('🔥 Audio engine confirmed ready');
+                } catch (error) {
+                    console.warn('Could not ensure audio engine ready:', error);
+                }
+            }
+            
             // Use the enhanced audio sequence player if available
             if (window.gameEngine.playScenarioAudio) {
                 window.gameEngine.playScenarioAudio(currentScenario.title, currentScenario.packId)
                     .then((sequenceId) => {
                         if (sequenceId) {
+                            currentSequenceId = sequenceId;
                             console.log('✅ Audio sequence started:', sequenceId);
                             // Button state already updated in toggleScenarioAudio
                         } else {
                             console.log('⚠️ Audio sequence failed to start');
                             isAudioPlaying = false;
+                            currentSequenceId = null;
                             updatePlayPauseButton();
                         }
                     })
@@ -771,29 +1202,28 @@
         }
         
         function stopScenarioAudio() {
-            console.log('⏹️ Stopping audio sequence and flushing ALL queued audio');
+            console.log('⏹️ Gracefully stopping current audio sequence');
+            console.log('🔍 isAudioPlaying before stop:', isAudioPlaying);
+            console.log('🔍 currentSequenceId:', currentSequenceId);
             
-            // Direct audio engine stop - this is the most reliable method
-            if (window.gameEngine && window.gameEngine.audioEngine && window.gameEngine.audioEngine.stop) {
-                // Call stop('all') to flush all channels and sequences
-                window.gameEngine.audioEngine.stop('all');
-                console.log('🧹 Called audioEngine.stop("all") - should stop all channels and sequences');
-                
-                // Also stop any specific channels that might have sequences
-                if (window.gameEngine.audioEngine.stopChannel) {
-                    window.gameEngine.audioEngine.stopChannel('dialogue');
-                    window.gameEngine.audioEngine.stopChannel('narration');
-                    console.log('🧹 Explicitly stopped dialogue and narration channels');
+            // Use the proper audio engine method to gracefully stop the dialogue channel and clear queue
+            if (window.gameEngine && window.gameEngine.audioEngine) {
+                if (window.gameEngine.audioEngine.stopChannelAndClearQueue) {
+                    // Use the new graceful method that stops current audio and clears queue
+                    window.gameEngine.audioEngine.stopChannelAndClearQueue('dialogue', { fadeOut: true });
+                    console.log('🧹 Called stopChannelAndClearQueue("dialogue") - graceful stop with queue clearing');
+                } else {
+                    // Fallback to regular stopChannel
+                    window.gameEngine.audioEngine.stopChannel('dialogue', { fadeOut: true });
+                    console.log('🧹 Called stopChannel("dialogue") - fallback method');
                 }
             }
             
-            // Fallback: Use integration layer
-            if (window.gameEngine && window.gameEngine.voicePlayer && window.gameEngine.voicePlayer.stop) {
-                window.gameEngine.voicePlayer.stop();
-                console.log('🧹 Called integration layer stop() as fallback');
-            }
-            
+            // Reset tracking variables
             isAudioPlaying = false;
+            window.isAudioPlaying = false; // Keep global state in sync
+            currentSequenceId = null;
+            window.currentSequenceId = null; // Keep global state in sync
             updatePlayPauseButton();
         }
         
@@ -801,8 +1231,8 @@
             const btn = document.getElementById('play-pause-btn');
             if (btn) {
                 if (isAudioPlaying) {
-                    btn.innerHTML = '⏸ Pause';
-                    btn.title = 'Pause scenario audio';
+                    btn.innerHTML = '⏹ Stop';
+                    btn.title = 'Stop scenario audio';
                     // Remove playing class to avoid color changes
                 } else {
                     btn.innerHTML = '▶ Play';
@@ -833,6 +1263,21 @@
                 audioBtn.style.display = 'none';
             }
         }
+        
+        // Audio sequence completion handler
+        window.onAudioSequenceComplete = function() {
+            console.log('🎵🔴 SEQUENCE COMPLETION CALLBACK FIRED - resetting button state');
+            console.log('🔍 Button state before reset:', isAudioPlaying ? 'PAUSE' : 'PLAY');
+            isAudioPlaying = false;
+            window.isAudioPlaying = false;
+            currentSequenceId = null;
+            window.currentSequenceId = null;
+            updatePlayPauseButton();
+            console.log('🔍 Button state after reset: PLAY');
+        };
+        
+        // Update button state tracker
+        window.updatePlayPauseButton = updatePlayPauseButton;
         
         // Make audio functions globally available
         window.toggleScenarioAudio = toggleScenarioAudio;
@@ -897,13 +1342,42 @@
         }
         
         // Start initialization when DOM is ready
+        // 🐻 BEAR DIAGNOSTIC CONSOLE COMMAND
+        window.bearDiagnostics = function() {
+            if (window.bearScenarioImporter) {
+                const report = window.bearScenarioImporter.getBearErrorReport();
+                console.log('🐻 BEAR DIAGNOSTIC REPORT:');
+                console.log(`✅ Validated Packs: ${report.validatedPacks.length}`);
+                console.log(`⚠️  Total Errors: ${report.totalErrors}`);
+                console.log('📊 Full Report:', report);
+                return report;
+            } else {
+                console.log('🐻 Bear importer not available - run after game initialization');
+                return null;
+            }
+        };
+
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => {
-                initializeGame();
+                initializeGame().catch(error => {
+                    console.error('🐻 BEAR RAGE: Initialization failed:', error);
+                    document.body.innerHTML = `<div style="text-align: center; margin-top: 20vh;">
+                        <h1>🐻 Bear Detected Game Failure</h1>
+                        <p>${error.message}</p>
+                        <p style="color: #666;">Check console for bear diagnostics</p>
+                    </div>`;
+                });
                 // animateInstructions(); // Disabled - using enhanced splash-word-animator.js instead
             });
         } else {
-            initializeGame();
+            initializeGame().catch(error => {
+                console.error('🐻 BEAR RAGE: Initialization failed:', error);
+                document.body.innerHTML = `<div style="text-align: center; margin-top: 20vh;">
+                    <h1>🐻 Bear Detected Game Failure</h1>
+                    <p>${error.message}</p>
+                    <p style="color: #666;">Check console for bear diagnostics</p>
+                </div>`;
+            });
             // animateInstructions(); // Disabled - using enhanced splash-word-animator.js instead
         }
     </script>

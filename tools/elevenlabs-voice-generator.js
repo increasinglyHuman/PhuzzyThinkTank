@@ -29,7 +29,7 @@ const CONFIG = {
     modelIdTurbo: 'eleven_turbo_v2', // Turbo model for faster/cheaper generation
     outputFormat: 'mp3_44100_128',
     baseUrl: 'api.elevenlabs.io',
-    outputDir: path.join(__dirname, '../data/audio-recording-voices-for-scenarios-from-elevenlabs'),
+    outputDir: path.join(__dirname, '../data/voices'),
     // Pricing info (per 1000 characters)
     pricing: {
         standard: 0.30,  // $0.30 per 1000 chars

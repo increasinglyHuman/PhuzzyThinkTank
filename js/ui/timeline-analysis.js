@@ -249,25 +249,39 @@ class TimelineAnalysis {
         // Analyze the scenario text and draw
         console.log('🔍 Timeline: currentScenario keys:', Object.keys(this.currentScenario));
         console.log('🔍 Timeline: scenario.text:', this.currentScenario.text);
+        console.log('🔍 Timeline: scenario.content:', this.currentScenario.content?.substring(0, 100) + '...');
         console.log('🔍 Timeline: scenario.reviewKeywords:', this.currentScenario.reviewKeywords);
         
         const reviewKeywords = this.currentScenario.reviewKeywords || {};
-        const text = this.currentScenario.text || '';
+        const text = this.currentScenario.content || this.currentScenario.text || '';
         
         console.log('🔍 Timeline: extracted text length:', text.length);
         console.log('🔍 Timeline: extracted keywords:', reviewKeywords);
         
-        // Extract keywords array from the nested structure
+        // Extract keywords array from the data structure
+        // 🐻 BEAR FIX: Handle both processed format (array) and raw format (object with keywords property)
         const keywords = {};
         ['logic', 'emotion', 'balanced', 'agenda'].forEach(dim => {
-            if (reviewKeywords[dim] && reviewKeywords[dim].keywords) {
-                keywords[dim] = reviewKeywords[dim].keywords;
+            if (reviewKeywords[dim]) {
+                if (Array.isArray(reviewKeywords[dim])) {
+                    // Processed format: direct array (from scenario manager)
+                    keywords[dim] = reviewKeywords[dim];
+                    console.log(`🐻 Bear found processed array format for ${dim}: ${reviewKeywords[dim].length} items`);
+                } else if (reviewKeywords[dim].keywords && Array.isArray(reviewKeywords[dim].keywords)) {
+                    // Raw format: object with keywords property (from JSON)
+                    keywords[dim] = reviewKeywords[dim].keywords;
+                    console.log(`🐻 Bear extracted from raw object format for ${dim}: ${reviewKeywords[dim].keywords.length} items`);
+                } else {
+                    keywords[dim] = [];
+                    console.log(`🐻 Bear defaulted empty array for ${dim} (unexpected format)`);
+                }
             } else {
                 keywords[dim] = [];
+                console.log(`🐻 Bear defaulted empty array for ${dim} (missing dimension)`);
             }
         });
         
-        // console.log('Extracted keywords:', keywords);
+        console.log('🔍 Timeline: Extracted keywords:', keywords);
         
         this.timelineChart.draw(text, keywords);
     }
@@ -580,6 +594,34 @@ class TimelineAnalysis {
         }
     }
     
+    // Track user's answer for analytics and progression
+    // NOTE: This function was missing but called by quiz-interface.js:335
+    // Unclear if this was accidentally deleted, never implemented, or part of incomplete feature
+    // Added basic implementation to prevent crashes - may need enhancement if original purpose is discovered
+    trackAnswer(selectedAnswer, evaluation) {
+        try {
+            // Store answer data for potential future use
+            if (!this.answerHistory) {
+                this.answerHistory = [];
+            }
+            
+            this.answerHistory.push({
+                scenarioId: this.currentScenario ? this.currentScenario.id : null,
+                selectedAnswer: selectedAnswer,
+                correctAnswer: this.currentScenario ? this.currentScenario.correctAnswer : null,
+                evaluation: evaluation,
+                timestamp: Date.now()
+            });
+            
+            // Update internal tracking state
+            this.lastAnswer = selectedAnswer;
+            this.lastEvaluation = evaluation;
+            
+        } catch (error) {
+            console.error('Error tracking answer:', error);
+        }
+    }
+    
     // Update radar chart after answer is submitted
     updateRadarAfterAnswer() {
         // console.log('Updating radar chart after answer...');
@@ -805,8 +847,18 @@ class TimelineAnalysis {
                 // Dimension selected - show dimension-specific info
                 // Get scenario-specific analysis if available
                 let analysisText = null;
-                if (this.currentScenario.dimensionAnalysis && this.currentScenario.dimensionAnalysis[selectedDimension]) {
-                    analysisText = this.currentScenario.dimensionAnalysis[selectedDimension];
+                
+                
+                // Try to get explanation - handle both old nested format and new flattened format
+                if (this.currentScenario.reviewKeywords && 
+                    this.currentScenario.reviewKeywords[selectedDimension + "_explanation"]) {
+                    // New flattened format: logic_explanation, emotion_explanation, etc.
+                    analysisText = this.currentScenario.reviewKeywords[selectedDimension + "_explanation"];
+                } else if (this.currentScenario.reviewKeywords && 
+                           this.currentScenario.reviewKeywords[selectedDimension] && 
+                           this.currentScenario.reviewKeywords[selectedDimension].explanation) {
+                    // Old nested format: reviewKeywords.logic.explanation
+                    analysisText = this.currentScenario.reviewKeywords[selectedDimension].explanation;
                 }
                 
                 // Dimension styling
@@ -2160,7 +2212,25 @@ class TimelineAnalysis {
         }
         
         const originalText = scenarioText.getAttribute('data-original-text');
-        const keywords = this.currentScenario.reviewKeywords[dimension]?.keywords || [];
+        
+        // Handle both old and new keyword formats
+        let keywords = [];
+        const dimensionKeywords = this.currentScenario.reviewKeywords[dimension];
+        
+        if (Array.isArray(dimensionKeywords)) {
+            // New format: direct array of either strings or weighted objects
+            keywords = dimensionKeywords.map(item => {
+                if (typeof item === 'string') {
+                    return item; // Old string format
+                } else if (typeof item === 'object' && item.phrase) {
+                    return item.phrase; // New weighted format - extract phrase
+                }
+                return null;
+            }).filter(keyword => keyword); // Remove nulls
+        } else if (dimensionKeywords && Array.isArray(dimensionKeywords.keywords)) {
+            // Old nested format: {keywords: [...]}
+            keywords = dimensionKeywords.keywords;
+        }
         
         if (keywords.length === 0) {
             // Re-apply formatting when no keywords

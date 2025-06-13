@@ -124,10 +124,22 @@ class ScenarioManager {
 
     /**
      * Get list of enabled packs from config
+     * 🐻 Bear gently prioritizes bear-imported packs
      */
     getAvailablePacks() {
         const packs = window.SCENARIO_PACKS || {};
-        return Object.values(packs).filter(pack => pack.enabled && pack.file);
+        const enabledPacks = Object.values(packs).filter(pack => pack.enabled && pack.file);
+        
+        // 🐻 Gentle bear preference: move bear-imported packs to front
+        const bearPacks = enabledPacks.filter(pack => pack.bearImported);
+        const regularPacks = enabledPacks.filter(pack => !pack.bearImported);
+        
+        if (bearPacks.length > 0) {
+            console.log(`🐻 Bear gently prioritizing ${bearPacks.length} bear-imported packs`);
+            return [...bearPacks, ...regularPacks];
+        }
+        
+        return enabledPacks;
     }
 
     /**
@@ -243,71 +255,421 @@ class ScenarioManager {
     /**
      * Load scenario data from pack file
      */
+    /**
+     * 🐻 FORTIFIED PACK LOADING - Bear-proof file loading with bulletproof error handling
+     */
     async loadPackData(pack) {
+        console.log(`🐻 Bear attempting to load pack: ${pack?.name || 'Unknown Pack'}`);
+        
         try {
-            console.log(`📂 Loading pack file: ${pack.file}`);
+            // Validate pack input with bear claws
+            if (!pack) {
+                throw new Error('🐻 Bear error: No pack provided to load');
+            }
             
-            const response = await fetch(pack.file);
+            if (!pack.file) {
+                throw new Error(`🐻 Bear error: Pack ${pack.id || 'unknown'} has no file path`);
+            }
+            
+            console.log(`📂 Bear fetching pack file: ${pack.file}`);
+            
+            // Bulletproof HTTP request
+            let response;
+            try {
+                response = await fetch(pack.file);
+            } catch (fetchError) {
+                console.error(`🐻 Bear network error fetching ${pack.file}:`, fetchError);
+                throw new Error(`Network error: Could not fetch pack file ${pack.file}. Check if the file exists and server is running.`);
+            }
+            
+            // Bear validates HTTP response
+            if (!response) {
+                throw new Error(`🐻 Bear error: No response received for ${pack.file}`);
+            }
+            
             if (!response.ok) {
-                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                console.error(`🐻 Bear HTTP error: ${response.status} ${response.statusText} for ${pack.file}`);
+                throw new Error(`HTTP ${response.status}: ${response.statusText} - Could not load ${pack.file}`);
             }
-
-            const data = await response.json();
             
-            // Validate pack structure
-            if (!data || !data.scenarios || !Array.isArray(data.scenarios)) {
-                throw new Error('Invalid pack structure: missing scenarios array');
+            console.log(`✅ Bear successfully fetched ${pack.file}, parsing JSON...`);
+            
+            // Bulletproof JSON parsing
+            let data;
+            try {
+                data = await response.json();
+            } catch (parseError) {
+                console.error(`🐻 Bear JSON parse error for ${pack.file}:`, parseError);
+                throw new Error(`Invalid JSON in pack file ${pack.file}. Check file syntax.`);
             }
-
+            
+            // Bear validates data structure with detailed logging
+            console.log(`🔍 Bear inspecting pack data structure...`);
+            
+            if (!data) {
+                throw new Error(`🐻 Bear error: Pack file ${pack.file} contains no data`);
+            }
+            
+            if (typeof data !== 'object') {
+                throw new Error(`🐻 Bear error: Pack file ${pack.file} should contain a JSON object, got ${typeof data}`);
+            }
+            
+            // Check for scenarios array with detailed diagnostics
+            console.log(`🔍 Bear checking for scenarios array...`);
+            
+            if (!data.scenarios) {
+                console.error(`🐻 Bear structure error: No 'scenarios' property found in ${pack.file}`);
+                console.log(`🔍 Bear found these properties instead:`, Object.keys(data));
+                throw new Error(`Invalid pack structure: missing 'scenarios' property in ${pack.file}`);
+            }
+            
+            if (!Array.isArray(data.scenarios)) {
+                console.error(`🐻 Bear type error: 'scenarios' property is not an array in ${pack.file}, got:`, typeof data.scenarios);
+                throw new Error(`Invalid pack structure: 'scenarios' must be an array in ${pack.file}`);
+            }
+            
             if (data.scenarios.length === 0) {
-                throw new Error('Pack contains no scenarios');
+                console.warn(`🐻 Bear warning: Pack ${pack.file} contains empty scenarios array`);
+                throw new Error(`Pack ${pack.file} contains no scenarios`);
             }
-
+            
+            console.log(`✅ Bear approved pack structure: ${data.scenarios.length} scenarios found in ${pack.file}`);
+            
+            // Optional: Log pack metadata if available
+            if (data.packInfo) {
+                console.log(`📋 Bear found pack info:`, {
+                    name: data.packInfo.packName || 'Unknown',
+                    id: data.packInfo.packId || 'Unknown',
+                    version: data.version || 'Unknown'
+                });
+            }
+            
             return data;
             
         } catch (error) {
-            this.logError(`Failed to load pack: ${pack.id}`, error);
-            throw new Error(`Pack loading failed: ${error.message}`);
+            // Bear logs detailed error information
+            console.error(`🐻 Bear failed to load pack ${pack?.id || 'unknown'}:`, error);
+            
+            const errorDetails = {
+                packId: pack?.id || 'unknown',
+                packName: pack?.name || 'unknown',
+                packFile: pack?.file || 'unknown',
+                errorMessage: error.message,
+                errorType: error.constructor.name
+            };
+            
+            this.logError(`Failed to load pack: ${pack?.id || 'unknown'}`, error, errorDetails);
+            
+            // Bear re-throws with context
+            throw new Error(`🐻 Pack loading failed for ${pack?.id || 'unknown'}: ${error.message}`);
         }
     }
 
     /**
      * Process and validate scenarios from pack
+     * 🐻 FORTIFIED WITH BEAR CLAWS - Bulletproof error handling
      */
     async processScenarios(rawScenarios) {
         const validScenarios = [];
+        const errorLog = [];
+        
+        console.log(`🐻 Bear processing ${rawScenarios?.length || 0} raw scenarios...`);
         
         for (let i = 0; i < rawScenarios.length; i++) {
             const scenario = rawScenarios[i];
             
             try {
-                // Basic validation
+                // Basic validation with detailed logging
                 if (!scenario || typeof scenario !== 'object') {
-                    throw new Error('Invalid scenario object');
+                    throw new Error(`Scenario ${i} is not a valid object: ${typeof scenario}`);
                 }
 
-                if (!scenario.id) {
-                    scenario.id = `scenario-${i}`;
+                console.log(`🔍 Processing scenario ${i}: ${scenario.title || scenario.id || 'untitled'}`);
+
+                // Create a fortified scenario with defaults
+                const fortifiedScenario = this.fortifyScenario(scenario, i);
+                
+                // Add pack context with safety checks
+                try {
+                    fortifiedScenario.packId = this.currentPack?.id || 'unknown-pack';
+                    fortifiedScenario.packName = this.currentPack?.name || 'Unknown Pack';
+                } catch (packError) {
+                    console.warn(`🐻 Bear growl: Pack context failed for scenario ${i}:`, packError);
+                    fortifiedScenario.packId = 'fallback-pack';
+                    fortifiedScenario.packName = 'Fallback Pack';
                 }
 
-                // Add pack context
-                scenario.packId = this.currentPack?.id;
-                scenario.packName = this.currentPack?.name;
-
-                validScenarios.push(scenario);
+                validScenarios.push(fortifiedScenario);
+                console.log(`✅ Bear approved scenario ${i}: ${fortifiedScenario.title}`);
                 
             } catch (error) {
-                this.logError(`Invalid scenario at index ${i}`, error, { scenario });
-                // Continue with other scenarios
+                const errorDetails = {
+                    index: i,
+                    scenarioId: scenario?.id || 'unknown',
+                    scenarioTitle: scenario?.title || 'unknown',
+                    error: error.message,
+                    scenario: scenario
+                };
+                
+                errorLog.push(errorDetails);
+                console.error(`🐻 Bear encountered obstacle at scenario ${i}:`, error);
+                console.warn(`🐻 Bear says: Skipping broken scenario, continuing with ${rawScenarios.length - i - 1} remaining...`);
+                
+                this.logError(`Invalid scenario at index ${i}`, error, errorDetails);
+                // Bear doesn't give up - continue with other scenarios
             }
         }
 
-        if (validScenarios.length === 0) {
-            throw new Error('No valid scenarios found in pack');
+        // Log summary of bear's work
+        console.log(`🐻 Bear summary: Processed ${validScenarios.length}/${rawScenarios.length} scenarios successfully`);
+        if (errorLog.length > 0) {
+            console.warn(`🐻 Bear encountered ${errorLog.length} obstacles but persevered:`, errorLog);
         }
 
-        // Shuffle scenarios for random order
-        return this.shuffleArray(validScenarios);
+        if (validScenarios.length === 0) {
+            console.error(`🐻 Bear failed: No valid scenarios survived processing!`);
+            throw new Error('No valid scenarios found in pack - all scenarios failed validation');
+        }
+
+        // Bear shuffles the deck for randomness
+        const shuffledScenarios = this.shuffleArray(validScenarios);
+        console.log(`🐻 Bear shuffled ${shuffledScenarios.length} scenarios for optimal gameplay`);
+        
+        return shuffledScenarios;
+    }
+
+    /**
+     * 🐻 BEAR CLAWS METHOD - Fortify individual scenario with bulletproof defaults
+     * This method takes a raw scenario and makes it bulletproof with proper validation and fallbacks
+     */
+    fortifyScenario(rawScenario, index) {
+        console.log(`🛡️ Bear fortifying scenario ${index}...`);
+        
+        // Create a safe copy to avoid mutating original data
+        const scenario = {};
+        
+        try {
+            // Essential fields with bulletproof defaults
+            scenario.id = this.safeString(rawScenario.id) || `scenario-${index}`;
+            scenario.title = this.safeString(rawScenario.title) || `Untitled Scenario ${index + 1}`;
+            scenario.text = this.safeString(rawScenario.text) || 'No scenario text provided.';
+            scenario.claim = this.safeString(rawScenario.claim) || 'No claim provided.';
+            
+            // Critical game mechanics fields
+            scenario.correctAnswer = this.validateCorrectAnswer(rawScenario.correctAnswer, scenario.id);
+            scenario.answerWeights = this.validateAnswerWeights(rawScenario.answerWeights, scenario.id);
+            
+            // Optional but important fields
+            scenario.reviewKeywords = this.validateReviewKeywords(rawScenario.reviewKeywords, scenario.id);
+            scenario.analysis = this.validateAnalysis(rawScenario.analysis, scenario.id);
+            scenario.wisdom = this.safeString(rawScenario.wisdom) || 'Consider the evidence and reasoning carefully.';
+            
+            // Preserve any additional fields that might exist
+            Object.keys(rawScenario).forEach(key => {
+                if (!scenario.hasOwnProperty(key)) {
+                    try {
+                        scenario[key] = rawScenario[key];
+                    } catch (copyError) {
+                        console.warn(`🐻 Bear growl: Could not copy field '${key}' for ${scenario.id}:`, copyError);
+                    }
+                }
+            });
+            
+            console.log(`🛡️ Bear successfully fortified scenario: ${scenario.title}`);
+            return scenario;
+            
+        } catch (fortifyError) {
+            console.error(`🐻 Bear fortress breach while fortifying scenario ${index}:`, fortifyError);
+            
+            // Last resort - return a minimal viable scenario
+            return {
+                id: `fallback-scenario-${index}`,
+                title: `Fallback Scenario ${index + 1}`,
+                text: 'This scenario encountered processing errors but the bear persevered.',
+                claim: 'The game must go on.',
+                correctAnswer: 'balanced',
+                answerWeights: { logic: 25, emotion: 25, balanced: 25, agenda: 25 },
+                reviewKeywords: { logic: [], emotion: [], balanced: [], agenda: [] },
+                analysis: {},
+                wisdom: 'Sometimes the bear must make do with what it has.'
+            };
+        }
+    }
+    
+    /**
+     * 🐻 BEAR UTILITY METHODS - Safe data validation and defaults
+     */
+    safeString(value) {
+        try {
+            if (typeof value === 'string') return value;
+            if (value !== null && value !== undefined) return String(value);
+            return null;
+        } catch {
+            return null;
+        }
+    }
+    
+    validateCorrectAnswer(correctAnswer, scenarioId) {
+        const validAnswers = ['logic', 'emotion', 'balanced', 'agenda'];
+        
+        try {
+            if (validAnswers.includes(correctAnswer)) {
+                return correctAnswer;
+            }
+            
+            console.warn(`🐻 Bear says: Invalid correctAnswer '${correctAnswer}' for ${scenarioId}, defaulting to 'balanced'`);
+            return 'balanced';
+            
+        } catch (error) {
+            console.warn(`🐻 Bear says: correctAnswer validation failed for ${scenarioId}:`, error);
+            return 'balanced';
+        }
+    }
+    
+    validateAnswerWeights(answerWeights, scenarioId) {
+        const defaultWeights = { logic: 25, emotion: 25, balanced: 25, agenda: 25 };
+        
+        try {
+            if (!answerWeights || typeof answerWeights !== 'object') {
+                console.warn(`🐻 Bear says: Missing or invalid answerWeights for ${scenarioId}, using defaults`);
+                return defaultWeights;
+            }
+            
+            const weights = {};
+            ['logic', 'emotion', 'balanced', 'agenda'].forEach(key => {
+                try {
+                    const value = answerWeights[key];
+                    if (typeof value === 'number' && !isNaN(value) && value >= 0) {
+                        weights[key] = value;
+                    } else {
+                        console.warn(`🐻 Bear says: Invalid weight for '${key}' in ${scenarioId}, using default`);
+                        weights[key] = 25;
+                    }
+                } catch (weightError) {
+                    console.warn(`🐻 Bear says: Weight processing failed for '${key}' in ${scenarioId}:`, weightError);
+                    weights[key] = 25;
+                }
+            });
+            
+            return weights;
+            
+        } catch (error) {
+            console.warn(`🐻 Bear says: answerWeights validation failed for ${scenarioId}:`, error);
+            return defaultWeights;
+        }
+    }
+    
+    validateReviewKeywords(reviewKeywords, scenarioId) {
+        const defaultKeywords = { 
+            logic: [], 
+            emotion: [], 
+            balanced: [], 
+            agenda: [] 
+        };
+        
+        try {
+            if (!reviewKeywords || typeof reviewKeywords !== 'object') {
+                console.log(`🐻 Bear adapting: No reviewKeywords for ${scenarioId}, using empty structure`);
+                return defaultKeywords;
+            }
+            
+            const keywords = {};
+            ['logic', 'emotion', 'balanced', 'agenda'].forEach(key => {
+                try {
+                    const value = reviewKeywords[key];
+                    
+                    // 🐻 BEAR ADAPTIVE FORMAT HANDLING
+                    if (Array.isArray(value)) {
+                        // Format 1: Already an array - perfect!
+                        keywords[key] = value;
+                        console.log(`✅ Bear found array format for '${key}' in ${scenarioId}: ${value.length} items`);
+                        
+                    } else if (value && typeof value === 'object') {
+                        // Format 2: Object with nested structure - try to extract
+                        console.log(`🔄 Bear adapting object format for '${key}' in ${scenarioId}:`, value);
+                        
+                        if (Array.isArray(value.keywords)) {
+                            // 🐻 PRESERVE weighted keyword structure AND explanation for timeline chart
+                            keywords[key] = value.keywords;
+                            // 🐻 PRESERVE explanation for educational display
+                            if (value.explanation) {
+                                keywords[key + '_explanation'] = value.explanation;
+                            }
+                            console.log(`✅ Bear preserved ${value.keywords.length} weighted keywords + explanation for timeline chart`);
+                        } else if (Array.isArray(value.items)) {
+                            keywords[key] = value.items;
+                            console.log(`✅ Bear extracted ${value.items.length} items from nested structure`);
+                        } else if (Array.isArray(value.phrases)) {
+                            // 🐻 NEW FORMAT: Array of objects with phrase + weight
+                            // Extract phrases but PRESERVE weight data for timeline
+                            keywords[key] = value.phrases.map(item => {
+                                if (item && typeof item === 'object' && item.phrase) {
+                                    return item.phrase; // Extract just the phrase text for compatibility
+                                }
+                                return item; // Fallback for non-object items
+                            });
+                            
+                            // 🐻 PRESERVE WEIGHT DATA for timeline sin wave generation
+                            keywords[key + '_weighted'] = value.phrases; // Store full weighted data
+                            console.log(`✅ Bear extracted ${keywords[key].length} weighted phrases and preserved weight data for timeline`);
+                        } else {
+                            // Try to extract any array property
+                            const arrayProps = Object.keys(value).filter(prop => Array.isArray(value[prop]));
+                            if (arrayProps.length > 0) {
+                                keywords[key] = value[arrayProps[0]];
+                                console.log(`✅ Bear found array in '${arrayProps[0]}' property: ${keywords[key].length} items`);
+                            } else {
+                                keywords[key] = [];
+                                console.log(`🔄 Bear adapted: Object format but no arrays found for '${key}', using empty array`);
+                            }
+                        }
+                        
+                    } else if (typeof value === 'string') {
+                        // Format 3: String - maybe comma-separated?
+                        if (value.includes(',')) {
+                            keywords[key] = value.split(',').map(s => s.trim()).filter(s => s.length > 0);
+                            console.log(`✅ Bear converted comma-separated string to ${keywords[key].length} keywords`);
+                        } else if (value.length > 0) {
+                            keywords[key] = [value];
+                            console.log(`✅ Bear converted single string to 1-item array`);
+                        } else {
+                            keywords[key] = [];
+                            console.log(`🔄 Bear adapted: Empty string for '${key}', using empty array`);
+                        }
+                        
+                    } else {
+                        // Format 4: Something else entirely
+                        keywords[key] = [];
+                        console.log(`🔄 Bear adapted: Unknown format (${typeof value}) for '${key}' in ${scenarioId}, using empty array`);
+                    }
+                    
+                } catch (keywordError) {
+                    console.warn(`🐻 Bear adaptation failed for '${key}' in ${scenarioId}:`, keywordError);
+                    keywords[key] = [];
+                }
+            });
+            
+            return keywords;
+            
+        } catch (error) {
+            console.warn(`🐻 Bear says: reviewKeywords validation failed for ${scenarioId}:`, error);
+            return defaultKeywords;
+        }
+    }
+    
+    validateAnalysis(analysis, scenarioId) {
+        try {
+            if (analysis && typeof analysis === 'object') {
+                return analysis;
+            }
+            
+            console.warn(`🐻 Bear says: Missing or invalid analysis for ${scenarioId}, using empty object`);
+            return {};
+            
+        } catch (error) {
+            console.warn(`🐻 Bear says: analysis validation failed for ${scenarioId}:`, error);
+            return {};
+        }
     }
 
     /**

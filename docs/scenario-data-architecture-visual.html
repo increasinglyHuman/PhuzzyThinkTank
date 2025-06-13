@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phuzzy Scenario Data Architecture</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+        
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+        
+        .architecture {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+            min-height: 800px;
+        }
+        
+        .layer {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 25px;
+            border: 2px solid #e9ecef;
+            position: relative;
+        }
+        
+        .layer-title {
+            font-size: 1.4em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #495057;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .icon {
+            font-size: 1.5em;
+        }
+        
+        .component {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid #007bff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+        
+        .component:hover {
+            transform: translateX(5px);
+        }
+        
+        .component-title {
+            font-weight: 600;
+            color: #007bff;
+            margin-bottom: 8px;
+        }
+        
+        .component-desc {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        .data-flow {
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2em;
+            color: #28a745;
+            z-index: 10;
+        }
+        
+        .data-structure {
+            background: #fff3cd;
+            border-left-color: #ffc107;
+        }
+        
+        .engine-component {
+            background: #d1ecf1;
+            border-left-color: #17a2b8;
+        }
+        
+        .ui-component {
+            background: #d4edda;
+            border-left-color: #28a745;
+        }
+        
+        .schema-details {
+            margin-top: 30px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border: 2px solid #dee2e6;
+        }
+        
+        .schema-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #495057;
+        }
+        
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .property {
+            background: white;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .property-name {
+            font-weight: 600;
+            color: #007bff;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .property-type {
+            color: #6c757d;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+        
+        .flow-indicators {
+            margin-top: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 12px;
+            color: white;
+        }
+        
+        .flow-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .flow-step:last-child {
+            margin-bottom: 0;
+        }
+        
+        .step-number {
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 Phuzzy Scenario Data Architecture</h1>
+            <p>Visual guide to data structures, game engine integration, and UI rendering</p>
+        </div>
+        
+        <div class="architecture">
+            <!-- Data Layer -->
+            <div class="layer">
+                <div class="layer-title">
+                    <span class="icon">📊</span>
+                    Data Layer
+                </div>
+                
+                <div class="component data-structure">
+                    <div class="component-title">🗂️ Scenario Pack JSON</div>
+                    <div class="component-desc">
+                        V2.0.0 schema with packInfo metadata, scenarios array, and complete educational framework
+                    </div>
+                </div>
+                
+                <div class="component data-structure">
+                    <div class="component-title">🎭 Individual Scenario</div>
+                    <div class="component-desc">
+                        Text, claim, 4-dimensional scores, reviewKeywords, analysis, fallacies, and UI hints
+                    </div>
+                </div>
+                
+                <div class="component data-structure">
+                    <div class="component-title">🔍 Review Keywords</div>
+                    <div class="component-desc">
+                        Weighted phrases for timeline visualization: logic, emotion, balanced, agenda keywords
+                    </div>
+                </div>
+                
+                <div class="component data-structure">
+                    <div class="component-title">📈 Answer Weights</div>
+                    <div class="component-desc">
+                        Precise 0-100 scores for each dimension, calculated to create unique fingerprints
+                    </div>
+                </div>
+                
+                <div class="data-flow">➤</div>
+            </div>
+            
+            <!-- Engine Layer -->
+            <div class="layer">
+                <div class="layer-title">
+                    <span class="icon">⚙️</span>
+                    Game Engine Layer
+                </div>
+                
+                <div class="component engine-component">
+                    <div class="component-title">🎮 PhuzzyGameEngine</div>
+                    <div class="component-desc">
+                        Master orchestrator managing game state, scenarios, scoring, and UI coordination
+                    </div>
+                </div>
+                
+                <div class="component engine-component">
+                    <div class="component-title">📋 ScenarioManager</div>
+                    <div class="component-desc">
+                        Smart single-pack loading, config-driven selection, memory-efficient scenario delivery
+                    </div>
+                </div>
+                
+                <div class="component engine-component">
+                    <div class="component-title">🏆 ScoringSystem</div>
+                    <div class="component-desc">
+                        Processes answerWeights, calculates user performance, tracks learning progress
+                    </div>
+                </div>
+                
+                <div class="component engine-component">
+                    <div class="component-title">🍯 HoneyPotManager</div>
+                    <div class="component-desc">
+                        Injects validation scenarios, detects gaming attempts, ensures authentic engagement
+                    </div>
+                </div>
+                
+                <div class="data-flow">➤</div>
+            </div>
+            
+            <!-- UI Layer -->
+            <div class="layer">
+                <div class="layer-title">
+                    <span class="icon">🖥️</span>
+                    User Interface Layer
+                </div>
+                
+                <div class="component ui-component">
+                    <div class="component-title">🎪 QuizInterface</div>
+                    <div class="component-desc">
+                        Main quiz controller, handles user interactions, answer selection, and feedback display
+                    </div>
+                </div>
+                
+                <div class="component ui-component">
+                    <div class="component-title">🐻 BearAnalysis</div>
+                    <div class="component-desc">
+                        Renders timeline charts using reviewKeywords, visualizes reasoning patterns over time
+                    </div>
+                </div>
+                
+                <div class="component ui-component">
+                    <div class="component-title">📊 TimelineChart</div>
+                    <div class="component-desc">
+                        Plots weighted keywords as curve visualization, highlights peak persuasion moments
+                    </div>
+                </div>
+                
+                <div class="component ui-component">
+                    <div class="component-title">💡 HintDisplay</div>
+                    <div class="component-desc">
+                        Shows contextual hints from scenario.hints, guides learning without spoiling answers
+                    </div>
+                </div>
+                
+                <div class="component ui-component">
+                    <div class="component-title">✨ FeedbackAnimator</div>
+                    <div class="component-desc">
+                        Animates correct/incorrect feedback, displays wisdom text, celebrates learning moments
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="schema-details">
+            <div class="schema-title">🏗️ Core Data Properties</div>
+            <div class="property-grid">
+                <div class="property">
+                    <div class="property-name">text</div>
+                    <div class="property-type">string (600 words avg)</div>
+                    <div class="component-desc">Main scenario content with manipulation patterns</div>
+                </div>
+                <div class="property">
+                    <div class="property-name">answerWeights</div>
+                    <div class="property-type">object {logic, emotion, balanced, agenda}</div>
+                    <div class="component-desc">0-100 scores determining correct answer</div>
+                </div>
+                <div class="property">
+                    <div class="property-name">reviewKeywords</div>
+                    <div class="property-type">object with weighted phrase arrays</div>
+                    <div class="component-desc">Timeline visualization data points</div>
+                </div>
+                <div class="property">
+                    <div class="property-name">logicalFallacies</div>
+                    <div class="property-type">array of fallacy objects</div>
+                    <div class="component-desc">Educational reasoning errors (15 approved types)</div>
+                </div>
+                <div class="property">
+                    <div class="property-name">analysis</div>
+                    <div class="property-type">object with dimension breakdowns</div>
+                    <div class="component-desc">Detailed scoring rationale for each dimension</div>
+                </div>
+                <div class="property">
+                    <div class="property-name">wisdom</div>
+                    <div class="property-type">string</div>
+                    <div class="component-desc">Key learning takeaway for players</div>
+                </div>
+                <div class="property">
+                    <div class="property-name">peakMoments</div>
+                    <div class="property-type">object with phrase arrays</div>
+                    <div class="component-desc">Highest-impact words for timeline peaks</div>
+                </div>
+                <div class="property">
+                    <div class="property-name">hints</div>
+                    <div class="property-type">object with strategy guidance</div>
+                    <div class="component-desc">Contextual help without spoiling answers</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="flow-indicators">
+            <div class="schema-title">🔄 Data Flow Process</div>
+            <div class="flow-step">
+                <div class="step-number">1</div>
+                JSON scenario pack loaded by ScenarioManager
+            </div>
+            <div class="flow-step">
+                <div class="step-number">2</div>
+                GameEngine processes scenario data and manages game state
+            </div>
+            <div class="flow-step">
+                <div class="step-number">3</div>
+                QuizInterface renders scenario text and answer options
+            </div>
+            <div class="flow-step">
+                <div class="step-number">4</div>
+                User selects answer, ScoringSystem calculates performance
+            </div>
+            <div class="flow-step">
+                <div class="step-number">5</div>
+                BearAnalysis generates timeline from reviewKeywords
+            </div>
+            <div class="flow-step">
+                <div class="step-number">6</div>
+                FeedbackAnimator displays results with wisdom text
+            </div>
+        </div>
+    </div>
+</body>
+</html>

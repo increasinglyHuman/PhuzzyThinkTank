@@ -20,37 +20,81 @@ class IndicatorIconMapper {
     }
     
     async loadMappings() {
+        console.log('🎯 IndicatorIconMapper: Starting to load mappings...');
         try {
-            // Try to load from JSON files first
-            const [logicResponse, emotionResponse] = await Promise.all([
-                fetch('data/reference/logic-indicator-icons.json').catch(() => null),
-                fetch('data/reference/emotion-trigger-icons.json').catch(() => null)
-            ]);
+            // Try to load the comprehensive mapping file first
+            console.log('🎯 IndicatorIconMapper: Attempting to load comprehensive mapping file...');
+            const comprehensiveResponse = await fetch('data/reference/indicator-trigger-icons.json').catch(() => null);
             
-            if (logicResponse && logicResponse.ok) {
-                const logicData = await logicResponse.json();
-                this.logicMappings = new Map(Object.entries(logicData));
+            if (comprehensiveResponse && comprehensiveResponse.ok) {
+                console.log('✅ IndicatorIconMapper: Successfully fetched comprehensive mapping file');
+                const data = await comprehensiveResponse.json();
+                
+                // Process the comprehensive format
+                if (data.indicators) {
+                    // Flatten the nested structure
+                    Object.values(data.indicators).forEach(category => {
+                        if (typeof category === 'object' && category !== null && !category.icon) {
+                            Object.entries(category).forEach(([key, value]) => {
+                                if (value && value.icon) {
+                                    this.logicMappings.set(key, `${value.icon} ${value.text}`);
+                                }
+                            });
+                        }
+                    });
+                    console.log(`✅ IndicatorIconMapper: Loaded ${this.logicMappings.size} logic mappings from comprehensive file`);
+                }
+                
+                if (data.triggers) {
+                    // Flatten the nested structure
+                    Object.values(data.triggers).forEach(category => {
+                        if (typeof category === 'object' && category !== null && !category.icon) {
+                            Object.entries(category).forEach(([key, value]) => {
+                                if (value && value.icon) {
+                                    this.emotionMappings.set(key, `${value.icon} ${value.text}`);
+                                }
+                            });
+                        }
+                    });
+                    console.log(`✅ IndicatorIconMapper: Loaded ${this.emotionMappings.size} emotion mappings from comprehensive file`);
+                }
             } else {
-                // Fallback to hardcoded mappings
-                this.loadHardcodedLogicMappings();
-            }
-            
-            if (emotionResponse && emotionResponse.ok) {
-                const emotionData = await emotionResponse.json();
-                this.emotionMappings = new Map(Object.entries(emotionData));
-            } else {
-                // Fallback to hardcoded mappings
-                this.loadHardcodedEmotionMappings();
+                // Fallback to individual files
+                console.log('⚠️ IndicatorIconMapper: Comprehensive file not found, trying individual files...');
+                const [logicResponse, emotionResponse] = await Promise.all([
+                    fetch('data/reference/logic-indicator-icons.json').catch(() => null),
+                    fetch('data/reference/emotion-trigger-icons.json').catch(() => null)
+                ]);
+                
+                if (logicResponse && logicResponse.ok) {
+                    const logicData = await logicResponse.json();
+                    this.logicMappings = new Map(Object.entries(logicData));
+                    console.log(`✅ IndicatorIconMapper: Loaded ${this.logicMappings.size} logic mappings from individual file`);
+                } else {
+                    console.log('⚠️ IndicatorIconMapper: Logic file not found, using hardcoded fallback');
+                    this.loadHardcodedLogicMappings();
+                }
+                
+                if (emotionResponse && emotionResponse.ok) {
+                    const emotionData = await emotionResponse.json();
+                    this.emotionMappings = new Map(Object.entries(emotionData));
+                    console.log(`✅ IndicatorIconMapper: Loaded ${this.emotionMappings.size} emotion mappings from individual file`);
+                } else {
+                    console.log('⚠️ IndicatorIconMapper: Emotion file not found, using hardcoded fallback');
+                    this.loadHardcodedEmotionMappings();
+                }
             }
             
             this.isLoaded = true;
-            console.log('📊 Indicator Icon Mapper loaded:', {
+            console.log('📊 IndicatorIconMapper: Final loaded state:', {
                 logicMappings: this.logicMappings.size,
-                emotionMappings: this.emotionMappings.size
+                emotionMappings: this.emotionMappings.size,
+                sampleLogic: Array.from(this.logicMappings.entries()).slice(0, 3),
+                sampleEmotion: Array.from(this.emotionMappings.entries()).slice(0, 3)
             });
             
         } catch (error) {
-            console.warn('Failed to load icon mappings, using hardcoded fallback:', error);
+            console.error('❌ IndicatorIconMapper: Failed to load icon mappings, using hardcoded fallback:', error);
             this.loadHardcodedLogicMappings();
             this.loadHardcodedEmotionMappings();
             this.isLoaded = true;
@@ -59,24 +103,31 @@ class IndicatorIconMapper {
     
     getIconForFactor(factor, type = 'auto', containerId = null) {
         if (!this.isLoaded) {
-            console.warn('Icon mapper not loaded yet, returning fallback');
+            console.warn('⚠️ IndicatorIconMapper: Not loaded yet, returning fallback for:', factor);
             return this.getFallbackIcon(factor);
         }
+        
+        console.log(`🔍 IndicatorIconMapper: Looking up icon for factor: "${factor}", type: "${type}", containerId: "${containerId}"`);
         
         // Auto-detect type based on containerId if not specified
         if (type === 'auto') {
             if (containerId === 'logic-factors') {
                 type = 'logic';
+                console.log('🔍 IndicatorIconMapper: Auto-detected type as "logic" based on containerId');
             } else if (containerId === 'emotion-factors') {
                 type = 'emotion';
+                console.log('🔍 IndicatorIconMapper: Auto-detected type as "emotion" based on containerId');
             } else {
                 // Try both maps
                 if (this.logicMappings.has(factor)) {
                     type = 'logic';
+                    console.log('🔍 IndicatorIconMapper: Found factor in logic mappings');
                 } else if (this.emotionMappings.has(factor)) {
                     type = 'emotion';
+                    console.log('🔍 IndicatorIconMapper: Found factor in emotion mappings');
                 } else {
                     type = 'logic'; // default
+                    console.log('🔍 IndicatorIconMapper: Factor not found in either mapping, defaulting to logic');
                 }
             }
         }
@@ -84,10 +135,13 @@ class IndicatorIconMapper {
         const mappings = type === 'logic' ? this.logicMappings : this.emotionMappings;
         
         if (mappings.has(factor)) {
-            return mappings.get(factor);
+            const result = mappings.get(factor);
+            console.log(`✅ IndicatorIconMapper: Found mapping for "${factor}": "${result}"`);
+            return result;
         }
         
         // Fallback to readable text
+        console.log(`⚠️ IndicatorIconMapper: No mapping found for "${factor}", using fallback`);
         return this.getFallbackIcon(factor);
     }
     

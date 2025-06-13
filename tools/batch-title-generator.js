@@ -11,7 +11,7 @@ const CONFIG = {
     modelIdTurbo: 'eleven_turbo_v2',
     outputFormat: 'mp3_44100_128',
     baseUrl: 'api.elevenlabs.io',
-    outputDir: path.join(__dirname, '../data/audio-recording-voices-for-scenarios-from-elevenlabs'),
+    outputDir: path.join(__dirname, '../data/voices'),
     useTurbo: process.env.USE_TURBO === 'true' || false,
     voiceId: 'JBFqnCBsd6RMkjVDRZzb' // Default voice
 };

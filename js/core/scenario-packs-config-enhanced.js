@@ -100,10 +100,10 @@ window.SCENARIO_PACKS = {
 // Enhanced Configuration for pack selection with promotion support
 window.PACK_SELECTION_CONFIG = {
     // Selection mode: 'random', 'sequential', 'user-choice', 'promoted', 'weighted'
-    mode: 'promoted',
+    mode: 'config',
     
     // For 'config' mode, specify which pack to use
-    defaultPack: 'pack-001',
+    defaultPack: 'pack-005',
     
     // For 'sequential' mode, define the order
     sequentialOrder: ['original-v2', 'pack-001', 'pack-002', 'pack-003', 'pack-004', 'pack-005', 'pack-006'],

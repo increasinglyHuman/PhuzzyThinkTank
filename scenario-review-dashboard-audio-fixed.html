@@ -1620,7 +1620,7 @@
             // Initialize audio system now that we have user interaction
             try {
                 audioEngine = new PhuzzyAudioEngine({
-                    audioBasePath: '../data/audio-recording-voices-for-scenarios-from-elevenlabs/',
+                    audioBasePath: '../data/voices/',
                     enableFirstPlayOptimization: true,
                     maxConcurrentAudio: 4,
                     autoDiscoverAssets: false, // Don't auto-discover to avoid 404s
@@ -2149,7 +2149,7 @@
             
             // Create pack-based folder name and fallback
             const folderName = `pack-${packId}-scenario-${String(indexInPack).padStart(3, '0')}`;
-            const basePath = '../data/audio-recording-voices-for-scenarios-from-elevenlabs/';
+            const basePath = '../data/voices/';
             const audioPath = `${basePath}${folderName}/${type}.mp3`;
             
             // Fallback to old naming
@@ -2386,7 +2386,7 @@
             if (packIdNum > 9 && !packAudioCache.has(packId)) {
                 // Quick check: try to fetch just the title.mp3 to see if this pack has any audio
                 const folderName = `pack-${packId}-scenario-000`;
-                const samplePath = `./data/audio-recording-voices-for-scenarios-from-elevenlabs/${folderName}/title.mp3`;
+                const samplePath = `./data/voices/${folderName}/title.mp3`;
                 
                 try {
                     const sampleResponse = await fetch(samplePath, { method: 'HEAD' });
@@ -2420,7 +2420,7 @@
             }
             
             const folderName = `pack-${packId}-scenario-${String(indexInPack).padStart(3, '0')}`;
-            const basePath = './data/audio-recording-voices-for-scenarios-from-elevenlabs/';
+            const basePath = './data/voices/';
             
             const audioFiles = ['title.mp3', 'content.mp3', 'claim.mp3'];
             const status = { hasAudio: false, missingFiles: [], totalFiles: audioFiles.length, foundFiles: 0 };

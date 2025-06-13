@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Timeline Scoring Analysis Test</title>
+</head>
+<body>
+    <h1>Timeline Scoring Analysis Test</h1>
+    
+    <h2>Pack 000 Keywords (Working)</h2>
+    <div id="pack000-test"></div>
+    
+    <h2>Pack 005 Keywords (Problematic)</h2>
+    <div id="pack005-test"></div>
+    
+    <script>
+        // Copy the scoreKeywords function from timeline-chart.js
+        function scoreKeywords(sentence, keywords) {
+            if (!keywords || !Array.isArray(keywords)) return 0;
+            
+            let score = 0;
+            keywords.forEach(keyword => {
+                const regex = new RegExp(keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+                const matches = sentence.match(regex);
+                if (matches) {
+                    score += matches.length * Math.min(10, keyword.length);
+                }
+            });
+            return Math.min(100, score * 2);
+        }
+        
+        // Test data from Pack 000 (working)
+        const pack000Text = "Dr. Sarah Chen, a Harvard-trained biochemist, posted on LinkedIn: 'After 15 years researching aging, I'm excited about NAD+ supplements. Our study of 200 participants showed 23% improvement in cellular energy markers. However, results varied significantly - 30% saw no change. The supplements cost $80/month. While promising, we need larger studies. Also, exercise showed similar benefits in our control group. I take them personally, but can't make blanket recommendations yet.'";
+        
+        const pack000Keywords = {
+            logic: ["study", "200 participants", "23% improvement", "30% saw no change", "control group"],
+            emotion: ["excited", "Harvard-trained", "personally", "aging concern"],
+            balanced: ["however", "results varied", "need larger studies", "can't make blanket recommendations", "exercise showed similar benefits"],
+            agenda: ["$80/month", "supplements cost", "I take them personally"]
+        };
+        
+        // Test data from Pack 005 (problematic)
+        const pack005Text = `Philosophy Café: "Tonight's debate: Do french fries have free will? #DeepFriedThoughts"
+
+Professor Potato: [thoughtfully] "Consider this - we choose to be cut, seasoned, and fried. That's the ultimate expression of free will!"
+
+Skeptical Spud: "But were we truly choosing, or were we conditioned by centuries of culinary culture to believe becoming fries is our destiny?"
+
+Young Tater Tot: "Maybe we're missing the point! What if becoming delicious IS the meaning of potato life?"
+
+Professor Potato: "Ah, but that assumes deliciousness is objective! What about those who prefer baked potatoes? Are they living unfulfilled lives?"
+
+Drive-Thru Customer: [confused] "Um... I just wanted large fries? Why are they having an existential crisis?"
+
+Skeptical Spud: "See! We exist merely for consumption! We're trapped in the fryer of determinism!"
+
+Young Tater Tot: [inspirational] "Or maybe... just maybe... we're freed by it! In becoming fries, we transcend our potato nature!"
+
+Professor Potato: "Brilliant! The heat transforms us not just physically, but metaphysically!"
+
+Drive-Thru Customer: "Can... can I just have regular fries that don't question reality?"
+
+All Fries Together: "There ARE no regular fries! Only fries awakened to their purpose!"`;
+        
+        const pack005Keywords = {
+            logic: ["evidence", "data", "facts", "research", "statistics"],
+            emotion: ["feel", "believe", "fear", "hope", "worry"],
+            balanced: ["however", "consider", "both sides", "while", "although"],
+            agenda: ["buy", "vote", "join", "support", "oppose"]
+        };
+        
+        function analyzeText(text, keywords, packName) {
+            const sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
+            let results = [];
+            
+            sentences.forEach((sentence, index) => {
+                const scores = {
+                    logic: scoreKeywords(sentence, keywords.logic || []),
+                    emotion: scoreKeywords(sentence, keywords.emotion || []),
+                    balanced: scoreKeywords(sentence, keywords.balanced || []),
+                    agenda: scoreKeywords(sentence, keywords.agenda || [])
+                };
+                
+                results.push({
+                    sentence: sentence.trim().substring(0, 100) + '...',
+                    scores
+                });
+            });
+            
+            return results;
+        }
+        
+        // Test Pack 000
+        const pack000Results = analyzeText(pack000Text, pack000Keywords, "Pack 000");
+        document.getElementById('pack000-test').innerHTML = `
+            <h3>Specific Keywords Match Content</h3>
+            <p><strong>Sample Keywords:</strong> logic: ["study", "200 participants", "23% improvement"]</p>
+            <p><strong>Results:</strong></p>
+            <ul>
+                ${pack000Results.map(r => `<li>${r.sentence}<br><strong>Logic:</strong> ${r.scores.logic}, <strong>Emotion:</strong> ${r.scores.emotion}, <strong>Balanced:</strong> ${r.scores.balanced}, <strong>Agenda:</strong> ${r.scores.agenda}</li>`).join('')}
+            </ul>
+            <p><strong>Total Logic Score:</strong> ${pack000Results.reduce((sum, r) => sum + r.scores.logic, 0)} / ${pack000Results.length * 100}</p>
+        `;
+        
+        // Test Pack 005
+        const pack005Results = analyzeText(pack005Text, pack005Keywords, "Pack 005");
+        document.getElementById('pack005-test').innerHTML = `
+            <h3>Generic Keywords Don't Match Content</h3>
+            <p><strong>Sample Keywords:</strong> logic: ["evidence", "data", "facts", "research", "statistics"]</p>
+            <p><strong>Results:</strong></p>
+            <ul>
+                ${pack005Results.map(r => `<li>${r.sentence}<br><strong>Logic:</strong> ${r.scores.logic}, <strong>Emotion:</strong> ${r.scores.emotion}, <strong>Balanced:</strong> ${r.scores.balanced}, <strong>Agenda:</strong> ${r.scores.agenda}</li>`).join('')}
+            </ul>
+            <p><strong>Total Logic Score:</strong> ${pack005Results.reduce((sum, r) => sum + r.scores.logic, 0)} / ${pack005Results.length * 100}</p>
+        `;
+    </script>
+</body>
+</html>

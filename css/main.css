@@ -33,22 +33,34 @@ body {
 
 /* Bear's Card Collection */
 .bear-card-collection {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 20px;
+    background: 
+        linear-gradient(rgba(26, 20, 15, 0.8), rgba(26, 20, 15, 0.8)),
+        url('../images/Firefly_dark brown, leather background texture, archaic, ancient, subtle, tileable 777226.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 0 0 20px 20px;
+    padding: 20px 25px;
+    margin-bottom: 0;
+    margin-top: 0;
     backdrop-filter: blur(10px);
-    border: 2px solid rgba(102, 126, 234, 0.3);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 3px solid #1a1a1a;
+    border-top: none;
+    box-shadow: 
+        0 6px 20px rgba(0, 0, 0, 0.4),
+        inset 0 4px 12px rgba(0, 0, 0, 0.8),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.6);
+    position: relative;
 }
 
 .collection-header {
-    color: #667eea;
+    color: #d4af37;
     font-weight: bold;
     font-size: 1.8rem;
     text-align: center;
     margin-bottom: 15px;
-    text-shadow: none;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(255, 215, 0, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -70,42 +82,52 @@ body {
 }
 
 .mini-card {
-    width: 35px;
-    height: 48px;
-    border-radius: 6px;
+    width: 45px;
+    height: 60px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
+    font-size: 1.2rem;
     transition: all 0.3s ease;
     position: relative;
-    border: 2px solid;
+    border: 1px solid;
     cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
 }
 
 /* Empty card slot */
 .mini-card.empty {
-    background: rgba(102, 126, 234, 0.05);
-    border-color: rgba(102, 126, 234, 0.3);
-    color: rgba(102, 126, 234, 0.3);
-    border-width: 1px;
+    background: rgba(0, 0, 0, 0.7);
+    border-color: rgba(0, 0, 0, 0.9);
+    color: rgba(0, 0, 0, 0.3);
+    border-width: 2px;
+    box-shadow: 
+        inset 4px 4px 10px rgba(0, 0, 0, 0.9),
+        inset -2px -2px 5px rgba(0, 0, 0, 0.5),
+        0 1px 2px rgba(255, 255, 255, 0.05);
 }
 
 .mini-card.empty:before {
-    content: "🐻";
-    opacity: 0.3;
-    color: #667eea;
+    content: "";
+    display: none;
 }
 
 /* Collected card */
 .mini-card.collected {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-color: #ffd700;
+    border-color: #8b6914;
     color: white;
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+    transform: scale(0.95);
+    box-shadow: 
+        inset 0 3px 6px rgba(0, 0, 0, 0.5),
+        0 1px 3px rgba(139, 105, 20, 0.2);
     animation: card-shimmer 2s ease-in-out infinite alternate;
     border-width: 1px;
+    font-size: 0;
+    filter: brightness(0.85);
 }
 
 /* Sizzle animation for collected cards */
@@ -114,8 +136,8 @@ body {
 }
 
 @keyframes card-shimmer {
-    0% { box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4); }
-    100% { box-shadow: 0 6px 20px rgba(255, 215, 0, 0.7); }
+    0% { box-shadow: 0 2px 8px rgba(139, 105, 20, 0.3); }
+    100% { box-shadow: 0 3px 12px rgba(139, 105, 20, 0.5); }
 }
 
 @keyframes card-sizzle {
@@ -161,9 +183,9 @@ body {
 }
 
 /* Rarity indicators */
-.mini-card.common { border-color: #667eea; }
-.mini-card.uncommon { border-color: #667eea; }
-.mini-card.rare { border-color: #667eea; }
+.mini-card.common { border-color: #000000; }
+.mini-card.uncommon { border-color: #000000; }
+.mini-card.rare { border-color: #000000; }
 .mini-card.epic { border-color: #f6ad55; }
 .mini-card.legendary { border-color: #ffd700; }
 
@@ -238,9 +260,9 @@ body {
     }
     
     .mini-card {
-        width: 30px;
-        height: 42px;
-        font-size: 0.9rem;
+        width: 38px;
+        height: 52px;
+        font-size: 1.1rem;
     }
 }
 
@@ -252,9 +274,9 @@ body {
     }
     
     .mini-card {
-        width: 28px;
-        height: 38px;
-        font-size: 0.8rem;
+        width: 36px;
+        height: 48px;
+        font-size: 1rem;
     }
 }
 
@@ -1427,32 +1449,142 @@ body {
 }
 
 .wisdom-panel {
-    background: linear-gradient(135deg, #f6e05e 0%, #f6ad55 100%);
-    border-radius: 15px;
-    padding: 25px;
-    margin: 30px 0;
-    color: #744210;
+    background: 
+        linear-gradient(rgba(32, 26, 20, 0.75), rgba(32, 26, 20, 0.75)),
+        url('../images/Firefly_dark leather background texture, tileable 768379.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+    border-radius: 25px;
+    padding: 35px;
+    margin: 40px auto;
+    max-width: 95%;
+    color: #f5e6d3;
+    position: relative;
+    box-shadow: 
+        inset 0 6px 12px rgba(0, 0, 0, 0.7),
+        inset 0 -3px 8px rgba(0, 0, 0, 0.5),
+        0 8px 25px rgba(0, 0, 0, 0.5),
+        0 0 60px rgba(255, 215, 0, 0.05);
+    border: 3px solid #1a1a1a;
+}
+
+.wisdom-panel::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        transparent 30%, 
+        rgba(255, 215, 0, 0.1) 50%, 
+        transparent 70%);
+    border-radius: 25px;
+    z-index: -1;
+    opacity: 0.3;
 }
 
 .wisdom-header {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+    overflow: visible;
 }
 
 .wisdom-header .bear-emoji {
     font-size: 4em;
+    position: relative;
+    display: inline-block;
+    text-shadow: 
+        0 0 10px rgba(255, 215, 0, 0.2);
+    overflow: visible;
+}
+
+/* Shadow clone for owl depth illusion */
+.wisdom-header .bear-emoji::after {
+    content: '🦉';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    z-index: -1;
+    filter: brightness(0);
+    opacity: 0.3;
+    font-size: 1em;
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
+    line-height: 1;
+    pointer-events: none;
 }
 
 .wisdom-header .bear-name {
     font-size: 2em;
-    color: #744210;
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 25%, #ffd700 50%, #c9a227 75%, #ffd700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+    position: relative;
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: inline-block;
+    overflow: visible;
+}
+
+.wisdom-header .bear-name::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    z-index: -2;
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: #000000;
+    background-clip: unset;
+    color: #000000;
+    opacity: 0.25;
+    filter: blur(1px);
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 1em;
+    pointer-events: none;
+    display: block;
 }
 
 .wisdom-content {
-    font-size: 1.1em;
-    line-height: 1.6;
-    margin-bottom: 20px;
+    font-size: 1.15em;
+    line-height: 1.8;
+    margin-bottom: 0;
+    padding: 25px;
+    color: #d4af37;
+    letter-spacing: 0.3px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    background: 
+        linear-gradient(rgba(26, 20, 15, 0.8), rgba(26, 20, 15, 0.8)),
+        url('../images/Firefly_dark brown, leather background texture, archaic, ancient, subtle, tileable 777226.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px 20px 0 0;
+    border: 3px solid #1a1a1a;
+    border-bottom: none;
+    box-shadow: 
+        0 -3px 10px rgba(0, 0, 0, 0.3),
+        inset 0 4px 12px rgba(0, 0, 0, 0.8),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.6);
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.wisdom-content strong {
+    color: #f5e6d3;
+    font-weight: 600;
+}
+
+.wisdom-content em {
+    color: #e6d7c3;
+    font-style: italic;
 }
 
 .balance-meter {
@@ -1462,6 +1594,12 @@ body {
     position: relative;
     overflow: visible;
     margin-bottom: 15px;
+    box-shadow: 
+        0 4px 12px rgba(0, 0, 0, 0.4),
+        0 2px 4px rgba(0, 0, 0, 0.2),
+        inset 0 3px 8px rgba(0, 0, 0, 0.6),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 .balance-indicator {
@@ -1492,9 +1630,8 @@ body {
     align-items: center;
     gap: 6px;
     font-weight: 500;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) 
-            drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+    color: #d4af37;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
 }
 
 @keyframes pulse {
@@ -1875,27 +2012,26 @@ body {
 
 /* Logical Fallacy Callout Box */
 .fallacy-callout {
-    margin: 20px 0;
-    background: #f8fafc;
-    border-left: 6px solid #667eea;
-    border-right: 1px solid #e2e8f0;
-    border-top: 1px solid #e2e8f0;
-    border-bottom: 1px solid #e2e8f0;
-    border-radius: 0 8px 8px 0;
-    padding: 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin: 0 20px;
+    background: 
+        linear-gradient(rgba(26, 20, 15, 0.8), rgba(26, 20, 15, 0.8)),
+        url('../images/Firefly_dark brown, leather background texture, archaic, ancient, subtle, tileable 777226.jpg');
+    background-size: cover;
+    background-position: center;
+    border: 3px solid #1a1a1a;
+    border-radius: 20px 20px 0 0;
+    border-bottom: none;
+    padding: 30px 20px 20px;
+    box-shadow: 
+        0 -3px 10px rgba(0, 0, 0, 0.3),
+        inset 0 4px 12px rgba(0, 0, 0, 0.8),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.6);
     position: relative;
     overflow: hidden;
 }
 
 .fallacy-callout::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 6px;
-    height: 100%;
-    background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+    display: none;
 }
 
 .fallacy-callout-header {
@@ -2051,6 +2187,19 @@ body {
 }
 
 /* Removed green playing state - keep button consistent */
+
+/* Fix icon alignment to prevent button content shifting */
+.scenario-box .audio-btn {
+    line-height: 1;
+    vertical-align: baseline;
+}
+
+/* Ensure consistent icon positioning */
+.scenario-box .audio-btn::before {
+    content: '';
+    display: inline-block;
+    vertical-align: baseline;
+}
 
 
 @keyframes pulse {
