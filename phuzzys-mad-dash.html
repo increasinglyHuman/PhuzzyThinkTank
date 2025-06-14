@@ -1,0 +1,2805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics Test FIXED - Phuzzy's Mad Dash</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f0f0f0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .test-controls {
+            margin: 20px 0;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .solution-button {
+            background: #2196F3;
+        }
+        .solution-button:hover {
+            background: #0b7dda;
+        }
+        button.active {
+            background: #ff5722;
+            box-shadow: inset 0 3px 5px rgba(0,0,0,0.3);
+            transform: translateY(1px);
+        }
+        button.active:hover {
+            background: #e64a19;
+        }
+        canvas {
+            border: 2px solid #ddd;
+            display: block;
+            margin: 20px auto;
+        }
+        .info {
+            text-align: center;
+            margin: 10px 0;
+            font-size: 14px;
+            color: #666;
+        }
+        .physics-info {
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: monospace;
+        }
+        .warning {
+            color: #ff5722;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Phuzzy's Mad Dash - Physics Testing (FIXED)</h1>
+        
+        <div class="test-controls" style="display: none;">
+            <button id="btn-original" class="physics-btn" onclick="loadSolution('original')">Original Physics</button>
+            <button id="btn-solution1" class="physics-btn solution-button active" onclick="loadSolution(1)">Solution 1: Momentum</button>
+            <button id="btn-solution2" class="physics-btn solution-button" onclick="loadSolution(2)">Solution 2: Adaptive</button>
+            <button id="btn-solution3" class="physics-btn solution-button" onclick="loadSolution(3)">Solution 3: Rail</button>
+        </div>
+        
+        <div class="info" id="current-solution">Current: Solution 1</div>
+        
+        <div class="race-results" id="race-results" style="display: none;">
+            <h3>Race Results</h3>
+            <table id="results-table" style="width: 100%; border-collapse: collapse; margin: 10px 0;">
+                <thead>
+                    <tr style="background: #f0f0f0;">
+                        <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Position</th>
+                        <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Ball</th>
+                        <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Time</th>
+                        <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Clicks</th>
+                        <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Accuracy</th>
+                    </tr>
+                </thead>
+                <tbody id="results-body">
+                </tbody>
+            </table>
+        </div>
+        
+        <div id="canvasContainer" style="width: 800px; height: 400px; overflow: hidden; border: 2px solid #ddd; position: relative; margin: 20px auto;">
+            <canvas id="testCanvas" width="16000" height="400" style="position: absolute; top: 0; left: 0;"></canvas>
+        </div>
+        
+        <div class="race-stats" id="race-stats" style="display: none; margin: 20px 0; padding: 15px; background: #f9f9f9; border-radius: 5px; min-height: 200px;">
+            <h4>Race Statistics</h4>
+            <div id="stats-content" style="font-family: monospace; font-size: 14px;"></div>
+        </div>
+        
+        <div class="test-controls">
+            <button onclick="startTest()">Start Ball</button>
+            <button onclick="stopTest()">Stop</button>
+            <button onclick="toggleSafetyMode()" id="safetyBtn" style="background: #ff9800;">Safety Mode: OFF</button>
+            <!-- <button onclick="toggleDebug()">Toggle Debug</button> -->
+            <div style="margin-top: 10px; color: #666;" id="controlHint">
+                Click near the ball: Left side = push right, Right side = push left
+            </div>
+        </div>
+        
+        <div class="physics-info" id="debug-info" style="display: none;">
+            <div>Position: <span id="position">0.00</span></div>
+            <div>Velocity: <span id="velocity">0.0000</span> <span id="velocity-dir"></span></div>
+            <div>Visual Slope: <span id="slope">0.00</span></div>
+            <div>State: <span id="state">idle</span></div>
+            <div>Gravity Effect: <span id="gravity-effect">0.0000</span></div>
+            <div>Camera Offset: <span id="camera-offset">0</span>px</div>
+            <div>Ball in Viewport: <span id="ball-viewport">0.0%</span></div>
+            <div>Scroll Speed: <span id="scroll-speed">0</span>px/frame</div>
+        </div>
+    </div>
+
+    <script>
+        // Generate multiple tracks with different characteristics
+        const tracks = [];
+        const dataPoints = 3000; // Points for track generation - long but within canvas limits
+        
+        // Track configurations
+        const trackConfigs = [
+            { color: '#2196F3', name: 'blue', main: true },  // Main track (closest)
+            { color: '#4CAF50', name: 'green', distance: 1 }, // Mid distance
+            { color: '#ec4899', name: 'pink', distance: 2 },  // Far
+            { color: '#f59e0b', name: 'ochre', distance: 3 }  // Farthest
+        ];
+        
+        // Generate control points for spline curves
+        function generateSplineControlPoints(trackIndex, isMain) {
+            const controlPoints = [];
+            const numControlPoints = 40; // More control points for wilder hills!
+            
+            // Starting gate area - on top of initial hill
+            controlPoints.push({ x: 0, y: 80 });      // Start high on hill
+            controlPoints.push({ x: 0.01, y: 81 });   // Peak just before gate
+            controlPoints.push({ x: 0.02, y: 80 });   // Gate position - slightly down from peak
+            controlPoints.push({ x: 0.04, y: 45 });   // STEEP DROP after gate!
+            controlPoints.push({ x: 0.06, y: 20 });   // Valley of doom
+            controlPoints.push({ x: 0.08, y: 75 });   // Brutal climb back up
+            
+            // Generate EVIL control points for the middle section
+            let lastY = 75; // Track previous height for smoother transitions
+            for (let i = 6; i < numControlPoints - 2; i++) {
+                const t = i / (numControlPoints - 1);
+                
+                // Create massive hills and valleys with some continuity
+                let y;
+                if (i % 6 === 0) {
+                    // Deep valley - but not too sudden
+                    const targetY = 20 + Math.random() * 15;
+                    y = lastY * 0.3 + targetY * 0.7; // Blend for smoother transition
+                } else if (i % 6 === 3) {
+                    // High peak - but not too sudden
+                    const targetY = 70 + Math.random() * 15;
+                    y = lastY * 0.3 + targetY * 0.7; // Blend for smoother transition
+                } else {
+                    // Transitions with controlled chaos
+                    const baseY = 50;
+                    const variation = isMain ? 30 : 25;
+                    const targetY = baseY + (Math.random() - 0.5) * variation;
+                    y = lastY * 0.4 + targetY * 0.6; // More blending for transitions
+                }
+                
+                // Ensure we don't have impossible jumps
+                const maxChange = 40;
+                y = Math.max(lastY - maxChange, Math.min(lastY + maxChange, y));
+                
+                controlPoints.push({
+                    x: t,
+                    y: Math.max(15, Math.min(85, y)) // Keep within bounds
+                });
+                
+                lastY = y;
+            }
+            
+            // Ending - smooth transition to finish
+            controlPoints.push({ x: 0.90, y: lastY * 0.7 + 45 * 0.3 });  // Smooth transition down
+            controlPoints.push({ x: 0.93, y: 40 });  // Gentle slope
+            controlPoints.push({ x: 0.96, y: 30 });  // Almost there
+            controlPoints.push({ x: 0.98, y: 25 });  // Final approach
+            controlPoints.push({ x: 1, y: 20 });     // Finish line
+            
+            return controlPoints;
+        }
+        
+        // Catmull-Rom spline interpolation for smooth curves
+        function catmullRomSpline(p0, p1, p2, p3, t) {
+            const t2 = t * t;
+            const t3 = t2 * t;
+            
+            const v0 = (p2 - p0) * 0.5;
+            const v1 = (p3 - p1) * 0.5;
+            
+            return (2 * p1 - 2 * p2 + v0 + v1) * t3 +
+                   (-3 * p1 + 3 * p2 - 2 * v0 - v1) * t2 +
+                   v0 * t + p1;
+        }
+        
+        trackConfigs.forEach((config, trackIndex) => {
+            const trackData = [];
+            
+            // Generate control points for this track
+            const controlPoints = generateSplineControlPoints(trackIndex, config.main);
+            
+            // Interpolate between control points using splines
+            for (let i = 0; i <= dataPoints; i++) {
+                const x = i / dataPoints;
+                
+                // Find which control points we're between
+                let cpIndex = 0;
+                for (let j = 0; j < controlPoints.length - 1; j++) {
+                    if (x >= controlPoints[j].x && x <= controlPoints[j + 1].x) {
+                        cpIndex = j;
+                        break;
+                    }
+                }
+                
+                // Get the four control points for interpolation
+                const p0 = controlPoints[Math.max(0, cpIndex - 1)];
+                const p1 = controlPoints[cpIndex];
+                const p2 = controlPoints[Math.min(controlPoints.length - 1, cpIndex + 1)];
+                const p3 = controlPoints[Math.min(controlPoints.length - 1, cpIndex + 2)];
+                
+                // Calculate local t between p1 and p2
+                let localT = 0;
+                if (p2.x > p1.x) {
+                    localT = (x - p1.x) / (p2.x - p1.x);
+                }
+                
+                // Interpolate Y using Catmull-Rom spline
+                let y = catmullRomSpline(p0.y, p1.y, p2.y, p3.y, localT);
+                
+                // Add small-scale texture to the smooth spline
+                if (x > 0.05 && x < 0.95) { // Not in start/end zones
+                    const texture = 2 * Math.sin(x * Math.PI * 50) * Math.sin(x * Math.PI * 3);
+                    y += texture;
+                }
+                
+                trackData.push({
+                    position: x,
+                    scores: { test: y }
+                });
+            }
+            
+            tracks.push({
+                data: trackData,
+                config: config
+            });
+        });
+        
+        // Main track is the first one for physics
+        const testData = tracks[0].data;
+        
+        let canvas = document.getElementById('testCanvas');
+        let ctx = canvas.getContext('2d');
+        let canvasContainer = document.getElementById('canvasContainer');
+        let animationId = null;
+        let ballPosition = 0;
+        let ballVelocity = 0;
+        let lastSlope = 0;
+        let debugMode = false;
+        let currentSolution = 'solution1'; // Default to momentum physics
+        let cameraOffset = 0; // Track how far we've scrolled the canvas
+        let cameraTargetOffset = 0; // Where the camera wants to be
+        let radarAngle = 0; // Radar sweep angle
+        let radarTrails = []; // Store radar trail positions
+        let safetyMode = false; // Safety mode - only forward pushes
+        let gateHeight = 0; // Starting gate height (0 = closed, 1 = fully open)
+        let gateTargetHeight = 0; // Target height for gate animation
+        
+        // Obstacles array
+        let obstacles = [];
+        
+        // Initialize obstacles at strategic positions
+        function initializeObstacles() {
+            // Helper function to check if position is in a valley (low point)
+            const isValleyPosition = (x) => {
+                // Use the same track data interpolation as everything else
+                let trackHeight;
+                let leftPoint = null;
+                let rightPoint = null;
+                
+                for (let i = 0; i < tracks[0].data.length - 1; i++) {
+                    if (tracks[0].data[i].position <= x && tracks[0].data[i + 1].position > x) {
+                        leftPoint = tracks[0].data[i];
+                        rightPoint = tracks[0].data[i + 1];
+                        break;
+                    }
+                }
+                
+                if (leftPoint && rightPoint) {
+                    const t = (x - leftPoint.position) / (rightPoint.position - leftPoint.position);
+                    trackHeight = leftPoint.scores.test + (rightPoint.scores.test - leftPoint.scores.test) * t;
+                } else {
+                    const nearestPoint = tracks[0].data.reduce((prev, curr) => 
+                        Math.abs(curr.position - x) < Math.abs(prev.position - x) ? curr : prev
+                    );
+                    trackHeight = nearestPoint.scores.test;
+                }
+                
+                return trackHeight < 40; // Consider below 40% as valley
+            };
+            
+            // Create obstacles array with automatic inversion detection
+            const obstacleData = [
+                // Stomper gauntlet right after first drop - MAXIMUM EVIL
+                {
+                    type: 'stomper',
+                    x: 0.08,  // Right at the bottom of first valley climb
+                    phase: 0,
+                    active: true,
+                    hitRadius: 0.015,
+                    speed: 0.05  // Normal speed
+                },
+                {
+                    type: 'stomper',
+                    x: 0.10,  // Second stomper nearby
+                    phase: Math.PI * 0.66,  // Out of phase
+                    active: true,
+                    hitRadius: 0.015,
+                    speed: 0.045  // Slightly slower
+                },
+                {
+                    type: 'stomper',
+                    x: 0.12,  // Third stomper
+                    phase: Math.PI * 1.33,  // Different phase
+                    active: true,
+                    hitRadius: 0.015,
+                    speed: 0.055  // Slightly faster
+                },
+                // Flaming swing arm at 25%
+                {
+                    type: 'flameSwing',
+                    x: 0.25,
+                    rotation: 0,
+                    direction: 1,
+                    active: true,
+                    hitRadius: 0.02
+                },
+                // Stomper rhythm section
+                {
+                    type: 'stomper',
+                    x: 0.35,
+                    phase: 0,
+                    active: true,
+                    hitRadius: 0.015,
+                    speed: 0.04
+                },
+                {
+                    type: 'stomper',
+                    x: 0.37,
+                    phase: Math.PI/2,
+                    active: true,
+                    hitRadius: 0.015,
+                    speed: 0.04
+                },
+                // Double stompers at midpoint climb
+                {
+                    type: 'stomper',
+                    x: 0.48,
+                    phase: 0,
+                    active: true,
+                    hitRadius: 0.015,
+                    speed: 0.06  // Fast!
+                },
+                {
+                    type: 'stomper',
+                    x: 0.52,
+                    phase: Math.PI, // Opposite phase
+                    active: true,
+                    hitRadius: 0.015,
+                    speed: 0.06  // Fast!
+                },
+                // Stomper corridor
+                {
+                    type: 'stomper',
+                    x: 0.62,
+                    phase: 0,
+                    active: true,
+                    hitRadius: 0.015,
+                    speed: 0.03  // Slow
+                },
+                {
+                    type: 'stomper',
+                    x: 0.64,
+                    phase: Math.PI * 0.5,
+                    active: true,
+                    hitRadius: 0.015,
+                    speed: 0.035
+                },
+                {
+                    type: 'stomper',
+                    x: 0.66,
+                    phase: Math.PI,
+                    active: true,
+                    hitRadius: 0.015,
+                    speed: 0.04
+                },
+                {
+                    type: 'stomper',
+                    x: 0.68,
+                    phase: Math.PI * 1.5,
+                    active: true,
+                    hitRadius: 0.015,
+                    speed: 0.045
+                },
+                // Flame swing on a steep section
+                {
+                    type: 'flameSwing',
+                    x: 0.75,
+                    rotation: Math.PI,
+                    direction: -1,
+                    active: true,
+                    hitRadius: 0.02
+                },
+                // Final stomper rush before finish
+                {
+                    type: 'stomper',
+                    x: 0.85,
+                    phase: 0,
+                    active: true,
+                    hitRadius: 0.015,
+                    speed: 0.07  // Very fast!
+                },
+                {
+                    type: 'stomper',
+                    x: 0.88,
+                    phase: Math.PI/2,
+                    active: true,
+                    hitRadius: 0.015,
+                    speed: 0.065
+                },
+                {
+                    type: 'stomper',
+                    x: 0.91,
+                    phase: Math.PI,
+                    active: true,
+                    hitRadius: 0.015,
+                    speed: 0.06
+                }
+            ];
+            
+            // Process all obstacles to add inversion for stompers in valleys
+            obstacles = obstacleData.map(obstacle => {
+                if (obstacle.type === 'stomper') {
+                    obstacle.inverted = isValleyPosition(obstacle.x);
+                }
+                return obstacle;
+            });
+        }
+        
+        // Track balls for each track - all start at peak before gate
+        let trackBalls = [
+            { position: 0.008, velocity: 0, lastSlope: 0, clickCount: 0, goodClicks: 0, missClicks: 0, pushRightClicks: 0, pushLeftClicks: 0, finished: false, lane: 0, dizzyTime: 0 },  // Blue (main)
+            { position: 0.008, velocity: 0, lastSlope: 0, clickCount: 0, goodClicks: 0, missClicks: 0, pushRightClicks: 0, pushLeftClicks: 0, finished: false, lane: 1, dizzyTime: 0 }, // Green
+            { position: 0.008, velocity: 0, lastSlope: 0, clickCount: 0, goodClicks: 0, missClicks: 0, pushRightClicks: 0, pushLeftClicks: 0, finished: false, lane: 2, dizzyTime: 0 }, // Pink
+            { position: 0.008, velocity: 0, lastSlope: 0, clickCount: 0, goodClicks: 0, missClicks: 0, pushRightClicks: 0, pushLeftClicks: 0, finished: false, lane: 3, dizzyTime: 0 }  // Yellow
+        ];
+        
+        // Race state
+        let raceStarted = false;
+        let countdownTimer = 0;
+        let countdownNumber = 3;
+        
+        // Race timing and finish tracking
+        let raceStartTime = null;
+        let finishResults = [];
+        const ballNames = ['Phuzzy', 'Bumble', 'Honey', 'Grizzly'];
+        const ballColors = ['#2196F3', '#4CAF50', '#ec4899', '#f59e0b'];
+        
+        // User click tracking for AI simulation
+        let userClickCount = 0;
+        let userGoodClicks = 0;
+        let userMissClicks = 0;
+        let userPushRightClicks = 0;
+        let userPushLeftClicks = 0;
+        let userClickAccuracy = 0.7; // Default 70% accuracy
+        
+        // Physics configurations for each solution
+        const physicsConfigs = {
+            original: {
+                gravity: 0.0003,
+                friction: 0.99,  // Less friction for more natural movement
+                pushForce: 0.0008,  // Reduced to prevent passing through chompers
+                applyPhysics: originalPhysics
+            },
+            solution1: {
+                gravity: 0.00015,  // Even less gravity = much slower on hills
+                friction: 0.982,  // More friction = slower overall
+                pushForce: 0.0008,  // Reduced push force for more clicking required
+                momentumConservation: 0.7,  // Less momentum preservation on transitions
+                applyPhysics: solution1Physics
+            },
+            solution2: {
+                baseGravity: 0.0003,
+                friction: 0.99,
+                pushForce: 0.0008,  // Reduced to prevent passing through chompers
+                applyPhysics: solution2Physics
+            },
+            solution3: {
+                gravity: 0.0003,
+                friction: 0.99,
+                pushForce: 0.0008,  // Reduced to prevent passing through chompers
+                railAdhesion: 0.95,
+                applyPhysics: solution3Physics
+            }
+        };
+        
+        function originalPhysics(velocity, visualSlope, steepness, config) {
+            // Apply gravity based on visual slope
+            // Positive visualSlope = uphill, negative = downhill
+            velocity -= config.gravity * visualSlope * 0.1;  // Gravity opposes uphill, assists downhill
+            
+            return velocity;
+        }
+        
+        function solution1Physics(velocity, visualSlope, steepness, config) {
+            const isPeak = lastSlope < 0 && visualSlope > 0;  // Was going down, now going up
+            const isValley = lastSlope > 0 && visualSlope < 0;  // Was going up, now going down
+            
+            // Apply gravity
+            velocity -= config.gravity * visualSlope * 0.1;
+            
+            // Momentum conservation at transitions
+            if (isValley || isPeak) {
+                velocity *= config.momentumConservation;
+            }
+            
+            return velocity;
+        }
+        
+        function solution2Physics(velocity, visualSlope, steepness, config) {
+            const curveSharpness = Math.abs(visualSlope - lastSlope) / 100;
+            const adaptiveGravityMultiplier = Math.max(0.3, 1 - curveSharpness * 0.7);
+            const gravity = config.baseGravity * adaptiveGravityMultiplier;
+            
+            // Apply adaptive gravity
+            velocity -= gravity * visualSlope * 0.1;
+            
+            // Help at sharp curves
+            if (curveSharpness > 0.1) {
+                velocity += config.pushForce * 0.001 * curveSharpness;
+            }
+            
+            return velocity;
+        }
+        
+        function solution3Physics(velocity, visualSlope, steepness, config) {
+            // Convert visual slope to angle
+            const slopeAngle = Math.atan2(visualSlope, 100);
+            const gravityComponent = config.gravity * Math.sin(slopeAngle);
+            
+            // Apply gravity along the rail
+            velocity -= gravityComponent * 3;  // Stronger effect for rail physics
+            
+            // Prevent stalling on steep slopes
+            if (Math.abs(velocity) < 0.0005 && Math.abs(visualSlope) > 20) {
+                velocity = -Math.sign(visualSlope) * 0.001;  // Roll down the slope
+            }
+            
+            return velocity;
+        }
+        
+        function drawBackgroundGrid() {
+            return; // Disabled to reduce visual clutter
+        }
+        
+        function drawBackgroundGrid_DISABLED() {
+            // Layer 1: Far background data bars (10% parallax)
+            const farParallax = cameraOffset * 0.1;
+            ctx.save();
+            ctx.translate(-farParallax, 0);
+            
+            // Draw vertical bar chart elements in the distance
+            ctx.fillStyle = 'rgba(200, 200, 220, 0.2)';
+            for (let i = 0; i < 20; i++) {
+                const barX = i * 200 + (i * 50);
+                const barHeight = 50 + Math.sin(i * 0.5) * 30;
+                const barY = canvas.height - barHeight - 50;
+                ctx.fillRect(barX, barY, 60, barHeight);
+                
+                // Add value labels above bars
+                ctx.fillStyle = 'rgba(150, 150, 170, 0.3)';
+                ctx.font = '20px monospace';
+                ctx.textAlign = 'center';
+                ctx.fillText(Math.floor(barHeight * 1.5), barX + 30, barY - 10);
+                ctx.fillStyle = 'rgba(200, 200, 220, 0.2)';
+            }
+            ctx.restore();
+            
+            // Layer 2: Mid-distance grid (25% parallax)
+            const gridParallax = cameraOffset * 0.25;
+            const gridSpacing = 50;
+            
+            ctx.save();
+            ctx.translate(-gridParallax, 0);
+            
+            // Chart grid lines
+            ctx.strokeStyle = '#e0e0e0';
+            ctx.lineWidth = 1;
+            
+            // Vertical grid lines with tick marks
+            for (let x = -(gridParallax % gridSpacing); x < canvas.width + gridSpacing; x += gridSpacing) {
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, canvas.height);
+                ctx.stroke();
+                
+                // Add tick marks at bottom
+                ctx.strokeStyle = '#c0c0c0';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(x, canvas.height - 10);
+                ctx.lineTo(x, canvas.height);
+                ctx.stroke();
+                ctx.strokeStyle = '#e0e0e0';
+                ctx.lineWidth = 1;
+            }
+            
+            // Horizontal grid lines with percentage labels
+            for (let y = 0; y < canvas.height; y += gridSpacing) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(canvas.width, y);
+                ctx.stroke();
+                
+                // Add percentage labels on left
+                if (y % 100 === 0) {
+                    ctx.fillStyle = 'rgba(100, 100, 120, 0.5)';
+                    ctx.font = '12px monospace';
+                    ctx.textAlign = 'left';
+                    const percentage = Math.floor((1 - y / canvas.height) * 100);
+                    ctx.fillText(percentage + '%', 5, y + 4);
+                }
+            }
+            
+            // Draw axis lines
+            ctx.strokeStyle = '#d0d0d0';
+            ctx.lineWidth = 2;
+            
+            // Y-axis
+            ctx.beginPath();
+            ctx.moveTo(0, 0);
+            ctx.lineTo(0, canvas.height);
+            ctx.stroke();
+            
+            // X-axis
+            ctx.beginPath();
+            ctx.moveTo(0, canvas.height - 1);
+            ctx.lineTo(canvas.width, canvas.height - 1);
+            ctx.stroke();
+            
+            ctx.restore();
+            
+            // Layer 3: Floating data points (40% parallax)
+            const dataParallax = cameraOffset * 0.4;
+            ctx.save();
+            ctx.translate(-dataParallax, 0);
+            
+            // Draw floating data points and trend lines
+            ctx.strokeStyle = 'rgba(100, 150, 200, 0.2)';
+            ctx.lineWidth = 2;
+            ctx.setLineDash([10, 5]);
+            
+            // Trend line
+            ctx.beginPath();
+            for (let i = 0; i < 30; i++) {
+                const x = i * 100;
+                const y = 200 + Math.sin(i * 0.3) * 50 + Math.cos(i * 0.7) * 30;
+                if (i === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+            ctx.setLineDash([]);
+            
+            // Data points
+            for (let i = 0; i < 30; i++) {
+                const x = i * 100;
+                const y = 200 + Math.sin(i * 0.3) * 50 + Math.cos(i * 0.7) * 30;
+                
+                ctx.fillStyle = 'rgba(100, 150, 200, 0.3)';
+                ctx.beginPath();
+                ctx.arc(x, y, 5, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            
+            ctx.restore();
+            
+            // Layer 4: Chart annotations (60% parallax)
+            const annotationParallax = cameraOffset * 0.6;
+            ctx.save();
+            ctx.translate(-annotationParallax, 0);
+            
+            // Draw annotations and callouts
+            ctx.fillStyle = 'rgba(80, 80, 100, 0.3)';
+            ctx.font = 'italic 14px serif';
+            ctx.fillText('Peak Performance', 500, 100);
+            ctx.fillText('Market Volatility', 1200, 150);
+            ctx.fillText('Growth Trend →', 2000, 120);
+            
+            // Draw some arrow indicators
+            ctx.strokeStyle = 'rgba(100, 100, 120, 0.3)';
+            ctx.lineWidth = 2;
+            
+            // Up arrow at 800px
+            ctx.beginPath();
+            ctx.moveTo(800, 180);
+            ctx.lineTo(800, 140);
+            ctx.lineTo(790, 150);
+            ctx.moveTo(800, 140);
+            ctx.lineTo(810, 150);
+            ctx.stroke();
+            
+            // Down arrow at 1600px
+            ctx.beginPath();
+            ctx.moveTo(1600, 140);
+            ctx.lineTo(1600, 180);
+            ctx.lineTo(1590, 170);
+            ctx.moveTo(1600, 180);
+            ctx.lineTo(1610, 170);
+            ctx.stroke();
+            
+            ctx.restore();
+            
+            // Layer 5: Pie chart segments floating in background (15% parallax)
+            const pieParallax = cameraOffset * 0.15;
+            ctx.save();
+            ctx.translate(-pieParallax, 0);
+            
+            // Draw pie chart at x=300
+            ctx.save();
+            ctx.translate(300, 100);
+            ctx.globalAlpha = 0.2;
+            
+            // Pie slices
+            const slices = [
+                { angle: Math.PI * 0.6, color: 'rgba(255, 100, 100, 0.5)' },
+                { angle: Math.PI * 0.8, color: 'rgba(100, 255, 100, 0.5)' },
+                { angle: Math.PI * 0.4, color: 'rgba(100, 100, 255, 0.5)' },
+                { angle: Math.PI * 0.2, color: 'rgba(255, 255, 100, 0.5)' }
+            ];
+            
+            let currentAngle = 0;
+            slices.forEach(slice => {
+                ctx.fillStyle = slice.color;
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.arc(0, 0, 40, currentAngle, currentAngle + slice.angle);
+                ctx.closePath();
+                ctx.fill();
+                currentAngle += slice.angle;
+            });
+            
+            ctx.restore();
+            
+            // Draw candlestick chart elements
+            ctx.strokeStyle = 'rgba(100, 200, 100, 0.2)';
+            ctx.fillStyle = 'rgba(100, 200, 100, 0.2)';
+            
+            for (let i = 0; i < 10; i++) {
+                const x = 1500 + i * 40;
+                const high = 250 + Math.random() * 50;
+                const low = high + 20 + Math.random() * 30;
+                const open = high + 5 + Math.random() * 20;
+                const close = high + 5 + Math.random() * 20;
+                
+                // Wick
+                ctx.beginPath();
+                ctx.moveTo(x, high);
+                ctx.lineTo(x, low);
+                ctx.stroke();
+                
+                // Body
+                const bodyTop = Math.min(open, close);
+                const bodyHeight = Math.abs(close - open);
+                ctx.fillRect(x - 8, bodyTop, 16, bodyHeight);
+            }
+            
+            ctx.restore();
+        }
+        
+        function updateCamera() {
+            // Calculate where we want the camera to position the ball
+            // Use the actual player ball position from trackBalls[0]
+            const playerBall = trackBalls[0];
+            const ballScreenX = playerBall.position * canvas.width;
+            const containerWidth = canvasContainer.offsetWidth; // 800px
+            
+            // Target: keep ball at 1/3 from left so player can click both sides
+            cameraTargetOffset = ballScreenX - containerWidth / 3;
+            
+            // Clamp target to valid range
+            const maxScroll = canvas.width - containerWidth;
+            cameraTargetOffset = Math.max(0, Math.min(maxScroll, cameraTargetOffset));
+            
+            // Calculate distance to target
+            const distance = Math.abs(cameraTargetOffset - cameraOffset);
+            
+            // Easing function: more responsive camera
+            let easeSpeed;
+            if (distance < 5) {
+                // Very close - crawl to avoid jitter
+                easeSpeed = 0.1;
+            } else if (distance < 20) {
+                // Close - moderate speed
+                easeSpeed = 0.2;
+            } else if (distance < 100) {
+                // Medium distance - faster
+                easeSpeed = 0.3;
+            } else {
+                // Far away - catch up quickly
+                easeSpeed = 0.4;
+            }
+            
+            // Lerp (linear interpolation) with easing
+            cameraOffset += (cameraTargetOffset - cameraOffset) * easeSpeed;
+            
+            // Store actual camera movement for debug
+            window.currentScrollSpeed = (cameraTargetOffset - cameraOffset) * easeSpeed;
+            
+            // Apply the scroll offset to the canvas
+            canvas.style.transform = `translateX(-${cameraOffset}px)`;
+        }
+        
+        
+        function drawRadar() {
+            return; // Disabled to reduce visual clutter
+        }
+        
+        function drawRadar_DISABLED() {
+            const radarY = 200;
+            const radarRadius = 160; // Doubled size
+            
+            ctx.save();
+            
+            // Radar background circle - transparent
+            // Remove the black fill - just draw the grid and sweep
+            
+            // Radar grid lines - pale grey
+            ctx.strokeStyle = 'rgba(200, 200, 200, 0.3)';
+            ctx.lineWidth = 1;
+            
+            // Concentric circles
+            for (let i = 1; i <= 3; i++) {
+                ctx.beginPath();
+                ctx.arc(radarX, radarY, radarRadius * i / 3, 0, Math.PI * 2);
+                ctx.stroke();
+            }
+            
+            // Cross lines
+            ctx.beginPath();
+            ctx.moveTo(radarX - radarRadius, radarY);
+            ctx.lineTo(radarX + radarRadius, radarY);
+            ctx.moveTo(radarX, radarY - radarRadius);
+            ctx.lineTo(radarX, radarY + radarRadius);
+            ctx.stroke();
+            
+            // Radar sweep
+            const sweepLength = radarRadius;
+            const sweepX = radarX + Math.cos(radarAngle) * sweepLength;
+            const sweepY = radarY + Math.sin(radarAngle) * sweepLength;
+            
+            // Create gradient for sweep line
+            const gradient = ctx.createLinearGradient(radarX, radarY, sweepX, sweepY);
+            gradient.addColorStop(0, 'rgba(0, 255, 0, 0.1)');
+            gradient.addColorStop(0.7, 'rgba(0, 255, 0, 0.8)');
+            gradient.addColorStop(1, 'rgba(0, 255, 0, 1)');
+            
+            ctx.strokeStyle = gradient;
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(radarX, radarY);
+            ctx.lineTo(sweepX, sweepY);
+            ctx.stroke();
+            
+            // Draw sweep cone (fading trail) - bolder shadow
+            ctx.fillStyle = 'rgba(0, 255, 0, 0.25)'; // Increased opacity for bolder shadow
+            ctx.beginPath();
+            ctx.moveTo(radarX, radarY);
+            ctx.arc(radarX, radarY, radarRadius, radarAngle - 0.8, radarAngle, false); // Wider trail
+            ctx.closePath();
+            ctx.fill();
+            
+            // Add blips on radar
+            const blipPositions = [
+                { angle: Math.PI * 0.3, dist: 0.6, size: 4 },
+                { angle: Math.PI * 0.8, dist: 0.8, size: 3 },
+                { angle: Math.PI * 1.5, dist: 0.4, size: 5 },
+                { angle: Math.PI * 1.2, dist: 0.9, size: 3 }
+            ];
+            
+            blipPositions.forEach(blip => {
+                // Calculate fade based on sweep position
+                let angleDiff = Math.abs(radarAngle - blip.angle);
+                if (angleDiff > Math.PI) angleDiff = 2 * Math.PI - angleDiff;
+                const fade = Math.max(0, 1 - angleDiff / Math.PI);
+                
+                const blipX = radarX + Math.cos(blip.angle) * radarRadius * blip.dist;
+                const blipY = radarY + Math.sin(blip.angle) * radarRadius * blip.dist;
+                
+                ctx.fillStyle = `rgba(0, 255, 0, ${0.5 + fade * 0.5})`;
+                ctx.beginPath();
+                ctx.arc(blipX, blipY, blip.size, 0, Math.PI * 2);
+                ctx.fill();
+            });
+            
+            // Radar border - pale grey to match
+            ctx.strokeStyle = 'rgba(200, 200, 200, 0.5)';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(radarX, radarY, radarRadius, 0, Math.PI * 2);
+            ctx.stroke();
+            
+            // Center dot
+            ctx.fillStyle = 'rgba(0, 255, 0, 1)';
+            ctx.beginPath();
+            ctx.arc(radarX, radarY, 3, 0, Math.PI * 2);
+            ctx.fill();
+            
+            ctx.restore();
+            
+            // Update radar angle
+            radarAngle += 0.02; // Sweep speed
+            if (radarAngle > Math.PI * 2) {
+                radarAngle -= Math.PI * 2;
+            }
+        }
+        
+        function drawObstacles() {
+            // First pass: Draw collision debug zones for ALL obstacles
+            if (true) { // Debug mode - RE-ENABLED to check alignment
+                obstacles.forEach(obstacle => {
+                    const obstacleX = obstacle.x * canvas.width;
+                    const screenX = obstacleX - cameraOffset;
+                    const isVisible = screenX >= -100 && screenX <= 900;
+                    
+                    ctx.save();
+                    
+                    // Draw collision zone in different colors based on visibility
+                    ctx.strokeStyle = isVisible ? 'rgba(0, 255, 0, 0.5)' : 'rgba(255, 0, 0, 0.8)';
+                    ctx.lineWidth = isVisible ? 2 : 3;
+                    ctx.setLineDash([10, 5]);
+                    
+                    const collisionRangePixels = 0.002 * canvas.width; // Match actual collision: 0.2% = 32px
+                    ctx.beginPath();
+                    ctx.moveTo(obstacleX - collisionRangePixels, 0);
+                    ctx.lineTo(obstacleX - collisionRangePixels, canvas.height);
+                    ctx.moveTo(obstacleX + collisionRangePixels, 0);
+                    ctx.lineTo(obstacleX + collisionRangePixels, canvas.height);
+                    ctx.stroke();
+                    
+                    // Label
+                    ctx.fillStyle = isVisible ? 'lime' : 'red';
+                    ctx.font = 'bold 12px Arial';
+                    ctx.fillText(`${obstacle.type}: ${(obstacle.x * 100).toFixed(1)}%${!isVisible ? ' (OFF)' : ''}`, obstacleX - 30, 20);
+                    
+                    ctx.restore();
+                });
+            }
+            
+            // Second pass: Draw visible obstacles
+            obstacles.forEach(obstacle => {
+                const obstacleX = obstacle.x * canvas.width;
+                const adjustedX = obstacleX;
+                
+                // Only draw if visible (check screen position)
+                const screenX = obstacleX - cameraOffset;
+                if (screenX < -100 || screenX > 800 + 100) return; // Skip if off-screen
+                
+                // Get track height at obstacle position
+                const trackIndex = Math.floor(obstacle.x * tracks[0].data.length);
+                const trackHeight = tracks[0].data[trackIndex].scores.test;
+                const trackY = canvas.height - (trackHeight / 100 * canvas.height);
+                
+                if (obstacle.type === 'stomper') {
+                    // Update stomper phase using custom speed
+                    obstacle.phase += (obstacle.speed || 0.05); // Use custom speed or default
+                    
+                    // Calculate stomper position (sine wave for smooth up/down)
+                    const stomperHeight = 80;
+                    const stomperOffset = Math.sin(obstacle.phase) * 0.5 + 0.5; // 0 to 1
+                    
+                    // Check if stomper should be inverted (hanging from above)
+                    const isInverted = obstacle.inverted || false;
+                    const stomperY = isInverted ? 
+                        trackY + 5 - (stomperOffset * stomperHeight * 0.8) : // Hanging from above
+                        trackY - (stomperOffset * stomperHeight * 1.1); // Rising from below - goes fully underground
+                    
+                    // Store stomper Y for collision detection (in world coordinates)
+                    obstacle.currentY = stomperY;
+                    obstacle.height = stomperHeight;
+                    obstacle.worldX = obstacleX; // Store world X for collision detection
+                    
+                    // Draw stomper
+                    ctx.save();
+                    
+                    // Apply inversion transform if needed
+                    if (isInverted) {
+                        ctx.translate(adjustedX, trackY);
+                        ctx.scale(1, -1);
+                        ctx.translate(-adjustedX, -trackY);
+                    }
+                    
+                    // Shadow
+                    ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
+                    ctx.fillRect(adjustedX - 25, trackY - 5, 50, 10);
+                    
+                    // Check if chomper should flash (was hit recently)
+                    const isFlashing = obstacle.flashTime && (Date.now() - obstacle.flashTime < 500);
+                    const flashCycle = isFlashing ? Math.sin(Date.now() * 0.02) * 0.5 + 0.5 : 0;
+                    
+                    // Stomper body
+                    if (isFlashing) {
+                        // Flash between red and white when hit
+                        ctx.fillStyle = flashCycle > 0.5 ? '#ff0000' : '#ffffff';
+                        ctx.fillRect(adjustedX - 20, stomperY, 40, stomperHeight);
+                    } else {
+                        // Normal gradient
+                        const gradient = ctx.createLinearGradient(adjustedX, stomperY, adjustedX, stomperY + stomperHeight);
+                        gradient.addColorStop(0, '#666');
+                        gradient.addColorStop(0.5, '#888');
+                        gradient.addColorStop(1, '#444');
+                        ctx.fillStyle = gradient;
+                        ctx.fillRect(adjustedX - 20, stomperY, 40, stomperHeight);
+                    }
+                    
+                    // Danger stripes
+                    ctx.fillStyle = '#ff0000';
+                    for (let i = 0; i < 4; i++) {
+                        ctx.fillRect(adjustedX - 20, stomperY + i * 20, 40, 10);
+                    }
+                    
+                    // Spikes at bottom
+                    ctx.fillStyle = '#333';
+                    for (let i = -2; i <= 2; i++) {
+                        ctx.beginPath();
+                        ctx.moveTo(adjustedX + i * 8 - 4, stomperY + stomperHeight);
+                        ctx.lineTo(adjustedX + i * 8, stomperY + stomperHeight + 10);
+                        ctx.lineTo(adjustedX + i * 8 + 4, stomperY + stomperHeight);
+                        ctx.fill();
+                    }
+                    
+                    ctx.restore();
+                    
+                } else if (obstacle.type === 'flameSwing') {
+                    // Update rotation
+                    obstacle.rotation += 0.03 * obstacle.direction; // Swing speed
+                    
+                    // Calculate flame position for collision
+                    obstacle.flameX = Math.sin(obstacle.rotation) * 50;
+                    obstacle.flameY = Math.cos(obstacle.rotation) * 50 + 60;
+                    
+                    // Draw pivot point
+                    ctx.fillStyle = '#444';
+                    ctx.beginPath();
+                    ctx.arc(adjustedX, trackY - 60, 8, 0, Math.PI * 2);
+                    ctx.fill();
+                    
+                    // Draw arm
+                    ctx.save();
+                    ctx.translate(adjustedX, trackY - 60);
+                    ctx.rotate(obstacle.rotation);
+                    
+                    // Arm
+                    ctx.fillStyle = '#666';
+                    ctx.fillRect(-3, 0, 6, 50);
+                    
+                    // Flame effect
+                    const flameGradient = ctx.createRadialGradient(0, 50, 0, 0, 50, 20);
+                    flameGradient.addColorStop(0, 'rgba(255, 255, 0, 0.8)');
+                    flameGradient.addColorStop(0.5, 'rgba(255, 100, 0, 0.6)');
+                    flameGradient.addColorStop(1, 'rgba(255, 0, 0, 0.3)');
+                    
+                    ctx.fillStyle = flameGradient;
+                    ctx.beginPath();
+                    ctx.arc(0, 50, 15, 0, Math.PI * 2);
+                    ctx.fill();
+                    
+                    // Inner flame
+                    ctx.fillStyle = 'rgba(255, 255, 100, 0.8)';
+                    ctx.beginPath();
+                    ctx.arc(0, 50, 8, 0, Math.PI * 2);
+                    ctx.fill();
+                    
+                    // Flame particles
+                    for (let i = 0; i < 5; i++) {
+                        const angle = Math.random() * Math.PI * 2;
+                        const dist = Math.random() * 25;
+                        ctx.fillStyle = `rgba(255, ${Math.random() * 155 + 100}, 0, ${Math.random() * 0.5})`;
+                        ctx.beginPath();
+                        ctx.arc(Math.cos(angle) * dist, 50 + Math.sin(angle) * dist, 3, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                    
+                    ctx.restore();
+                }
+                
+                // This debug code was moved to the beginning of the function
+            });
+        }
+        
+        function checkObstacleCollisions() {
+            // Check collision for ALL balls - fair play!
+            const ballRadius = 15;
+            
+            trackBalls.forEach((ball, ballIndex) => {
+                if (ball.dizzyTime > 0) return; // Already dizzy, skip check
+                
+                obstacles.forEach(obstacle => {
+                    if (!obstacle.active) return;
+                    
+                    // Check if ball is near obstacle
+                    const distX = Math.abs(ball.position - obstacle.x);
+                    if (distX > 0.002) return; // Ultra-precise: 0.2% = 32 pixels (just over ball diameter)
+                    
+                    // DEBUG: Log collision check details
+                    if (ballIndex === 0 && !obstacle.debugLogged && distX < 0.03) { // Only log when somewhat close
+                        const ballWorldX = ball.position * canvas.width;
+                        const obstacleWorldX = obstacle.x * canvas.width;
+                        console.log(`🔍 Near obstacle ${obstacle.type}:`);
+                        console.log(`   Ball: pos=${(ball.position * 100).toFixed(1)}% (${ballWorldX.toFixed(0)}px world)`);
+                        console.log(`   Obstacle: x=${(obstacle.x * 100).toFixed(1)}% (${obstacleWorldX.toFixed(0)}px world)`);
+                        console.log(`   Distance: ${(distX * 100).toFixed(1)}% (${(distX * canvas.width).toFixed(0)}px)`);
+                        console.log(`   Canvas width: ${canvas.width}px`);
+                        obstacle.debugLogged = true;
+                        setTimeout(() => obstacle.debugLogged = false, 3000);
+                    }
+                    
+                    // Get ball Y position using proper track data lookup
+                    const track = tracks[ballIndex];
+                    
+                    // Find the exact data point or interpolate for ball
+                    let ballY;
+                    let leftPoint = null;
+                    let rightPoint = null;
+                    
+                    for (let i = 0; i < track.data.length - 1; i++) {
+                        if (track.data[i].position <= ball.position && track.data[i + 1].position > ball.position) {
+                            leftPoint = track.data[i];
+                            rightPoint = track.data[i + 1];
+                            break;
+                        }
+                    }
+                    
+                    if (leftPoint && rightPoint) {
+                        const t = (ball.position - leftPoint.position) / (rightPoint.position - leftPoint.position);
+                        ballY = leftPoint.scores.test + (rightPoint.scores.test - leftPoint.scores.test) * t;
+                    } else {
+                        const nearestPoint = track.data.reduce((prev, curr) => 
+                            Math.abs(curr.position - ball.position) < Math.abs(prev.position - ball.position) ? curr : prev
+                        );
+                        ballY = nearestPoint.scores.test;
+                    }
+                    
+                    const ballScreenY = canvas.height - (ballY / 100 * canvas.height);
+                    
+                    // Get obstacle track position using same method
+                    let obstacleY;
+                    leftPoint = null;
+                    rightPoint = null;
+                    
+                    for (let i = 0; i < tracks[0].data.length - 1; i++) {
+                        if (tracks[0].data[i].position <= obstacle.x && tracks[0].data[i + 1].position > obstacle.x) {
+                            leftPoint = tracks[0].data[i];
+                            rightPoint = tracks[0].data[i + 1];
+                            break;
+                        }
+                    }
+                    
+                    if (leftPoint && rightPoint) {
+                        const t = (obstacle.x - leftPoint.position) / (rightPoint.position - leftPoint.position);
+                        obstacleY = leftPoint.scores.test + (rightPoint.scores.test - leftPoint.scores.test) * t;
+                    } else {
+                        const nearestPoint = tracks[0].data.reduce((prev, curr) => 
+                            Math.abs(curr.position - obstacle.x) < Math.abs(prev.position - obstacle.x) ? curr : prev
+                        );
+                        obstacleY = nearestPoint.scores.test;
+                    }
+                    
+                    const obstacleScreenY = canvas.height - (obstacleY / 100 * canvas.height);
+                
+                let hit = false;
+                
+                if (obstacle.type === 'stomper') {
+                    // Check if stomper is down AND ball is under it
+                    const stomperBottom = obstacle.currentY + obstacle.height;
+                    // Only hit if stomper is significantly up (changed from 0.6 to 0.3 for better clearance)
+                    const stomperProgress = Math.sin(obstacle.phase) * 0.5 + 0.5; // 0 to 1
+                    if (stomperProgress > 0.3 && // Stomper is up (not fully down)
+                        ballScreenY - ballRadius < stomperBottom && 
+                        ballScreenY + ballRadius > stomperBottom - 20) { // Only near the bottom of stomper
+                        hit = true;
+                        
+                        // DEBUG: Log stomper hit details for player
+                        if (ballIndex === 0) {
+                            console.log(`   Stomper phase: ${obstacle.phase.toFixed(2)}, progress: ${stomperProgress.toFixed(2)}`);
+                            console.log(`   Ball Y: ${ballScreenY.toFixed(0)}, Stomper bottom: ${stomperBottom.toFixed(0)}`);
+                        }
+                    }
+                } else if (obstacle.type === 'flameSwing') {
+                    // Calculate flame position in world space
+                    // The pivot is at trackY - 60, and flame is 50 pixels from pivot
+                    const pivotY = obstacleScreenY - 60;
+                    const flameWorldX = obstacle.x * canvas.width + Math.sin(obstacle.rotation) * 50;
+                    const flameWorldY = pivotY + Math.cos(obstacle.rotation) * 50;
+                    
+                    // Check distance to flame center
+                    const ballWorldX = ball.position * canvas.width;
+                    const distXPixels = Math.abs(ballWorldX - flameWorldX);
+                    const distYPixels = Math.abs(ballScreenY - flameWorldY);
+                    const dist = Math.sqrt(distXPixels * distXPixels + distYPixels * distYPixels);
+                    
+                    // Check if we're close enough to potentially hit
+                    if (dist < ballRadius + 15) { // 15 is flame radius
+                        // The flame swings in an arc. When cos(rotation) > 0, flame is below pivot
+                        // We should only collide when flame is near the track level
+                        const flameDistanceFromTrack = Math.abs(flameWorldY - obstacleScreenY);
+                        
+                        if (flameDistanceFromTrack < 50) { // Flame is near track level
+                            hit = true;
+                            
+                            // DEBUG: Log flame hit details for player
+                            if (ballIndex === 0) {
+                                console.log(`🔥 FLAME HIT at ${(obstacle.x * 100).toFixed(1)}%!`);
+                                console.log(`   Flame Y offset: ${obstacle.flameY.toFixed(0)}`);
+                                console.log(`   Flame distance from track: ${flameDistanceFromTrack.toFixed(0)}px`);
+                                console.log(`   Distance to flame center: ${dist.toFixed(0)}px`);
+                            }
+                        }
+                    }
+                }
+                
+                if (hit) {
+                    // Log the chomper strike!
+                    const ballName = ballIndex === 0 ? 'PLAYER' : `NPC ${ballNames[ballIndex]}`;
+                    const obstacleType = obstacle.type === 'stomper' ? '🔨 CHOMPER' : '🔥 FLAME SWING';
+                    const relativePos = ball.position < obstacle.x ? 'BEFORE' : 'AFTER';
+                    console.log(`💥 ${obstacleType} HIT! ${ballName} at ${(ball.position * 100).toFixed(1)}%`);
+                    console.log(`   Obstacle at: ${(obstacle.x * 100).toFixed(1)}% (ball is ${relativePos} the obstacle)`);
+                    console.log(`   Actual distance: ${(distX * 100).toFixed(2)}% = ${(distX * canvas.width).toFixed(0)}px`);
+                    console.log(`   Ball track: ${ballIndex}, Dizzy time applied: 2500ms`);
+                    
+                    // Calculate bounce direction - away from obstacle
+                    const bounceDirection = ball.position < obstacle.x ? -1 : 1;
+                    const bounceForce = 0.0002; // Further reduced bounce force
+                    
+                    console.log(`   Velocity before: ${ball.velocity.toFixed(4)}, bounce direction: ${bounceDirection}`);
+                    
+                    // Apply bounce physics - push ball away from obstacle
+                    ball.velocity = bounceDirection * bounceForce;
+                    
+                    // Also push the ball position slightly away to prevent getting stuck
+                    ball.position += bounceDirection * 0.002; // Reduced position adjustment
+                    
+                    // Apply dizzy effect - SAME FOR EVERYONE!
+                    ball.dizzyTime = 2500; // 2.5 seconds for ALL
+                    
+                    console.log(`   Velocity after bounce: ${ball.velocity.toFixed(4)}`);
+                    
+                    // Visual feedback - use screen coordinates for the effect
+                    const hitEffectX = ball.position * canvas.width - cameraOffset;
+                    showHitEffect(hitEffectX, ballScreenY);
+                    
+                    // Make the chomper flash
+                    obstacle.flashTime = Date.now();
+                    
+                    // Disable obstacle briefly so it doesn't hit multiple times
+                    obstacle.active = false;
+                    setTimeout(() => obstacle.active = true, 1000); // Reduced to 1 second
+                }
+                });
+            });
+        }
+        
+        function showHitEffect(x, y) {
+            // Create dizzy stars effect
+            const stars = document.createElement('div');
+            stars.style.cssText = `
+                position: absolute;
+                left: ${x}px;
+                top: ${y}px;
+                pointer-events: none;
+                font-size: 30px;
+                animation: dizzyStars 2s ease-out;
+                z-index: 1002;
+            `;
+            stars.textContent = '💫';
+            
+            canvasContainer.appendChild(stars);
+            setTimeout(() => stars.remove(), 2000);
+        }
+        
+        function drawStartingGate() {
+            // Gate position at x = 0.02 (2% of track)
+            const gateX = 0.02 * canvas.width;
+            const adjustedGateX = gateX;  // No adjustment - CSS transform handles camera
+            
+            // Back barrier position at x = 0.005
+            const backBarrierX = 0.005 * canvas.width;
+            const adjustedBackX = backBarrierX;  // No adjustment - CSS transform handles camera
+            
+            // Get track heights
+            const gateTrackIndex = Math.floor(0.02 * tracks[0].data.length);
+            const gateTrackHeight = tracks[0].data[gateTrackIndex].scores.test;
+            const gateTrackY = canvas.height - (gateTrackHeight / 100 * canvas.height);
+            
+            const backTrackIndex = Math.floor(0.005 * tracks[0].data.length);
+            const backTrackHeight = tracks[0].data[backTrackIndex].scores.test;
+            const backTrackY = canvas.height - (backTrackHeight / 100 * canvas.height);
+            
+            // Draw back barrier (always visible during countdown)
+            const backScreenX = adjustedBackX - cameraOffset;
+            if (!raceStarted && backScreenX > -50 && backScreenX < 850) {
+                ctx.fillStyle = '#666';
+                ctx.fillRect(adjustedBackX - 4, backTrackY - 60, 8, 80);
+                
+                // Back barrier warning stripes
+                ctx.fillStyle = '#ffff00';
+                for (let i = 0; i < 4; i++) {
+                    ctx.fillRect(adjustedBackX - 3, backTrackY - 60 + i * 20, 6, 10);
+                }
+            }
+            
+            // Only draw main gate if visible AND race hasn't started (to prevent flashing)
+            const gateScreenX = adjustedGateX - cameraOffset;
+            if (gateScreenX < -200 || gateScreenX > 1000) return; // Wider range to prevent edge flashing
+            
+            // Gate dimensions
+            const gateWidth = 8;
+            const gateFullHeight = 100;
+            const gateBaseY = gateTrackY + 20; // Slightly below track level
+            
+            // Animate gate height
+            if (gateHeight < gateTargetHeight) {
+                gateHeight += 0.05; // Lift speed
+                if (gateHeight > gateTargetHeight) {
+                    gateHeight = gateTargetHeight; // Clamp to target
+                }
+            } else if (gateHeight > gateTargetHeight) {
+                gateHeight -= 0.1; // Drop speed (faster)
+                if (gateHeight < gateTargetHeight) {
+                    gateHeight = gateTargetHeight; // Clamp to target
+                }
+            }
+            
+            const currentGateTop = gateBaseY - gateFullHeight * (1 - gateHeight);
+            
+            // Draw gate posts (always visible)
+            ctx.fillStyle = '#444';
+            ctx.fillRect(adjustedGateX - gateWidth/2, currentGateTop - 10, gateWidth, gateBaseY - currentGateTop + 10);
+            
+            // Draw gate barrier (red/white stripes)
+            if (gateHeight < 0.95 && raceStarted === false) { // Only show during countdown
+                ctx.save();
+                ctx.translate(adjustedGateX, currentGateTop);
+                
+                // Gate bar with stripes
+                const stripeWidth = 20;
+                const barHeight = 15;
+                ctx.fillStyle = '#ff0000';
+                ctx.fillRect(-100, -barHeight/2, 200, barHeight);
+                
+                // White stripes
+                ctx.fillStyle = '#ffffff';
+                for (let i = -100; i < 100; i += stripeWidth * 2) {
+                    ctx.fillRect(i, -barHeight/2, stripeWidth, barHeight);
+                }
+                
+                // Gate bar edge highlight
+                ctx.strokeStyle = '#000';
+                ctx.lineWidth = 2;
+                ctx.strokeRect(-100, -barHeight/2, 200, barHeight);
+                
+                ctx.restore();
+            }
+            
+            // Draw "START" text on ground before gate
+            if (!raceStarted) {
+                ctx.save();
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+                ctx.font = 'bold 40px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText('START', adjustedGateX, gateBaseY - 30);
+                ctx.restore();
+            }
+        }
+        
+        function drawScene() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw parallax background grid
+            drawBackgroundGrid();
+            
+            // Draw radar at fixed position on the track
+            drawRadar();
+            
+            // Draw all tracks (back to front) - NO PARALLAX for fair racing!
+            tracks.slice().reverse().forEach((track, reverseIndex) => {
+                const trackIndex = tracks.length - 1 - reverseIndex;
+                // All tracks move together at same speed
+                const parallaxFactor = 1; // No parallax!
+                
+                ctx.save();
+                // Don't translate - the canvas CSS transform handles camera offset
+                // ctx.translate(-cameraOffset * (1 - parallaxFactor), 0);
+                
+                // Fainter lines for distant tracks
+                ctx.globalAlpha = track.config.main ? 1 : 0.8 - (track.config.distance * 0.1);
+                ctx.strokeStyle = track.config.color;
+                ctx.lineWidth = track.config.main ? 6 : 4; // Keep blue at 6px, double others to 4px
+                
+                ctx.beginPath();
+                for (let i = 0; i < track.data.length; i++) {
+                    // No length compensation - all tracks same logical length
+                    const x = track.data[i].position * canvas.width;
+                    const y = canvas.height - (track.data[i].scores.test / 100 * canvas.height);
+                    
+                    if (i === 0) {
+                        ctx.moveTo(x, y);
+                    } else {
+                        ctx.lineTo(x, y);
+                    }
+                }
+                ctx.stroke();
+                
+                // Don't draw random balls anymore - we'll draw them separately
+                
+                ctx.restore();
+            });
+            
+            // Draw balls on all tracks (back to front for proper z-order)
+            // First draw the farthest balls (ochre, pink, green), then blue on top
+            // Draw in proper z-order: farthest to nearest
+            for (let i = tracks.length - 1; i >= 0; i--) {
+                const track = tracks[i];
+                const trackIndex = i;
+                const ball = trackBalls[trackIndex];
+                if (!ball) continue;
+                
+                // Update physics for all balls
+                if (trackIndex === 0) {
+                    // Player ball physics
+                    if (ball.dizzyTime > 0) {
+                        ball.dizzyTime -= 16; // Decrease by frame time
+                        if (ball.dizzyTime < 0) ball.dizzyTime = 0;
+                    }
+                    
+                    // Debug once per second with camera info
+                    if (!ball.lastDebugTime || Date.now() - ball.lastDebugTime > 1000) {
+                        const ballScreenX = ball.position * canvas.width;
+                        const expectedCam = ballScreenX - 266; // Should keep ball at 1/3 from left
+                        console.log(`🎯 Player ball: pos=${(ball.position * 100).toFixed(1)}%, vel=${ball.velocity.toFixed(4)}, race=${raceStarted ? 'STARTED' : 'NOT STARTED'}`);
+                        ball.lastDebugTime = Date.now();
+                    }
+                    
+                    // Use raw position for physics calculations - use track data for consistency
+                    const dataIndex = Math.max(0, Math.min(track.data.length - 2, Math.floor(ball.position * (track.data.length - 1))));
+                    const nextIndex = dataIndex + 1;
+                    const currentY = track.data[dataIndex].scores.test;
+                    const nextY = track.data[nextIndex].scores.test;
+                    
+                    // Calculate visual slope
+                    const visualSlope = (nextY - currentY) * 10;
+                    
+                    // Apply physics
+                    const config = physicsConfigs[currentSolution];
+                    
+                    // Apply physics based on current solution
+                    if (currentSolution === 'original') {
+                        ball.velocity = originalPhysics(ball.velocity, visualSlope, 0, config);
+                    } else if (currentSolution === 1) {
+                        ball.velocity = solution1Physics(ball.velocity, visualSlope, 0, config);
+                        ball.lastSlope = visualSlope;
+                    } else if (currentSolution === 2) {
+                        ball.velocity = solution2Physics(ball.velocity, visualSlope, 0, config);
+                        ball.lastSlope = visualSlope;
+                    } else if (currentSolution === 3) {
+                        ball.velocity = solution3Physics(ball.velocity, visualSlope, 0, config);
+                    }
+                    
+                    // Apply friction
+                    ball.velocity *= config.friction;
+                    
+                    // Speed limit - reduced to prevent passing through chompers
+                    if (Math.abs(ball.velocity) > 0.001) {
+                        ball.velocity = Math.sign(ball.velocity) * 0.001;
+                    }
+                    
+                    // Prevent getting stuck on steep slopes (help player like solution3Physics does)
+                    if (Math.abs(ball.velocity) < 0.0001 && Math.abs(visualSlope) > 20 && raceStarted) {
+                        ball.velocity = -Math.sign(visualSlope) * 0.0002;  // Small push to get unstuck
+                        if (!ball.stuckMessageShown || Date.now() - ball.stuckMessageShown > 3000) {
+                            console.log(`🆘 Player stuck on steep slope at ${(ball.position * 100).toFixed(1)}%! CLICK THE BALL to push it forward!`);
+                            ball.stuckMessageShown = Date.now();
+                        }
+                    }
+                    
+                    // Update position
+                    ball.position += ball.velocity;
+                    
+                    // Debug log significant velocity (removed to reduce spam)
+                    
+                    // During countdown, keep player ball trapped in starting box (same as AI)
+                    if (!raceStarted || gateHeight < 0.8) {
+                        const gateLine = 0.019; // Just before the gate
+                        const backLine = 0.006; // Just after the back barrier
+                        
+                        if (ball.position > gateLine) {
+                            // Hit the gate - bounce back
+                            ball.position = gateLine;
+                            ball.velocity = -Math.abs(ball.velocity) * 0.5; // Bounce back from gate
+                            // Removed console log to reduce spam
+                        } else if (ball.position < backLine) {
+                            // Hit the back barrier - bounce forward
+                            ball.position = backLine;
+                            ball.velocity = Math.abs(ball.velocity) * 0.5; // Bounce forward from barrier
+                            // Removed console log to reduce spam
+                        }
+                    }
+                    
+                    // Check for finish
+                    if (ball.position >= 0.99 && !ball.finished) { // Changed to 99% instead of 99.5%
+                        ball.finished = true;
+                        ball.velocity = 0; // Stop immediately
+                        console.log(`${ballNames[0]} has finished the race!`);
+                        
+                        // Record finish if not already recorded
+                        if (!finishResults.find(r => r.ballIndex === 0)) {
+                            const finishTime = (Date.now() - raceStartTime) / 1000;
+                            const accuracy = userClickCount > 0 ? userGoodClicks / userClickCount : 0;
+                            finishResults.push({
+                                ballIndex: 0,
+                                name: ballNames[0],
+                                color: ballColors[0],
+                                time: finishTime,
+                                clicks: userClickCount,
+                                accuracy: accuracy
+                            });
+                            updateRaceResults();
+                        }
+                    }
+                    
+                    // Keep in bounds
+                    if (ball.position > 0.995) {
+                        ball.position = 0.995;
+                        ball.velocity = 0;
+                    } else if (ball.position < 0) {
+                        ball.position = 0;
+                        ball.velocity = Math.abs(ball.velocity) * 0.5;
+                    }
+                    
+                } else {
+                    // Skip all physics if ball is finished
+                    if (ball.finished) {
+                        ball.velocity = 0; // Ensure no movement
+                        continue; // Skip to next ball
+                    }
+                    
+                    // Update dizzy timer for AI balls too
+                    if (ball.dizzyTime > 0) {
+                        ball.dizzyTime -= 16; // Decrease by frame time
+                        if (ball.dizzyTime < 0) ball.dizzyTime = 0;
+                    }
+                    
+                    // All balls use momentum physics
+                    // Use raw position for physics calculations
+                    const dataIndex = Math.max(0, Math.min(track.data.length - 2, Math.floor(ball.position * (track.data.length - 1))));
+                    const nextIndex = dataIndex + 1;
+                    const currentY = track.data[dataIndex].scores.test;
+                    const nextY = track.data[nextIndex].scores.test;
+                    
+                    // Calculate visual slope
+                    const visualSlope = nextY - currentY;
+                    
+                    // Momentum physics with AI adjustments
+                    const config = physicsConfigs.solution1; // Use momentum physics
+                    const isPeak = ball.lastSlope < 0 && visualSlope > 0;
+                    const isValley = ball.lastSlope > 0 && visualSlope < 0;
+                    
+                    // Apply gravity
+                    ball.velocity -= config.gravity * visualSlope * 0.1;
+                    
+                    // Momentum conservation at transitions
+                    if (isValley || isPeak) {
+                        ball.velocity *= config.momentumConservation;
+                    }
+                    
+                    // AI uses only simulated clicks - no rubber band mechanics
+                    
+                    if (raceStarted && !ball.finished) { // Don't click if finished!
+                        // Initialize AI click tracking if needed
+                        if (!ball.lastClickTime) {
+                            ball.lastClickTime = Date.now();
+                        }
+                        
+                        // AI has independent clicking
+                        const timeSinceLastClick = Date.now() - ball.lastClickTime;
+                        
+                        // Each AI has their own persistent click rate and interval - competitive but human-like
+                        if (!ball.clickRate) {
+                            ball.clickRate = 0.8 + Math.random() * 0.3; // 0.8x to 1.1x speed variation (tighter range)
+                            ball.baseInterval = 350 + Math.random() * 100; // 350-450ms base interval (more consistent)
+                        }
+                        let aiClickDelay = ball.baseInterval * ball.clickRate;
+                        
+                        // Add occasional "hesitation" moments where AI doesn't click for a while
+                        if (!ball.lastHesitation) ball.lastHesitation = 0;
+                        if (Date.now() - ball.lastHesitation > 5000 && Math.random() < 0.01) { // 1% chance every 5+ seconds
+                            aiClickDelay *= 2; // Double the delay during hesitation
+                            ball.lastHesitation = Date.now();
+                        }
+                        
+                        // AI tries to click but now with more human-like delays
+                        if (timeSinceLastClick > aiClickDelay) {
+                            ball.clickCount++;
+                            ball.lastClickTime = Date.now();
+                            
+                            // Each AI has their own persistent accuracy - competitive but flawed
+                            if (!ball.baseAccuracy) {
+                                ball.baseAccuracy = 0.50 + Math.random() * 0.15; // 50-65% base accuracy (tighter range)
+                            }
+                            
+                            // Debug first few clicks
+                            if (ball.clickCount <= 3) {
+                                // console.log(`${ballNames[trackIndex]} clicked! Rate: ${ball.clickRate.toFixed(2)}, Accuracy: ${ball.baseAccuracy.toFixed(2)}`);
+                            }
+                            const aiAccuracy = ball.baseAccuracy - (track.config.distance * 0.05);
+                            const clickRoll = Math.random();
+                            
+                            // AI struggles more on uphills and gets confused occasionally
+                            const uphillPenalty = visualSlope > 15 ? 0.7 : (visualSlope > 5 ? 0.85 : 1.0); // More realistic struggle
+                            
+                            // Add random "panic" moments where accuracy drops
+                            const panicRoll = Math.random();
+                            const currentAccuracy = panicRoll < 0.03 ? aiAccuracy * 0.4 : aiAccuracy; // 3% chance of panic (60% accuracy drop)
+                            
+                            if (clickRoll < currentAccuracy * 0.8) {
+                                // Good click - push forward (80% of good clicks)
+                                ball.velocity += config.pushForce * 0.85 * uphillPenalty;  // AI gets 85% push force
+                                ball.goodClicks++;
+                                ball.pushRightClicks++;
+                                // Show click effect for AI
+                                showAIClickFeedback(ball, track, 'push-right');
+                            } else if (clickRoll < currentAccuracy) {
+                                // Wrong side click - push backward (25% of good clicks, up from 15%)
+                                ball.velocity -= config.pushForce * 0.7;  // More penalty for wrong-side clicks
+                                ball.goodClicks++;
+                                ball.pushLeftClicks++;
+                                showAIClickFeedback(ball, track, 'push-left');
+                            } else {
+                                // Miss - but sometimes it's a "target confusion" where they click completely wrong
+                                ball.missClicks++;
+                                
+                                // 30% of misses are actually "target confusion" where they click backwards
+                                if (Math.random() < 0.3) {
+                                    ball.velocity -= config.pushForce * 0.4;  // Accidental reverse click
+                                    showAIClickFeedback(ball, track, 'push-left');
+                                } else {
+                                    showAIClickFeedback(ball, track, 'miss');
+                                }
+                            }
+                        }
+                        
+                        // No rubber band mechanics - pure skill based
+                        
+                        // Extra damping to prevent runaway speeds
+                        if (Math.abs(ball.velocity) > 0.002) {
+                            ball.velocity *= 0.95; // Additional slowdown at high speeds
+                        }
+                    } else {
+                        // Before race starts, no movement
+                        ball.velocity *= 0.9; // Heavy damping
+                    }
+                    
+                    // Apply friction
+                    ball.velocity *= config.friction;
+                    
+                    // Store slope for next frame
+                    ball.lastSlope = visualSlope;
+                    
+                    // Update position
+                    ball.position += ball.velocity;
+                    
+                    // Debug extreme positions
+                    if (ball.position > 0.99 && !ball.debugged) {
+                        // console.log(`${ballNames[trackIndex]} approaching finish at ${(ball.position * 100).toFixed(1)}%`);
+                        ball.debugged = true;
+                    }
+                    
+                    // Global speed limit for background balls - match player limit
+                    if (Math.abs(ball.velocity) > 0.001) {
+                        ball.velocity = Math.sign(ball.velocity) * 0.001;
+                    }
+                    
+                    // During countdown, keep balls trapped in starting box
+                    if (!raceStarted || gateHeight < 0.8) {
+                        const gateLine = 0.019; // Just before the gate
+                        const backLine = 0.006; // Just after the back barrier
+                        
+                        if (ball.position > gateLine) {
+                            // Hit the gate - bounce back
+                            ball.position = gateLine;
+                            ball.velocity = -Math.abs(ball.velocity) * 0.5; // Bounce back from gate
+                        } else if (ball.position < backLine) {
+                            // Hit the back barrier - bounce forward
+                            ball.position = backLine;
+                            ball.velocity = Math.abs(ball.velocity) * 0.5; // Bounce forward from barrier
+                        }
+                    }
+                    
+                    // Check for finish BEFORE clamping
+                    if (ball.position >= 0.99 && !ball.finished) { // Changed to 99% instead of 99.5%
+                        // Mark as finished
+                        ball.finished = true;
+                        ball.velocity = 0; // Stop immediately
+                        console.log(`${ballNames[trackIndex]} has finished the race!`);
+                        
+                        // Record finish if not already recorded
+                        if (!finishResults.find(r => r.ballIndex === trackIndex)) {
+                            const finishTime = (Date.now() - raceStartTime) / 1000;
+                            const accuracy = ball.clickCount > 0 ? ball.goodClicks / ball.clickCount : 0;
+                            finishResults.push({
+                                ballIndex: trackIndex,
+                                name: ballNames[trackIndex],
+                                color: ballColors[trackIndex],
+                                time: finishTime,
+                                clicks: ball.clickCount,
+                                accuracy: accuracy
+                            });
+                            updateRaceResults();
+                        }
+                    }
+                    
+                    // Clamp position to valid range
+                    if (ball.position > 0.995) {
+                        ball.position = 0.995; // Stop at end
+                        ball.velocity = 0; // Always stop velocity at the end
+                    } else if (ball.position < 0) {
+                        ball.position = 0;
+                        ball.velocity = Math.abs(ball.velocity) * 0.5;
+                    }
+                }
+                
+                // Get current position on track curve
+                const parallaxFactor = 1; // No parallax - all tracks same!
+                
+                // For finding the Y position, use the EXACT same lookup as track generation
+                // This ensures the ball follows the visual track perfectly
+                const dataLookupPosition = ball.position;
+                
+                // Find the exact data point or interpolate if between points
+                let interpolatedY;
+                
+                // Find the two points that bracket our position
+                let leftPoint = null;
+                let rightPoint = null;
+                
+                for (let i = 0; i < track.data.length - 1; i++) {
+                    if (track.data[i].position <= dataLookupPosition && track.data[i + 1].position > dataLookupPosition) {
+                        leftPoint = track.data[i];
+                        rightPoint = track.data[i + 1];
+                        break;
+                    }
+                }
+                
+                if (leftPoint && rightPoint) {
+                    // Interpolate between the two points
+                    const t = (dataLookupPosition - leftPoint.position) / (rightPoint.position - leftPoint.position);
+                    interpolatedY = leftPoint.scores.test + (rightPoint.scores.test - leftPoint.scores.test) * t;
+                } else {
+                    // Fallback - use nearest point
+                    const nearestPoint = track.data.reduce((prev, curr) => 
+                        Math.abs(curr.position - dataLookupPosition) < Math.abs(prev.position - dataLookupPosition) ? curr : prev
+                    );
+                    interpolatedY = nearestPoint.scores.test;
+                }
+                
+                // For X position - no length compensation, all tracks same length
+                const ballX = ball.position * canvas.width;
+                // Don't adjust for camera - CSS transform handles it
+                const adjustedX = ballX;  // Just use world position
+                
+                // DEBUG: Check if position lookup affected X
+                if (trackIndex === 0 && leftPoint && rightPoint) {
+                    const lookupX = ((leftPoint.position + rightPoint.position) / 2) * canvas.width;
+                    if (Math.abs(lookupX - ballX) > 10) {
+                        console.log(`⚠️ X MISMATCH: ball.position=${ball.position.toFixed(3)} (${ballX.toFixed(0)}px) but lookup midpoint=${((leftPoint.position + rightPoint.position) / 2).toFixed(3)} (${lookupX.toFixed(0)}px)`);
+                    }
+                }
+                // Y calculation - higher scores = higher on screen (smaller Y)
+                const ballY = canvas.height - (interpolatedY / 100 * canvas.height);
+                
+                // DEBUG: Log the calculation for player
+                if (trackIndex === 0 && !ball.yCalcLogged) {
+                    console.log(`Ball Y calc: canvas.height(${canvas.height}) - (${interpolatedY.toFixed(1)}% / 100 * ${canvas.height}) = ${ballY.toFixed(1)}`);
+                    ball.yCalcLogged = true;
+                }
+                
+                // Ball sizes decrease with distance (less dramatic for better perception)
+                let ballRadius;
+                if (track.config.main) {
+                    ballRadius = 15; // Main ball
+                } else {
+                    ballRadius = 15 - track.config.distance * 1; // 14, 13, 12 for background tracks
+                }
+                
+                // Debug first frame
+                if (!ball.debuggedDraw) {
+                    // console.log(`Drawing ${ballNames[trackIndex]}: pos=${ball.position}, ballX=${ballX}, adjustedX=${adjustedX}, ballY=${ballY}, visible=${adjustedX >= -ballRadius - 100 && adjustedX <= canvas.width + ballRadius + 100}`);
+                    ball.debuggedDraw = true;
+                }
+                
+                // Only draw if ball is in viewport (with generous margin)
+                const viewportWidth = 800; // The actual viewport width
+                const screenX = adjustedX - cameraOffset; // Convert to screen coordinates for visibility check
+                const isVisible = screenX >= -ballRadius - 100 && screenX <= viewportWidth + ballRadius + 100;
+                
+                // Debug logging for player ball visibility (once only)
+                if (trackIndex === 0 && !isVisible && !ball.notVisibleLogged) {
+                    console.log(`🔴 Player ball NOT VISIBLE: pos=${(ball.position * 100).toFixed(1)}%, adjustedX=${adjustedX.toFixed(1)}, camera=${cameraOffset.toFixed(1)}`);
+                    ball.notVisibleLogged = true;
+                }
+                
+                if (isVisible) {
+                    // Add slight shadow for depth on background tracks
+                    if (!track.config.main) {
+                        ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
+                        ctx.beginPath();
+                        ctx.arc(adjustedX + 2, ballY - ballRadius + 2, ballRadius, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                    
+                    // Draw ball with better visibility
+                    ctx.save();
+                    
+                    // DEBUG: Draw a simple rectangle first (only for player)
+                    if (trackIndex === 0) {
+                        ctx.fillStyle = 'red';
+                        ctx.fillRect(adjustedX - 5, ballY - 25, 10, 10);
+                        // console.log(`Player ball draw: adjustedX=${adjustedX}, ballY=${ballY}, pos=${ball.position * 100}%`);
+                    }
+                    
+                    if (!track.config.main) {
+                        // Make background balls more visible
+                        ctx.globalAlpha = 0.9 - (track.config.distance * 0.05); // Less transparency
+                    }
+                    ctx.fillStyle = track.config.color;
+                    ctx.beginPath();
+                    ctx.arc(adjustedX, ballY - ballRadius, ballRadius, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.restore();
+                    
+                    // Visual effects based on absolute speed
+                    const absSpeed = Math.abs(ball.velocity);
+                    
+                    // DEBUG removed - ball should now follow track correctly
+                    
+                    // Show speed lines when going fast
+                    if (absSpeed > 0.0015) {
+                        ctx.save();
+                        ctx.strokeStyle = track.config.color;
+                        ctx.lineWidth = 2;
+                        ctx.globalAlpha = Math.min(0.6, (absSpeed - 0.0015) * 500);
+                        
+                        const numLines = Math.floor(absSpeed * 2000);
+                        for (let i = 0; i < numLines; i++) {
+                            const lineX = adjustedX - (i + 1) * 12;
+                            const lineY = ballY - ballRadius + (Math.random() - 0.5) * 8;
+                            ctx.beginPath();
+                            ctx.moveTo(lineX, lineY);
+                            ctx.lineTo(lineX - 8, lineY);
+                            ctx.stroke();
+                        }
+                        ctx.restore();
+                    }
+                    
+                    // Removed water drop effects - they looked funny
+                    
+                    // Add highlight for depth
+                    ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+                    ctx.beginPath();
+                    ctx.arc(adjustedX - ballRadius/3, ballY - ballRadius - ballRadius/3, ballRadius/3, 0, Math.PI * 2);
+                    ctx.fill();
+                    
+                    // DEBUG: Always show player ball position info
+                    if (trackIndex === 0) {
+                        ctx.save();
+                        ctx.fillStyle = 'black';
+                        ctx.font = 'bold 12px Arial';
+                        ctx.textAlign = 'center';
+                        const debugInfo = `Pos: ${(ball.position * 100).toFixed(1)}% | X: ${adjustedX.toFixed(0)}px | Vis: ${isVisible ? 'YES' : 'NO'}`;
+                        ctx.fillText(debugInfo, adjustedX, ballY - ballRadius - 40);
+                        ctx.restore();
+                    }
+                    
+                    // Show click zone for player (Track 0)
+                    if (trackIndex === 0 && raceStarted) {
+                        // Show "STUCK! CLICK ME!" message if velocity is near zero
+                        if (Math.abs(ball.velocity) < 0.0001 && ball.position > 0.02 && ball.position < 0.99) {
+                            ctx.save();
+                            ctx.fillStyle = '#ff0000';
+                            ctx.font = 'bold 14px Arial';
+                            ctx.textAlign = 'center';
+                            ctx.fillText('STUCK! CLICK ME!', adjustedX, ballY - ballRadius - 25);
+                            
+                            // Pulsing arrow pointing at ball
+                            const pulse = Math.sin(Date.now() / 200) * 5;
+                            ctx.beginPath();
+                            ctx.moveTo(adjustedX, ballY - ballRadius - 20 - pulse);
+                            ctx.lineTo(adjustedX - 10, ballY - ballRadius - 35 - pulse);
+                            ctx.lineTo(adjustedX + 10, ballY - ballRadius - 35 - pulse);
+                            ctx.closePath();
+                            ctx.fill();
+                            ctx.restore();
+                        }
+                        
+                        // Show dizzy stars if stunned
+                        if (ball.dizzyTime > 0) {
+                            ctx.save();
+                            
+                            // Add pulsing glow effect to make ball more visible
+                            const pulseScale = 1 + Math.sin(Date.now() / 100) * 0.1;
+                            ctx.shadowColor = '#ffff00';
+                            ctx.shadowBlur = 20 * pulseScale;
+                            ctx.fillStyle = track.config.color;
+                            ctx.beginPath();
+                            ctx.arc(adjustedX, ballY - ballRadius, ballRadius * 1.2, 0, Math.PI * 2);
+                            ctx.fill();
+                            ctx.shadowBlur = 0;
+                            
+                            ctx.font = '20px Arial';
+                            ctx.textAlign = 'center';
+                            
+                            // Draw spinning stars around the ball
+                            const numStars = 3;
+                            const time = Date.now() / 200; // Spin speed
+                            for (let i = 0; i < numStars; i++) {
+                                const angle = (Math.PI * 2 * i / numStars) + time;
+                                const starX = adjustedX + Math.cos(angle) * 30;
+                                const starY = ballY - ballRadius + Math.sin(angle) * 20;
+                                ctx.fillText('💫', starX, starY);
+                            }
+                            
+                            // Draw "DIZZY!" text
+                            ctx.fillStyle = '#ffff00';
+                            ctx.font = 'bold 16px Arial';
+                            ctx.fillText('DIZZY!', adjustedX, ballY - ballRadius - 40);
+                            ctx.restore();
+                        } else {
+                            // Normal click zone indicator
+                            ctx.strokeStyle = 'rgba(0, 255, 0, 0.2)';
+                            ctx.lineWidth = 2;
+                            ctx.setLineDash([5, 5]);
+                            ctx.beginPath();
+                            ctx.arc(adjustedX, ballY - ballRadius, 75, 0, Math.PI * 2); // 75px click radius
+                            ctx.stroke();
+                            ctx.setLineDash([]);
+                        }
+                        
+                        // Direction indicator for player
+                        if (ball.velocity !== 0 && ball.dizzyTime <= 0) {
+                            ctx.strokeStyle = ball.velocity > 0 ? '#00ff00' : '#ff0000';
+                            ctx.lineWidth = 4;
+                            ctx.beginPath();
+                            const arrowLength = Math.abs(ball.velocity) * 20000;
+                            const arrowX = adjustedX + (ball.velocity > 0 ? arrowLength : -arrowLength);
+                            ctx.moveTo(adjustedX, ballY - ballRadius);
+                            ctx.lineTo(arrowX, ballY - ballRadius);
+                            // Arrowhead
+                            const arrowSize = 10;
+                            if (ball.velocity > 0) {
+                                ctx.lineTo(arrowX - arrowSize, ballY - ballRadius - arrowSize/2);
+                                ctx.moveTo(arrowX, ballY - ballRadius);
+                                ctx.lineTo(arrowX - arrowSize, ballY - ballRadius + arrowSize/2);
+                            } else {
+                                ctx.lineTo(arrowX + arrowSize, ballY - ballRadius - arrowSize/2);
+                                ctx.moveTo(arrowX, ballY - ballRadius);
+                                ctx.lineTo(arrowX + arrowSize, ballY - ballRadius + arrowSize/2);
+                            }
+                            ctx.stroke();
+                        }
+                    }
+                    
+                    // Debug: Show actual position above each ball
+                    if (debugMode || true) { // Always show for now
+                        ctx.fillStyle = track.config.color;
+                        ctx.font = 'bold 10px Arial';
+                        ctx.fillText(`${(ball.position * 100).toFixed(0)}%`, adjustedX - 10, ballY - ballRadius - 20);
+                    }
+                    
+                    // Add arrow indicator for player if off-screen
+                    if (trackIndex === 0 && (adjustedX < -50 || adjustedX > viewportWidth + 50)) {
+                        // Draw arrow pointing to player
+                        ctx.save();
+                        ctx.fillStyle = '#00ff00';
+                        ctx.font = 'bold 20px Arial';
+                        if (adjustedX < -50) {
+                            // Player is behind, draw arrow on left
+                            ctx.fillText('←', 10, canvas.height / 2);
+                            ctx.fillText('YOU', 30, canvas.height / 2);
+                        } else {
+                            // Player is ahead, draw arrow on right
+                            ctx.fillText('→', viewportWidth - 30, canvas.height / 2);
+                            ctx.fillText('YOU', viewportWidth - 80, canvas.height / 2);
+                        }
+                        ctx.restore();
+                    }
+                }
+            }
+            
+            // Draw starting gate (after tracks, before UI elements)
+            drawStartingGate();
+            
+            // Draw obstacles
+            drawObstacles();
+            
+            // Draw direction indicator (these scroll with the world)
+            ctx.fillStyle = '#666';
+            ctx.font = '14px Arial';
+            ctx.fillText('← Peak', 10, 30);
+            ctx.fillText('Ground →', canvas.width - 70, 30);
+            
+            // Draw progress markers on each track with proper parallax
+            const markerPositions = [0.25, 0.5, 0.75, 0.995];
+            const markerLabels = ['25%', '50%', '75%', 'FIN'];
+            
+            tracks.forEach((track, trackIndex) => {
+                const parallaxFactor = 1; // No parallax for progress markers either
+                
+                ctx.save();
+                ctx.translate(-cameraOffset * (1 - parallaxFactor), 0);
+                
+                // Get track Y position at 50% for label placement
+                const midIndex = Math.floor(track.data.length / 2);
+                const midY = canvas.height - (track.data[midIndex].scores.test / 100 * canvas.height);
+                
+                markerPositions.forEach((pos, i) => {
+                    const x = pos * canvas.width;
+                    
+                    // Draw vertical line
+                    ctx.strokeStyle = track.config.color;
+                    ctx.lineWidth = 1;
+                    ctx.setLineDash([5, 5]);
+                    ctx.beginPath();
+                    ctx.moveTo(x, 0);
+                    ctx.lineTo(x, canvas.height);
+                    ctx.stroke();
+                    ctx.setLineDash([]);
+                    
+                    // Draw label
+                    ctx.fillStyle = track.config.color;
+                    ctx.font = '10px Arial';
+                    ctx.fillText(markerLabels[i], x + 2, midY + trackIndex * 15);
+                });
+                
+                ctx.restore();
+            });
+            
+            // Draw minimap showing full track and viewport
+            ctx.save();
+            // Reset transform to draw in screen space, not world space
+            ctx.setTransform(1, 0, 0, 1, 0, 0);
+            ctx.translate(10, 10); // Position in top-left of screen
+            
+            // Minimap background
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
+            ctx.fillRect(0, 0, 200, 50);
+            
+            // Draw mini track
+            ctx.strokeStyle = '#2196F3';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(0, 25);
+            ctx.lineTo(200, 25);
+            ctx.stroke();
+            
+            // Draw viewport indicator
+            const viewportStart = (cameraOffset / canvas.width) * 200;
+            const viewportWidth = (800 / canvas.width) * 200;
+            ctx.fillStyle = 'rgba(255, 255, 0, 0.3)';
+            ctx.fillRect(viewportStart, 10, viewportWidth, 30);
+            ctx.strokeStyle = 'yellow';
+            ctx.strokeRect(viewportStart, 10, viewportWidth, 30);
+            
+            // Draw player ball position
+            const ballMapX = (trackBalls[0].position) * 200;
+            ctx.fillStyle = '#2196F3';
+            ctx.beginPath();
+            ctx.arc(ballMapX, 25, 3, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Draw where camera thinks ball is
+            const cameraExpectedBallX = ((cameraOffset + 266) / canvas.width) * 200;
+            ctx.strokeStyle = 'red';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(cameraExpectedBallX, 20);
+            ctx.lineTo(cameraExpectedBallX, 30);
+            ctx.stroke();
+            
+            // Labels
+            ctx.fillStyle = 'white';
+            ctx.font = '10px Arial';
+            ctx.fillText('0%', 0, 8);
+            ctx.fillText('100%', 175, 8);
+            ctx.fillText(`Ball: ${(trackBalls[0].position*100).toFixed(1)}%`, 5, 60);
+            ctx.fillText(`Cam: ${(cameraOffset).toFixed(0)}px`, 5, 70);
+            
+            ctx.restore();
+            
+            // Draw version number in top right
+            ctx.fillStyle = '#999';
+            ctx.font = '12px Arial';
+            ctx.fillText('v2.0.6-debug', canvas.width - 50, 20);
+            
+            // Update race stats in real-time
+            if (raceStarted && raceStartTime) {
+                updateRaceStats();
+            }
+            
+            // Sync the old ballPosition variable with player ball for compatibility
+            ballPosition = trackBalls[0].position;
+            
+            // Draw countdown if active - position it in viewport
+            if (!raceStarted && countdownTimer > 0) {
+                ctx.save();
+                ctx.font = 'bold 120px Arial';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                
+                // Position countdown in center of viewport accounting for camera offset
+                const viewportCenterX = cameraOffset + 400; // Center of 800px viewport
+                const viewportCenterY = 200;
+                
+                // Shadow for visibility
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+                ctx.fillText(countdownNumber || 'GO!', viewportCenterX + 2, viewportCenterY + 2);
+                
+                // Main text
+                if (countdownNumber > 0) {
+                    ctx.fillStyle = '#FF5722';
+                    ctx.fillText(countdownNumber, viewportCenterX, viewportCenterY);
+                } else {
+                    ctx.fillStyle = '#4CAF50';
+                    ctx.fillText('GO!', viewportCenterX, viewportCenterY);
+                }
+                ctx.restore();
+            }
+            
+            // Update debug info
+            if (debugMode) {
+                // Get data for debug display
+                const dataIndex = Math.floor(ballPosition * (testData.length - 1));
+                const nextIndex = Math.min(dataIndex + 1, testData.length - 1);
+                const currentY = testData[dataIndex].scores.test;
+                const nextY = testData[nextIndex].scores.test;
+                const visualSlope = nextY - currentY;
+                
+                document.getElementById('position').textContent = ballPosition.toFixed(3);
+                document.getElementById('velocity').textContent = Math.abs(ballVelocity).toFixed(4);
+                document.getElementById('velocity-dir').textContent = ballVelocity > 0 ? '→' : ballVelocity < 0 ? '←' : '•';
+                document.getElementById('slope').textContent = visualSlope.toFixed(2);
+                
+                const state = visualSlope > 0 ? 'uphill' : visualSlope < 0 ? 'downhill' : 'flat';
+                document.getElementById('state').textContent = state;
+                
+                // Show gravity effect
+                const gravityEffect = -visualSlope * 0.0003 * 0.1;
+                document.getElementById('gravity-effect').textContent = gravityEffect.toFixed(6);
+                
+                // Show camera info
+                document.getElementById('camera-offset').textContent = Math.round(cameraOffset);
+                const ballRelativeX = (ballPosition * canvas.width) - cameraOffset;
+                const ballPercentage = (ballRelativeX / canvasContainer.offsetWidth) * 100;
+                document.getElementById('ball-viewport').textContent = ballPercentage.toFixed(1) + '%';
+                document.getElementById('scroll-speed').textContent = (window.currentScrollSpeed || 0).toFixed(2);
+            }
+        }
+        
+        function animate() {
+            const config = physicsConfigs[currentSolution];
+            
+            // Get slope
+            const dataIndex = Math.floor(ballPosition * (testData.length - 1));
+            const nextIndex = Math.min(dataIndex + 1, testData.length - 1);
+            const currentY = testData[dataIndex].scores.test;
+            const nextY = testData[nextIndex].scores.test;
+            
+            // Visual slope: positive = uphill, negative = downhill
+            // Since higher Y values are at the top of the screen visually, we don't invert
+            const visualSlope = nextY - currentY;  // Positive when going up visually
+            const steepness = Math.abs(visualSlope) / 100;
+            
+            // Update dizzy timer for player
+            if (trackBalls[0].dizzyTime > 0) {
+                trackBalls[0].dizzyTime -= 16; // Decrease by frame time (assuming 60fps)
+                if (trackBalls[0].dizzyTime < 0) trackBalls[0].dizzyTime = 0;
+            }
+            
+            // Only apply physics if race has started
+            if (raceStarted) {
+                // Check for obstacle collisions
+                checkObstacleCollisions();
+                
+                // If dizzy, severely limit movement
+                if (trackBalls[0].dizzyTime > 0) {
+                    ballVelocity *= 0.1; // Only 10% of normal velocity when dizzy
+                } else {
+                    // Apply physics normally
+                    ballVelocity = config.applyPhysics(ballVelocity, visualSlope, steepness, config);
+                }
+                
+                // Apply friction (always opposes motion)
+                ballVelocity *= config.friction;
+                
+                // Apply velocity cap (rate limiter)
+                const maxVelocity = 0.0015; // Much lower max speed for 30+ second races!
+                ballVelocity = Math.max(-maxVelocity, Math.min(maxVelocity, ballVelocity));
+                
+                // Update position
+                ballPosition += ballVelocity;
+            } else {
+                // During countdown, keep ball trapped in starting box
+                if (!raceStarted || gateHeight < 0.8) {
+                    const gateLine = 0.019; // Just before the gate
+                    const backLine = 0.006; // Just after the back barrier
+                    
+                    if (ballPosition > gateLine) {
+                        // Hit the gate - bounce back
+                        ballPosition = gateLine;
+                        ballVelocity = -Math.abs(ballVelocity) * 0.5; // Bounce back from gate
+                    } else if (ballPosition < backLine) {
+                        // Hit the back barrier - bounce forward
+                        ballPosition = backLine;
+                        ballVelocity = Math.abs(ballVelocity) * 0.5; // Bounce forward from barrier
+                    }
+                }
+            }
+            
+            // Update countdown
+            if (!raceStarted && countdownTimer > 0) {
+                countdownTimer--;
+                if (countdownTimer % 60 === 0) { // Every second (60 frames)
+                    countdownNumber--;
+                    if (countdownNumber === 0) {
+                        // Show GO! for this frame
+                    } else if (countdownNumber < 0) {
+                        raceStarted = true;
+                        raceStartTime = Date.now(); // Start the timer
+                        gateTargetHeight = 1; // Open the gate!
+                    }
+                }
+            }
+            
+            // Bounce at boundaries
+            if (ballPosition < 0) {
+                ballPosition = 0;
+                ballVelocity = Math.abs(ballVelocity) * 0.5;  // Bounce with energy loss
+            } else if (ballPosition > 0.995 && raceStarted) {
+                // Player finished!
+                ballPosition = 0.995; // Keep at edge
+                ballVelocity = 0;
+                
+                // Record finish if not already recorded
+                if (!finishResults.find(r => r.ballIndex === 0)) {
+                    const finishTime = (Date.now() - raceStartTime) / 1000;
+                    finishResults.push({
+                        ballIndex: 0,
+                        name: ballNames[0],
+                        color: ballColors[0],
+                        time: finishTime,
+                        clicks: userClickCount,
+                        accuracy: userClickAccuracy
+                    });
+                    updateRaceResults();
+                }
+            }
+            
+            // SCROLLING LOGIC: Update camera based on ball position
+            updateCamera();
+            
+            lastSlope = visualSlope;
+            
+            drawScene();
+            animationId = requestAnimationFrame(animate);
+        }
+        
+        function startTest() {
+            if (!animationId) {
+                // Reset race state
+                raceStarted = false;
+                countdownTimer = 240; // 4 seconds total (3-2-1-GO)
+                countdownNumber = 3;
+                finishResults = []; // Clear previous results
+                document.getElementById('race-results').style.display = 'none';
+                gateHeight = 0; // Close the gate
+                gateTargetHeight = 0;
+                
+                // Reset click tracking
+                userClickCount = 0;
+                userGoodClicks = 0;
+                userMissClicks = 0;
+                userPushRightClicks = 0;
+                userPushLeftClicks = 0;
+                userClickAccuracy = 0.7;
+                
+                // Initialize obstacles
+                initializeObstacles();
+                
+                // DEBUG: Log all obstacles to check positions
+                console.log('🎮 Obstacles initialized:');
+                obstacles.forEach((obs, i) => {
+                    console.log(`  ${i}: ${obs.type} at ${(obs.x * 100).toFixed(1)}%`);
+                });
+                
+                // Reset camera
+                cameraOffset = 0;
+                cameraTargetOffset = 0;
+                canvas.style.transform = 'translateX(0px)';
+                
+                // Reset all balls to start position on hill before gate
+                ballPosition = 0.008;  // On the hill, before the peak
+                ballVelocity = 0;
+                trackBalls.forEach(ball => {
+                    ball.position = 0.008;  // All start on the hill
+                    ball.velocity = 0;
+                    ball.lastSlope = 0;
+                    ball.clickCount = 0;
+                    ball.goodClicks = 0;
+                    ball.missClicks = 0;
+                    ball.pushRightClicks = 0;
+                    ball.pushLeftClicks = 0;
+                    ball.lastClickTime = null;
+                    ball.finished = false;
+                    ball.debugged = false;
+                    ball.dizzyTime = 0; // Reset dizzy state
+                });
+                
+                // Now start the animation which will show balls and countdown
+                animate();
+            }
+        }
+        
+        function stopTest() {
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+                animationId = null;
+                document.getElementById('race-stats').style.display = 'none';
+            }
+        }
+        
+        function pushBall() {
+            const config = physicsConfigs[currentSolution];
+            ballVelocity += config.pushForce;  // Push forward (right)
+        }
+        
+        function pushBallBackward() {
+            const config = physicsConfigs[currentSolution];
+            ballVelocity -= config.pushForce;  // Push backward (left)
+        }
+        
+        function toggleDebug() {
+            debugMode = !debugMode;
+            document.getElementById('debug-info').style.display = debugMode ? 'block' : 'none';
+        }
+        
+        function toggleSafetyMode() {
+            safetyMode = !safetyMode;
+            const btn = document.getElementById('safetyBtn');
+            const hint = document.getElementById('controlHint');
+            
+            if (safetyMode) {
+                btn.style.background = '#4CAF50';
+                btn.textContent = 'Safety Mode: ON';
+                hint.textContent = 'Click anywhere near the ball to push forward!';
+            } else {
+                btn.style.background = '#ff9800';
+                btn.textContent = 'Safety Mode: OFF';
+                hint.textContent = 'Click near the ball: Left side = push right, Right side = push left';
+            }
+        }
+        
+        function loadSolution(solution) {
+            stopTest();
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.physics-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to selected button and update current solution
+            if (solution === 'original') {
+                currentSolution = 'original';
+                document.getElementById('current-solution').textContent = 'Current: Original Physics';
+                document.getElementById('btn-original').classList.add('active');
+            } else {
+                currentSolution = 'solution' + solution;
+                document.getElementById('current-solution').textContent = 'Current: Solution ' + solution;
+                document.getElementById('btn-solution' + solution).classList.add('active');
+            }
+            
+            ballPosition = 0.02;  // Start near left edge (2%)
+            ballVelocity = 0;
+            cameraOffset = 0;  // Reset camera
+            cameraTargetOffset = 0;  // Reset camera target
+            canvas.style.transform = 'translateX(0px)';  // Reset visual position
+            drawScene();
+        }
+        
+        // Function to draw empty scene (no balls, no countdown)
+        function drawEmptyScene() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw parallax background grid
+            drawBackgroundGrid();
+            
+            // Draw radar at fixed position on the track
+            drawRadar();
+            
+            // Draw all tracks with parallax (back to front) but NO BALLS
+            tracks.slice().reverse().forEach((track, reverseIndex) => {
+                const trackIndex = tracks.length - 1 - reverseIndex;
+                const parallaxFactor = track.config.main ? 1 : 0.95 - (track.config.distance * 0.05);
+                
+                ctx.save();
+                ctx.translate(-cameraOffset * (1 - parallaxFactor), 0);
+                
+                // Fainter lines for distant tracks
+                ctx.globalAlpha = track.config.main ? 1 : 0.8 - (track.config.distance * 0.1);
+                ctx.strokeStyle = track.config.color;
+                ctx.lineWidth = track.config.main ? 6 : 4;
+                
+                ctx.beginPath();
+                for (let i = 0; i < track.data.length; i++) {
+                    // No length compensation - all tracks same logical length
+                    const x = track.data[i].position * canvas.width;
+                    const y = canvas.height - (track.data[i].scores.test / 100 * canvas.height);
+                    
+                    if (i === 0) {
+                        ctx.moveTo(x, y);
+                    } else {
+                        ctx.lineTo(x, y);
+                    }
+                }
+                ctx.stroke();
+                ctx.restore();
+            });
+            
+            // Draw direction indicator (these scroll with the world)
+            ctx.fillStyle = '#666';
+            ctx.font = '14px Arial';
+            ctx.fillText('← Peak', 10, 30);
+            ctx.fillText('Ground →', canvas.width - 70, 30);
+        }
+        
+        // Click handling for push mechanic
+        canvasContainer.addEventListener('click', function(e) {
+            if (!animationId || !raceStarted) return;
+            
+            // Don't allow clicking if dizzy
+            if (trackBalls[0].dizzyTime > 0) {
+                // Show "dizzy" feedback at click location
+                const rect = canvasContainer.getBoundingClientRect();
+                showClickFeedback(e.clientX - rect.left, e.clientY - rect.top, 'dizzy');
+                return;
+            }
+            
+            // Don't allow clicking if already finished
+            if (trackBalls[0].finished) return;
+            
+            // Get click position relative to canvas  
+            const rect = canvasContainer.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;  // Screen coordinates
+            const clickY = e.clientY - rect.top;
+            
+            // Get ball screen position
+            const playerBall = trackBalls[0];
+            const ballWorldX = playerBall.position * canvas.width;
+            const ballScreenX = ballWorldX - cameraOffset;  // Convert to screen coordinates
+            const dataIndex = Math.floor(playerBall.position * (testData.length - 1));
+            const ballScreenY = canvas.height - (testData[dataIndex].scores.test / 100 * canvas.height) - 15;
+            
+            // Calculate distance from click to ball
+            const distance = Math.sqrt(Math.pow(clickX - ballScreenX, 2) + Math.pow(clickY - ballScreenY, 2));
+            
+            // Max click distance (75 pixels) - more forgiving
+            const maxDistance = 75;
+            
+            // Track user clicks
+            userClickCount++;
+            trackBalls[0].lastClickTime = Date.now();
+            
+            if (distance <= maxDistance) {
+                const config = physicsConfigs[currentSolution];
+                
+                // Determine which side of ball was clicked
+                if (safetyMode) {
+                    // Safety mode - all clicks push forward
+                    playerBall.velocity += config.pushForce;
+                    showClickFeedback(e.clientX - rect.left, e.clientY - rect.top, 'push-right');
+                    userGoodClicks++;
+                    userPushRightClicks++;
+                } else {
+                    // Normal mode - directional clicking
+                    if (clickX < ballScreenX) {
+                        // Clicked left of ball - push forward
+                        playerBall.velocity += config.pushForce;
+                        showClickFeedback(e.clientX - rect.left, e.clientY - rect.top, 'push-right');
+                        userGoodClicks++;
+                        userPushRightClicks++;
+                    } else {
+                        // Clicked right of ball - push backward
+                        playerBall.velocity -= config.pushForce;
+                        showClickFeedback(e.clientX - rect.left, e.clientY - rect.top, 'push-left');
+                        userGoodClicks++;
+                        userPushLeftClicks++;
+                    }
+                }
+            } else {
+                // Too far away
+                showClickFeedback(e.clientX - rect.left, e.clientY - rect.top, 'miss');
+                userMissClicks++;
+            }
+            
+            // Update user accuracy
+            userClickAccuracy = userGoodClicks / userClickCount;
+        });
+        
+        // Visual feedback for AI clicks
+        function showAIClickFeedback(ball, track, type) {
+            // Calculate ball's screen position
+            const parallaxFactor = 1; // No parallax!
+            const ballX = ball.position * canvas.width;
+            const adjustedX = ballX - cameraOffset * (1 - parallaxFactor);
+            
+            // Get Y position
+            const dataIndex = Math.floor(ball.position * (track.data.length - 1));
+            const ballY = canvas.height - (track.data[dataIndex].scores.test / 100 * canvas.height) - 15;
+            
+            // Convert to container coordinates
+            const containerX = adjustedX - cameraOffset;
+            const containerY = ballY;
+            
+            showClickFeedback(containerX, containerY, type);
+        }
+        
+        // Visual feedback for clicks with animated circles
+        function showClickFeedback(x, y, type) {
+            // Create circle effect
+            const circle = document.createElement('div');
+            circle.style.cssText = `
+                position: absolute;
+                left: ${x}px;
+                top: ${y}px;
+                pointer-events: none;
+                border-radius: 50%;
+                border: 3px solid;
+                transform: translate(-50%, -50%);
+                animation: pushCircle 0.6s ease-out;
+                z-index: 1000;
+            `;
+            
+            // Create arrow/symbol
+            const feedback = document.createElement('div');
+            feedback.style.cssText = `
+                position: absolute;
+                left: ${x}px;
+                top: ${y}px;
+                pointer-events: none;
+                font-weight: bold;
+                font-size: 24px;
+                transform: translate(-50%, -50%);
+                animation: fadeOut 0.5s ease-out;
+                z-index: 1001;
+            `;
+            
+            if (type === 'push-right') {
+                feedback.textContent = '→';
+                feedback.style.color = '#4CAF50';
+                circle.style.borderColor = '#4CAF50';
+            } else if (type === 'push-left') {
+                feedback.textContent = '←';
+                feedback.style.color = '#2196F3';
+                circle.style.borderColor = '#2196F3';
+            } else if (type === 'dizzy') {
+                feedback.textContent = '💫';
+                feedback.style.color = '#ffff00';
+                circle.style.borderColor = '#ffff00';
+            } else {
+                feedback.textContent = '✗';
+                feedback.style.color = '#f44336';
+                circle.style.borderColor = '#f44336';
+            }
+            
+            canvasContainer.appendChild(circle);
+            canvasContainer.appendChild(feedback);
+            setTimeout(() => {
+                circle.remove();
+                feedback.remove();
+            }, 600);
+        }
+        
+        // Add CSS animations for feedback
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeOut {
+                0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+                100% { opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
+            }
+            @keyframes pushCircle {
+                0% { 
+                    width: 30px; 
+                    height: 30px; 
+                    opacity: 1;
+                }
+                100% { 
+                    width: 80px; 
+                    height: 80px; 
+                    opacity: 0;
+                }
+            }
+            @keyframes dizzyStars {
+                0% { 
+                    opacity: 1; 
+                    transform: translateY(0) rotate(0deg);
+                }
+                100% { 
+                    opacity: 0; 
+                    transform: translateY(-50px) rotate(720deg);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Function to update race statistics
+        function updateRaceStats() {
+            const statsDiv = document.getElementById('race-stats');
+            const statsContent = document.getElementById('stats-content');
+            
+            if (raceStarted && raceStartTime) {
+                statsDiv.style.display = 'block';
+                const currentTime = (Date.now() - raceStartTime) / 1000;
+                
+                let statsHTML = `<div>Race Time: ${currentTime.toFixed(1)}s</div>`;
+                
+                // Sort balls by position for pole position display
+                const ballPositions = trackBalls.map((ball, index) => ({
+                    index: index,
+                    position: Math.max(0, Math.min(1, ball.position)), // Clamp between 0-1
+                    name: ballNames[index],
+                    color: ballColors[index],
+                    ball: ball
+                })).sort((a, b) => b.position - a.position);
+                
+                // Pole position bars
+                statsHTML += `<div style="margin-top: 15px;"><strong>Pole Positions:</strong></div>`;
+                statsHTML += `<div style="margin: 10px 0;">`;
+                
+                ballPositions.forEach((data, rank) => {
+                    const barWidth = 150;
+                    const filledWidth = data.position * barWidth;
+                    
+                    statsHTML += `<div style="margin: 3px 0;">`;
+                    statsHTML += `<span style="display: inline-block; width: 15px; text-align: right; margin-right: 5px;">${rank + 1}.</span>`;
+                    statsHTML += `<span style="display: inline-block; width: 60px;">${data.name}</span>`;
+                    
+                    // Progress bar
+                    statsHTML += `<span style="display: inline-block; width: ${barWidth}px; height: 12px; background: #ddd; position: relative; margin: 0 5px;">`;
+                    statsHTML += `<span style="display: block; width: ${filledWidth}px; height: 100%; background: ${data.color};"></span>`;
+                    statsHTML += `</span>`;
+                    statsHTML += `<span style="font-size: 11px;">${(data.position * 100).toFixed(1)}%</span>`;
+                    
+                    if (finishResults.find(r => r.ballIndex === data.index)) {
+                        statsHTML += ` ✓`;
+                    }
+                    statsHTML += `</div>`;
+                });
+                
+                statsHTML += `</div>`;
+                
+                // Detailed stats
+                statsHTML += `<div style="margin-top: 15px;"><strong>Click Stats:</strong></div>`;
+                statsHTML += `<div style="margin-top: 5px; font-size: 12px;">`;
+                
+                trackBalls.forEach((ball, index) => {
+                    const clicks = index === 0 ? userClickCount : ball.clickCount;
+                    const rightPushes = index === 0 ? userPushRightClicks : ball.pushRightClicks;
+                    const leftPushes = index === 0 ? userPushLeftClicks : ball.pushLeftClicks;
+                    const misses = index === 0 ? userMissClicks : ball.missClicks;
+                    
+                    statsHTML += `<div style="margin: 3px 0;">`;
+                    statsHTML += `<span style="display: inline-block; width: 10px; height: 10px; background: ${ballColors[index]}; 
+                                   border-radius: 50%; margin-right: 5px;"></span>`;
+                    statsHTML += `${ballNames[index]}: ${clicks} clicks (→${rightPushes} ←${leftPushes} ✗${misses})`;
+                    statsHTML += `</div>`;
+                });
+                
+                statsHTML += `</div>`;
+                statsContent.innerHTML = statsHTML;
+            }
+        }
+        
+        // Function to update race results display
+        function updateRaceResults() {
+            const resultsDiv = document.getElementById('race-results');
+            const tbody = document.getElementById('results-body');
+            
+            resultsDiv.style.display = 'block';
+            tbody.innerHTML = '';
+            
+            // Sort by finish time
+            finishResults.sort((a, b) => a.time - b.time);
+            
+            finishResults.forEach((result, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td style="padding: 8px; border: 1px solid #ddd;">${index + 1}</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">
+                        <span style="display: inline-block; width: 15px; height: 15px; background: ${result.color}; 
+                               border-radius: 50%; margin-right: 5px; vertical-align: middle;"></span>
+                        ${result.name}
+                    </td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">${result.time.toFixed(2)}s</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">${result.clicks}</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">${(result.accuracy * 100).toFixed(1)}%</td>
+                `;
+                tbody.appendChild(row);
+            });
+            
+            // Show race stats
+            updateRaceStats();
+            
+            // Check if all balls finished
+            if (finishResults.length === 4) {
+                // Stop the race
+                raceStarted = false;
+                console.log(`🏁 Race Complete! Winner: ${finishResults[0].name} in ${finishResults[0].time.toFixed(2)} seconds!`);
+                
+                // Add "Play Again" button after a delay
+                setTimeout(() => {
+                    const resultsDiv = document.getElementById('race-results');
+                    if (!document.getElementById('play-again-btn')) {
+                        const playAgainBtn = document.createElement('button');
+                        playAgainBtn.id = 'play-again-btn';
+                        playAgainBtn.textContent = 'Play Again';
+                        playAgainBtn.style.cssText = `
+                            margin: 20px auto;
+                            display: block;
+                            padding: 10px 20px;
+                            font-size: 16px;
+                            background: #4CAF50;
+                            color: white;
+                            border: none;
+                            border-radius: 5px;
+                            cursor: pointer;
+                        `;
+                        playAgainBtn.onclick = () => {
+                            playAgainBtn.remove();
+                            startTest();
+                        };
+                        resultsDiv.appendChild(playAgainBtn);
+                    }
+                }, 1000);
+            }
+        }
+        
+        // Initial draw - show empty scene
+        ballPosition = 0.008;  // Start on hill
+        cameraOffset = 0;
+        cameraTargetOffset = 0;
+        drawEmptyScene();  // Use empty scene instead of full scene
+        
+        // Don't auto-start - wait for user to click Start Ball button
+    </script>
+</body>
+</html>
